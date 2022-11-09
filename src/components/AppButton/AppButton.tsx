@@ -3,11 +3,12 @@ import styles from './AppButton.module.scss'
 
 
 
-const AppButton = ({ buttonText }: any) => {
+const AppButton = ({ buttonText, onClick, disabled }: any) => {
     return (
-        <div className={styles.buttonContainer}>
+        <button className={ styles.buttonContainer}
+            onClick={onClick} disabled={disabled} type="submit">
             <span className={styles.buttonText}>{buttonText}</span>
-        </div>
-        )
+        </button>
+    )
 }
 export default AppButton;

@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import SignUp from '../src/features/screens/SignUp/SignUp'
+import SignUp from '../src/features/screens/SignUp/signUp'
 import styles from '../styles/Home.module.css'
 
 export default function signup() {
