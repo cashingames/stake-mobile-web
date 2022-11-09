@@ -1,0 +1,109 @@
+.login {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.loginBox {
+    height: 80vh;
+    width: 80vw;
+    margin: 0 auto;
+    margin-top: 20px;
+    position: relative;
+
+    div {
+        display: flex;
+        flex-direction: column;
+        margin: 10px 0;
+
+        input {
+            padding: 5px;
+            border-radius: 8px;
+            font-size: 14px;
+            outline: none;
+            display: flex;
+            align-items: center;
+            border: 1px solid rgba(0, 0, 0, 0.15);
+        }
+
+        input::placeholder {
+            font-size: smaller;
+            color: rgba($color: #000000, $alpha: 0.5);
+        }
+
+        .password {
+            margin: 0;
+        }
+
+        label {
+            margin-bottom: 5px;
+            font-size: smaller;
+        }
+
+        span {
+            position: absolute;
+            right: 0;
+            display: flex;
+            align-self: center;
+            padding: 7px;
+            color: rgba($color: #000000, $alpha: 0.5);
+        }
+
+    }
+
+    .socialBtns {
+        display: flex;
+        flex-direction: row;
+        gap: 12px;
+        justify-content: center;
+
+        button {
+            width: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+    }
+
+    .forgot {
+        margin: 0;
+        display: flex;
+        justify-content: flex-end;
+        color: #EF2F55;
+        font-size: smaller;
+    }
+
+    button {
+        width: 100%;
+        margin: 10px 0;
+        padding: 5px;
+        color: #4B4B4B;
+        background-color: #ffffff;
+        border-radius: 7px;
+        font-size: smaller;
+        outline: none;
+        border: none;
+        border: 1px solid rgba(7, 42, 95, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    p {
+        display: flex;
+        justify-content: center;
+        margin: 0;
+        font-size: smaller;
+    }
+}
+
+.singUp {
+    display: flex;
+    justify-content: center;
+
+    .signupText {
+        font-size: 700px;
+    }
+}

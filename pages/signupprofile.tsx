@@ -3,7 +3,7 @@ import Image from 'next/image'
 import SignUpProfile from '../src/features/screens/SignUpProfile/SignUpProfile'
 import styles from '../styles/Home.module.css'
 
-export default function signup() {
+export default function signupprofile() {
   return (
     <div className={styles.container}>
       <Head>
