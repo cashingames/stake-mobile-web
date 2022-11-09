@@ -1,0 +1,49 @@
+.signupContainer {
+    padding: 5rem 2rem;
+
+    .socialLinkContainer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+        .socialLinkText {
+            color: #00000080;
+            font-size: 0.87rem;
+            line-height: 0;
+        }
+    }
+
+    .inputsContainer {
+        margin-top: 3rem;
+    }
+
+    .agreementsContainer {
+        display: flex;
+        align-items: center;
+
+        .agreementsCheckbox {
+            border-width: 1px;
+            outline-style: auto;
+            outline-color: #CDD4DF;
+        }
+
+        .agreementsTextContainer {
+            .agreementsText {
+                color: black;
+                font-size: 0.85rem;
+                font-weight: 400;
+            }
+
+            .agreementsLink {
+                color: #EF2F55;
+                font-size: 0.85rem;
+                font-weight: 400;
+                margin: 0 5px;
+            }
+        }
+    }
+    .appButtonContainer {
+        margin-top: 2rem;
+    }
+}
