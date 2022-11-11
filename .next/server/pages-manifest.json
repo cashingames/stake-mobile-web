@@ -1,7 +1,13 @@
 {
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
-  "/_document": "pages/_document.js",
+  "/about": "pages/about.js",
+  "/api/hello": "pages/api/hello.js",
+  "/": "pages/index.js",
+  "/login": "pages/login.js",
+  "/privacy": "pages/privacy.js",
+  "/signup": "pages/signup.js",
+  "/signupprofile": "pages/signupprofile.js",
   "/terms": "pages/terms.js",
-  "/privacy": "pages/privacy.js"
+  "/_document": "pages/_document.js"
 }

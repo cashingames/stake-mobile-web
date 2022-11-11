@@ -1,116 +1,451 @@
-/*
- * ATTENTION: An "eval-source-map" devtool has been used.
- * This devtool is neither made for production nor for readable output files.
- * It uses "eval()" calls to create a separate source file with attached SourceMaps in the browser devtools.
- * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
- * or disable the default devtool with "devtool: false".
- * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
- */
 (() => {
 var exports = {};
-exports.id = "pages/signup";
-exports.ids = ["pages/signup"];
+exports.id = 616;
+exports.ids = [616];
 exports.modules = {
 
-/***/ "./styles/Home.module.css":
-/*!********************************!*\
-  !*** ./styles/Home.module.css ***!
-  \********************************/
+/***/ 483:
 /***/ ((module) => {
 
-eval("// Exports\nmodule.exports = {\n\t\"container\": \"Home_container__bCOhY\",\n\t\"main\": \"Home_main__nLjiQ\",\n\t\"footer\": \"Home_footer____T7K\",\n\t\"title\": \"Home_title__T09hD\",\n\t\"description\": \"Home_description__41Owk\",\n\t\"code\": \"Home_code__suPER\",\n\t\"grid\": \"Home_grid__GxQ85\",\n\t\"card\": \"Home_card___LpL1\",\n\t\"logo\": \"Home_logo__27_tb\"\n};\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zdHlsZXMvSG9tZS5tb2R1bGUuY3NzLmpzIiwibWFwcGluZ3MiOiJBQUFBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQSIsInNvdXJjZXMiOlsid2VicGFjazovL21vYmlsZS13ZWIvLi9zdHlsZXMvSG9tZS5tb2R1bGUuY3NzP2IxNzAiXSwic291cmNlc0NvbnRlbnQiOlsiLy8gRXhwb3J0c1xubW9kdWxlLmV4cG9ydHMgPSB7XG5cdFwiY29udGFpbmVyXCI6IFwiSG9tZV9jb250YWluZXJfX2JDT2hZXCIsXG5cdFwibWFpblwiOiBcIkhvbWVfbWFpbl9fbkxqaVFcIixcblx0XCJmb290ZXJcIjogXCJIb21lX2Zvb3Rlcl9fX19UN0tcIixcblx0XCJ0aXRsZVwiOiBcIkhvbWVfdGl0bGVfX1QwOWhEXCIsXG5cdFwiZGVzY3JpcHRpb25cIjogXCJIb21lX2Rlc2NyaXB0aW9uX180MU93a1wiLFxuXHRcImNvZGVcIjogXCJIb21lX2NvZGVfX3N1UEVSXCIsXG5cdFwiZ3JpZFwiOiBcIkhvbWVfZ3JpZF9fR3hRODVcIixcblx0XCJjYXJkXCI6IFwiSG9tZV9jYXJkX19fTHBMMVwiLFxuXHRcImxvZ29cIjogXCJIb21lX2xvZ29fXzI3X3RiXCJcbn07XG4iXSwibmFtZXMiOltdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./styles/Home.module.css\n");
+// Exports
+module.exports = {
+	"googleButtonContainer": "GoogleSignUp_googleButtonContainer__NYmzj",
+	"googleButtonText": "GoogleSignUp_googleButtonText__pI7oB",
+	"googleButtonImage": "GoogleSignUp_googleButtonImage__0TWgI"
+};
+
 
 /***/ }),
 
-/***/ "./src/components/AuthTitle/AuthTitle.module.scss":
-/*!********************************************************!*\
-  !*** ./src/components/AuthTitle/AuthTitle.module.scss ***!
-  \********************************************************/
+/***/ 640:
 /***/ ((module) => {
 
-eval("// Exports\nmodule.exports = {\n\t\"authHeader\": \"AuthTitle_authHeader__WSxyf\"\n};\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zcmMvY29tcG9uZW50cy9BdXRoVGl0bGUvQXV0aFRpdGxlLm1vZHVsZS5zY3NzLmpzIiwibWFwcGluZ3MiOiJBQUFBO0FBQ0E7QUFDQTtBQUNBIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vbW9iaWxlLXdlYi8uL3NyYy9jb21wb25lbnRzL0F1dGhUaXRsZS9BdXRoVGl0bGUubW9kdWxlLnNjc3M/ODZjNSJdLCJzb3VyY2VzQ29udGVudCI6WyIvLyBFeHBvcnRzXG5tb2R1bGUuZXhwb3J0cyA9IHtcblx0XCJhdXRoSGVhZGVyXCI6IFwiQXV0aFRpdGxlX2F1dGhIZWFkZXJfX1dTeHlmXCJcbn07XG4iXSwibmFtZXMiOltdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./src/components/AuthTitle/AuthTitle.module.scss\n");
+// Exports
+module.exports = {
+	"signupContainer": "SignUp_signupContainer__Adm_o",
+	"socialLinkContainer": "SignUp_socialLinkContainer__D0bcw",
+	"socialLinkText": "SignUp_socialLinkText__ZCFvw",
+	"inputsContainer": "SignUp_inputsContainer__39sul",
+	"inputContainer": "SignUp_inputContainer__Ra8Zt",
+	"inputLabel": "SignUp_inputLabel__6gePU",
+	"inputBox": "SignUp_inputBox__SSGqE",
+	"errorLabel": "SignUp_errorLabel__NerHb",
+	"agreementsContainer": "SignUp_agreementsContainer__TYbck",
+	"agreementsCheckbox": "SignUp_agreementsCheckbox__SzyEc",
+	"agreementsTextContainer": "SignUp_agreementsTextContainer__WxlOh",
+	"agreementsText": "SignUp_agreementsText___0U3J",
+	"agreementsLink": "SignUp_agreementsLink__pXeBk",
+	"appButtonContainer": "SignUp_appButtonContainer__POq7D",
+	"buttonContainer": "SignUp_buttonContainer__nSq61",
+	"buttonText": "SignUp_buttonText__Lcd4f"
+};
+
 
 /***/ }),
 
-/***/ "./src/components/GoogleSignUp/GoogleSignUp.module.scss":
-/*!**************************************************************!*\
-  !*** ./src/components/GoogleSignUp/GoogleSignUp.module.scss ***!
-  \**************************************************************/
-/***/ ((module) => {
-
-eval("// Exports\nmodule.exports = {\n\t\"googleButtonContainer\": \"GoogleSignUp_googleButtonContainer__NYmzj\",\n\t\"googleButtonText\": \"GoogleSignUp_googleButtonText__pI7oB\",\n\t\"googleButtonImage\": \"GoogleSignUp_googleButtonImage__0TWgI\"\n};\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zcmMvY29tcG9uZW50cy9Hb29nbGVTaWduVXAvR29vZ2xlU2lnblVwLm1vZHVsZS5zY3NzLmpzIiwibWFwcGluZ3MiOiJBQUFBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQSIsInNvdXJjZXMiOlsid2VicGFjazovL21vYmlsZS13ZWIvLi9zcmMvY29tcG9uZW50cy9Hb29nbGVTaWduVXAvR29vZ2xlU2lnblVwLm1vZHVsZS5zY3NzPzI2NzUiXSwic291cmNlc0NvbnRlbnQiOlsiLy8gRXhwb3J0c1xubW9kdWxlLmV4cG9ydHMgPSB7XG5cdFwiZ29vZ2xlQnV0dG9uQ29udGFpbmVyXCI6IFwiR29vZ2xlU2lnblVwX2dvb2dsZUJ1dHRvbkNvbnRhaW5lcl9fTlltempcIixcblx0XCJnb29nbGVCdXR0b25UZXh0XCI6IFwiR29vZ2xlU2lnblVwX2dvb2dsZUJ1dHRvblRleHRfX3BJN29CXCIsXG5cdFwiZ29vZ2xlQnV0dG9uSW1hZ2VcIjogXCJHb29nbGVTaWduVXBfZ29vZ2xlQnV0dG9uSW1hZ2VfXzBUV2dJXCJcbn07XG4iXSwibmFtZXMiOltdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./src/components/GoogleSignUp/GoogleSignUp.module.scss\n");
-
-/***/ }),
-
-/***/ "./src/features/screens/SignUp/SignUp.module.scss":
-/*!********************************************************!*\
-  !*** ./src/features/screens/SignUp/SignUp.module.scss ***!
-  \********************************************************/
-/***/ ((module) => {
-
-eval("// Exports\nmodule.exports = {\n\t\"signupContainer\": \"SignUp_signupContainer__Adm_o\",\n\t\"socialLinkContainer\": \"SignUp_socialLinkContainer__D0bcw\",\n\t\"socialLinkText\": \"SignUp_socialLinkText__ZCFvw\",\n\t\"inputsContainer\": \"SignUp_inputsContainer__39sul\",\n\t\"inputContainer\": \"SignUp_inputContainer__Ra8Zt\",\n\t\"inputLabel\": \"SignUp_inputLabel__6gePU\",\n\t\"inputBox\": \"SignUp_inputBox__SSGqE\",\n\t\"errorLabel\": \"SignUp_errorLabel__NerHb\",\n\t\"agreementsContainer\": \"SignUp_agreementsContainer__TYbck\",\n\t\"agreementsCheckbox\": \"SignUp_agreementsCheckbox__SzyEc\",\n\t\"agreementsTextContainer\": \"SignUp_agreementsTextContainer__WxlOh\",\n\t\"agreementsText\": \"SignUp_agreementsText___0U3J\",\n\t\"agreementsLink\": \"SignUp_agreementsLink__pXeBk\",\n\t\"appButtonContainer\": \"SignUp_appButtonContainer__POq7D\",\n\t\"buttonContainer\": \"SignUp_buttonContainer__nSq61\",\n\t\"buttonText\": \"SignUp_buttonText__Lcd4f\"\n};\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zcmMvZmVhdHVyZXMvc2NyZWVucy9TaWduVXAvU2lnblVwLm1vZHVsZS5zY3NzLmpzIiwibWFwcGluZ3MiOiJBQUFBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vbW9iaWxlLXdlYi8uL3NyYy9mZWF0dXJlcy9zY3JlZW5zL1NpZ25VcC9TaWduVXAubW9kdWxlLnNjc3M/NGU0MSJdLCJzb3VyY2VzQ29udGVudCI6WyIvLyBFeHBvcnRzXG5tb2R1bGUuZXhwb3J0cyA9IHtcblx0XCJzaWdudXBDb250YWluZXJcIjogXCJTaWduVXBfc2lnbnVwQ29udGFpbmVyX19BZG1fb1wiLFxuXHRcInNvY2lhbExpbmtDb250YWluZXJcIjogXCJTaWduVXBfc29jaWFsTGlua0NvbnRhaW5lcl9fRDBiY3dcIixcblx0XCJzb2NpYWxMaW5rVGV4dFwiOiBcIlNpZ25VcF9zb2NpYWxMaW5rVGV4dF9fWkNGdndcIixcblx0XCJpbnB1dHNDb250YWluZXJcIjogXCJTaWduVXBfaW5wdXRzQ29udGFpbmVyX18zOXN1bFwiLFxuXHRcImlucHV0Q29udGFpbmVyXCI6IFwiU2lnblVwX2lucHV0Q29udGFpbmVyX19SYThadFwiLFxuXHRcImlucHV0TGFiZWxcIjogXCJTaWduVXBfaW5wdXRMYWJlbF9fNmdlUFVcIixcblx0XCJpbnB1dEJveFwiOiBcIlNpZ25VcF9pbnB1dEJveF9fU1NHcUVcIixcblx0XCJlcnJvckxhYmVsXCI6IFwiU2lnblVwX2Vycm9yTGFiZWxfX05lckhiXCIsXG5cdFwiYWdyZWVtZW50c0NvbnRhaW5lclwiOiBcIlNpZ25VcF9hZ3JlZW1lbnRzQ29udGFpbmVyX19UWWJja1wiLFxuXHRcImFncmVlbWVudHNDaGVja2JveFwiOiBcIlNpZ25VcF9hZ3JlZW1lbnRzQ2hlY2tib3hfX1N6eUVjXCIsXG5cdFwiYWdyZWVtZW50c1RleHRDb250YWluZXJcIjogXCJTaWduVXBfYWdyZWVtZW50c1RleHRDb250YWluZXJfX1d4bE9oXCIsXG5cdFwiYWdyZWVtZW50c1RleHRcIjogXCJTaWduVXBfYWdyZWVtZW50c1RleHRfX18wVTNKXCIsXG5cdFwiYWdyZWVtZW50c0xpbmtcIjogXCJTaWduVXBfYWdyZWVtZW50c0xpbmtfX3BYZUJrXCIsXG5cdFwiYXBwQnV0dG9uQ29udGFpbmVyXCI6IFwiU2lnblVwX2FwcEJ1dHRvbkNvbnRhaW5lcl9fUE9xN0RcIixcblx0XCJidXR0b25Db250YWluZXJcIjogXCJTaWduVXBfYnV0dG9uQ29udGFpbmVyX19uU3E2MVwiLFxuXHRcImJ1dHRvblRleHRcIjogXCJTaWduVXBfYnV0dG9uVGV4dF9fTGNkNGZcIlxufTtcbiJdLCJuYW1lcyI6W10sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./src/features/screens/SignUp/SignUp.module.scss\n");
-
-/***/ }),
-
-/***/ "./pages/signup.tsx":
-/*!**************************!*\
-  !*** ./pages/signup.tsx ***!
-  \**************************/
+/***/ 181:
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {\n__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ signup)\n/* harmony export */ });\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ \"react/jsx-dev-runtime\");\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/head */ \"next/head\");\n/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_head__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _src_features_screens_SignUp_signUp__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../src/features/screens/SignUp/signUp */ \"./src/features/screens/SignUp/signUp.tsx\");\n/* harmony import */ var _styles_Home_module_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../styles/Home.module.css */ \"./styles/Home.module.css\");\n/* harmony import */ var _styles_Home_module_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_styles_Home_module_css__WEBPACK_IMPORTED_MODULE_3__);\nvar __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_src_features_screens_SignUp_signUp__WEBPACK_IMPORTED_MODULE_2__]);\n_src_features_screens_SignUp_signUp__WEBPACK_IMPORTED_MODULE_2__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];\n\n\n\n\nfunction signup() {\n    return /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n        className: (_styles_Home_module_css__WEBPACK_IMPORTED_MODULE_3___default().container),\n        children: [\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)((next_head__WEBPACK_IMPORTED_MODULE_1___default()), {\n                children: [\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"title\", {\n                        children: \"cashingames About\"\n                    }, void 0, false, {\n                        fileName: \"/Users/mac/Documents/projects/mobile-web/pages/signup.tsx\",\n                        lineNumber: 10,\n                        columnNumber: 9\n                    }, this),\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"meta\", {\n                        name: \"description\",\n                        content: \"Generated by create next app\"\n                    }, void 0, false, {\n                        fileName: \"/Users/mac/Documents/projects/mobile-web/pages/signup.tsx\",\n                        lineNumber: 11,\n                        columnNumber: 9\n                    }, this),\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"link\", {\n                        rel: \"icon\",\n                        href: \"/favicon.ico\"\n                    }, void 0, false, {\n                        fileName: \"/Users/mac/Documents/projects/mobile-web/pages/signup.tsx\",\n                        lineNumber: 12,\n                        columnNumber: 9\n                    }, this)\n                ]\n            }, void 0, true, {\n                fileName: \"/Users/mac/Documents/projects/mobile-web/pages/signup.tsx\",\n                lineNumber: 9,\n                columnNumber: 7\n            }, this),\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"main\", {\n                children: /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(_src_features_screens_SignUp_signUp__WEBPACK_IMPORTED_MODULE_2__[\"default\"], {}, void 0, false, {\n                    fileName: \"/Users/mac/Documents/projects/mobile-web/pages/signup.tsx\",\n                    lineNumber: 15,\n                    columnNumber: 9\n                }, this)\n            }, void 0, false, {\n                fileName: \"/Users/mac/Documents/projects/mobile-web/pages/signup.tsx\",\n                lineNumber: 14,\n                columnNumber: 7\n            }, this)\n        ]\n    }, void 0, true, {\n        fileName: \"/Users/mac/Documents/projects/mobile-web/pages/signup.tsx\",\n        lineNumber: 8,\n        columnNumber: 5\n    }, this);\n}\n\n__webpack_async_result__();\n} catch(e) { __webpack_async_result__(e); } });//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9wYWdlcy9zaWdudXAudHN4LmpzIiwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7Ozs7O0FBQUE7QUFBNEI7QUFFOEI7QUFDWjtBQUUvQixTQUFTRyxTQUFTO0lBQy9CLHFCQUNFLDhEQUFDQztRQUFJQyxXQUFXSCwwRUFBZ0I7OzBCQUM5Qiw4REFBQ0Ysa0RBQUlBOztrQ0FDSCw4REFBQ087a0NBQU07Ozs7OztrQ0FDUCw4REFBQ0M7d0JBQUtDLE1BQUs7d0JBQWNDLFNBQVE7Ozs7OztrQ0FDakMsOERBQUNDO3dCQUFLQyxLQUFJO3dCQUFPQyxNQUFLOzs7Ozs7Ozs7Ozs7MEJBRXhCLDhEQUFDQzswQkFDQyw0RUFBQ2IsMkVBQU1BOzs7Ozs7Ozs7Ozs7Ozs7O0FBSWYsQ0FBQyIsInNvdXJjZXMiOlsid2VicGFjazovL21vYmlsZS13ZWIvLi9wYWdlcy9zaWdudXAudHN4PzBlYWEiXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IEhlYWQgZnJvbSAnbmV4dC9oZWFkJ1xuaW1wb3J0IEltYWdlIGZyb20gJ25leHQvaW1hZ2UnXG5pbXBvcnQgU2lnblVwIGZyb20gJy4uL3NyYy9mZWF0dXJlcy9zY3JlZW5zL1NpZ25VcC9zaWduVXAnXG5pbXBvcnQgc3R5bGVzIGZyb20gJy4uL3N0eWxlcy9Ib21lLm1vZHVsZS5jc3MnXG5cbmV4cG9ydCBkZWZhdWx0IGZ1bmN0aW9uIHNpZ251cCgpIHtcbiAgcmV0dXJuIChcbiAgICA8ZGl2IGNsYXNzTmFtZT17c3R5bGVzLmNvbnRhaW5lcn0+XG4gICAgICA8SGVhZD5cbiAgICAgICAgPHRpdGxlPmNhc2hpbmdhbWVzIEFib3V0PC90aXRsZT5cbiAgICAgICAgPG1ldGEgbmFtZT1cImRlc2NyaXB0aW9uXCIgY29udGVudD1cIkdlbmVyYXRlZCBieSBjcmVhdGUgbmV4dCBhcHBcIiAvPlxuICAgICAgICA8bGluayByZWw9XCJpY29uXCIgaHJlZj1cIi9mYXZpY29uLmljb1wiIC8+XG4gICAgICA8L0hlYWQ+XG4gICAgICA8bWFpbj5cbiAgICAgICAgPFNpZ25VcCAvPlxuICAgICAgPC9tYWluPlxuICAgIDwvZGl2PlxuICApXG59Il0sIm5hbWVzIjpbIkhlYWQiLCJTaWduVXAiLCJzdHlsZXMiLCJzaWdudXAiLCJkaXYiLCJjbGFzc05hbWUiLCJjb250YWluZXIiLCJ0aXRsZSIsIm1ldGEiLCJuYW1lIiwiY29udGVudCIsImxpbmsiLCJyZWwiLCJocmVmIiwibWFpbiJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./pages/signup.tsx\n");
+__webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ signup)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(997);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(968);
+/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_head__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _src_features_screens_SignUp_signUp__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(214);
+/* harmony import */ var _styles_Home_module_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(399);
+/* harmony import */ var _styles_Home_module_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_styles_Home_module_css__WEBPACK_IMPORTED_MODULE_3__);
+var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_src_features_screens_SignUp_signUp__WEBPACK_IMPORTED_MODULE_2__]);
+_src_features_screens_SignUp_signUp__WEBPACK_IMPORTED_MODULE_2__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
+
+
+
+
+function signup() {
+    return /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+        className: (_styles_Home_module_css__WEBPACK_IMPORTED_MODULE_3___default().container),
+        children: [
+            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)((next_head__WEBPACK_IMPORTED_MODULE_1___default()), {
+                children: [
+                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("title", {
+                        children: "cashingames About"
+                    }),
+                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("meta", {
+                        name: "description",
+                        content: "Generated by create next app"
+                    }),
+                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("link", {
+                        rel: "icon",
+                        href: "/favicon.ico"
+                    })
+                ]
+            }),
+            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("main", {
+                children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_src_features_screens_SignUp_signUp__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .Z, {})
+            })
+        ]
+    });
+}
+
+__webpack_async_result__();
+} catch(e) { __webpack_async_result__(e); } });
 
 /***/ }),
 
-/***/ "./src/components/AuthBanner/AuthBanner.tsx":
-/*!**************************************************!*\
-  !*** ./src/components/AuthBanner/AuthBanner.tsx ***!
-  \**************************************************/
+/***/ 133:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ \"react/jsx-dev-runtime\");\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);\n\n\nconst AuthBanner = ()=>{\n    return /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"img\", {\n        src: \"/images/confetti.png\",\n        alt: \"banner\",\n        style: {\n            position: \"absolute\",\n            top: \"0.1rem\",\n            left: \"3rem\"\n        }\n    }, void 0, false, {\n        fileName: \"/Users/mac/Documents/projects/mobile-web/src/components/AuthBanner/AuthBanner.tsx\",\n        lineNumber: 6,\n        columnNumber: 9\n    }, undefined);\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AuthBanner);\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zcmMvY29tcG9uZW50cy9BdXRoQmFubmVyL0F1dGhCYW5uZXIudHN4LmpzIiwibWFwcGluZ3MiOiI7Ozs7Ozs7O0FBQUE7QUFBMEI7QUFHMUIsTUFBTUMsYUFBYSxJQUFNO0lBQ3JCLHFCQUNJLDhEQUFDQztRQUFJQyxLQUFJO1FBQXVCQyxLQUFJO1FBQVNDLE9BQU87WUFBRUMsVUFBUztZQUFZQyxLQUFJO1lBQVVDLE1BQUs7UUFBTTs7Ozs7O0FBRTVHO0FBQ0EsaUVBQWVQLFVBQVVBLEVBQUEiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9tb2JpbGUtd2ViLy4vc3JjL2NvbXBvbmVudHMvQXV0aEJhbm5lci9BdXRoQmFubmVyLnRzeD9mNmY1Il0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBSZWFjdCBmcm9tICdyZWFjdCc7XG5cblxuY29uc3QgQXV0aEJhbm5lciA9ICgpID0+IHtcbiAgICByZXR1cm4gKFxuICAgICAgICA8aW1nIHNyYz1cIi9pbWFnZXMvY29uZmV0dGkucG5nXCIgYWx0PVwiYmFubmVyXCIgc3R5bGU9e3sgcG9zaXRpb246J2Fic29sdXRlJywgdG9wOicwLjFyZW0nLCBsZWZ0OiczcmVtJ319IC8+XG4gICAgKVxufVxuZXhwb3J0IGRlZmF1bHQgQXV0aEJhbm5lciJdLCJuYW1lcyI6WyJSZWFjdCIsIkF1dGhCYW5uZXIiLCJpbWciLCJzcmMiLCJhbHQiLCJzdHlsZSIsInBvc2l0aW9uIiwidG9wIiwibGVmdCJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./src/components/AuthBanner/AuthBanner.tsx\n");
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Z": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(997);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(689);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _GoogleSignUp_module_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(483);
+/* harmony import */ var _GoogleSignUp_module_scss__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_GoogleSignUp_module_scss__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+const GoogleSignUp = ({ buttonText  })=>{
+    return /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+        className: (_GoogleSignUp_module_scss__WEBPACK_IMPORTED_MODULE_2___default().googleButtonContainer),
+        children: [
+            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("p", {
+                className: (_GoogleSignUp_module_scss__WEBPACK_IMPORTED_MODULE_2___default().googleButtonText),
+                children: [
+                    buttonText,
+                    " with Google"
+                ]
+            }),
+            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
+                className: (_GoogleSignUp_module_scss__WEBPACK_IMPORTED_MODULE_2___default().googleButtonImage),
+                children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("img", {
+                    src: "/images/google_icon.png",
+                    alt: "banner",
+                    style: {
+                        width: ".6rem",
+                        height: ".6rem"
+                    }
+                })
+            })
+        ]
+    });
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (GoogleSignUp);
+
 
 /***/ }),
 
-/***/ "./src/components/AuthTitle/AuthTitle.tsx":
-/*!************************************************!*\
-  !*** ./src/components/AuthTitle/AuthTitle.tsx ***!
-  \************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ \"react/jsx-dev-runtime\");\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _AuthTitle_module_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AuthTitle.module.scss */ \"./src/components/AuthTitle/AuthTitle.module.scss\");\n/* harmony import */ var _AuthTitle_module_scss__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_AuthTitle_module_scss__WEBPACK_IMPORTED_MODULE_2__);\n\n\n\nconst AuthTitle = ({ titleText  })=>{\n    return /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"h1\", {\n        className: (_AuthTitle_module_scss__WEBPACK_IMPORTED_MODULE_2___default().authHeader),\n        children: titleText\n    }, void 0, false, {\n        fileName: \"/Users/mac/Documents/projects/mobile-web/src/components/AuthTitle/AuthTitle.tsx\",\n        lineNumber: 8,\n        columnNumber: 9\n    }, undefined);\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AuthTitle);\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zcmMvY29tcG9uZW50cy9BdXRoVGl0bGUvQXV0aFRpdGxlLnRzeC5qcyIsIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7O0FBQUE7QUFBMEI7QUFDa0I7QUFJNUMsTUFBTUUsWUFBWSxDQUFDLEVBQUNDLFVBQVMsRUFBSyxHQUFLO0lBQ25DLHFCQUNJLDhEQUFDQztRQUFHQyxXQUFXSiwwRUFBaUI7a0JBQUdFOzs7Ozs7QUFFM0M7QUFDQSxpRUFBZUQsU0FBU0EsRUFBQSIsInNvdXJjZXMiOlsid2VicGFjazovL21vYmlsZS13ZWIvLi9zcmMvY29tcG9uZW50cy9BdXRoVGl0bGUvQXV0aFRpdGxlLnRzeD80OGQ3Il0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBSZWFjdCBmcm9tICdyZWFjdCc7XG5pbXBvcnQgc3R5bGVzIGZyb20gJy4vQXV0aFRpdGxlLm1vZHVsZS5zY3NzJ1xuXG5cblxuY29uc3QgQXV0aFRpdGxlID0gKHt0aXRsZVRleHR9OmFueSkgPT4ge1xuICAgIHJldHVybiAoXG4gICAgICAgIDxoMSBjbGFzc05hbWU9e3N0eWxlcy5hdXRoSGVhZGVyfT57dGl0bGVUZXh0fTwvaDE+XG4gICAgKVxufVxuZXhwb3J0IGRlZmF1bHQgQXV0aFRpdGxlIl0sIm5hbWVzIjpbIlJlYWN0Iiwic3R5bGVzIiwiQXV0aFRpdGxlIiwidGl0bGVUZXh0IiwiaDEiLCJjbGFzc05hbWUiLCJhdXRoSGVhZGVyIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./src/components/AuthTitle/AuthTitle.tsx\n");
-
-/***/ }),
-
-/***/ "./src/components/GoogleSignUp/GoogleSignUp.tsx":
-/*!******************************************************!*\
-  !*** ./src/components/GoogleSignUp/GoogleSignUp.tsx ***!
-  \******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ \"react/jsx-dev-runtime\");\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _GoogleSignUp_module_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./GoogleSignUp.module.scss */ \"./src/components/GoogleSignUp/GoogleSignUp.module.scss\");\n/* harmony import */ var _GoogleSignUp_module_scss__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_GoogleSignUp_module_scss__WEBPACK_IMPORTED_MODULE_2__);\n\n\n\nconst GoogleSignUp = ({ buttonText  })=>{\n    return /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n        className: (_GoogleSignUp_module_scss__WEBPACK_IMPORTED_MODULE_2___default().googleButtonContainer),\n        children: [\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"p\", {\n                className: (_GoogleSignUp_module_scss__WEBPACK_IMPORTED_MODULE_2___default().googleButtonText),\n                children: [\n                    buttonText,\n                    \" with Google\"\n                ]\n            }, void 0, true, {\n                fileName: \"/Users/mac/Documents/projects/mobile-web/src/components/GoogleSignUp/GoogleSignUp.tsx\",\n                lineNumber: 9,\n                columnNumber: 13\n            }, undefined),\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                className: (_GoogleSignUp_module_scss__WEBPACK_IMPORTED_MODULE_2___default().googleButtonImage),\n                children: /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"img\", {\n                    src: \"/images/google_icon.png\",\n                    alt: \"banner\",\n                    style: {\n                        width: \".6rem\",\n                        height: \".6rem\"\n                    }\n                }, void 0, false, {\n                    fileName: \"/Users/mac/Documents/projects/mobile-web/src/components/GoogleSignUp/GoogleSignUp.tsx\",\n                    lineNumber: 11,\n                    columnNumber: 17\n                }, undefined)\n            }, void 0, false, {\n                fileName: \"/Users/mac/Documents/projects/mobile-web/src/components/GoogleSignUp/GoogleSignUp.tsx\",\n                lineNumber: 10,\n                columnNumber: 13\n            }, undefined)\n        ]\n    }, void 0, true, {\n        fileName: \"/Users/mac/Documents/projects/mobile-web/src/components/GoogleSignUp/GoogleSignUp.tsx\",\n        lineNumber: 8,\n        columnNumber: 9\n    }, undefined);\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (GoogleSignUp);\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zcmMvY29tcG9uZW50cy9Hb29nbGVTaWduVXAvR29vZ2xlU2lnblVwLnRzeC5qcyIsIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7O0FBQUE7QUFBMEI7QUFDcUI7QUFJL0MsTUFBTUUsZUFBZSxDQUFDLEVBQUVDLFdBQVUsRUFBTyxHQUFLO0lBQzFDLHFCQUNJLDhEQUFDQztRQUFJQyxXQUFXSix3RkFBNEI7OzBCQUN4Qyw4REFBQ007Z0JBQUVGLFdBQVdKLG1GQUF1Qjs7b0JBQUdFO29CQUFXOzs7Ozs7OzBCQUNuRCw4REFBQ0M7Z0JBQUlDLFdBQVdKLG9GQUF3QjswQkFDcEMsNEVBQUNTO29CQUFJQyxLQUFJO29CQUEwQkMsS0FBSTtvQkFBU0MsT0FBTzt3QkFBQ0MsT0FBTzt3QkFBU0MsUUFBTztvQkFBTzs7Ozs7Ozs7Ozs7Ozs7Ozs7QUFJdEc7QUFDQSxpRUFBZWIsWUFBWUEsRUFBQSIsInNvdXJjZXMiOlsid2VicGFjazovL21vYmlsZS13ZWIvLi9zcmMvY29tcG9uZW50cy9Hb29nbGVTaWduVXAvR29vZ2xlU2lnblVwLnRzeD9kZDcxIl0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBSZWFjdCBmcm9tICdyZWFjdCc7XG5pbXBvcnQgc3R5bGVzIGZyb20gJy4vR29vZ2xlU2lnblVwLm1vZHVsZS5zY3NzJ1xuXG5cblxuY29uc3QgR29vZ2xlU2lnblVwID0gKHsgYnV0dG9uVGV4dCB9OiBhbnkpID0+IHtcbiAgICByZXR1cm4gKFxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT17c3R5bGVzLmdvb2dsZUJ1dHRvbkNvbnRhaW5lcn0+XG4gICAgICAgICAgICA8cCBjbGFzc05hbWU9e3N0eWxlcy5nb29nbGVCdXR0b25UZXh0fT57YnV0dG9uVGV4dH0gd2l0aCBHb29nbGU8L3A+XG4gICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT17c3R5bGVzLmdvb2dsZUJ1dHRvbkltYWdlfT5cbiAgICAgICAgICAgICAgICA8aW1nIHNyYz1cIi9pbWFnZXMvZ29vZ2xlX2ljb24ucG5nXCIgYWx0PVwiYmFubmVyXCIgc3R5bGU9e3t3aWR0aDogJy42cmVtJywgaGVpZ2h0OicuNnJlbSd9fSAvPlxuICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgIDwvZGl2PlxuICAgIClcbn1cbmV4cG9ydCBkZWZhdWx0IEdvb2dsZVNpZ25VcCJdLCJuYW1lcyI6WyJSZWFjdCIsInN0eWxlcyIsIkdvb2dsZVNpZ25VcCIsImJ1dHRvblRleHQiLCJkaXYiLCJjbGFzc05hbWUiLCJnb29nbGVCdXR0b25Db250YWluZXIiLCJwIiwiZ29vZ2xlQnV0dG9uVGV4dCIsImdvb2dsZUJ1dHRvbkltYWdlIiwiaW1nIiwic3JjIiwiYWx0Iiwic3R5bGUiLCJ3aWR0aCIsImhlaWdodCJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./src/components/GoogleSignUp/GoogleSignUp.tsx\n");
-
-/***/ }),
-
-/***/ "./src/features/screens/SignUp/signUp.tsx":
-/*!************************************************!*\
-  !*** ./src/features/screens/SignUp/signUp.tsx ***!
-  \************************************************/
+/***/ 214:
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {\n__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ \"react/jsx-dev-runtime\");\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var react_hook_form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-hook-form */ \"react-hook-form\");\n/* harmony import */ var _components_AuthBanner_AuthBanner__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../components/AuthBanner/AuthBanner */ \"./src/components/AuthBanner/AuthBanner.tsx\");\n/* harmony import */ var _components_AuthTitle_AuthTitle__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../components/AuthTitle/AuthTitle */ \"./src/components/AuthTitle/AuthTitle.tsx\");\n/* harmony import */ var _components_GoogleSignUp_GoogleSignUp__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../components/GoogleSignUp/GoogleSignUp */ \"./src/components/GoogleSignUp/GoogleSignUp.tsx\");\n/* harmony import */ var _SignUp_module_scss__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./SignUp.module.scss */ \"./src/features/screens/SignUp/SignUp.module.scss\");\n/* harmony import */ var _SignUp_module_scss__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_SignUp_module_scss__WEBPACK_IMPORTED_MODULE_6__);\nvar __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([react_hook_form__WEBPACK_IMPORTED_MODULE_2__]);\nreact_hook_form__WEBPACK_IMPORTED_MODULE_2__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];\n\n\n\n\n\n\n\nconst SignUp = ()=>{\n    const { register , formState: { errors  } , handleSubmit , clearErrors  } = (0,react_hook_form__WEBPACK_IMPORTED_MODULE_2__.useForm)();\n    const [emailError, setEmailError] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(\"\");\n    const [phoneError, setPhoneError] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(\"\");\n    const [passwordError, setPasswordError] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(\"\");\n    const [canSend, setCanSend] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(true);\n    const [passFailed, setPassFailed] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false);\n    const [emailFailed, setEmailFailed] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false);\n    const [phoneFailed, setPhoneFailed] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false);\n    const [confirmPasswordError, setConfirmPasswordError] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(\"\");\n    const [confirmPasswordFailed, setConfirmPasswordFailed] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false);\n    const [checked, setChecked] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false);\n    const onChangeEmail = (event)=>{\n        const email = event.currentTarget.value;\n        // eslint-disable-next-line\n        const filter = /^([a-zA-Z0-9_/\\.\\-])+\\@(([a-zA-Z0-9\\-])+\\.)+([a-zA-Z0-9]{2,4})+$/; /* eslint-disable-line */ \n        if (!filter.test(email)) {\n            setEmailError(\"Email address is not valid.\");\n            setEmailFailed(true);\n        } else {\n            setEmailError(\"\");\n            setEmailFailed(false);\n        }\n    };\n    const onChangePhone = (event)=>{\n        const phone = event.currentTarget.value;\n        if (phone.length > 16 || phone.length < 4) {\n            setPhoneError(\"Please input a valid phone number.\");\n            setPhoneFailed(true);\n        } else {\n            setPhoneError(\"\");\n            setPhoneFailed(false);\n        }\n    };\n    const onChangePassword = (event)=>{\n        const password = event.currentTarget.value;\n        // eslint-disable-next-line\n        const filter = /^.{8,}$/; /* eslint-disable-line */ \n        if (!filter.test(password)) {\n            setPasswordError(\"Password must contain at least 8 characters\");\n            setPassFailed(true);\n        } else {\n            setPasswordError(\"\");\n            setPassFailed(false);\n        }\n    };\n    const onChangePasswordConfirmation = (event)=>{\n        const conFirmpassword = event.currentTarget.value;\n        // eslint-disable-next-line\n        const filter = /^.{8,}$/; /* eslint-disable-line */ \n        if (!filter.test(conFirmpassword)) {\n            setConfirmPasswordError(\"Password does not match\");\n            setConfirmPasswordFailed(true);\n        } else {\n            setConfirmPasswordError(\"\");\n            setConfirmPasswordFailed(false);\n        }\n    };\n    (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(()=>{\n        const invalid = passFailed || emailFailed || phoneFailed || confirmPasswordFailed;\n        setCanSend(!invalid);\n        console.log(canSend);\n    }, [\n        passFailed,\n        emailFailed,\n        phoneFailed\n    ]);\n    return /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n        className: (_SignUp_module_scss__WEBPACK_IMPORTED_MODULE_6___default().signupContainer),\n        children: [\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(_components_AuthBanner_AuthBanner__WEBPACK_IMPORTED_MODULE_3__[\"default\"], {}, void 0, false, {\n                fileName: \"/Users/mac/Documents/projects/mobile-web/src/features/screens/SignUp/signUp.tsx\",\n                lineNumber: 91,\n                columnNumber: 13\n            }, undefined),\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(_components_AuthTitle_AuthTitle__WEBPACK_IMPORTED_MODULE_4__[\"default\"], {\n                titleText: \"Creat an account\"\n            }, void 0, false, {\n                fileName: \"/Users/mac/Documents/projects/mobile-web/src/features/screens/SignUp/signUp.tsx\",\n                lineNumber: 92,\n                columnNumber: 13\n            }, undefined),\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                className: (_SignUp_module_scss__WEBPACK_IMPORTED_MODULE_6___default().socialLinkContainer),\n                children: [\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"p\", {\n                        className: (_SignUp_module_scss__WEBPACK_IMPORTED_MODULE_6___default().socialLinkText),\n                        children: \"Use your social link\"\n                    }, void 0, false, {\n                        fileName: \"/Users/mac/Documents/projects/mobile-web/src/features/screens/SignUp/signUp.tsx\",\n                        lineNumber: 94,\n                        columnNumber: 17\n                    }, undefined),\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                        children: /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(_components_GoogleSignUp_GoogleSignUp__WEBPACK_IMPORTED_MODULE_5__[\"default\"], {\n                            buttonText: \"Sign up\"\n                        }, void 0, false, {\n                            fileName: \"/Users/mac/Documents/projects/mobile-web/src/features/screens/SignUp/signUp.tsx\",\n                            lineNumber: 96,\n                            columnNumber: 21\n                        }, undefined)\n                    }, void 0, false, {\n                        fileName: \"/Users/mac/Documents/projects/mobile-web/src/features/screens/SignUp/signUp.tsx\",\n                        lineNumber: 95,\n                        columnNumber: 17\n                    }, undefined),\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"p\", {\n                        className: (_SignUp_module_scss__WEBPACK_IMPORTED_MODULE_6___default().socialLinkText),\n                        children: \"or\"\n                    }, void 0, false, {\n                        fileName: \"/Users/mac/Documents/projects/mobile-web/src/features/screens/SignUp/signUp.tsx\",\n                        lineNumber: 98,\n                        columnNumber: 17\n                    }, undefined)\n                ]\n            }, void 0, true, {\n                fileName: \"/Users/mac/Documents/projects/mobile-web/src/features/screens/SignUp/signUp.tsx\",\n                lineNumber: 93,\n                columnNumber: 13\n            }, undefined),\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"form\", {\n                onSubmit: handleSubmit(),\n                children: [\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                        className: (_SignUp_module_scss__WEBPACK_IMPORTED_MODULE_6___default().inputsContainer),\n                        children: [\n                            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                                className: (_SignUp_module_scss__WEBPACK_IMPORTED_MODULE_6___default().inputContainer),\n                                children: [\n                                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"label\", {\n                                        className: (_SignUp_module_scss__WEBPACK_IMPORTED_MODULE_6___default().inputLabel),\n                                        children: \"Email\"\n                                    }, void 0, false, {\n                                        fileName: \"/Users/mac/Documents/projects/mobile-web/src/features/screens/SignUp/signUp.tsx\",\n                                        lineNumber: 103,\n                                        columnNumber: 25\n                                    }, undefined),\n                                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"input\", {\n                                        ...register(\"email\", {\n                                            required: true\n                                        }),\n                                        type: \"email\",\n                                        name: \"email\",\n                                        placeholder: \"johndoe@example.com\",\n                                        className: (_SignUp_module_scss__WEBPACK_IMPORTED_MODULE_6___default().inputBox),\n                                        onChange: (event)=>{\n                                            onChangeEmail(event);\n                                            clearErrors(\"email\");\n                                        }\n                                    }, void 0, false, {\n                                        fileName: \"/Users/mac/Documents/projects/mobile-web/src/features/screens/SignUp/signUp.tsx\",\n                                        lineNumber: 104,\n                                        columnNumber: 25\n                                    }, undefined),\n                                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"span\", {\n                                        className: (_SignUp_module_scss__WEBPACK_IMPORTED_MODULE_6___default().errorLabel),\n                                        children: [\n                                            errors.email && !emailError && errors.email.type === \"required\" && \" *required.\",\n                                            emailError && ` *${emailError}`\n                                        ]\n                                    }, void 0, true, {\n                                        fileName: \"/Users/mac/Documents/projects/mobile-web/src/features/screens/SignUp/signUp.tsx\",\n                                        lineNumber: 115,\n                                        columnNumber: 25\n                                    }, undefined)\n                                ]\n                            }, void 0, true, {\n                                fileName: \"/Users/mac/Documents/projects/mobile-web/src/features/screens/SignUp/signUp.tsx\",\n                                lineNumber: 102,\n                                columnNumber: 21\n                            }, undefined),\n                            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                                className: (_SignUp_module_scss__WEBPACK_IMPORTED_MODULE_6___default().inputContainer),\n                                children: [\n                                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"label\", {\n                                        className: (_SignUp_module_scss__WEBPACK_IMPORTED_MODULE_6___default().inputLabel),\n                                        children: \"Phone number\"\n                                    }, void 0, false, {\n                                        fileName: \"/Users/mac/Documents/projects/mobile-web/src/features/screens/SignUp/signUp.tsx\",\n                                        lineNumber: 124,\n                                        columnNumber: 25\n                                    }, undefined),\n                                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"input\", {\n                                        ...register(\"phone_number\", {\n                                            required: true\n                                        }),\n                                        type: \"number\",\n                                        name: \"phone_number\",\n                                        placeholder: \"80xxxxxxxxxx\",\n                                        className: (_SignUp_module_scss__WEBPACK_IMPORTED_MODULE_6___default().inputBox),\n                                        onChange: (event)=>{\n                                            onChangePhone(event);\n                                            clearErrors(\"phone_number\");\n                                        }\n                                    }, void 0, false, {\n                                        fileName: \"/Users/mac/Documents/projects/mobile-web/src/features/screens/SignUp/signUp.tsx\",\n                                        lineNumber: 125,\n                                        columnNumber: 25\n                                    }, undefined),\n                                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"span\", {\n                                        className: (_SignUp_module_scss__WEBPACK_IMPORTED_MODULE_6___default().errorLabel),\n                                        children: [\n                                            errors.phone_number && !phoneError && errors.phone_number.type === \"required\" && \" *required\",\n                                            phoneError && ` *${phoneError}`\n                                        ]\n                                    }, void 0, true, {\n                                        fileName: \"/Users/mac/Documents/projects/mobile-web/src/features/screens/SignUp/signUp.tsx\",\n                                        lineNumber: 136,\n                                        columnNumber: 25\n                                    }, undefined)\n                                ]\n                            }, void 0, true, {\n                                fileName: \"/Users/mac/Documents/projects/mobile-web/src/features/screens/SignUp/signUp.tsx\",\n                                lineNumber: 123,\n                                columnNumber: 21\n                            }, undefined),\n                            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                                className: (_SignUp_module_scss__WEBPACK_IMPORTED_MODULE_6___default().inputContainer),\n                                children: [\n                                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"label\", {\n                                        className: (_SignUp_module_scss__WEBPACK_IMPORTED_MODULE_6___default().inputLabel),\n                                        children: \"Password\"\n                                    }, void 0, false, {\n                                        fileName: \"/Users/mac/Documents/projects/mobile-web/src/features/screens/SignUp/signUp.tsx\",\n                                        lineNumber: 145,\n                                        columnNumber: 25\n                                    }, undefined),\n                                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"input\", {\n                                        ...register(\"password\", {\n                                            required: true\n                                        }),\n                                        type: \"password\",\n                                        name: \"password\",\n                                        placeholder: \"Enter password\",\n                                        className: (_SignUp_module_scss__WEBPACK_IMPORTED_MODULE_6___default().inputBox),\n                                        onChange: (event)=>{\n                                            onChangePassword(event);\n                                            clearErrors(\"password\");\n                                        }\n                                    }, void 0, false, {\n                                        fileName: \"/Users/mac/Documents/projects/mobile-web/src/features/screens/SignUp/signUp.tsx\",\n                                        lineNumber: 146,\n                                        columnNumber: 25\n                                    }, undefined),\n                                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"span\", {\n                                        className: (_SignUp_module_scss__WEBPACK_IMPORTED_MODULE_6___default().errorLabel),\n                                        children: [\n                                            errors[\"password\"] && \"  *password is required\",\n                                            \" \",\n                                            passwordError && ` *${passwordError}`\n                                        ]\n                                    }, void 0, true, {\n                                        fileName: \"/Users/mac/Documents/projects/mobile-web/src/features/screens/SignUp/signUp.tsx\",\n                                        lineNumber: 157,\n                                        columnNumber: 25\n                                    }, undefined)\n                                ]\n                            }, void 0, true, {\n                                fileName: \"/Users/mac/Documents/projects/mobile-web/src/features/screens/SignUp/signUp.tsx\",\n                                lineNumber: 144,\n                                columnNumber: 21\n                            }, undefined),\n                            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                                className: (_SignUp_module_scss__WEBPACK_IMPORTED_MODULE_6___default().inputContainer),\n                                children: [\n                                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"label\", {\n                                        className: (_SignUp_module_scss__WEBPACK_IMPORTED_MODULE_6___default().inputLabel),\n                                        children: \"Confirm password\"\n                                    }, void 0, false, {\n                                        fileName: \"/Users/mac/Documents/projects/mobile-web/src/features/screens/SignUp/signUp.tsx\",\n                                        lineNumber: 163,\n                                        columnNumber: 25\n                                    }, undefined),\n                                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"input\", {\n                                        ...register(\"password_confirmation\", {\n                                            required: true\n                                        }),\n                                        type: \"password\",\n                                        name: \"confirmPassword\",\n                                        placeholder: \"Confirm password\",\n                                        className: (_SignUp_module_scss__WEBPACK_IMPORTED_MODULE_6___default().inputBox),\n                                        onChange: (event)=>{\n                                            onChangePasswordConfirmation(event);\n                                            clearErrors(\"password_confirmation\");\n                                        }\n                                    }, void 0, false, {\n                                        fileName: \"/Users/mac/Documents/projects/mobile-web/src/features/screens/SignUp/signUp.tsx\",\n                                        lineNumber: 164,\n                                        columnNumber: 25\n                                    }, undefined),\n                                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"span\", {\n                                        className: (_SignUp_module_scss__WEBPACK_IMPORTED_MODULE_6___default().errorLabel),\n                                        children: [\n                                            errors.password_confirmation && errors.password_confirmation.type === \"required\" && \" *required\",\n                                            confirmPasswordError && ` *${confirmPasswordError}`\n                                        ]\n                                    }, void 0, true, {\n                                        fileName: \"/Users/mac/Documents/projects/mobile-web/src/features/screens/SignUp/signUp.tsx\",\n                                        lineNumber: 175,\n                                        columnNumber: 25\n                                    }, undefined)\n                                ]\n                            }, void 0, true, {\n                                fileName: \"/Users/mac/Documents/projects/mobile-web/src/features/screens/SignUp/signUp.tsx\",\n                                lineNumber: 162,\n                                columnNumber: 21\n                            }, undefined)\n                        ]\n                    }, void 0, true, {\n                        fileName: \"/Users/mac/Documents/projects/mobile-web/src/features/screens/SignUp/signUp.tsx\",\n                        lineNumber: 101,\n                        columnNumber: 17\n                    }, undefined),\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                        className: (_SignUp_module_scss__WEBPACK_IMPORTED_MODULE_6___default().agreementsContainer),\n                        children: [\n                            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"input\", {\n                                type: \"checkbox\",\n                                className: (_SignUp_module_scss__WEBPACK_IMPORTED_MODULE_6___default().agreementsCheckbox),\n                                defaultChecked: true,\n                                name: \"agree\",\n                                required: true\n                            }, void 0, false, {\n                                fileName: \"/Users/mac/Documents/projects/mobile-web/src/features/screens/SignUp/signUp.tsx\",\n                                lineNumber: 184,\n                                columnNumber: 21\n                            }, undefined),\n                            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                                className: (_SignUp_module_scss__WEBPACK_IMPORTED_MODULE_6___default().agreementsTextContainer),\n                                children: [\n                                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"span\", {\n                                        className: (_SignUp_module_scss__WEBPACK_IMPORTED_MODULE_6___default().agreementsText),\n                                        children: \"I agree to the\"\n                                    }, void 0, false, {\n                                        fileName: \"/Users/mac/Documents/projects/mobile-web/src/features/screens/SignUp/signUp.tsx\",\n                                        lineNumber: 187,\n                                        columnNumber: 25\n                                    }, undefined),\n                                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"a\", {\n                                        className: (_SignUp_module_scss__WEBPACK_IMPORTED_MODULE_6___default().agreementsLink),\n                                        href: \"\",\n                                        children: \"terms & conditions\"\n                                    }, void 0, false, {\n                                        fileName: \"/Users/mac/Documents/projects/mobile-web/src/features/screens/SignUp/signUp.tsx\",\n                                        lineNumber: 188,\n                                        columnNumber: 25\n                                    }, undefined),\n                                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"span\", {\n                                        className: (_SignUp_module_scss__WEBPACK_IMPORTED_MODULE_6___default().agreementsText),\n                                        children: \"and\"\n                                    }, void 0, false, {\n                                        fileName: \"/Users/mac/Documents/projects/mobile-web/src/features/screens/SignUp/signUp.tsx\",\n                                        lineNumber: 189,\n                                        columnNumber: 25\n                                    }, undefined),\n                                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"a\", {\n                                        className: (_SignUp_module_scss__WEBPACK_IMPORTED_MODULE_6___default().agreementsLink),\n                                        href: \"\",\n                                        children: \"privacy policy\"\n                                    }, void 0, false, {\n                                        fileName: \"/Users/mac/Documents/projects/mobile-web/src/features/screens/SignUp/signUp.tsx\",\n                                        lineNumber: 190,\n                                        columnNumber: 25\n                                    }, undefined)\n                                ]\n                            }, void 0, true, {\n                                fileName: \"/Users/mac/Documents/projects/mobile-web/src/features/screens/SignUp/signUp.tsx\",\n                                lineNumber: 186,\n                                columnNumber: 21\n                            }, undefined)\n                        ]\n                    }, void 0, true, {\n                        fileName: \"/Users/mac/Documents/projects/mobile-web/src/features/screens/SignUp/signUp.tsx\",\n                        lineNumber: 183,\n                        columnNumber: 17\n                    }, undefined),\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                        className: (_SignUp_module_scss__WEBPACK_IMPORTED_MODULE_6___default().appButtonContainer),\n                        children: /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"button\", {\n                            className: (_SignUp_module_scss__WEBPACK_IMPORTED_MODULE_6___default().buttonContainer),\n                            type: \"submit\",\n                            disabled: !canSend,\n                            children: /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"span\", {\n                                className: (_SignUp_module_scss__WEBPACK_IMPORTED_MODULE_6___default().buttonText),\n                                children: \"Continue\"\n                            }, void 0, false, {\n                                fileName: \"/Users/mac/Documents/projects/mobile-web/src/features/screens/SignUp/signUp.tsx\",\n                                lineNumber: 197,\n                                columnNumber: 25\n                            }, undefined)\n                        }, void 0, false, {\n                            fileName: \"/Users/mac/Documents/projects/mobile-web/src/features/screens/SignUp/signUp.tsx\",\n                            lineNumber: 195,\n                            columnNumber: 21\n                        }, undefined)\n                    }, void 0, false, {\n                        fileName: \"/Users/mac/Documents/projects/mobile-web/src/features/screens/SignUp/signUp.tsx\",\n                        lineNumber: 193,\n                        columnNumber: 17\n                    }, undefined)\n                ]\n            }, void 0, true, {\n                fileName: \"/Users/mac/Documents/projects/mobile-web/src/features/screens/SignUp/signUp.tsx\",\n                lineNumber: 100,\n                columnNumber: 13\n            }, undefined)\n        ]\n    }, void 0, true, {\n        fileName: \"/Users/mac/Documents/projects/mobile-web/src/features/screens/SignUp/signUp.tsx\",\n        lineNumber: 90,\n        columnNumber: 9\n    }, undefined);\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SignUp);\n\n__webpack_async_result__();\n} catch(e) { __webpack_async_result__(e); } });//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zcmMvZmVhdHVyZXMvc2NyZWVucy9TaWduVXAvc2lnblVwLnRzeC5qcyIsIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7OztBQUFBO0FBQW1EO0FBQ1Q7QUFFeUI7QUFDSDtBQUNTO0FBRWhDO0FBRXpDLE1BQU1RLFNBQW1CLElBQU07SUFDM0IsTUFBTSxFQUNGQyxTQUFRLEVBQ1JDLFdBQVcsRUFBRUMsT0FBTSxFQUFFLEdBQ3JCQyxhQUFZLEVBQ1pDLFlBQVcsRUFDZCxHQUFHVix3REFBT0E7SUFFWCxNQUFNLENBQUNXLFlBQVlDLGNBQWMsR0FBR2IsK0NBQVFBLENBQUM7SUFDN0MsTUFBTSxDQUFDYyxZQUFZQyxjQUFjLEdBQUdmLCtDQUFRQSxDQUFDO0lBQzdDLE1BQU0sQ0FBQ2dCLGVBQWVDLGlCQUFpQixHQUFHakIsK0NBQVFBLENBQUM7SUFDbkQsTUFBTSxDQUFDa0IsU0FBU0MsV0FBVyxHQUFHbkIsK0NBQVFBLENBQUMsSUFBSTtJQUMzQyxNQUFNLENBQUNvQixZQUFZQyxjQUFjLEdBQUdyQiwrQ0FBUUEsQ0FBQyxLQUFLO0lBQ2xELE1BQU0sQ0FBQ3NCLGFBQWFDLGVBQWUsR0FBR3ZCLCtDQUFRQSxDQUFDLEtBQUs7SUFDcEQsTUFBTSxDQUFDd0IsYUFBYUMsZUFBZSxHQUFHekIsK0NBQVFBLENBQUMsS0FBSztJQUNwRCxNQUFNLENBQUMwQixzQkFBc0JDLHdCQUF3QixHQUFHM0IsK0NBQVFBLENBQUM7SUFDakUsTUFBTSxDQUFDNEIsdUJBQXVCQyx5QkFBeUIsR0FBRzdCLCtDQUFRQSxDQUFDLEtBQUs7SUFDeEUsTUFBTSxDQUFDOEIsU0FBU0MsV0FBVyxHQUFHL0IsK0NBQVFBLENBQUMsS0FBSztJQUU1QyxNQUFNZ0MsZ0JBQWdCLENBQUNDLFFBQWU7UUFDbEMsTUFBTUMsUUFBUUQsTUFBTUUsYUFBYSxDQUFDQyxLQUFLO1FBQ3ZDLDJCQUEyQjtRQUMzQixNQUFNQyxTQUNGLG9FQUFvRSx1QkFBdUI7UUFDL0YsSUFBSSxDQUFDQSxPQUFPQyxJ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LE1BQU1BLEVBQUEiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9tb2JpbGUtd2ViLy4vc3JjL2ZlYXR1cmVzL3NjcmVlbnMvU2lnblVwL3NpZ25VcC50c3g/MmFlYyJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgUmVhY3QsIHsgdXNlRWZmZWN0LCB1c2VTdGF0ZSB9IGZyb20gXCJyZWFjdFwiO1xuaW1wb3J0IHsgdXNlRm9ybSB9IGZyb20gXCJyZWFjdC1ob29rLWZvcm1cIjtcbmltcG9ydCBBcHBCdXR0b24gZnJvbSBcIi4uLy4uLy4uL2NvbXBvbmVudHMvQXBwQnV0dG9uL0FwcEJ1dHRvblwiO1xuaW1wb3J0IEF1dGhCYW5uZXIgZnJvbSBcIi4uLy4uLy4uL2NvbXBvbmVudHMvQXV0aEJhbm5lci9BdXRoQmFubmVyXCI7XG5pbXBvcnQgQXV0aFRpdGxlIGZyb20gXCIuLi8uLi8uLi9jb21wb25lbnRzL0F1dGhUaXRsZS9BdXRoVGl0bGVcIjtcbmltcG9ydCBHb29nbGVTaWduVXAgZnJvbSBcIi4uLy4uLy4uL2NvbXBvbmVudHMvR29vZ2xlU2lnblVwL0dvb2dsZVNpZ25VcFwiO1xuaW1wb3J0IElucHV0IGZyb20gXCIuLi8uLi8uLi9jb21wb25lbnRzL0lucHV0L0lucHV0XCI7XG5pbXBvcnQgc3R5bGVzIGZyb20gJy4vU2lnblVwLm1vZHVsZS5zY3NzJ1xuXG5jb25zdCBTaWduVXA6IFJlYWN0LkZDID0gKCkgPT4ge1xuICAgIGNvbnN0IHtcbiAgICAgICAgcmVnaXN0ZXIsXG4gICAgICAgIGZvcm1TdGF0ZTogeyBlcnJvcnMgfSxcbiAgICAgICAgaGFuZGxlU3VibWl0LFxuICAgICAgICBjbGVhckVycm9yc1xuICAgIH0gPSB1c2VGb3JtKCk7XG5cbiAgICBjb25zdCBbZW1haWxFcnJvciwgc2V0RW1haWxFcnJvcl0gPSB1c2VTdGF0ZSgnJyk7XG4gICAgY29uc3QgW3Bob25lRXJyb3IsIHNldFBob25lRXJyb3JdID0gdXNlU3RhdGUoJycpO1xuICAgIGNvbnN0IFtwYXNzd29yZEVycm9yLCBzZXRQYXNzd29yZEVycm9yXSA9IHVzZVN0YXRlKCcnKTtcbiAgICBjb25zdCBbY2FuU2VuZCwgc2V0Q2FuU2VuZF0gPSB1c2VTdGF0ZSh0cnVlKVxuICAgIGNvbnN0IFtwYXNzRmFpbGVkLCBzZXRQYXNzRmFpbGVkXSA9IHVzZVN0YXRlKGZhbHNlKTtcbiAgICBjb25zdCBbZW1haWxGYWlsZWQsIHNldEVtYWlsRmFpbGVkXSA9IHVzZVN0YXRlKGZhbHNlKTtcbiAgICBjb25zdCBbcGhvbmVGYWlsZWQsIHNldFBob25lRmFpbGVkXSA9IHVzZVN0YXRlKGZhbHNlKTtcbiAgICBjb25zdCBbY29uZmlybVBhc3N3b3JkRXJyb3IsIHNldENvbmZpcm1QYXNzd29yZEVycm9yXSA9IHVzZVN0YXRlKCcnKTtcbiAgICBjb25zdCBbY29uZmlybVBhc3N3b3JkRmFpbGVkLCBzZXRDb25maXJtUGFzc3dvcmRGYWlsZWRdID0gdXNlU3RhdGUoZmFsc2UpO1xuICAgIGNvbnN0IFtjaGVja2VkLCBzZXRDaGVja2VkXSA9IHVzZVN0YXRlKGZhbHNlKTtcblxuICAgIGNvbnN0IG9uQ2hhbmdlRW1haWwgPSAoZXZlbnQ6IGFueSkgPT4ge1xuICAgICAgICBjb25zdCBlbWFpbCA9IGV2ZW50LmN1cnJlbnRUYXJnZXQudmFsdWU7XG4gICAgICAgIC8vIGVzbGludC1kaXNhYmxlLW5leHQtbGluZVxuICAgICAgICBjb25zdCBmaWx0ZXIgPVxuICAgICAgICAgICAgL14oW2EtekEtWjAtOV8vXFwuXFwtXSkrXFxAKChbYS16QS1aMC05XFwtXSkrXFwuKSsoW2EtekEtWjAtOV17Miw0fSkrJC87IC8qIGVzbGludC1kaXNhYmxlLWxpbmUgKi9cbiAgICAgICAgaWYgKCFmaWx0ZXIudGVzdChlbWFpbCkpIHtcbiAgICAgICAgICAgIHNldEVtYWlsRXJyb3IoXCJFbWFpbCBhZGRyZXNzIGlzIG5vdCB2YWxpZC5cIik7XG4gICAgICAgICAgICBzZXRFbWFpbEZhaWxlZCh0cnVlKVxuICAgICAgICB9IGVsc2Uge1xuICAgICAgICAgICAgc2V0RW1haWxFcnJvcihcIlwiKTtcbiAgICAgICAgICAgIHNldEVtYWlsRmFpbGVkKGZhbHNlKVxuICAgICAgICB9XG4gICAgfTtcblxuICAgIGNvbnN0IG9uQ2hhbmdlUGhvbmUgPSAoZXZlbnQ6IGFueSkgPT4ge1xuICAgICAgICBjb25zdCBwaG9uZSA9IGV2ZW50LmN1cnJlbnRUYXJnZXQudmFsdWU7XG4gICAgICAgIGlmIChwaG9uZS5sZW5ndGggPiAxNiB8fCBwaG9uZS5sZW5ndGggPCA0KSB7XG4gICAgICAgICAgICBzZXRQaG9uZUVycm9yKFwiUGxlYXNlIGlucHV0IGEgdmFsaWQgcGhvbmUgbnVtYmVyLlwiKTtcbiAgICAgICAgICAgIHNldFBob25lRmFpbGVkKHRydWUpXG4gICAgICAgIH1cbiAgICAgICAgZWxzZSB7XG4gICAgICAgICAgICBzZXRQaG9uZUVycm9yKFwiXCIpO1xuICAgICAgICAgICAgc2V0UGhvbmVGYWlsZWQoZmFsc2UpXG4gICAgICAgIH1cbiAgICB9O1xuXG4gICAgY29uc3Qgb25DaGFuZ2VQYXNzd29yZCA9IChldmVudDogYW55KSA9PiB7XG4gICAgICAgIGNvbnN0IHBhc3N3b3JkID0gZXZlbnQuY3VycmVudFRhcmdldC52YWx1ZTtcbiAgICAgICAgLy8gZXNsaW50LWRpc2FibGUtbmV4dC1saW5lXG4gICAgICAgIGNvbnN0IGZpbHRlciA9IC9eLns4LH0kLzsgLyogZXNsaW50LWRpc2FibGUtbGluZSAqL1xuICAgICAgICBpZiAoIWZpbHRlci50ZXN0KHBhc3N3b3JkKSkge1xuICAgICAgICAgICAgc2V0UGFzc3dvcmRFcnJvcihcIlBhc3N3b3JkIG11c3QgY29udGFpbiBhdCBsZWFzdCA4IGNoYXJhY3RlcnNcIik7XG4gICAgICAgICAgICBzZXRQYXNzRmFpbGVkKHRydWUpXG4gICAgICAgIH0gZWxzZSB7XG4gICAgICAgICAgICBzZXRQYXNzd29yZEVycm9yKFwiXCIpO1xuICAgICAgICAgICAgc2V0UGFzc0ZhaWxlZChmYWxzZSlcbiAgICAgICAgfVxuICAgIH07XG5cblxuICAgIGNvbnN0IG9uQ2hhbmdlUGFzc3dvcmRDb25maXJtYXRpb24gPSAoZXZlbnQ6IGFueSkgPT4ge1xuICAgICAgICBjb25zdCBjb25GaXJtcGFzc3dvcmQgPSBldmVudC5jdXJyZW50VGFyZ2V0LnZhbHVlO1xuICAgICAgICAvLyBlc2xpbnQtZGlzYWJsZS1uZXh0LWxpbmVcbiAgICAgICAgY29uc3QgZmlsdGVyID0gL14uezgsfSQvOyAvKiBlc2xpbnQtZGlzYWJsZS1saW5lICovXG4gICAgICAgIGlmICghZmlsdGVyLnRlc3QoY29uRmlybXBhc3N3b3JkKSkge1xuICAgICAgICAgICAgc2V0Q29uZmlybVBhc3N3b3JkRXJyb3IoXCJQYXNzd29yZCBkb2VzIG5vdCBtYXRjaFwiKTtcbiAgICAgICAgICAgIHNldENvbmZpcm1QYXNzd29yZEZhaWxlZCh0cnVlKVxuICAgICAgICB9IGVsc2Uge1xuICAgICAgICAgICAgc2V0Q29uZmlybVBhc3N3b3JkRXJyb3IoXCJcIik7XG4gICAgICAgICAgICBzZXRDb25maXJtUGFzc3dvcmRGYWlsZWQoZmFsc2UpXG4gICAgICAgIH1cbiAgICB9O1xuXG4gICAgdXNlRWZmZWN0KCgpID0+IHtcbiAgICAgICAgY29uc3QgaW52YWxpZCA9IHBhc3NGYWlsZWQgfHwgZW1haWxGYWlsZWQgfHwgcGhvbmVGYWlsZWQgfHwgY29uZmlybVBhc3N3b3JkRmFpbGVkO1xuICAgICAgICBzZXRDYW5TZW5kKCFpbnZhbGlkKTtcbiAgICAgICAgY29uc29sZS5sb2coY2FuU2VuZClcbiAgICB9LCBbcGFzc0ZhaWxlZCwgZW1haWxGYWlsZWQsIHBob25lRmFpbGVkXSlcblxuXG4gICAgcmV0dXJuIChcbiAgICAgICAgPGRpdiBjbGFzc05hbWU9e3N0eWxlcy5zaWdudXBDb250YWluZXJ9PlxuICAgICAgICAgICAgPEF1dGhCYW5uZXIgLz5cbiAgICAgICAgICAgIDxBdXRoVGl0bGUgdGl0bGVUZXh0PVwiQ3JlYXQgYW4gYWNjb3VudFwiIC8+XG4gICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT17c3R5bGVzLnNvY2lhbExpbmtDb250YWluZXJ9PlxuICAgICAgICAgICAgICAgIDxwIGNsYXNzTmFtZT17c3R5bGVzLnNvY2lhbExpbmtUZXh0fT5Vc2UgeW91ciBzb2NpYWwgbGluazwvcD5cbiAgICAgICAgICAgICAgICA8ZGl2PlxuICAgICAgICAgICAgICAgICAgICA8R29vZ2xlU2lnblVwIGJ1dHRvblRleHQ9XCJTaWduIHVwXCIgLz5cbiAgICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgICA8cCBjbGFzc05hbWU9e3N0eWxlcy5zb2NpYWxMaW5rVGV4dH0+b3I8L3A+XG4gICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgIDxmb3JtIG9uU3VibWl0PXtoYW5kbGVTdWJtaXQoKX0+XG4gICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9e3N0eWxlcy5pbnB1dHNDb250YWluZXJ9PlxuICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT17c3R5bGVzLmlucHV0Q29udGFpbmVyfT5cbiAgICAgICAgICAgICAgICAgICAgICAgIDxsYWJlbCBjbGFzc05hbWU9e3N0eWxlcy5pbnB1dExhYmVsfT5FbWFpbDwvbGFiZWw+XG4gICAgICAgICAgICAgICAgICAgICAgICA8aW5wdXRcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICB7Li4ucmVnaXN0ZXIoXCJlbWFpbFwiLCB7IHJlcXVpcmVkOiB0cnVlIH0pfVxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIHR5cGU9XCJlbWFpbFwiXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgbmFtZT1cImVtYWlsXCJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBwbGFjZWhvbGRlcj1cImpvaG5kb2VAZXhhbXBsZS5jb21cIlxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIGNsYXNzTmFtZT17c3R5bGVzLmlucHV0Qm94fVxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIG9uQ2hhbmdlPXsoZXZlbnQpID0+IHtcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgb25DaGFuZ2VFbWFpbChldmVudClcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgY2xlYXJFcnJvcnMoJ2VtYWlsJylcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICB9fVxuICAgICAgICAgICAgICAgICAgICAgICAgLz5cbiAgICAgICAgICAgICAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT17c3R5bGVzLmVycm9yTGFiZWx9PlxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIHtlcnJvcnMuZW1haWwgJiZcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIWVtYWlsRXJyb3IgJiZcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgZXJyb3JzLmVtYWlsLnR5cGUgPT09IFwicmVxdWlyZWRcIiAmJlxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcIiAqcmVxdWlyZWQuXCJ9XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAge2VtYWlsRXJyb3IgJiYgYCAqJHtlbWFpbEVycm9yfWB9XG4gICAgICAgICAgICAgICAgICAgICAgICA8L3NwYW4+XG4gICAgICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT17c3R5bGVzLmlucHV0Q29udGFpbmVyfT5cbiAgICAgICAgICAgICAgICAgICAgICAgIDxsYWJlbCBjbGFzc05hbWU9e3N0eWxlcy5pbnB1dExhYmVsfT5QaG9uZSBudW1iZXI8L2xhYmVsPlxuICAgICAgICAgICAgICAgICAgICAgICAgPGlucHV0XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgey4uLnJlZ2lzdGVyKFwicGhvbmVfbnVtYmVyXCIsIHsgcmVxdWlyZWQ6IHRydWUgfSl9XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgdHlwZT1cIm51bWJlclwiXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgbmFtZT1cInBob25lX251bWJlclwiXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgcGxhY2Vob2xkZXI9XCI4MHh4eHh4eHh4eHhcIlxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIGNsYXNzTmFtZT17c3R5bGVzLmlucHV0Qm94fVxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIG9uQ2hhbmdlPXsoZXZlbnQpID0+IHtcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgb25DaGFuZ2VQaG9uZShldmVudClcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgY2xlYXJFcnJvcnMoJ3Bob25lX251bWJlcicpXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgfX1cbiAgICAgICAgICAgICAgICAgICAgICAgIC8+XG4gICAgICAgICAgICAgICAgICAgICAgICA8c3BhbiBjbGFzc05hbWU9e3N0eWxlcy5lcnJvckxhYmVsfT5cbiAgICAgICAgICAgICAgICAgICAgICAgICAgICB7ZXJyb3JzLnBob25lX251bWJlciAmJlxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAhcGhvbmVFcnJvciAmJlxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBlcnJvcnMucGhvbmVfbnVtYmVyLnR5cGUgPT09IFwicmVxdWlyZWRcIiAmJlxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcIiAqcmVxdWlyZWRcIn1cbiAgICAgICAgICAgICAgICAgICAgICAgICAgICB7cGhvbmVFcnJvciAmJiBgICoke3Bob25lRXJyb3J9YH1cbiAgICAgICAgICAgICAgICAgICAgICAgIDwvc3Bhbj5cbiAgICAgICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPXtzdHlsZXMuaW5wdXRDb250YWluZXJ9PlxuICAgICAgICAgICAgICAgICAgICAgICAgPGxhYmVsIGNsYXNzTmFtZT17c3R5bGVzLmlucHV0TGFiZWx9PlBhc3N3b3JkPC9sYWJlbD5cbiAgICAgICAgICAgICAgICAgICAgICAgIDxpbnB1dFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIHsuLi5yZWdpc3RlcihcInBhc3N3b3JkXCIsIHsgcmVxdWlyZWQ6IHRydWUgfSl9XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgdHlwZT1cInBhc3N3b3JkXCJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBuYW1lPVwicGFzc3dvcmRcIlxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIHBsYWNlaG9sZGVyPVwiRW50ZXIgcGFzc3dvcmRcIlxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIGNsYXNzTmFtZT17c3R5bGVzLmlucHV0Qm94fVxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIG9uQ2hhbmdlPXsoZXZlbnQpID0+IHtcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgb25DaGFuZ2VQYXNzd29yZChldmVudClcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgY2xlYXJFcnJvcnMoJ3Bhc3N3b3JkJylcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICB9fVxuICAgICAgICAgICAgICAgICAgICAgICAgLz5cbiAgICAgICAgICAgICAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT17c3R5bGVzLmVycm9yTGFiZWx9PlxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIHtlcnJvcnNbXCJwYXNzd29yZFwiXSAmJiBcIiAgKnBhc3N3b3JkIGlzIHJlcXVpcmVkXCJ9e1wiIFwifVxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIHtwYXNzd29yZEVycm9yICYmIGAgKiR7cGFzc3dvcmRFcnJvcn1gfVxuICAgICAgICAgICAgICAgICAgICAgICAgPC9zcGFuPlxuICAgICAgICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9e3N0eWxlcy5pbnB1dENvbnRhaW5lcn0+XG4gICAgICAgICAgICAgICAgICAgICAgICA8bGFiZWwgY2xhc3NOYW1lPXtzdHlsZXMuaW5wdXRMYWJlbH0+Q29uZmlybSBwYXNzd29yZDwvbGFiZWw+XG4gICAgICAgICAgICAgICAgICAgICAgICA8aW5wdXRcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICB7Li4ucmVnaXN0ZXIoXCJwYXNzd29yZF9jb25maXJtYXRpb25cIiwgeyByZXF1aXJlZDogdHJ1ZSB9KX1cbiAgICAgICAgICAgICAgICAgICAgICAgICAgICB0eXBlPVwicGFzc3dvcmRcIlxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIG5hbWU9XCJjb25maXJtUGFzc3dvcmRcIlxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIHBsYWNlaG9sZGVyPVwiQ29uZmlybSBwYXNzd29yZFwiXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgY2xhc3NOYW1lPXtzdHlsZXMuaW5wdXRCb3h9XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgb25DaGFuZ2U9eyhldmVudCkgPT4ge1xuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBvbkNoYW5nZVBhc3N3b3JkQ29uZmlybWF0aW9uKGV2ZW50KVxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBjbGVhckVycm9ycygncGFzc3dvcmRfY29uZmlybWF0aW9uJylcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICB9fVxuICAgICAgICAgICAgICAgICAgICAgICAgLz5cbiAgICAgICAgICAgICAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT17c3R5bGVzLmVycm9yTGFiZWx9PlxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIHtlcnJvcnMucGFzc3dvcmRfY29uZmlybWF0aW9uICYmXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGVycm9ycy5wYXNzd29yZF9jb25maXJtYXRpb24udHlwZSA9PT0gXCJyZXF1aXJlZFwiICYmXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFwiICpyZXF1aXJlZFwifVxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB7Y29uZmlybVBhc3N3b3JkRXJyb3IgJiYgIGAgKiR7Y29uZmlybVBhc3N3b3JkRXJyb3J9YH1cbiAgICAgICAgICAgICAgICAgICAgICAgIDwvc3Bhbj5cbiAgICAgICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9e3N0eWxlcy5hZ3JlZW1lbnRzQ29udGFpbmVyfT5cbiAgICAgICAgICAgICAgICAgICAgPGlucHV0IHR5cGU9J2NoZWNrYm94JyBjbGFzc05hbWU9e3N0eWxlcy5hZ3JlZW1lbnRzQ2hlY2tib3h9IGRlZmF1bHRDaGVja2VkXG4gICAgICAgICAgICAgICAgICAgICAgICBuYW1lPVwiYWdyZWVcIiByZXF1aXJlZCAvPlxuICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT17c3R5bGVzLmFncmVlbWVudHNUZXh0Q29udGFpbmVyfT5cbiAgICAgICAgICAgICAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT17c3R5bGVzLmFncmVlbWVudHNUZXh0fT5JIGFncmVlIHRvIHRoZTwvc3Bhbj5cbiAgICAgICAgICAgICAgICAgICAgICAgIDxhIGNsYXNzTmFtZT17c3R5bGVzLmFncmVlbWVudHNMaW5rfSBocmVmPVwiXCI+dGVybXMgJiBjb25kaXRpb25zPC9hPlxuICAgICAgICAgICAgICAgICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPXtzdHlsZXMuYWdyZWVtZW50c1RleHR9PmFuZDwvc3Bhbj5cbiAgICAgICAgICAgICAgICAgICAgICAgIDxhIGNsYXNzTmFtZT17c3R5bGVzLmFncmVlbWVudHNMaW5rfSBocmVmPVwiXCI+cHJpdmFjeSBwb2xpY3k8L2E+XG4gICAgICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPXtzdHlsZXMuYXBwQnV0dG9uQ29udGFpbmVyfT5cbiAgICAgICAgICAgICAgICAgICAgey8qIDxBcHBCdXR0b24gZGlzYWJsZWQ9eyFjYW5TZW5kfSBidXR0b25UZXh0PVwiQ29udGludWVcIiAgLz4gKi99XG4gICAgICAgICAgICAgICAgICAgIDxidXR0b24gY2xhc3NOYW1lPXtzdHlsZXMuYnV0dG9uQ29udGFpbmVyfVxuICAgICAgICAgICAgICAgICAgICAgICAgdHlwZT1cInN1Ym1pdFwiIGRpc2FibGVkPXshY2FuU2VuZH0+XG4gICAgICAgICAgICAgICAgICAgICAgICA8c3BhbiBjbGFzc05hbWU9e3N0eWxlcy5idXR0b25UZXh0fT5Db250aW51ZTwvc3Bhbj5cbiAgICAgICAgICAgICAgICAgICAgPC9idXR0b24+XG4gICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICA8L2Zvcm0+XG4gICAgICAgIDwvZGl2PlxuICAgIClcbn1cbmV4cG9ydCBkZWZhdWx0IFNpZ25VcCJdLCJuYW1lcyI6WyJSZWFjdCIsInVzZUVmZmVjdCIsInVzZVN0YXRlIiwidXNlRm9ybSIsIkF1dGhCYW5uZXIiLCJBdXRoVGl0bGUiLCJHb29nbGVTaWduVXAiLCJzdHlsZXMiLCJTaWduVXAiLCJyZWdpc3RlciIsImZvcm1TdGF0ZSIsImVycm9ycyIsImhhbmRsZVN1Ym1pdCIsImNsZWFyRXJyb3JzIiwiZW1haWxFcnJvciIsInNldEVtYWlsRXJyb3IiLCJwaG9uZUVycm9yIiwic2V0UGhvbmVFcnJvciIsInBhc3N3b3JkRXJyb3IiLCJzZXRQYXNzd29yZEVycm9yIiwiY2FuU2VuZCIsInNldENhblNlbmQiLCJwYXNzRmFpbGVkIiwic2V0UGFzc0ZhaWxlZCIsImVtYWlsRmFpbGVkIiwic2V0RW1haWxGYWlsZWQiLCJwaG9uZUZhaWxlZCIsInNldFBob25lRmFpbGVkIiwiY29uZmlybVBhc3N3b3JkRXJyb3IiLCJzZXRDb25maXJtUGFzc3dvcmRFcnJvciIsImNvbmZpcm1QYXNzd29yZEZhaWxlZCIsInNldENvbmZpcm1QYXNzd29yZEZhaWxlZCIsImNoZWNrZWQiLCJzZXRDaGVja2VkIiwib25DaGFuZ2VFbWFpbCIsImV2ZW50IiwiZW1haWwiLCJjdXJyZW50VGFyZ2V0IiwidmFsdWUiLCJmaWx0ZXIiLCJ0ZXN0Iiwib25DaGFuZ2VQaG9uZSIsInBob25lIiwibGVuZ3RoIiwib25DaGFuZ2VQYXNzd29yZCIsInBhc3N3b3JkIiwib25DaGFuZ2VQYXNzd29yZENvbmZpcm1hdGlvbiIsImNvbkZpcm1wYXNzd29yZCIsImludmFsaWQiLCJjb25zb2xlIiwibG9nIiwiZGl2IiwiY2xhc3NOYW1lIiwic2lnbnVwQ29udGFpbmVyIiwidGl0bGVUZXh0Iiwic29jaWFsTGlua0NvbnRhaW5lciIsInAiLCJzb2NpYWxMaW5rVGV4dCIsImJ1dHRvblRleHQiLCJmb3JtIiwib25TdWJtaXQiLCJpbnB1dHNDb250YWluZXIiLCJpbnB1dENvbnRhaW5lciIsImxhYmVsIiwiaW5wdXRMYWJlbCIsImlucHV0IiwicmVxdWlyZWQiLCJ0eXBlIiwibmFtZSIsInBsYWNlaG9sZGVyIiwiaW5wdXRCb3giLCJvbkNoYW5nZSIsInNwYW4iLCJlcnJvckxhYmVsIiwicGhvbmVfbnVtYmVyIiwicGFzc3dvcmRfY29uZmlybWF0aW9uIiwiYWdyZWVtZW50c0NvbnRhaW5lciIsImFncmVlbWVudHNDaGVja2JveCIsImRlZmF1bHRDaGVja2VkIiwiYWdyZWVtZW50c1RleHRDb250YWluZXIiLCJhZ3JlZW1lbnRzVGV4dCIsImEiLCJhZ3JlZW1lbnRzTGluayIsImhyZWYiLCJhcHBCdXR0b25Db250YWluZXIiLCJidXR0b24iLCJidXR0b25Db250YWluZXIiLCJkaXNhYmxlZCJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./src/features/screens/SignUp/signUp.tsx\n");
+__webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Z": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(997);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(689);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_hook_form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(137);
+/* harmony import */ var _components_AuthBanner_AuthBanner__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(220);
+/* harmony import */ var _components_AuthTitle_AuthTitle__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(599);
+/* harmony import */ var _components_GoogleSignUp_GoogleSignUp__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(133);
+/* harmony import */ var _SignUp_module_scss__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(640);
+/* harmony import */ var _SignUp_module_scss__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_SignUp_module_scss__WEBPACK_IMPORTED_MODULE_6__);
+var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([react_hook_form__WEBPACK_IMPORTED_MODULE_2__]);
+react_hook_form__WEBPACK_IMPORTED_MODULE_2__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
+
+
+
+
+
+
+
+const SignUp = ()=>{
+    console.log("https://stg-api.cashingames.com/api", "hhhhhhhh");
+    console.log("weeee");
+    const { register , formState: { errors  } , handleSubmit , clearErrors  } = (0,react_hook_form__WEBPACK_IMPORTED_MODULE_2__.useForm)();
+    const [emailError, setEmailError] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)("");
+    const [phoneError, setPhoneError] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)("");
+    const [passwordError, setPasswordError] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)("");
+    const [canSend, setCanSend] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(true);
+    const [passFailed, setPassFailed] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false);
+    const [emailFailed, setEmailFailed] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false);
+    const [phoneFailed, setPhoneFailed] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false);
+    const [confirmPasswordError, setConfirmPasswordError] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)("");
+    const [confirmPasswordFailed, setConfirmPasswordFailed] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false);
+    const [checked, setChecked] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false);
+    const onChangeEmail = (event)=>{
+        const email = event.currentTarget.value;
+        // eslint-disable-next-line
+        const filter = /^([a-zA-Z0-9_/\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/; /* eslint-disable-line */ 
+        if (!filter.test(email)) {
+            setEmailError("Email address is not valid.");
+            setEmailFailed(true);
+        } else {
+            setEmailError("");
+            setEmailFailed(false);
+        }
+    };
+    const onChangePhone = (event)=>{
+        const phone = event.currentTarget.value;
+        if (phone.length > 16 || phone.length < 4) {
+            setPhoneError("Please input a valid phone number.");
+            setPhoneFailed(true);
+        } else {
+            setPhoneError("");
+            setPhoneFailed(false);
+        }
+    };
+    const onChangePassword = (event)=>{
+        const password = event.currentTarget.value;
+        // eslint-disable-next-line
+        const filter = /^.{8,}$/; /* eslint-disable-line */ 
+        if (!filter.test(password)) {
+            setPasswordError("Password must contain at least 8 characters");
+            setPassFailed(true);
+        } else {
+            setPasswordError("");
+            setPassFailed(false);
+        }
+    };
+    const onChangePasswordConfirmation = (event)=>{
+        const conFirmpassword = event.currentTarget.value;
+        // eslint-disable-next-line
+        const filter = /^.{8,}$/; /* eslint-disable-line */ 
+        if (!filter.test(conFirmpassword)) {
+            setConfirmPasswordError("Password does not match");
+            setConfirmPasswordFailed(true);
+        } else {
+            setConfirmPasswordError("");
+            setConfirmPasswordFailed(false);
+        }
+    };
+    (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(()=>{
+        const invalid = passFailed || emailFailed || phoneFailed || confirmPasswordFailed;
+        setCanSend(!invalid);
+    }, [
+        passFailed,
+        emailFailed,
+        phoneFailed
+    ]);
+    return /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+        className: (_SignUp_module_scss__WEBPACK_IMPORTED_MODULE_6___default().signupContainer),
+        children: [
+            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_components_AuthBanner_AuthBanner__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .Z, {}),
+            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_components_AuthTitle_AuthTitle__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .Z, {
+                titleText: "Creat an account"
+            }),
+            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+                className: (_SignUp_module_scss__WEBPACK_IMPORTED_MODULE_6___default().socialLinkContainer),
+                children: [
+                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("p", {
+                        className: (_SignUp_module_scss__WEBPACK_IMPORTED_MODULE_6___default().socialLinkText),
+                        children: "Use your social link"
+                    }),
+                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
+                        children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_components_GoogleSignUp_GoogleSignUp__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .Z, {
+                            buttonText: "S up"
+                        })
+                    }),
+                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("p", {
+                        className: (_SignUp_module_scss__WEBPACK_IMPORTED_MODULE_6___default().socialLinkText),
+                        children: "or"
+                    })
+                ]
+            }),
+            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("form", {
+                children: [
+                    /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+                        className: (_SignUp_module_scss__WEBPACK_IMPORTED_MODULE_6___default().inputsContainer),
+                        children: [
+                            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+                                className: (_SignUp_module_scss__WEBPACK_IMPORTED_MODULE_6___default().inputContainer),
+                                children: [
+                                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("label", {
+                                        className: (_SignUp_module_scss__WEBPACK_IMPORTED_MODULE_6___default().inputLabel),
+                                        children: "Email"
+                                    }),
+                                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("input", {
+                                        ...register("email", {
+                                            required: true
+                                        }),
+                                        type: "email",
+                                        name: "email",
+                                        placeholder: "johndoe@example.com",
+                                        className: (_SignUp_module_scss__WEBPACK_IMPORTED_MODULE_6___default().inputBox),
+                                        onChange: (event)=>{
+                                            onChangeEmail(event);
+                                            clearErrors("email");
+                                        }
+                                    }),
+                                    /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("span", {
+                                        className: (_SignUp_module_scss__WEBPACK_IMPORTED_MODULE_6___default().errorLabel),
+                                        children: [
+                                            errors.email && !emailError && errors.email.type === "required" && " *required.",
+                                            emailError && ` *${emailError}`
+                                        ]
+                                    })
+                                ]
+                            }),
+                            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+                                className: (_SignUp_module_scss__WEBPACK_IMPORTED_MODULE_6___default().inputContainer),
+                                children: [
+                                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("label", {
+                                        className: (_SignUp_module_scss__WEBPACK_IMPORTED_MODULE_6___default().inputLabel),
+                                        children: "Phone number"
+                                    }),
+                                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("input", {
+                                        ...register("phone_number", {
+                                            required: true
+                                        }),
+                                        type: "number",
+                                        name: "phone_number",
+                                        placeholder: "80xxxxxxxxxx",
+                                        className: (_SignUp_module_scss__WEBPACK_IMPORTED_MODULE_6___default().inputBox),
+                                        onChange: (event)=>{
+                                            onChangePhone(event);
+                                            clearErrors("phone_number");
+                                        }
+                                    }),
+                                    /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("span", {
+                                        className: (_SignUp_module_scss__WEBPACK_IMPORTED_MODULE_6___default().errorLabel),
+                                        children: [
+                                            errors.phone_number && !phoneError && errors.phone_number.type === "required" && " *required",
+                                            phoneError && ` *${phoneError}`
+                                        ]
+                                    })
+                                ]
+                            }),
+                            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+                                className: (_SignUp_module_scss__WEBPACK_IMPORTED_MODULE_6___default().inputContainer),
+                                children: [
+                                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("label", {
+                                        className: (_SignUp_module_scss__WEBPACK_IMPORTED_MODULE_6___default().inputLabel),
+                                        children: "Password"
+                                    }),
+                                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("input", {
+                                        ...register("password", {
+                                            required: true
+                                        }),
+                                        type: "password",
+                                        name: "password",
+                                        placeholder: "Enter password",
+                                        className: (_SignUp_module_scss__WEBPACK_IMPORTED_MODULE_6___default().inputBox),
+                                        onChange: (event)=>{
+                                            onChangePassword(event);
+                                            clearErrors("password");
+                                        }
+                                    }),
+                                    /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("span", {
+                                        className: (_SignUp_module_scss__WEBPACK_IMPORTED_MODULE_6___default().errorLabel),
+                                        children: [
+                                            errors["password"] && "  *password is required",
+                                            " ",
+                                            passwordError && ` *${passwordError}`
+                                        ]
+                                    })
+                                ]
+                            }),
+                            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+                                className: (_SignUp_module_scss__WEBPACK_IMPORTED_MODULE_6___default().inputContainer),
+                                children: [
+                                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("label", {
+                                        className: (_SignUp_module_scss__WEBPACK_IMPORTED_MODULE_6___default().inputLabel),
+                                        children: "Confirm password"
+                                    }),
+                                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("input", {
+                                        ...register("password_confirmation", {
+                                            required: true
+                                        }),
+                                        type: "password",
+                                        name: "confirmPassword",
+                                        placeholder: "Confirm password",
+                                        className: (_SignUp_module_scss__WEBPACK_IMPORTED_MODULE_6___default().inputBox),
+                                        onChange: (event)=>{
+                                            onChangePasswordConfirmation(event);
+                                            clearErrors("password_confirmation");
+                                        }
+                                    }),
+                                    /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("span", {
+                                        className: (_SignUp_module_scss__WEBPACK_IMPORTED_MODULE_6___default().errorLabel),
+                                        children: [
+                                            errors.password_confirmation && errors.password_confirmation.type === "required" && " *required",
+                                            confirmPasswordError && ` *${confirmPasswordError}`
+                                        ]
+                                    })
+                                ]
+                            })
+                        ]
+                    }),
+                    /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+                        className: (_SignUp_module_scss__WEBPACK_IMPORTED_MODULE_6___default().agreementsContainer),
+                        children: [
+                            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("input", {
+                                type: "checkbox",
+                                className: (_SignUp_module_scss__WEBPACK_IMPORTED_MODULE_6___default().agreementsCheckbox),
+                                defaultChecked: true,
+                                name: "agree",
+                                required: true
+                            }),
+                            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+                                className: (_SignUp_module_scss__WEBPACK_IMPORTED_MODULE_6___default().agreementsTextContainer),
+                                children: [
+                                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("span", {
+                                        className: (_SignUp_module_scss__WEBPACK_IMPORTED_MODULE_6___default().agreementsText),
+                                        children: "I agree to the"
+                                    }),
+                                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("a", {
+                                        className: (_SignUp_module_scss__WEBPACK_IMPORTED_MODULE_6___default().agreementsLink),
+                                        href: "",
+                                        children: "terms & conditions"
+                                    }),
+                                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("span", {
+                                        className: (_SignUp_module_scss__WEBPACK_IMPORTED_MODULE_6___default().agreementsText),
+                                        children: "and"
+                                    }),
+                                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("a", {
+                                        className: (_SignUp_module_scss__WEBPACK_IMPORTED_MODULE_6___default().agreementsLink),
+                                        href: "",
+                                        children: "privacy policy"
+                                    })
+                                ]
+                            })
+                        ]
+                    }),
+                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
+                        className: (_SignUp_module_scss__WEBPACK_IMPORTED_MODULE_6___default().appButtonContainer),
+                        children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("button", {
+                            className: (_SignUp_module_scss__WEBPACK_IMPORTED_MODULE_6___default().buttonContainer),
+                            type: "submit",
+                            disabled: !canSend,
+                            children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("span", {
+                                className: (_SignUp_module_scss__WEBPACK_IMPORTED_MODULE_6___default().buttonText),
+                                children: "Continue"
+                            })
+                        })
+                    })
+                ]
+            })
+        ]
+    });
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SignUp);
+
+__webpack_async_result__();
+} catch(e) { __webpack_async_result__(e); } });
 
 /***/ }),
 
-/***/ "next/head":
-/*!****************************!*\
-  !*** external "next/head" ***!
-  \****************************/
+/***/ 968:
 /***/ ((module) => {
 
 "use strict";
@@ -118,10 +453,7 @@ module.exports = require("next/head");
 
 /***/ }),
 
-/***/ "react":
-/*!************************!*\
-  !*** external "react" ***!
-  \************************/
+/***/ 689:
 /***/ ((module) => {
 
 "use strict";
@@ -129,21 +461,15 @@ module.exports = require("react");
 
 /***/ }),
 
-/***/ "react/jsx-dev-runtime":
-/*!****************************************!*\
-  !*** external "react/jsx-dev-runtime" ***!
-  \****************************************/
+/***/ 997:
 /***/ ((module) => {
 
 "use strict";
-module.exports = require("react/jsx-dev-runtime");
+module.exports = require("react/jsx-runtime");
 
 /***/ }),
 
-/***/ "react-hook-form":
-/*!**********************************!*\
-  !*** external "react-hook-form" ***!
-  \**********************************/
+/***/ 137:
 /***/ ((module) => {
 
 "use strict";
@@ -158,7 +484,7 @@ module.exports = import("react-hook-form");;
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = (__webpack_exec__("./pages/signup.tsx"));
+var __webpack_exports__ = __webpack_require__.X(0, [611], () => (__webpack_exec__(181)));
 module.exports = __webpack_exports__;
 
 })();

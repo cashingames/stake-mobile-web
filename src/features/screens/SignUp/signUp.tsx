@@ -7,6 +7,8 @@ import GoogleSignUp from "../../../components/GoogleSignUp/GoogleSignUp";
 import styles from './SignUp.module.scss'
 
 const SignUp: React.FC = () => {
+    console.log(process.env.NEXT_PUBLIC_API_URL, 'hhhhhhhh')
+    console.log( 'weeee')
     const {
         register,
         formState: { errors },
@@ -91,11 +93,11 @@ const SignUp: React.FC = () => {
             <div className={styles.socialLinkContainer}>
                 <p className={styles.socialLinkText}>Use your social link</p>
                 <div>
-                    <GoogleSignUp buttonText="Sign up" />
+                    <GoogleSignUp buttonText="S up" />
                 </div>
                 <p className={styles.socialLinkText}>or</p>
             </div>
-            <form onSubmit={handleSubmit()}>
+            <form>
                 <div className={styles.inputsContainer}>
                     <div className={styles.inputContainer}>
                         <label className={styles.inputLabel}>Email</label>
