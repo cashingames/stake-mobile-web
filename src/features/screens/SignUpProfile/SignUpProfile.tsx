@@ -26,7 +26,7 @@ const SignUpProfile: React.FC = () => {
             <div className={styles.socialLinkContainer}>
                 <p className={styles.socialLinkText}>Input your details below</p>
             </div>
-            <form onSubmit={handleSubmit()}>
+            <form>
                 <div className={styles.inputsContainer}>
                     <div className={styles.inputContainer}>
                         <label className={styles.inputLabel}>First Name</label>

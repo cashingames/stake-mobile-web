@@ -4,14 +4,29 @@ import { FcGoogle } from 'react-icons/fc'
 import AuthTitle from "../../../components/AuthTitle/AuthTitle";
 import styles from './Login.module.scss'
 
+import {
+    useAppDispatch,
+    useAppSelector,
+} from '../../../app/hooks';
 
+import { authSelector } from '../../auth/selectors'
+import { loginUser } from '../../auth/actions'
 
 const Login: React.FC = () => {
+    const dispatch = useAppDispatch();
+
+    const {
+        token
+    } = useAppSelector(authSelector);
 
     const [canLogin, setCanLogin] = useState<boolean>(false)
     const [email, setEmail] = useState<string>('')
     const [password, setPassword] = useState('')
     const [showPassword, setShowPassword] = useState<boolean>(false)
+
+    const onSubmit = () => {
+
+    }
 
     useEffect(() => {
         const logMeIn = email.length > 4 && password.length > 5;
@@ -49,8 +64,9 @@ const Login: React.FC = () => {
                         }
                     </div>
                 </div>
-                <p className={styles.forgot}>Forgot password?</p>
+                <p className={styles.forgot}>Forg password?</p>
                 <button type="submit" disabled={!canLogin}
+                onClick={() => dispatch(loginUser())}
                     style={{
                         background: canLogin ? "#EF2F55" : 'grey',
                         color: '#fff'
