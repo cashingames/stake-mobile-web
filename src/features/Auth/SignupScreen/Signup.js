@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import AuthBanner from '../../../components/AuthBanner/AuthBanner';
 import AuthTitle from '../../../components/AuthTitle/AuthTitle';
 import GoogleSignup from '../../../components/GoogleSignup/GoogleSignup';
-import { FaEye, FaEyeSlash, FaFacebookF, FaApple } from 'react-icons/fa'
+import { FaEye, FaEyeSlash } from 'react-icons/fa'
 import './Signup.scss'
 
 
@@ -157,9 +157,9 @@ const Signup = () => {
                             name="agree" required />
                         <div className='agreementsTextContainer'>
                             <span className='agreementsText'>I agree to the</span>
-                            <a className='agreementsLink' href="">terms & conditions</a>
+                            <a className='agreementsLink' href="/login">terms & conditions</a>
                             <span className='agreementsText'>and</span>
-                            <a className='agreementsLink' href="">privacy policy</a>
+                            <a className='agreementsLink' href="/login">privacy policy</a>
                         </div>
                     </div>
                     <div className='appButtonContainer'>
