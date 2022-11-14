@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import AuthBanner from '../../../components/AuthBanner/AuthBanner';
 import AuthTitle from '../../../components/AuthTitle/AuthTitle';
-import { FaEye, FaEyeSlash, FaFacebookF, FaApple } from 'react-icons/fa'
+import { FaEye, FaEyeSlash} from 'react-icons/fa'
 import './Login.scss'
 import GoogleSignup from '../../../components/GoogleSignup/GoogleSignup';
 
