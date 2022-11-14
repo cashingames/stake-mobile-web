@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react';
 import AuthBanner from '../../../components/AuthBanner/AuthBanner';
 import AuthTitle from '../../../components/AuthTitle/AuthTitle';
 import GoogleSignup from '../../../components/GoogleSignup/GoogleSignup';
-import { FaEye, FaEyeSlash} from 'react-icons/fa'
+import { FaEye, FaEyeSlash } from 'react-icons/fa'
+import './Signup.scss'
+
 
 
 const Signup = () => {
@@ -48,9 +50,10 @@ const Signup = () => {
         setPasswordConfirmation(password_confirmation)
     }
     useEffect(() => {
-        const invalid = emailError || phoneErr || countryCodeErr || passwordError || password_confirmation !== password;
+        const invalid = emailError || email === '' || phone === '' || countryCode === '' || password === ''  || phoneErr 
+        || countryCodeErr || passwordError || password_confirmation !== password;
         setCanSend(!invalid);
-    }, [emailError, phoneErr, countryCodeErr, passwordError, password_confirmation, password])
+    }, [emailError, phoneErr, countryCodeErr, passwordError, password_confirmation, password, email, phone, countryCode])
 
 
     return (
@@ -160,6 +163,7 @@ const Signup = () => {
                             <span className='agreementsText'>and</span>
                             <a className='agreementsLink' href="/">privacy policy</a>
 
+                        </div>
                     </div>
                     <div className='appButtonContainer'>
                         <button className='buttonContainer'
@@ -170,6 +174,7 @@ const Signup = () => {
                 </form>
             </div>
         </div>
+
     )
 }
 export default Signup;

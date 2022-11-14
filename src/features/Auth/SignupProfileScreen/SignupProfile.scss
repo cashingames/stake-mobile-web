@@ -1,0 +1,78 @@
+.signupProfile {
+    padding: 5rem 1.8rem;
+    font-family: 'Graphik';
+
+    .headerTitle {
+        margin-top: 2rem;
+    }
+
+    .inputDetailsHeader {
+        text-align: center;
+        margin-top: 2rem;
+    }
+
+    .formContainer {
+        margin-top: 5rem;
+
+        .inputsContainer {
+            .inputContainer {
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 1.3rem;
+            }
+
+            .inputLabel {
+                margin-bottom: .45rem;
+                font-size: 0.76rem;
+                color: #000000B2;
+                font-weight: 500;
+            }
+
+            .inputBox {
+                color: #00000080;
+                font-size: 0.75rem;
+                border-radius: 5px;
+                padding: 0.5rem .6rem;
+                border: 1px solid #CDD4DF;
+                outline: none;
+            }
+
+            ::placeholder {
+                color: #00000080;
+            }
+
+            .inputError {
+                color: #EF2F55;
+                font-size: 0.65rem;
+                margin-top: .5rem;
+            }
+
+            .appButtonContainer {
+                .buttonContainer {
+                    margin-top: 3rem;
+                    background-color: #EF2F55;
+                    justify-content: center;
+                    display: flex;
+                    align-items: center;
+                    padding: 0.6rem 0;
+                    border-radius: 8px;
+                    width: 100%;
+                    border: none;
+
+                    .buttonText {
+                        color: white;
+                        font-size: 0.9rem;
+                        font-weight: 600;
+                    }
+
+                }
+
+                button[disabled] {
+                    border: none;
+                    background-color: #DFCBCF;
+                    color: white;
+                }
+            }
+        }
+    }
+}

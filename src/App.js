@@ -1,10 +1,10 @@
 
-import PrivacyPolicy from './features/Agreements/PrivacyPolicy';
+import SignupProfile from './features/Auth/SignupProfileScreen/SignupProfile';
 
 function App() {
   return (
     <div className="App">
-      <PrivacyPolicy />
+      <SignupProfile />
     </div>
   );
 }
