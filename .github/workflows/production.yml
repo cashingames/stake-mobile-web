@@ -1,48 +1,50 @@
-name: Production pipeline
+name: Staging pipeline
 
 on:
-  release:
-    types:
-      - published
+  push:
+    branches:
+      - master
 
 jobs:
   build-and-test-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js 12
-        uses: actions/setup-node@v2-beta
+      - name: Use Node.js 
+        uses: actions/setup-node@v1
         with:
-          node-version: "12"
-      - name: ci run build
-        run: |
-          npm ci
-          npm run build --if-present
+          node-version: 18.x
+      - run: yarn install --frozen-lockfile
+      - run: yarn run build --if-present
         env:
           CI: true
-          REACT_APP_API_URL: https://api.cashingames.com/api
-          REACT_APP_API_ROOT_URL: https://api.cashingames.com
-          REACT_APP_URL: https://cashingames.com
-          REACT_APP_PAYSTACK_KEY: ${{ secrets.PAYSTACK_KEY }}
-          REACT_APP_CHAT_SUPPORT_ID: ${{secrets.CHAT_SUPPORT_ID}}
-          REACT_APP_GOOGLE_CLIENT_ID: ${{secrets.GOOGLE_CLIENT_ID}}
-
-          REACT_APP_FIREBASE_API_KEY: ${{secrets.FIREBASE_API_KEY}}
-          REACT_APP_FIREBASE_AUTH_DOMAIN: ${{secrets.FIREBASE_AUTH_DOMAIN}}
-          REACT_APP_FIREBASE_DATABASE_URL: ${{secrets.FIREBASE_DATABASE_URL}}
-          REACT_APP_FIREBASE_PROJECT_ID: ${{secrets.FIREBASE_PROJECT_ID}}
-          REACT_APP_FIREBASE_STORAGE_BUCKET: ${{secrets.FIREBASE_STORAGE_BUCKET}}
-          REACT_APP_FIREBASE_MESSAGING_SENDER_ID: ${{secrets.FIREBASE_MESSAGING_SENDER_ID}}
-          REACT_APP_FIREBASE_APP_ID: ${{secrets.FIREBASE_APP_ID}}
-          REACT_APP_FIREBASE_MEASUREMENT_ID: ${{secrets.FIREBASE_MEASUREMENT_ID}}
+          # REACT_APP_API_URL: https://stg-api.cashingames.com/api
+          # REACT_APP_API_ROOT_URL: https://stg-api.cashingames.com
+          # REACT_APP_URL: https://stg.cashingames.com
+          # REACT_APP_PAYSTACK_KEY: ${{ secrets.PAYSTACK_KEY_TEST }}
+          # REACT_APP_CHAT_SUPPORT_ID: ${{secrets.CHAT_SUPPORT_ID_STAGING}}
+          # REACT_APP_GOOGLE_CLIENT_ID: ${{secrets.GOOGLE_CLIENT_ID}}
+          # REACT_APP_FIREBASE_API_KEY: ${{secrets.FIREBASE_API_KEY}}
+          # REACT_APP_FIREBASE_APP_ID: ${{secrets.FIREBASE_APP_ID_STAGING}}
+          # REACT_APP_FIREBASE_MEASUREMENT_ID: ${{secrets.FIREBASE_MEASUREMENT_ID_STAGING}}
+          # REACT_APP_FIREBASE_AUTH_DOMAIN: ${{secrets.FIREBASE_AUTH_DOMAIN}}
+          # REACT_APP_FIREBASE_DATABASE_URL: ${{secrets.FIREBASE_DATABASE_URL}}
+          # REACT_APP_FIREBASE_PROJECT_ID: ${{secrets.FIREBASE_PROJECT_ID}}
+          # REACT_APP_FIREBASE_STORAGE_BUCKET: ${{secrets.FIREBASE_STORAGE_BUCKET}}
+          # REACT_APP_FIREBASE_MESSAGING_SENDER_ID: ${{secrets.FIREBASE_MESSAGING_SENDER_ID}}
 
           # REACT_APP_RECAPTCHA_KEY: ${{ secrets.STG_RECAPTCHA_SITE_KEY }}
           # REACT_APP_GA_TRACK_ID: ${{ secrets.GA_TRACK_ID_TEST }}
           # BROWSERSLIST_IGNORE_OLD_DATA: 1
+
+      # - name: cypress test
+      #   run: |
+      #     npm run cypress-test
+
       - name: cd - deploy
         uses: SamKirkland/FTP-Deploy-Action@4.1.0
         with:
           server: ${{ secrets.FTP_HOST }}
-          username: site@cashingames.com
-          password: ${{ secrets.FTP_PASSWORD }}
+          username: ${{ secrets.PROD_FTP_USERNAME }}
+          password: ${{ secrets.PROD_FTP_PASSWORD }}
           local-dir: ./build/
