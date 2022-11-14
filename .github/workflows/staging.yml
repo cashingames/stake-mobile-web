@@ -10,13 +10,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js 12
+      - name: Use Node.js 17.x
         uses: actions/setup-node@v2-beta
         with:
           node-version: "12"
       - name: ci run build
         run: |
-          rm -rf node_modules && yarn install --frozen-lockfile
+          yarn install --immutable --immutable-cache --check-cache
           yarn run build --if-present
         env:
           CI: true
