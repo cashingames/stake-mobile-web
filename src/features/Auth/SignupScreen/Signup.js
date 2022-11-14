@@ -3,7 +3,6 @@ import AuthBanner from '../../../components/AuthBanner/AuthBanner';
 import AuthTitle from '../../../components/AuthTitle/AuthTitle';
 import GoogleSignup from '../../../components/GoogleSignup/GoogleSignup';
 import { FaEye, FaEyeSlash} from 'react-icons/fa'
-import './Signup.scss'
 
 
 const Signup = () => {
@@ -160,7 +159,7 @@ const Signup = () => {
                             <a className='agreementsLink' href="/">terms & conditions</a>
                             <span className='agreementsText'>and</span>
                             <a className='agreementsLink' href="/">privacy policy</a>
-                        </div>
+
                     </div>
                     <div className='appButtonContainer'>
                         <button className='buttonContainer'

@@ -2,6 +2,7 @@ name: Production pipeline
 
 on:
   release:
+    types: [published]
     branches:
       - master
 
