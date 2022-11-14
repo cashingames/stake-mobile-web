@@ -65,7 +65,7 @@ const Login = () => {
 
             </div>
             <div className='socialContainer'>
-                <p className='socialLinkText'>Don't have an account ?  <a className='signup' href=''>Create one</a></p>
+                <p className='socialLinkText'>Don't have an account ?  <a className='signup' href='#'>Create one</a></p>
                 <p className='socialLinkText'>or</p>
                 <GoogleSignup buttonText='Sign in' />
             </div>
