@@ -16,7 +16,7 @@ jobs:
           node-version: "12"
       - name: ci run build
         run: |
-          yarn install --immutable --immutable-cache --check-cache
+          rm -rf node_modules && yarn install --frozen-lockfile
           yarn run build --if-present
         env:
           CI: true
