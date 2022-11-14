@@ -1,10 +1,9 @@
-
-import SignupProfile from './features/Auth/SignupProfileScreen/SignupProfile';
+import Login from "./features/Auth/LoginScreen/Login";
 
 function App() {
   return (
     <div className="App">
-      <SignupProfile />
+      <Login />
     </div>
   );
 }
