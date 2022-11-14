@@ -1,7 +1,7 @@
-name: Staging pipeline
+name: Production pipeline
 
 on:
-  push:
+  release:
     branches:
       - master
 
