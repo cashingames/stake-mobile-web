@@ -2,28 +2,84 @@ import React, { useState, useEffect } from 'react';
 import AuthBanner from '../../../components/AuthBanner/AuthBanner';
 import AuthTitle from '../../../components/AuthTitle/AuthTitle';
 import { FaEye, FaEyeSlash } from 'react-icons/fa'
+import { useDispatch } from 'react-redux';
+import { saveToken } from '../../../utils/ApiHelpers';
 import './Login.scss'
 import GoogleSignup from '../../../components/GoogleSignup/GoogleSignup';
+import { loginUser, setToken } from '../AuthSlice';
+import { useNavigate } from "react-router-dom";
+
 
 
 
 const Login = () => {
+    const dispatch = useDispatch();
+    let navigate = useNavigate();
+
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [showPassword, setShowPassword] = useState(false)
     const [canLogin, setCanLogin] = useState(true)
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState('');
+
+
 
     useEffect(() => {
         const invalid = email.length < 4 || password.length < 8;
         setCanLogin(!invalid)
     }, [email, password])
 
+    const onLogin = () => {
+        console.log('trying')
+        setLoading(true);
+        setCanLogin(false);
+        setError("");
+        loginUser({
+            email, password
+        }).then(response => {
+            console.log(response, 'i am logging in')
+            saveToken(response.data.data)
+            dispatch(setToken(response.data.data))
+            navigate('/dashboard')
+
+        }, err => {
+            console.log('it failed')
+            if (!err || !err.response || err.response === undefined) {
+                setError("Your Network is Offline.");
+            }
+            else if (err.response.status === 500) {
+                setError("Service not currently available. Please contact support");
+            }
+            else {
+
+                const errors =
+                    err.response && err.response.data && err.response.data.errors;
+
+                if (err.response.status === 400 && err.response.data.message === 'Account not verified') {
+                    navigate('/', {
+                        phone_number: err.response.data.errors.phoneNumber,
+                        username: err.response.data.errors.username, next_resend_minutes: 1
+                    })
+                }
+
+                const firstError = Array.isArray(errors) ? Object.values(errors, {})[0][0] : errors;
+                // console.log(firstError)
+                setError(firstError)
+            }
+            setLoading(false);
+        });
+    }
+
     return (
         <div className='login'>
             <AuthBanner />
             <AuthTitle titleText="Sign In" styleProp='headerTitle' />
             <div className='inputsContainer'>
-                <form className='formContainer'>
+                <div className='formContainer'>
+                    {error.length > 0 &&
+                        <span className='inputError'>{error}</span>
+                    }
                     <div className='inputContainer'>
                         <label htmlFor='email' className='inputLabel'>Email or username</label>
                         <input
@@ -54,18 +110,18 @@ const Login = () => {
                         </div>
                     </div>
                     <div className='forgotPasswordContainer'>
-                        <p className='forgotPasswordText'>Forgot Password?</p>
+                        <a  href='/forgot-password' className='forgotPasswordText'>Forgot Password?</a>
                     </div>
                     <div className='appButtonContainer'>
-                        <button className='buttonContainer' disabled={!canLogin}>
-                            <span className='buttonText'>Sign in</span>
+                        <button className='buttonContainer' disabled={!canLogin || loading} type='submit' onClick={onLogin}>
+                            <span className='buttonText'>{loading ? "Signing in" : "Sign In"}</span>
                         </button>
                     </div>
-                </form>
+                </div>
 
             </div>
             <div className='socialContainer'>
-                <p className='socialLinkText'>Don't have an account ?  <a className='signup' href='/login'>Create one</a></p>
+                <p className='socialLinkText'>Don't have an account ?  <a className='signup' href='/sign-up'>Create one</a></p>
                 <p className='socialLinkText'>or</p>
                 <GoogleSignup buttonText='Sign in' />
             </div>
