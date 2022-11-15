@@ -159,9 +159,9 @@ const Signup = () => {
                             name="agree" required />
                         <div className='agreementsTextContainer'>
                             <span className='agreementsText'>I agree to the</span>
-                            <a className='agreementsLink' href="/">terms & conditions</a>
+                            <a className='agreementsLink' href="/terms">terms & conditions</a>
                             <span className='agreementsText'>and</span>
-                            <a className='agreementsLink' href="/">privacy policy</a>
+                            <a className='agreementsLink' href="/privacy">privacy policy</a>
 
                         </div>
                     </div>

@@ -1,9 +1,9 @@
-import Login from "./features/Auth/LoginScreen/Login";
+import AppRouter from "./AppRouter";
 
 function App() {
   return (
     <div className="App">
-      <Login />
+      <AppRouter />
     </div>
   );
 }
