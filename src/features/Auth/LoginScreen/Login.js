@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import AuthBanner from '../../../components/AuthBanner/AuthBanner';
 import AuthTitle from '../../../components/AuthTitle/AuthTitle';
-import { FaEye, FaEyeSlash} from 'react-icons/fa'
+import { FaEye, FaEyeSlash } from 'react-icons/fa'
 import './Login.scss'
 import GoogleSignup from '../../../components/GoogleSignup/GoogleSignup';
 
@@ -25,7 +25,7 @@ const Login = () => {
             <div className='inputsContainer'>
                 <form className='formContainer'>
                     <div className='inputContainer'>
-                        <label htmlFor='email' className='inputLabel'>Email or Username</label>
+                        <label htmlFor='email' className='inputLabel'>Email or username</label>
                         <input
                             placeholder='johndoe or johndoe@example.com'
                             id='email'
@@ -54,12 +54,12 @@ const Login = () => {
                         </div>
                     </div>
                     <div className='forgotPasswordContainer'>
-                        <p className='forgotPasswordText'>Forgot password ?</p>
+                        <p className='forgotPasswordText'>Forgot Password?</p>
                     </div>
                     <div className='appButtonContainer'>
-                    <button className='buttonContainer' disabled={!canLogin}>
-                        <span className='buttonText'>Sign in</span>
-                    </button>
+                        <button className='buttonContainer' disabled={!canLogin}>
+                            <span className='buttonText'>Sign in</span>
+                        </button>
                     </div>
                 </form>
 
