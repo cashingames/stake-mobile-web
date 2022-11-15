@@ -8,6 +8,7 @@ import TermsAndConditions from './features/Agreements/TermsAndConditions';
 import ForgotPassword from './features/Auth/ForgotPassword/ForgotPassword';
 import ResetPassword from './features/Auth/ResetPassword/ResetPassword';
 import VerifyOtp from './features/Auth/VerifyOtp/VerifyOtp';
+import Home from './features/HomeScreen/Home';
 
 const AppRouter = () => {
     return (
@@ -20,6 +21,7 @@ const AppRouter = () => {
             <Route path="/forgot-password" element={<ForgotPassword />} />
             <Route path="/reset-password" element={<ResetPassword />} />
             <Route path="/verify-otp" element={<VerifyOtp />} />
+            <Route path="/dashboard" element={<Home />} />
         </Routes>
     )
 }
