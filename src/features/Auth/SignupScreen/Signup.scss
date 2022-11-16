@@ -1,6 +1,8 @@
 .signupContainer {
-    padding: 5rem 1.8rem;
+    padding: 2rem 1rem;
     font-family: 'Graphik';
+    // .headerTitle {
+    // }
 
     .socialLinkContainer {
         display: flex;
@@ -19,22 +21,23 @@
         margin-top: 3.5rem;
 
         .inputsContainer {
+            position: relative;
             .inputContainer {
                 display: flex;
                 flex-direction: column;
-                margin-bottom: 1.3rem;
+                margin-bottom: 1rem;
 
                 .inputLabel {
                     margin-bottom: .45rem;
-                    font-size: 0.76rem;
+                    font-size: 0.7rem;
                     color: #000000B2;
                     font-weight: 500;
                 }
 
                 .inputBox {
                     color: #00000080;
-                    font-size: 0.75rem;
-                    border-radius: 5px;
+                    font-size: 0.7rem;
+                    border-radius: 7px;
                     padding: 0.5rem .6rem;
                     border: 1px solid #CDD4DF;
                     outline: none;
@@ -47,7 +50,7 @@
                 .phoneContainer {
                     border: 1px solid #CDD4DF;
                     padding: 0.5rem .6rem;
-                    border-radius: 5px;
+                    border-radius: 7px;
                     font-size: 0.75rem;
 
                     .countryCode {
@@ -55,14 +58,14 @@
                         border-right: 1px solid #CDD4DF;
                         width: 2rem;
                         margin-right: .5rem;
-                        font-size: 0.75rem;
+                        font-size: 0.7rem;
                         outline: none;
                     }
 
                     .phoneInput {
                         border: none;
                         outline: none;
-                        font-size: 0.75rem;
+                        font-size: 0.7rem;
                     }
 
                 }
@@ -77,9 +80,8 @@
                     display: flex;
                     flex-direction: row;
                     justify-content: space-between;
-                    border-radius: 5px;
+                    border-radius: 7px;
                     padding: 0.5rem 0.6rem;
-                    border-width: 1px;
                     font-size: 0.75rem;
                     border: 1px solid #CDD4DF;
 
@@ -102,24 +104,22 @@
 
             .agreementsContainer {
                 display: flex;
-                align-items: center;
+                align-items: flex-start;
 
                 .agreementsCheckbox {
-                    border-width: 1px;
-                    outline-style: auto;
-                    outline-color: #CDD4DF;
+                    border: 1px solid #CDD4DF;
                 }
 
                 .agreementsTextContainer {
                     .agreementsText {
                         color: black;
-                        font-size: 0.85rem;
+                        font-size: 0.8rem;
                         font-weight: 400;
                     }
 
                     .agreementsLink {
                         color: #EF2F55;
-                        font-size: 0.85rem;
+                        font-size: 0.8rem;
                         font-weight: 400;
                         margin: 0 5px;
                         text-decoration: none;
