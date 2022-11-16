@@ -4,10 +4,16 @@ import AuthTitle from '../../../components/AuthTitle/AuthTitle';
 import GoogleSignup from '../../../components/GoogleSignup/GoogleSignup';
 import { FaEye, FaEyeSlash } from 'react-icons/fa'
 import './Signup.scss'
+import { saveCreatedUserCredentials } from '../AuthSlice';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 
 
 const Signup = () => {
+
+    const dispatch = useDispatch();
+    let navigate = useNavigate();
 
     const [email, setEmail] = useState('')
     const [phone, setPhone] = useState('')
@@ -20,6 +26,7 @@ const Signup = () => {
     const [passwordError, setPasswordError] = useState(false);
     const [showPassword, setShowPassword] = useState(false)
     const [canSend, setCanSend] = useState(true)
+    const [loading, setLoading] = useState(false);
 
 
     const onChangeEmail = (e) => {
@@ -50,16 +57,24 @@ const Signup = () => {
         setPasswordConfirmation(password_confirmation)
     }
     useEffect(() => {
-        const invalid = emailError || email === '' || phone === '' || countryCode === '' || password === ''  || phoneErr 
-        || countryCodeErr || passwordError || password_confirmation !== password;
+        const invalid = emailError || email === '' || phone === '' || countryCode === '' || password === '' || phoneErr
+            || countryCodeErr || passwordError || password_confirmation !== password;
         setCanSend(!invalid);
     }, [emailError, phoneErr, countryCodeErr, passwordError, password_confirmation, password, email, phone, countryCode])
+
+    const onNext = () => {
+        console.log('saving')
+        setLoading(true);
+        //save this information in store
+        dispatch(saveCreatedUserCredentials({ email, password, password_confirmation: password, phone_number: phone, country_code: countryCode }))
+            navigate("/sign-up-profile")
+    }
 
 
     return (
         <div className='signupContainer'>
             <AuthBanner />
-            <AuthTitle titleText="Create an account" />
+            <AuthTitle titleText="Create an account" styleProp='headerTitle' />
             <div className='socialLinkContainer'>
                 <p className='socialLinkText'>Use your social link</p>
                 <div>
@@ -68,7 +83,7 @@ const Signup = () => {
                 <p className='socialLinkText'>or</p>
             </div>
             <div className='formContainer'>
-                <form className='inputsContainer'>
+                <div className='inputsContainer'>
                     <div className='inputContainer'>
                         <label htmlFor='email' className='inputLabel'>Email</label>
                         <input
@@ -167,11 +182,12 @@ const Signup = () => {
                     </div>
                     <div className='appButtonContainer'>
                         <button className='buttonContainer'
-                            type="submit" disabled={!canSend}>
-                            <span className='buttonText'>Continue</span>
+                            type="submit" disabled={!canSend || loading} onClick={onNext}>
+                            <span className='buttonText'>{loading ? "Processing" : "Continue"}</span>
+
                         </button>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
 

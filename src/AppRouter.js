@@ -9,6 +9,7 @@ import ForgotPassword from './features/Auth/ForgotPassword/ForgotPassword';
 import ResetPassword from './features/Auth/ResetPassword/ResetPassword';
 import VerifyOtp from './features/Auth/VerifyOtp/VerifyOtp';
 import Home from './features/HomeScreen/Home';
+import VerifyRegistrationOtp from './features/Auth/VerifyRegistrationOtp/VerifyRegistrationOtp';
 
 const AppRouter = () => {
     return (
@@ -16,6 +17,7 @@ const AppRouter = () => {
             <Route path="/" element={<Login />} />
             <Route path="/sign-up" element={<Signup />} />
             <Route path="/sign-up-profile" element={<SignupProfile />} />
+            <Route path="/verify-phone-number" element={<VerifyRegistrationOtp />} />
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/terms" element={<TermsAndConditions />} />
             <Route path="/forgot-password" element={<ForgotPassword />} />
