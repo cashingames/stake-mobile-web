@@ -2,7 +2,7 @@
     padding: 0 1.5rem;
     font-weight: 500;
     font-size: 0.85rem;
-    font-family: 'Graphik';
+    font-family: 'Graphik', sans-serif;
     .gameCardContainer{
         display: flex;
         align-items: center;
@@ -13,6 +13,8 @@
         border-radius: 7px;
         box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
         padding: 0.8rem;
+        background-color: #701F88;
+        color: #fff;
         .circleContainer{
             width: 100%;
             display: flex;
@@ -21,7 +23,7 @@
             height:15px;
             width: 15px;
             border-radius: 50%;
-            background-color: skyblue;
+            background-color: #EF2F55;
             }
         }
         .cardTitle{

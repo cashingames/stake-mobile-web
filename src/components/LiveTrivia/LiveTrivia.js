@@ -22,7 +22,7 @@ function LiveTrivia() {
             <IoTimerOutline />
             <p>starts in 1d 8h 30m 51s</p>
           </div>
-          <img src='/images/images/yellow-line-bottom.png' alt='bottom line image' />
+          <img src='/images/yellow-line-bottom.png' alt='bottom line' />
         </div>
     </div>
 

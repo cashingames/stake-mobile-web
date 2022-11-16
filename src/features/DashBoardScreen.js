@@ -1,5 +1,5 @@
 import React from 'react'
-import DashBoardHeader from '../components/DashBoardHeader/DashBoardHeader'
+import AppHeader from '../components/AppHeader/AppHeader'
 import HeroBanner from '../components/HeroBanner/HeroBanner'
 import SelectGame from '../components/SelectGame/SelectGame'
 import TopChallengers from '../components/TopChallengers/TopChallengers'
@@ -7,7 +7,7 @@ import TopPlayers from '../components/TopPlayers/TopPlayers'
 function DashBoardScreen() {
   return (
     <div>
-        <DashBoardHeader />
+        <AppHeader />
         <HeroBanner />
         <SelectGame />
         <TopChallengers />

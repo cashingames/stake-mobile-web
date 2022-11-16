@@ -1,16 +1,14 @@
-import { Avatar } from '@mui/material';
 import * as React from 'react';
-import { FaBars, FaHome } from 'react-icons/fa'
 import { IoWalletOutline, IoNotificationsOutline, IoHomeOutline, IoMenuSharp } from "react-icons/io5";
 import AuthTitle from '../AuthTitle/AuthTitle'
-import './DashBoardHeader.scss'
+import './AppHeader.scss'
 
-const DashBoardHeader = () => {
+const AppHeader = () => {
   return(
-    <div className='dashboardContainer'>
-      <div className='dashboardTitle'>
+    <div className='appHeaderContainer'>
+      <div className='appHeaderTitle'>
         <IoMenuSharp className='icon' />
-        <AuthTitle  titleText='Home'/>
+        <AuthTitle  titleText='Home' styleProp='title'/>
       </div>
       <div className='navlinks'>
         <div className='navlink'>
@@ -24,7 +22,7 @@ const DashBoardHeader = () => {
         <div className='notification'>
           <IoNotificationsOutline className='notifyIcon'/>
           <div className='notificationNumber'>
-            <p>1234</p>
+            <p>90</p>
           </div>
         </div>
       </div>
@@ -32,4 +30,4 @@ const DashBoardHeader = () => {
   )
 }
 
-export default DashBoardHeader
+export default AppHeader

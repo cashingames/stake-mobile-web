@@ -1,8 +1,5 @@
 import React from 'react';
 import Avatar from '@mui/material/Avatar';
-import image from '../../assets/images/position3.png'
-import image2 from '../../assets/images/position1.png'
-import image3 from '../../assets/images/position2.png'
 import { IoArrowForward } from "react-icons/io5";
 import { Person } from '@mui/icons-material';
 import './TopPlayers.scss'
@@ -22,19 +19,28 @@ function TopPlayers() {
                 <div className='positionContainer'>
                     <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
                     <p className='leaderName'>Remy</p>
-                    <img src={image} alt='third position' />
+                    <img src='/images/position3.png'   alt='third position' />
+                    <div className='leaderPoints'>
+                        <p className='point'>77 pts</p>
+                    </div>
                 </div>
                 <div className='positionContainer'>
                     <Avatar>
                         <Person />
                     </Avatar>
                     <p className='leaderName'>James</p>
-                    <img src={image2} alt='third position' />
+                    <img src='/images/position1.png' alt='third position' />
+                    <div className='leaderPoints'>
+                        <p className='point'>22.4 pts</p>
+                    </div>
                 </div>
                 <div className='positionContainer'>
                     <Avatar alt="Sharp" src="/static/images/avatar/1.jpg" />
                     <p className='leaderName'>Sharp</p>
-                    <img src={image3} alt='third position' />
+                    <img src='/images/position2.png' alt='third position' />
+                    <div className='leaderPoints'>
+                        <p className='point'>63.5 pts</p>
+                    </div>
                 </div>
                 </div>
             </div>
