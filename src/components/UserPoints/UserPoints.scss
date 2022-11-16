@@ -1,0 +1,32 @@
+.userPoints{
+    background-color: #518ef8;
+    padding: 0.5rem;
+    border-radius: 8px;
+    font-family: 'Graphik';
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    position: relative;
+    .pointsNumber{
+        display: flex;
+        flex-direction: column;
+        font-family: 'Graphik';
+        align-items: center;
+        background-color: #072169;
+        font-size: 0.6rem;
+        height: 70px;
+        width: 70px;
+        justify-content: center;
+        border-radius: 50%;
+        p{
+            margin: 0.02rem;
+        }
+    }
+    .trophy{
+        position: absolute;
+        right: 1.5rem;
+        top:-1rem;
+        height: 90px;
+        z-index: 1;
+    }
+}

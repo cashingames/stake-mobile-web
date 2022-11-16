@@ -1,0 +1,16 @@
+.heroBanner{
+    background-color: #072169;
+    padding:0.1rem 1.5rem;
+    padding-bottom: .5rem;
+    color: #fff;
+    font-family: 'Graphik';
+    .heroWallet{
+        display: flex;
+        align-items: center;
+        margin: 0;
+        p{
+            margin: 0;
+            font-size: 0.85rem;
+        }
+    }
+}

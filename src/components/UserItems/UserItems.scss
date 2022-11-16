@@ -1,0 +1,34 @@
+.userItems{
+    background-color: #518ef8;
+    border-radius: 1rem;
+    align-items: center;
+    margin: .5rem 0;
+    justify-content: center;
+    font-family: 'Graphik';
+    display: flex;
+    justify-content: center;
+    .animationContainer{
+        display: flex;
+        align-self: center;
+        padding-bottom: 1rem;
+    }
+    .textContainer{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 1.5rem;
+       font-weight: 400;
+    .text1, .text2{
+        font-size: 0.7rem;
+        margin: 0.3rem 0;
+    }
+    .text1{
+        padding: 0 .2rem;
+        margin:auto;
+    }
+    .text2{
+        border-top: 1px solid white;
+        padding: 0.3rem 0;
+        }
+    }
+}
