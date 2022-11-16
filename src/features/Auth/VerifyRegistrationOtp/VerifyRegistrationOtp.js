@@ -44,7 +44,7 @@ const VerifyRegistrationOtp = () => {
 
         return () => clearInterval(countDown);
 
-    }, [])
+    }, )
 
     useEffect(() => {
         const invalid = firstDigit === '' || secondDigit === '' || thirdDigit === '' 

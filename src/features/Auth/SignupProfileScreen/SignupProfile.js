@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import AuthBanner from '../../../components/AuthBanner/AuthBanner';
 import AuthTitle from '../../../components/AuthTitle/AuthTitle';
-import { useDispatch, useSelector } from 'react-redux';
+import {  useSelector } from 'react-redux';
 import { registerUser} from '../AuthSlice';
 import { useNavigate } from "react-router-dom";
 
 import './SignupProfile.scss'
 
 const SignupProfile = () => {
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
     let navigate = useNavigate();
     const userCredentials = useSelector(state => state.auth.createAccount);
     console.log(userCredentials)
