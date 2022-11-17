@@ -1,12 +1,9 @@
-import Login from "./features/Auth/LoginScreen/Login";
-import image1 from './assets/wallet.json'
-import DashBoardScreen from "./features/DashBoardScreen";
-
+import AppRouter from "./AppRouter";
 
 function App() {
   return (
     <div className="App">
-      <DashBoardScreen />
+      <AppRouter />
     </div>
   );
 }
