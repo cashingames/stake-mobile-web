@@ -1,0 +1,78 @@
+* {
+    box-sizing: border-box;
+}
+
+.appHeaderContainer {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 1rem 0.5rem;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    right: 0;
+    width: 100%;
+    z-index: 2;
+    background: #FAC502;
+    font-family: 'Graphik';
+    .appHeaderTitle {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 2rem;
+        .title {
+            font-weight: 500;
+            font-size: 1.3rem;
+        }
+        .icon {
+            font-size: 1.5rem;
+        }
+    }
+    .navlinks {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        .navlink {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            .icon {
+                font-size: 1.5rem;
+            }
+            .text {
+                margin-top: 0.2rem;
+                margin-bottom: 0;
+                font-size: 0.55rem;
+                font-weight: 500;
+                text-transform: capitalize;
+                color: #000000B2
+            }
+
+        }
+        .notification {
+            display: flex;
+            position: relative;
+            .notifyIcon {
+                font-size: 1.5rem;
+            }
+            .notificationNumber {
+                position: absolute;
+                background-color: #518Ef8;
+                left: 22px;
+                top: 0;
+                border-radius: 50%;
+                width: 18px;
+                height: 18px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border: 1px solid #fff;
+
+                p {
+                    font-size: 0.4rem;
+                    color: #fff;
+                }
+            }
+        }
+    }
+}

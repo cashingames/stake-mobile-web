@@ -1,0 +1,52 @@
+.gameContainer{
+    padding: 0 1.5rem;
+    font-weight: 500;
+    font-size: 0.85rem;
+    font-family: 'Graphik', sans-serif;
+    .gameCardContainer{
+        display: flex;
+        align-items: center;
+        gap:1rem;
+    .gameCard{
+        width:135px;
+        height: 110px;
+        border-radius: 7px;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        padding: 0.8rem;
+        background-color: #701F88;
+        color: #fff;
+        .circleContainer{
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+        .cardCircle{
+            height:15px;
+            width: 15px;
+            border-radius: 50%;
+            background-color: #EF2F55;
+            }
+        }
+        .cardTitle{
+            font-size: 0.87rem;
+        }
+        .cardInstruction{
+            font-size: 0.68rem;
+            font-weight: 400;
+            }
+        }
+    }
+    .gameBtn{
+        margin: 2rem 0;
+        background-color: #EF2F55;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+        padding: 0.6rem 0;
+        border-radius: 8px;
+        width: 100%;
+        border: none;
+            color: white;
+            font-size: 0.9rem;
+            font-weight: 600;
+    }
+}

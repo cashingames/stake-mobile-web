@@ -1,0 +1,39 @@
+.userItems {
+    background-color: #518ef8;
+    border-radius: 1rem;
+    font-family: 'Graphik', sans-serif;
+    display: flex;
+    flex-direction: column;
+    margin: 0.5rem 0;
+    padding-right: 1rem;
+    padding-bottom: 0.8rem;
+    .userItemsInfo {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        .textContainer {
+            .text1 {
+                border-bottom: 1px solid #fff;
+                font-size: 0.9rem;
+                font-weight: 400;
+                text-align: center;
+                padding-bottom: 0.9rem;
+            }
+            .text2 {
+                font-size: 0.9rem;
+                font-weight: 400;
+                text-align: center;
+            }
+        }
+    }
+    .shopLink {
+        display: flex;
+        justify-content: flex-end;
+        margin-right: 2rem;
+        font-size: 0.7rem;
+        color: #EF2F55;
+        text-decoration: none;
+        font-weight: 500;
+    }
+}

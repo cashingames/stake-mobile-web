@@ -12,7 +12,7 @@ const VerifyOtp = () => {
             return i === index ? e.value : d
         })])
 
-        if(e.nextSibling){
+        if(e.value && e.nextSibling){
             e.nextSibling.focus()
         }
     } 

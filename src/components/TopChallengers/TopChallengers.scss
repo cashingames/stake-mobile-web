@@ -1,0 +1,40 @@
+.topChallengers{
+    padding: 0 1.5rem;
+    margin:2rem 0;
+    font-family: 'Graphik', sans-serif;
+    .topChallengeTitle{
+        font-size: .9rem;
+        font-family: 'Graphik';
+        font-weight: 500;
+        margin:10px 0;
+    }
+    .topChallengerContainer{
+        background-color: #701F88;
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-end;
+        border-radius: 15px;
+        padding: .5rem 2rem;
+        width:100%;
+        .positionContainer{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .crown{
+                height: 45px;
+                width: 45px;
+                object-fit: cover;
+            }
+            .leaderName{
+                font-size: .7rem;
+                font-weight: 400;
+                margin: 3px;
+                color: #Fff;
+            }
+            .positionImage{
+                min-width: 120px;
+                
+            }
+        }
+    }
+}
