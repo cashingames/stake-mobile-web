@@ -12,7 +12,7 @@ function UserPoints() {
         <div className='pointsNumber'>
             <p>0</p>
             <p>pts</p>
-            <p>TOTAL</p>
+            <p>TODAY</p>
         </div>
         <img src='images/point-trophy.png' alt='trophy' className='trophy'/>
     </div>

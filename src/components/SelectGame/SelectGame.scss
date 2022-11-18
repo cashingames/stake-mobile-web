@@ -28,10 +28,11 @@
         }
         .cardTitle{
             font-size: 0.87rem;
+            text-transform: uppercase;
         }
         .cardInstruction{
             font-size: 0.68rem;
-            font-weight: 400;
+            font-weight: 300;
             }
         }
     }
@@ -47,6 +48,5 @@
         border: none;
             color: white;
             font-size: 0.9rem;
-            font-weight: 600;
     }
 }
