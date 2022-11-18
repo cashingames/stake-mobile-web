@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
-import { saveToken } from '../../../utils/ApiHelpers';
-import { ResendPhoneOtp, verifyPhoneOtp, setToken } from '../AuthSlice';
+import { ResendPhoneOtp, verifyPhoneOtp, setToken, saveToken } from '../AuthSlice';
 import { calculateTimeRemaining } from "../../../utils/utils";
 import './VerifyRegistrationOtp.scss'
 import { unwrapResult } from "@reduxjs/toolkit";
