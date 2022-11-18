@@ -18,7 +18,7 @@ function UserItems() {
                             }/>
                     <div className='textContainer'>
                         <p className='text1'>You have 5 games left</p>
-                        <p className='text2'>3 Time Freeze, 6 skip, 10 bomb</p>
+                        <p className='text2'>3 Time Freeze, 6 skip</p>
                     </div>
                 </div>
                 <a href='/#' className='shopLink'>Buy more</a>
