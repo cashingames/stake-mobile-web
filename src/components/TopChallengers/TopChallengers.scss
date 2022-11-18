@@ -1,39 +1,59 @@
-.topChallengers{
+.topChallengers {
     padding: 0 1.5rem;
-    margin:2rem 0;
+    margin: 2rem 0;
     font-family: 'Graphik', sans-serif;
-    .topChallengeTitle{
-        font-size: .9rem;
-        font-family: 'Graphik';
-        font-weight: 500;
-        margin:10px 0;
+
+    .topChallengeTitle {
+        font-size: 1rem;
+        font-weight: 450;
+        margin-bottom: 10px;
     }
-    .topChallengerContainer{
+
+    .topChallengerContainer {
         background-color: #701F88;
         display: flex;
         justify-content: space-around;
         align-items: flex-end;
         border-radius: 15px;
         padding: .5rem 2rem;
-        width:100%;
-        .positionContainer{
+        width: 100%;
+
+        .positionContainer {
             display: flex;
             flex-direction: column;
             align-items: center;
-            .crown{
+            position: relative;
+
+            .crown {
                 height: 45px;
                 width: 45px;
                 object-fit: cover;
             }
-            .leaderName{
+
+            .firstCrown {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .otherCrown {
+                position: absolute;
+                top: -3.5rem;
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+            }
+
+            .leaderName {
                 font-size: .7rem;
                 font-weight: 400;
                 margin: 3px;
                 color: #Fff;
             }
-            .positionImage{
+
+            .positionImage {
                 min-width: 120px;
-                
+
             }
         }
     }

@@ -3,16 +3,20 @@
     font-weight: 500;
     font-size: 0.85rem;
     font-family: 'Graphik', sans-serif;
+    .gameTitle{
+        font-size: 1rem;
+        font-weight: 450;
+        margin-bottom: 10px;    }
     .gameCardContainer{
         display: flex;
         align-items: center;
         gap:1rem;
     .gameCard{
         width:135px;
-        height: 120px;
+        height: 135px;
         border-radius: 7px;
         box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-        padding: 0.8rem;
+        padding: 1rem 0.8rem;
         background-color: #701F88;
         color: #fff;
         .circleContainer{
@@ -35,7 +39,7 @@
         }
         .cardInstruction{
             font-size: 0.68rem;
-            font-weight: 300;
+            font-weight: 350;
             }
         }
     }
