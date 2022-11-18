@@ -16,6 +16,19 @@
 
         .inputsContainer {
             position: relative;
+
+            .inputError {
+                text-align: center;
+                margin: 1rem 0;
+                background-color: #F442741A;
+                border-radius: 7px;
+                color: #EF2F55;
+                font-size: 0.7rem;
+                padding: .5rem 0;
+                display: flex;
+                justify-content: center;
+            }
+
             .inputContainer {
                 display: flex;
                 flex-direction: column;

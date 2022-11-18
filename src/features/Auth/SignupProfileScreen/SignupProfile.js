@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import AuthBanner from '../../../components/AuthBanner/AuthBanner';
 import AuthTitle from '../../../components/AuthTitle/AuthTitle';
-import {  useSelector } from 'react-redux';
-import { registerUser} from '../AuthSlice';
+import { useSelector } from 'react-redux';
+import { registerUser } from '../AuthSlice';
 import { useNavigate } from "react-router-dom";
 
 import './SignupProfile.scss'
@@ -71,12 +71,12 @@ const SignupProfile = () => {
             ...userCredentials
         }).then(response => {
             console.log(response.data.data, 'all good')
-            // saveToken(response.data.data)
-            // dispatch(setToken(response.data.data))
-            navigate('/verify-phone-number', {state:{
-                phone_number: userCredentials.phone_number,
-                username: username, next_resend_minutes: response.data.data.next_resend_minutes
-            }})
+            navigate('/verify-phone-number', {
+                state: {
+                    phone_number: userCredentials.phone_number,
+                    username: username, next_resend_minutes: response.data.data.next_resend_minutes
+                }
+            })
 
         }, err => {
             if (!err || !err.response || err.response === undefined) {
@@ -103,7 +103,7 @@ const SignupProfile = () => {
             <div className='formContainer'>
                 <div className='inputsContainer'>
                     {error.length > 0 &&
-                        <p className='errorBox'>{error}</p>
+                        <span className='inputError'>{error}</span>
                     }
                     <div className='inputContainer'>
                         <label htmlFor='firstname' className='inputLabel'>First name</label>

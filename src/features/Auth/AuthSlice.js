@@ -3,7 +3,12 @@ import axios from 'axios';
 
 const baseURL = process.env.REACT_APP_API_URL;
 
+export const saveToken = (data) => {
+    window.localStorage.setItem("token", data);
+    window.localStorage.setItem("used", "token")
+}
 export const registerUser = async (data) => {
+    console.log('registering', data)
     return axios.post(`${baseURL}/auth/register`, data);
 }
 export const loginUser = async (data) => {
