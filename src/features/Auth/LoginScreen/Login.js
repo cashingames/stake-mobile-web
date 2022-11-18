@@ -3,10 +3,9 @@ import AuthBanner from '../../../components/AuthBanner/AuthBanner';
 import AuthTitle from '../../../components/AuthTitle/AuthTitle';
 import { FaEye, FaEyeSlash } from 'react-icons/fa'
 import { useDispatch } from 'react-redux';
-import { saveToken } from '../../../utils/ApiHelpers';
 import './Login.scss'
 import GoogleSignup from '../../../components/GoogleSignup/GoogleSignup';
-import { loginUser, setToken } from '../AuthSlice';
+import { loginUser, saveToken, setToken } from '../AuthSlice';
 import { useNavigate } from "react-router-dom";
 
 
