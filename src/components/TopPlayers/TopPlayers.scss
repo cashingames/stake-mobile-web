@@ -19,17 +19,18 @@
         display: flex;
         align-items: center;
         font-size: 0.7rem;
-        font-weight: 500;
         margin: 0;
+        gap: 2px;
         color:#EF2F55;
     .extendedText{
         font-size: 0.7rem;
-        font-weight: 500;
+        font-weight: 430;
         margin: 0;
         color:#EF2F55
     }
     .icon{
         font-size: 1.3rem;
+        margin-bottom: 5px;
     }
 }
     }
@@ -47,12 +48,17 @@
             flex-direction: column;
             align-items: center;
             position: relative;
+            .leaderProfile{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
             .leaderName{
                 font-size: .7rem;
                 font-family: 'Graphik';
                 margin: 3px;
                 color: rgba(0, 0, 0, 0.6980392157);
             }
+        }
             .leaderPoints{
                 display: flex;
                 align-items: center;

@@ -9,7 +9,7 @@ function SelectGame() {
   }
   return (
     <div className='gameContainer'>
-        <p>Select game mode</p>
+        <p className='gameTitle'>Select game mode</p>
     <div className='gameCardContainer'>
         <div className='gameCard' onClick={showButtonFunc}>
           <div className='circleContainer'>

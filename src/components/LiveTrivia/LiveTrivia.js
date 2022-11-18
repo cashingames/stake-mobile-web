@@ -20,7 +20,7 @@ function LiveTrivia() {
         <div className='trivaImg'>
           <div className='timer'>
             <IoTimerOutline />
-            <p>starts in 1d 8h 30m 51s</p>
+            <p>Starts in 1d 8h 30m 51s</p>
           </div>
           <img src='/images/yellow-line-bottom.png' alt='bottom line' />
         </div>
