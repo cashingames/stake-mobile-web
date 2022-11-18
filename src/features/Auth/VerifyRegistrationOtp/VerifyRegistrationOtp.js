@@ -99,7 +99,7 @@ const VerifyRegistrationOtp = () => {
             })
             .catch((rejectedValueOrSerializedError) => {
                 console.log(rejectedValueOrSerializedError)
-                console.log("Failed to log in");
+                alert("Failed to log in, please input the correct code");
                 setLoading(false);
             })
     }
