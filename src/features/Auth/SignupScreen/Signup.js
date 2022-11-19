@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import AuthBanner from '../../../components/AuthBanner/AuthBanner';
 import AuthTitle from '../../../components/AuthTitle/AuthTitle';
 import GoogleSignup from '../../../components/GoogleSignup/GoogleSignup';
-import { FaEye, FaEyeSlash } from 'react-icons/fa'
+import { FaEye, FaEyeSlash, FaCheckSquare } from 'react-icons/fa'
+import { BiRectangle } from "react-icons/bi";
 import './Signup.scss'
 import { saveCreatedUserCredentials } from '../AuthSlice';
 import { useDispatch } from 'react-redux';
@@ -14,12 +15,14 @@ const Signup = () => {
 
     const dispatch = useDispatch();
     let navigate = useNavigate();
-
+    const style = { color:'#CDD4DF', fontSize: "1.2rem" }
+    const styleI = { color:'#4299f5', fontSize: "1.2rem" }
     const [email, setEmail] = useState('')
     const [phone, setPhone] = useState('')
     const [countryCode, setCountryCode] = useState('+234')
     const [password, setPassword] = useState('')
     const [password_confirmation, setPasswordConfirmation] = useState('');
+    const [checked, setChecked] = useState(false)
     const [emailError, setEmailError] = useState(false)
     const [phoneErr, setPhoneError] = useState(false);
     const [countryCodeErr, setCountryCodeError] = useState(false);
@@ -56,18 +59,19 @@ const Signup = () => {
         const password_confirmation = e.currentTarget.value;
         setPasswordConfirmation(password_confirmation)
     }
+
     useEffect(() => {
         const invalid = emailError || email === '' || phone === '' || countryCode === '' || password === '' || phoneErr
-            || countryCodeErr || passwordError || password_confirmation !== password;
+            || countryCodeErr || passwordError || password_confirmation !== password || checked === false;
         setCanSend(!invalid);
-    }, [emailError, phoneErr, countryCodeErr, passwordError, password_confirmation, password, email, phone, countryCode])
+    }, [emailError, phoneErr, countryCodeErr, passwordError, password_confirmation, password, email, phone, countryCode, checked])
 
     const onNext = () => {
         console.log('saving')
         setLoading(true);
         //save this information in store
         dispatch(saveCreatedUserCredentials({ email, password, password_confirmation: password, phone_number: phone, country_code: countryCode }))
-            navigate("/sign-up-profile")
+        navigate("/sign-up-profile")
     }
 
 
@@ -170,8 +174,8 @@ const Signup = () => {
                         }
                     </div>
                     <div className='agreementsContainer'>
-                        <input type='checkbox' className='agreementsCheckbox' defaultChecked
-                            name="agree" required />
+                        <span onClick={() => setChecked(!checked)}>{checked ? <FaCheckSquare style=
+                        {styleI} /> : <BiRectangle style={style}/>}</span>
                         <div className='agreementsTextContainer'>
                             <span className='agreementsText'>I agree to the</span>
                             <a className='agreementsLink' href="/terms">terms & conditions</a>
@@ -180,6 +184,7 @@ const Signup = () => {
 
                         </div>
                     </div>
+
                     <div className='appButtonContainer'>
                         <button className='buttonContainer'
                             type="submit" disabled={!canSend || loading} onClick={onNext}>
