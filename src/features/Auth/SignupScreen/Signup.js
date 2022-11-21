@@ -143,7 +143,7 @@ const Signup = () => {
                                 value={password}
                                 className='passwordInput'
                                 onChange={e => onChangePassword(e)}
-                                maxLength={8}
+                                minLength={8}
                                 required
                             />
                             {password.length > 0 && <span className='show'

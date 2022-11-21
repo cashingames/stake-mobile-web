@@ -1,0 +1,24 @@
+.transactionLink{
+    margin: 0 2rem;
+    .transactionBtn{
+        background-color: #FFE900;
+        opacity: 0.8;
+        border: 1px solid rgba(0,0,0,0.15);
+        border-radius: 8px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        margin-bottom: 1.5rem;
+        .transactionText{
+            color: #ef2f55;
+            font-size: 0.75rem;
+            font-weight: 530;
+        }
+        .icon{
+            color: #ef2f55;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+    }
+}

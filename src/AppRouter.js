@@ -10,6 +10,7 @@ import ResetPassword from './features/Auth/ResetPassword/ResetPassword';
 import VerifyOtp from './features/Auth/VerifyOtp/VerifyOtp';
 import VerifyRegistrationOtp from './features/Auth/VerifyRegistrationOtp/VerifyRegistrationOtp';
 import DashBoardScreen from './features/DashBoardScreen';
+import WalletScreen from './features/WalletScreen/WalletScreen'
 
 const AppRouter = () => {
     return (
@@ -24,6 +25,7 @@ const AppRouter = () => {
             <Route path="/reset-password" element={<ResetPassword />} />
             <Route path="/verify-otp" element={<VerifyOtp />} />
             <Route path="/dashboard" element={<DashBoardScreen />} />
+            <Route path="/wallet" element={<WalletScreen />} />
         </Routes>
     )
 }
