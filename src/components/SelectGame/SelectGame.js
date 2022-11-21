@@ -1,4 +1,3 @@
-import { width } from '@mui/system'
 import React, { useState } from 'react'
 import './SelectGame.scss'
 import { BiCircle } from "react-icons/bi";
@@ -7,7 +6,7 @@ import { setGameMode } from '../../features/Games/GameSlice';
 
 
 function SelectGame({ gameModes }) {
-  const [showButton, setShowButton] = useState(false)
+  const [showButton] = useState(false)
   const dispatch = useDispatch();
   const selectedGameMode = useSelector(state => state.game.gameMode);
   // console.log(currentMode)

@@ -12,13 +12,13 @@ import axios from 'axios'
 //     return array;
 // }
 
-function getAllIndexes(arr, val) {
-    var indexes = [], i;
-    for (i = 0; i < arr.length; i++)
-        if (arr[i] === val)
-            indexes.push(i);
-    return indexes;
-}
+// function getAllIndexes(arr, val) {
+//     var indexes = [], i;
+//     for (i = 0; i < arr.length; i++)
+//         if (arr[i] === val)
+//             indexes.push(i);
+//     return indexes;
+// }
 
 export const startGame = createAsyncThunk(
     'game/startGame',
@@ -347,7 +347,7 @@ export const {
 export default GameSlice.reducer
 
 
-function resetState(state) {
+// function resetState(state) {
 
 
     //Because we need it for replay
@@ -381,5 +381,5 @@ function resetState(state) {
     // state.userChallenges = [];
     // state.challengeScores = {};
 
-    return state;
-}
+    // return state;
+// }

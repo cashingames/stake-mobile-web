@@ -28,6 +28,7 @@ export const LiveTriviaSlice = createSlice({
             })
     },
 });
+// eslint-disable-next-line
 export const { } = LiveTriviaSlice.actions
 
 export default LiveTriviaSlice.reducer

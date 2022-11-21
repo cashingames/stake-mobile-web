@@ -1,7 +1,5 @@
 import React from 'react';
-import Avatar from '@mui/material/Avatar';
 import { IoArrowForward } from "react-icons/io5";
-import { Person } from '@mui/icons-material';
 import './TopPlayers.scss'
 import { formatNumber } from '../../utils/stringUtl';
 
@@ -57,12 +55,13 @@ function TopLeader({ avatar, podPosition, name, point }) {
         <div className='positionContainer'>
             <img
                 src={avatar ? `${backendUrl}/${avatar}` : "/images/user-icon.png"}
-                className='avatar'
+                className='avatar' alt='avatar'
             />
             <p className='leaderName'>{name}</p>
             <img
                 className='icon'
                 src={podPosition}
+                alt='stage'
             />
             <div className='leaderPoint'>
                 <p className='point'>{point}</p>

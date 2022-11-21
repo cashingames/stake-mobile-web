@@ -1,6 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-import history from '../../utils/history';
 
 export const saveToken = (data) => {
     window.localStorage.setItem("token", data);

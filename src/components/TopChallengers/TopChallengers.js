@@ -1,9 +1,5 @@
-import { Person } from '@mui/icons-material'
-import { Avatar } from '@mui/material'
-import React, { useEffect } from 'react'
-import { useDispatch } from 'react-redux';
-import { challengeTopLeaders } from '../../features/Games/GameSlice';
-import { isTrue } from '../../utils/stringUtl';
+
+import React from 'react'
 import './TopChallengers.scss'
 
 function TopChallengers({ challengeLeaders }) {
@@ -64,13 +60,14 @@ const TopWeeklyChallenger = ({ username, avatar, stageImageUrl, trophyImageUrl, 
                 />
                 <img
                     src={avatar ? `${avatar}` : "/images/user-icon.png"}
-                    className={avatarProp}
+                    className={avatarProp} alt='avatar'
                 />
                 <p className='leaderName'>{username}</p>
             </div>
             <img
                 src={stageImageUrl}
                 className='positionImage'
+                alt='stage'
             />
         </div>
     )

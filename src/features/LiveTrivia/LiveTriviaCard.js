@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch} from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import './LiveTriviaCard.scss'
 import { getLiveTriviaStatus } from './LiveTriviaSlice';
@@ -9,7 +9,7 @@ import { BiAlarm, BiCaretRight } from "react-icons/bi";
 
 function LiveTriviaCard({ trivia }) {
   const dispatch = useDispatch();
-  const initialLoading = useSelector(state => state.common.initialLoading);
+  // const initialLoading = useSelector(state => state.common.initialLoading);
   let navigate = useNavigate();
   const [showText, setShowText] = useState(true);
 
@@ -35,7 +35,7 @@ function LiveTriviaCard({ trivia }) {
 
   useEffect(() => {
     dispatch(getLiveTriviaStatus())
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     // Change the state every second or the time given by User.
@@ -124,7 +124,7 @@ const TriviaCountDown = ({ trivia }) => {
 
     return () => clearInterval(countDown);
 
-  }, [trivia])
+  }, [trivia, dispatch])
 
   return (
     <>

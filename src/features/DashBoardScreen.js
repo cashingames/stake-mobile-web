@@ -25,7 +25,7 @@ function DashBoardScreen() {
     dispatch(getCommonData())
     dispatch(challengeTopLeaders());
     dispatch(getGlobalLeaders());
-  }, []);
+  }, [dispatch]);
 
 
 

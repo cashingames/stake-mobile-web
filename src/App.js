@@ -15,7 +15,7 @@ function App() {
       dispatch(setToken(token))
       booststrapAxios(token)
       setLoading(false);
-  }, [token]);
+  }, [token,dispatch]);
 
   if(loading)
     return <div>Loading...</div>

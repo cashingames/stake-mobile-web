@@ -5,7 +5,6 @@ import  { Player } from '@lottiefiles/react-lottie-player'
 import Wallet from '../../assets/wallet.json'
 import './HeroBanner.scss';
 import LiveTriviaCard from '../../features/LiveTrivia/LiveTriviaCard'
-import { useSelector } from 'react-redux'
 
 function HeroBanner({user, trivia}) {
 

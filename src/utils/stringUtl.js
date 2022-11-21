@@ -1,5 +1,6 @@
 
 export function isTrue(value) {
+    // eslint-disable-next-line
     return value != "" && value !== undefined && value !== null
 }
 
