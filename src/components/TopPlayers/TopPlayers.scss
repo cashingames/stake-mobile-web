@@ -1,40 +1,45 @@
-.topPlayerContainer{
+.topPlayerContainer {
     padding: 0 1.5rem;
-    margin:2rem 0;
+    margin: 2rem 0;
     font-family: 'Graphik', sans-serif;
-    .wrapper{
+
+    .wrapper {
         display: flex;
         align-items: center;
         width: 100%;
         justify-content: space-between;
         margin-bottom: .5rem;
-    .topPlayer{
-        margin: 0;
-        font-size: 1rem;
-        line-height: 1.3rem;
-        font-weight: 630;
+
+        .topPlayer {
+            margin: 0;
+            font-size: 1rem;
+            line-height: 1.3rem;
+            font-weight: 630;
+        }
+
+        .extended {
+            display: flex;
+            align-items: center;
+            font-size: 0.7rem;
+            margin: 0;
+            gap: 2px;
+            color: #EF2F55;
+
+            .extendedText {
+                font-size: 0.7rem;
+                font-weight: 430;
+                margin: 0;
+                color: #EF2F55
+            }
+
+            .icon {
+                font-size: 1.3rem;
+                margin-bottom: 5px;
+            }
+        }
     }
 
-    .extended{
-        display: flex;
-        align-items: center;
-        font-size: 0.7rem;
-        margin: 0;
-        gap: 2px;
-        color:#EF2F55;
-    .extendedText{
-        font-size: 0.7rem;
-        font-weight: 430;
-        margin: 0;
-        color:#EF2F55
-    }
-    .icon{
-        font-size: 1.3rem;
-        margin-bottom: 5px;
-    }
-}
-    }
-    .leaderBoard{
+    .leaderBoard {
         display: flex;
         width: 100%;
         justify-content: space-around;
@@ -43,23 +48,29 @@
         border-top-left-radius: 8px;
         border-top-right-radius: 8px;
         padding: 1rem 1rem 0 1rem;
-        .positionContainer{
+
+        .positionContainer {
             display: flex;
             flex-direction: column;
             align-items: center;
             position: relative;
-            .leaderProfile{
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            .leaderName{
+
+            .avatar {
+                width: 2.5rem;
+                height: 2.5rem;
+                border-radius: 50%;
+                background-color: #ffff;
+            }
+
+
+            .leaderName {
                 font-size: .7rem;
                 font-family: 'Graphik';
                 margin: 3px;
                 color: rgba(0, 0, 0, 0.6980392157);
             }
-        }
-            .leaderPoints{
+
+            .leaderPoint {
                 display: flex;
                 align-items: center;
                 position: absolute;
@@ -67,10 +78,11 @@
                 bottom: 8px;
                 padding: 0.1rem 0.3rem;
                 border-radius: 0.4rem;
-                .point{
+
+                .point {
                     font-size: 0.55rem;
                     margin: 0;
-                    color:#fff
+                    color: #fff
                 }
             }
         }

@@ -1,34 +1,65 @@
+import { width } from '@mui/system'
 import React, { useState } from 'react'
 import './SelectGame.scss'
+import { BiCircle } from "react-icons/bi";
+import { useDispatch, useSelector } from 'react-redux';
+import { setGameMode } from '../../features/Games/GameSlice';
 
-function SelectGame() {
+
+function SelectGame({ gameModes }) {
   const [showButton, setShowButton] = useState(false)
+  const dispatch = useDispatch();
+  const selectedGameMode = useSelector(state => state.game.gameMode);
+  // console.log(currentMode)
 
-  const showButtonFunc = () => {
-    setShowButton(true)
-  }
+
+  const onSelectGameMode = (mode) => {
+      dispatch(setGameMode(mode));
+  };
+
   return (
     <div className='gameContainer'>
-        <p className='gameTitle'>Select game mode</p>
-    <div className='gameCardContainer'>
-        <div className='gameCard' onClick={showButtonFunc}>
-          <div className='circleContainer'>
-            <div className='cardCircle'></div>
-          </div>
-          <p className='cardTitle'>Exhibition</p>
-          <p className='cardInstruction'>Play Single</p>
-        </div>
-        <div className='gameCard' onClick={showButtonFunc}>
-        <div className='circleContainer'>
-            <div className='cardCircle'></div>
-          </div>
-          <p className='cardTitle'>Challenge</p>
-          <p className='cardInstruction'>Challenge a friend to a duel</p>
-        </div>
-    </div>
-    {showButton && <button className='gameBtn'>Proceed</button>}
+      <p className='gameTitle'>Select game mode</p>
+      <div className='gameCardContainer'>
+        {gameModes.map((gameMode, i) =>
+          <AvailableMode
+            key={i}
+            gameMode={gameMode}
+            onPress={() => onSelectGameMode(gameMode)}
+            isSelected={gameMode.id === selectedGameMode?.id}
+          />
+        )}
+      </div>
+      {showButton && <button className='gameBtn'>Proceed</button>}
     </div>
   )
 }
 
-export default SelectGame
+const AvailableMode = ({ gameMode, onPress, isSelected}) => {
+  const backendUrl = process.env.REACT_APP_API_ROOT_URL;
+
+  const style = { backgroundColor: '#FFFF', color: '#FFFF', fontSize: "1.2rem" ,borderRadius:'50%'}
+  const styleI = { backgroundColor: '#EF2F55', color: '#EF2F55', fontSize: "1.2rem", borderRadius:'50%' }
+  return (
+    <div
+      onClick={onPress}
+      className='gameCard'
+      style={{ backgroundColor: gameMode.bgColor }}
+
+    >
+      <div className='categoryCardTopRow'>
+        <img
+          src={`${backendUrl}/${gameMode.icon}`}
+          className="cardIcon" alt={gameMode.name}
+        />
+        <span>{isSelected ? <BiCircle style=
+          {styleI} /> : <BiCircle style={style} />}</span>
+      </div>
+      <p className='cardTitle'>{gameMode.name}</p>
+      <p className='cardInstruction'>{gameMode.description}</p>
+
+    </div>
+  )
+}
+
+export default SelectGame;

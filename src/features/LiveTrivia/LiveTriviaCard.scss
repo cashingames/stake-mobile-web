@@ -10,6 +10,7 @@
     border-radius: 20px;
     font-family: 'Graphik', sans-serif;
     border-bottom-right-radius: 20px;
+
     .trivialTopTexts {
         display: flex;
         align-items: center;
@@ -17,15 +18,18 @@
         width: 100%;
         padding: 0;
         margin: 0;
+
         .topText {
             font-size: 0.85rem;
             line-height: 1;
             opacity: 0.8;
             font-weight: 500;
         }
+
         .requiredText {
             display: flex;
             flex-direction: column;
+
             p {
                 font-size: 0.8rem;
                 line-height: 1rem;
@@ -35,7 +39,16 @@
                 font-weight: 500;
             }
         }
+
+        .trivialBlink {
+            opacity: 1;
+        }
+
+        .trivialNoBlink {
+            opacity: 0;
+        }
     }
+
     .trivialInfo {
         .triviaTitle {
             font-size: 1.8rem;
@@ -43,6 +56,7 @@
             line-height: 1.3;
             font-weight: 500;
         }
+
         .triviaTime {
             margin: 0;
             font-size: 0.85rem;
@@ -50,18 +64,44 @@
             opacity: 0.8;
         }
     }
+
     .trivaImg {
         margin-top: 2.2rem;
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        justify-content: space-between;
+
         .timer {
             display: flex;
-            align-items: center;
+            flex-direction: column;
             gap: 0.5rem;
             margin: 0.3rem 0;
+
             p {
                 margin: 0;
                 font-size: 0.75rem;
 
             }
+        }
+        .triviaButton {
+            background-color: #FFD064;
+            border-radius: 12px;
+            border-left-width: 8px;
+            border-right-width: 8px;
+            padding: 5px 8px;
+            border-left-color: #C39938;
+            border-right-color: rgba(250, 197, 2, 0.7490196078);
+            align-items: center;
+            display: flex;
+            flex-direction: row;
+            outline: auto;
+            outline-color: #FFD064;
+        }
+        .triviaButtonText {
+            font-size: '.65rem';
+            margin: 0;
+            color: #4F4949;
         }
     }
 

@@ -1,12 +1,14 @@
 import React from 'react'
-import LiveTrivia from '../LiveTrivia/LiveTrivia'
 import UserItems from '../UserItems/UserItems'
 import UserPoints from '../UserPoints/UserPoints'
 import  { Player } from '@lottiefiles/react-lottie-player'
 import Wallet from '../../assets/wallet.json'
-import './HeroBanner.scss'
+import './HeroBanner.scss';
+import LiveTriviaCard from '../../features/LiveTrivia/LiveTriviaCard'
+import { useSelector } from 'react-redux'
 
-function HeroBanner() {
+function HeroBanner({user, trivia}) {
+
   return (
     <div className='heroBanner'>
       <div className='heroWallet'>
@@ -15,10 +17,10 @@ function HeroBanner() {
         autoplay
         loop
         style={{height:'50px'}}/>
-        <p>&#8358;100.00</p>
+        <p>&#8358;{user.walletBalance}</p>
       </div>
-        <LiveTrivia />
-        <UserPoints />
+      <LiveTriviaCard trivia={trivia} />
+        <UserPoints user={user} />
         <UserItems />
     </div>
   )

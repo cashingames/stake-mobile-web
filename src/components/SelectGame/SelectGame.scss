@@ -1,49 +1,68 @@
-.gameContainer{
+.gameContainer {
     padding: 0 1.5rem;
     font-weight: 500;
     font-size: 0.85rem;
     font-family: 'Graphik', sans-serif;
-    .gameTitle{
+
+    .gameTitle {
         font-size: 1rem;
         font-weight: 450;
-        margin-bottom: 10px;    }
-    .gameCardContainer{
+        margin-bottom: 10px;
+    }
+
+    .gameCardContainer {
         display: flex;
         align-items: center;
-        gap:1rem;
-    .gameCard{
-        width:135px;
-        height: 135px;
-        border-radius: 7px;
-        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-        padding: 1rem 0.8rem;
-        background-color: #701F88;
-        color: #fff;
-        .circleContainer{
-            width: 100%;
-            display: flex;
-            justify-content: flex-end;
-        .cardCircle{
-            height:15px;
-            width: 15px;
-            border-radius: 50%;
-            background-color: #EF2F55;
-            }
-        }
-        .cardTitle{
-            font-size: 0.87rem;
-            text-transform: uppercase;
-            margin-top: 1.9rem;
-            font-weight: 700;
+        gap: 1rem;
 
-        }
-        .cardInstruction{
-            font-size: 0.68rem;
-            font-weight: 350;
+        .gameCard {
+            width: 132px;
+            height: 130px;
+            border-radius: 7px;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            padding: 1rem 0.8rem;
+            background-color: #701F88;
+            color: #fff;
+
+            .categoryCardTopRow {
+                display: flex;
+                justify-content: space-between;
+                .cardIcon {
+                    width: 2.5rem;
+                    height: 2.2rem;
+                }
+            }
+
+            .circleContainer {
+                width: 100%;
+                display: flex;
+                justify-content: flex-end;
+
+                .cardCircle {
+                    height: 15px;
+                    width: 15px;
+                    border-radius: 50%;
+                    background-color: #EF2F55;
+                }
+            }
+
+            .cardTitle {
+                font-size: 0.87rem;
+                text-transform: uppercase;
+                margin: 6px 0;
+                font-weight: 700;
+
+            }
+
+            .cardInstruction {
+                font-size: 0.68rem;
+                font-weight: 350;
+                margin: 6px 0;
             }
         }
     }
-    .gameBtn{
+
+    .gameBtn {
         margin: 2rem 0;
         background-color: #EF2F55;
         justify-content: center;
@@ -53,7 +72,7 @@
         border-radius: 8px;
         width: 100%;
         border: none;
-            color: white;
-            font-size: 0.9rem;
+        color: white;
+        font-size: 0.9rem;
     }
 }
