@@ -7,7 +7,7 @@ import TopPlayers from '../components/TopPlayers/TopPlayers'
 function DashBoardScreen() {
   return (
     <div>
-        <AppHeader />
+        <AppHeader heading='Home'/>
         <HeroBanner />
         <SelectGame />
         <TopChallengers />

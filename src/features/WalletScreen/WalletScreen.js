@@ -8,7 +8,7 @@ import './WalletScreen.scss'
 function WalletScreen() {
   return (
     <>
-        <AppHeader />
+        <AppHeader heading='Wallet'/>
         <div className='walletScreen' style={{backgroundImage: "url(/images/vector-coin-background.jpg)"}}>
           <WalletBalance />
           <Withdrawable />
