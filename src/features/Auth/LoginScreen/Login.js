@@ -40,7 +40,7 @@ const Login = () => {
             console.log(response, 'i am logging in')
             saveToken(response.data.data)
             dispatch(setToken(response.data.data))
-            navigate('/dashboard')
+            // navigate('/dashboard')
 
         }, err => {
             console.log('it failed')
