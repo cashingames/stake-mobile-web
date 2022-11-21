@@ -143,7 +143,7 @@ const Signup = () => {
                                 value={password}
                                 className='passwordInput'
                                 onChange={e => onChangePassword(e)}
-                                maxLength={8}
+                                minLength={8}
                                 required
                             />
                             {password.length > 0 && <span className='show'
@@ -163,7 +163,7 @@ const Signup = () => {
                                 value={password_confirmation}
                                 className='passwordInput'
                                 onChange={e => onChangeConfirmPassword(e)}
-                                maxLength={8}
+                                minLength={8}
                                 required
                             />
                             {password_confirmation.length > 0 && <span className='show'
