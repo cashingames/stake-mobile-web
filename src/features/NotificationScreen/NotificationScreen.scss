@@ -1,0 +1,64 @@
+.NotificationHeader {
+    display: flex;
+    background-color: #ffe900;
+    padding: 1rem 1rem 0.5rem;
+    align-items: center;
+    gap: 2rem;
+    position: sticky;
+    top: 0;
+    right: 0;
+    width: 100%;
+    z-index: 2;
+    .title {
+        font-weight: 500;
+        font-size: 1.3rem;
+    }
+    .icon {
+        font-size: 1.5rem;
+        font-weight: 400;
+        color: #000;
+    }
+}
+
+.notificationContainer{
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    min-height: 100vh;
+    font-family: 'Graphik', sans-serif;
+    padding: 2rem 1rem;
+    .markAsRead{
+        display: flex;
+        justify-content: flex-end;
+        padding: .1rem;
+        .markBtn{
+            display: flex;
+            align-items: center;
+            background-color: #ffe900;
+            border: none;
+            border-radius: 30px;
+            padding: .2rem;
+            .markText{
+                margin: 0;
+                font-size: .65rem;
+                font-weight: 500;
+            }
+            .icon{
+                color: #072169;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.noNotificationContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .noNotification{
+        font-weight: 600;
+        font-size: 1rem;
+        color: #fff;
+        text-align: center;
+    }
+}

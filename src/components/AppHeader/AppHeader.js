@@ -11,7 +11,7 @@ const AppHeader = ({heading}) => {
     <div className='appHeaderContainer'>
       <div className='appHeaderTitle'>
         <IoMenuSharp className='icon' />
-        h1 className='title'>{heading}</h1>
+        <h1 className='title'>{heading}</h1>
         {/* <AuthTitle  titleText='Home' styleProp='title'/> */}
       </div>
       <div className='navlinks'>

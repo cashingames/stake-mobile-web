@@ -24,7 +24,7 @@ function App() {
     <div className="App">
       <AppRouter />
     </div>
-  );
+  )
 }
 
 
