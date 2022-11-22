@@ -1,6 +1,5 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Routes, Route, Navigate } from "react-router-dom"
-import { useDispatch, useSelector } from 'react-redux';
 import Login from './features/Auth/LoginScreen/Login';
 import Signup from './features/Auth/SignupScreen/Signup';
 import SignupProfile from './features/Auth/SignupProfileScreen/SignupProfile';
