@@ -1,5 +1,5 @@
 .walletBalContainer {
-    padding: .8rem;
+    padding: 1rem 0;
     margin: 0 2rem;
     background-color: #000059;
     opacity: 0.8;
@@ -18,9 +18,11 @@
         font-size: 1.6rem;
         color: #fff;
         margin: 0;
-        margin-bottom: .6rem;
+        margin-bottom: .8rem;
+        padding: .65rem 0;
         font-weight: 600;
         text-align: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.15);
     }
 
     .fundWalletBtn {
@@ -30,11 +32,12 @@
         align-items: center;
         padding: 0.6rem 0;
         border-radius: 8px;
-        width: 100%;
+        // width: 100%;
         border: none;
         color: white;
         font-size: 0.9rem;
         font-weight: 600;
+        margin: 0 1rem;
         cursor: pointer;
     }
 }

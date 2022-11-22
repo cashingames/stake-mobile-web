@@ -1,9 +1,10 @@
 import {Player} from '@lottiefiles/react-lottie-player'
 import React from 'react'
 import MoneyBag from '../../../assets/moneybag.json'
+import { formatCurrency } from '../../../utils/stringUtl'
 import './WalletBalance.scss'
 
-function WalletBalance() {
+function WalletBalance({balance}) {
     return (
         <div className='walletBalContainer'>
             <p className='balanceText'>Deposit Balance</p>
@@ -15,10 +16,10 @@ function WalletBalance() {
                     style={{height:'50px'}}
                 />
             </div>
-            <p className='userBalance'>&#8358;100.00</p>
-            <button className='fundWalletBtn'>
+            <p className='userBalance'>&#8358;{formatCurrency(balance)}</p>
+            <div className='fundWalletBtn'>
                 Fund Wallet
-            </button>
+            </div>
         </div>
     )
 }

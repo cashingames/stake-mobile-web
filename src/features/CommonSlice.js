@@ -30,6 +30,10 @@ export const getGlobalLeaders = createAsyncThunk(
         return response.data
     }
 )
+export const withdrawWinnings = async (data) => {
+    return axios.post('v3/winnings/withdraw', data);
+
+}
 
 const initialState = {
     initialLoading: true,
