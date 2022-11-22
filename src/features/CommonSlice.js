@@ -34,6 +34,35 @@ export const withdrawWinnings = async (data) => {
     return axios.post('v3/winnings/withdraw', data);
 
 }
+export const getUserNotifications = createAsyncThunk(
+    'common/getUserNotifications',
+    async (data, thunkAPI) => {
+        //make a network request to the server
+        const response = await axios.get('v3/notifications')
+        // console.log(response.data)
+        return response.data;
+    }
+)
+
+export const markNotificationRead = createAsyncThunk(
+    'common/markNotificationRead',
+    async (data, thunkAPI) => {
+        //make a network request to the server
+        const response = await axios.put(`v3/notifications/read/${data}`, data)
+        return response.data;
+    }
+)
+export const fetchFeatureFlags = createAsyncThunk(
+    'common/fetchFeatureFlags',
+    async () => {
+        const response = await axios.get(`v3/feature-flags`)
+        return response.data;
+    }
+)
+export const isFeatureEnabled = async (feature, features = {}) => {
+
+    return features.hasOwnProperty(feature) && features[feature].enabled === true
+}
 
 const initialState = {
     initialLoading: true,
@@ -41,7 +70,8 @@ const initialState = {
     loadMoreLiveTrivias: true,
     gameModes: [],
     globalLeaders: [],
-
+    userNotifications: [],
+    featureFlags: [],
 }
 
 export const CommonSlice = createSlice({
@@ -76,6 +106,12 @@ export const CommonSlice = createSlice({
             .addCase(getGlobalLeaders.fulfilled, (state, action) => {
                 state.globalLeaders = action.payload.data
                 console.log(state.globalLeaders)
+            })
+            .addCase(getUserNotifications.fulfilled, (state, action) => {
+                state.userNotifications = action.payload.data.data;
+            })
+            .addCase(fetchFeatureFlags.fulfilled, (state, action) => {
+                state.featureFlags = action.payload.data
             })
     }
 })

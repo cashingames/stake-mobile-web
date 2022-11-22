@@ -12,6 +12,7 @@ import VerifyRegistrationOtp from './features/Auth/VerifyRegistrationOtp/VerifyR
 import DashBoardScreen from './features/DashBoardScreen';
 import WalletScreen from './features/WalletScreen/WalletScreen';
 import { getToken } from './features/Auth/AuthSlice';
+import NotificationScreen from './features/NotificationScreen/NotificationScreen';
 
 const AppRouter = () => {
 
@@ -32,6 +33,9 @@ const AppRouter = () => {
             <Route
                 path="/wallet"
                 element={<AuthRoute redirectTo="/"><WalletScreen /></AuthRoute>} />
+            <Route
+                path="/notifications"
+                element={<AuthRoute redirectTo="/"><NotificationScreen /></AuthRoute>} />
         </Routes>
     )
 }

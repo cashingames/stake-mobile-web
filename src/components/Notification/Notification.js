@@ -1,77 +1,54 @@
 import React from 'react'
-import {Player} from '@lottiefiles/react-lottie-player'
-import Bell from '../../assets/bell.json'
+import moment from "moment";
 import './Notification.scss'
 import {IoCheckmarkCircle, IoNotificationsCircle} from 'react-icons/io5'
+import { markNotificationRead } from '../../features/CommonSlice'
+import { getUser } from '../../features/Auth/AuthSlice'
+import { useDispatch } from 'react-redux'
 
-function Notification({clicked, setIsClicked}) {
-    const readNotification = () => {
-        setIsClicked(true)
+function Notification({clicked, setIsClicked, notification}) {
+    const dispatch = useDispatch();
+
+    const notificationAction = () => {
+        if (notification.data.action_type === "CHALLENGE") {
+            dispatch(markNotificationRead(notification.id)).then(() => setIsClicked(true));
+            dispatch(getUser());
+            // navigation.navigate('MyChallengesScore', { challengeId: notification.data.action_id })
+        }
+        dispatch(markNotificationRead(notification.id)).then(() => setIsClicked(true));
+        dispatch(getUser());
     }
 
     return (
         <div className='notification'>
-            <Player src={Bell}
-                alt='wallet'
-                autoplay
-                loop
-                className='player'
-                style={
-                    {height: '150px'}
-                }/>
+            
             <div className='notifyMessageContainer'>
                 {
-                clicked ? <div className='bellContainer'>
-                    <IoNotificationsCircle className='icon'/>
-                </div> : <div className='checkContainer'>
+               notification.read_at !== null || clicked ? <div className='checkContainer'>
                     <IoCheckmarkCircle className='icon'/>
+                </div> : <div className='bellContainer'>
+                    <IoNotificationsCircle className='icon'/>
+                   
                 </div>
             }
                 <div className='notificationMessage'>
                     <div className={
                             `${
-                                clicked ? 'readContainer' : 'notificationTitleContainer'
+                                notification.read_at !== null || clicked ? 'readContainer' : 'notificationTitleContainer'
                             }`
                         }
-                        onClick={readNotification}>
+                        onClick={notificationAction}>
                         <p className={
                             `${
-                                clicked ? 'readText' : 'notTitle'
+                                notification.read_at !== null || clicked ? 'readText' : 'notTitle'
                             }`
-                        }>You have received a challenge from John Paul</p>
+                        }>{notification.data.title}</p>
                     </div>
                     <div className='timeContainer'>
-                        <p className='notificationTime'>From 7 minutes ago</p>
+                        <p className='notificationTime'>From {moment(notification.created_at).fromNow()}</p>
                     </div>
                 </div>
-            </div>
-
-            <div className='notifyMessageContainer'>
-                {
-                clicked ? <div className='bellContainer'>
-                    <IoNotificationsCircle className='icon'/>
-                </div> : <div className='checkContainer'>
-                    <IoCheckmarkCircle className='icon'/>
-                </div>
-            }
-                <div className='notificationMessage'>
-                    <div className={
-                            `${
-                                clicked ? 'readContainer' : 'notificationTitleContainer'
-                            }`
-                        }
-                        onClick={readNotification}>
-                        <p className={
-                            `${
-                                clicked ? 'readText' : 'notTitle'
-                            }`
-                        }>You have received a challenge from John Paul</p>
-                    </div>
-                    <div className='timeContainer'>
-                        <p className='notificationTime'>From an hour ago</p>
-                    </div>
-                </div>
-            </div>
+            </div>        
         </div>
     )
 }

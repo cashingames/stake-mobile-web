@@ -15,6 +15,9 @@ const AppHeader = ({ heading }) => {
   const goToDashboard = () => {
     navigate('/dashboard')
   }
+  const goToNotifications = () => {
+    navigate('/notifications')
+  }
 
   return (
     <div className='appHeaderContainer'>
@@ -31,7 +34,7 @@ const AppHeader = ({ heading }) => {
           <IoWalletOutline className='icon' />
           <p className='text'>wallet</p>
         </div>
-        <div className='notification'>
+        <div className='notification' onClick={goToNotifications}>
           <IoNotificationsOutline className='notifyIcon' />
           {user.unreadNotificationsCount !== 0 &&
             <div className='notificationNumber'>
