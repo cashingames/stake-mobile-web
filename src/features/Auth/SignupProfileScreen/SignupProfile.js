@@ -60,6 +60,13 @@ const SignupProfile = () => {
 
     }, [firstName, lastName, username, firstnameError, lastnameError, usernameError])
 
+    useEffect(() => {
+        if (userCredentials === null) {
+            navigate('/sign-up')
+        }
+        return
+    })
+
     const onSend = () => {
         setLoading(true);
 
