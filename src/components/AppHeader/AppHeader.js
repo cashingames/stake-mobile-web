@@ -4,14 +4,15 @@ import { useSelector } from 'react-redux';
 import AuthTitle from '../AuthTitle/AuthTitle'
 import './AppHeader.scss'
 
-const AppHeader = () => {
+const AppHeader = ({heading}) => {
   const user = useSelector(state => state.auth.user);
 
   return (
     <div className='appHeaderContainer'>
       <div className='appHeaderTitle'>
         <IoMenuSharp className='icon' />
-        <AuthTitle titleText='Home' styleProp='title' />
+        h1 className='title'>{heading}</h1>
+        {/* <AuthTitle  titleText='Home' styleProp='title'/> */}
       </div>
       <div className='navlinks'>
         <div className='navlink'>

@@ -31,7 +31,7 @@ function DashBoardScreen() {
 
   return (
     <div>
-      <AppHeader />
+    <AppHeader heading='Home'/>
       <HeroBanner user={user} trivia={trivia} />
       <SelectGame gameModes={gameModes} />
       <TopChallengers challengeLeaders={challengeLeaders} />
