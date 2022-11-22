@@ -10,6 +10,7 @@ import ResetPassword from './features/Auth/ResetPassword/ResetPassword';
 import VerifyOtp from './features/Auth/VerifyOtp/VerifyOtp';
 import VerifyRegistrationOtp from './features/Auth/VerifyRegistrationOtp/VerifyRegistrationOtp';
 import DashBoardScreen from './features/DashBoardScreen';
+import WalletScreen from './features/WalletScreen/WalletScreen';
 import { getToken } from './features/Auth/AuthSlice';
 
 const AppRouter = () => {
@@ -28,6 +29,9 @@ const AppRouter = () => {
             <Route
                 path="/dashboard"
                 element={<AuthRoute redirectTo="/"><DashBoardScreen /></AuthRoute>} />
+            <Route
+                path="/wallet"
+                element={<AuthRoute redirectTo="/"><WalletScreen /></AuthRoute>} />
         </Routes>
     )
 }
@@ -35,15 +39,15 @@ const AppRouter = () => {
 
 
 function AuthRoute({ children, redirectTo }) {
-    const token =  getToken();
+    const token = getToken();
     const isAuth = token !== undefined && token !== null;
     return isAuth ? children : <Navigate to={redirectTo} />;
 }
 
-function AnonymousRoute({ children, redirectTo }) { 
-    const token =  getToken();
+function AnonymousRoute({ children, redirectTo }) {
+    const token = getToken();
     const isAuth = token !== undefined && token !== null;
-    return isAuth ?  <Navigate to={redirectTo} />: children;
+    return isAuth ? <Navigate to={redirectTo} /> : children;
 }
 
 export default AppRouter;
