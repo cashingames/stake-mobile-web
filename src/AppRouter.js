@@ -15,14 +15,12 @@ import { getToken } from './features/Auth/AuthSlice';
 import NotificationScreen from './features/NotificationScreen/NotificationScreen';
 import FundWalletScreen from './features/FundWalletScreen/FundWalletScreen';
 import TransactionScreen from './features/TransactionScreen/TransactionScreen';
-import LoaderScreen from './features/LoaderScreen/LoaderScreen';
 
 const AppRouter = () => {
 
     return (
         <Routes>
             <Route path="/privacy" element={<PrivacyPolicy />} />
-            <Route path="/loader" element={<LoaderScreen />} />
             <Route path="/terms" element={<TermsAndConditions />} />
             <Route path="/" element={<AnonymousRoute redirectTo="/dashboard"><Login /></AnonymousRoute>} />
             <Route path="/sign-up" element={<AnonymousRoute redirectTo="/dashboard"><Signup /></AnonymousRoute>} />

@@ -10,10 +10,13 @@ import './NotificationScreen.scss'
 import { Spinner } from "react-activity";
 import "react-activity/dist/library.css";
 import ScreenHeader from '../../components/ScreenHeader/ScreenHeader'
+import LoaderScreen from '../LoaderScreen/LoaderScreen'
 
 function NotificationScreen() {
     const notifications = useSelector(state => state.common.userNotifications)
     // console.log(notifications)
+    const [loading, setLoading] = useState(true);
+    console.log(loading)
     const dispatch = useDispatch();
     const [clicking, setClicking] = useState(false)
 
@@ -27,7 +30,12 @@ function NotificationScreen() {
     useEffect(() => {
         dispatch(getUser());
         dispatch(getUserNotifications());
+        setLoading(false);
     }, [dispatch])
+
+    if (loading) {
+        return <LoaderScreen backgroundColor="background-color" />
+    }
 
     return (
         <>

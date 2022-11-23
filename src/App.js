@@ -3,6 +3,7 @@ import { getToken, setToken } from "./features/Auth/AuthSlice";
 import axios from 'axios';
 import { useDispatch, useSelector } from "react-redux";
 import React, { useEffect, useState } from "react";
+import LoaderScreen from "./features/LoaderScreen/LoaderScreen";
 
 function App() {
 
@@ -17,8 +18,9 @@ function App() {
       setLoading(false);
   }, [token,dispatch]);
 
-  if(loading)
-    return <div>Loading...</div>
+  if (loading) {
+    return <LoaderScreen />
+}
   
   return (
     <div className="App">

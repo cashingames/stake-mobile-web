@@ -23,9 +23,9 @@ import axios from 'axios'
 export const startGame = createAsyncThunk(
     'game/startGame',
     async (data, thunkAPI) => {
-        console.log(data)
+        // console.log(data)
         const response = await axios.post('v2/game/start/single-player', data)
-        console.log(data.staking_amount)
+        // console.log(data.staking_amount)
         return response.data
     }
 )
@@ -57,7 +57,7 @@ export const endGame = createAsyncThunk(
 
         //make a network request to the server
         const response = await axios.post('v2/game/end/single-player', data)
-        console.log(response)
+        // console.log(response)
         return response.data;
     }
 )

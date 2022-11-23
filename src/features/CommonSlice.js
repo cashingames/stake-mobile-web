@@ -26,7 +26,7 @@ export const getGlobalLeaders = createAsyncThunk(
     async () => {
         // console.log("getting global leaders")
         const response = await axios.post('v2/leaders/global');
-        console.log(response)
+        // console.log(response)
         return response.data
     }
 )
@@ -114,7 +114,7 @@ export const CommonSlice = createSlice({
             })
             .addCase(getGlobalLeaders.fulfilled, (state, action) => {
                 state.globalLeaders = action.payload.data
-                console.log(state.globalLeaders)
+                // console.log(state.globalLeaders)
             })
             .addCase(getUserNotifications.fulfilled, (state, action) => {
                 state.userNotifications = action.payload.data.data;

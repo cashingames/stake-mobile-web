@@ -11,7 +11,7 @@ const SignupProfile = () => {
     // const dispatch = useDispatch();
     let navigate = useNavigate();
     const userCredentials = useSelector(state => state.auth.createAccount);
-    console.log(userCredentials)
+    // console.log(userCredentials)
 
 
     const [firstName, setFirstName] = useState('');
@@ -77,7 +77,7 @@ const SignupProfile = () => {
             username: username,
             ...userCredentials
         }).then(response => {
-            console.log(response.data.data, 'all good')
+            // console.log(response.data.data, 'all good')
             navigate('/verify-phone-number', {
                 state: {
                     phone_number: userCredentials.phone_number,

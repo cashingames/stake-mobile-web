@@ -3,11 +3,12 @@ import { useDispatch, useSelector } from 'react-redux'
 import ScreenHeader from '../../components/ScreenHeader/ScreenHeader'
 import { formatCurrency } from '../../utils/stringUtl'
 import { fetchUserTransactions } from '../CommonSlice'
+import LoaderScreen from '../LoaderScreen/LoaderScreen'
 import './TransactionScreen.scss'
 
 function TransactionScreen() {
     const dispatch = useDispatch();
-    // const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(true);
     // const [loadingMore, setLoadingMore] = useState(false);
     const transactions = useSelector(state => state.common.userTransactions);
     console.log(transactions)
@@ -33,11 +34,11 @@ function TransactionScreen() {
 
         // setLoadingMore(true)
         dispatch(fetchUserTransactions())
-        // .then(() => {
-        //     console.log("fetching page ", pageNumber)
-        //     setLoading(false)
-        //     setLoadingMore(false)
-        // })
+            .then(() => {
+                // console.log("fetching page ", pageNumber)
+                setLoading(false);
+                // setLoadingMore(false)
+            })
     }, [dispatch]);
 
     // const loadMoreItems = () => {
@@ -47,6 +48,10 @@ function TransactionScreen() {
     //   //check if length of transactions has changed
     //   setPageNumber(getPageNo())
     // }
+    if (loading) {
+        return <LoaderScreen />
+    }
+
     return (
         <>
             <ScreenHeader title='Transactions' styleProp='transaction' />

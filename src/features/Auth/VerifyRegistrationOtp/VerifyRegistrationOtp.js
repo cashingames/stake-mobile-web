@@ -52,7 +52,7 @@ const VerifyRegistrationOtp = () => {
     }, [firstDigit, secondDigit,thirdDigit,fourthDigit,fifthDigit])
 
     const resendButton = () => {
-        console.log('otp resent')
+        // console.log('otp resent')
         dispatch(ResendPhoneOtp({
             username: location.state.username
         }))
@@ -91,14 +91,14 @@ const VerifyRegistrationOtp = () => {
 
             .then(unwrapResult)
             .then(response => {
-                console.log("phone verification response", response.data);
+                // console.log("phone verification response", response.data);
                 saveToken(response.data)
                 dispatch(setToken(response.data))
                 setLoading(false);
                 navigate('/dashboard')
             })
             .catch((rejectedValueOrSerializedError) => {
-                console.log(rejectedValueOrSerializedError)
+                // console.log(rejectedValueOrSerializedError)
                 alert("Failed to log in, please input the correct code");
                 setLoading(false);
             })
