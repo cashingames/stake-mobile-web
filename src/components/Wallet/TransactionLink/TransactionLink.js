@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import './TransactionLink.scss'
 
 function TransactionLink() {
+
   return (
     <div className='transactionLink'>
         <Link to="/transactions" className='link'><button className='transactionBtn'>

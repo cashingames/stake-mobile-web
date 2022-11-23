@@ -52,6 +52,13 @@ export const markNotificationRead = createAsyncThunk(
         return response.data;
     }
 )
+export const fetchUserTransactions = createAsyncThunk(
+    'common/fetchUserTransactions',
+    async (data, thunkAPI) => {
+        const response = await axios.get(`v2/wallet/me/transactions?page=${data}`)
+        return response.data;
+    }
+)
 export const fetchFeatureFlags = createAsyncThunk(
     'common/fetchFeatureFlags',
     async () => {
@@ -71,6 +78,8 @@ const initialState = {
     gameModes: [],
     globalLeaders: [],
     userNotifications: [],
+    userTransactions: [],
+    loadMoreTransactions: true,
     featureFlags: [],
 }
 
@@ -109,6 +118,10 @@ export const CommonSlice = createSlice({
             })
             .addCase(getUserNotifications.fulfilled, (state, action) => {
                 state.userNotifications = action.payload.data.data;
+            })
+            .addCase(fetchUserTransactions.fulfilled, (state, action) => {
+                state.loadMoreTransactions = !(action.payload.length < 10);
+                state.userTransactions = state.userTransactions.concat(action.payload);
             })
             .addCase(fetchFeatureFlags.fulfilled, (state, action) => {
                 state.featureFlags = action.payload.data

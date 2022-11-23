@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import moment from "moment";
 import './Notification.scss'
 import {IoCheckmarkCircle, IoNotificationsCircle} from 'react-icons/io5'
@@ -6,8 +6,9 @@ import { markNotificationRead } from '../../features/CommonSlice'
 import { getUser } from '../../features/Auth/AuthSlice'
 import { useDispatch } from 'react-redux'
 
-function Notification({clicked, setIsClicked, notification}) {
+function Notification({notification}) {
     const dispatch = useDispatch();
+    const [clicked, setIsClicked] = useState(false)
 
     const notificationAction = () => {
         if (notification.data.action_type === "CHALLENGE") {

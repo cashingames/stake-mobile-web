@@ -15,14 +15,12 @@ function NotificationScreen() {
     const notifications = useSelector(state => state.common.userNotifications)
     // console.log(notifications)
     const dispatch = useDispatch();
-    const [isClicked, setIsClicked] = useState(false)
     const [clicking, setClicking] = useState(false)
 
     const markAll = () => {
         setClicking(true)
         dispatch(markNotificationRead("all")).then(() => {
             setClicking(false)
-            setIsClicked(true)
         });
     }
 
@@ -69,8 +67,6 @@ function NotificationScreen() {
                             {notifications.map((notification, i) => <Notification key={i} notification={notification}
                                 // index={i + 1}
                                 // moment={moment}
-                                clicked={isClicked}
-                                setIsClicked={setIsClicked}
                             />)}
                         </div>
                         :
