@@ -3,7 +3,6 @@ import { getToken, setToken } from "./features/Auth/AuthSlice";
 import axios from 'axios';
 import { useDispatch, useSelector } from "react-redux";
 import React, { useEffect, useState } from "react";
-import TransactionScreen from "./features/TransactionScreen/TransactionScreen";
 
 function App() {
 
@@ -24,7 +23,6 @@ function App() {
   return (
     <div className="App">
       <AppRouter />
-      {/* <TransactionScreen /> */}
     </div>
   )
 }
