@@ -1,0 +1,73 @@
+.transaction{
+    background-color: #fff;
+    height: 4rem;
+}
+
+.transactionDetails{
+    font-family: 'Graphik', sans-serif;
+    padding: .9rem 20px;
+    border-bottom: 1px solid rgba(0,0,0,0.15);
+    .narationDetails{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .naration{
+            display: flex;
+            justify-content: center;
+            .narationTitle{
+                font-size: 0.75rem;
+                margin: 0;
+                color: #4F4F4F;
+                font-weight: 500;
+            }
+        }
+        .transactionAmountReceived{
+            font-size: 0.8rem;
+            margin: 0;
+            color:#219653;
+            font-weight: 700;
+        }
+        .transactionAmountWithdraw{
+            font-size: 0.8rem;
+            margin: 0;
+            color:#EB5757;
+            font-weight: 700;
+        }
+    }
+    .typeAndDate{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 7px 0;
+        .transactionType{
+            font-size: 0.6rem;
+            margin: 0;
+            color: #C4C4C4;
+        }
+    }
+}
+
+.noTransactionContainer{
+    display: flex;
+    margin: 40px 0;
+    padding: 0 1rem;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Graphik', sans-serif;
+    .unavailable{
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        margin: 10px 0;
+    }
+    .noTransactionText{
+        font-size: 400;
+        font-size: 1rem;
+        margin: 0;
+        text-align: center;
+        color:#4F4F4F;
+        margin-top: 8px;
+        line-height: 1.5;
+    }
+}

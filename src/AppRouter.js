@@ -13,6 +13,8 @@ import DashBoardScreen from './features/DashBoardScreen';
 import WalletScreen from './features/WalletScreen/WalletScreen';
 import { getToken } from './features/Auth/AuthSlice';
 import NotificationScreen from './features/NotificationScreen/NotificationScreen';
+import FundWalletScreen from './features/FundWalletScreen/FundWalletScreen';
+import TransactionScreen from './features/TransactionScreen/TransactionScreen';
 
 const AppRouter = () => {
 
@@ -36,6 +38,12 @@ const AppRouter = () => {
             <Route
                 path="/notifications"
                 element={<AuthRoute redirectTo="/"><NotificationScreen /></AuthRoute>} />
+            <Route
+                path="/fund-wallet"
+                element={<AuthRoute redirectTo="/"><FundWalletScreen /></AuthRoute>} />
+            <Route
+                path="/transactions"
+                element={<AuthRoute redirectTo="/"><TransactionScreen /></AuthRoute>} />
         </Routes>
     )
 }

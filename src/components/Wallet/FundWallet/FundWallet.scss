@@ -1,0 +1,79 @@
+.fundWalletContainer {
+    font-family: 'Graphik', sans-serif;
+    background-color: #fff;
+    overflow-x: hidden;
+    .balance {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 38px 0;
+
+        .availableAmount {
+            font-size: 0.8rem;
+            color: #01A7DB;
+            text-align: center;
+            font-weight: 500;
+            margin: 0;
+            background-color: #f3f3f3;
+            margin-bottom: 40px;
+            padding: 12px 2rem;
+            border-radius: 64px;
+        }
+
+        .walletTitle{
+            font-size: 0.7rem;
+            color: #7c7d7f;
+            font-weight: 500;
+        }
+
+        .fundAmount{
+            font-weight: 700;
+            font-size: 2.2rem;
+            color: #333333;
+            text-align: center;
+            border: none;
+            outline: none;
+            margin: 1.5rem 0;
+        }
+
+        .flag{
+            display: flex;
+            align-items: center;
+            .flagText{
+                margin: 0;
+                margin-left: 5px;
+                font-weight: 500;
+                font-size: 0.7rem;
+                opacity: 0.5;
+
+            }
+        }
+    }
+}
+
+.actionBtnContainer{
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    cursor: pointer;
+    margin: 1rem 0;
+.actionBtn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    margin: 0 1rem;
+    width: 100%;
+    background-color: #ef2f55;
+    .text{
+        line-height: 1;
+        letter-spacing: 0.25;
+        color: #fff;
+        font-size: 0.9rem;
+        font-weight: 500;
+    }
+}
+}
