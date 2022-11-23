@@ -1,5 +1,6 @@
 import {Player} from '@lottiefiles/react-lottie-player'
 import React from 'react'
+import { Link } from 'react-router-dom'
 import MoneyBag from '../../../assets/moneybag.json'
 import { formatCurrency } from '../../../utils/stringUtl'
 import './WalletBalance.scss'
@@ -18,7 +19,7 @@ function WalletBalance({balance}) {
             </div>
             <p className='userBalance'>&#8358;{formatCurrency(balance)}</p>
             <div className='fundWalletBtn'>
-                Fund Wallet
+                <Link to="/fund-wallet" className='fwBtn'> Fund Wallet </Link>
             </div>
         </div>
     )
