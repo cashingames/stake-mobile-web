@@ -1,0 +1,37 @@
+.drawerItem{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 1rem;
+    align-items: center;
+    margin-bottom: 0.2rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    .labelItem{
+        font-size: 0.9rem;
+        font-weight: 350;
+        margin: 0;
+        color: #000;       
+    }
+    .icon{
+        font-size: 22px;
+        color: rgba(0,0,0,0.5);
+        margin-right: 1rem;
+    }
+}
+
+.versionContainer{
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin-top: 3rem;
+    margin-bottom: 0;
+    .appVersion{
+        color: #000;
+        font-size: 0.8rem;
+        line-height: 0.7;
+        opacity: 0.7;
+        font-weight: 400;
+        }
+}
