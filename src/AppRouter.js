@@ -15,6 +15,7 @@ import { getToken } from './features/Auth/AuthSlice';
 import NotificationScreen from './features/NotificationScreen/NotificationScreen';
 import FundWalletScreen from './features/FundWalletScreen/FundWalletScreen';
 import TransactionScreen from './features/TransactionScreen/TransactionScreen';
+import LandingPage from './features/LandingPageScreen/LandingPage';
 
 const AppRouter = () => {
 
@@ -22,7 +23,8 @@ const AppRouter = () => {
         <Routes>
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/terms" element={<TermsAndConditions />} />
-            <Route path="/" element={<AnonymousRoute redirectTo="/dashboard"><Login /></AnonymousRoute>} />
+            <Route path="/" element={< LandingPage />} />
+            <Route path="/login" element={<AnonymousRoute redirectTo="/dashboard"><Login /></AnonymousRoute>} />
             <Route path="/sign-up" element={<AnonymousRoute redirectTo="/dashboard"><Signup /></AnonymousRoute>} />
             <Route path="/sign-up-profile" element={<AnonymousRoute redirectTo="/dashboard"><SignupProfile /></AnonymousRoute>} />
             <Route path="/verify-phone-number" element={<AnonymousRoute redirectTo="/dashboard"><VerifyRegistrationOtp /></AnonymousRoute>} />

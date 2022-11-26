@@ -12,8 +12,8 @@ function LandingFooter() {
             </div>
             <div className='footerLinksContainer'>
                     <Link to='/terms' className='footerLink'>Terms and Conditions</Link>
-                    <Link to='/faq' className='footerLink'>FAQ</Link>
-                    <Link to='/policy' className='footerLink'>Privacy Policy</Link>
+                    <Link to='/' className='footerLink'>FAQ</Link>
+                    <Link to='/privacy' className='footerLink'>Privacy Policy</Link>
             </div>
             <div className='socialMediaLinks'>
                 <div className='copyrightsText'>

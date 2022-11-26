@@ -11,7 +11,7 @@ function LandingMainFooter() {
             <AuthTitle titleText='Welcome Bonus' styleProp='authHeader'/>
             <p className='mainFooterText'>Join our live trivia and</p>
             <p className='mainFooterText'>win amazing prizes</p>
-            <Link to='/signup'>
+            <Link to='/sign-up'>
                 <button className='singupLink'>
                  Register here</button>
             </Link>
