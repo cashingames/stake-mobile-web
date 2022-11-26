@@ -1,0 +1,74 @@
+
+.landingInfoContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Graphik', sans-serif;
+    .landingImage,
+    .landingImage2,
+    .landingImage3{
+        height: 330px;
+        width: 300px;
+        .img1 {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            margin-top: -2rem;
+        }
+    }
+    .landingImage2 {
+        position: relative;
+        .img2 {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            margin-left: -1.5rem;
+        }
+        .extraInfo {
+            position: absolute;
+            color: #fff;
+            top: 0;
+            right: -1.5rem;
+            padding: 1rem;
+            width: 200px;
+            height: 330px;
+            background: #ef2f55;
+            box-shadow: 0 5px 20px rgba(239, 82, 47, 0.4);
+            .extraInfoTitle {
+                font-size: 1.7rem;
+                line-height: 1.3;
+                font-weight: 500;
+                margin: 0;
+            }
+            .extraInfoText{
+            font-size: 0.88rem;
+            line-height: 1.6;
+            font-weight: 410;
+            border-top: 1px solid white;
+            padding-top: 0.8rem;
+            }
+            .singupLink{
+                background-color: #ef2f55;
+                border: 1px solid #fff;
+                width: 100%;
+                color: #fff;
+                padding: .8rem;
+                margin-top: .8rem;
+                font-size: .8rem;
+                font-weight: 450;
+                border-radius: 1.5rem;
+                cursor: pointer;
+            }
+        }
+    }
+    .landingImage3{
+        .img3{
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            margin: 30px 0;
+        }
+    }
+}

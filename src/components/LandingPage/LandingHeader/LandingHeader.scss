@@ -1,0 +1,28 @@
+
+*{
+    box-sizing: border-box;
+}
+.landingHeader{
+    background: #F7F7FF;
+    padding: 1rem 1rem 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    font-family: 'Graphik', sans-serif;
+    .landingLogo{
+        object-fit: cover;
+        margin: 0;
+    }
+    .linkContainer{
+        background-color: #ef2f55;
+        padding: 10px 1rem;
+        border-radius: 30px;
+        .link{
+            text-decoration: none;
+            color: #fff;
+            font-size: .9rem;
+            font-weight: 500;
+        }
+    }
+}
