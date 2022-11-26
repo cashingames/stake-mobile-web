@@ -4,10 +4,12 @@ import './SelectGame.scss'
 import { BiCircle } from "react-icons/bi";
 import { useDispatch, useSelector } from 'react-redux';
 import { setGameMode } from '../../features/Games/GameSlice';
+import { isTrue } from '../../utils/stringUtl';
+import { useNavigate } from 'react-router-dom';
 
 
 function SelectGame({ gameModes }) {
-  const [showButton] = useState(false)
+  let navigate = useNavigate();
   const dispatch = useDispatch();
   const selectedGameMode = useSelector(state => state.game.gameMode);
   // console.log(currentMode)
@@ -16,6 +18,10 @@ function SelectGame({ gameModes }) {
   const onSelectGameMode = (mode) => {
       dispatch(setGameMode(mode));
   };
+
+  const selectCategory = () => {
+    navigate('/select-category')
+};
 
   return (
     <div className='gameContainer'>
@@ -30,7 +36,7 @@ function SelectGame({ gameModes }) {
           />
         )}
       </div>
-      {showButton && <button className='gameBtn'>Proceed</button>}
+      {isTrue(selectedGameMode?.id) && <button onClick={selectCategory} className='gameBtn'>Proceed</button>}
     </div>
   )
 }

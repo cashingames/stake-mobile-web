@@ -1,0 +1,50 @@
+.instruction-header {
+    background-color: #ffff;
+    color: #000000;
+
+    .backIcon {
+        color: #000000;
+    }
+}
+
+.gameInstructionContainer {
+    font-family: 'Graphik', sans-serif;
+    padding: 1rem 1.5rem;
+
+    .instruction {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 11px;
+
+        .unicode {
+            margin: 0;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #4F4F4F;
+            margin-right: 10px;
+        }
+
+        .instructionText {
+            margin: 0;
+            font-size: .9rem;
+            font-weight: 400;
+            color: #4F4F4F;
+            text-align: justify;
+            line-height: 1.8;
+        }
+
+    }
+    .proceedNow{
+        background-color: #EF2F55;
+        border: none;
+        border-radius: 8px;
+        height: 2.5rem;
+        width: 100%;
+        .text {
+            margin: 0;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #ffff;
+        }
+    }
+}
