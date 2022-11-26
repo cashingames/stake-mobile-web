@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import ScreenHeader from '../../components/ScreenHeader/ScreenHeader'
 import FundWallet from '../../components/Wallet/FundWallet/FundWallet'
 import './FundWalletScreen.scss'
