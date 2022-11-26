@@ -1,11 +1,15 @@
-import {Player} from '@lottiefiles/react-lottie-player'
+import { Player } from '@lottiefiles/react-lottie-player'
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import MoneyBag from '../../../assets/moneybag.json'
 import { formatCurrency } from '../../../utils/stringUtl'
 import './WalletBalance.scss'
 
-function WalletBalance({balance}) {
+function WalletBalance({ balance }) {
+    let navigate = useNavigate();
+    const goToFundWallet = () => {
+        navigate('/fund-wallet')
+    }
     return (
         <div className='walletBalContainer'>
             <p className='balanceText'>Deposit Balance</p>
@@ -14,12 +18,12 @@ function WalletBalance({balance}) {
                     src={MoneyBag} alt='money bag'
                     autoplay
                     loop
-                    style={{height:'50px'}}
+                    style={{ height: '50px' }}
                 />
             </div>
             <p className='userBalance'>&#8358;{formatCurrency(balance)}</p>
-            <div className='fundWalletBtn'>
-                <Link to="/fund-wallet" className='fwBtn'> Fund Wallet </Link>
+            <div onClick={goToFundWallet} className='fundWalletBtn'>
+                <p className='fwBtn'>Fund Wallet</p>
             </div>
         </div>
     )

@@ -38,6 +38,27 @@ export const verifyPhoneOtp = createAsyncThunk(
         return response.data;
     }
 )
+export const verifyAccount = createAsyncThunk(
+    'auth/verifyAccount',
+    async (data, thunkAPI) => {
+        const response = await axios.post(`auth/password/email`, data)
+        return response.data
+    }
+)
+export const resetPassword = createAsyncThunk(
+    'auth/resetPassword',
+    async (data, thunkAPI) => {
+        const response = await axios.post(`auth/password/reset`,data);
+        return response.data
+    }
+)
+export const verifyOtp = createAsyncThunk(
+    'auth/verifyOtp',
+    async (data, thunkAPI) => {
+        const response = await axios.post(`auth/token/verify`,data);
+        return response.data
+    }
+)
 
 export const getUser = createAsyncThunk(
     'auth/user/get',
@@ -53,6 +74,9 @@ const initialState = {
     token: "",
     createAccount: null,
     user: {},
+    passwordReset: {
+        // email: 'oyekunmi@gmail.com'
+    },
 }
 
 export const AuthSlice = createSlice({
@@ -72,6 +96,9 @@ export const AuthSlice = createSlice({
         setUser: (state, action) => {
             state.user = action.payload.user;
         },
+        setUserPasswordResetToken: (state, action) => {
+            state.passwordReset.userCode = action.payload;
+        },
     },
 
     extraReducers: (builder) => {
@@ -81,9 +108,15 @@ export const AuthSlice = createSlice({
                 // Add user to the state array
                 state.user = action.payload.data;
             })
+            .addCase(verifyAccount.fulfilled, (state, action) => {
+                state.passwordReset.email = action.meta.arg.email;
+            })
+            .addCase(resetPassword.fulfilled, (state) => {
+                state.passwordReset = {};
+            })
     }
 });
 
-export const { setToken, saveCreatedUserCredentials, setUser } = AuthSlice.actions
+export const { setToken, saveCreatedUserCredentials, setUser, setUserPasswordResetToken } = AuthSlice.actions
 
 export default AuthSlice.reducer
