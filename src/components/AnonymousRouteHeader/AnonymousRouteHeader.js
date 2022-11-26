@@ -9,7 +9,7 @@ function AnonymousRouteHeader({ title, styleProp }) {
     return (
         <div className={`anonymousRouteHeader ${styleProp}`}>
             <img src="/images/logo-small.png" alt="banner" style={{ width: '4rem' }}  onClick={
-                        () => navigate('/')
+                        () => navigate('/login')
                     } />
             <div className="headerTitle">
                 <IoArrowBack className='icon'

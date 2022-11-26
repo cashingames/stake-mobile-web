@@ -18,6 +18,7 @@ import TransactionScreen from './features/TransactionScreen/TransactionScreen';
 import SelectGameCategoryScreen from './features/Games/SelectGameCategory/SelectGameCategoryscreen';
 import GameInstructionScreen from './features/Games/GameInstructionScreen/GameInstructionScreen';
 import ChallengeSelectPlayer from './features/Games/ChallengeSelectPlayer/ChallengeSelectPlayer';
+import LandingPage from './features/LandingPageScreen/LandingPage';
 
 const AppRouter = () => {
 
@@ -25,7 +26,8 @@ const AppRouter = () => {
         <Routes>
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/terms" element={<TermsAndConditions />} />
-            <Route path="/" element={<AnonymousRoute redirectTo="/dashboard"><Login /></AnonymousRoute>} />
+            <Route path="/" element={< LandingPage />} />
+            <Route path="/login" element={<AnonymousRoute redirectTo="/dashboard"><Login /></AnonymousRoute>} />
             <Route path="/sign-up" element={<AnonymousRoute redirectTo="/dashboard"><Signup /></AnonymousRoute>} />
             <Route path="/sign-up-profile" element={<AnonymousRoute redirectTo="/dashboard"><SignupProfile /></AnonymousRoute>} />
             <Route path="/verify-phone-number" element={<AnonymousRoute redirectTo="/dashboard"><VerifyRegistrationOtp /></AnonymousRoute>} />

@@ -1,3 +1,4 @@
+// eslint-disable-next-line
 import React, { useState } from 'react'
 import './SelectGame.scss'
 import { BiCircle } from "react-icons/bi";
