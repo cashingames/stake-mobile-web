@@ -1,0 +1,29 @@
+.cardContainer {
+    padding: 1.5rem 1rem;
+    margin-bottom: .8rem;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    .categoryCardTopRow {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .cardTitle{
+            color: #ffff;
+            font-size: 0.87rem;
+            font-weight: bold;
+            margin: 0;
+        }
+        .cardInstruction {
+            font-size: 0.73rem;
+            font-weight: 400;
+            color: #ffff;
+            margin-top: 1rem;
+        }
+        .cardIcon {
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+        }
+    }
+}

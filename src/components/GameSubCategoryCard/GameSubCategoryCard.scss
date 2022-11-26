@@ -1,0 +1,23 @@
+.card {
+    background-color: #F8F9FD;
+    display: flex;
+    flex-direction: row;
+    border-radius: 11px;
+    align-items: center;
+    border: none;
+    padding: .5rem .8rem;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+
+    .cardIconBigger {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+    .cardTitle {
+        font-size: 0.75rem;
+        color: #151C2F;
+        margin: 0;
+        font-weight: 500;
+        margin-left: .5rem;
+    }
+}

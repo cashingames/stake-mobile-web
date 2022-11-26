@@ -166,14 +166,14 @@ export const GameSlice = createSlice({
     name: 'game',
     initialState,
     reducers: {
-        // setGameType: (state, action) => {
-        //     state.gameType = action.payload;
-        //     state.gameCategory = null;
-        // },
-        // setGameCategory: (state, action) => {
-        //     // console.log("seeting")
-        //     state.gameCategory = action.payload;
-        // },
+        setGameType: (state, action) => {
+            state.gameType = action.payload;
+            state.gameCategory = null;
+        },
+        setGameCategory: (state, action) => {
+            // console.log("seeting")
+            state.gameCategory = action.payload;
+        },
         setGameMode: (state, action) => {
             // console.log("here")
             state.gameMode = action.payload;
@@ -335,9 +335,9 @@ export const GameSlice = createSlice({
 })
 
 export const { 
-    // setGameType, 
+    setGameType, 
     setGameMode, 
-    // setGameCategory,
+    setGameCategory,
     // setPointsGained, setAmountWon, setCorrectCount, setAmountStaked, questionAnswered, nextQuestion, setSelectedFriend,
     // incrementCountdownResetIndex, consumeBoost, pauseGame, skipQuestion, boostReleased, bombOptions,
     // setIsPlayingTrivia, setHasPlayedTrivia, setGameDuration, setQuestionsCount, unselectFriend, setWithStaking

@@ -82,14 +82,14 @@ function FundWallet() {
                             }
                         </div>
                     </div>
-                    <div className='actionBtnContainer'
+                    <button className='actionBtnContainer'
                         disabled={!canSend}
                         onClick={() => {
                             initializePayment(onSuccess, onClose)
                         }}
                     >
                         <p className='text'>Fund Wallet</p>
-                    </div>
+                    </button>
                     {open &&
                         <div className='dialog'>
                             <Dialogue open={open} handleClose={handleClose} />

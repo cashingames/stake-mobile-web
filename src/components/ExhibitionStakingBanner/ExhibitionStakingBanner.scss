@@ -1,0 +1,29 @@
+.stakeContainer {
+    background-color: #518EF8;
+    border-radius: 15px;
+    padding: 1.3rem 2.5rem;
+    margin: .8rem 0 1rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    .stakeAmount {
+        font-size: 1.1rem;
+        color: #ffff;
+        text-align: center;
+        line-height: 1.6;
+    }
+    .stakeButton {
+        margin-top: 1rem;
+        border: 1px solid #ffff;
+        padding: .8rem 1rem;
+        border-radius: 8px;
+        background-color: #518EF8;
+        .showMe {
+            font-size: .8rem;
+            color: #ffff;
+            text-align: center;
+            margin: 0;
+        }
+    }
+}

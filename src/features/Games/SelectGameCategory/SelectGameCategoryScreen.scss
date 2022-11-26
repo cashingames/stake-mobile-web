@@ -1,12 +1,42 @@
-.header {    
+.header {
     background-color: #5d5fef;
     color: #ffff;
+
     .backIcon {
         color: #ffff;
     }
 }
+
 .selectGameContainer {
-    height: 100vh;
     font-family: 'Graphik', sans-serif;
     background-color: #5d5fef;
+    padding: 1rem 1.5rem 8rem 1.5rem;
+    position: relative;
+    // height: 150vh;
+
+    .playButton {
+        border-radius: 50%;
+        width: 3rem;
+        height: 3rem;
+        background-color: #EF2F55;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        margin-left: auto;
+        border: none;
+        position: absolute;
+        top: 33rem;
+        left: 24rem;
+
+        .icon {
+            color: #ffff;
+            font-size: 1.5rem;
+        }
+    }
+
+    button[disabled] {
+        border: none;
+        background-color: #DFCBCF;
+        color: white;
+    }
 }
