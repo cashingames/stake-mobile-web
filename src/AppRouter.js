@@ -15,6 +15,7 @@ import { getToken } from './features/Auth/AuthSlice';
 import NotificationScreen from './features/NotificationScreen/NotificationScreen';
 import FundWalletScreen from './features/FundWalletScreen/FundWalletScreen';
 import TransactionScreen from './features/TransactionScreen/TransactionScreen';
+import SelectGameCategoryScreen from './features/Games/SelectGameCategory/SelectGameCategoryscreen';
 
 const AppRouter = () => {
 
@@ -44,6 +45,9 @@ const AppRouter = () => {
             <Route
                 path="/transactions"
                 element={<AuthRoute redirectTo="/"><TransactionScreen /></AuthRoute>} />
+            <Route
+                path="/select-category"
+                element={<AuthRoute redirectTo="/"><SelectGameCategoryScreen /></AuthRoute>} />
         </Routes>
     )
 }
