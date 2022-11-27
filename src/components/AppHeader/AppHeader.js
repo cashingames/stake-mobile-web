@@ -2,9 +2,22 @@ import * as React from 'react';
 import { IoWalletOutline, IoNotificationsOutline, IoHomeOutline, IoMenuSharp } from "react-icons/io5";
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import DrawerNavigation from '../DrawerNavigation';
 import './AppHeader.scss'
 
 const AppHeader = ({ heading }) => {
+
+  const [open, setOpen] = React.useState(false);
+
+  const handleOpenDrawer = () => {
+    setOpen(true)
+  }
+
+  const handleCloseDrawer = () => {
+    setOpen(false)
+  }
+
+
   let navigate = useNavigate();
 
   const user = useSelector(state => state.auth.user);
@@ -20,9 +33,10 @@ const AppHeader = ({ heading }) => {
   }
 
   return (
+    <>
     <div className='appHeaderContainer'>
       <div className='appHeaderTitle'>
-        <IoMenuSharp className='icon' />
+        <IoMenuSharp className='icon' onClick={handleOpenDrawer}/>
         <h1 className='title'>{heading}</h1>
       </div>
       <div className='navlinks'>
@@ -44,6 +58,8 @@ const AppHeader = ({ heading }) => {
         </div>
       </div>
     </div>
+    <DrawerNavigation open={open} closeDrawer={handleCloseDrawer} />
+    </>
   )
 }
 
