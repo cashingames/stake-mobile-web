@@ -1,5 +1,5 @@
 import { Player } from "@lottiefiles/react-lottie-player";
-import React from "react";
+import React, { useEffect } from "react";
 import ScreenHeader from "../../../components/ScreenHeader/ScreenHeader";
 import SelectGame from '../../../assets/select-game.json'
 import './SelectGameCategoryScreen.scss'
@@ -14,9 +14,11 @@ const SelectGameCategoryScreen = () => {
     let navigate = useNavigate();
 
     const activeSubcategory = useSelector(state => state.game.gameCategory);
-    console.log(activeSubcategory)
+    // console.log(activeSubcategory)
     const gameMode = useSelector(state => state.game.gameMode);
-
+    // console.log(gameMode)
+    const features = useSelector(state => state.common.featureFlags);
+    // console.log(features)
     const onPlayButtonClick = () => {
         onSelectGameMode();
     }
@@ -31,6 +33,13 @@ const SelectGameCategoryScreen = () => {
         }
 
     };
+
+    useEffect(() => {
+        if (features.length < 1) {
+            navigate('/dashboard')
+        }
+        return
+    })
 
 
     return (

@@ -19,6 +19,7 @@ import SelectGameCategoryScreen from './features/Games/SelectGameCategory/Select
 import GameInstructionScreen from './features/Games/GameInstructionScreen/GameInstructionScreen';
 import ChallengeSelectPlayer from './features/Games/ChallengeSelectPlayer/ChallengeSelectPlayer';
 import LandingPage from './features/LandingPageScreen/LandingPage';
+import GameStaking from './features/Games/GameStaking/GameStaking';
 
 const AppRouter = () => {
 
@@ -55,6 +56,9 @@ const AppRouter = () => {
             <Route
                 path="/game-instructions"
                 element={<AuthRoute redirectTo="/"><GameInstructionScreen /></AuthRoute>} />
+            <Route
+                path="/exhibition-staking"
+                element={<AuthRoute redirectTo="/"><GameStaking /></AuthRoute>} />
 
             <Route
                 path="/select-player"

@@ -1,7 +1,10 @@
 import { Player } from "@lottiefiles/react-lottie-player";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import Guidelines from '../../../assets/guidelines.json'
+import AvailableBoosts from "../../../components/AvailableBoosts/AvailableBoosts";
+import BottomSheet from "../../../components/BottomSheet/BottomSheet";
 import ExhibitionStakingBanner from "../../../components/ExhibitionStakingBanner/ExhibitionStakingBanner";
 import ScreenHeader from "../../../components/ScreenHeader/ScreenHeader";
 import StakingButtons from "../../../components/StakingButtons/StakingButtons";
@@ -9,24 +12,37 @@ import './GameInstructionScreen.scss'
 
 
 const GameInstructionScreen = () => {
+    let navigate = useNavigate();
+    const [open, setOpen] = useState(false)
 
     const gameMode = useSelector(state => state.game.gameMode);
+    // console.log(gameMode)
     // const user = useSelector(state => state.auth.user);
     const features = useSelector(state => state.common.featureFlags);
-    console.log(features)
+    // console.log(features)x
     // const hasActivePlan = useSelector(state => state.auth.user.hasActivePlan);
 
     // eslint-disable-next-line 
     const isStakingFeatureEnabled = features['exhibition_game_staking'] !== undefined && features['exhibition_game_staking'].enabled == true;
 
     const gotoStaking = async () => {
-        //    navigate("")
-        alert('done')
+        navigate("/exhibition-staking")
     }
 
     const openBottomSheet = async () => {
-        alert('proceed')
+        setOpen(true)
     }
+
+    const closeBottomSheet = async () => {
+        setOpen(false)
+    }
+
+    useEffect(() => {
+        if (features.length < 1) {
+            navigate('/dashboard')
+        }
+        return
+    })
 
 
     return (
@@ -54,6 +70,7 @@ const GameInstructionScreen = () => {
                     </button>
 
                 }
+                <BottomSheet open = {open} closeBottomSheet={closeBottomSheet} BSContent={<AvailableBoosts onClose={closeBottomSheet} />} />
 
             </div>
         </>

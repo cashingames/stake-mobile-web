@@ -14,7 +14,7 @@ export default function BottomSheet({ open, closeBottomSheet, BSContent }) {
           flexShrink: 0,
           '& .MuiDrawer-paper': {
             width: "100%",
-            height: 250,
+            height: 350,
             boxSizing: 'border-box',
           },
         }}

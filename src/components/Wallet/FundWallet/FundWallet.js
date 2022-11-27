@@ -90,11 +90,11 @@ function FundWallet() {
                     >
                         <p className='text'>Fund Wallet</p>
                     </button>
-                    {open &&
+                    {/* {open &&
                         <div className='dialog'>
                             <Dialogue open={open} handleClose={handleClose} />
                         </div>
-                    }
+                    } */}
                 </>
             }
         </>

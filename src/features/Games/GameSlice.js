@@ -116,10 +116,15 @@ export const getGameStakes = createAsyncThunk(
     }
 )
 
-export const canStake = async (data) => {
-    return axios.post('v3/game/can-stake-in-game', data);
-
-}
+export const canStake = createAsyncThunk(
+    'game/canStake',
+    async (data, thunkAPI) => {
+        //make a network request to the server
+        const response = await axios.post('v3/game/can-stake-in-game', data)
+        // console.log(response.data)
+        return response.data;
+    }
+)
 
 
 
@@ -206,9 +211,9 @@ export const GameSlice = createSlice({
         // setCorrectCount: (state, action) => {
         //     state.correctCount = action.payload;
         // },
-        // setIsPlayingTrivia: (state, action) => {
-        //     state.isPlayingTrivia = action.payload;
-        // },
+        setIsPlayingTrivia: (state, action) => {
+            state.isPlayingTrivia = action.payload;
+        },
         // setHasPlayedTrivia: (state, action) => {
         //     state.hasPlayedTrivia = action.payload;
         // // },
@@ -324,12 +329,12 @@ export const GameSlice = createSlice({
             //     state.pointsGained = action.payload.data.points_gained;
             //     resetState(state)
             // })
-            // .addCase(getGameStakes.fulfilled, (state, action) => {
-            //     state.gameStakes = action.payload.data;
-            // })
-        // .addCase(canStake.rejected, (state, payload) => {
-        //     console.log(state, payload)
-        // })
+            .addCase(getGameStakes.fulfilled, (state, action) => {
+                state.gameStakes = action.payload.data;
+            })
+        .addCase(canStake.rejected, (state, payload) => {
+            console.log(state, payload)
+        })
 
     },
 })
@@ -337,7 +342,7 @@ export const GameSlice = createSlice({
 export const { 
     setGameType, 
     setGameMode, 
-    setGameCategory,
+    setGameCategory,setIsPlayingTrivia,
     // setPointsGained, setAmountWon, setCorrectCount, setAmountStaked, questionAnswered, nextQuestion, setSelectedFriend,
     // incrementCountdownResetIndex, consumeBoost, pauseGame, skipQuestion, boostReleased, bombOptions,
     // setIsPlayingTrivia, setHasPlayedTrivia, setGameDuration, setQuestionsCount, unselectFriend, setWithStaking

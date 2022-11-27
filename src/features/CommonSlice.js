@@ -59,6 +59,13 @@ export const fetchUserTransactions = createAsyncThunk(
         return response.data;
     }
 )
+export const logActionToServer = createAsyncThunk(
+    'common/logActionToServer',
+    async (data, thunkAPI) => {
+        const response = await axios.post('v3/log/frontend-info', data)
+        return response.data
+    }
+)
 export const fetchFeatureFlags = createAsyncThunk(
     'common/fetchFeatureFlags',
     async () => {
@@ -80,6 +87,8 @@ const initialState = {
     userNotifications: [],
     userTransactions: [],
     loadMoreTransactions: true,
+    maximumExhibitionStakeAmount:'',
+    minimumExhibitionStakeAmount : '',
     featureFlags: [],
 }
 
@@ -104,8 +113,9 @@ export const CommonSlice = createSlice({
                 state.gameCategories = data.gameCategories;
                 state.minVersionCode = data.minVersionCode;
                 state.minVersionForce = data.minVersionForce;
-                state.maximumStakeAmount = data.maximumStakeAmount;
-                state.minimumStakeAmount = data.minimumStakeAmount
+                state.maximumExhibitionStakeAmount = data.maximumExhibitionStakeAmount;
+                state.minimumExhibitionStakeAmount  = data.minimumExhibitionStakeAmount; 
+                console.log(state.minimumExhibitionStakeAmount)
                 state.periodBeforeChallengeStakingExpiry = data.periodBeforeChallengeStakingExpiry
             })
             .addCase(fetchRecentLiveTrivia.fulfilled, (state, action) => {
