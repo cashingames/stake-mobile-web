@@ -1,22 +1,17 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { Link } from 'react-router-dom';
-import { getToken } from '../../../features/Auth/AuthSlice';
 import './LandingHeader.scss'
 
 function LandingHeader() {
   // const [isOpen, setIsOpen] = useState(false)
-  const isAuth = getToken()
+  
 
   return (
     <div className='landingHeader'>
         <img src='/images/logo-small.png' alt='logo' className='landingLogo' />
-        { isAuth ? <div className='linkContainer'>
-          <Link to="/dashboard" className='link'>Dashboard</Link>
-        </div> : 
         <div className='linkContainer'>
-          <Link to="/login" className='link'>Login</Link>
+          <Link to="/login" className='link'>Sign In</Link>
         </div>
-        }
     </div>
   )
 }

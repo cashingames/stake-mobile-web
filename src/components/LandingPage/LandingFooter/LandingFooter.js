@@ -21,9 +21,9 @@ function LandingFooter() {
                     <p>All Rights Reserved.</p>
                 </div>
                 <div className='footerSocialIcons'>
-                    <a href='/#' className='icon'><FaTwitter /></a>
-                    <a href='/#' className='icon'><FaFacebook /></a>
-                    <a href='/#' className='icon'><FaInstagramSquare /></a>                    
+                    <a href='https://www.twitter.com/cashingamesng' className='icon'><FaTwitter /></a>
+                    <a href='https://www.facebook.com/cashingames' className='icon'><FaFacebook /></a>
+                    <a href='https://www.instagram.com/cashingames' className='icon'><FaInstagramSquare /></a>                    
                 </div>
             </div>
         </div>

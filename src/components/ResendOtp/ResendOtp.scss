@@ -1,0 +1,39 @@
+.resendOtpText {
+    margin-top: 1rem;
+
+    .resendTimerContainer {
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        .statusText {
+            line-height: 0;
+            margin: 0;
+            color: #000000;
+            font-size: .8rem;
+            font-weight: 500;
+        }
+        .resendTimer {
+            line-height: 0;
+            margin: 0;
+            color: #EF2F55;
+            font-size: .8rem;
+            font-weight: 500;
+        }
+    }
+
+    .resendOtpButton {
+        padding: .5rem;
+        margin-left: auto;
+        display: flex;
+        border: none;
+        background-color: #FFFF;
+
+        .resendText {
+            line-height: 0;
+            margin: 0;
+            color: #EF2F55;
+            font-size: .8rem;
+            font-weight: 500;
+        }
+    }
+}

@@ -29,6 +29,7 @@ function DashBoardScreen() {
 
   }, [dispatch]);
 
+  console.log(gameModes)
 
 
   return (
