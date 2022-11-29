@@ -39,7 +39,7 @@ const VerifyRegistrationOtp = () => {
 
         return () => clearInterval(countDown);
 
-    }, )
+    }, [])
 
     const otpToken = otpValues.join('')
 
