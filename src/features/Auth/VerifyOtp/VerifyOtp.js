@@ -33,27 +33,25 @@ const VerifyOtp = () => {
             clearInterval(countDown);
             setIsCountdownInProgress(false)
         }
-        const nextMinutes = new Date();
-        let nextResendMinutes = nextMinutes.setMinutes(2);
+        let nextResendMinutes = 2;
 
         console.log(nextResendMinutes)
         const futureDateStamp = new Date()
-        futureDateStamp.setMinutes(futureDateStamp.getMinutes() + 2)
+        futureDateStamp.setMinutes(futureDateStamp.getMinutes() + nextResendMinutes)
 
-        // console.log(futureDateStamp)
         const futureDate = futureDateStamp.getTime()
         
-        console.log(futureDate)
         const countDown = setInterval(() => {
 
             const timeString = calculateTimeRemaining(futureDate, onComplete);
-            // console.log(timeString)
             setCounter(timeString);
         }, 1000);
 
         return () => clearInterval(countDown);
 
-    }, )
+    }, [])
+
+    
 
     const changeValue = (e, index) => {
         setOtpValues([...otpValues.map((d, i) => {

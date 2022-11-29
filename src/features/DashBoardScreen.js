@@ -29,7 +29,7 @@ function DashBoardScreen() {
 
   }, [dispatch]);
 
-  console.log(gameModes)
+  // console.log(gameModes)
 
 
   return (

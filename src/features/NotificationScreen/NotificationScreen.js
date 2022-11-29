@@ -16,7 +16,7 @@ function NotificationScreen() {
     const notifications = useSelector(state => state.common.userNotifications)
     // console.log(notifications)
     const [loading, setLoading] = useState(true);
-    console.log(loading)
+    // console.log(loading)
     const dispatch = useDispatch();
     const [clicking, setClicking] = useState(false)
 
@@ -29,8 +29,7 @@ function NotificationScreen() {
 
     useEffect(() => {
         dispatch(getUser());
-        dispatch(getUserNotifications());
-        setLoading(false);
+        dispatch(getUserNotifications()).then(() => {  setLoading(false)});
     }, [dispatch])
 
     if (loading) {
@@ -46,7 +45,7 @@ function NotificationScreen() {
                     } />
                 <AuthTitle titleText='Notifications' styleProp='title' />
             </div> */}
-            <ScreenHeader title='Notification' styleProp='notificationHeader' />
+            <ScreenHeader title='Notifications' styleProp='notificationHeader' />
 
             <div style={
                 { backgroundImage: "url(/images/studio-illustration.jpg)" }
