@@ -41,7 +41,11 @@ const ForgotPassword = () => {
                 setLoading(false);
                 setCanSend(true);
                 // console.log(originalPromiseResult);
-                navigate('/verify-otp');
+                navigate('/verify-otp', {
+                    state:{
+                        email:email
+                    }
+                });
             })
             .catch((rejectedValueOrSerializedError) => {
                 setLoading(false);
@@ -66,7 +70,7 @@ const ForgotPassword = () => {
                         <span className="errorBox">{error}</span>
                     }
                     <div className='inputContainer'>
-                        <label htmlFor="email" className='labels'>Email or username</label>
+                        <label htmlFor="email" className='labels'>Email</label>
                         <input
                             type='text'
                             placeholder="johndoe or johndoe@example.com"

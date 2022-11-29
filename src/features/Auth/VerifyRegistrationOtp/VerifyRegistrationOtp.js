@@ -5,6 +5,7 @@ import { ResendPhoneOtp, verifyPhoneOtp, setToken, saveToken } from '../AuthSlic
 import { calculateTimeRemaining } from "../../../utils/utils";
 import './VerifyRegistrationOtp.scss'
 import { unwrapResult } from "@reduxjs/toolkit";
+import ResendOtp from "../../../components/ResendOtp/ResendOtp";
 
 
 const VerifyRegistrationOtp = () => {
@@ -12,11 +13,7 @@ const VerifyRegistrationOtp = () => {
     const location = useLocation();
     // console.log(location)
     let navigate = useNavigate();
-    const [firstDigit, setFirstDigit] = useState('');
-    const [secondDigit, setSecondDigit] = useState('');
-    const [thirdDigit, setThirdDigit] = useState('');
-    const [fourthDigit, setFourthDigit] = useState('');
-    const [fifthDigit, setFifthDigit] = useState('');
+    const [otpValues, setOtpValues] = useState(new Array(5).fill(''))
     const [counter, setCounter] = useState('');
     const [isCountdownInProgress, setIsCountdownInProgress] = useState(true);
     const [canLogin, setCanLogin] = useState(true);
@@ -25,7 +22,6 @@ const VerifyRegistrationOtp = () => {
 
 
     useEffect(() => {
-
         const onComplete = () => {
             clearInterval(countDown);
             setIsCountdownInProgress(false)
@@ -45,11 +41,24 @@ const VerifyRegistrationOtp = () => {
 
     }, )
 
+    const otpToken = otpValues.join('')
+
+    const changeValue = (e, index) => {
+        setOtpValues([...otpValues.map((d, i) => {
+            return i === index ? e.value : d
+        })])
+        if(e.value && e.nextSibling){
+            e.nextSibling.focus()
+        }
+    }
+
     useEffect(() => {
-        const invalid = firstDigit === '' || secondDigit === '' || thirdDigit === '' 
-        || fourthDigit === '' || fifthDigit === '';
-        setCanLogin(!invalid)
-    }, [firstDigit, secondDigit,thirdDigit,fourthDigit,fifthDigit])
+        if(otpToken.length < 5) {
+            setCanLogin(false)
+            return;
+        }
+        setCanLogin(true);
+    },[otpToken])
 
     const resendButton = () => {
         // console.log('otp resent')
@@ -59,33 +68,11 @@ const VerifyRegistrationOtp = () => {
         setIsCountdownInProgress(true)
     }
 
-    const onChangeFirstDigit = (e) => {
-        const firstDigit = e.currentTarget.value;
-        setFirstDigit(firstDigit)
-    }
-
-    const onChangeSecondDigit = (e) => {
-        const secondDigit = e.currentTarget.value;
-        setSecondDigit(secondDigit)
-    }
-    const onChangeThirdDigit = (e) => {
-        const thirdDigit = e.currentTarget.value;
-        setThirdDigit(thirdDigit)
-    }
-    const onChangeFourthDigit = (e) => {
-        const fourthDigit = e.currentTarget.value;
-        setFourthDigit(fourthDigit)
-    }
-    const onChangeFifthDigit = (e) => {
-        const fifthDigit = e.currentTarget.value;
-        setFifthDigit(fifthDigit)
-    }
-
     const goToDashboard = () => {
         setLoading(true);
         dispatch(verifyPhoneOtp({
             phone_number: location.state.phone_number,
-            token: `${firstDigit}${secondDigit}${thirdDigit}${fourthDigit}${fifthDigit}`
+            token: otpToken
         }))
             // console.log("token phone", token)
 
@@ -108,14 +95,19 @@ const VerifyRegistrationOtp = () => {
     return (
         <div className="verifyRegistrationOtp-container">
             <VerifyEmailText />
-            <InputOtp firstDigit={firstDigit} setFirstDigit={onChangeFirstDigit}
-                secondDigit={secondDigit} setSecondDigit={onChangeSecondDigit}
-                thirdDigit={thirdDigit} setThirdDigit={onChangeThirdDigit}
-                fourthDigit={fourthDigit} setFourthDigit={onChangeFourthDigit}
-                fifthDigit={fifthDigit} setFifthDigit={onChangeFifthDigit}
-                onPress={resendButton} counter={counter}
-                isCountdownInProgress={isCountdownInProgress}
-            />
+            <form className="otpForm">
+            {otpValues.map((data, index) => {
+                return(
+                    <input 
+                        key={index}
+                        value={data}
+                        maxLength={1}
+                        onChange={(e) => changeValue(e.target, index)}
+                        className='otpInput'/>
+                )
+            })}
+            </form>
+            <ResendOtp onPress={resendButton} counter={counter} isCountdownInProgress={isCountdownInProgress} />
             <button className='buttonContainer' disabled={!canLogin || loading} type='submit' onClick={goToDashboard}>
                 <span className='buttonText'>{loading ? "Verifying" : "Login"}</span>
             </button>
@@ -139,77 +131,5 @@ const VerifyEmailText = () => {
     )
 }
 
-const InputOtp = ({ firstDigit, setFirstDigit,
-    secondDigit, setSecondDigit,
-    thirdDigit, setThirdDigit,
-    fourthDigit, setFourthDigit,
-    fifthDigit, setFifthDigit,
-    onPress, counter, isCountdownInProgress
-}) => {
-    return (
-        <div className="otpContainer">
-            <div className="inputContainer">
-                <input
-                    type='number'
-                    value={firstDigit}
-                    onChange={setFirstDigit}
-                    maxLength={1}
-                    className='input'
-                />
-                <input
-                    type='number'
-                    value={secondDigit}
-                    onChange={setSecondDigit}
-                    maxLength={1}
-                    className='input'
-                />
-                <input
-                    type='number'
-                    value={thirdDigit}
-                    onChange={setThirdDigit}
-                    maxLength={1}
-                    className='input'
-                />
-                <input
-                    type='number'
-                    value={fourthDigit}
-                    onChange={setFourthDigit}
-                    maxLength={1}
-                    className='input'
-                />
-                <input
-                    type='number'
-                    value={fifthDigit}
-                    onChange={setFifthDigit}
-                    maxLength={1}
-                    className='input'
-                />
-            </div>
-            <ResendOtp onPress={onPress} counter={counter} isCountdownInProgress={isCountdownInProgress} />
-        </div>
-    )
-}
-
-const ResendOtp = ({ onPress, counter, isCountdownInProgress }) => {
-
-
-    return (
-        <div className="resendOtpText">
-            {isCountdownInProgress &&
-                <div className="resendTimerContainer">
-                    <span className="statusText">Resend OTP in </span>
-                    <span className="resendTimer">{counter}</span>
-                </div>
-            }
-            {!isCountdownInProgress &&
-                <button onClick={onPress} className='resendOtpButton'>
-                    <p className="resendText">
-                        Resend OTP
-                    </p>
-                </button>
-            }
-        </div>
-    )
-}
 
 export default VerifyRegistrationOtp
