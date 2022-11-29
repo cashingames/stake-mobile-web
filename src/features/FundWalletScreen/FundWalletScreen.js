@@ -4,11 +4,10 @@ import FundWallet from '../../components/Wallet/FundWallet/FundWallet'
 import './FundWalletScreen.scss'
 
 function FundWalletScreen() {
-
  
     return (
         <>
-            <div>
+            <div >
                 <ScreenHeader title='Fund Wallet' styleProp='fundWallet' />
             </div>
             <FundWallet />

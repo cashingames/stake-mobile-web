@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import { getUser } from '../../../features/Auth/AuthSlice';
 import { formatCurrency } from '../../../utils/stringUtl'
 import { usePaystackPayment } from 'react-paystack';
-import Dialogue from '../../../components/Dialogue/Dialogue'
 import './FundWallet.scss'
 
 function FundWallet() {
@@ -13,7 +12,6 @@ function FundWallet() {
     const [amount, setAmount] = useState()
     const [amountErr, setAmountError] = useState(false);
     const [canSend, setCanSend] = useState(true)
-    const [open, setOpen] = useState(false)
     const user = useSelector((state) => state.auth.user);
     const [showPayment, setShowPayment] = useState(false);
 
@@ -28,9 +26,6 @@ function FundWallet() {
         setShowPayment(false);
         navigate('/wallet');
     };
-    const handleClose = () => {
-        setOpen(false)
-    }
 
 
     const onSuccess = () => {
@@ -53,7 +48,7 @@ function FundWallet() {
     useEffect(() => {
         const invalid = amountErr || amount === '';
         setCanSend(!invalid);
-    }, [ amount, amountErr])
+    }, [amount, amountErr])
 
     const initializePayment = usePaystackPayment(config);
     return (
@@ -82,14 +77,16 @@ function FundWallet() {
                             }
                         </div>
                     </div>
-                    <button className='actionBtnContainer'
-                        disabled={!canSend}
-                        onClick={() => {
-                            initializePayment(onSuccess, onClose)
-                        }}
-                    >
-                        <p className='text'>Fund Wallet</p>
-                    </button>
+                    <div className='fundButtonContainer'>
+                        <button className='actionBtnContainer'
+                            disabled={!canSend}
+                            onClick={() => {
+                                initializePayment(onSuccess, onClose)
+                            }}
+                        >
+                            <p className='text'>Fund Wallet</p>
+                        </button>
+                    </div>
                     {/* {open &&
                         <div className='dialog'>
                             <Dialogue open={open} handleClose={handleClose} />

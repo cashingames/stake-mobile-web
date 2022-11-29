@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, {useState } from "react";
 import { Spinner } from "react-activity";
-import { useDispatch, useSelector } from "react-redux";
+import {useSelector } from "react-redux";
 import ScreenHeader from "../../../components/ScreenHeader/ScreenHeader";
 import { formatCurrency } from '../../../utils/stringUtl'
 import { canStake } from "../GameSlice";
@@ -8,17 +8,17 @@ import './GameStaking.scss'
 
 
 const GameStaking = () => {
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
 
     const user = useSelector((state) => state.auth.user);
-    const gameStakes = useSelector(state => state.game.gameStakes);
+    // const gameStakes = useSelector(state => state.game.gameStakes);
     const maximumExhibitionStakeAmount = useSelector(state => state.common.maximumExhibitionStakeAmount);
     const minimumExhibitionStakeAmount = useSelector(state => state.common.minimumExhibitionStakeAmount);
     console.log(minimumExhibitionStakeAmount)
     const [amount, setAmount] = useState(200);
     const [amountErr, setAmountError] = useState(false);
     const [loading, setLoading] = useState(false);
-    const [canSend, setCanSend] = useState(true)
+    // const [canSend, setCanSend] = useState(true)
 
 
     const onChangeStakeAmount = (e) => {
@@ -68,10 +68,10 @@ const GameStaking = () => {
             )
     }
 
-    useEffect(() => {
-        const invalid = amountErr || amount === '';
-        setCanSend(!invalid);
-    }, [amount, amountErr])
+    // useEffect(() => {
+    //     const invalid = amountErr || amount === '';
+    //     setCanSend(!invalid);
+    // }, [amount, amountErr])
 
     return (
         <>
@@ -96,7 +96,7 @@ const GameStaking = () => {
                             </span>
                         }
                     </div>
-                    <div className="buttonContainer">
+                    <div className="">
                     <button onClick={startGame} disabled={loading} className='start-button'>
                         <p className="start-text">{loading ? <Spinner
                             color='#ffff'
