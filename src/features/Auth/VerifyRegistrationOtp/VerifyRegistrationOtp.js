@@ -20,7 +20,6 @@ const VerifyRegistrationOtp = () => {
     const [loading, setLoading] = useState(false);
 
 
-
     useEffect(() => {
         const onComplete = () => {
             clearInterval(countDown);
@@ -38,7 +37,7 @@ const VerifyRegistrationOtp = () => {
         }, 1000);
 
         return () => clearInterval(countDown);
-
+        // eslint-disable-next-line 
     }, [])
 
     const otpToken = otpValues.join('')
