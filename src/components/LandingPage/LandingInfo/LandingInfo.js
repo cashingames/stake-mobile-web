@@ -7,7 +7,13 @@ function LandingInfo() {
   return (
     <div className='landingInfoContainer'>
         <div className='landingImage'>
-            <img src='/images/infoImage1.png' alt='First' className='img1'/>
+          <div className='img1Text'>
+            <p className='text'>Daily Challenge</p>
+          </div>
+          <div  className='img1' style={{ backgroundImage: "url(/images/gameImage2.png)" }}>
+            <Link to='/' className='img1Link'>Daily Challenge</Link>
+            <Link to='/' className='img1Link2'>Quiz Quest</Link>
+          </div>
         </div>
         <div className='landingImage2'>
             <img src='/images/infoImage2.png' alt='second' className='img2'/>
@@ -20,7 +26,10 @@ function LandingInfo() {
             </div>
         </div>
         <div className='landingImage3'>
-            <img src='/images/infoImage3.png' alt='Third' className='img3'/>
+            <img src='/images/info3.png' alt='Third' className='img3'/>
+            <div className='img3Text'>
+              <p>Category Leaderboard</p>
+            </div>
         </div>
         </div>
   )

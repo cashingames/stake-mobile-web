@@ -126,7 +126,7 @@ const Login = () => {
             </div>
             <div className='socialContainer'>
                 <p className='socialLinkText'>Don't have an account ?  <a className='signup' href='/sign-up'>Create one</a></p>
-                <p className='socialLinkText'>or</p>
+                <p className='socialLinkText2'>or</p>
                 <GoogleSignup buttonText='Sign in' />
             </div>
         </div>

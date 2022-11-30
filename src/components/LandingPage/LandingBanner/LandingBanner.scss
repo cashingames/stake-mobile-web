@@ -1,8 +1,121 @@
-.landingBanner{
+.landingBanner {
     width: 100vw;
-    .landingBannerImage{
-        object-fit: cover;
-        height: 100%;
+    overflow-x: hidden;
+    padding-top: 3rem;
+    font-family: 'Graphik';
+    background-color: #fff;
+
+    .bannerTextContainer {
+        text-align: center;
         width: 100%;
+        position: relative;
+
+        .bannerText {
+            margin: 0;
+            font-size: 2.3rem;
+            line-height: 1.5;
+
+            .red {
+                color: #EF2F55;
+            }
+        }
+
+        .bannerText2 {
+            color: rgba(0, 0, 0, 0.6);
+            font-size: 1rem;
+            margin-top: 3rem;
+            line-height: 1.5;
+            font-weight: 600;
+        }
+
+        .bubble2 {
+            position: absolute;
+            width: 90px;
+            height: 90px;
+            right: -27px;
+            top: 45%;
+            border-radius: 50%;
+            background: linear-gradient(160.12deg, #E24066 31.98%, #CD3664 81.96%);
+        }
+
+        .bubble3{
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            right: -5px;
+            bottom: -35%;
+            border-radius: 50%;
+            background: linear-gradient(180deg, #6C15C9 0%, #B26CFE 100%);
+        }
+
+        .bubble4{
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: 5px;
+            bottom: -45%;
+            border-radius: 50%;
+            background: linear-gradient(160.12deg, #E24066 31.98%, #CD3664 81.96%);
+        }
+
+        .clipContainer {
+            display: flex;
+            justify-content: space-between;
+            padding: 0;
+            align-items: center;
+
+            .bubble {
+                position: relative;
+                width: 108px;
+                height: 108px;
+                left: -27px;
+                top: 0;
+                border-radius: 50%;
+                background: linear-gradient(180deg, #6C15C9 0%, #B26CFE 100%);
+            }
+
+            .clickMe {
+                background: #151C2F;
+                display: flex;
+                flex: 1;
+                margin-right: -2rem;
+                height: 56px;
+                border-radius: 30px;
+                margin-top: 2rem;
+                .linkUp {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-evenly;
+                    text-decoration: none;
+                    width: 100%;
+
+                    .clickText {
+                        color: #fff;
+                        flex: 1;
+                        font-size: .8rem;
+                        padding-right: 4rem;
+                        letter-spacing: 2px;
+                    }
+
+                    .play {
+                        background-color: #EF2F55;
+                        margin-left: .5rem;
+                        height: 40px;
+                        width: 40px;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    }
+                }
+            }
+        }
+    }
+
+    .landingBannerImage {
+        object-fit: cover;
+        // height: 100%;
+        width: 100%;
+        margin-top: 2rem;
     }
 }
