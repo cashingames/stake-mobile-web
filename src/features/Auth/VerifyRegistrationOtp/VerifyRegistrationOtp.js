@@ -121,10 +121,7 @@ const VerifyEmailText = () => {
                 Good job, you are almost there
             </h1>
             <p className="verifySubText">
-                A One Time Password(OTP) has been sent to your phone number.
-                Please input the five(5) digit
-                number below to verify your phone number so you
-                can play exicting games and stand a chance to win lots of prizes
+            To verify your account, please input the One Time Password sent to your phone number.
             </p>
         </div>
     )

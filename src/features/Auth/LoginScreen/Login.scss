@@ -81,7 +81,7 @@
                     line-height: 0;
                     color: #EF2F55;
                     font-size: .85rem;
-                    font-weight: 600;
+                    font-weight: 450;
                     text-decoration: none;
                 }
             }
@@ -122,13 +122,19 @@
         flex-direction: column;
         margin-top: 1.5rem;
 
-        .socialLinkText {
+        .socialLinkText, .socialLinkText2 {
             color: #00000080;
             font-size: 0.87rem;
             line-height: 0;
             font-weight: 500;
         }
-
+        .socialLinkText{
+            margin: 0;
+            margin-bottom: 0.3rem;
+        }
+        .socialLinkText2{
+            margin: 1rem 0;
+        }
         .signup {
             color: #EF2F55;
             font-size: 0.87rem;
