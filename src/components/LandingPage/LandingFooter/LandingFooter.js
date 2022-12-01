@@ -8,7 +8,7 @@ function LandingFooter() {
     return (
         <div className='LandingFooter'>
             <div className='footerLogo'>
-                <img src='/images/logo-small.png' alt='logo'/>
+                <img src='/images/logo-small.png' alt='logo' className='logo'/>
             </div>
             <div className='footerLinksContainer'>
                     <Link to='/terms' className='footerLink'>Terms and Conditions</Link>

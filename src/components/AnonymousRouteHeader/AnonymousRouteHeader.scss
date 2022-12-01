@@ -10,7 +10,12 @@
     width: 100%;
     z-index: 2;
     height: 5.1rem;
-    background-color:#072169 ;
+    background-color:#fff ;
+    .img{
+        height: 30px;
+        object-fit: cover;
+        width: 70px;
+    }
     .headerTitle {
         display: flex;
         align-items: center;
@@ -21,12 +26,12 @@
     .title {
         font-weight: 500;
         font-size: 1rem;
-        color: #ffff;
+        color: #000;
         margin: 0;
     }
     .icon {
         font-size: 1rem;
         font-weight: 300;
-        color: #ffff;
+        color: #000;
     }
 }

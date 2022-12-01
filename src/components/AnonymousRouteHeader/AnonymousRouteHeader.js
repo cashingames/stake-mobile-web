@@ -8,7 +8,7 @@ function AnonymousRouteHeader({ title, styleProp }) {
     const navigate = useNavigate()
     return (
         <div className={`anonymousRouteHeader ${styleProp}`}>
-            <img src="/images/logo-small.png" alt="banner" style={{ width: '4rem' }}  onClick={
+            <img src="/images/logo-small.png" alt="banner" className="img" onClick={
                         () => navigate('/login')
                     } />
             <div className="headerTitle">

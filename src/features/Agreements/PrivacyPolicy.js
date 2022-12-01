@@ -1,6 +1,5 @@
 import React from "react";
 import AnonymousRouteHeader from "../../components/AnonymousRouteHeader/AnonymousRouteHeader";
-import AuthTitle from "../../components/AuthTitle/AuthTitle";
 import './AgreementStyles.scss'
 
 const PrivacyPolicy = () => {
@@ -9,7 +8,6 @@ const PrivacyPolicy = () => {
             <AnonymousRouteHeader title='Privacy Policy' />
 
             <div className='container'>
-                <AuthTitle titleText='Privacy Policy' styleProp='headerTitle' />
                 <div>
                     <h3>Introduction</h3>
                     <p>At Cashingames (“Cashingames,” “we,” “our,” and/or “us”), we provide an entertainment gaming and trivia platform for game-loving users to play and win points virtually. In this Privacy Policy (the “Privacy Policy”), we tell you what information we receive from Cashingames users, the third-party service providers (“Service Partners”) we interact with and the nature of our interaction, and how we use the information.</p>

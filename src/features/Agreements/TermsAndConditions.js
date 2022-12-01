@@ -1,6 +1,5 @@
 import React from "react";
 import AnonymousRouteHeader from "../../components/AnonymousRouteHeader/AnonymousRouteHeader";
-import AuthTitle from "../../components/AuthTitle/AuthTitle";
 import './AgreementStyles.scss'
 
 const TermsAndConditions = () => {
@@ -8,7 +7,6 @@ const TermsAndConditions = () => {
         <>
             <AnonymousRouteHeader title='Terms & Conditions' />
             <div className='container'>
-                <AuthTitle titleText='Terms & Conditions' styleProp='headerTitle' />
                 <div>
                     <h3>1 Introduction</h3>
                     <p>These are the Terms of Use ("Terms") which govern our websites, mobile applications, and APIs (each, a "Service" or collectively the “Services”) owned and/or operated by Cashingames Limited ("we", "us", "our", "Cashingames"). By accessing and/or using the Services, you agree to be bound by these Terms, our Privacy Policy, and any Additional Service Terms governing your use of a particular Service, all of which are incorporated by reference. <br />
