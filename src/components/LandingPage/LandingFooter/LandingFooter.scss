@@ -9,6 +9,11 @@
         display: flex;
         justify-content: center;
         margin: 2rem;
+        .logo{
+            width: 116px;
+            height: 60px;
+            object-fit: cover;
+        }
     }
 
     .footerLinksContainer {

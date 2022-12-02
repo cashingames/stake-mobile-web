@@ -4,7 +4,6 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import AnonymousRouteHeader from "../../../components/AnonymousRouteHeader/AnonymousRouteHeader";
-import AuthTitle from '../../../components/AuthTitle/AuthTitle';
 import { resetPassword } from "../AuthSlice";
 import './ResetPassword.scss'
 
@@ -58,7 +57,6 @@ const ResetPassword = () => {
         <>
             <AnonymousRouteHeader title='Reset Password' />
             <div className='passwordContainer'>
-                <AuthTitle titleText='Set New Pasword' />
                 <p className='text'>Enter your new password below</p>
                 <div>
                     {error.length > 0 &&

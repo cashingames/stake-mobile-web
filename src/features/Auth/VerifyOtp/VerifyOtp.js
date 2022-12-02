@@ -4,7 +4,6 @@ import { useDispatch } from "react-redux";
 import { useNavigate, useLocation } from "react-router-dom";
 import AnonymousRouteHeader from "../../../components/AnonymousRouteHeader/AnonymousRouteHeader";
 import { verifyAccount } from '../AuthSlice';
-import AuthTitle from '../../../components/AuthTitle/AuthTitle';
 import ResendOtp from "../../../components/ResendOtp/ResendOtp";
 import { setUserPasswordResetToken, verifyOtp } from "../AuthSlice";
 import './VerifyOtp.scss'
@@ -104,7 +103,6 @@ const VerifyOtp = () => {
         <>
             <AnonymousRouteHeader title='Verify Otp' />
             <div className='passwordContainer'>
-                <AuthTitle titleText='Verify OTP' />
                 <p className='text'>Enter the One-time passcode we sent to the email you provided</p>
                 <form className='otpForm' onSubmit={handleSubmit}>
                     {error.length > 0 &&
