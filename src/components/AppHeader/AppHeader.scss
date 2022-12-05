@@ -1,3 +1,4 @@
+
 * {
     box-sizing: border-box;
 }
@@ -37,26 +38,30 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            text-decoration: none;
+            margin-top: 0.2rem;
+            margin-bottom: 0;
+            font-size: 0.55rem;
+            color: #000;
+            font-weight: 500;
+            opacity: 0.5;
+            text-transform:capitalize;
             .icon {
                 font-size: 1.5rem;
             }
-            .text {
-                margin-top: 0.2rem;
-                margin-bottom: 0;
-                font-size: 0.55rem;
-                font-weight: 500;
-                text-transform: capitalize;
-                color: #000000B2
-            }
-
+        }
+        .active{
+            opacity: 1;
         }
         .notification {
             display: flex;
             position: relative;
+            opacity: 0.5;
             .notifyIcon {
                 font-size: 1.5rem;
+                color:#000
             }
-            .notificationNumber {
+            .notificationNumberCase {
                 position: absolute;
                 background-color: #518Ef8;
                 left: 22px;
@@ -67,9 +72,9 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                border: 1px solid #fff;
-
-                p {
+                border: 2px solid #fff;
+                opacity: 0.8;
+                .notificationNumber {
                     font-size: 0.4rem;
                     color: #fff;
                     font-weight: 500;
