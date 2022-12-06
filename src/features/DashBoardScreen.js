@@ -19,7 +19,6 @@ function DashBoardScreen() {
   const challengeLeaders = useSelector(state => state.game.challengeLeaders)
   const leaders = useSelector(state => state.common.globalLeaders)
 
-
   useEffect(() => {
     dispatch(getUser());
     dispatch(getCommonData())
@@ -28,9 +27,6 @@ function DashBoardScreen() {
     dispatch(fetchFeatureFlags())
 
   }, [dispatch]);
-
-  // console.log(gameModes)
-
 
   return (
     <div>

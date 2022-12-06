@@ -1,0 +1,45 @@
+.bankContainer{
+    font-family: 'Graphik';
+    background-color: #F8F9FD;
+    padding: 2rem 1rem;
+    min-height: 100vh;
+    .inputCase{
+        display: flex;
+        flex-direction: column;
+        .inputLabel{
+            margin-bottom: .45rem;
+            font-size: 0.7rem;
+            color: #000000B2;
+            font-weight: 500;
+        }
+         .inputBox2{
+            color: #00000080;
+            font-size: 0.7rem;
+            border-radius: 7px;
+            border:1px solid #CDD4DF;
+            padding: 0.5rem .6rem;
+            outline: none;
+            margin-bottom: .5rem;
+            background-color: none;
+        }
+        .bankBtn{
+            background-color: #EF2F55;
+            justify-content: center;
+            display: flex;
+            align-items: center;
+            padding: 0.6rem 0;
+            border-radius: 8px;
+            width: 100%;
+            border: none;
+            color: white;
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-top: 20rem;
+        }
+        button[disabled] {
+            border: none;
+            background-color: #DFCBCF;
+            color: white;
+        }
+    }
+}

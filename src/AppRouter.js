@@ -20,6 +20,11 @@ import GameInstructionScreen from './features/Games/GameInstructionScreen/GameIn
 import ChallengeSelectPlayer from './features/Games/ChallengeSelectPlayer/ChallengeSelectPlayer';
 import LandingPage from './features/LandingPageScreen/LandingPage';
 import GameStaking from './features/Games/GameStaking/GameStaking';
+import UserProfileScreen from './features/Profile/UserProfileScreen';
+import EditProfileDetails from './features/Profile/EditProfileDetails/EditProfileDetails'
+import ChangePassword from './features/Profile/ChangePasswordScreen/ChangePassword';
+import UserStat from './features/Profile/UserStat/UserStat';
+import BankDetails from './features/Profile/BankDetails/BankDetails';
 
 const AppRouter = () => {
 
@@ -63,6 +68,23 @@ const AppRouter = () => {
             <Route
                 path="/select-player"
                 element={<AuthRoute redirectTo="/"><ChallengeSelectPlayer /></AuthRoute>} />
+
+            <Route
+                path="/profile"
+                element={<AuthRoute redirectTo="/"><UserProfileScreen /></AuthRoute>} />
+            <Route
+                path="/edit-profile"
+                element={<AuthRoute redirectTo="/"><EditProfileDetails /></AuthRoute>} />
+            <Route
+                path="/change-password"
+                element={<AuthRoute redirectTo="/"><ChangePassword /></AuthRoute>} />
+
+            <Route
+                path="/stat"
+                element={<AuthRoute redirectTo="/"><UserStat /></AuthRoute>} />
+            <Route
+                path="/bank-details"
+                element={<AuthRoute redirectTo="/"><BankDetails /></AuthRoute>} />
         </Routes>
     )
 }

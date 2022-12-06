@@ -73,6 +73,16 @@ export const fetchFeatureFlags = createAsyncThunk(
         return response.data;
     }
 )
+
+
+export const getBankData = createAsyncThunk(
+    'common/bank/get',
+    async () => {
+        const response = await axios.get('v2/wallet/banks')
+        return response.data
+    }
+)
+
 export const isFeatureEnabled = async (feature, features = {}) => {
 
     return features.hasOwnProperty(feature) && features[feature].enabled === true
@@ -83,6 +93,7 @@ const initialState = {
     trivias: [],
     loadMoreLiveTrivias: true,
     gameModes: [],
+    banks:[],
     globalLeaders: [],
     userNotifications: [],
     userTransactions: [],
@@ -121,6 +132,9 @@ export const CommonSlice = createSlice({
             .addCase(fetchRecentLiveTrivia.fulfilled, (state, action) => {
                 state.loadMoreLiveTrivias = !(action.payload.length < 10);
                 state.trivias = state.trivias.concat(action.payload);
+            })
+            .addCase(getBankData.fulfilled, (state, action) => {
+                state.banks = action.payload.data;
             })
             .addCase(getGlobalLeaders.fulfilled, (state, action) => {
                 state.globalLeaders = action.payload.data

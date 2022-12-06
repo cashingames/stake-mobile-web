@@ -1,0 +1,85 @@
+    .formCase {
+        padding: 1rem;
+        .inputsCase{
+            .inputCase{
+                display: flex;
+                flex-direction: column;
+                .inputLabel{
+                    margin-bottom: .45rem;
+                    font-size: 0.7rem;
+                    color: #000000B2;
+                    font-weight: 500;
+                }
+                .inputBox, .inputBox2{
+                    color: #00000080;
+                    font-size: 0.7rem;
+                    border-radius: 7px;
+                    padding: 0.5rem 0;
+                    border: none;
+                    outline: none;
+                    margin-bottom: .5rem;
+                }
+
+                .inputBox2{
+                    border:1px solid #CDD4DF;
+                    padding: 0.5rem .6rem;
+                }
+
+                .phoneContainer {
+                    border: none;
+                    padding: 0.5rem 0rem;
+                    border-radius: 7px;
+                    font-size: 0.75rem;
+                    margin-bottom: .5rem;
+
+                    .countryCode {
+                        border: none;
+                        border-right: 1px solid #CDD4DF;
+                        width: 2rem;
+                        margin-right: .5rem;
+                        font-size: 0.7rem;
+                        color: #00000080;
+                        outline: none;
+                    }
+
+                    .phoneInput {
+                        border: none;
+                        outline: none;
+                        color: #00000080;
+                        font-size: 0.7rem;
+                    }
+
+                }
+
+                .selectBox{
+                    color: #00000080;
+                    font-size: 0.7rem;
+                    padding: 0.5rem 0;
+                    border: 1px solid #CDD4DF;
+                    background-color: #ebeff5;
+                    .selectItem{
+                        font-size: 0.75rem;
+                    }
+                }
+            }
+            .submitBtn{
+                margin-top: 7rem;
+                background-color: #EF2F55;
+                justify-content: center;
+                display: flex;
+                align-items: center;
+                padding: 0.75rem 0;
+                border-radius: 7.5px;
+                width: 100%;
+                border: none;
+                color: white;
+                font-size: 0.75rem;
+                font-weight: 500;
+            }
+            button[disabled] {
+                border: none;
+                background-color: #DFCBCF;
+                color: white;
+            }
+        }
+    }
