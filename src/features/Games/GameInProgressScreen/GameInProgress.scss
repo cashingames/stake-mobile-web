@@ -1,0 +1,22 @@
+.gameInProgress{
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    font-family: 'Graphik';
+    padding: 2rem 1rem;
+}
+
+.nextButton{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #EF2F55;
+    border-radius: 16px;
+    margin: 9rem 0;
+    .btnText{
+        color: #fff;
+    }
+}
+
+

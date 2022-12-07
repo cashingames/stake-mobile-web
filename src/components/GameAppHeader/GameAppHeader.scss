@@ -1,0 +1,24 @@
+.gameInHeader{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: 'Graphik';
+    .boostContainer{
+        display: flex;
+        align-items: center;
+        padding: 0 0.4rem;
+        background-color: #EF2F55;
+        border-radius: 5px;
+        .gameInText{
+            font-size: 0.63rem;
+            margin: 0;
+            color: #fff;
+        }
+    }
+    .exitGame{
+        font-size: 0.8rem;
+        color: #fff;
+        margin: 0;
+        font-weight: 450;
+    }
+}
