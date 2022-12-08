@@ -12,11 +12,17 @@
     align-items: center;
     justify-content: center;
     background-color: #EF2F55;
-    border-radius: 16px;
+    border-radius: 8px;
     margin: 9rem 0;
+    border: none;
     .btnText{
         color: #fff;
     }
+}
+button[disabled] {
+    border: none;
+    background-color: #DFCBCF;
+    color: white;
 }
 
 

@@ -3,11 +3,11 @@ import './GameInProgressAndBoost.scss'
 import GameTopicProgress from '../GameTopicProgress/GameTopicProgress'
 import AvailableBoostSession from '../AvailableBoostSession/AvailableBoostSession'
 
-function GameProgressAndBoost() {
+function GameProgressAndBoost({onComplete}) {
 
     return (
         <div className='gameProgressBoost'>
-            <GameTopicProgress />
+            <GameTopicProgress onComplete={onComplete} />
             <AvailableBoostSession />
         </div>
     )

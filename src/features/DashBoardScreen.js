@@ -29,9 +29,6 @@ function DashBoardScreen() {
 
   }, [dispatch]);
 
-  // console.log(gameModes)
-
-
   return (
     <div>
       <AppHeader heading='Home' style={{ color: '#000000' }} />

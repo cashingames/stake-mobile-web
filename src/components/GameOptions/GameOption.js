@@ -1,16 +1,14 @@
-import React, { useState } from 'react'
+import React from 'react';
+import { Base64 } from "js-base64";
 import './GameOption.scss'
 
-function GameOption() {
-    const [selected, isSelected] = useState(true)
-    const selectAnswer = () => {
-        isSelected(!selected)
-    }
+function GameOption( {option: { title, isSelected }, onSelected }) {
+
 
   return (
-    <div className={`${selected ? 'answer' : 'isSelected'}`}
-    onClick={selectAnswer}>
-        <p className='answeredOption'>a boy has come</p>
+    <div className={`${isSelected ? 'isSelected' : 'answer'}`}
+    onClick={onSelected}>
+        <p className='answeredOption'>{Base64.decode(title)}</p>
     </div>
   )
 }

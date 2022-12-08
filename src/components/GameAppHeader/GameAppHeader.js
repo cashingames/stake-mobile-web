@@ -3,7 +3,7 @@ import {Player} from '@lottiefiles/react-lottie-player'
 import Boost from '../../assets/boost.json'
 import './GameAppHeader.scss'
 
-function GameAppHeader() {
+function GameAppHeader({onPress}) {
     return (
         <div className='gameInHeader'>
             <div className='boostContainer'>
@@ -17,7 +17,7 @@ function GameAppHeader() {
                         {height: '40px', width:'40px'}
                     }/>
             </div>
-            <p className='exitGame'>Exit</p>
+            <button onClick={onPress} className='exitGame'>Exit</button>
         </div>
     )
 }
