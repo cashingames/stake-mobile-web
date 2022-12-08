@@ -1,0 +1,22 @@
+.finalScoreCase{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #F9E821;
+    border-radius: 16px;
+    margin-bottom: 2.5rem;
+    margin-top: .5rem;
+    padding: 0.9rem;
+    .finalScoreText{
+        margin: 0;
+        color: #9236AD;
+        font-size: 0.75rem;
+        font-weight: 450;
+    }
+    .score{
+        color: #9236AD;
+        font-size: 4rem;
+        font-weight: 700;
+        margin: 0;
+    }
+}
