@@ -1,0 +1,20 @@
+.gameBtnCase{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5rem;
+    .gameBtn{
+        border: 1px solid #fff;
+        width: 35%;
+        height: 3rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 8px;
+        .gameText{
+            color: #fff;
+            font-size: 0.72rem;
+            font-weight: 500;
+        }
+    }
+}
