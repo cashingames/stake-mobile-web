@@ -6,6 +6,7 @@ import Guidelines from '../../../assets/guidelines.json'
 import AvailableBoosts from "../../../components/AvailableBoosts/AvailableBoosts";
 import BottomSheet from "../../../components/BottomSheet/BottomSheet";
 import ExhibitionStakingBanner from "../../../components/ExhibitionStakingBanner/ExhibitionStakingBanner";
+import NoGame from "../../../components/NoGame/NoGame";
 import ScreenHeader from "../../../components/ScreenHeader/ScreenHeader";
 import StakingButtons from "../../../components/StakingButtons/StakingButtons";
 import './GameInstructionScreen.scss'
@@ -16,11 +17,26 @@ const GameInstructionScreen = () => {
     const [open, setOpen] = useState(false)
 
     const gameMode = useSelector(state => state.game.gameMode);
-    // console.log(gameMode)
-    // const user = useSelector(state => state.auth.user);
+    const user = useSelector(state => state.auth.user);
     const features = useSelector(state => state.common.featureFlags);
-    // console.log(features)x
-    // const hasActivePlan = useSelector(state => state.auth.user.hasActivePlan);
+    const hasActivePlan = useSelector(state => state.auth.user.hasActivePlan);
+
+    const handleGameBoardTabClosing = () => {
+    }
+
+    const alertUserBeforeClosinigGame = (event) => {
+        event.preventDefault();
+        event.returnValue = '';
+    }
+
+    useEffect(() => {
+        window.addEventListener('beforeunload', alertUserBeforeClosinigGame)
+        window.addEventListener('unload', handleGameBoardTabClosing)
+        return () => {
+            window.removeEventListener('beforeunload', alertUserBeforeClosinigGame)
+            window.removeEventListener('unload', handleGameBoardTabClosing)
+        }
+    })
 
     // eslint-disable-next-line 
     const isStakingFeatureEnabled = features['exhibition_game_staking'] !== undefined && features['exhibition_game_staking'].enabled == true;
@@ -70,7 +86,21 @@ const GameInstructionScreen = () => {
                     </button>
 
                 }
-                <BottomSheet open = {open} closeBottomSheet={closeBottomSheet} BSContent={<AvailableBoosts onClose={closeBottomSheet} />} />
+                {hasActivePlan ?
+                    <BottomSheet
+                        open={open} closeBottomSheet={closeBottomSheet}
+                        BSContent={<AvailableBoosts
+                            onClose={closeBottomSheet} user={user}
+                        />}
+                    />
+                    :
+                    <BottomSheet
+                        open={open} closeBottomSheet={closeBottomSheet}
+                        BSContent={<NoGame
+                            onClose={closeBottomSheet}
+                        />}
+                    />
+                }
 
             </div>
         </>

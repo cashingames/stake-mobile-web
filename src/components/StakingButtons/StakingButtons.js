@@ -5,12 +5,13 @@ import './StakingButtons.scss'
 const StakingButtons = ({onPressStake,onPressProceed}) => {
     return (
         <div className='buttons'>
-            <button onClick={onPressStake} className='stakeButton'>
-                <p className='text'>Stake Cash</p>
+            <button onClick={onPressProceed} className='stakeButton'>
+                <p className='text'>Play exhibition</p>
             </button>
-            <button onClick={onPressProceed} className='proceedButton'>
+            <button onClick={onPressStake} className='proceedButton'>
                 <p className='text'>Proceed</p>
             </button>
+            
         </div>
     )
 }

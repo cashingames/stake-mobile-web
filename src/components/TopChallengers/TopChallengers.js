@@ -11,41 +11,36 @@ function TopChallengers({ challengeLeaders }) {
 
 
     return (
-        <>
-            {challengeLeaders.length > 0 &&
-                <div className='topChallengers'>
-                    <p className='topChallengeTitle'>Top Challengers</p>
-                    <div className='topChallengerContainer'>
-                        <TopWeeklyChallenger
-                            trophyImageUrl='/images/third-crown.png'
-                            stageImageUrl="/images/third-stage.png"
-                            username={thirdLeader.username}
-                            avatar={thirdLeader.avatar}
-                            styleProp='others'
-                            avatarProp='otherAvatar'
+        <div className='topChallengers'>
+            <p className='topChallengeTitle'>Top Challengers</p>
+            <div className='topChallengerContainer'>
+                <TopWeeklyChallenger
+                    trophyImageUrl='/images/third-crown.png'
+                    stageImageUrl="/images/third-stage.png"
+                    username={thirdLeader.username}
+                    avatar={thirdLeader.avatar}
+                    styleProp='others'
+                    avatarProp='otherAvatar'
 
-                        />
-                        <TopWeeklyChallenger
-                            trophyImageUrl='/images/first-crown.png'
-                            stageImageUrl="/images/first-stage.png"
-                            username={firstLeader.username}
-                            avatar={firstLeader.avatar}
-                            styleProp='winner'
-                            avatarProp='avatar'
-                        />
-                        <TopWeeklyChallenger
-                            trophyImageUrl='/images/second-crown.png'
-                            stageImageUrl="/images/second-stage.png"
-                            username={secondLeader.username}
-                            avatar={secondLeader.avatar}
-                            styleProp='others'
-                            avatarProp='otherAvatar'
-                        />
-                    </div>
-                </div>
-            }
-
-        </>
+                />
+                <TopWeeklyChallenger
+                    trophyImageUrl='/images/first-crown.png'
+                    stageImageUrl="/images/first-stage.png"
+                    username={firstLeader.username}
+                    avatar={firstLeader.avatar}
+                    styleProp='winner'
+                    avatarProp='avatar'
+                />
+                <TopWeeklyChallenger
+                    trophyImageUrl='/images/second-crown.png'
+                    stageImageUrl="/images/second-stage.png"
+                    username={secondLeader.username}
+                    avatar={secondLeader.avatar}
+                    styleProp='others'
+                    avatarProp='otherAvatar'
+                />
+            </div>
+        </div>
     )
 }
 

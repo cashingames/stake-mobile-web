@@ -20,6 +20,7 @@ import GameInstructionScreen from './features/Games/GameInstructionScreen/GameIn
 import ChallengeSelectPlayer from './features/Games/ChallengeSelectPlayer/ChallengeSelectPlayer';
 import LandingPage from './features/LandingPageScreen/LandingPage';
 import GameStaking from './features/Games/GameStaking/GameStaking';
+import GameInProgress from './features/Games/GameInProgress/GameInProgress';
 
 const AppRouter = () => {
 
@@ -27,7 +28,7 @@ const AppRouter = () => {
         <Routes>
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/terms" element={<TermsAndConditions />} />
-            <Route path="/" element={ <AnonymousRoute redirectTo="/dashboard"><LandingPage /></AnonymousRoute>}  />
+            <Route path="/" element={<AnonymousRoute redirectTo="/dashboard"><LandingPage /></AnonymousRoute>} />
             <Route path="/login" element={<AnonymousRoute redirectTo="/dashboard"><Login /></AnonymousRoute>} />
             <Route path="/sign-up" element={<AnonymousRoute redirectTo="/dashboard"><Signup /></AnonymousRoute>} />
             <Route path="/sign-up-profile" element={<AnonymousRoute redirectTo="/dashboard"><SignupProfile /></AnonymousRoute>} />
@@ -59,6 +60,9 @@ const AppRouter = () => {
             <Route
                 path="/exhibition-staking"
                 element={<AuthRoute redirectTo="/"><GameStaking /></AuthRoute>} />
+            <Route
+                path="/game-board"
+                element={<AuthRoute redirectTo="/"><GameInProgress /></AuthRoute>} />
 
             <Route
                 path="/select-player"
