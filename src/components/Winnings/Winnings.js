@@ -1,13 +1,12 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import StakeWinnings from '../StakeWinnings/StakeWinnings'
+import React from 'react';
+import StakeWinnings from '../StakeWinnings/StakeWinnings';
 import './Winnings.scss'
 
-function Winnings() {
+function Winnings({amountWon, onPress}) {
   return (
     <div className='winningCase'>
-        <StakeWinnings />
-        <Link to='/' className='reviewStake'>Review Stake</Link>
+        <StakeWinnings amountWon={amountWon} />
+        <button onClick={onPress} className='reviewStake'>Review Stake</button>
     </div>
   )
 }

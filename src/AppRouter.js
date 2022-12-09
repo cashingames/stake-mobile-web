@@ -21,6 +21,7 @@ import ChallengeSelectPlayer from './features/Games/ChallengeSelectPlayer/Challe
 import LandingPage from './features/LandingPageScreen/LandingPage';
 import GameStaking from './features/Games/GameStaking/GameStaking';
 import GameInProgress from './features/Games/GameInProgress/GameInProgress';
+import GameEnded from './features/Games/GameEnded/GameEnded';
 
 const AppRouter = () => {
 
@@ -63,6 +64,9 @@ const AppRouter = () => {
             <Route
                 path="/game-board"
                 element={<AuthRoute redirectTo="/"><GameInProgress /></AuthRoute>} />
+            <Route
+                path="/game-result"
+                element={<AuthRoute redirectTo="/"><GameEnded /></AuthRoute>} />
 
             <Route
                 path="/select-player"

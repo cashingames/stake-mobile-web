@@ -1,19 +1,19 @@
 import React from 'react'
 import './GameButton.scss'
 
-function GameButton() {
+function GameButton({goHome, playAgain}) {
   return (
     <div className='gameBtnCase'>
-        <div className='gameBtn'>
+        <button className='homeBtn' onClick={goHome}>
             <p className='gameText'>
                 Return to Home
             </p>
-        </div>
-        <div className='gameBtn'>
+        </button>
+        <button className='gameBtn' onClick={playAgain}>
             <p className='gameText'>
                 Play Again
             </p>
-        </div>
+        </button>
     </div>
   )
 }

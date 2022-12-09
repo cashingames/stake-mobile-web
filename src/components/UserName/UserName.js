@@ -1,10 +1,10 @@
 import React from 'react'
 import './UserName.scss'
 
-function UserName() {
+function UserName({userName}) {
   return (
     <div className='nameCase'>
-        <p className='name'>JohnDoe</p>
+        <p className='name'>{userName}</p>
     </div>
   )
 }

@@ -63,8 +63,8 @@ function GameInProgress() {
           //     triviaId: params.triviaId,
           // })
         } else {
-          // navigate('GameEndResult');
-          alert('game ended')
+          navigate('/game-result');
+          // alert('game ended')
         }
 
       })

@@ -28,7 +28,6 @@ const AvailableBoosts = ({ onClose,
 
     const onStartGame = () => {
         setLoading(true);
-        alert('game started')
         dispatch(setIsPlayingTrivia(false))
         dispatch(startGame({
             category: gameCategoryId,

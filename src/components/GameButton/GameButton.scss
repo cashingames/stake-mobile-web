@@ -1,18 +1,39 @@
-.gameBtnCase{
+.gameBtnCase {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 5rem;
-    .gameBtn{
-        border: 1px solid #fff;
+
+    .gameBtn {
+        background-color: #EF2F55;
+        border: none;
+        border-radius: 8px;
         width: 35%;
         height: 3rem;
         display: flex;
         justify-content: center;
         align-items: center;
         border-radius: 8px;
-        .gameText{
+
+        .gameText {
             color: #fff;
+            font-size: 0.72rem;
+            font-weight: 500;
+        }
+    }
+    .homeBtn {
+        background-color: #ffff;
+        border: 1px solid #EF2F55;
+        border-radius: 8px;
+        width: 35%;
+        height: 3rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 8px;
+
+        .gameText {
+            color: #EF2F55;
             font-size: 0.72rem;
             font-weight: 500;
         }

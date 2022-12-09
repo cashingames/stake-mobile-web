@@ -196,18 +196,18 @@ export const GameSlice = createSlice({
         setQuestionsCount: (state, action) => {
             state.totalQuestionCount = action.payload;
         },
-        // setPointsGained: (state, action) => {
-        //     state.pointsGained = action.payload;
-        // },
-        // setAmountWon: (state, action) => {
-        //     state.amountWon = action.payload;
-        // },
-        // setAmountStaked: (state, action) => {
-        //     state.amountStaked = action.payload;
-        // },
-        // setWithStaking: (state, action) => {
-        //     state.withStaking = action.payload;
-        // },
+        setPointsGained: (state, action) => {
+            state.pointsGained = action.payload;
+        },
+        setAmountWon: (state, action) => {
+            state.amountWon = action.payload;
+        },
+        setAmountStaked: (state, action) => {
+            state.amountStaked = action.payload;
+        },
+        setWithStaking: (state, action) => {
+            state.withStaking = action.payload;
+        },
         setCorrectCount: (state, action) => {
             state.correctCount = action.payload;
         },
@@ -254,7 +254,7 @@ export const GameSlice = createSlice({
         skipQuestion: (state) => {
             const q = state.questions.filter(x => x.id !== state.displayedQuestion.id);
             state.questions = q
-                state.displayedQuestion = state.questions[state.currentQuestionPosition]
+            state.displayedQuestion = state.questions[state.currentQuestionPosition]
             state.displayedOptions = state.displayedQuestion.options
         },
         bombOptions: (state) => {
@@ -343,9 +343,9 @@ export const {
     setGameType,
     setGameMode,
     setGameCategory, setIsPlayingTrivia, setHasPlayedTrivia, questionAnswered, nextQuestion, consumeBoost, incrementCountdownResetIndex,
-          pauseGame, skipQuestion, boostReleased, bombOptions, setGameDuration, setQuestionsCount, setCorrectCount,
-    // setPointsGained, setAmountWon, setAmountStaked, setSelectedFriend,
-   //   unselectFriend, setWithStaking
+    pauseGame, skipQuestion, boostReleased, bombOptions, setGameDuration, setQuestionsCount, setCorrectCount,
+    setPointsGained, setAmountWon, setAmountStaked, setSelectedFriend,
+    unselectFriend, setWithStaking
 } = GameSlice.actions
 
 
