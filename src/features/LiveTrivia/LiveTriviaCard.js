@@ -135,7 +135,7 @@ const TriviaCountDown = ({ trivia }) => {
 }
 
 const TriviaAction = ({ trivia, action }) => {
-  const style = { color: '#000000', fontSize: "2rem" }
+  const style = { color: '#000000', fontSize: "1.2rem" }
 
   let { actionDisplayText } = trivia;
 
