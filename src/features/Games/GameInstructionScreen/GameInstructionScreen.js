@@ -81,7 +81,7 @@ const GameInstructionScreen = () => {
                 {isStakingFeatureEnabled ?
                     <StakingButtons onPressStake={gotoStaking} onPressProceed={openBottomSheet} />
                     :
-                    <button className='proceedNow'>
+                    <button className='proceedNow' onClick={openBottomSheet}>
                         <p className='text'>Proceed</p>
                     </button>
 
