@@ -2,6 +2,7 @@ import React, {useState } from "react";
 import { Spinner } from "react-activity";
 import {useSelector } from "react-redux";
 import ScreenHeader from "../../../components/ScreenHeader/ScreenHeader";
+import StakingPredictionTable from '../../../components/StakingPredictionTable/StakingPredictionTable'
 import { formatCurrency } from '../../../utils/stringUtl'
 import { canStake } from "../GameSlice";
 import './GameStaking.scss'
@@ -96,14 +97,27 @@ const GameStaking = () => {
                             </span>
                         }
                     </div>
-                    <div className="">
+                    <div className="buttonContainer">
                     <button onClick={startGame} disabled={loading} className='start-button'>
                         <p className="start-text">{loading ? <Spinner
                             color='#ffff'
-                            size={10} /> : "Start Game"} </p>
+                            size={10} /> : "Stake Amount"} </p>
                     </button>
                     </div>
                 </div>
+                <div className="predictionContainer">
+                    <p className="predictionHeading">Predictions Table</p>
+                    <div className="predictionHeaders">
+                            <p className="stakeWinning">WINNINGS</p>
+                            <p className="stakeWinning">SCORE</p>
+                            <p className="stakeWinning">ODDS</p>
+                    </div>
+                </div>
+                <StakingPredictionTable />
+                <StakingPredictionTable />
+                <StakingPredictionTable />
+                <StakingPredictionTable />
+
             </div>
         </>
     )
