@@ -10,7 +10,7 @@
         font-size: 0.8rem;
         color: #7c7d7f;
         text-align: center;
-        font-weight: 500;
+        font-family: 'graphik-medium';
         margin: 0;
     }
 
@@ -20,7 +20,8 @@
         margin: 0;
         margin-bottom: .8rem;
         padding: .65rem 0;
-        font-weight: 600;
+        font-family: 'graphik-medium', sans-serif;
+        font-weight: 550;
         text-align: center;
         border-bottom: 1px solid rgba(255, 255, 255, 0.15);
     }
@@ -36,7 +37,7 @@
         border: none;
         color: white;
         font-size: 0.9rem;
-        font-weight: 600;
+        font-family: 'graphik-medium';
         margin: 0 1rem;
         cursor: pointer;
         .fwBtn{

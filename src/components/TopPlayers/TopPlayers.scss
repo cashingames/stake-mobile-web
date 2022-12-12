@@ -14,7 +14,7 @@
             margin: 0;
             font-size: 1rem;
             line-height: 1.3rem;
-            font-weight: 630;
+            font-family: 'graphik-bold';
         }
 
         .extended {
@@ -27,7 +27,7 @@
 
             .extendedText {
                 font-size: 0.7rem;
-                font-weight: 430;
+                font-family: 'graphik-medium';
                 margin: 0;
                 color: #EF2F55
             }
@@ -65,7 +65,7 @@
 
             .leaderName {
                 font-size: .7rem;
-                font-family: 'Graphik';
+                font-family: 'graphik-medium';
                 margin: 3px;
                 color: rgba(0, 0, 0, 0.6980392157);
             }
@@ -82,7 +82,8 @@
                 .point {
                     font-size: 0.55rem;
                     margin: 0;
-                    color: #fff
+                    color: #fff;
+                    font-family: 'graphik-regular';
                 }
             }
         }

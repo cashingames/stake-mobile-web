@@ -16,12 +16,13 @@
             .earningText {
                 color: #7C7D7F;
                 font-size: 0.75rem;
-                font-weight: 500;
+                font-family: 'graphik-medium';
                 text-align: center;
                 margin: 0;
             }
             .earningsAmount {
-                font-weight: 500;
+                font-family: 'graphik-medium', sans-serif;
+                font-weight: 550;
                 font-size: 1.4rem;
                 text-align: center;
                 color: #fff;
@@ -39,7 +40,7 @@
                 border: none;
                 color: white;
                 font-size: 0.8rem;
-                font-weight: 500;
+                font-family: 'graphik-medium';
                 cursor: pointer;
             }
             .note{

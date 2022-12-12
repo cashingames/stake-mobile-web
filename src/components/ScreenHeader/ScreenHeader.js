@@ -11,7 +11,7 @@ function ScreenHeader({ title, styleProp, iconProp }) {
         onClick={
           () => navigate(-1)
         } />
-      <h1 className='title'>{title}</h1>
+      <p className='title'>{title}</p>
     </div>
   )
 }
