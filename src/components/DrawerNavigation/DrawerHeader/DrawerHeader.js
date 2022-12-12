@@ -1,22 +1,27 @@
 import React from 'react'
 import { Person } from '@mui/icons-material';
 import './DrawerHeader.scss'
+import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 function DrawerHeader() {
+
+  const user = useSelector(state => state.auth.user)
   return (
     <div className='drawerHeader'>
       <div className='avatar'>
-        <Person />
+        {user.avatar ? <img src={user.avatar} alt='user' /> :
+        <Person />}
       </div>
       <p className='userTitle'>
-        Ufuoma Ererobe
+        {user.fullName}
       </p>
       <p className='nickName'>
-        @Johndoe
+        {user.username}
       </p>
-      <div className='profile'>
+      <Link to='/profile' className='profile'>
         <p className='profileText'>View Profile</p>
-      </div>
+      </Link>
     </div>
     )
 }

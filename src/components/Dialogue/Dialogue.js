@@ -10,7 +10,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export default function AlertDialog({open, setOpen, handleClose}) {
+export default function AlertDialog({open, setOpen, handleClose, dialogueMessage}) {
   return (
     <div>
       <Dialog
@@ -23,17 +23,17 @@ export default function AlertDialog({open, setOpen, handleClose}) {
         <DialogContent>
           <DialogContentText id="alert-dialog-description"
           sx={{
-            fontWeight:550,
+            fontFamily:'Graphik',
             color:'#000'
 
           }}>
-           Amount Cannot be less than 100 naira
+          {dialogueMessage}
           </DialogContentText>
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose} autoFocus sx={{
             color:'black',
-            fontWeight:550
+            fontFamily:'Graphik',
           }}>
             OK
           </Button>
