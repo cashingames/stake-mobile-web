@@ -3,9 +3,19 @@ import { Player } from '@lottiefiles/react-lottie-player'
 import image1 from '../../assets/treasure-chest.json'
 import './UserItems.scss'
 import { formatNumber } from '../../utils/stringUtl';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { getUser } from '../../features/Auth/AuthSlice';
+import { getCommonData } from '../../features/CommonSlice';
 
 function UserItems() {
+    const dispatch = useDispatch();
+
+
+    useEffect(() => {
+        dispatch(getUser());
+        dispatch(getCommonData())
+
+    }, [dispatch]);
 
 
     var plans = useSelector(state => state.auth.user.activePlans ?? []);

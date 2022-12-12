@@ -1,13 +1,27 @@
 import React from 'react'
 import { useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import ScreenHeader from '../../../components/ScreenHeader/ScreenHeader'
 import './BankDetails.scss'
 import { useEffect } from 'react';
+import { editBankDetails, getUser } from '../../Auth/AuthSlice';
+import { getBankData, getCommonData } from '../../CommonSlice';
+import { unwrapResult } from '@reduxjs/toolkit';
+import { useNavigate } from 'react-router-dom';
 
 function BankDetails() {
+
+    const dispatch = useDispatch();
+    let navigate = useNavigate();
+
+    useEffect(() => {
+        dispatch(getUser());
+        dispatch(getCommonData())
+
+    }, [dispatch]);
+
     const user = useSelector(state => state.auth.user)
     const banks = useSelector(state => state.common.banks)
 
@@ -17,6 +31,8 @@ function BankDetails() {
     const [accountNumberErr, setAccountNumberError] = useState(false);
     const [accountNameErr, setAccountNameError] = useState(false);
     const [bankName, setBankName] = useState(user.bankName ?? '');
+    const [loading, setLoading] = useState(false);
+
 
 //Account name and number validations
     useEffect(() => {
@@ -33,10 +49,47 @@ function BankDetails() {
         }
     }, [accountName, accountNumber])
 
+    useEffect(() => {
+        if (!banks || banks.length === 0) {
+            dispatch(getBankData());
+        }
+        else {
+            setBankName(user.bankName || '')
+        }
+    }, [banks, user, dispatch])
+
     useEffect(()=>{
         const invalid = accountNumberErr || accountNameErr || accountName === '' || accountNumber === '';
         setCanSave(!invalid);
     }, [accountNumberErr, accountNameErr, accountName, accountNumber])
+
+    useEffect(() => {
+        if (accountName === undefined) {
+            navigate('/profile')
+        }
+        return
+    })
+
+    const onSaveBankDetails = () => {
+        setLoading(true);
+
+        dispatch(editBankDetails({
+            bankName,
+            accountName,
+            accountNumber
+        }))
+            .then(unwrapResult)
+            .then(result => {
+                dispatch(getUser())
+                alert('Bank details updated successfully')
+                navigate('/profile')
+            })
+            .catch((rejectedValueOrSerializedError) => {
+                // console.log(rejectedValueOrSerializedError);
+                setLoading(false);
+                alert('Invalid data provided')
+            });
+    }
 
   return (
     <>
@@ -78,7 +131,7 @@ function BankDetails() {
                             )}
                             )}
                         </Select>
-                        <button className='bankBtn' disabled={!canSave}>Save Changes</button>
+                        <button onClick={onSaveBankDetails} className='bankBtn' disabled={!canSave || loading}>{loading ? 'Saving' : 'Save Changes'}</button>
                     </div>
             </form>
         </div>

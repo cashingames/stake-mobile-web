@@ -5,6 +5,8 @@ import './UserProfileScreen.scss'
 import ProfileLink from '../ProfileLinks/ProfileLink';
 import { IoCameraSharp } from 'react-icons/io5';
 
+const backendUrl = process.env.REACT_APP_API_ROOT_URL;
+
 function UserProfileScreen() {
     const user = useSelector(state => state.auth.user)
 
@@ -14,9 +16,8 @@ function UserProfileScreen() {
             <ScreenHeader title='Profile'/>
             <div className='userProfileContainer'>
                 <div className='userImgContainer'>
-                    <img src={
-                            user.avatar ? user.avater :'/images/user-icon.png'
-                        }
+                    <img 
+                        src={user.avatar  ? `${backendUrl}/${user.avatar }` : "/images/user-icon.png"}
                         alt='user'
                         className='userAvater'/>
                         <div className='cameraCase'>

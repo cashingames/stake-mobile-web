@@ -8,11 +8,13 @@
     padding-right: 2.5rem;
     padding-left: 2rem;
     padding-bottom: 0.8rem;
+
     .userItemsInfo {
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
+
         .textContainer {
             .text1 {
                 border-bottom: 1px solid #fff;
@@ -20,13 +22,17 @@
                 font-weight: 400;
                 text-align: center;
                 padding-bottom: 0.5rem;
+                color: #fff;
             }
+
             .text2 {
                 font-size: 0.8rem;
                 font-weight: 400;
                 text-align: center;
                 line-height: 0;
+                color: #fff;
             }
+
             .emptyRow {
                 font-size: 0.8rem;
                 font-weight: 400;
@@ -36,6 +42,7 @@
             }
         }
     }
+
     .shopLink {
         display: flex;
         justify-content: flex-end;

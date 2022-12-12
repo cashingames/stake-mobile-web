@@ -1,8 +1,10 @@
 import React from 'react'
-import { Person } from '@mui/icons-material';
 import './DrawerHeader.scss'
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+
+const backendUrl = process.env.REACT_APP_API_ROOT_URL;
+
 
 function DrawerHeader() {
 
@@ -10,8 +12,7 @@ function DrawerHeader() {
   return (
     <div className='drawerHeader'>
       <div className='avatar'>
-        {user.avatar ? <img src={user.avatar} alt='user' /> :
-        <Person />}
+        <img src={user.avatar  ? `${backendUrl}/${user.avatar }` : "/images/user-icon.png"} alt='user' />                   
       </div>
       <p className='userTitle'>
         {user.fullName}

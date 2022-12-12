@@ -59,7 +59,7 @@ function ChangePassword() {
             .then(result => {
                 setOpen(true)
                 setAlertMessage('Password changed successfully')
-                navigate("/", {
+                navigate("/profile'", {
                     state:{
                         alertMessage: alertMessage,
                         open:true,
