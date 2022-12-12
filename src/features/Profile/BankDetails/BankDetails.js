@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import ScreenHeader from '../../../components/ScreenHeader/ScreenHeader'
+import Dialogue from '../../../components/Dialogue/Dialogue'
 import './BankDetails.scss'
 import { useEffect } from 'react';
 import { editBankDetails, getUser } from '../../Auth/AuthSlice';
@@ -32,6 +33,13 @@ function BankDetails() {
     const [accountNameErr, setAccountNameError] = useState(false);
     const [bankName, setBankName] = useState(user.bankName ?? '');
     const [loading, setLoading] = useState(false);
+    const [open, setOpen] = useState(false)
+    const [alertMessage, setAlertMessage] = useState('');
+
+    //dialogue function
+    const closeAlert = () => {
+        setOpen(false)
+    }
 
 
 //Account name and number validations
@@ -81,13 +89,15 @@ function BankDetails() {
             .then(unwrapResult)
             .then(result => {
                 dispatch(getUser())
-                alert('Bank details updated successfully')
+                setOpen(true)
+                setAlertMessage('Bank details updated successfully')
                 navigate('/profile')
             })
             .catch((rejectedValueOrSerializedError) => {
                 // console.log(rejectedValueOrSerializedError);
                 setLoading(false);
-                alert('Invalid data provided')
+                setOpen(true)
+                setAlertMessage('Invalid data provided')
             });
     }
 
@@ -135,7 +145,7 @@ function BankDetails() {
                     </div>
             </form>
         </div>
-
+        <Dialogue open={open} handleClose={closeAlert} dialogueMessage={alertMessage}/>
     </>
   )
 }

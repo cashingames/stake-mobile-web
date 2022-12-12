@@ -4,12 +4,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { logActionToServer } from "../../features/CommonSlice";
 import { setIsPlayingTrivia, startGame } from "../../features/Games/GameSlice";
-
+import Dialogue from '../Dialogue/Dialogue'
 import UserAvailableBoosts from "../UserAvailableBoosts/UserAvailableBoosts";
 
 
-const AvailableBoosts = ({ onClose, 
-    user 
+const AvailableBoosts = ({ onClose,
+    user
 }) => {
 
     const dispatch = useDispatch();
@@ -21,6 +21,13 @@ const AvailableBoosts = ({ onClose,
     const gameModeId = useSelector(state => state.game.gameMode.id);
     const gameMode = useSelector(state => state.game.gameMode);
     const [loading, setLoading] = useState(false)
+    const [open, setOpen] = useState(false)
+    const [alertMessage, setAlert] = useState('')
+
+    //dialogue function
+    const closeAlert = () => {
+        setOpen(false)
+    }
 
     const onStartGame = () => {
         setLoading(true);
@@ -45,19 +52,22 @@ const AvailableBoosts = ({ onClose,
                 navigate("/game-board")
             })
             .catch((rejectedValueOrSerializedError) => {
-                alert(rejectedValueOrSerializedError.message)
+                setAlert(rejectedValueOrSerializedError.message)
                 setLoading(false);
             });
     }
 
 
     return (
-        <UserAvailableBoosts gameMode={gameMode}
-            boosts={boosts} 
+        <>        <UserAvailableBoosts gameMode={gameMode}
+            boosts={boosts}
             onStartGame={onStartGame}
             loading={loading}
             onClose={onClose}
         />
+            <Dialogue open={open} handleClose={closeAlert} dialogueMessage={alertMessage} />
+
+        </>
     )
 }
 

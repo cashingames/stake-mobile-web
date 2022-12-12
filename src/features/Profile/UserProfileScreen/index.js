@@ -1,19 +1,24 @@
 import React from 'react';
 import {useSelector} from 'react-redux';
-import ScreenHeader from '../../../components/ScreenHeader/ScreenHeader';
+import { useNavigate } from 'react-router-dom'
 import './UserProfileScreen.scss'
 import ProfileLink from '../ProfileLinks/ProfileLink';
 import { IoCameraSharp } from 'react-icons/io5';
+import ProfileScreensHeader from '../../../components/ProfileScreensHeader/ProfileScreensHeader';
 
 const backendUrl = process.env.REACT_APP_API_ROOT_URL;
 
 function UserProfileScreen() {
     const user = useSelector(state => state.auth.user)
+    const navigate = useNavigate();
 
+    const navigateHandler = () => {
+        navigate('/')
+    }
     
     return (
         <>
-            <ScreenHeader title='Profile'/>
+            <ProfileScreensHeader title='Profile' handleNavigation={navigateHandler}/>
             <div className='userProfileContainer'>
                 <div className='userImgContainer'>
                     <img 
