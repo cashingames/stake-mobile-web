@@ -98,6 +98,7 @@ const GameInstructionScreen = () => {
                         open={open} closeBottomSheet={closeBottomSheet}
                         BSContent={<NoGame
                             onClose={closeBottomSheet}
+                        onPress={gotoStaking}
                         />}
                     />
                 }
