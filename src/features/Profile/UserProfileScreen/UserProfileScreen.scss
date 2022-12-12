@@ -1,0 +1,32 @@
+.userProfileContainer{
+    margin-top: 2rem;
+    padding: 0 1rem;
+    .userImgContainer{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        .userAvater{
+            height: 70px;
+            width: 70px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 1px solid rgba($color: #000000, $alpha:0.1);
+        }
+        .cameraCase{
+            height: 30px;
+            width:30px;
+            border-radius: 50%;
+            background-color:#EF2F55 ;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 0.5rem;
+            .icon{
+                color: #fff;
+                font-size: 1.4rem;
+            }
+        }
+    }
+
+}

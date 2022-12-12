@@ -60,6 +60,44 @@ export const verifyOtp = createAsyncThunk(
     }
 )
 
+export const changePassword = createAsyncThunk(
+    'auth/user/changePassword',
+    async (data, thunkAPI) => {
+        const response = await axios.post('v2/profile/me/password/change', data)
+        return response.data
+    }
+)
+
+export const editPersonalDetails = createAsyncThunk(
+    'auth/user/editPersonalDetails',
+    async (data, thunkAPI) => {
+        const response = await axios.post('v2/profile/me/edit-personal', data)
+        return response.data
+    }
+)
+
+export const editProfileAvatar = createAsyncThunk(
+    'auth/user/avatarUpdate',
+    async (data, thunkAPI) => {
+        const config = {
+            headers: {
+                'content-type': 'multipart/form-data'
+            }
+        }
+        const response = await axios.post('v2/profile/me/picture', data, config).catch(e => {
+            // console.log(e);
+        });
+        return response.data
+    }
+)
+export const editBankDetails = createAsyncThunk(
+    'auth/user/editBankDetails',
+    async (data, thunkAPI) => {
+        const response = await axios.post('v2/profile/me/edit-bank', data)
+        return response.data
+    }
+)
+
 export const getUser = createAsyncThunk(
     'auth/user/get',
     async (thunkAPI) => {

@@ -1,0 +1,30 @@
+.statContainer{
+    font-family: 'Graphik';
+    background-color: #F8F9FD;
+    padding: 2rem 1rem;
+    min-height: 100vh;
+    .rankContainer{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: .6rem 1rem;
+        border-radius: 16px;
+        background-color: #151C2F;
+        .rankTextCase{
+            display: flex;
+            flex-direction: column;
+            .rankText{
+                color:#fff;
+                font-size: 1.2rem;
+                font-weight: 450;
+                margin: 0;
+            }
+            .rankPoints{
+                font-size: 0.8rem;
+                font-weight: 450;
+                color: #828282;
+                margin: .5rem 0;
+            }
+        }
+    }
+}
