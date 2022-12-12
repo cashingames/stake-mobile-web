@@ -1,0 +1,21 @@
+.lowWallet{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem 1rem;
+    background-color: #fff;
+    font-family: 'Graphik';
+    .emoji{
+        height: 40px;
+        width: 40px;
+        object-fit: cover;
+        margin-bottom: 1rem;
+    }
+    .noGameText{
+        margin: 0;
+        text-align: center;
+        line-height: 1.5;
+        font-size: 0.9rem;
+        font-weight: 500;
+    }
+}

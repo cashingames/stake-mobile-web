@@ -1,0 +1,19 @@
+.stkWinningsCase{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .7rem;
+    margin-bottom: .6rem;
+    .winningsText{
+        margin: 0;
+        text-align: center;
+        color: #000;
+        font-size: 0.9rem;
+    }
+    .cash{
+        text-align: center;
+        color: #000;
+        font-size: 1.2rem;
+        margin: 0;
+    }
+}

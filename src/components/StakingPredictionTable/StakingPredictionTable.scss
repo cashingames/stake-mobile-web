@@ -1,0 +1,41 @@
+.stakeCase{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #E0E0E0;
+    padding: 1rem 0;
+    margin: 0 1.5rem;
+    p{
+        margin: 0;
+    }
+    .stakeWinnings{
+        font-size: .7rem;
+        font-weight: 500;
+        color: #333333;
+        width: 5rem;
+        
+    }
+    .stakeScoreContainer{
+        display: flex;
+        align-items: center;
+        width: 3rem;
+        .stakeScore{
+            font-size: .7rem;
+            font-weight: 500;
+            color: #333333;
+            opacity: 0.7;
+            margin-left: 0.3rem;
+        }
+    }
+    .oddsContainer{
+        display: flex;
+        align-items: center;
+        width: 3rem;
+        .odds{
+            font-size: .7rem;
+            font-weight: 500;
+            color: #FF932F;
+            margin-left: 0.3rem;
+        } 
+    }
+}

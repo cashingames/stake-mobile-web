@@ -98,8 +98,8 @@ const initialState = {
     userNotifications: [],
     userTransactions: [],
     loadMoreTransactions: true,
-    maximumExhibitionStakeAmount:'',
-    minimumExhibitionStakeAmount : '',
+    maximumExhibitionStakeAmount: '',
+    minimumExhibitionStakeAmount: '',
     featureFlags: [],
 }
 
@@ -125,7 +125,7 @@ export const CommonSlice = createSlice({
                 state.minVersionCode = data.minVersionCode;
                 state.minVersionForce = data.minVersionForce;
                 state.maximumExhibitionStakeAmount = data.maximumExhibitionStakeAmount;
-                state.minimumExhibitionStakeAmount  = data.minimumExhibitionStakeAmount; 
+                state.minimumExhibitionStakeAmount = data.minimumExhibitionStakeAmount;
                 console.log(state.minimumExhibitionStakeAmount)
                 state.periodBeforeChallengeStakingExpiry = data.periodBeforeChallengeStakingExpiry
             })

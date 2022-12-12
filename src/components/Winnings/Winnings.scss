@@ -1,0 +1,17 @@
+.winningCase{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #fff;
+    padding: 0.5rem 0;
+    margin-bottom: 0.5rem;
+    font-family: 'Graphik', sans-serif;
+    border-radius: 13px;
+    .reviewStake{
+        text-align: center;
+        font-size: 0.8rem;
+        color: #EF2F55;
+        background: none;
+        border: 0;
+    }
+}

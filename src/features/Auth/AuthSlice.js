@@ -48,14 +48,14 @@ export const verifyAccount = createAsyncThunk(
 export const resetPassword = createAsyncThunk(
     'auth/resetPassword',
     async (data, thunkAPI) => {
-        const response = await axios.post(`auth/password/reset`,data);
+        const response = await axios.post(`auth/password/reset`, data);
         return response.data
     }
 )
 export const verifyOtp = createAsyncThunk(
     'auth/verifyOtp',
     async (data, thunkAPI) => {
-        const response = await axios.post(`auth/token/verify`,data);
+        const response = await axios.post(`auth/token/verify`, data);
         return response.data
     }
 )
@@ -122,7 +122,7 @@ export const AuthSlice = createSlice({
             state.createAccount = action.payload
             // console.log('details saved')
             // console.log(action.payload)
-         
+
         },
         setUser: (state, action) => {
             state.user = action.payload.user;
@@ -130,6 +130,14 @@ export const AuthSlice = createSlice({
         setUserPasswordResetToken: (state, action) => {
             state.passwordReset.userCode = action.payload;
         },
+        reduceBoostCount: (state, action) => {
+            // eslint-disable-next-line
+            state.user.boosts.map(boost => {
+                if (boost.id === action.payload) {
+                    boost.count -= 1;
+                }
+            })
+        }
     },
 
     extraReducers: (builder) => {
@@ -148,6 +156,6 @@ export const AuthSlice = createSlice({
     }
 });
 
-export const { setToken, saveCreatedUserCredentials, setUser, setUserPasswordResetToken } = AuthSlice.actions
+export const { setToken, saveCreatedUserCredentials, setUser, setUserPasswordResetToken, reduceBoostCount } = AuthSlice.actions
 
 export default AuthSlice.reducer

@@ -1,0 +1,41 @@
+.gameBtnCase {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5rem;
+
+    .gameBtn {
+        background-color: #EF2F55;
+        border: none;
+        border-radius: 8px;
+        width: 35%;
+        height: 3rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 8px;
+
+        .gameText {
+            color: #fff;
+            font-size: 0.72rem;
+            font-weight: 500;
+        }
+    }
+    .homeBtn {
+        border: 1px solid #FFFF;
+        background: transparent;
+        border-radius: 8px;
+        width: 35%;
+        height: 3rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 8px;
+
+        .gameText {
+            color: #FFFF;
+            font-size: 0.72rem;
+            font-weight: 500;
+        }
+    }
+}

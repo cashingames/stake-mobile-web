@@ -14,11 +14,33 @@ const SelectGameCategoryScreen = () => {
     let navigate = useNavigate();
 
     const activeSubcategory = useSelector(state => state.game.gameCategory);
-    // console.log(activeSubcategory)
     const gameMode = useSelector(state => state.game.gameMode);
-    // console.log(gameMode)
     const features = useSelector(state => state.common.featureFlags);
-    // console.log(features)
+
+    useEffect(() => {
+        if (features.length < 1) {
+            navigate('/dashboard')
+        }
+        return
+    })
+
+    const handleGameBoardTabClosing = () => {
+    }
+
+    const alertUserBeforeClosinigGame = (event) => {
+        event.preventDefault();
+        event.returnValue = '';
+    }
+
+    useEffect(() => {
+        window.addEventListener('beforeunload', alertUserBeforeClosinigGame)
+        window.addEventListener('unload', handleGameBoardTabClosing)
+        return () => {
+            window.removeEventListener('beforeunload', alertUserBeforeClosinigGame)
+            window.removeEventListener('unload', handleGameBoardTabClosing)
+        }
+    })
+
     const onPlayButtonClick = () => {
         onSelectGameMode();
     }
@@ -34,12 +56,7 @@ const SelectGameCategoryScreen = () => {
 
     };
 
-    useEffect(() => {
-        if (features.length < 1) {
-            navigate('/dashboard')
-        }
-        return
-    })
+
 
 
     return (
@@ -55,7 +72,7 @@ const SelectGameCategoryScreen = () => {
                         { height: '150px' }
                     } />
                 <div>
-                    <GamePicker activeSubcategory={activeSubcategory} />
+                    <GamePicker activeSubcategory={activeSubcategory}  />
                 </div>
                 <button className="playButton" onClick={onPlayButtonClick} disabled={!isTrue(activeSubcategory)}>
                     <IoArrowForward className='icon' />

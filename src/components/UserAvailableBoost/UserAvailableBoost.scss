@@ -1,0 +1,44 @@
+.boostContent {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 1rem 0;
+
+    .boostAmount {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+
+        .boostIcon {
+            width: 2rem;
+            height: 2rem;
+        }
+
+        .amount1 {
+            font-size: 0.6rem;
+            color: #FF932F;
+            font-weight: bold;
+        }
+    }
+
+    .boostDetails {
+        margin-left: 2rem;
+
+        .boostName {
+            margin: 0;
+            font-size: 0.7rem;
+            font-weight: bold;
+            margin-top: .8rem;
+            color: #151C2F;
+        }
+
+        .boostDescription {
+            margin: 0;
+            font-size: 0.7rem;
+            margin-top: 5px;
+            font-weight: 400;
+            color: #828282;
+        }
+    }
+}

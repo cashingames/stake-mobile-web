@@ -1,16 +1,16 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import axios from 'axios'
-// import { Base64 } from 'js-base64';
+import { Base64 } from 'js-base64';
 
-// const shuffleArray = array => {
-//     for (let i = array.length - 1; i > 0; i--) {
-//         const j = Math.floor(Math.random() * (i + 1));
-//         const temp = array[i];
-//         array[i] = array[j];
-//         array[j] = temp;
-//     }
-//     return array;
-// }
+const shuffleArray = array => {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        const temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+    return array;
+}
 
 // function getAllIndexes(arr, val) {
 //     var indexes = [], i;
@@ -163,7 +163,7 @@ let initialState = {
     challengeDetails: {},
     gameStakes: [],
     withStaking: false,
-    correctCount : null,
+    correctCount: null,
 }
 
 
@@ -190,82 +190,82 @@ export const GameSlice = createSlice({
         // unselectFriend: (state) => {
         //     state.selectedFriend = null;
         // },
-        // setGameDuration: (state, action) => {
-        //     state.gameDuration = action.payload;
-        // },
-        // setQuestionsCount: (state, action) => {
-        //     state.totalQuestionCount = action.payload;
-        // },
-        // setPointsGained: (state, action) => {
-        //     state.pointsGained = action.payload;
-        // },
-        // setAmountWon: (state, action) => {
-        //     state.amountWon = action.payload;
-        // },
-        // setAmountStaked: (state, action) => {
-        //     state.amountStaked = action.payload;
-        // },
-        // setWithStaking: (state, action) => {
-        //     state.withStaking = action.payload;
-        // },
-        // setCorrectCount: (state, action) => {
-        //     state.correctCount = action.payload;
-        // },
+        setGameDuration: (state, action) => {
+            state.gameDuration = action.payload;
+        },
+        setQuestionsCount: (state, action) => {
+            state.totalQuestionCount = action.payload;
+        },
+        setPointsGained: (state, action) => {
+            state.pointsGained = action.payload;
+        },
+        setAmountWon: (state, action) => {
+            state.amountWon = action.payload;
+        },
+        setAmountStaked: (state, action) => {
+            state.amountStaked = action.payload;
+        },
+        setWithStaking: (state, action) => {
+            state.withStaking = action.payload;
+        },
+        setCorrectCount: (state, action) => {
+            state.correctCount = action.payload;
+        },
         setIsPlayingTrivia: (state, action) => {
             state.isPlayingTrivia = action.payload;
         },
-        // setHasPlayedTrivia: (state, action) => {
-        //     state.hasPlayedTrivia = action.payload;
-        // // },
-        // questionAnswered: (state, action) => {
-        //     state.displayedOptions.map(x => {
-        //         x.isSelected = x.id === action.payload.id
-        //         return x;
-        //     });
+        setHasPlayedTrivia: (state, action) => {
+            state.hasPlayedTrivia = action.payload;
+        },
+        questionAnswered: (state, action) => {
+            state.displayedOptions.map(x => {
+                x.isSelected = x.id === action.payload.id
+                return x;
+            });
 
-        //     //find if this question id exist in the chosenOption
-        //     const existingIndex = state.chosenOptions.findIndex(x => x.question_id === action.payload.question_id);
+            //find if this question id exist in the chosenOption
+            const existingIndex = state.chosenOptions.findIndex(x => x.question_id === action.payload.question_id);
 
-        //     //if it exists, replace it
-        //     if (existingIndex !== -1)
-        //         state.chosenOptions[existingIndex] = action.payload;
-        //     else
-        //         state.chosenOptions.push(action.payload)
-        // },
-        // nextQuestion: (state) => {
-        //     state.currentQuestionPosition += 1;
-        //     state.displayedQuestion = state.questions[state.currentQuestionPosition]
-        //     state.displayedOptions = state.displayedQuestion.options
-        //     state.isLastQuestion = state.currentQuestionPosition === state.totalQuestionCount - 1
-        // },
-        // incrementCountdownResetIndex: (state) => {
-        //     state.countdownKey += 1;
-        // },
-        // consumeBoost: (state, action) => {
-        //     state.consumedBoosts = [...state.consumedBoosts,
-        //     {
-        //         boost: action.payload
-        //     }];
-        //     state.activeBoost = action.payload;
-        // },
-        // pauseGame: (state, action) => {
-        //     state.countdownFrozen = action.payload
-        // },
-        // skipQuestion: (state) => {
-        //     const q = state.questions.filter(x => x.id !== state.displayedQuestion.id);
-        //     state.questions = q,
-        //         state.displayedQuestion = state.questions[state.currentQuestionPosition]
-        //     state.displayedOptions = state.displayedQuestion.options
-        // },
-        // bombOptions: (state) => {
-        //     const correctOption = state.displayedOptions.find(option => Base64.decode(option.is_correct) === '1')
-        //     const falseOptions = state.displayedOptions.filter(option => Base64.decode(option.is_correct) === '0')
-        //     const randomWrongOption = falseOptions[Math.floor(Math.random() * falseOptions.length)];
-        //     state.displayedOptions = shuffleArray([correctOption, randomWrongOption]);
-        // },
-        // boostReleased: (state) => {
-        //     state.activeBoost = {}
-        // },stop
+            //if it exists, replace it
+            if (existingIndex !== -1)
+                state.chosenOptions[existingIndex] = action.payload;
+            else
+                state.chosenOptions.push(action.payload)
+        },
+        nextQuestion: (state) => {
+            state.currentQuestionPosition += 1;
+            state.displayedQuestion = state.questions[state.currentQuestionPosition]
+            state.displayedOptions = state.displayedQuestion.options
+            state.isLastQuestion = state.currentQuestionPosition === state.totalQuestionCount - 1
+        },
+        incrementCountdownResetIndex: (state) => {
+            state.countdownKey += 1;
+        },
+        consumeBoost: (state, action) => {
+            state.consumedBoosts = [...state.consumedBoosts,
+            {
+                boost: action.payload
+            }];
+            state.activeBoost = action.payload;
+        },
+        pauseGame: (state, action) => {
+            state.countdownFrozen = action.payload
+        },
+        skipQuestion: (state) => {
+            const q = state.questions.filter(x => x.id !== state.displayedQuestion.id);
+            state.questions = q
+            state.displayedQuestion = state.questions[state.currentQuestionPosition]
+            state.displayedOptions = state.displayedQuestion.options
+        },
+        bombOptions: (state) => {
+            const correctOption = state.displayedOptions.find(option => Base64.decode(option.is_correct) === '1')
+            const falseOptions = state.displayedOptions.filter(option => Base64.decode(option.is_correct) === '0')
+            const randomWrongOption = falseOptions[Math.floor(Math.random() * falseOptions.length)];
+            state.displayedOptions = shuffleArray([correctOption, randomWrongOption]);
+        },
+        boostReleased: (state) => {
+            state.activeBoost = {}
+        },
         // resetGameStats: (state) => {
         //     state.chosenOptions = [];
         //     state.pointsGained = 0;
@@ -280,23 +280,23 @@ export const GameSlice = createSlice({
     extraReducers: (builder) => {
         // Add reducers for additional action types here, and handle loading sAWAWAWAWtate as needed
         builder
-            // .addCase(startGame.fulfilled, (state, action) => {
-            //     state.questions = action.payload.data.questions;
-            //     state.displayedQuestion = state.questions[state.currentQuestionPosition]
-            //     state.displayedOptions = state.displayedQuestion.options
-            //     state.gameSessionToken = action.payload.data.game.token
-            //     state.isEnded = false
-            //     state.pointsGained = 0;
-            // })
-            // .addCase(endGame.fulfilled, (state, action) => {
-            //     state.isEnded = true;
-            //     state.pointsGained = action.payload.data.points_gained;
-            //     state.amountWon = action.payload.data.amount_won;
-            //     state.withStaking = action.payload.data.with_staking;
-            //     state.amountStaked = action.payload.data.amount_staked;
-            //     state.correctCount = action.payload.data.correct_count;
-            //     resetState(state)
-            // })
+            .addCase(startGame.fulfilled, (state, action) => {
+                state.questions = action.payload.data.questions;
+                state.displayedQuestion = state.questions[state.currentQuestionPosition]
+                state.displayedOptions = state.displayedQuestion.options
+                state.gameSessionToken = action.payload.data.game.token
+                state.isEnded = false
+                state.pointsGained = 0;
+            })
+            .addCase(endGame.fulfilled, (state, action) => {
+                state.isEnded = true;
+                state.pointsGained = action.payload.data.points_gained;
+                state.amountWon = action.payload.data.amount_won;
+                state.withStaking = action.payload.data.with_staking;
+                state.amountStaked = action.payload.data.amount_staked;
+                state.correctCount = action.payload.data.correct_count;
+                resetState(state)
+            })
             // .addCase(getLiveTriviaLeaders.fulfilled, (state, action) => {
             //     state.triviaLeaders = action.payload;
             // })
@@ -332,59 +332,59 @@ export const GameSlice = createSlice({
             .addCase(getGameStakes.fulfilled, (state, action) => {
                 state.gameStakes = action.payload.data;
             })
-        .addCase(canStake.rejected, (state, payload) => {
-            console.log(state, payload)
-        })
+            .addCase(canStake.rejected, (state, payload) => {
+                console.log(state, payload)
+            })
 
     },
 })
 
-export const { 
-    setGameType, 
-    setGameMode, 
-    setGameCategory,setIsPlayingTrivia,
-    // setPointsGained, setAmountWon, setCorrectCount, setAmountStaked, questionAnswered, nextQuestion, setSelectedFriend,
-    // incrementCountdownResetIndex, consumeBoost, pauseGame, skipQuestion, boostReleased, bombOptions,
-    // setIsPlayingTrivia, setHasPlayedTrivia, setGameDuration, setQuestionsCount, unselectFriend, setWithStaking
+export const {
+    setGameType,
+    setGameMode,
+    setGameCategory, setIsPlayingTrivia, setHasPlayedTrivia, questionAnswered, nextQuestion, consumeBoost, incrementCountdownResetIndex,
+    pauseGame, skipQuestion, boostReleased, bombOptions, setGameDuration, setQuestionsCount, setCorrectCount,
+    setPointsGained, setAmountWon, setAmountStaked, setSelectedFriend,
+    unselectFriend, setWithStaking
 } = GameSlice.actions
 
 
 export default GameSlice.reducer
 
 
-// function resetState(state) {
+function resetState(state) {
 
 
     //Because we need it for replay
     // state.gameMode = {};
     // state.gameCategory = {};
     // state.gameType = {};
-// start
-    // state.gameSessionToken = '';
-    // state.questions = [];
-    // state.currentQuestionPosition = 0;
-    // state.totalQuestionCount = 10;
-    // state.isLastQuestion = false;
-    // state.countdownKey = 0;
-    // state.countdownFrozen = false;
-    // state.chosenOptions = [];
-    // state.consumedBoosts = [];
-    // state.activeBoost = [];
-    // state.displayedOptions = [];
-    // state.displayedQuestion = {};
-    // state.selectedFriend = null;
-    // state.isPlayingTrivia = false;
-    // state.triviaLeaders = [];
-    // state.triviaPosition = '';
-    // state.triviaCategory = '';
-    // state.triviaType = '';
-    // state.triviaMode = '';
-    // state.triviaId = '',
-    //     state.hasPlayedTrivia = false;
-    // state.gameDuration = 60;
-    // state.challengeDetails = {};
-    // state.userChallenges = [];
-    // state.challengeScores = {};
+    // start
+    state.gameSessionToken = '';
+    state.questions = [];
+    state.currentQuestionPosition = 0;
+    state.totalQuestionCount = 10;
+    state.isLastQuestion = false;
+    state.countdownKey = 0;
+    state.countdownFrozen = false;
+    state.chosenOptions = [];
+    state.consumedBoosts = [];
+    state.activeBoost = [];
+    state.displayedOptions = [];
+    state.displayedQuestion = {};
+    state.selectedFriend = null;
+    state.isPlayingTrivia = false;
+    state.triviaLeaders = [];
+    state.triviaPosition = '';
+    state.triviaCategory = '';
+    state.triviaType = '';
+    state.triviaMode = '';
+    state.triviaId = '';
+    state.hasPlayedTrivia = false;
+    state.gameDuration = 60;
+    state.challengeDetails = {};
+    state.userChallenges = [];
+    state.challengeScores = {};
 
-    // return state;
-// }
+    return state;
+}

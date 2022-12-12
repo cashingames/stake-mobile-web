@@ -13,39 +13,33 @@ function TopPlayers({ leaders }) {
     const thirdLeader = topLeaders[2] ?? { username: "..." };
     return (
         <>
-            {topLeaders.length > 0 ?
-                <>
-                    <div className='topPlayerContainer'>
-                        <div className='wrapper'>
-                            <p className='topPlayer'>Top Players</p>
-                            <div className='extended'>
-                                <p className='extendedText'>Extended leaderboard</p>
-                                <IoArrowForward className='icon' />
-                            </div>
-                        </div>
-                        <div className='leaderBoard'>
-                            <TopLeader
-                                podPosition='/images/position3.png'
-                                name={`${thirdLeader.username}`}
-                                point={`${formatNumber(thirdLeader.points ? `${thirdLeader.points}` : 0)} pts`}
-                                avatar={thirdLeader.avatar} />
-
-                            <TopLeader
-                                podPosition='/images/position1.png'
-                                name={`${firstLeader.username}`}
-                                point={`${formatNumber(firstLeader.points ? `${firstLeader.points}` : 0)} pts`}
-                                avatar={firstLeader.avatar} />
-                            <TopLeader
-                                podPosition='/images/position2.png'
-                                name={`${secondLeader.username}`}
-                                point={`${formatNumber(secondLeader.points ? `${secondLeader.points}` : 0)} pts`}
-                                avatar={secondLeader.avatar} />
-                        </div>
+            <div className='topPlayerContainer'>
+                <div className='wrapper'>
+                    <p className='topPlayer'>Top Players</p>
+                    <div className='extended'>
+                        <p className='extendedText'>Extended leaderboard</p>
+                        <IoArrowForward className='icon' />
                     </div>
-                </>
-                :
-                <></>
-            }
+                </div>
+                <div className='leaderBoard'>
+                    <TopLeader
+                        podPosition='/images/position3.png'
+                        name={`${thirdLeader.username}`}
+                        point={`${formatNumber(thirdLeader.points ? `${thirdLeader.points}` : 0)} pts`}
+                        avatar={thirdLeader.avatar} />
+
+                    <TopLeader
+                        podPosition='/images/position1.png'
+                        name={`${firstLeader.username}`}
+                        point={`${formatNumber(firstLeader.points ? `${firstLeader.points}` : 0)} pts`}
+                        avatar={firstLeader.avatar} />
+                    <TopLeader
+                        podPosition='/images/position2.png'
+                        name={`${secondLeader.username}`}
+                        point={`${formatNumber(secondLeader.points ? `${secondLeader.points}` : 0)} pts`}
+                        avatar={secondLeader.avatar} />
+                </div>
+            </div>
         </>
     )
 }

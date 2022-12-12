@@ -1,24 +1,53 @@
-import React, {useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Spinner } from "react-activity";
-import {useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import ScreenHeader from "../../../components/ScreenHeader/ScreenHeader";
+import StakingPredictionTable from '../../../components/StakingPredictionTable/StakingPredictionTable'
 import { formatCurrency } from '../../../utils/stringUtl'
-import { canStake } from "../GameSlice";
+import { canStake, getGameStakes, setIsPlayingTrivia, startGame } from "../GameSlice";
+import { getUser } from '../../Auth/AuthSlice'
 import './GameStaking.scss'
+import BottomSheet from "../../../components/BottomSheet/BottomSheet";
+import UserAvailableBoosts from "../../../components/UserAvailableBoosts/UserAvailableBoosts";
+import { useNavigate } from "react-router-dom";
+import { logActionToServer } from "../../CommonSlice";
+import { unwrapResult } from "@reduxjs/toolkit";
+import LowWallet from "../../../components/LowWallet/LowWallet";
 
 
 const GameStaking = () => {
-    // const dispatch = useDispatch();
-
+    const dispatch = useDispatch();
+    let navigate = useNavigate();
     const user = useSelector((state) => state.auth.user);
-    // const gameStakes = useSelector(state => state.game.gameStakes);
+    const gameStakes = useSelector(state => state.game.gameStakes);
     const maximumExhibitionStakeAmount = useSelector(state => state.common.maximumExhibitionStakeAmount);
     const minimumExhibitionStakeAmount = useSelector(state => state.common.minimumExhibitionStakeAmount);
-    console.log(minimumExhibitionStakeAmount)
+    const features = useSelector(state => state.common.featureFlags);
     const [amount, setAmount] = useState(200);
     const [amountErr, setAmountError] = useState(false);
     const [loading, setLoading] = useState(false);
-    // const [canSend, setCanSend] = useState(true)
+    const [open, setOpen] = useState(false);
+
+
+    const openBottomSheet = async () => {
+        setOpen(true)
+    }
+
+    const closeBottomSheet = async () => {
+        setOpen(false)
+    }
+
+    const close = () => {
+        dispatch(getUser())
+        closeBottomSheet()
+    }
+
+    useEffect(() => {
+        if (features.length < 1) {
+            navigate('/dashboard')
+        }
+        return
+    })
 
 
     const onChangeStakeAmount = (e) => {
@@ -35,43 +64,51 @@ const GameStaking = () => {
         setAmount(amount)
     }
 
-    const startGame = async () => {
+    const startGame = () => {
         setLoading(true);
-        // if (Number.parseFloat(user.walletBalance) < Number.parseFloat(amount)) {
-        //     await analytics().logEvent('exhibition_staking_low_balance', {
-        //         'id': user.username,
-        //         'phone_number': user.phoneNumber,
-        //         'email': user.email
-        //     });
-        //     openBottomSheet();
-        //     setLoading(false);
-        //     return
-        // }
+        if (Number.parseFloat(user.walletBalance) < Number.parseFloat(amount)) {
+            openBottomSheet();
+            setLoading(false);
+            return
+        }
 
-        canStake({ staking_amount: amount })
-            .then(async response => {
-                // openBottomSheet();
-                setLoading(false);
-            },
+        if (Number.parseFloat(amount) < Number.parseFloat(minimumExhibitionStakeAmount)) {
+            alert(`Minimum stake amount is ${minimumExhibitionStakeAmount} naira`);
+            setLoading(false);
+            return false;
+        }
 
-                err => {
-                    if (!err || !err.response || err.response === undefined) {
-                        alert("Your Network is Offline.");
-                        setLoading(false);
-                    }
-                    else if (err.response.status === 400) {
-                        alert(err.response.data.message);
-                        setLoading(false);
+        if (Number.parseFloat(amount) > Number.parseFloat(maximumExhibitionStakeAmount)) {
+            alert(`Maximum stake amount is ${maximumExhibitionStakeAmount} naira`);
+            setLoading(false);
+            return false;
+        }
 
-                    }
+        dispatch(canStake({
+            staking_amount: amount
+        })).then(response => {
+            openBottomSheet();
+            setLoading(false);
+        },
+            err => {
+                if (!err || !err.response || err.response === undefined) {
+                    alert("Your Network is Offline.");
+                    setLoading(false);
                 }
-            )
+                else if (err.response.status === 400) {
+                    alert(err.response.data.message);
+                    setLoading(false);
+
+                }
+            }
+        )
     }
 
-    // useEffect(() => {
-    //     const invalid = amountErr || amount === '';
-    //     setCanSend(!invalid);
-    // }, [amount, amountErr])
+    useEffect(() => {
+        dispatch(getGameStakes())
+        dispatch(getUser())
+    }, [dispatch])
+
 
     return (
         <>
@@ -96,16 +133,95 @@ const GameStaking = () => {
                             </span>
                         }
                     </div>
-                    <div className="">
-                    <button onClick={startGame} disabled={loading} className='start-button'>
-                        <p className="start-text">{loading ? <Spinner
-                            color='#ffff'
-                            size={10} /> : "Start Game"} </p>
-                    </button>
+                    <div className="buttonContainer">
+                        <button onClick={startGame} disabled={loading} className='start-button'>
+                            <p className="start-text">{loading ? <Spinner
+                                color='#ffff'
+                                size={10} /> : "Stake Amount"} </p>
+                        </button>
                     </div>
                 </div>
+                <div className="predictionContainer">
+                    <p className="predictionHeading">Predictions Table</p>
+                    <div className="predictionHeaders">
+                        <p className="stakeWinning">WINNINGS</p>
+                        <p className="stakeWinning">SCORE</p>
+                        <p className="stakeWinning">ODDS</p>
+                    </div>
+                </div>
+                {gameStakes.map((gameStake, i) => <StakingPredictionTable key={i} gameStake={gameStake} position={i + 1}
+                    amount={amount} />)}
+                {Number.parseFloat(user.walletBalance) < Number.parseFloat(amount) ?
+                    <BottomSheet
+                        open={open} closeBottomSheet={closeBottomSheet}
+                        BSContent={<LowWallet
+                            close={close}
+                        />}
+                    />
+                    :
+                    <BottomSheet
+                        open={open} closeBottomSheet={closeBottomSheet}
+                        BSContent={<AvailableBoosts
+                            onClose={closeBottomSheet} user={user} amount={amount}
+                        />}
+                    />}
+
             </div>
         </>
+    )
+}
+
+const AvailableBoosts = ({ onClose,
+    user, amount
+}) => {
+
+    const dispatch = useDispatch();
+    let navigate = useNavigate();
+
+    const boosts = useSelector(state => state.auth.user.boosts);
+    const gameCategoryId = useSelector(state => state.game.gameCategory.id);
+    const gameTypeId = useSelector(state => state.game.gameType.id);
+    const gameModeId = useSelector(state => state.game.gameMode.id);
+    const gameMode = useSelector(state => state.game.gameMode);
+    const [loading, setLoading] = useState(false)
+
+    const onStartGame = () => {
+        setLoading(true);
+        dispatch(setIsPlayingTrivia(false))
+        dispatch(startGame({
+            category: gameCategoryId,
+            type: gameTypeId,
+            mode: gameModeId,
+            staking_amount: amount
+        }))
+            .then(unwrapResult)
+            .then(result => {
+                dispatch(logActionToServer({
+                    message: "Game session " + result.data.game.token + " questions recieved for " + user.username,
+                    data: result.data.questions
+                }))
+                    .then(unwrapResult)
+                    .catch((e) => {
+                        // console.log('Failed to log to server');
+                    });
+                setLoading(false);
+                onClose();
+                navigate("/game-board")
+            })
+            .catch((rejectedValueOrSerializedError) => {
+                alert(rejectedValueOrSerializedError.message)
+                setLoading(false);
+            });
+    }
+
+
+    return (
+        <UserAvailableBoosts gameMode={gameMode}
+            boosts={boosts}
+            onStartGame={onStartGame}
+            loading={loading}
+            onClose={onClose}
+        />
     )
 }
 export default GameStaking;
