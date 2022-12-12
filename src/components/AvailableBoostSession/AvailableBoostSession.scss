@@ -22,16 +22,20 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: flex-end;
-
         .availableBoost {
-            padding: .7rem;
+            padding: .7rem 0;
             display: flex;
+            flex-direction: row;
+            .boostIcon {
+                width: 30px;
+                height: 30px;
+            }
 
             .boostCount {
                 margin: 0;
                 font-size: 0.65rem;
                 color: #fff;
+                padding: 0;
             }
         }
 
@@ -39,14 +43,10 @@
             border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 5px;
             padding: 7px;
-            .boostIcon {
-                width: 40px;
-                height: 40px;
-            }
         }
 
         .boostName {
-            width: 4rem;
+            // width: 4rem;
             margin: 0;
             font-size: 0.65rem;
             color: #fff;

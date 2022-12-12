@@ -9,7 +9,7 @@ function GameButton({goHome, playAgain}) {
                 Return to Home
             </p>
         </button>
-        <button className='gameBtn' onClick={playAgain}>
+        <button className='homeBtn' onClick={playAgain}>
             <p className='gameText'>
                 Play Again
             </p>

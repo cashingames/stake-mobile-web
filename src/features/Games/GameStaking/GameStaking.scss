@@ -39,11 +39,15 @@
                 border: none;
                 width: 100%;
                 text-align: center;
-                font-size: 1.7rem;
-                font-weight: 600;
+                font-size: 1.65rem;
+                font-weight: 550;
                 color: #333333;
                 opacity: 0.6;
                 outline-style: none;
+            }
+            ::placeholder{
+                opacity: 0.4;
+                font-weight: 550;
             }
         }
         .buttonContainer {
@@ -96,8 +100,9 @@
             }
             .stakeWinning{
                 color:#333333;
-                font-size: 0.9rem;
+                font-size: 0.75rem;
                 opacity: 0.9;
+                font-weight: 500;
             }
         }
     }

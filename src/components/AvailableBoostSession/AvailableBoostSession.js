@@ -4,6 +4,8 @@ import { reduceBoostCount } from '../../features/Auth/AuthSlice';
 import { bombOptions, boostReleased, consumeBoost, pauseGame, skipQuestion } from '../../features/Games/GameSlice';
 import { formatNumber } from '../../utils/stringUtl';
 import './AvailableBoostSession.scss'
+const backendUrl = process.env.REACT_APP_API_ROOT_URL;
+
 
 function AvailableBoostSession() {
     const dispatch = useDispatch();
@@ -84,7 +86,9 @@ const AvailableBoost = ({ boost, onConsume, showText }) => {
         <>
             <div className='boostContainer' onClick={() => isActive ? {} : onConsume(boost)}>
                 <div className={`availableBoost ${isActive ? 'boostActive' : {}}`}>
-                    <img src='/images/bomb.png' alt='bomb' className={`boostIcon ${showText ? 'boostBlink' : 'boostNoBlink'}`}  />
+                    <img
+                        src={`${backendUrl}/${boost.icon}`}
+                        alt='bomb' className={`boostIcon ${showText ? 'boostBlink' : 'boostNoBlink'}`} />
                     <p className='boostCount'>x{formatNumber(boost.count)}</p>
                 </div>
                 <p className='boostName'>{boost.name}</p>

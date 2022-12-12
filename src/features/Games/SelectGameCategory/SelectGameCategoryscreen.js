@@ -72,7 +72,7 @@ const SelectGameCategoryScreen = () => {
                         { height: '150px' }
                     } />
                 <div>
-                    <GamePicker activeSubcategory={activeSubcategory} />
+                    <GamePicker activeSubcategory={activeSubcategory}  />
                 </div>
                 <button className="playButton" onClick={onPlayButtonClick} disabled={!isTrue(activeSubcategory)}>
                     <IoArrowForward className='icon' />
