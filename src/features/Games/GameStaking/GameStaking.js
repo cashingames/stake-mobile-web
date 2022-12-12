@@ -12,19 +12,21 @@ import UserAvailableBoosts from "../../../components/UserAvailableBoosts/UserAva
 import { useNavigate } from "react-router-dom";
 import { logActionToServer } from "../../CommonSlice";
 import { unwrapResult } from "@reduxjs/toolkit";
+import LowWallet from "../../../components/LowWallet/LowWallet";
 
 
 const GameStaking = () => {
     const dispatch = useDispatch();
-
+    let navigate = useNavigate();
     const user = useSelector((state) => state.auth.user);
     const gameStakes = useSelector(state => state.game.gameStakes);
     const maximumExhibitionStakeAmount = useSelector(state => state.common.maximumExhibitionStakeAmount);
     const minimumExhibitionStakeAmount = useSelector(state => state.common.minimumExhibitionStakeAmount);
+    const features = useSelector(state => state.common.featureFlags);
     const [amount, setAmount] = useState(200);
     const [amountErr, setAmountError] = useState(false);
     const [loading, setLoading] = useState(false);
-    const [open, setOpen] = useState(false)
+    const [open, setOpen] = useState(false);
 
 
     const openBottomSheet = async () => {
@@ -34,6 +36,18 @@ const GameStaking = () => {
     const closeBottomSheet = async () => {
         setOpen(false)
     }
+
+    const close = () => {
+        dispatch(getUser())
+        closeBottomSheet()
+    }
+
+    useEffect(() => {
+        if (features.length < 1) {
+            navigate('/dashboard')
+        }
+        return
+    })
 
 
     const onChangeStakeAmount = (e) => {
@@ -137,20 +151,28 @@ const GameStaking = () => {
                 </div>
                 {gameStakes.map((gameStake, i) => <StakingPredictionTable key={i} gameStake={gameStake} position={i + 1}
                     amount={amount} />)}
-                <BottomSheet
-                    open={open} closeBottomSheet={closeBottomSheet}
-                    BSContent={<AvailableBoosts
-                        onClose={closeBottomSheet} user={user} amount={amount}
+                {Number.parseFloat(user.walletBalance) < Number.parseFloat(amount) ?
+                    <BottomSheet
+                        open={open} closeBottomSheet={closeBottomSheet}
+                        BSContent={<LowWallet
+                            close={close}
+                        />}
+                    />
+                    :
+                    <BottomSheet
+                        open={open} closeBottomSheet={closeBottomSheet}
+                        BSContent={<AvailableBoosts
+                            onClose={closeBottomSheet} user={user} amount={amount}
+                        />}
                     />}
-                />
 
             </div>
         </>
     )
 }
 
-const AvailableBoosts = ({ onClose, 
-    user, amount 
+const AvailableBoosts = ({ onClose,
+    user, amount
 }) => {
 
     const dispatch = useDispatch();
@@ -195,7 +217,7 @@ const AvailableBoosts = ({ onClose,
 
     return (
         <UserAvailableBoosts gameMode={gameMode}
-            boosts={boosts} 
+            boosts={boosts}
             onStartGame={onStartGame}
             loading={loading}
             onClose={onClose}
