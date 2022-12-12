@@ -2,9 +2,11 @@ import { unwrapResult } from '@reduxjs/toolkit'
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import BottomSheet from '../../../components/BottomSheet/BottomSheet'
 import GameAppHeader from '../../../components/GameAppHeader/GameAppHeader'
 import GameInProgressAndBoost from '../../../components/GameInProgressAndBoost/GameInProgressAndBoost'
 import GameQuestions from '../../../components/GameQuestions/GameQuestions'
+import UserAvailableBoost from '../../../components/UserAvailableBoost/UserAvailableBoost'
 import { logActionToServer } from '../../CommonSlice'
 import { endGame, nextQuestion, setHasPlayedTrivia } from '../GameSlice'
 import './GameInProgress.scss'
@@ -21,6 +23,8 @@ function GameInProgress() {
   const isEnded = useSelector(state => state.game.isEnded);
   const [ending, setEnding] = useState(false);
   const features = useSelector(state => state.common.featureFlags);
+  const [open, setOpen] = useState(false);
+
 
 
   const onEndGame = (confirm = false) => {
@@ -85,6 +89,14 @@ function GameInProgress() {
     event.returnValue = '';
   }
 
+  const openBottomSheet = async () => {
+    setOpen(true)
+}
+
+const closeBottomSheet = async () => {
+    setOpen(false)
+}
+
   useEffect(() => {
     window.addEventListener('beforeunload', alertUserBeforeClosinigGame)
     window.addEventListener('unload', handleGameBoardTabClosing)
@@ -113,10 +125,15 @@ function GameInProgress() {
   return (
     <div className='gameInProgress'
       style={{ backgroundImage: 'url(/images/game_mode.png)' }}>
-      <GameAppHeader onPress={onEndGame} />
+      <GameAppHeader onPress={onEndGame} openBoost={openBottomSheet} />
       <GameInProgressAndBoost onComplete={() => onEndGame()} />
       <GameQuestions />
       <NextButton onClick={() => onEndGame()} ending={ending} />
+      <BottomSheet
+        open={open} closeBottomSheet={closeBottomSheet}
+        BSContent={<UserAvailableBoosts onClose={closeBottomSheet}
+        />}
+      />
     </div>
   )
 }
@@ -131,6 +148,33 @@ const NextButton = ({ onClick, ending }) => {
     <button onClick={pressNext} className='nextButton' disabled={ending}>
       <p className='btnText'>{isLastQuestion ? 'Finish' : 'Next'}</p>
     </button>
+  )
+}
+
+const UserAvailableBoosts = ({onClose}) => {
+  // let navigate = useNavigate();
+  const boosts = useSelector(state => state.auth.user.boosts);
+  const gameMode = useSelector(state => state.game.gameMode);
+
+  const boostsToDisplay = () => {
+      if (gameMode.name === "CHALLENGE") {
+          return boosts.filter(x => x.name.toUpperCase() !== "SKIP");
+      }
+      return boosts;
+  }
+  return (
+      <div className="boosts-container">
+          <p className="boosts-header">Available boosts</p>
+          {boosts?.length > 0 ?
+              <div className="boosts">
+                  {boostsToDisplay().map((boost, i) => <UserAvailableBoost boost={boost} key={i}  onClose={onClose} />
+                  )}
+              </div>
+              :
+              <p className="noBoosts">No boost available</p>
+          }
+
+      </div>
   )
 }
 export default GameInProgress

@@ -1,8 +1,8 @@
 import React from 'react';
-import FundWallet from '../Wallet/FundWallet/FundWallet';
+import FundWalletComponent from '../FundWalletComponent/FundWalletComponent';
 import './LowWallet.scss'
 
-function LowWallet() {
+function LowWallet({close}) {
   return (
     <>
     <div className='lowWallet'>
@@ -10,7 +10,7 @@ function LowWallet() {
         <p className='noGameText'>Sorry,</p>
         <p className='noGameText'>You do not have enough balance to stake this Amount</p>
     </div>
-    <FundWallet />
+    <FundWalletComponent close={close} />
     </>
   )
 }

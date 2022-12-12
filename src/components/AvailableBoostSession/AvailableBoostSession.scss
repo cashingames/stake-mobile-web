@@ -1,35 +1,51 @@
-.availableBoosts{
+.availableBoosts {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem 0;
     padding-left: 1.3rem;
     padding-right: 1rem;
-    .boostInfo{
+
+    .boostInfo {
         display: flex;
         justify-content: center;
-        .boostTitle{
+
+        .boostTitle {
             margin: 0;
             font-size: 0.9rem;
             font-weight: 450;
             color: #fff;
         }
     }
-    .boostContainer{
+
+    .boostContainer {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: flex-end;
-        .boostActive{
+
+        .availableBoost {
             padding: .7rem;
             display: flex;
-        .boostCount{
-            margin: 0;
-            font-size: 0.65rem;
-            color: #fff; 
+
+            .boostCount {
+                margin: 0;
+                font-size: 0.65rem;
+                color: #fff;
+            }
         }
-    }
-        .boostName{
+
+        .boostActive {
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+            padding: 7px;
+            .boostIcon {
+                width: 40px;
+                height: 40px;
+            }
+        }
+
+        .boostName {
             width: 4rem;
             margin: 0;
             font-size: 0.65rem;
