@@ -1,10 +1,10 @@
 
 .login {
     padding: 2rem 1rem;
-    font-family: 'Graphik', sans-serif;
 
     .headerTitle {
         margin-top: 5.5rem;
+        font-family: 'graphik-medium';
     }
 
     .inputsContainer {
@@ -19,6 +19,7 @@
                 border-radius: 7px;
                 color: #EF2F55;
                 font-size: 0.7rem;
+                font-family: 'graphik-regular';
                 padding: .5rem 0;
                 display: flex;
                 justify-content: center;
@@ -33,12 +34,13 @@
                     margin-bottom: .45rem;
                     font-size: 0.7rem;
                     color: #000000B2;
-                    font-weight: 500;
+                    font-family: 'graphik-medium';
                 }
 
                 .inputBox {
                     color: #00000080;
                     font-size: 0.7rem;
+                    font-family: 'graphik-regular';
                     border-radius: 7px;
                     padding: 0.5rem .6rem;
                     border: 1px solid #CDD4DF;
@@ -54,11 +56,13 @@
                     font-size: 0.7rem;
                     border: 1px solid #CDD4DF;
 
+
                     .passwordInput {
                         border: none;
                         outline: none;
                         color: #00000080;
                         font-size: 0.7rem;
+                        font-family: 'graphik-regular';
                         width: 100%;
                     }
 
@@ -68,6 +72,7 @@
 
                     ::placeholder {
                         color: #00000080;
+                        // font-family: 'graphik-medium';
                     }
                 }
             }
@@ -81,7 +86,7 @@
                     line-height: 0;
                     color: #EF2F55;
                     font-size: .85rem;
-                    font-weight: 450;
+                    font-family: 'graphik-medium';
                     text-decoration: none;
                 }
             }
@@ -101,7 +106,7 @@
                     .buttonText {
                         color: white;
                         font-size: 0.9rem;
-                        font-weight: 600;
+                        font-family: 'graphik-medium';
                     }
 
                 }
@@ -126,7 +131,7 @@
             color: #00000080;
             font-size: 0.87rem;
             line-height: 0;
-            font-weight: 500;
+            font-family: 'graphik-medium';
         }
         .socialLinkText{
             margin: 0;
@@ -138,7 +143,7 @@
         .signup {
             color: #EF2F55;
             font-size: 0.87rem;
-            font-weight: 600;
+            font-family: 'graphik-medium';
             text-decoration: none;
         }
     }

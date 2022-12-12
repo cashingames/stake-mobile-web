@@ -21,12 +21,12 @@
         align-items: center;
         gap: 2rem;
         .title {
-            font-weight: 500;
+            font-family: 'graphik-medium';
             font-size: 1.3rem;
         }
         .icon {
             font-size: 1.5rem;
-            font-weight: 400;
+            font-family: 'graphik-regular';
         }
     }
     .navlinks {
@@ -43,8 +43,8 @@
             margin-bottom: 0;
             font-size: 0.55rem;
             color: #000;
-            font-weight: 500;
-            opacity: 0.5;
+            font-family: 'graphik-medium';
+           opacity: 0.5;
             text-transform:capitalize;
             .icon {
                 font-size: 1.5rem;

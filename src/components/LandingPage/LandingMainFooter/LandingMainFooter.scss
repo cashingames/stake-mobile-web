@@ -9,14 +9,15 @@
     width: 100%;
     .authHeader{
         color: #fff;
-        font-weight: 600;
+        font-family: 'graphik-medium';
         font-size: 1.5rem;
         margin: 2rem;
+        letter-spacing: 2px;
     }
     .mainFooterText{
         margin: .2rem;
         color: #fff;
-        font-weight: 300;
+        font-family: 'graphik-regular';
         font-size: .9rem;
         letter-spacing: 2px;
     }
@@ -28,7 +29,7 @@
         padding: .8rem;
         margin: 1.5rem;
         font-size: .8rem;
-        font-weight: 500;
+        font-family: 'graphik-medium';
         border-radius: 100px;
         cursor: pointer;
     }

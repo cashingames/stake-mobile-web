@@ -19,7 +19,7 @@
             .text1 {
                 border-bottom: 1px solid #fff;
                 font-size: 0.8rem;
-                font-weight: 400;
+                font-family: 'graphik-regular';
                 text-align: center;
                 padding-bottom: 0.5rem;
                 color: #fff;
@@ -27,7 +27,7 @@
 
             .text2 {
                 font-size: 0.8rem;
-                font-weight: 400;
+                font-family: 'graphik-regular';
                 text-align: center;
                 line-height: 0;
                 color: #fff;
@@ -35,7 +35,7 @@
 
             .emptyRow {
                 font-size: 0.8rem;
-                font-weight: 400;
+                font-family: 'graphik-regular';
                 text-align: center;
                 line-height: 0;
                 font-style: italic;
@@ -50,6 +50,6 @@
         font-size: 0.7rem;
         color: #EF2F55;
         text-decoration: none;
-        font-weight: 500;
+        font-family: 'graphik-medium';
     }
 }

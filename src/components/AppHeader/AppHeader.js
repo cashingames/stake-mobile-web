@@ -24,8 +24,8 @@ const AppHeader = ({ heading }) => {
         <div className='appHeaderTitle'>
           <IoMenuSharp className='icon'
             onClick={handleOpenDrawer} />
-          <h1 className='title'>
-            {heading}</h1>
+          <p className='title'>
+            {heading}</p>
         </div>
         <div className='navlinks'>
           <NavLink to='/dashboard' className='navlink'>

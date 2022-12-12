@@ -6,7 +6,7 @@
 
     .gameTitle {
         font-size: 1rem;
-        font-weight: 450;
+        font-family: 'graphik-medium';
         margin-bottom: 10px;
     }
 
@@ -50,13 +50,13 @@
                 font-size: 0.87rem;
                 text-transform: uppercase;
                 margin: 6px 0;
-                font-weight: 700;
+                font-family: 'graphik-bold';
 
             }
 
             .cardInstruction {
                 font-size: 0.68rem;
-                font-weight: 350;
+                font-family: 'graphik-regular';
                 margin: 6px 0;
             }
         }
