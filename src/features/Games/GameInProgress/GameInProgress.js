@@ -145,9 +145,11 @@ const NextButton = ({ onClick, ending }) => {
     dispatch(isLastQuestion ? onClick : nextQuestion())
   }
   return (
+    <div className='nextButtonCase'>
     <button onClick={pressNext} className='nextButton' disabled={ending}>
       <p className='btnText'>{isLastQuestion ? 'Finish' : 'Next'}</p>
     </button>
+    </div>
   )
 }
 
