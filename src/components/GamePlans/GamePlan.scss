@@ -1,0 +1,26 @@
+.storeItems{
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    .storeItemsTitle{
+        margin: 0;
+        font-size: 1.2rem;
+        font-family: 'graphik-bold';
+        color: #151C2F;
+    }
+    .description{
+        font-size: 0.7rem;
+        line-height: 2;
+        margin: 0;
+        font-family: 'graphik-regular';
+        color: #151C2F;
+        opacity: 0.6;
+        margin: 1.5rem 0;
+    }
+    .storeCards{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-top: 1rem;
+    }
+}

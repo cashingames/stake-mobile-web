@@ -116,7 +116,7 @@ function BankDetails() {
                         value={accountNumber}/>
                     </div>
                     <div className='inputCase'>
-                        <label htmlFor='accountName' className='inputLabel'>Account Name</label>
+                        <label htmlFor='accountName' className='inputLabel'>Name on Account</label>
                         <input 
                         className='inputBox2'
                         onChange={(e) => setAccountName(e.target.value)}
@@ -131,11 +131,12 @@ function BankDetails() {
                         sx={{
                            height:'30px',
                            borderRadius:0,
-                           fontSize:'0.75rem',
+                           fontSize:'0.7rem',
                            background:'#ebeff5',
                            border:0,
+                           opacity:0.6,
                            outline:0,
-                           fontFamily:'Graphik'
+                           fontFamily:'graphik-regular'
                         }}>
                         {banks && banks.map((bank, i) => {
                             return (

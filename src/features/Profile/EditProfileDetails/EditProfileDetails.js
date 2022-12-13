@@ -44,6 +44,7 @@ const EditProfileDetails = () => {
 
     const closeAlert = () => {
         setOpen(false)
+        navigate('/profile')
     }
 
 
@@ -167,11 +168,11 @@ const EditProfileDetails = () => {
                             }}>
                             <MenuItem value='male'
                                 sx={{
-                                    fontSize: '0.75rem',
+                                    fontSize: '0.7rem',
                                 }}>Male</MenuItem>
                             <MenuItem value='female'
                                 sx={{
-                                    fontSize: '0.75rem'
+                                    fontSize: '0.7rem'
                                 }}
                             >Female</MenuItem>
                         </Select>

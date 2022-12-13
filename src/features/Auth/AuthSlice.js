@@ -11,6 +11,14 @@ export const getToken = () => {
     return window.localStorage.getItem("token");
 }
 
+export const logoutUser = createAsyncThunk(
+    'auth/logoutUser',
+    async (data, thunkAPI) => {
+         window.localStorage.removeItem("token");
+        return true;
+    }
+)
+
 export const registerUser = async (data) => {
     // console.log('registering', data)
     return axios.post(`auth/register`, data);
@@ -108,6 +116,16 @@ export const getUser = createAsyncThunk(
 )
 
 
+
+export const deleteUserAccount = createAsyncThunk(
+    'auth/deleteUserAccount',
+    async (data, thunkAPI) => {
+        const response = await axios.post('v3/account/delete', data)
+
+        return response.data
+    }
+)
+
 const initialState = {
     token: "",
     createAccount: null,
@@ -150,6 +168,13 @@ export const AuthSlice = createSlice({
     extraReducers: (builder) => {
         // Add reducers for additional action types here, and handle loading sAWAWAWAWtate as needed
         builder
+            .addCase(logoutUser.fulfilled, (state) => {
+                state.token = "";
+                state.showIntro = false;
+                state.user = {};
+                state.passwordReset = {};
+                state.createAccount = {};
+            })
             .addCase(getUser.fulfilled, (state, action) => {
                 // Add user to the state array
                 state.user = action.payload.data;
