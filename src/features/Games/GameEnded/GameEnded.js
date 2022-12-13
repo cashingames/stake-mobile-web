@@ -46,8 +46,7 @@ function GameEnded() {
     }, [isGameEnded])
   );
   const reviewStaking = () => {
-    // navigate("/")
-    alert('trivia')
+    navigate("/review-stake")
   }
 
 
