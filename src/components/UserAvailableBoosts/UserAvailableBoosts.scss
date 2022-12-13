@@ -46,7 +46,8 @@
             color: #ffff;
             margin: 0;
             padding: .7rem 0;
-            text-align: center;
+            display: flex;
+            justify-content: center;
         }
     }
     button[disabled] {

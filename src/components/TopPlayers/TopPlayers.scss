@@ -55,14 +55,19 @@
             align-items: center;
             position: relative;
 
-            .avatar {
+            .avatarCase{
                 width: 2.5rem;
                 height: 2.5rem;
                 border-radius: 50%;
                 background-color: #ffff;
+            .avatar {
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+                object-fit: cover;
             }
 
-
+        }
             .leaderName {
                 font-size: .7rem;
                 font-family: 'graphik-medium';

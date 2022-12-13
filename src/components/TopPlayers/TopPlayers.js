@@ -47,10 +47,13 @@ function TopPlayers({ leaders }) {
 function TopLeader({ avatar, podPosition, name, point }) {
     return (
         <div className='positionContainer'>
+            <div className='avatarCase'>
             <img
                 src={avatar ? `${backendUrl}/${avatar}` : "/images/user-icon.png"}
                 className='avatar' alt='avatar'
+                onError={(e) => e.target.style.display='none'}
             />
+            </div>
             <p className='leaderName'>{name}</p>
             <img
                 className='icon'
