@@ -88,10 +88,11 @@ function BankDetails() {
         }))
             .then(unwrapResult)
             .then(result => {
-                dispatch(getUser())
+                setLoading(false);
                 setOpen(true)
                 setAlertMessage('Bank details updated successfully')
-                navigate('/profile')
+                dispatch(getUser())
+                // navigate('/profile')
             })
             .catch((rejectedValueOrSerializedError) => {
                 // console.log(rejectedValueOrSerializedError);
@@ -100,6 +101,7 @@ function BankDetails() {
                 setAlertMessage('Invalid data provided')
             });
     }
+
 
   return (
     <>
