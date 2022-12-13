@@ -3,9 +3,9 @@ import { IoCheckmarkCircleOutline, IoTimeOutline } from "react-icons/io5";
 import { formatCurrency } from "../../utils/stringUtl";
 import './StakingPredictionTable.scss'
 
-const StakingPredictionTable = ({gameStake,amount}) => {
+const StakingPredictionTable = ({gameStake,amount, styleProp}) => {
     return(
-        <div className="stakeCase">
+        <div className={`${styleProp} stakeCase`}>
             <p className="stakeWinnings">&#8358;{formatCurrency(amount * gameStake.odd)}</p>
             <div className="stakeScoreContainer">
                 <IoCheckmarkCircleOutline  size={16}/>

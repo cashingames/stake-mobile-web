@@ -1,0 +1,113 @@
+.reviewStaking-container {
+    // padding: 0 1.5rem;
+    background-color: #F8F9FD;
+    font-family: 'Graphik', sans-serif;
+
+    .amountContainer {
+        background-color: #fff;
+        border-top: 1px solid #E0E0E0;
+        padding-top: 1rem;
+        .walletContainer {
+            background-color: #F3F3F3;
+            text-align: center;
+            padding: .6rem 0;
+            border-radius: 64px;
+            margin: 0 1.5rem;
+
+            .wallet {
+                font-size: 0.7rem;
+                font-family: 'graphik-medium', sans-serif;
+                font-weight: 550;
+                margin: 0;
+                color: #01A7DB;
+            }
+        }
+
+        .inputContainer {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            margin-top: 2rem;
+            border-bottom: 1px solid #E0E0E0;
+            padding-bottom: 2.5rem;
+
+            .stakeInput {
+                border: none;
+                width: 100%;
+                text-align: center;
+                font-size: 1.65rem;
+                font-family: 'graphik-medium';
+                color: #333333;
+                opacity: 0.6;
+                outline-style: none;
+            }
+            ::placeholder{
+                opacity: 0.4;
+                font-weight: 550;
+            }
+        }
+        .buttonContainer {
+            padding: 0 1.5rem;
+            .start-button {
+                width: 100%;
+                margin: 2rem 0;
+                background-color: #EF2F55;
+                border: none;
+                border-radius: 8px;
+                align-items: center;
+                padding: .7rem 0;
+    
+                .start-text {
+                    font-size: 0.8rem;
+                    font-family: 'graphik-medium';
+                    color: #ffff;
+                    margin: 0;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+    
+            button[disabled] {
+                border: none;
+                background-color: #DFCBCF;
+                color: white;
+            }
+        }
+
+      
+    }
+
+    .predictionContainer{
+        padding: 0 1.5rem;
+        .predictionHeading{
+            text-align: center;
+            font-size: 1rem;
+            font-family: 'graphik-medium';
+            color: #EF2F55;
+            margin:1rem 0;
+        }
+        .predictionHeaders{
+            display: flex;
+            justify-content: space-between;
+            margin: 1.3rem 0;
+            margin-bottom: 1rem;
+            p{
+                margin: 0;
+            }
+            .stakeWinning{
+                color:#333333;
+                font-size: 0.75rem;
+                opacity: 0.9;
+                font-family: 'graphik-medium';
+            }
+        }
+    }
+
+    .amountWon{
+        background-color: #008000;
+        padding: 1rem .2rem;
+        opacity: 0.6;
+    }
+}

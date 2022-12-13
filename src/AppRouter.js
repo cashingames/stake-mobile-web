@@ -27,6 +27,7 @@ import UserStat from './features/Profile/UserStat/UserStat';
 import BankDetails from './features/Profile/BankDetails/BankDetails';
 import GameInProgress from './features/Games/GameInProgress/GameInProgress';
 import GameEnded from './features/Games/GameEnded/GameEnded';
+import ReviewStake from './features/Games/ReviewStakeScreen/ReviewStake';
 
 const AppRouter = () => {
 
@@ -93,6 +94,9 @@ const AppRouter = () => {
             <Route
                 path="/bank-details"
                 element={<AuthRoute redirectTo="/"><BankDetails /></AuthRoute>} />
+            <Route
+                path="/review-stake"
+                element={<AuthRoute redirectTo="/"><ReviewStake /></AuthRoute>} />
         </Routes>
     )
 }
