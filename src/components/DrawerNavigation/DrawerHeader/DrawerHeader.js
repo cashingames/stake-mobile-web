@@ -18,7 +18,7 @@ function DrawerHeader() {
         {user.fullName}
       </p>
       <p className='nickName'>
-        {user.username}
+        @{user.username}
       </p>
       <Link to='/profile' className='profile'>
         <p className='profileText'>View Profile</p>

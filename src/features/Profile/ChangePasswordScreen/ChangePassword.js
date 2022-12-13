@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import ScreenHeader from '../../../components/ScreenHeader/ScreenHeader';
-import { changePassword } from '../../Auth/AuthSlice';
+import { changePassword, deleteUserAccount, logoutUser } from '../../Auth/AuthSlice';
 import './ChangePassword.scss'
 import PasswordInput from '../../../components/PasswordInput/PasswordInput';
 import Dialogue from '../../../components/Dialogue/Dialogue'
@@ -8,6 +8,7 @@ import {useEffect} from 'react';
 import { unwrapResult } from '@reduxjs/toolkit';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import BottomSheet from '../../../components/BottomSheet/BottomSheet';
 
 function ChangePassword() {
     const [password, setPassword] = useState('');
@@ -21,6 +22,7 @@ function ChangePassword() {
     const [canSave, setCanSave] = useState(false)
     const [saving, setSaving] = useState(false)
     const [open, setOpen] = useState(false)
+    const [openSheet, setOpenSheet] = useState(false)
     const [alertMessage, setAlertMessage] = useState('')
 
     const dispatch = useDispatch()
@@ -29,6 +31,25 @@ function ChangePassword() {
     const closeAlert = () => {
         setOpen(false)
     }
+
+   // delete account function
+    const deleteAccount = () => {
+        dispatch(deleteUserAccount())
+        .then(() => {
+            setOpenSheet(false)
+            dispatch(logoutUser())
+        }) 
+    }
+
+    
+    const openBottomSheet = async () => {
+        setOpenSheet(true)
+    }
+
+    const closeBottomSheet = async () => {
+        setOpenSheet(false)
+    }
+
 
     //password verification
     useEffect(() => {
@@ -58,8 +79,8 @@ function ChangePassword() {
             .then(unwrapResult)
             .then(result => {
                 setOpen(true)
-                setAlertMessage('Password changed successfully')
-                navigate("/profile'", {
+                setAlertMessage('Personal details updated successfully')
+                navigate("/profile", {
                     state:{
                         alertMessage: alertMessage,
                         open:true,
@@ -114,14 +135,34 @@ function ChangePassword() {
                     <p className='bigText'>Password Requirements</p>
                     <p className='smallText'>Minimum of 8 characters</p>
                 </div>
+                <button className='deleteBtn' onClick={openBottomSheet}>Delete Account</button>
                 <button className='changePasswordBtn'
                     disabled={
                         !canSave
                 } onClick={savePassword}>{saving ? 'Saving' : 'Change Password'}</button>
             </div>
             <Dialogue open={open} handleClose={closeAlert} dialogueMessage={alertMessage}/>
+            <BottomSheet
+                        open={openSheet} closeBottomSheet={closeBottomSheet}
+                        BSContent={<DeleteAccountConfirmation
+                            onClose={closeBottomSheet}
+                        deleteAccount={deleteAccount}
+                        />}
+                    />
         </>
     )
 }
 
 export default ChangePassword
+
+const DeleteAccountConfirmation = ({deleteAccount, onClose}) => {
+    return(
+        <div className='deleteContainer'>
+            <p className='deleteText'>Are you sure you want to delete your account ?</p>
+            <div className='btnCase'>
+                <button onClick={deleteAccount} className='deleteBtn'>Delete</button>
+                <button onClick={onClose} className='deleteBtn'>Cancel</button>
+            </div>
+        </div>
+    )
+}
