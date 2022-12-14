@@ -1,0 +1,56 @@
+.mainContainer {
+    background-color: #fff;
+    padding: 2rem 1rem;
+
+    .boostPurchaseContainer {
+        margin-bottom: 7rem;
+        padding: 0.6rem;
+
+        .boostImg {
+            margin: 1rem 0;
+        }
+
+        p {
+            margin: 0;
+        }
+
+        .paymentHeader {
+            font-family: 'graphik-medium';
+            text-align: center;
+            font-size: 1rem;
+            color: #151C2F;
+        }
+
+        .message {
+            font-family: 'graphik-regular';
+            text-align: center;
+            line-height: 2;
+            color: #535761;
+            margin-top: 3rem;
+            font-size: 0.9rem;
+        }
+    }
+
+    .congratsBtn {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 7rem;
+
+        .actionBtn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            width: 9rem;
+            font-family: 'graphik-medium';
+            color: #fff;
+            background-color: #EF2F55;
+            padding: 1rem 2rem;
+            font-size: 0.9rem;
+            border-radius: 11px;
+            text-align: center;
+            letter-spacing: 1px;
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        }
+    }
+}

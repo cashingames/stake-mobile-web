@@ -1,29 +1,28 @@
-
 import React from 'react'
 import { useState } from 'react'
 import { IoCloseOutline } from 'react-icons/io5'
 import { formatCurrency } from '../../utils/stringUtl'
 import BottomSheet from '../BottomSheet/BottomSheet'
 import UserWalletBalance from '../UserWalletBalance/UserWalletBalance'
-import './GamePlan.scss'
+import './GameBoost.scss'
 
-function GamePlan() {
+function GameBoost() {
     return (
         <div className='storeItem'>
-            <p className='storeTitle'>Buy Games</p>
-            <p className='storeText'>You can play 5 free games daily. Buy Game to enjoy playing without interruptions</p>
+            <p className='storeTitle'>Buy Boosts</p>
+            <p className='storeText'>Boost gives you super powers when you are playing quizes. Buy boosts to let you win more games</p>
             <div className='storeCard'>
-                <GamePlanCard />
-                <GamePlanCard />
+                <BoostCard />
+                <BoostCard />
             </div>
         </div>
     )
 }
 
-export default GamePlan
+export default GameBoost
 
 
-const GamePlanCard = (props) => {
+const BoostCard = (props) => {
     const [open, setOpen] = useState(false)
 
     const openBottomSheet = () => {
@@ -37,38 +36,41 @@ const GamePlanCard = (props) => {
     return (
         <>
             <div className='storeItemContainer' onClick={openBottomSheet}>
-                <PlanCardDetails name='Least Plan' count={2} desc='Play 2 games' price={200} />
+                <BoostCardDetails name='Skip'  desc='Skips a question' price={200} count={3} img='/images/skip.png'/>
             </div>
             <BottomSheet open={open} closeBottomSheet={closeBottomSheet}
-            BSContent={<BuyGamePlan onClick={closeBottomSheet}/>}
+            BSContent={<BuyBoost onClick={closeBottomSheet}/>}
             />
         </>
     )
 }
 
 
-const PlanCardDetails = (props) => {
+const BoostCardDetails = (props) => {
     return (
         <>
-            <p className='planCount'>{props.count}</p>
+            <img src={props.img} alt='boost' />
             <div className='boostDetailsContainer'>
-                <p className='storeItemName'>{props.name}</p>
-                <p className='planDescription'>{props.desc}</p>
+                <div className='boostNameCount'>
+                    <p className='storeItemName'>{props.name}</p>
+                    <p className='boostCount'>x{props.count}</p>
+                </div>
+                <p className='boostDescription'>{props.desc}</p>
             </div>
             <p className='cashPrice'>&#8358;{formatCurrency(props.price)}</p>
         </>
     )
 }
 
-const BuyGamePlan = ({onClick}) => {
+const BuyBoost = ({onClick}) => {
     return(
         <div className='buyBoost'>
             <div className='buyItemHeader'>
-                <p className='buyItemTitle'>Buy Game</p>
+                <p className='buyItemTitle'>Buy Boost</p>
                 <IoCloseOutline size={20} color='#292D32' onClick={onClick} />
             </div>
             <div className='buyItemCard'>
-            <PlanCardDetails name='The Ultimate' count={25} desc='Play 25 games' price={1000} />
+            <BoostCardDetails name='Skip' count={2} desc='Skips a question' price={100} img='/images/skip.png' />
             </div>
             <UserWalletBalance />
             <button className='boostBtn' disabled>

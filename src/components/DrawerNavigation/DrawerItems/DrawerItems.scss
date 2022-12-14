@@ -1,4 +1,4 @@
-.drawerItem{
+.drawerItem {
     display: flex;
     justify-content: space-between;
     margin: 0 1rem;
@@ -7,31 +7,62 @@
     padding: 1.4rem 0;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     text-decoration: none;
-    .labelItem{
+
+    .labelItem {
         font-size: 0.9rem;
         margin: 0;
-        color: #000;  
-        font-family: 'graphik-regular';     
+        color: #000;
+        font-family: 'graphik-regular';
     }
-    .icon{
+
+    .icon {
         font-size: 22px;
-        color: rgba(0,0,0,0.5);
+        color: rgba(0, 0, 0, 0.5);
         margin-right: 1rem;
+    }
+
+    .notificationSection {
+        display: flex;
+        align-items: center;
+        padding-right: 1rem;
+
+        .notificationNumberCase {
+            background-color: #518Ef8;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .notificationNumber {
+                margin: 0;
+                font-family: 'graphik-medium';
+                font-size: 0.5rem;
+                color: #fff;
+            }
+        }
+
+        .notifyIcon {
+            font-size: 22px;
+            color: rgba(0, 0, 0, 0.5);
+        }
     }
 }
 
-.versionContainer{
+.versionContainer {
     background-color: #fff;
     display: flex;
     justify-content: center;
     align-items: flex-end;
     margin-top: 3rem;
     margin-bottom: 0;
-    .appVersion{
+
+    .appVersion {
         color: #000;
         font-size: 0.8rem;
         line-height: 0.7;
         opacity: 0.7;
         font-family: 'graphik-regular';
-        }
+    }
 }
