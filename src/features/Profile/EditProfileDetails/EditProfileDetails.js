@@ -74,7 +74,7 @@ const EditProfileDetails = () => {
 
                 dispatch(getUser())
                 setOpen(true)
-                setAlert('Profile updated successful');
+                setAlert('Personal details updated successfully');
                 setLoading(false);
             })
             .catch((rejectedValueOrSerializedError) => {
