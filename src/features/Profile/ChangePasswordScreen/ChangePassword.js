@@ -50,6 +50,11 @@ function ChangePassword() {
         setOpenSheet(false)
     }
 
+    
+    const navigateHandler = () => {
+        navigate('/profile')
+    }
+    
 
     //password verification
     useEffect(() => {
@@ -98,7 +103,7 @@ function ChangePassword() {
 
     return (
         <>
-            <ScreenHeader title='Change Password'/>
+            <ScreenHeader title='Change Password' onClick={navigateHandler}/>
             <div className='changePasswordContainer'>
                 <form>
                     <PasswordInput value={password}

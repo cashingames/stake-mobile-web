@@ -6,12 +6,21 @@ import ScreenHeader from '../../../components/ScreenHeader/ScreenHeader'
 import './UserStat.scss'
 import Details from './Details/Details'
 import UserItems from '../../../components/UserItems/UserItems'
+import { useNavigate } from 'react-router-dom'
 
 function UserStat() {
     const user = useSelector(state => state.auth.user)
+
+    const navigate = useNavigate()
+   
+    const navigateHandler = () => {
+        navigate('/profile')
+    }
+
+
   return (
     <>
-        <ScreenHeader title='Stats'/>
+        <ScreenHeader title='Stats' onClick={navigateHandler} styleProp='statsBar'/>
         <div className='statContainer'>
             <div className='rankContainer'>
                 <div className='rankTextCase'>

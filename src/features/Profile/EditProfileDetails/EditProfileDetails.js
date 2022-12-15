@@ -41,6 +41,11 @@ const EditProfileDetails = () => {
         return
     })
 
+    
+    const navigateHandler = () => {
+        navigate('/profile')
+    }
+    
 
     const closeAlert = () => {
         setOpen(false)
@@ -90,7 +95,7 @@ const EditProfileDetails = () => {
 
     return (
         <>
-            <ScreenHeader title='Edit Details' />
+            <ScreenHeader title='Edit Details' onClick={navigateHandler} styleProp='editNavBar' />
             <div className='formCase'>
                 <div className='inputsCase'>
                     <div className='inputCase'>

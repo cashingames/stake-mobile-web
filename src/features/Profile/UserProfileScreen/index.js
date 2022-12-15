@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import './UserProfileScreen.scss'
 import ProfileLink from '../ProfileLinks/ProfileLink';
 import { IoCameraSharp } from 'react-icons/io5';
-import ProfileScreensHeader from '../../../components/ProfileScreensHeader/ProfileScreensHeader';
+import ScreensHeader from '../../../components/ScreenHeader/ScreenHeader';
 
 const backendUrl = process.env.REACT_APP_API_ROOT_URL;
 
@@ -13,12 +13,12 @@ function UserProfileScreen() {
     const navigate = useNavigate();
 
     const navigateHandler = () => {
-        navigate('/')
+        navigate('/dashboard')
     }
     
     return (
         <>
-            <ProfileScreensHeader title='Profile' handleNavigation={navigateHandler}/>
+            <ScreensHeader title='Profile' onClick={navigateHandler}/>
             <div className='userProfileContainer'>
                 <div className='userImgContainer'>
                     <img 
