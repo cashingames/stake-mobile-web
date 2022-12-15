@@ -41,6 +41,11 @@ function BankDetails() {
         setOpen(false)
     }
 
+    
+    const navigateHandler = () => {
+        navigate('/profile')
+    }
+
 
 //Account name and number validations
     useEffect(() => {
@@ -105,7 +110,7 @@ function BankDetails() {
 
   return (
     <>
-        <ScreenHeader title='Bank Details' />
+        <ScreenHeader title='Bank Details' onClick={navigateHandler} styleProp='bankHeader' />
         <div className='bankContainer'>
             <form>
             <div className='inputCase'>

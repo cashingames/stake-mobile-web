@@ -33,7 +33,7 @@
 
     .congratsBtn {
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
         margin-top: 7rem;
 
         .actionBtn {
@@ -42,10 +42,11 @@
             justify-content: center;
             text-decoration: none;
             width: 9rem;
+            border: none;
             font-family: 'graphik-medium';
             color: #fff;
             background-color: #EF2F55;
-            padding: 1rem 2rem;
+            padding: 1rem;
             font-size: 0.9rem;
             border-radius: 11px;
             text-align: center;

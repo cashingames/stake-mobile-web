@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import ScreenHeader from '../../components/ScreenHeader/ScreenHeader'
 import { formatCurrency } from '../../utils/stringUtl'
 import { fetchUserTransactions } from '../CommonSlice'
@@ -22,6 +23,8 @@ function TransactionScreen() {
     //     setPageNumber(getPageNo());
     // }, [])
 
+    const navigate = useNavigate()
+
     useEffect(() => {
         // if (!pageNumber) {
         //     return;
@@ -41,6 +44,10 @@ function TransactionScreen() {
             })
     }, [dispatch]);
 
+    const navigateHandler = () => {
+        navigate('/wallet')
+    }
+
     // const loadMoreItems = () => {
     //   console.log("loading more")
     //   if (!loadMoreTransactions)
@@ -54,7 +61,7 @@ function TransactionScreen() {
 
     return (
         <>
-            <ScreenHeader title='Transactions' styleProp='transaction' />
+            <ScreenHeader title='Transactions' styleProp='transaction' onClick={navigateHandler} />
             {transactions.length > 0 ?
                 <>
                     {

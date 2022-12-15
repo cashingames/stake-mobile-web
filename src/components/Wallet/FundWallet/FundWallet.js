@@ -42,7 +42,7 @@ function FundWallet() {
             setAmountError(true)
             // return false
         } else setAmountError(false)
-        setAmount(amount)
+        setAmount(amount)``
     }
 
     useEffect(() => {
@@ -55,6 +55,7 @@ function FundWallet() {
         <>
             {!showPayment &&
                 <>
+
                     <div className='fundWalletContainer'>
                         <div className='balance'>
                             <p className='availableAmount'>

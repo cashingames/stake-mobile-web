@@ -4,6 +4,7 @@ import AppHeader from '../../components/AppHeader/AppHeader'
 import BottomSheet from '../../components/BottomSheet/BottomSheet'
 import TransactionLink from '../../components/Wallet/TransactionLink/TransactionLink'
 import WalletBalance from '../../components/Wallet/WalletBalance/WalletBalance'
+import Dialogue from '../../components/Dialogue/Dialogue'
 import Withdrawable from '../../components/Wallet/Withdrawable/Withdrawable'
 import WithdrawnBalance from '../../components/Wallet/WithdrawnBalance/WithdrawnBalance'
 import { getUser } from '../Auth/AuthSlice'
@@ -15,30 +16,34 @@ function WalletScreen() {
   const user = useSelector(state => state.auth.user)
   const [withdraw, setWithdraw] = useState(false)
   const [open, setOpen] = useState(false)
+  const [openDialogue, setOpenDialogue] = useState(false)
+  const [alertMessage, setAlert] = useState('')
 
   //Bottom sheet close function
   const closeBS = () => {
     setOpen(false)
   }
 
-
+  const closeAlert = () => {
+    setOpenDialogue(false)
+  }
   const withdrawBalance = () => {
     setWithdraw(true)
     withdrawWinnings()
         .then(async response => {
-          alert("Withdraw successful");
-            // openBottomSheet();
             setOpen(true)
             setWithdraw(false)
             dispatch(getUser())
         },
             err => {
                 if (!err || !err.response || err.response === undefined) {
-                    alert("Your Network is Offline.");
+                  setOpenDialogue(true)
+                  setAlert("Your Network is Offline.");
                     setWithdraw(false)
                 }
                 else if (err.response.status === 400) {
-                    alert(err.response.data.message);
+                    setOpenDialogue(true)
+                    setAlert(err.response.data.message);
                     setWithdraw(false)
 
                 }
@@ -63,6 +68,7 @@ function WalletScreen() {
       <BottomSheet open={open} closeBottomSheet={closeBS}
        BSContent={<WithdrawnBalance />}
        />
+            <Dialogue open={openDialogue} handleClose={closeAlert} dialogueMessage={alertMessage} />
     </>
   )
 }

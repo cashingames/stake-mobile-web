@@ -17,7 +17,7 @@ function GamePlan({ user, plans }) {
     return (
         <div className='storeItem'>
             <p className='storeTitle'>Buy Games</p>
-            <p className='storeText'>You can play 5 free games daily. Buy Game to enjoy playing without interruptions</p>
+            <p className='storeText'>You can only play 5 free games daily. Buy Games to enjoy playing without interruptions</p>
             <div className='storeCard'>
                 {plans.map((plan, i) => <GamePlanCard key={i} plan={plan} user={user} />)}
             </div>

@@ -11,6 +11,7 @@ import { Spinner } from "react-activity";
 import "react-activity/dist/library.css";
 import ScreenHeader from '../../components/ScreenHeader/ScreenHeader'
 import LoaderScreen from '../LoaderScreen/LoaderScreen'
+import { useNavigate } from 'react-router-dom'
 
 function NotificationScreen() {
     const notifications = useSelector(state => state.common.userNotifications)
@@ -19,6 +20,8 @@ function NotificationScreen() {
     // console.log(loading)
     const dispatch = useDispatch();
     const [clicking, setClicking] = useState(false)
+
+    const navigate = useNavigate()
 
     const markAll = () => {
         setClicking(true)
@@ -36,6 +39,10 @@ function NotificationScreen() {
         return <LoaderScreen backgroundColor="background-color" />
     }
 
+    const navigateHandler = () => {
+        navigate('/dashboard')
+    }
+
     return (
         <>
             {/* <div className='NotificationHeader'>
@@ -45,7 +52,7 @@ function NotificationScreen() {
                     } />
                 <AuthTitle titleText='Notifications' styleProp='title' />
             </div> */}
-            <ScreenHeader title='Notifications' styleProp='notificationHeader' />
+            <ScreenHeader title='Notifications' styleProp='notificationHeader' onClick={navigateHandler} />
 
             <div style={
                 { backgroundImage: "url(/images/studio-illustration.jpg)" }
