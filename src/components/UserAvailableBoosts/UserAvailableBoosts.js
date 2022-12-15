@@ -32,14 +32,11 @@ const UserAvailableBoosts = ({ onClose, gameMode, onStartGame, loading, boosts }
                 <p className="noBoosts">No boost available, go to store to purchase boost</p>
             }
             <GoToStore onPress={visitStore} />
-            {gameMode.name === "EXHIBITION" &&
                 <button onClick={onStartGame} disabled={loading} className='start-button'>
                     <p className="start-text">{loading ? <Spinner
                         color='#ffff'
                         size={10} /> : "Start Game"} </p>
                 </button>
-            }
-
         </div>
     )
 }

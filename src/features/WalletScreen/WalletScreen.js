@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import AppHeader from '../../components/AppHeader/AppHeader'
 import BottomSheet from '../../components/BottomSheet/BottomSheet'
@@ -19,6 +19,14 @@ function WalletScreen() {
   const [openDialogue, setOpenDialogue] = useState(false)
   const [alertMessage, setAlert] = useState('')
 
+  //disable browser back button
+  useEffect(() => {
+    window.history.pushState(null, null, window.location.href);
+    window.onpopstate = function () {
+      window.history.go(1);
+    };
+  })
+
   //Bottom sheet close function
   const closeBS = () => {
     setOpen(false)
@@ -30,27 +38,27 @@ function WalletScreen() {
   const withdrawBalance = () => {
     setWithdraw(true)
     withdrawWinnings()
-        .then(async response => {
-            setOpen(true)
+      .then(async response => {
+        setOpen(true)
+        setWithdraw(false)
+        dispatch(getUser())
+      },
+        err => {
+          if (!err || !err.response || err.response === undefined) {
+            setOpenDialogue(true)
+            setAlert("Your Network is Offline.");
             setWithdraw(false)
-            dispatch(getUser())
-        },
-            err => {
-                if (!err || !err.response || err.response === undefined) {
-                  setOpenDialogue(true)
-                  setAlert("Your Network is Offline.");
-                    setWithdraw(false)
-                }
-                else if (err.response.status === 400) {
-                    setOpenDialogue(true)
-                    setAlert(err.response.data.message);
-                    setWithdraw(false)
+          }
+          else if (err.response.status === 400) {
+            setOpenDialogue(true)
+            setAlert(err.response.data.message);
+            setWithdraw(false)
 
-                }
-            }
+          }
+        }
 
-        )
-}
+      )
+  }
 
   return (
     <>
@@ -60,15 +68,15 @@ function WalletScreen() {
         <Withdrawable withdrawableBalance={user.withdrawableBalance}
           bookBalance={user.bookBalance} withdraw={withdraw}
           onPress={withdrawBalance}
-           />
+        />
         <TransactionLink />
       </div>
 
       {/* Bottom sheet component */}
       <BottomSheet open={open} closeBottomSheet={closeBS}
-       BSContent={<WithdrawnBalance />}
-       />
-            <Dialogue open={openDialogue} handleClose={closeAlert} dialogueMessage={alertMessage} />
+        BSContent={<WithdrawnBalance />}
+      />
+      <Dialogue open={openDialogue} handleClose={closeAlert} dialogueMessage={alertMessage} />
     </>
   )
 }

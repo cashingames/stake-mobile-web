@@ -1,9 +1,17 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import './GameStorePurchaseFailed.scss'
 
 
 function GameStorePurchaseFailed() {
+    //disable browser back button
+    useEffect(() => {
+      window.history.pushState(null, null, window.location.href);
+      window.onpopstate = function () {
+          window.history.go(1);
+      };
+  })
+
   return (
     <div className='mainContainer'>
     <div className='boostPurchaseContainer'>

@@ -7,6 +7,7 @@ import Dialogue from '../../../components/Dialogue/Dialogue'
 import './EditProfileDetails.scss'
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import LoaderScreen from '../../LoaderScreen/LoaderScreen';
 
 const EditProfileDetails = () => {
     const dispatch = useDispatch();
@@ -29,9 +30,11 @@ const EditProfileDetails = () => {
     const [open, setOpen] = useState(false)
     const [alertMessage, setAlert] = useState('')
     const [loading, setLoading] = useState(false);
+    const [onloading, setOnLoading] = useState(true);
+
 
     useEffect(() => {
-        dispatch(getUser())
+        dispatch(getUser()).then(() => { setOnLoading(false) });
     }, [dispatch])
 
     useEffect(() => {
@@ -41,11 +44,19 @@ const EditProfileDetails = () => {
         return
     })
 
-    
+    //disable browser back button
+    useEffect(() => {
+        window.history.pushState(null, null, window.location.href);
+        window.onpopstate = function () {
+            window.history.go(1);
+        };
+    })
+
+
     const navigateHandler = () => {
         navigate('/profile')
     }
-    
+
 
     const closeAlert = () => {
         setOpen(false)
@@ -91,6 +102,10 @@ const EditProfileDetails = () => {
                 }
                 setLoading(false);
             });
+    }
+
+    if (onloading) {
+        return <LoaderScreen backgroundColor="background-color" />
     }
 
     return (

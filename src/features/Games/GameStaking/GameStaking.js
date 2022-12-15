@@ -48,6 +48,9 @@ const GameStaking = () => {
         }
         return
     })
+    const navigateHandler = () => {
+        navigate('/game-instructions')
+    }
 
 
     const onChangeStakeAmount = (e) => {
@@ -103,6 +106,12 @@ const GameStaking = () => {
             }
         )
     }
+    useEffect(() => {
+        window.history.pushState(null, null, window.location.href);
+        window.onpopstate = function () {
+            window.history.go(1);
+        };
+    })
 
     useEffect(() => {
         dispatch(getGameStakes())
@@ -112,7 +121,7 @@ const GameStaking = () => {
 
     return (
         <>
-            <ScreenHeader title='Game Staking' styleProp='staking' />
+            <ScreenHeader title='Game Staking' styleProp='staking' onClick={navigateHandler} />
             <div className="staking-container">
                 <div className="amountContainer">
                     <div className="walletContainer">

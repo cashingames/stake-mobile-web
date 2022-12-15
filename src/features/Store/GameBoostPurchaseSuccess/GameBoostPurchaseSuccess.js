@@ -1,5 +1,5 @@
 import { Player } from '@lottiefiles/react-lottie-player'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import TransactionSuccess from '../../../assets/transaction-successful.json'
 import './GameBoostPurchaseSuccess.scss'
@@ -14,6 +14,14 @@ function GameBoostPurchaseSuccess() {
     const store = () => {
         navigate('/store')
     }
+
+      //disable browser back button
+      useEffect(() => {
+        window.history.pushState(null, null, window.location.href);
+        window.onpopstate = function () {
+            window.history.go(1);
+        };
+    })
 
     return (
         <div className='mainContainer'>

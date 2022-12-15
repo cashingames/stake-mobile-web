@@ -11,6 +11,42 @@
     font-family: 'Graphik', sans-serif;
     padding: 1rem 1.5rem;
 
+    .buttons {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        .no-staking {
+            background-color: #EF2F55;
+            border: none;
+            border-radius: 8px;
+            height: 2.5rem;
+            width: 100%;
+
+            .text {
+                margin: 0;
+                font-size: 0.8rem;
+                font-weight: 600;
+                color: #ffff;
+            }
+        }
+
+        .proceedNow {
+            background: transparent;
+            border: 1px solid #EF2F55;
+            border-radius: 8px;
+            height: 2.5rem;
+            width: 9rem;
+
+            .text {
+                margin: 0;
+                font-size: 0.8rem;
+                font-weight: 600;
+                color: #EF2F55;
+            }
+        }
+    }
+
     .instruction {
         display: flex;
         flex-direction: row;
@@ -36,17 +72,5 @@
         }
 
     }
-    .proceedNow{
-        background-color: #EF2F55;
-        border: none;
-        border-radius: 8px;
-        height: 2.5rem;
-        width: 100%;
-        .text {
-            margin: 0;
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: #ffff;
-        }
-    }
+
 }

@@ -19,6 +19,14 @@ function DashBoardScreen() {
   const challengeLeaders = useSelector(state => state.game.challengeLeaders)
   const leaders = useSelector(state => state.common.globalLeaders)
 
+  //disable browser back button
+  useEffect(() => {
+    window.history.pushState(null, null, window.location.href);
+    window.onpopstate = function () {
+      window.history.go(1);
+    };
+  })
+
   useEffect(() => {
     dispatch(getUser());
     dispatch(getCommonData())

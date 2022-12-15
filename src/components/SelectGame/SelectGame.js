@@ -1,7 +1,6 @@
-// eslint-disable-next-line
-import React, { useState } from 'react'
+import React from 'react'
 import './SelectGame.scss'
-import { BiCircle } from "react-icons/bi";
+// import { BiCircle } from "react-icons/bi";
 import { useDispatch, useSelector } from 'react-redux';
 import { setGameMode } from '../../features/Games/GameSlice';
 import { isTrue } from '../../utils/stringUtl';
@@ -17,6 +16,7 @@ function SelectGame({ gameModes }) {
 
   const onSelectGameMode = (mode) => {
       dispatch(setGameMode(mode));
+      navigate('/select-category')
   };
 
   const selectCategory = () => {
@@ -32,7 +32,7 @@ function SelectGame({ gameModes }) {
             key={i}
             gameMode={gameMode}
             onPress={() => onSelectGameMode(gameMode)}
-            isSelected={gameMode.id === selectedGameMode?.id}
+            // isSelected={gameMode.id === selectedGameMode?.id}
           />
         )}
       </div>
@@ -41,11 +41,11 @@ function SelectGame({ gameModes }) {
   )
 }
 
-const AvailableMode = ({ gameMode, onPress, isSelected}) => {
+const AvailableMode = ({ gameMode, onPress}) => {
   const backendUrl = process.env.REACT_APP_API_ROOT_URL;
 
-  const style = { backgroundColor: '#FFFF', color: '#FFFF', fontSize: "1.2rem" ,borderRadius:'50%'}
-  const styleI = { backgroundColor: '#EF2F55', color: '#EF2F55', fontSize: "1.2rem", borderRadius:'50%' }
+  // const style = { backgroundColor: '#FFFF', color: '#FFFF', fontSize: "1.2rem" ,borderRadius:'50%'}
+  // const styleI = { backgroundColor: '#EF2F55', color: '#EF2F55', fontSize: "1.2rem", borderRadius:'50%' }
   return (
     <div
       onClick={onPress}
@@ -58,8 +58,8 @@ const AvailableMode = ({ gameMode, onPress, isSelected}) => {
           src={`${backendUrl}/${gameMode.icon}`}
           className="cardIcon" alt={gameMode.name}
         />
-        <span>{isSelected ? <BiCircle style=
-          {styleI} /> : <BiCircle style={style} />}</span>
+        {/* <span>{isSelected ? <BiCircle style=
+          {styleI} /> : <BiCircle style={style} />}</span> */}
       </div>
       <p className='cardTitle'>{gameMode.name}</p>
       <p className='cardInstruction'>{gameMode.description}</p>

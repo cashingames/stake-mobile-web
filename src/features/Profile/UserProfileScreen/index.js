@@ -1,5 +1,5 @@
-import React from 'react';
-import {useSelector} from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom'
 import './UserProfileScreen.scss'
 import ProfileLink from '../ProfileLinks/ProfileLink';
@@ -15,22 +15,30 @@ function UserProfileScreen() {
     const navigateHandler = () => {
         navigate('/dashboard')
     }
-    
+
+    //disable browser back button
+    useEffect(() => {
+        window.history.pushState(null, null, window.location.href);
+        window.onpopstate = function () {
+            window.history.go(1);
+        };
+    })
+
     return (
         <>
-            <ScreensHeader title='Profile' onClick={navigateHandler}/>
+            <ScreensHeader title='Profile' onClick={navigateHandler} />
             <div className='userProfileContainer'>
                 <div className='userImgContainer'>
-                    <img 
-                        src={user.avatar  ? `${backendUrl}/${user.avatar }` : "/images/user-icon.png"}
+                    <img
+                        src={user.avatar ? `${backendUrl}/${user.avatar}` : "/images/user-icon.png"}
                         alt='user'
-                        className='userAvater'/>
-                        <div className='cameraCase'>
-                            <IoCameraSharp className='icon'
-                                    />
-                        </div>
-                 </div>
-                 <ProfileLink />
+                        className='userAvater' />
+                    <div className='cameraCase'>
+                        <IoCameraSharp className='icon'
+                        />
+                    </div>
+                </div>
+                <ProfileLink />
             </div>
         </>
     )

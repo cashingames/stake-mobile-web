@@ -31,7 +31,6 @@ const SelectGameCategoryScreen = () => {
         event.preventDefault();
         event.returnValue = '';
     }
-
     useEffect(() => {
         window.addEventListener('beforeunload', alertUserBeforeClosinigGame)
         window.addEventListener('unload', handleGameBoardTabClosing)
@@ -40,28 +39,35 @@ const SelectGameCategoryScreen = () => {
             window.removeEventListener('unload', handleGameBoardTabClosing)
         }
     })
+    //disable browser back button
+    useEffect(() => {
+        window.history.pushState(null, null, window.location.href);
+        window.onpopstate = function () {
+            window.history.go(1);
+        };
+    })
 
     const onPlayButtonClick = () => {
         onSelectGameMode();
     }
 
     const onSelectGameMode = () => {
-        if (gameMode.name === "EXHIBITION") {
-            navigate('/game-instructions');
-        }
-
-        else if (gameMode.name === "CHALLENGE") {
+        if (gameMode.name === "CHALLENGE") {
             navigate('/select-player')
         }
-
+        else
+            navigate('/game-instructions');
     };
+    const navigateHandler = () => {
+        navigate('/dashboard')
+    }
 
 
 
 
     return (
         <>
-            <ScreenHeader title='Select Game' styleProp='header' iconProp='backIcon' />
+            <ScreenHeader title='Select Game' styleProp='header' iconProp='backIcon' onClick={navigateHandler} />
             <div className="selectGameContainer">
                 <Player src={SelectGame}
                     alt='wallet'
@@ -72,7 +78,7 @@ const SelectGameCategoryScreen = () => {
                         { height: '150px' }
                     } />
                 <div>
-                    <GamePicker activeSubcategory={activeSubcategory}  />
+                    <GamePicker activeSubcategory={activeSubcategory} />
                 </div>
                 <button className="playButton" onClick={onPlayButtonClick} disabled={!isTrue(activeSubcategory)}>
                     <IoArrowForward className='icon' />

@@ -91,11 +91,11 @@ function GameInProgress() {
 
   const openBottomSheet = async () => {
     setOpen(true)
-}
+  }
 
-const closeBottomSheet = async () => {
+  const closeBottomSheet = async () => {
     setOpen(false)
-}
+  }
 
   useEffect(() => {
     window.addEventListener('beforeunload', alertUserBeforeClosinigGame)
@@ -109,6 +109,14 @@ const closeBottomSheet = async () => {
   const showExitConfirmation = () => {
     onEndGame();
   }
+
+  //disable browser back button
+  useEffect(() => {
+    window.history.pushState(null, null, window.location.href);
+    window.onpopstate = function () {
+      window.history.go(1);
+    };
+  })
 
   useEffect(() => {
     if (features.length < 1) {
@@ -146,37 +154,37 @@ const NextButton = ({ onClick, ending }) => {
   }
   return (
     <div className='nextButtonCase'>
-    <button onClick={pressNext} className='nextButton' disabled={ending}>
-      <p className='btnText'>{isLastQuestion ? 'Finish' : 'Next'}</p>
-    </button>
+      <button onClick={pressNext} className='nextButton' disabled={ending}>
+        <p className='btnText'>{isLastQuestion ? 'Finish' : 'Next'}</p>
+      </button>
     </div>
   )
 }
 
-const UserAvailableBoosts = ({onClose}) => {
+const UserAvailableBoosts = ({ onClose }) => {
   // let navigate = useNavigate();
   const boosts = useSelector(state => state.auth.user.boosts);
   const gameMode = useSelector(state => state.game.gameMode);
 
   const boostsToDisplay = () => {
-      if (gameMode.name === "CHALLENGE") {
-          return boosts.filter(x => x.name.toUpperCase() !== "SKIP");
-      }
-      return boosts;
+    if (gameMode.name === "CHALLENGE") {
+      return boosts.filter(x => x.name.toUpperCase() !== "SKIP");
+    }
+    return boosts;
   }
   return (
-      <div className="boosts-container">
-          <p className="boosts-header">Available boosts</p>
-          {boosts?.length > 0 ?
-              <div className="boosts">
-                  {boostsToDisplay().map((boost, i) => <UserAvailableBoost boost={boost} key={i}  onClose={onClose} />
-                  )}
-              </div>
-              :
-              <p className="noBoosts">No boost available</p>
-          }
+    <div className="boosts-container">
+      <p className="boosts-header">Available boosts</p>
+      {boosts?.length > 0 ?
+        <div className="boosts">
+          {boostsToDisplay().map((boost, i) => <UserAvailableBoost boost={boost} key={i} onClose={onClose} />
+          )}
+        </div>
+        :
+        <p className="noBoosts">No boost available</p>
+      }
 
-      </div>
+    </div>
   )
 }
 export default GameInProgress

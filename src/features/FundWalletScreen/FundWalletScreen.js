@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import ScreenHeader from '../../components/ScreenHeader/ScreenHeader'
 import FundWallet from '../../components/Wallet/FundWallet/FundWallet'
@@ -12,7 +12,15 @@ function FundWalletScreen() {
         navigate('/wallet')
     }
 
- 
+    //disable browser back button
+    useEffect(() => {
+        window.history.pushState(null, null, window.location.href);
+        window.onpopstate = function () {
+            window.history.go(1);
+        };
+    })
+
+
     return (
         <>
             <div >
