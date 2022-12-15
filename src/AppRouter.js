@@ -29,6 +29,9 @@ import GameInProgress from './features/Games/GameInProgress/GameInProgress';
 import GameEnded from './features/Games/GameEnded/GameEnded';
 import ReviewStake from './features/Games/ReviewStakeScreen/ReviewStake';
 import Store from './features/Store/Store';
+import GameBoostPurchaseSuccess from './features/Store/GameBoostPurchaseSuccess/GameBoostPurchaseSuccess';
+import GamePlanPurchaseSuccess from './features/Store/GamePlanPurchaseSuccessful/GamePlanPurchaseSuccessful';
+import GameStorePurchaseFailed from './features/Store/GameStorePurchaseFailed/GameStorePurchaseFailed';
 
 const AppRouter = () => {
 
@@ -101,6 +104,15 @@ const AppRouter = () => {
             <Route
                 path="/store"
                 element={<AuthRoute redirectTo="/"><Store /></AuthRoute>} />
+            <Route
+                path="/boost-purchase-successful"
+                element={<AuthRoute redirectTo="/"><GameBoostPurchaseSuccess /></AuthRoute>} />
+            <Route
+                path="/plan-purchase-successful"
+                element={<AuthRoute redirectTo="/"><GamePlanPurchaseSuccess /></AuthRoute>} />
+            <Route
+                path="/purchase-failed"
+                element={<AuthRoute redirectTo="/"><GameStorePurchaseFailed /></AuthRoute>} />
         </Routes>
     )
 }

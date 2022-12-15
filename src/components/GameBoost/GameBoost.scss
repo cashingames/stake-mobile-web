@@ -39,11 +39,16 @@
     border-radius: 11px;
     padding: 0.6rem 1rem;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+
 }
 
 
 
 //BoostCard Details
+.boost-icon {
+    width: 40px;
+    height: 40px;
+}
 .boostDetailsContainer {
     display: flex;
     flex-direction: column;
