@@ -71,6 +71,14 @@ function ChangePassword() {
 
     }, [password, new_password, new_password_confirmation])
 
+    //disable browser back button
+    useEffect(() => {
+        window.history.pushState(null, null, window.location.href);
+        window.onpopstate = function () {
+            window.history.go(1);
+        };
+    })
+
 
     useEffect(() => {
         const invalid = passErr || new_password_confirmation !== new_password || password === '' || new_password === '';

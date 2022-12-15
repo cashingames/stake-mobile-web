@@ -20,6 +20,8 @@ const GameInstructionScreen = () => {
     const user = useSelector(state => state.auth.user);
     const features = useSelector(state => state.common.featureFlags);
     const hasActivePlan = useSelector(state => state.auth.user.hasActivePlan);
+    const isStakingEntryMode = () => gameMode.name === "STAKING";
+
 
     const handleGameBoardTabClosing = () => {
     }
@@ -28,6 +30,13 @@ const GameInstructionScreen = () => {
         event.preventDefault();
         event.returnValue = '';
     }
+    //disable browser back button
+    useEffect(() => {
+        window.history.pushState(null, null, window.location.href);
+        window.onpopstate = function () {
+            window.history.go(1);
+        };
+    })
 
     useEffect(() => {
         window.addEventListener('beforeunload', alertUserBeforeClosinigGame)
@@ -52,6 +61,9 @@ const GameInstructionScreen = () => {
     const closeBottomSheet = async () => {
         setOpen(false)
     }
+    const navigateHandler = () => {
+        navigate('/select-category')
+    }
 
     useEffect(() => {
         if (features.length < 1) {
@@ -63,7 +75,7 @@ const GameInstructionScreen = () => {
 
     return (
         <>
-            <ScreenHeader title='Game Instructions' styleProp='instruction-header' iconProp='backIcon' />
+            <ScreenHeader title='Game Instructions' styleProp='instruction-header' iconProp='backIcon' onClick={navigateHandler} />
             <div className="gameInstructionContainer">
                 <Player src={Guidelines}
                     alt='wallet'
@@ -73,19 +85,22 @@ const GameInstructionScreen = () => {
                     style={
                         { height: '150px' }
                     } />
-                {gameMode.name === "EXHIBITION" && <ExhibitionInstructions />}
+                <ExhibitionInstructions />
 
                 {isStakingFeatureEnabled &&
                     <ExhibitionStakingBanner onPress={gotoStaking} />
                 }
-                {isStakingFeatureEnabled ?
-                    <StakingButtons onPressStake={gotoStaking} onPressProceed={openBottomSheet} />
-                    :
-                    <button className='proceedNow' onClick={openBottomSheet}>
-                        <p className='text'>Proceed</p>
-                    </button>
+                <div className="buttons">
+                    {!isStakingEntryMode() &&
+                        <button className={isStakingFeatureEnabled ? 'proceedNow' : 'no-staking'} onClick={openBottomSheet}>
+                            <p className={isStakingFeatureEnabled ? 'text' : 'no-stake-text'}>{isStakingFeatureEnabled ? 'Play exhibition' : 'Proceed'}</p>
+                        </button>
+                    }
+                    {isStakingFeatureEnabled &&
+                        <StakingButtons onPressStake={gotoStaking} gameMode={gameMode} />
+                    }
 
-                }
+                </div>
                 {hasActivePlan ?
                     <BottomSheet
                         open={open} closeBottomSheet={closeBottomSheet}
@@ -98,7 +113,7 @@ const GameInstructionScreen = () => {
                         open={open} closeBottomSheet={closeBottomSheet}
                         BSContent={<NoGame
                             onClose={closeBottomSheet}
-                        onPress={gotoStaking}
+                            onPress={gotoStaking}
                         />}
                     />
                 }

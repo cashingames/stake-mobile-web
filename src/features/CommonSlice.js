@@ -93,7 +93,7 @@ const initialState = {
     trivias: [],
     loadMoreLiveTrivias: true,
     gameModes: [],
-    banks:[],
+    banks: [],
     globalLeaders: [],
     userNotifications: [],
     userTransactions: [],
@@ -120,7 +120,17 @@ export const CommonSlice = createSlice({
                 state.achievements = data.achievements;
                 state.plans = data.plans;
                 state.gameTypes = data.gameTypes;
-                state.gameModes = data.gameModes;
+                state.gameModes = [
+                    {
+                        "icon": "icons/money-bag.png",
+                        "bgColor": "#EF2F55",
+                        "description": "Bet on your knowledge",
+                        "displayName": "Staking",
+                        "id": 1,
+                        "name": "STAKING",
+                    },
+                    ...data.gameModes
+                ];
                 state.gameCategories = data.gameCategories;
                 state.minVersionCode = data.minVersionCode;
                 state.minVersionForce = data.minVersionForce;

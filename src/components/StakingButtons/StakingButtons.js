@@ -2,17 +2,12 @@ import React from 'react';
 import './StakingButtons.scss'
 
 
-const StakingButtons = ({onPressStake,onPressProceed}) => {
+const StakingButtons = ({onPressStake, gameMode}) => {
     return (
-        <div className='buttons'>
-            <button onClick={onPressProceed} className='stakeButton'>
-                <p className='text'>Play exhibition</p>
-            </button>
-            <button onClick={onPressStake} className='proceedButton'>
+            <button onClick={onPressStake} className={gameMode.name === 'STAKING' ? 'stake-mode' : 'ProceedButton'}>
                 <p className='text'>Proceed</p>
             </button>
             
-        </div>
     )
 }
 export default StakingButtons;

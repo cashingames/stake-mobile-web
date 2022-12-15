@@ -1,6 +1,6 @@
 import { Player } from '@lottiefiles/react-lottie-player'
 import React, { useEffect, useState } from 'react'
-import {  IoCheckmarkCircle } from 'react-icons/io5'
+import { IoCheckmarkCircle } from 'react-icons/io5'
 import { useDispatch, useSelector } from 'react-redux'
 import Notification from '../../components/Notification/Notification'
 import { getUser } from '../Auth/AuthSlice'
@@ -15,9 +15,7 @@ import { useNavigate } from 'react-router-dom'
 
 function NotificationScreen() {
     const notifications = useSelector(state => state.common.userNotifications)
-    // console.log(notifications)
     const [loading, setLoading] = useState(true);
-    // console.log(loading)
     const dispatch = useDispatch();
     const [clicking, setClicking] = useState(false)
 
@@ -29,18 +27,25 @@ function NotificationScreen() {
             setClicking(false)
         });
     }
+    //disable browser back button
+    useEffect(() => {
+        window.history.pushState(null, null, window.location.href);
+        window.onpopstate = function () {
+            window.history.go(1);
+        };
+    })
 
     useEffect(() => {
         dispatch(getUser());
-        dispatch(getUserNotifications()).then(() => {  setLoading(false)});
+        dispatch(getUserNotifications()).then(() => { setLoading(false) });
     }, [dispatch])
-
-    if (loading) {
-        return <LoaderScreen backgroundColor="background-color" />
-    }
 
     const navigateHandler = () => {
         navigate('/dashboard')
+    }
+
+    if (loading) {
+        return <LoaderScreen backgroundColor="background-color" />
     }
 
     return (
@@ -79,8 +84,8 @@ function NotificationScreen() {
                                     { height: '150px' }
                                 } />
                             {notifications.map((notification, i) => <Notification key={i} notification={notification}
-                                // index={i + 1}
-                                // moment={moment}
+                            // index={i + 1}
+                            // moment={moment}
                             />)}
                         </div>
                         :

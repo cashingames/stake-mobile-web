@@ -41,23 +41,23 @@ function BankDetails() {
         setOpen(false)
     }
 
-    
+
     const navigateHandler = () => {
         navigate('/profile')
     }
 
 
-//Account name and number validations
+    //Account name and number validations
     useEffect(() => {
-        if(accountNumber && accountNumber.length < 10){
+        if (accountNumber && accountNumber.length < 10) {
             setAccountNumberError(true)
-        }else{
+        } else {
             setAccountNumberError(false)
         }
 
-        if(accountName && accountName.length < 5){
+        if (accountName && accountName.length < 5) {
             setAccountNameError(true)
-        }else{
+        } else {
             setAccountNameError(false)
         }
     }, [accountName, accountNumber])
@@ -71,7 +71,7 @@ function BankDetails() {
         }
     }, [banks, user, dispatch])
 
-    useEffect(()=>{
+    useEffect(() => {
         const invalid = accountNumberErr || accountNameErr || accountName === '' || accountNumber === '';
         setCanSave(!invalid);
     }, [accountNumberErr, accountNameErr, accountName, accountNumber])
@@ -81,6 +81,14 @@ function BankDetails() {
             navigate('/profile')
         }
         return
+    })
+
+    //disable browser back button
+    useEffect(() => {
+        window.history.pushState(null, null, window.location.href);
+        window.onpopstate = function () {
+            window.history.go(1);
+        };
     })
 
     const onSaveBankDetails = () => {
@@ -108,54 +116,55 @@ function BankDetails() {
     }
 
 
-  return (
-    <>
-        <ScreenHeader title='Bank Details' onClick={navigateHandler} styleProp='bankHeader' />
-        <div className='bankContainer'>
-            <form>
-            <div className='inputCase'>
+    return (
+        <>
+            <ScreenHeader title='Bank Details' onClick={navigateHandler} styleProp='bankHeader' />
+            <div className='bankContainer'>
+                <form>
+                    <div className='inputCase'>
                         <label htmlFor='accountNumber' className='inputLabel'>Account Number</label>
-                        <input 
-                        className='inputBox2'
-                        onChange={(e) => setAccountNumber(e.target.value)}
-                        value={accountNumber}/>
+                        <input
+                            className='inputBox2'
+                            onChange={(e) => setAccountNumber(e.target.value)}
+                            value={accountNumber} />
                     </div>
                     <div className='inputCase'>
                         <label htmlFor='accountName' className='inputLabel'>Name on Account</label>
-                        <input 
-                        className='inputBox2'
-                        onChange={(e) => setAccountName(e.target.value)}
-                        value={accountName}/>
+                        <input
+                            className='inputBox2'
+                            onChange={(e) => setAccountName(e.target.value)}
+                            value={accountName} />
                     </div>
-                    
+
                     <div className='inputCase'>
                         <label htmlFor='selectBank' className='inputLabel'>Select Bank</label>
                         <Select
-                        value={bankName}
-                        onChange={(e) => setBankName(e.target.value)}
-                        sx={{
-                           height:'30px',
-                           borderRadius:0,
-                           fontSize:'0.7rem',
-                           background:'#ebeff5',
-                           border:0,
-                           opacity:0.6,
-                           outline:0,
-                           fontFamily:'graphik-regular'
-                        }}>
-                        {banks && banks.map((bank, i) => {
-                            return (
-                                <MenuItem key={i} value={bank.name}>{bank.name}</MenuItem>
-                            )}
+                            value={bankName}
+                            onChange={(e) => setBankName(e.target.value)}
+                            sx={{
+                                height: '30px',
+                                borderRadius: 0,
+                                fontSize: '0.7rem',
+                                background: '#ebeff5',
+                                border: 0,
+                                opacity: 0.6,
+                                outline: 0,
+                                fontFamily: 'graphik-regular'
+                            }}>
+                            {banks && banks.map((bank, i) => {
+                                return (
+                                    <MenuItem key={i} value={bank.name}>{bank.name}</MenuItem>
+                                )
+                            }
                             )}
                         </Select>
                         <button onClick={onSaveBankDetails} className='bankBtn' disabled={!canSave || loading}>{loading ? 'Saving' : 'Save Changes'}</button>
                     </div>
-            </form>
-        </div>
-        <Dialogue open={open} handleClose={closeAlert} dialogueMessage={alertMessage}/>
-    </>
-  )
+                </form>
+            </div>
+            <Dialogue open={open} handleClose={closeAlert} dialogueMessage={alertMessage} />
+        </>
+    )
 }
 
 export default BankDetails
