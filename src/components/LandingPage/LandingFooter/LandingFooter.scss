@@ -7,11 +7,23 @@
 
     .footerLogo {
         display: flex;
-        justify-content: center;
+        justify-content: space-evenly;
         margin: 2rem;
         .logo{
             width: 116px;
             height: 60px;
+            object-fit: cover;
+        }
+    }
+
+    .appImgCase{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin-bottom: 1rem;
+        .appImg{
+            width: 100%;
+            height: 30px;
             object-fit: cover;
         }
     }
