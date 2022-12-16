@@ -4,7 +4,6 @@ import axios from 'axios';
 import { useDispatch, useSelector } from "react-redux";
 import React, { useEffect, useState } from "react";
 import LoaderScreen from "./features/LoaderScreen/LoaderScreen";
-import LiveTriviaLeaderboard from "./features/LiveTrivia/LiveTriviaLeaderboard/LiveTriviaLeaderboard";
 
 
 function App() {
@@ -22,14 +21,13 @@ function App() {
       setLoading(false);
   }, [token,dispatch]);
 
-//   if (loading) {
-//     return <LoaderScreen />
-// }
+  if (loading) {
+    return <LoaderScreen />
+}
   
   return (
     <div className="App">
-       {/* <AppRouter />  */}
-       <LiveTriviaLeaderboard />
+       <AppRouter /> 
     </div>
   )
 }
