@@ -56,7 +56,7 @@ function TopLeader({ avatar, podPosition, name, point }) {
             </div>
             <p className='leaderName'>{name}</p>
             <img
-                className='icon'
+                className='leaderBoardImg'
                 src={podPosition}
                 alt='stage'
             />
