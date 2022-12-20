@@ -38,6 +38,7 @@ const ResultContainer = () => {
 }
 
 const TriviaParticipants = () => {
+    // eslint-disable-next-line
     const [state, setState] = useState(true)
     return(
         <>
