@@ -6,7 +6,7 @@ const TriviaParticipant = ({position, player}) => {
     return(
         <div className='topParticipants'>
             <div className='participantLeft'>
-                <img src='/images/user-icon.png' alt='user' className='triviaPlayerImg'/>
+                <img src='/images/user-icon.png' alt='user' className='triviaPlayerImgs'/>
                 <div className='positionName'>
                     <p className='topParticipantUname'>{player.username}</p>
                     <div className='playerDuration'>
