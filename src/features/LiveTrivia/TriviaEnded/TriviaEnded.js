@@ -22,7 +22,7 @@ function TriviaEnded() {
     }
 
     const goToLeaderboard = () => {
-        navigate('/trivia-leaderboard', {state: {triviaId: location.state.triviaId}})
+        navigate('/trivia-leaderboard', { state: { triviaId: location.state.triviaId } })
     }
 
     const goHome = () => {
@@ -41,6 +41,7 @@ function TriviaEnded() {
             .catch((rejectedValueOrSerializedError) => {
                 // console.log(rejectedValueOrSerializedError)
             })
+        // eslint-disable-next-line
     }, []);
 
     return (
@@ -69,7 +70,7 @@ const ResultContainer = () => {
     )
 }
 
-const TriviaParticipants = ({triviaLeaders}) => {
+const TriviaParticipants = ({ triviaLeaders }) => {
     return (
         <div >{triviaLeaders.map((player, i) => <TriviaParticipant key={i} player={player} position={formatNumber(i + 1)} />)}</div>
 
@@ -77,7 +78,7 @@ const TriviaParticipants = ({triviaLeaders}) => {
 }
 
 
-const TriviaParticipant = ({ position, player}) => {
+const TriviaParticipant = ({ position, player }) => {
     return (
         <div className='participant'>
             <div className='positionName'>
@@ -91,7 +92,7 @@ const TriviaParticipant = ({ position, player}) => {
 
 
 
-function TriviaButton({leaderboard, home}) {
+function TriviaButton({ leaderboard, home }) {
     return (
         <div className='triviaBtnCase'>
             <button className='homeBtn' onClick={leaderboard}>
