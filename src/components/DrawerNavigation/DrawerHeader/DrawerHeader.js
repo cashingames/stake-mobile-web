@@ -12,7 +12,7 @@ function DrawerHeader() {
   return (
     <div className='drawerHeader'>
       <div className='avatar'>
-        <img src={user.avatar  ? `${backendUrl}/${user.avatar }` : "/images/user-icon.png"} alt='user' />                   
+        <img src={user.avatar  ? `${backendUrl}/${user.avatar }` : "/images/user-icon.png"} alt='user'  onError={(e) => e.target.style.display='none'} />                   
       </div>
       <p className='userTitle'>
         {user.fullName}
