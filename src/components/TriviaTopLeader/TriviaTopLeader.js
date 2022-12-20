@@ -1,7 +1,7 @@
 import { IoAlarm } from 'react-icons/io5'
 import './TriviaTopLeader.scss'
 
-const TriviaTopLeader = ({position, username, duration, point}) => {
+const TriviaTopLeader = ({position, player}) => {
 
     let backgroundColor = "";
     let trophyImageUrl = {};
@@ -28,15 +28,15 @@ const TriviaTopLeader = ({position, username, duration, point}) => {
             <div className='participantLeft'>
                 <img src='/images/user-icon.png' alt='user' className='triviaPlayerImg'/>
                 <div className='positionName'>
-                    <p className='topParticipantUname' style={{color:fontColor}}>{username}</p>
+                    <p className='topParticipantUname' style={{color:fontColor}}>{player.username}</p>
                     <div className='playerDuration'>
                         <IoAlarm size={18} color={fontColor}/>
-                        <p className='topParticipantUname' style={{color:fontColor}}>{duration}secs</p>
+                        <p className='topParticipantUname' style={{color:fontColor}}>{player.duration}secs</p>
                     </div>
                 </div>
             </div>
             <div className='pointsContainer'>
-                <p className='topParticipantsPoint' style={{color:fontColor}}>{point}pts</p>
+                <p className='topParticipantsPoint' style={{color:fontColor}}>{player.points}pts</p>
                 <img src='/images/points-coin.png' alt='point'className='pointsIcon'/>
             </div> 
             <div className='topRank'>

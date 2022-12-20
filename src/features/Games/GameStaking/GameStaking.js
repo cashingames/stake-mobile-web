@@ -69,12 +69,6 @@ const GameStaking = () => {
 
     const startGame = () => {
         setLoading(true);
-        if (Number.parseFloat(user.walletBalance) < Number.parseFloat(amount)) {
-            openBottomSheet();
-            setLoading(false);
-            return
-        }
-
         if (Number.parseFloat(amount) < Number.parseFloat(minimumExhibitionStakeAmount)) {
             alert(`Minimum stake amount is ${minimumExhibitionStakeAmount} naira`);
             setLoading(false);
@@ -85,6 +79,12 @@ const GameStaking = () => {
             alert(`Maximum stake amount is ${maximumExhibitionStakeAmount} naira`);
             setLoading(false);
             return false;
+        }
+
+        if (Number.parseFloat(user.walletBalance) < Number.parseFloat(amount)) {
+            openBottomSheet();
+            setLoading(false);
+            return
         }
 
         dispatch(canStake({

@@ -2,24 +2,25 @@ import React from 'react'
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Spinner } from "react-activity";
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import BottomSheet from '../../../components/BottomSheet/BottomSheet'
 import LowWallet from '../../../components/LowWallet/LowWallet'
 import ScreenHeader from '../../../components/ScreenHeader/ScreenHeader'
 import StakingPredictionTable from '../../../components/StakingPredictionTable/StakingPredictionTable'
-import { formatCurrency } from '../../../utils/stringUtl'
+import { formatCurrency, formatNumber } from '../../../utils/stringUtl'
 import { getUser } from '../../Auth/AuthSlice'
-import {  setIsPlayingTrivia, startGame } from '../../Games/GameSlice';
-import UserAvailableBoosts from '../../../components/UserAvailableBoosts/UserAvailableBoosts';
+import {  setGameDuration, setIsPlayingTrivia, setQuestionsCount, startGame } from '../../Games/GameSlice';
 import { unwrapResult } from '@reduxjs/toolkit';
-import { logActionToServer } from '../../CommonSlice';
+
+const backendUrl = process.env.REACT_APP_API_ROOT_URL;
+
 
 function LiveTriviaStaking() {
+    const location = useLocation();
     const user = useSelector((state) => state.auth.user);
     const gameStakes = useSelector(state => state.game.gameStakes);
-    console.log(gameStakes)
-    const maximumStakeAmount = useSelector(state => state.common.maximumStakeAmount);
-    const minimumStakeAmount = useSelector(state => state.common.minimumStakeAmount)
+    const maximumExhibitionStakeAmount  = useSelector(state => state.common.maximumExhibitionStakeAmount );
+    const minimumExhibitionStakeAmount  = useSelector(state => state.common.minimumExhibitionStakeAmount );
     const [amount, setAmount] = useState(200);
     const [amountErr, setAmountError] = useState(false);
     const [loading] = useState(false);
@@ -30,6 +31,10 @@ function LiveTriviaStaking() {
 
     const navigateHandler = () => {
         navigate('/')
+    }
+
+    const openBottomSheet = async () => {
+        setOpen(true)
     }
 
     const closeBottomSheet = async () => {
@@ -44,15 +49,20 @@ function LiveTriviaStaking() {
     const onChangeStakeAmount = (e) => {
         const amount = e.currentTarget.value;
 
-        if (Number.parseFloat(amount) < Number.parseFloat(minimumStakeAmount)) {
+        if (Number.parseFloat(amount) < Number.parseFloat(minimumExhibitionStakeAmount)) {
             setAmountError(true)
         }
         else setAmountError(false)
 
-        if (Number.parseFloat(amount) > Number.parseFloat(maximumStakeAmount)) {
+        if (Number.parseFloat(amount) > Number.parseFloat(maximumExhibitionStakeAmount)) {
             setAmountError(true)
         } else setAmountError(false)
         setAmount(amount)
+
+        if (Number.parseFloat(user.walletBalance) < Number.parseFloat(amount)) {
+            openBottomSheet();
+            return
+        }
     }
 
 
@@ -79,8 +89,8 @@ function LiveTriviaStaking() {
                             required
                         />
                         {amountErr &&
-                            <span className='inputError'>*Minimum stake amount is {minimumStakeAmount} naira
-                                and Maximum stake amount is {maximumStakeAmount} naira`
+                            <span className='inputError'>*Minimum stake amount is {minimumExhibitionStakeAmount} naira
+                                and Maximum stake amount is {maximumExhibitionStakeAmount} naira`
                             </span>
                         }
                     </div>
@@ -112,7 +122,7 @@ function LiveTriviaStaking() {
                     : <BottomSheet
                         open={open} closeBottomSheet={closeBottomSheet}
                         BSContent={<AvailableBoosts
-                            onClose={closeBottomSheet} user={user} amount={amount}
+                            onClose={closeBottomSheet} trivia={location}
                         />}
                     />}
 
@@ -121,42 +131,28 @@ function LiveTriviaStaking() {
     )
 }
 
-const AvailableBoosts = ({ onClose,
-    user, amount
-}) => {
-
-    const dispatch = useDispatch();
+const AvailableBoosts = ({ onClose, trivia, user }) => {
     let navigate = useNavigate();
-
+    const dispatch = useDispatch();
     const boosts = useSelector(state => state.auth.user.boosts);
-    const gameCategoryId = useSelector(state => state.game.gameCategory.id);
-    const gameTypeId = useSelector(state => state.game.gameType.id);
-    const gameModeId = useSelector(state => state.game.gameMode.id);
-    const gameMode = useSelector(state => state.game.gameMode);
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(false);
 
     const onStartGame = () => {
         setLoading(true);
-        dispatch(setIsPlayingTrivia(false))
+        dispatch(setIsPlayingTrivia(true))
+        dispatch(setQuestionsCount(trivia.questionsCount));
+        dispatch(setGameDuration(trivia.duration));
         dispatch(startGame({
-            category: gameCategoryId,
-            type: gameTypeId,
-            mode: gameModeId,
-            staking_amount: amount
+            category: trivia.categoryId,
+            type: trivia.typeId,
+            mode: trivia.modeId,
+            trivia: trivia.id
         }))
             .then(unwrapResult)
             .then(result => {
-                dispatch(logActionToServer({
-                    message: "Game session " + result.data.game.token + " questions recieved for " + user.username,
-                    data: result.data.questions
-                }))
-                    .then(unwrapResult)
-                    .catch((e) => {
-                        // console.log('Failed to log to server');
-                    });
                 setLoading(false);
                 onClose();
-                navigate("/game-board")
+            navigate("/game-board", {state: {triviaId: trivia.id }})
             })
             .catch((rejectedValueOrSerializedError) => {
                 alert(rejectedValueOrSerializedError.message)
@@ -164,14 +160,49 @@ const AvailableBoosts = ({ onClose,
             });
     }
 
+    return (
+        <LiveTriviaUserAvailableBoosts boosts={boosts}
+            loading={loading} onStartGame={onStartGame} />
+    )
+
+
+
+}
+
+
+const LiveTriviaUserAvailableBoosts = ({ boosts, loading, onStartGame }) => {
 
     return (
-        <UserAvailableBoosts gameMode={gameMode}
-            boosts={boosts}
-            onStartGame={onStartGame}
-            loading={loading}
-            onClose={onClose}
-        />
+        <div className="boosts-container">
+            <p className="boosts-header">Available Boosts</p>
+            <div className="boosts">
+                {boosts.map((boost, i) => <UserAvailableBoost boost={boost} key={i} />
+                )}
+            </div>
+            <button className="start-button" onClick={onStartGame} disabled={loading}>
+                <p className="start-text">
+                {loading ? 'Starting...' : 'Start Game'}
+                </p>
+            </button>
+        </div>
+    )
+}
+
+const UserAvailableBoost = ({ boost }) => {
+    return (
+        <div className="boostContent">
+            <div className="boostAmount">
+            <img
+                    src={`${backendUrl}/${boost.icon}`}
+                    className="boostIcon" alt={boost.name}
+                />
+                <p className="amount1">x{formatNumber(boost.count)}</p>
+            </div>
+            <div className="boostDetails">
+                <p className="boostName">{boost.name}</p>
+                <p className="boostDescription">{boost.description}</p>
+            </div>
+        </div>
     )
 }
 export default LiveTriviaStaking

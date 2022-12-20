@@ -91,7 +91,7 @@ function LiveTriviaCard({ trivia }) {
       .then(unwrapResult)
       .then(result => {
         console.log('paid')
-        navigate('/live-trivia-instructions', { ...trivia })
+        navigate('/live-trivia-instructions', {state: {...trivia}})
         setLoading(false);
       })
       .catch((rejectedValueOrSerializedError) => {
@@ -129,7 +129,7 @@ function LiveTriviaCard({ trivia }) {
       openBottomSheet()
     }
     else if (trivia.playerStatus === "PLAYED" || trivia.status === "EXPIRED" || trivia.status === "CLOSED") {
-      navigate('LiveTriviaLeaderboard', { triviaId: trivia.id })
+      navigate('/trivia-leaderboard', {state: {triviaId: trivia.id }})
 
     }
     else if (trivia.playerStatus === "CANPLAY" && trivia.status !== "EXPIRED") {

@@ -20,7 +20,6 @@ const TriviaInstructions = () => {
     let navigate = useNavigate();
     const [open, setOpen] = useState(false)
     const location = useLocation();
-    console.log(location)
 
 
     const features = useSelector(state => state.common.featureFlags);
@@ -57,7 +56,7 @@ const TriviaInstructions = () => {
     // eslint-disable-next-line 
 
     const gotoStaking = async () => {
-        navigate("/exhibition-staking")
+        navigate("/live-trivia-staking", {state: location.state})
     }
 
     const openBottomSheet = async () => {
@@ -163,7 +162,7 @@ const AvailableBoosts = ({ onClose, trivia, user }) => {
             .then(result => {
                 setLoading(false);
                 onClose();
-            navigate("/game-board", { triviaId: trivia.id })
+            navigate("/game-board", {state: {triviaId: trivia.id }})
             })
             .catch((rejectedValueOrSerializedError) => {
                 alert(rejectedValueOrSerializedError.message)

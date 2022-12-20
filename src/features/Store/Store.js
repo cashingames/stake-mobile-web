@@ -38,7 +38,7 @@ function Store() {
 }
 
 if (loading) {
-  return <LoaderScreen backgroundColor="background-color" />
+  return <LoaderScreen backgroundColor="store-background-color" />
 }
 
   return (

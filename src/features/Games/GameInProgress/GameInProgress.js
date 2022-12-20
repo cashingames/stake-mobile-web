@@ -1,7 +1,7 @@
 import { unwrapResult } from '@reduxjs/toolkit'
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import BottomSheet from '../../../components/BottomSheet/BottomSheet'
 import GameAppHeader from '../../../components/GameAppHeader/GameAppHeader'
 import GameInProgressAndBoost from '../../../components/GameInProgressAndBoost/GameInProgressAndBoost'
@@ -15,6 +15,7 @@ function GameInProgress() {
 
   const dispatch = useDispatch();
   let navigate = useNavigate();
+  const location = useLocation();
   const gameSessionToken = useSelector(state => state.game.gameSessionToken);
   const chosenOptions = useSelector(state => state.game.chosenOptions);
   const consumedBoosts = useSelector(state => state.game.consumedBoosts);
@@ -62,10 +63,8 @@ function GameInProgress() {
         setEnding(false);
         if (isPlayingTrivia) {
           dispatch(setHasPlayedTrivia(true))
-          alert('its trivia')
-          // navigate('TriviaEndResult', {
-          //     triviaId: params.triviaId,
-          // })
+          navigate('/trivia-ended', {state: {triviaId: location.state.triviaId }})
+       
         } else {
           navigate('/game-result');
           // alert('game ended')

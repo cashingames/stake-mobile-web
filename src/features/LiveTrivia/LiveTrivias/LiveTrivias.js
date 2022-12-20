@@ -16,15 +16,15 @@ const LiveTrivias = () => {
 
 
     const trivia = useSelector(state => state.common.trivias);
+    const features = useSelector(state => state.common.featureFlags);
 
 
     useEffect(() => {
-        dispatch(fetchRecentLiveTrivia())
-            .then(() => {
-                setLoading(false)
-            });
-    }, [dispatch]);
+        dispatch(fetchRecentLiveTrivia()).then(() => { setLoading(false) });
+        // eslint-disable-next-line
+    }, []);
 
+    //disable browser back button
     useEffect(() => {
         window.history.pushState(null, null, window.location.href);
         window.onpopstate = function () {
@@ -32,12 +32,19 @@ const LiveTrivias = () => {
         };
     })
 
+    useEffect(() => {
+        if (features.length < 1) {
+            navigate('/dashboard')
+        }
+        return
+    })
+
     const navigateHandler = () => {
         navigate('/dashboard')
     }
 
     if (loading) {
-        return <LoaderScreen backgroundColor="background-color" />
+        return <LoaderScreen backgroundColor="background-color" color='#FFFF' />
     }
 
     return (
@@ -45,8 +52,8 @@ const LiveTrivias = () => {
             <ScreenHeader title='Live Trivias' onClick={navigateHandler} styleProp='triviaHeader' />
             <div className="trivias-container">
                 <div>
-            {trivia.map((trivia, i) => <LiveTriviaCard key={i} trivia={trivia} />)}
-            </div>
+                    {trivia.map((trivia, i) => <LiveTriviaCard key={i} trivia={trivia} />)}
+                </div>
             </div>
         </>
     )

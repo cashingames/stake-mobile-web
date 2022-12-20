@@ -297,9 +297,9 @@ export const GameSlice = createSlice({
                 state.correctCount = action.payload.data.correct_count;
                 resetState(state)
             })
-            // .addCase(getLiveTriviaLeaders.fulfilled, (state, action) => {
-            //     state.triviaLeaders = action.payload;
-            // })
+            .addCase(getLiveTriviaLeaders.fulfilled, (state, action) => {
+                state.triviaLeaders = action.payload;
+            })
             .addCase(challengeTopLeaders.fulfilled, (state, action) => {
                 state.challengeLeaders = action.payload;
                 // console.log(state.challengeLeaders)

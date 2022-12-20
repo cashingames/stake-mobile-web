@@ -35,6 +35,8 @@ import GameStorePurchaseFailed from './features/Store/GameStorePurchaseFailed/Ga
 import LiveTriviaLeaderboard from './features/LiveTrivia/LiveTriviaLeaderboard/LiveTriviaLeaderboard';
 import TriviaInstructions from './features/LiveTrivia/TriviaInstructions/TriviaInstructions';
 import LiveTrivias from './features/LiveTrivia/LiveTrivias/LiveTrivias';
+import TriviaEnded from './features/LiveTrivia/TriviaEnded/TriviaEnded';
+import LiveTriviaStaking from './features/LiveTrivia/LiveTriviaStaking/LiveTriviaStaking';
 
 const AppRouter = () => {
 
@@ -117,14 +119,20 @@ const AppRouter = () => {
                 path="/purchase-failed"
                 element={<AuthRoute redirectTo="/"><GameStorePurchaseFailed /></AuthRoute>} />
             <Route
-                path="/trivia-leaderboard"
-                element={<AuthRoute redirectTo="/"><LiveTriviaLeaderboard /></AuthRoute>} />
-                <Route
-                path="/live-trivia-instructions"
-                element={<AuthRoute redirectTo="/"><TriviaInstructions /></AuthRoute>} />
-                 <Route
                 path="/live-trivia"
                 element={<AuthRoute redirectTo="/"><LiveTrivias /></AuthRoute>} />
+            <Route
+                path="/live-trivia-instructions"
+                element={<AuthRoute redirectTo="/"><TriviaInstructions /></AuthRoute>} />
+            <Route
+                path="/live-trivia-staking"
+                element={<AuthRoute redirectTo="/"><LiveTriviaStaking /></AuthRoute>} />
+            <Route
+                path="/trivia-ended"
+                element={<AuthRoute redirectTo="/"><TriviaEnded /></AuthRoute>} />
+            <Route
+                path="/trivia-leaderboard"
+                element={<AuthRoute redirectTo="/"><LiveTriviaLeaderboard /></AuthRoute>} />
         </Routes>
     )
 }
