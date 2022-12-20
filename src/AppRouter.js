@@ -32,6 +32,7 @@ import Store from './features/Store/Store';
 import GameBoostPurchaseSuccess from './features/Store/GameBoostPurchaseSuccess/GameBoostPurchaseSuccess';
 import GamePlanPurchaseSuccess from './features/Store/GamePlanPurchaseSuccessful/GamePlanPurchaseSuccessful';
 import GameStorePurchaseFailed from './features/Store/GameStorePurchaseFailed/GameStorePurchaseFailed';
+import LiveTriviaLeaderboard from './features/LiveTrivia/LiveTriviaLeaderboard/LiveTriviaLeaderboard';
 import TriviaInstructions from './features/LiveTrivia/TriviaInstructions/TriviaInstructions';
 import LiveTrivias from './features/LiveTrivia/LiveTrivias/LiveTrivias';
 
@@ -116,6 +117,8 @@ const AppRouter = () => {
                 path="/purchase-failed"
                 element={<AuthRoute redirectTo="/"><GameStorePurchaseFailed /></AuthRoute>} />
             <Route
+                path="/trivia-leaderboard"
+                element={<AuthRoute redirectTo="/"><LiveTriviaLeaderboard /></AuthRoute>} />
                 path="/live-trivia-instructions"
                 element={<AuthRoute redirectTo="/"><TriviaInstructions /></AuthRoute>} />
                  <Route

@@ -1,0 +1,84 @@
+.triviaEndedCase{
+    background-color: #fff;
+    padding: 0 1rem;
+}
+
+
+//Result container
+
+.resultCase{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 1.2rem;
+    .resultMessag{
+        font-size: 0.95rem;
+        font-family: 'graphik-regular';
+        color:#151C2F;
+        text-align: center;
+        padding: 0 1.4rem;
+        opacity: 0.7;
+        line-height: 1.5;
+        margin: 0;
+    }
+}
+
+
+
+.participant{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom:1px solid rgba(0, 0, 0, 0.1);
+    padding: 1rem 0;
+    .positionName{
+        display: flex;
+        align-items: center;
+        .username{
+            margin: 0;
+            font-family: 'graphik-medium';
+            font-size: 0.75rem;
+            margin-left: .5rem;
+            color: #000;
+        }
+        .position{
+            margin: 0;
+            font-family: 'graphik-medium';
+            font-size: 0.75rem;
+            color: #000
+        }
+    }
+    .username{
+        margin: 0;
+        font-family: 'graphik-medium';
+        font-size: 0.75rem;
+        margin-left: .5rem;
+        color: #000;
+    }
+}
+
+
+//TriviaButton
+.triviaBtnCase {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5rem;
+    .homeBtn {
+        border: 1px solid #FFFF;
+        background: #EF2F55;
+        border-radius: 8px;
+        width: 35%;
+        height: 3rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 8px;
+
+        .gameText {
+            color: #fff;
+            font-size: 0.72rem;
+            font-family: 'graphik-medium';
+        }
+    }
+}
