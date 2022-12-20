@@ -1,3 +1,18 @@
+@mixin devices ($breakpoint){
+    @if $breakpoint == sm {
+        @media only screen and (max-width:374px){
+            @content
+        }
+    }
+
+    @if $breakpoint == mobile {
+        @media only screen and (min-width:375px) and (max-width:400px){
+            @content
+        }
+    }
+}
+
+
 .background-color {
     background-color: #072169;
 }
@@ -13,4 +28,10 @@
 .trivias-container {
     background-color: #072169;
     padding: 1rem 2rem;
+    @include devices(sm){
+        padding: 1.5rem;
+    }
+    @include devices(mobile){
+        padding: 1.5rem;
+    }
 }

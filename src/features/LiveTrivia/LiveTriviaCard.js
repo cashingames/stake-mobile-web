@@ -223,7 +223,7 @@ function LiveTriviaCard({ trivia }) {
             <div className='timer'>
               <TriviaStatus trivia={trivia} />
             </div>
-            <img src='/images/yellow-line-bottom.png' alt='bottom line' />
+            <img src='/images/yellow-line-bottom.png' alt='bottom line' className='yellowImg'/>
           </div>
           <TriviaAction trivia={trivia} action={triviaActionButtonClicked} />
           {trivia.isFreeLiveTrivia === false && trivia.status === 'WAITING' &&
