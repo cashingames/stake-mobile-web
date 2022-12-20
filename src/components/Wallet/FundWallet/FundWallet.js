@@ -60,7 +60,7 @@ function FundWallet() {
                         <div className='balance'>
                             <p className='availableAmount'>
                                 Bal: &#8358;{
-                                    formatCurrency(100)
+                                    formatCurrency(user.walletBalance)
                                 } </p>
                             <p className='walletTitle'>How much do you want to deposit ? (&#8358;)</p>
                             <input value={amount}

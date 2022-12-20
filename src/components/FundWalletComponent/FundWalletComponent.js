@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { formatCurrency } from '../../utils/stringUtl'
 import { usePaystackPayment } from 'react-paystack';
 import './FundWalletComponent.scss'
+import { getUser } from '../../features/Auth/AuthSlice';
 
 function FundWalletComponent({close}) {
+    const dispatch = useDispatch();
+
     const [amount, setAmount] = useState()
     const [amountErr, setAmountError] = useState(false);
     const [canSend, setCanSend] = useState(true)
@@ -20,12 +23,14 @@ function FundWalletComponent({close}) {
     const onClose = () => {
         setShowPayment(false);
         close()
+        dispatch(getUser());
     };
 
 
     const onSuccess = () => {
         setShowPayment(false);
         close()
+        dispatch(getUser());
     }
 
     const onChangeAmount = (e) => {
@@ -51,7 +56,7 @@ function FundWalletComponent({close}) {
                         <div className='balance'>
                             <p className='availableAmount'>
                                 Bal: &#8358;{
-                                    formatCurrency(100)
+                                    formatCurrency(user.walletBalance)
                                 } </p>
                             <p className='walletTitle'>How much do you want to deposit ? (&#8358;)</p>
                             <input value={amount}

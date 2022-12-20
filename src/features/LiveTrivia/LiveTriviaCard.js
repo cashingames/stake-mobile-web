@@ -14,6 +14,7 @@ import Dialogue from '../../components/Dialogue/Dialogue'
 import { Spinner } from 'react-activity';
 import DoubleDialog from '../../components/DoubleButtonDialog/DoubleDialogButton';
 import ButtonDialog from '../../components/DoubleButtonDialog/ButtonDialog';
+import LiveTriviaEntryFailed from './LiveTriviaEntryFailed/LiveTriviaEntryFailed';
 
 
 
@@ -174,7 +175,9 @@ function LiveTriviaCard({ trivia }) {
       style={{ backgroundImage: "url(/images/live-trivia-card-background-blue.png)" }}>
       {trivia.playerStatus === "INSUFFICIENTPOINTS" &&
         <BottomSheet open={open} closeBottomSheet={closeBottomSheet}
-          BSContent={<LowWallet close={closeBottomSheet}
+          BSContent={<LiveTriviaEntryFailed onClick={closeBottomSheet}
+          pointsRequired={trivia.pointsRequired}
+          userPoints={user.todaysPoints}
           />}
         />
       }
