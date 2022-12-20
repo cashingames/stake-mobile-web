@@ -119,6 +119,7 @@ const AppRouter = () => {
             <Route
                 path="/trivia-leaderboard"
                 element={<AuthRoute redirectTo="/"><LiveTriviaLeaderboard /></AuthRoute>} />
+                <Route
                 path="/live-trivia-instructions"
                 element={<AuthRoute redirectTo="/"><TriviaInstructions /></AuthRoute>} />
                  <Route
