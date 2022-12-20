@@ -1,3 +1,11 @@
+@mixin devices ($breakpoint){
+    @if $breakpoint == sm {
+        @media only screen and (max-width:374px){
+            @content
+        }
+    }
+}
+
 .userItems {
     background-color: #518ef8;
     border-radius: 1rem;
@@ -23,14 +31,21 @@
                 text-align: center;
                 padding-bottom: 0.5rem;
                 color: #fff;
+                @include devices(sm){
+                    font-size: 0.75rem;
+                    letter-spacing: 1px;
+                }
             }
 
             .text2 {
                 font-size: 0.8rem;
                 font-family: 'graphik-regular';
                 text-align: center;
-                line-height: 0;
                 color: #fff;
+                @include devices(sm){
+                    font-size: 0.75rem;
+                    letter-spacing: 1px;
+                }
             }
 
             .emptyRow {

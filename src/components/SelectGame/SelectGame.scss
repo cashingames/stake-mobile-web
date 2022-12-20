@@ -1,3 +1,11 @@
+@mixin devices ($breakpoint){
+    @if $breakpoint == sm {
+        @media only screen and (max-width:374px){
+            @content
+        }
+    }
+}
+
 .gameContainer {
     padding: 0 1.5rem;
     font-weight: 500;
@@ -13,7 +21,7 @@
     .gameCardContainer {
         display: flex;
         align-items: center;
-        gap: 1rem;
+        overflow-x: scroll;
 
         .gameCard {
             width: 132px;
@@ -23,6 +31,10 @@
             padding: 1rem 0.8rem;
             background-color: #701F88;
             color: #fff;
+            margin-right: .7rem;
+            @include devices(sm){
+                max-width: 100px;
+            }
 
             .categoryCardTopRow {
                 display: flex;
@@ -60,6 +72,10 @@
                 margin: 6px 0;
             }
         }
+    }
+
+    .gameCardContainer::-webkit-scrollbar{
+        display: none;
     }
 
     .gameBtn {

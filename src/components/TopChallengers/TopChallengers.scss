@@ -1,3 +1,11 @@
+@mixin devices ($breakpoint){
+    @if $breakpoint == sm {
+        @media only screen and (max-width:374px){
+            @content
+        }
+    }
+}
+
 .topChallengers {
     padding: 0 1.5rem;
     margin: 2rem 0;
@@ -81,8 +89,10 @@
             }
 
             .positionImage {
-                min-width: 120px;
-
+                max-width: 110px;
+                @include devices(sm){
+                    max-width: 100px;
+                }
             }
         }
     }

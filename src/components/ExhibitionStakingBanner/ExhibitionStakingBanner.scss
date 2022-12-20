@@ -1,3 +1,11 @@
+@mixin devices ($breakpoint){
+    @if $breakpoint == sm {
+        @media only screen and (max-width:374px){
+            @content
+        }
+    }
+}
+
 .stakeContainer {
     background-color: #518EF8;
     border-radius: 15px;
@@ -7,12 +15,18 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    @include devices(sm){
+        padding: 1rem 2rem;
+    }
     .stakeAmount {
         font-size: 1.1rem;
         color: #ffff;
         text-align: center;
         line-height: 1.6;
         font-family: 'graphik-medium';
+        @include devices(sm){
+            font-size: .9rem;
+        }
     }
     .stakeButton {
         margin-top: 1rem;
@@ -25,6 +39,9 @@
             color: #ffff;
             text-align: center;
             margin: 0;
+            @include devices(sm){
+                font-size: .7rem;
+            }
         }
     }
 }
