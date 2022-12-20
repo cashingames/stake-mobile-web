@@ -91,7 +91,6 @@ export const isFeatureEnabled = async (feature, features = {}) => {
 const initialState = {
     initialLoading: true,
     trivias: [],
-    loadMoreLiveTrivias: true,
     gameModes: [],
     banks: [],
     globalLeaders: [],
@@ -140,8 +139,7 @@ export const CommonSlice = createSlice({
                 state.periodBeforeChallengeStakingExpiry = data.periodBeforeChallengeStakingExpiry
             })
             .addCase(fetchRecentLiveTrivia.fulfilled, (state, action) => {
-                state.loadMoreLiveTrivias = !(action.payload.length < 10);
-                state.trivias = state.trivias.concat(action.payload);
+                state.trivias = action.payload;
             })
             .addCase(getBankData.fulfilled, (state, action) => {
                 state.banks = action.payload.data;
