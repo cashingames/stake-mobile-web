@@ -1,7 +1,7 @@
 import React from 'react'
 import './SelectGame.scss'
 // import { BiCircle } from "react-icons/bi";
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch} from 'react-redux';
 import { setGameMode } from '../../features/Games/GameSlice';
 import { useNavigate } from 'react-router-dom';
 

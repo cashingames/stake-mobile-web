@@ -27,8 +27,6 @@ function DrawerItems() {
                 <IoChevronForwardOutline className='icon' />
             </Link>
 
-            <Link to="/dashboard" className='drawerItem'><p className='labelItem'>
-
             {/* <Link to="/challenges" className='drawerItem'><p className='labelItem'>
 
                 My Challenges
@@ -48,7 +46,6 @@ function DrawerItems() {
                 <IoChevronForwardOutline className='icon' />
             </Link>
 
-            <Link to="/dashboard" className='drawerItem'><p className='labelItem'>
 
             {/* <Link to="/help" className='drawerItem'><p className='labelItem'>
 
