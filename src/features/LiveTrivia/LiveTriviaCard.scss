@@ -30,6 +30,7 @@
 
     .trivia-container {
         padding: 1.1rem 1rem;
+        display: flex;
         flex-direction: column;
 
         .trivia-top {
@@ -77,7 +78,7 @@
                     color: #FFFF;
                     opacity: 0.8;
                     font-family: 'graphik-medium';
-                    margin-bottom: 1rem;
+                    margin-bottom: 1.1rem;
 
                     @include devices(xs){
                         font-size: 0.7rem;
@@ -100,6 +101,7 @@
                         color: #FFD064;
                         opacity: 0.8;
                         font-family: 'graphik-bold',sans-serif;
+                        font-weight: 550;
                         margin-bottom: 1rem;
 
                         @include devices(xs){
@@ -137,7 +139,7 @@
                     color: #FFFF;
                     font-family: 'graphik-regular';
                     line-height: 0.7rem;
-                    margin-left: 5px;
+                    margin: 0.3rem 0;
 
                     @include devices(xs){
                         font-size: 0.65rem;
@@ -155,9 +157,6 @@
                 @include devices(sm){
                     max-width: 8.5rem;
                     height: 1.1rem;
-                }
-                @include devices(mobile){
-                    max-width: 10rem;
                 }
             }
             .eligible-button {
@@ -200,10 +199,13 @@
                 margin-top: .5rem;
                 justify-content: center;
                 display: flex;
+                padding: 0.2rem 0.19rem;
+
                 .triviaButtonText {
-                    line-height: 0;
+                    line-height: 0.65rem;
                     color: #4F4949;
                     font-family: 'graphik-medium';
+                    margin: 0;
                     margin-right: .2rem;
                     font-size: 0.65rem;
                     line-height: 0.65;

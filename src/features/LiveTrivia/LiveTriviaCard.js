@@ -5,7 +5,7 @@ import './LiveTriviaCard.scss'
 import { getLiveTriviaStatus, liveTriviaPayment } from './LiveTriviaSlice';
 import { getUser } from '../../features/Auth/AuthSlice'
 import { calculateTimeRemaining } from "../../utils/utils";
-import { BiAlarm, BiCaretRight, BiCheckCircle } from "react-icons/bi";
+import { BiAlarm, BiCheckCircle } from "react-icons/bi";
 import { formatCurrency } from '../../utils/stringUtl';
 import { unwrapResult } from '@reduxjs/toolkit';
 import BottomSheet from '../../components/BottomSheet/BottomSheet'
@@ -15,6 +15,7 @@ import { Spinner } from 'react-activity';
 import DoubleDialog from '../../components/DoubleButtonDialog/DoubleDialogButton';
 import ButtonDialog from '../../components/DoubleButtonDialog/ButtonDialog';
 import LiveTriviaEntryFailed from './LiveTriviaEntryFailed/LiveTriviaEntryFailed';
+import { IoChevronForwardOutline } from 'react-icons/io5';
 
 
 
@@ -300,7 +301,6 @@ const TriviaCountDown = ({ trivia }) => {
 }
 
 const TriviaAction = ({ trivia, action }) => {
-  const style = { color: '#000000', fontSize: "1.2rem" }
 
   let { actionDisplayText } = trivia;
 
@@ -311,8 +311,8 @@ const TriviaAction = ({ trivia, action }) => {
   return (
     <button className='triviaButton' onClick={action}>
       <p className='triviaButtonText'>{actionDisplayText}</p>
-      <BiCaretRight style={style} />
-
+      <IoChevronForwardOutline size={24} color='#4F4949' />
+ 
     </button>
   )
 }

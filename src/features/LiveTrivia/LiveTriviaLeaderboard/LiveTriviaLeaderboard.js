@@ -68,7 +68,7 @@ export default LiveTriviaLeaderboard
 
 const ResultContainer = () => {
     return (
-        <div className='resultCase'>
+        <div className='resultCases'>
             <Player src={Leaderboard}
                 alt='leaderboard'
                 autoplay
