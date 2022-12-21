@@ -37,6 +37,7 @@ import TriviaInstructions from './features/LiveTrivia/TriviaInstructions/TriviaI
 import LiveTrivias from './features/LiveTrivia/LiveTrivias/LiveTrivias';
 import TriviaEnded from './features/LiveTrivia/TriviaEnded/TriviaEnded';
 import LiveTriviaStaking from './features/LiveTrivia/LiveTriviaStaking/LiveTriviaStaking';
+import InviteFriends from './features/InviteFriends/InviteFriends';
 
 const AppRouter = () => {
 
@@ -133,6 +134,9 @@ const AppRouter = () => {
             <Route
                 path="/trivia-leaderboard"
                 element={<AuthRoute redirectTo="/"><LiveTriviaLeaderboard /></AuthRoute>} />
+              <Route
+                path="/invite-friends"
+                element={<AuthRoute redirectTo="/"><InviteFriends /></AuthRoute>} />
         </Routes>
     )
 }

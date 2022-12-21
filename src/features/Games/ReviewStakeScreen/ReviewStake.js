@@ -14,6 +14,8 @@ function ReviewStake() {
     const amountStaked = useSelector(state => state.game.amountStaked)
     const correctCount = useSelector(state => state.game.correctCount)
 
+    const navigate = useNavigate()
+
     const navigateHandler = () => {
         navigate(-1)
     }

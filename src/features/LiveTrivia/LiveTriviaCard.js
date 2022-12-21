@@ -311,7 +311,7 @@ const TriviaAction = ({ trivia, action }) => {
   return (
     <button className='triviaButton' onClick={action}>
       <p className='triviaButtonText'>{actionDisplayText}</p>
-      <IoChevronForwardOutline size={24} color='#4F4949' />
+      <IoChevronForwardOutline size={22} color='#4F4949' />
  
     </button>
   )
