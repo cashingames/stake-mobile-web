@@ -1,5 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import ScreenHeader from '../../../components/ScreenHeader/ScreenHeader'
 import StakingPredictionTable from '../../../components/StakingPredictionTable/StakingPredictionTable'
 import { formatCurrency } from '../../../utils/stringUtl'
@@ -12,11 +13,17 @@ function ReviewStake() {
     const amountStaked = useSelector(state => state.game.amountStaked)
     const correctCount = useSelector(state => state.game.correctCount)
 
+    const navigate = useNavigate()
+
+    const navigateHandler = () => {
+        navigate('/game-result')
+    }
+
     console.log(amountStaked)
     console.log(correctCount)
     return (
         <>
-            <ScreenHeader title='Review Stake' />
+            <ScreenHeader title='Review Stake' styleProp='reviewStakeHeader' onClick={navigateHandler}/>
             <div className="reviewStaking-container">
                 <div className="amountContainer">
                     <div className="walletContainer">
