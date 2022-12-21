@@ -36,7 +36,6 @@ function SelectGame({ gameModes }) {
           />
         )}
       </div>
-      {isTrue(selectedGameMode?.id) && <button onClick={selectCategory} className='gameBtn'>Proceed</button>}
     </div>
   )
 }

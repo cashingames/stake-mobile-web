@@ -1,22 +1,26 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import ScreenHeader from '../../../components/ScreenHeader/ScreenHeader'
 import StakingPredictionTable from '../../../components/StakingPredictionTable/StakingPredictionTable'
 import { formatCurrency } from '../../../utils/stringUtl'
 import './ReviewStake.scss'
 
 function ReviewStake() {
+    const navigate = useNavigate()
 
     const user = useSelector(state => state.auth.user)
     const gameStakes = useSelector(state => state.game.gameStakes);
     const amountStaked = useSelector(state => state.game.amountStaked)
     const correctCount = useSelector(state => state.game.correctCount)
 
-    console.log(amountStaked)
-    console.log(correctCount)
+    const navigateHandler = () => {
+        navigate(-1)
+    }
+
     return (
         <>
-            <ScreenHeader title='Review Stake' />
+            <ScreenHeader title='Review Stake' onClick={navigateHandler} styleProp='review-header' />
             <div className="reviewStaking-container">
                 <div className="amountContainer">
                     <div className="walletContainer">
@@ -47,10 +51,10 @@ function ReviewStake() {
                         <p className="stakeWinning">ODDS</p>
                     </div>
                 </div>
-                
+
                 {gameStakes.map((gameStake, i) => <StakingPredictionTable key={i} gameStake={gameStake} position={i + 1}
                     // eslint-disable-next-line
-                    amount={amountStaked} styleProp={correctCount == (gameStake.score) ? 'amountWon' : {}}/>)}
+                    amount={amountStaked} styleProp={correctCount == (gameStake.score) ? 'amountWon' : {}} />)}
             </div>
         </>
     )
