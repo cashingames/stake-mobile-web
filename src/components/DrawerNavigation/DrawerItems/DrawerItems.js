@@ -47,12 +47,12 @@ function DrawerItems() {
             </Link>
 
 
-            {/* <Link to="/help" className='drawerItem'><p className='labelItem'>
+             <Link to="/help" className='drawerItem'><p className='labelItem'>
 
                 Help
             </p>
                 <IoChevronForwardOutline className='icon' />
-            </Link> */}
+            </Link> 
             {/* <div className='versionContainer'>
                 <p className="appVersion">App version 1.0.68</p>
             </div> */}
