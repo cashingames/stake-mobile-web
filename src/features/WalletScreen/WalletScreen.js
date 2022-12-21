@@ -10,6 +10,7 @@ import WithdrawnBalance from '../../components/Wallet/WithdrawnBalance/Withdrawn
 import { getUser } from '../Auth/AuthSlice'
 import { withdrawWinnings } from '../CommonSlice'
 import './WalletScreen.scss'
+import LoaderScreen from '../LoaderScreen/LoaderScreen'
 
 function WalletScreen() {
   const dispatch = useDispatch();
@@ -18,6 +19,8 @@ function WalletScreen() {
   const [open, setOpen] = useState(false)
   const [openDialogue, setOpenDialogue] = useState(false)
   const [alertMessage, setAlert] = useState('')
+  const [loading, setLoading] = useState(true);
+
 
   //disable browser back button
   useEffect(() => {
@@ -26,6 +29,11 @@ function WalletScreen() {
       window.history.go(1);
     };
   })
+
+
+  useEffect(() => {
+    dispatch(getUser()).then(() => { setLoading(false) });
+  }, [dispatch]);
 
   //Bottom sheet close function
   const closeBS = () => {
@@ -58,6 +66,10 @@ function WalletScreen() {
         }
 
       )
+  }
+
+  if (loading) {
+    return <LoaderScreen backgroundColor="wallet-background-color" />
   }
 
   return (

@@ -16,13 +16,15 @@ function LiveTriviaLeaderboard() {
     const navigate = useNavigate()
     const dispatch = useDispatch();
     const location = useLocation();
+    console.log(location.state)
     const triviaLeaders = useSelector(state => state.game.triviaLeaders)
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        dispatch(getLiveTriviaLeaders(location.state.triviaId)).then(() => {
-            setLoading(false)
-        });
+        if (location.state == null) {
+            navigate('/dashboard')
+        }
+        dispatch(getLiveTriviaLeaders(location.state.triviaId)).then(() => { setLoading(false) });
         // eslint-disable-next-line
     }, [dispatch])
 
@@ -35,6 +37,12 @@ function LiveTriviaLeaderboard() {
         };
     })
 
+    // useEffect(() => {
+    //     if (location.state == null) {
+    //         navigate('/dashboard')
+    //     }
+    //     return
+    // })
 
     const navigateHandler = () => {
         navigate('/live-trivia')
