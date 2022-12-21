@@ -28,10 +28,13 @@ function DrawerItems() {
             </Link>
 
             <Link to="/dashboard" className='drawerItem'><p className='labelItem'>
+
+            {/* <Link to="/challenges" className='drawerItem'><p className='labelItem'>
+
                 My Challenges
             </p>
                 <IoChevronForwardOutline className='icon' />
-            </Link>
+            </Link> */}
 
             <Link to="/store" className='drawerItem'><p className='labelItem'>
                 Store
@@ -46,13 +49,16 @@ function DrawerItems() {
             </Link>
 
             <Link to="/dashboard" className='drawerItem'><p className='labelItem'>
+
+            {/* <Link to="/help" className='drawerItem'><p className='labelItem'>
+
                 Help
             </p>
                 <IoChevronForwardOutline className='icon' />
-            </Link>
-            <div className='versionContainer'>
+            </Link> */}
+            {/* <div className='versionContainer'>
                 <p className="appVersion">App version 1.0.68</p>
-            </div>
+            </div> */}
         </>
     )
 }

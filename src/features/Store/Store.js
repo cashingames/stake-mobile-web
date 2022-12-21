@@ -25,29 +25,29 @@ function Store() {
     dispatch(getCommonData()).then(() => { setLoading(false) });
   }, [dispatch]);
 
-    //disable browser back button
-    useEffect(() => {
-      window.history.pushState(null, null, window.location.href);
-      window.onpopstate = function () {
-          window.history.go(1);
-      };
+  //disable browser back button
+  useEffect(() => {
+    window.history.pushState(null, null, window.location.href);
+    window.onpopstate = function () {
+      window.history.go(1);
+    };
   })
 
   const navigateHandler = () => {
     navigate('/dashboard')
-}
+  }
 
-if (loading) {
-  return <LoaderScreen backgroundColor="store-background-color" />
-}
+  if (loading) {
+    return <LoaderScreen backgroundColor="store-background-color" />
+  }
 
   return (
     <>
-      <ScreenHeader title='Store'onClick={navigateHandler} styleProp='storeHeader'/>
+      <ScreenHeader title='Store' onClick={navigateHandler} styleProp='storeHeader' />
       <div className='storeContainer'>
         <UserItems />
         <GamePlan user={user} plans={plans} />
-        <GameBoost boosts={boosts} user ={user} />
+        <GameBoost boosts={boosts} user={user} />
       </div>
     </>
   )

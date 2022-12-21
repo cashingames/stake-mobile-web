@@ -13,6 +13,7 @@ import { useNavigate } from "react-router-dom";
 import { logActionToServer } from "../../CommonSlice";
 import { unwrapResult } from "@reduxjs/toolkit";
 import LowWallet from "../../../components/LowWallet/LowWallet";
+import LoaderScreen from "../../LoaderScreen/LoaderScreen";
 
 
 const GameStaking = () => {
@@ -26,6 +27,7 @@ const GameStaking = () => {
     const [amount, setAmount] = useState(200);
     const [amountErr, setAmountError] = useState(false);
     const [loading, setLoading] = useState(false);
+    const [onloading, setOnLoading] = useState(false);
     const [open, setOpen] = useState(false);
 
 
@@ -41,6 +43,11 @@ const GameStaking = () => {
         dispatch(getUser())
         closeBottomSheet()
     }
+
+    useEffect(() => {
+        dispatch(getUser())
+        dispatch(getGameStakes()).then(() => { setOnLoading(false) });
+    }, [dispatch])
 
     useEffect(() => {
         if (features.length < 1) {
@@ -106,6 +113,7 @@ const GameStaking = () => {
             }
         )
     }
+    //disable browser back button
     useEffect(() => {
         window.history.pushState(null, null, window.location.href);
         window.onpopstate = function () {
@@ -113,11 +121,9 @@ const GameStaking = () => {
         };
     })
 
-    useEffect(() => {
-        dispatch(getGameStakes())
-        dispatch(getUser())
-    }, [dispatch])
-
+    if (onloading) {
+        return <LoaderScreen backgroundColor="store-background-color" />
+      }
 
     return (
         <>

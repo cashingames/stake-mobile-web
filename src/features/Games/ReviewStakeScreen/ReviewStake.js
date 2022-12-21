@@ -7,6 +7,7 @@ import { formatCurrency } from '../../../utils/stringUtl'
 import './ReviewStake.scss'
 
 function ReviewStake() {
+    const navigate = useNavigate()
 
     const user = useSelector(state => state.auth.user)
     const gameStakes = useSelector(state => state.game.gameStakes);
@@ -16,14 +17,12 @@ function ReviewStake() {
     const navigate = useNavigate()
 
     const navigateHandler = () => {
-        navigate('/game-result')
+        navigate(-1)
     }
 
-    console.log(amountStaked)
-    console.log(correctCount)
     return (
         <>
-            <ScreenHeader title='Review Stake' styleProp='reviewStakeHeader' onClick={navigateHandler}/>
+            <ScreenHeader title='Review Stake' onClick={navigateHandler} styleProp='review-header' />
             <div className="reviewStaking-container">
                 <div className="amountContainer">
                     <div className="walletContainer">
@@ -54,10 +53,10 @@ function ReviewStake() {
                         <p className="stakeWinning">ODDS</p>
                     </div>
                 </div>
-                
+
                 {gameStakes.map((gameStake, i) => <StakingPredictionTable key={i} gameStake={gameStake} position={i + 1}
                     // eslint-disable-next-line
-                    amount={amountStaked} styleProp={correctCount == (gameStake.score) ? 'amountWon' : {}}/>)}
+                    amount={amountStaked} styleProp={correctCount == (gameStake.score) ? 'amountWon' : {}} />)}
             </div>
         </>
     )
