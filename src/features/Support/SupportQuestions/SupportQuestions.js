@@ -19,10 +19,10 @@ function SupportQuestions() {
       window.history.go(1);
     };
   })
-  
+
   useEffect(() => {
     dispatch(fetchFaqAndAnswers()).then(() => setLoading(false));
-  }, [])
+  }, [dispatch])
 
   const navigateHandler = () => {
     navigate('/dashboard')
