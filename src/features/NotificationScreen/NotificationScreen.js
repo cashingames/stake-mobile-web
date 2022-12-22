@@ -45,7 +45,7 @@ function NotificationScreen() {
     }
 
     if (loading) {
-        return <LoaderScreen backgroundColor="background-color" />
+        return <LoaderScreen backgroundColor="notification-background-color" />
     }
 
     return (
