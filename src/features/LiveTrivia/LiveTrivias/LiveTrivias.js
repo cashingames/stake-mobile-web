@@ -14,7 +14,6 @@ const LiveTrivias = () => {
     const navigate = useNavigate()
     const [loading, setLoading] = useState(true)
     const trivia = useSelector(state => state.common.trivias);
-    const features = useSelector(state => state.common.featureFlags);
 
     useEffect(() => {
         dispatch(getLiveTriviaStatus())

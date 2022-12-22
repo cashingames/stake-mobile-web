@@ -6,8 +6,7 @@ import './LiveTriviaLeaderboard.scss'
 import TriviaTopLeader from '../../../components/TriviaTopLeader/TriviaTopLeader'
 import TriviaParticipant from '../../../components/TriviaParticipant/TriviaParticipant'
 import { useNavigate, useParams } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
-import { getLiveTriviaLeaders } from '../../Games/GameSlice'
+import { useDispatch } from 'react-redux'
 import LoaderScreen from '../../LoaderScreen/LoaderScreen';
 import axios from 'axios';
 import { getLiveTriviaDetails } from '../LiveTriviaSlice'
@@ -44,6 +43,7 @@ function LiveTriviaLeaderboard() {
                 setLoading(false)
             }
             )
+        // eslint-disable-next-line
     }, [])
 
     // useEffect(() => {
