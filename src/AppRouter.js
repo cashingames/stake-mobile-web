@@ -38,6 +38,7 @@ import LiveTrivias from './features/LiveTrivia/LiveTrivias/LiveTrivias';
 import TriviaEnded from './features/LiveTrivia/TriviaEnded/TriviaEnded';
 import LiveTriviaStaking from './features/LiveTrivia/LiveTriviaStaking/LiveTriviaStaking';
 import InviteFriends from './features/InviteFriends/InviteFriends';
+import SupportQuestions from './features/Support/SupportQuestions/SupportQuestions';
 
 const AppRouter = () => {
 
@@ -137,6 +138,9 @@ const AppRouter = () => {
               <Route
                 path="/invite-friends"
                 element={<AuthRoute redirectTo="/"><InviteFriends /></AuthRoute>} />
+             <Route
+                path="/help"
+                element={<AuthRoute redirectTo="/"><SupportQuestions /></AuthRoute>} />
         </Routes>
     )
 }
