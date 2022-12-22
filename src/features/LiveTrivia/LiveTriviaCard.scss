@@ -44,9 +44,8 @@
                     color: #FFFF;
                     opacity: 0.8;
                     font-family: 'graphik-medium';
-                    width: 10rem;
+                    width: 12rem;
                     margin-bottom: 1.8rem;
-                    line-height: 0;
 
                     @include devices(xs){
                         font-size: 0.7rem;

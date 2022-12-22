@@ -22,7 +22,7 @@ import { IoChevronForwardOutline } from 'react-icons/io5';
 function LiveTriviaCard({ trivia }) {
   const dispatch = useDispatch();
   let navigate = useNavigate();
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [open, setOpen] = useState(false);
   const [openAlert, setOpenAlert] = useState(false);
   const [openPaymentAlert, setOpenPaymentAlert] = useState(false);
