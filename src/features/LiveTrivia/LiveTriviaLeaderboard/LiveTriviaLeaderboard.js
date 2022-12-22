@@ -5,28 +5,51 @@ import Leaderboard from '../../../assets/leaderboard.json'
 import './LiveTriviaLeaderboard.scss'
 import TriviaTopLeader from '../../../components/TriviaTopLeader/TriviaTopLeader'
 import TriviaParticipant from '../../../components/TriviaParticipant/TriviaParticipant'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { getLiveTriviaLeaders } from '../../Games/GameSlice'
 import LoaderScreen from '../../LoaderScreen/LoaderScreen';
+import axios from 'axios';
+import { getLiveTriviaDetails } from '../LiveTriviaSlice'
+
 
 
 
 function LiveTriviaLeaderboard() {
     const navigate = useNavigate()
     const dispatch = useDispatch();
-    const location = useLocation();
-    console.log(location.state)
-    const triviaLeaders = useSelector(state => state.game.triviaLeaders)
+    let { id } = useParams();
     const [loading, setLoading] = useState(true)
+    const [leaders, setLeaders] = useState(null)
+    const [error, setError] = useState(null)
 
     useEffect(() => {
-        if (location.state == null) {
-            navigate('/dashboard')
-        }
-        dispatch(getLiveTriviaLeaders(location.state.triviaId)).then(() => { setLoading(false) });
+        dispatch(getLiveTriviaDetails(id))
         // eslint-disable-next-line
-    }, [dispatch])
+    }, []);
+
+
+    useEffect(() => {
+        console.log(id)
+        axios(`v3/live-trivia/${id}/leaderboard`)
+            .then(response => {
+                setLeaders(response.data)
+                console.log(response.data)
+            })
+            .catch(error => {
+                console.log("error fetching data:", error)
+                setError(error)
+            })
+            .finally(() => {
+                setLoading(false)
+            }
+            )
+    }, [])
+
+    // useEffect(() => {
+    //     dispatch(getLiveTriviaLeaders(id)).then(() => { setLoading(false) });
+    //     // eslint-disable-next-line
+    // }, [dispatch])
 
 
     //disable browser back button
@@ -52,13 +75,15 @@ function LiveTriviaLeaderboard() {
     if (loading) {
         return <LoaderScreen backgroundColor="leader-background" color='#FFFF' />
     }
-
+    if (error) {
+        return "ERROR"
+    }
     return (
         <>
             <ScreenHeader title='Leaderboard' styleProp='liveLeaderboard' onClick={navigateHandler} />
             <div className='triviaLeaderBoardCase'>
                 <ResultContainer />
-                <TriviaParticipants triviaLeaders={triviaLeaders} />
+                <TriviaParticipants triviaLeaders={leaders} />
             </div>
         </>
     )

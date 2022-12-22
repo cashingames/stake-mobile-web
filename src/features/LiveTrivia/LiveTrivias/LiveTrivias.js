@@ -5,21 +5,19 @@ import ScreenHeader from "../../../components/ScreenHeader/ScreenHeader";
 import { fetchRecentLiveTrivia } from '../../CommonSlice'
 import LoaderScreen from "../../LoaderScreen/LoaderScreen";
 import LiveTriviaCard from "../LiveTriviaCard";
+import { getLiveTriviaStatus } from "../LiveTriviaSlice";
 import './LiveTrivias.scss'
 
 
 const LiveTrivias = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate()
-
     const [loading, setLoading] = useState(true)
-
-
     const trivia = useSelector(state => state.common.trivias);
     const features = useSelector(state => state.common.featureFlags);
 
-
     useEffect(() => {
+        dispatch(getLiveTriviaStatus())
         dispatch(fetchRecentLiveTrivia()).then(() => { setLoading(false) });
         // eslint-disable-next-line
     }, []);
@@ -32,12 +30,6 @@ const LiveTrivias = () => {
         };
     })
 
-    useEffect(() => {
-        if (features.length < 1) {
-            navigate('/dashboard')
-        }
-        return
-    })
 
     const navigateHandler = () => {
         navigate('/dashboard')

@@ -16,6 +16,15 @@ export const getLiveTriviaStatus = createAsyncThunk(
     }
 )
 
+export const getLiveTriviaDetails = createAsyncThunk(
+    'liveTrivia/details',
+    async (data, thunkAPI) => {
+        const response = await axios.get(`v3/live-trivia/${data}/get`)
+        console.log(response, 'trivia')
+        return response.data;
+    }
+)
+
 export const liveTriviaPayment = createAsyncThunk(
     'liveTrivia/payment',
     async (data, thunkAPI) => {
@@ -32,6 +41,9 @@ export const LiveTriviaSlice = createSlice({
     extraReducers: (builder) => {
         builder
             .addCase(getLiveTriviaStatus.fulfilled, (state, action) => {
+                state.data = action.payload;
+            })
+            .addCase(getLiveTriviaDetails.fulfilled, (state, action) => {
                 state.data = action.payload;
             })
     },

@@ -5,19 +5,21 @@ import './SupportAnswers.scss'
 
 export default function SupportAnswer() {
     const location = useLocation();
+    console.log(location)
     const navigate = useNavigate();
 
-    //disable browser back button
-    useEffect(() => {
-        window.history.pushState(null, null, window.location.href);
-        window.onpopstate = function () {
-            window.history.go(1);
-        };
-    })
+    // //disable browser back button
+    // useEffect(() => {
+    //     window.history.pushState(null, null, window.location.href);
+    //     window.onpopstate = function () {
+    //         window.history.go(1);
+    //     };
+    // })
 
     const navigateHandler = () => {
         navigate('/help')
     }
+
 
     const question = JSON.parse(location.state.question);
     const answer = JSON.parse(location.state.answer);

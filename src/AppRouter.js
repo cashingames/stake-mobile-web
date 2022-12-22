@@ -134,7 +134,7 @@ const AppRouter = () => {
                 path="/trivia-ended"
                 element={<AuthRoute redirectTo="/"><TriviaEnded /></AuthRoute>} />
             <Route
-                path="/trivia-leaderboard"
+                path="/trivia-leaderboard/:id"
                 element={<AuthRoute redirectTo="/"><LiveTriviaLeaderboard /></AuthRoute>} />
             <Route
                 path="/invite-friends"

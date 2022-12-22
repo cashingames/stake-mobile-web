@@ -22,7 +22,6 @@ import { IoChevronForwardOutline } from 'react-icons/io5';
 function LiveTriviaCard({ trivia }) {
   const dispatch = useDispatch();
   let navigate = useNavigate();
-  // const [showText, setShowText] = useState(true);
   const [loading, setLoading] = useState(true);
   const [open, setOpen] = useState(false);
   const [openAlert, setOpenAlert] = useState(false);
@@ -52,10 +51,6 @@ function LiveTriviaCard({ trivia }) {
   const closePayment = () => {
     setOpenPayment(false)
   }
-
-  useEffect(() => {
-    dispatch(getLiveTriviaStatus()).then(() => { setLoading(false) });
-  }, [dispatch]);
 
   const payForLiveTrivia = () => {
     dispatch(liveTriviaPayment({
@@ -131,7 +126,7 @@ function LiveTriviaCard({ trivia }) {
       openBottomSheet()
     }
     else if (trivia.playerStatus === "PLAYED" || trivia.status === "EXPIRED" || trivia.status === "CLOSED") {
-      navigate('/trivia-leaderboard', {state: {triviaId: trivia.id }})
+      navigate('/trivia-leaderboard/'+ trivia.id )
 
     }
     else if (trivia.playerStatus === "CANPLAY" && trivia.status !== "EXPIRED") {
@@ -154,9 +149,6 @@ function LiveTriviaCard({ trivia }) {
     }
   }
 
-  useEffect(() => {
-    dispatch(getLiveTriviaStatus())
-  }, [dispatch]);
 
   // useEffect(() => {
   //   // Change the state every second or the time given by User.
