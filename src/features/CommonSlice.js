@@ -73,13 +73,18 @@ export const fetchFeatureFlags = createAsyncThunk(
         return response.data;
     }
 )
-
-
 export const getBankData = createAsyncThunk(
     'common/bank/get',
     async () => {
         const response = await axios.get('v2/wallet/banks')
         return response.data
+    }
+)
+export const fetchFaqAndAnswers = createAsyncThunk(
+    'common/faq/get',
+    async () => {
+        const response = await axios.get('v2/faq/fetch');
+        return response.data.data
     }
 )
 
@@ -90,8 +95,12 @@ export const isFeatureEnabled = async (feature, features = {}) => {
 
 const initialState = {
     initialLoading: true,
+    boosts: [],
+    plans: [],
     trivias: [],
     gameModes: [],
+    gameTypes: [],
+    gameCategories: [],
     banks: [],
     globalLeaders: [],
     userNotifications: [],
@@ -102,6 +111,7 @@ const initialState = {
     maximumChallengeStakeAmount: '',
     minimumChallengeStakeAmount: '',
     minimumWalletFundableAmount: '',
+    faqAndAnswers: [],
     featureFlags: [],
 }
 
@@ -159,6 +169,9 @@ export const CommonSlice = createSlice({
             .addCase(fetchUserTransactions.fulfilled, (state, action) => {
                 state.loadMoreTransactions = !(action.payload.length < 10);
                 state.userTransactions = state.userTransactions.concat(action.payload);
+            })
+            .addCase(fetchFaqAndAnswers.fulfilled, (state, action) => {
+                state.faqAndAnswers = action.payload
             })
             .addCase(fetchFeatureFlags.fulfilled, (state, action) => {
                 state.featureFlags = action.payload.data

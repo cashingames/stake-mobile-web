@@ -1,14 +1,35 @@
-import React from 'react'
-import { IoChevronForwardOutline } from 'react-icons/io5'
-import { useNavigate } from 'react-router-dom'
-import ScreenHeader from '../../../components/ScreenHeader/ScreenHeader'
-import './SupportQuestions.scss'
+import React, { useEffect, useState } from 'react';
+import { IoChevronForwardOutline } from 'react-icons/io5';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import ScreenHeader from '../../../components/ScreenHeader/ScreenHeader';
+import { fetchFaqAndAnswers } from '../../CommonSlice';
+import LoaderScreen from '../../LoaderScreen/LoaderScreen';
+import './SupportQuestions.scss';
 function SupportQuestions() {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const faqs = useSelector(state => state.common.faqAndAnswers);
+  const [loading, setLoading] = useState(true);
 
-  const navigate = useNavigate()
+  //disable browser back button
+  useEffect(() => {
+    window.history.pushState(null, null, window.location.href);
+    window.onpopstate = function () {
+      window.history.go(1);
+    };
+  })
+  
+  useEffect(() => {
+    dispatch(fetchFaqAndAnswers()).then(() => setLoading(false));
+  }, [])
 
   const navigateHandler = () => {
     navigate('/dashboard')
+  }
+
+  if (loading) {
+    return <LoaderScreen backgroundColor="store-background-color" />
   }
   return (
     <>
@@ -17,9 +38,11 @@ function SupportQuestions() {
         <p className='supportTitle'>Need some help ?</p>
         <p className='supportTitle'>Go through our FAQs</p>
         <div className='profileTabs'>
-          <QuestionTabs question='How can i send in my questions or suggestions?' />
-          <QuestionTabs question='What is the minimum amount i can withdraw rom my winnings?' />
-          <QuestionTabs question='How much can i win?(is there a limit to it?)' />
+          {faqs.map((faq, index) =>
+            <QuestionTab
+              question={faq.question}
+              answer={faq.answer} />
+          )}
         </div>
       </div>
     </>
@@ -28,9 +51,23 @@ function SupportQuestions() {
 
 export default SupportQuestions
 
-function QuestionTabs({ question, onClick }) {
+function QuestionTab({ question, answer }) {
+  const navigate = useNavigate()
+
+  const goToAnswer = () => {
+
+    navigate('/support-answers', {
+      state:
+      {
+        question: JSON.stringify(question),
+        answer: JSON.stringify(answer)
+      }
+    })
+  }
+
   return (
-    <div className='tabsContainer'>
+    <div className='tabsContainer' onClick={goToAnswer}>
+
       <p className='tabText'>{question}</p>
       <IoChevronForwardOutline size={20} color="#524D4D" />
     </div>

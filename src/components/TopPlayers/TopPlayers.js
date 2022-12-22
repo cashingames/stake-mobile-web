@@ -16,10 +16,10 @@ function TopPlayers({ leaders }) {
             <div className='topPlayerContainer'>
                 <div className='wrapper'>
                     <p className='topPlayer'>Top Players</p>
-                    <div className='extended'>
+                    {/* <div className='extended'>
                         <p className='extendedText'>Extended leaderboard</p>
                         <IoArrowForward className='icon' />
-                    </div>
+                    </div> */}
                 </div>
                 <div className='leaderBoard'>
                     <TopLeader
