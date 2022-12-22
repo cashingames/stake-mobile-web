@@ -3,21 +3,21 @@
 }
 
 .detailsContainer{
-    min-height: 100vh;
+    height: 100vh;
     background-color: #F2F5FF;
     padding: 2rem 1rem;
     .dQuestion{
         font-family: 'graphik-medium';
         font-size: 0.9rem;
         color: #000000;
-        margin:1.3rem 0;
-        line-height: 1.3;
+        margin:1.1rem 0;
+        line-height: 1.6;
     }
     .dAnswer{
-        font-family: 'graphik-regular';
-        font-size: 0.8rem;
+        font-family: 'graphik-regular', sans-serif;
+        font-size: 0.9rem;
         color: #151C2F;        
         margin:1.3rem 0;
-        line-height: 1.6;
+        line-height: 1.7;
     }
 }
