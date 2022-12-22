@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import ScreenHeader from '../../../components/ScreenHeader/ScreenHeader';
+import './SupportAnswers.scss'
 
 export default function SupportAnswer() {
     const location = useLocation();
@@ -23,10 +24,10 @@ export default function SupportAnswer() {
 
     return (
         <>
-            <ScreenHeader title='Support' onClick={navigateHandler} styleProp='storeHeader' />
-            <div>
-                <p>{question}</p>
-                <p>{answer}</p>
+            <ScreenHeader title='Details' onClick={navigateHandler} styleProp='detailHeader' />
+            <div className='detailsContainer'>
+                <p  className='dQuestion'>{question}</p>
+                <p className='dAnswer'>{answer}</p>
             </div>
         </>
     );
