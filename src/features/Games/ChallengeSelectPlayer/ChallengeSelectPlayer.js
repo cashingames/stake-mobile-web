@@ -40,7 +40,7 @@ const ChallengeSelectPlayer = () => {
             <ScreenHeader title='Challenge - Select a player' styleProp='csHeader' onClick={navigateHandler}/>
             <div className="csContainer">
                 <div className="searchBox">
-                    <IoSearch size={20} color="#524D4D" className="csIcon"/>
+                    <IoSearch size={22} color="#524D4D" className="csIcon"/>
                     <input 
                         className="csInput"
                         placeholder="Search friend's name"
