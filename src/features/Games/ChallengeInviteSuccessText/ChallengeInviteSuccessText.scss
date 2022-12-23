@@ -1,0 +1,39 @@
+.cisContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 1.3rem;
+    .congratsText{
+        margin: 0;
+        font-family: 'graphik-medium';
+        font-size: 1.3rem;
+        color: rgba(0, 0, 0, 0.6);
+        opacity: 0.8;
+        margin-bottom: .8rem;
+    }
+    .innerText{
+        margin: 0;
+        font-family: 'graphik-regular';
+        font-size: .9rem;
+        color: rgba(0, 0, 0, 0.6);
+        opacity: 0.8;
+        line-height: 1.9;
+        text-align: center;
+    }
+    .cisBtn{
+        margin-top: 2rem;
+        background-color: #EF2F55;
+        border: none;
+        border-radius: 8px;
+        font-family: 'graphik-medium';
+        font-size: 0.8rem;
+        padding: 0 2rem;
+        height: 3rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 12px;
+        color: #fff;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    }
+}
