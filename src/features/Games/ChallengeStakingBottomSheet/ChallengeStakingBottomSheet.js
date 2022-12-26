@@ -1,15 +1,7 @@
 import React from 'react'
-import { useState } from 'react'
-import BottomSheet from '../../../components/BottomSheet/BottomSheet'
-import ChallengeInviteSuccessText from '../ChallengeInviteSuccessText/ChallengeInviteSuccessText';
 import './ChallengeStakingBottomSheet.scss'
 
-function ChallengeStakingBottomSheet() {
-    const [openSheet, setOpenSheet] = useState(false);
-
-    const closeBS = () => {
-        setOpenSheet(false)
-    }
+function ChallengeStakingBottomSheet({onPress}) {
   return (
     <div className='csbCase'>
         <div className='csbImg'>
@@ -22,11 +14,10 @@ function ChallengeStakingBottomSheet() {
             <button className='csbStakeBtn'>
                 Stake Cash
             </button>
-            <button className='csbProceedButton'>
+            <button className='csbProceedButton' onClick={onPress}>
                 Play for Free
             </button>
         </div>
-        <BottomSheet open={openSheet} closeBottomSheet={closeBS} BSContent={<ChallengeInviteSuccessText />} />
     </div>
   )
 }

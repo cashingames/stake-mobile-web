@@ -44,6 +44,9 @@
         padding: 0.3rem 0.7rem;
         outline: none;
         margin-left: auto;
+        p {
+            line-height: 0;
+        }
     }
    }
    .noData{
