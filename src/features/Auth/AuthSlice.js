@@ -115,6 +115,20 @@ export const getUser = createAsyncThunk(
     }
 )
 
+export const loginWithSocialLink = createAsyncThunk(
+    'auth/loginWithSocialLink',
+    async (data, thunkAPI) => {
+        const response = await axios.post('/auth/social-login/authenticate', data)
+        return response.data
+    }
+)
+export const registerWithSocialLink = createAsyncThunk(
+    'auth/registerWithSocialLink',
+    async (data, thunkAPI) => {
+        const response = await axios.post('/auth/social-login/create-account', data)
+        return response.data
+    }
+)
 
 
 export const deleteUserAccount = createAsyncThunk(
@@ -184,6 +198,12 @@ export const AuthSlice = createSlice({
             })
             .addCase(resetPassword.fulfilled, (state) => {
                 state.passwordReset = {};
+            })
+            .addCase(loginWithSocialLink.fulfilled, (state, action) => {
+                state.token = action.payload.data.token;
+            })
+            .addCase(registerWithSocialLink.fulfilled, (state, action) => {
+                state.token = action.payload.data;
             })
     }
 });

@@ -4,7 +4,6 @@
     padding: 0.3rem 1rem;
     border-radius: 5px;
     align-items: center;
-    font-family: 'Graphik', sans-serif;
 
     .googleButtonText {
         line-height: 0;
@@ -20,5 +19,63 @@
         align-items: center;
         padding: .2rem;
         margin-left: .3rem;
+    }
+}
+
+.google-sheet {
+    padding: 1rem 2rem;
+
+    .sheet-text {
+        font-size: 1rem;
+        font-family: 'graphik-medium';
+    }
+
+    .sheet-input-containers {
+        .sheet-input-container {
+            display: flex;
+            flex-direction: column;
+            margin: 1rem 0;
+
+            .input-label {
+                margin-bottom: .45rem;
+                font-size: 0.7rem;
+                color: #000000B2;
+                font-family: 'graphik-medium';
+            }
+
+            .input {
+                color: #00000080;
+                font-size: 0.7rem;
+                border-radius: 7px;
+                padding: 0.5rem .6rem;
+                border: 1px solid #CDD4DF;
+                outline: none;
+                font-family: 'graphik-regular';
+            }
+
+            .input-error {
+                color: #EF2F55;
+                font-size: 0.65rem;
+                margin-top: .5rem;
+                font-family: 'graphik-regular';
+            }
+        }
+    }
+
+    .sheet-button {
+        width: 100%;
+        border-radius: 8px;
+        background-color: #EF2F55;
+        border: none;
+        margin-top: 0.7rem;
+        p {
+            color: #FFFF;
+        }
+    }
+
+    button[disabled] {
+        border: none;
+        background-color: #DFCBCF;
+        color: white;
     }
 }

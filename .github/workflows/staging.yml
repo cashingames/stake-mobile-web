@@ -22,6 +22,7 @@ jobs:
           REACT_APP_API_ROOT_URL: https://stg-api.cashingames.com
           REACT_APP_URL: https://stg.cashingames.com
           REACT_APP_PAYSTACK_KEY: ${{ secrets.PAYSTACK_KEY_TEST }}
+          REACT_APP_GOOGLE_CLIENT_ID: ${{secrets.GOOGLE_CLIENT_ID}}
 
 
       # - name: cypress test
