@@ -87,6 +87,21 @@ export const fetchFaqAndAnswers = createAsyncThunk(
         return response.data.data
     }
 )
+export const fetchUserFriends = createAsyncThunk(
+    'common/fetchUserFriends',
+    async (thunkAPI) => {
+        const response = await axios.get('v3/user/search/friends')
+        return response.data;
+    }
+)
+export const searchUserFriends = createAsyncThunk(
+    'common/searchUserFriends',
+    async (data, thunkAPI) => {
+        const response = await axios.get(`v3/user/search/friends?search=${data}`)
+        console.log(response)
+        return response.data;
+    }
+)
 
 export const isFeatureEnabled = async (feature, features = {}) => {
 
@@ -112,6 +127,7 @@ const initialState = {
     minimumChallengeStakeAmount: '',
     minimumWalletFundableAmount: '',
     faqAndAnswers: [],
+    userFriends: [],
     featureFlags: [],
 }
 
@@ -172,6 +188,12 @@ export const CommonSlice = createSlice({
             })
             .addCase(fetchFaqAndAnswers.fulfilled, (state, action) => {
                 state.faqAndAnswers = action.payload
+            })
+            .addCase(fetchUserFriends.fulfilled, (state, action) => {
+                state.userFriends = action.payload
+            })
+            .addCase(searchUserFriends.fulfilled, (state, action) => {
+                state.userFriends = action.payload
             })
             .addCase(fetchFeatureFlags.fulfilled, (state, action) => {
                 state.featureFlags = action.payload.data
