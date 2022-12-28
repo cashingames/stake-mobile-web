@@ -1,0 +1,122 @@
+.mscHeader {
+    background-color: #701F88;
+    color: #FFF;
+
+    .icon {
+        color: #fff;
+    }
+}
+
+.mscContainer {
+    background-color: #701F88;
+    min-height: 100vh;
+    padding: .4rem 1rem;
+
+    .mscCase {
+        background-color: #fff;
+        border-radius: 16px;
+        padding: .5rem 1.5rem;
+        margin: 1rem 0;
+
+        .categoryCase {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: .5rem 0;
+
+            .challengeCategory {
+                font-family: 'graphik-bold';
+                font-size: 1rem;
+                color: #6895FF;
+                margin: 0;
+            }
+
+            .winnerCategory {
+                display: flex;
+                align-items: center;
+
+                .winnerText {
+                    margin: 0;
+                    font-size: 0.75rem;
+                    font-family: 'graphik-medium';
+                    color: #000;
+                    margin-right: 0.8rem;
+                    opacity: 0.4;
+                }
+            }
+        }
+
+        .mscDate {
+            margin: 0;
+            color: #701F88;
+            font-size: 0.75rem;
+            font-family: 'graphik-medium';
+            color: #000;
+            opacity: 0.4;
+            line-height: 1.2;
+        }
+
+        .competitorsContainer{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: .8rem 0;
+            p{
+                margin: 0;
+            }
+            .challenger{
+                font-family: 'graphik-medium';
+                font-weight: 1rem;
+                color: #2D9CDB;
+            }
+            .opponent{
+                font-family: 'graphik-medium';
+                font-weight: 1rem;
+                color: #FF716C;
+            }
+            .versus{
+                font-family: 'graphik-regular';
+                font-weight: 0.9rem;
+                color: #9236AD;
+            }
+        }
+        .mscBtn{
+        margin: 2rem 0;
+        background-color: #EF2F55;
+        border: none;
+        border-radius: 8px;
+        font-family: 'graphik-medium';
+        font-size: 0.9rem;
+        padding: 0.7rem 2rem;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 8px;
+        color: #fff;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        }
+        button[disabled] {
+            border: none;
+            background-color: #DFCBCF;
+            color: white;
+        }
+    }
+}
+
+
+//No Challenges
+.ncContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .ncText{
+        margin: 0;
+        font-family: 'graphik-regular';
+        font-size: 1rem;
+        color: #fff;
+        text-align: center;
+        line-height: 1.5;
+        margin-top: .7rem;
+    }
+}
