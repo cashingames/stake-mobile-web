@@ -1,0 +1,29 @@
+.cmContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: .8rem;
+    p{
+        margin: 0;
+    }
+    .csTopText{
+        font-family: 'graphik-medium';
+        font-size: 1.7rem;
+        color: #fff;
+        margin-bottom: .7rem;
+    }
+    .csBottomText{
+        font-family: 'graphik-regular';
+        font-size: 1rem;
+        color: #fff;
+        opacity: .7;
+        text-align: center;
+    }
+    .cProgress{
+        font-family: 'graphik-regular';
+        font-size: 1rem;
+        color: #fff;
+        opacity: .9;
+        text-align: center;
+    }
+}

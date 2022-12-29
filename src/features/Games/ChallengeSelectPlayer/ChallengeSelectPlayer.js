@@ -72,7 +72,8 @@ const FriendDetails = ({isSelected, onClick}) => {
         <div className={`${isSelected ? 'fdSelected' : 'friendDetails'}`} onClick={onClick}>
             <div className="friendsLeft">
                 <div className="fdImgCase">
-                    <img src="/images/user-icon.png" alt='user' /> 
+                    <img src="/images/user-icon.png" alt='user' 
+                    onError={(e) => e.target.style.display='none'} /> 
                 </div>
                 <p className="fdUsername">John</p>
             </div>

@@ -1,0 +1,103 @@
+.mcsScore{
+    background-color: #EDDA74;
+}
+
+.mcsContainer{
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    min-height: 100vh;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .mcsCase{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .mcsStakedContainer{
+        border-radius: 15px;
+        background-color: #EDDA74;
+        padding: 1rem 1.2rem;
+        margin: 0.7rem 0;
+        .mcsStake{
+            margin: 0;
+            font-size: 0.8rem;
+            font-family: 'graphik-medium', sans-serif;
+            font-weight: 500;
+            line-height: 1.4;
+            color: #000;
+            text-align: center;
+            .amount{
+                color: #EF2F55;
+            }
+        }
+    }
+    .mscStakeContainer{
+        border-radius: 15px;
+        background-color: #EDDA74;
+        padding: 1rem 1.2rem;
+        margin: .5rem 0;
+        .mcsStaked{
+            margin: 0;
+            font-size: 0.8rem;
+            font-family: 'graphik-medium', sans-serif;
+            font-weight: 500;
+            color: #EF2F55;
+            text-align: center;
+        }
+    }
+    .termsCase{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+        border: 1px solid #fff;
+        padding: .3rem .5rem;
+        .termsText{
+            margin: 0;
+            color: #fff;
+            font-family: "graphik-regular";
+            font-size: 0.8rem;
+        }
+    }
+    .mcsButtonContainer{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 2rem;
+        gap: 1.5rem;
+        .declineBtn{
+            width: 9rem;
+            background-color: transparent;
+            border: 1px solid #fff;
+            font-family: 'graphik-medium';
+            color: #fff;
+            height: 3rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 8px;
+            font-size: .9rem;
+        }
+        .acceptBtn{
+            width: 9rem;
+            background-color: #EF2F55;
+            font-family: 'graphik-medium';
+            color: #fff;
+            height: 3rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: none;
+            border-radius: 8px;
+            font-size: .9rem;
+        }
+    }
+}
+
+
+//My challenge message
+

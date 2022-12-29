@@ -1,0 +1,40 @@
+.resultsCase{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #EDDA74;
+    border-radius: 16px;
+    padding: .5rem 1rem;
+    margin-top: 0.3rem;
+    margin-bottom: 3rem;
+    opacity: 0.9;
+    p{
+        margin: 0;
+    }
+    .frText{
+        font-family: 'graphik-medium';
+        font-size: 0.8rem;
+        color: #9236AD;
+    }
+    .playerResultCase{
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        .playerScore{
+            font-size: 4rem;
+            font-family: 'graphik-medium';
+            color: #6895FF;
+        }
+        .opponentScore{
+            font-size: 4rem;
+            font-family: 'graphik-medium';
+            color: #FF716C;
+        }
+        .colon{
+            font-size: 4rem;
+            font-family: 'graphik-medium';
+            color: #9236AD;
+            margin-bottom: 2rem;
+        }
+    }
+}
