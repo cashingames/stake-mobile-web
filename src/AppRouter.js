@@ -44,6 +44,7 @@ import MyChallengeScreen from './features/Games/MyChallengeScreen/MyChallengeScr
 import MyChallengeScore from './features/Games/MyChallengeScore/MyChallengeScore';
 import ChallengeGameInProgress from './features/Games/ChallengeGameInProgress/ChallengeGameInProgress';
 import ChallengeEndGameScreen from './features/Games/ChallengeEndGameScreen/ChallengeEndGameScreen';
+import ChallengeStaking from './features/Games/ChallengeStaking/ChallengeStaking';
 
 const AppRouter = () => {
 
@@ -155,12 +156,15 @@ const AppRouter = () => {
             <Route
                 path="/challenge-score/:id"
                 element={<AuthRoute redirectTo="/"><MyChallengeScore /></AuthRoute>} />
-                  <Route
+            <Route
                 path="/challenge-game"
                 element={<AuthRoute redirectTo="/"><ChallengeGameInProgress /></AuthRoute>} />
-                 <Route
+            <Route
                 path="/challenge-result"
                 element={<AuthRoute redirectTo="/"><ChallengeEndGameScreen /></AuthRoute>} />
+            <Route
+                path="/challenge-staking"
+                element={<AuthRoute redirectTo="/"><ChallengeStaking /></AuthRoute>} />
         </Routes>
     )
 }

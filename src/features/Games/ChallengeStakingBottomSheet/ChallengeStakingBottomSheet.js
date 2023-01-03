@@ -1,7 +1,11 @@
 import React from 'react'
+import { useNavigate } from "react-router-dom";
 import './ChallengeStakingBottomSheet.scss'
 
-function ChallengeStakingBottomSheet({onPress}) {
+function ChallengeStakingBottomSheet({onPress,onStake}) {
+    const navigate = useNavigate()
+
+   
   return (
     <div className='csbCase'>
         <div className='csbImg'>
@@ -11,7 +15,7 @@ function ChallengeStakingBottomSheet({onPress}) {
             <p className='csbText'> Double your winnings by staking an amount for this challenge </p>
         </div>
         <div className='csbBtnCase'>
-            <button className='csbStakeBtn'>
+            <button className='csbStakeBtn' onClick={onStake}>
                 Stake Cash
             </button>
             <button className='csbProceedButton' onClick={onPress}>

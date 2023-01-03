@@ -4,10 +4,11 @@ import Friends from '../../../assets/friends.json'
 import './ChallengeInviteSuccessText.scss'
 import { useNavigate } from 'react-router-dom'
 
-function ChallengeInviteSuccessText() {
+function ChallengeInviteSuccessText({onClose}) {
     const navigate = useNavigate()
 
     const navigateHandler = () => {
+        onClose()
         navigate('/dashboard')
     }
     return (

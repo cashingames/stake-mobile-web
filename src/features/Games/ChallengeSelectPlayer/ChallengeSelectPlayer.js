@@ -17,7 +17,7 @@ import { unwrapResult } from "@reduxjs/toolkit";
 
 
 const ChallengeSelectPlayer = () => {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
     const dispatch = useDispatch();
     const [loading, setLoading] = useState(true)
     const activeCategory = useSelector(state => state.game.gameCategory);
@@ -107,7 +107,13 @@ const ChallengeSelectPlayer = () => {
             });
         setSending(false)
     }
-
+    const onStake = () => {
+        closeBS()
+        navigate('/challenge-staking',{
+            state:
+            {selectedOpponent: selectedOpponent}
+          });
+    }
 
     const onSearchFriends = () => {
         console.log('clicking')
@@ -206,8 +212,8 @@ const ChallengeSelectPlayer = () => {
                 </div>
             </div>
             <SendInviteButton disabled={!selectedOpponent || !sending} onPress={isChallengeStakingFeatureEnabled ? initiateChallengeStaking : sendInvite} />
-            <BottomSheet open={openSheet} closeBottomSheet={closeBS} BSContent={<ChallengeStakingBottomSheet onPress={sendChallengeInvite} />} />
-            <BottomSheet open={openBox} closeBottomSheet={closeBox} BSContent={<ChallengeInviteSuccessText />} />
+            <BottomSheet open={openSheet} closeBottomSheet={closeBS} BSContent={<ChallengeStakingBottomSheet onPress={sendChallengeInvite} onStake={onStake} />} />
+            <BottomSheet open={openBox} closeBottomSheet={closeBox} BSContent={<ChallengeInviteSuccessText onClose={closeBox} />} />
             <Dialogue handleClose={closeAlert} open={alertMessage} dialogueMessage={alertMessage} />
         </>
     )
@@ -224,7 +230,7 @@ const FriendDetails = ({ isSelected, onSelect, userFriend }) => {
                     <img
                         src={userFriend.avatar ? userFriend.avatar : "/images/user-icon.png"}
                         alt='user'
-                         onError={(e) => e.target.style.display='none'} 
+                        onError={(e) => e.target.style.display = 'none'}
                     />
                 </div>
                 <p className="fdUsername">{userFriend.username}</p>
