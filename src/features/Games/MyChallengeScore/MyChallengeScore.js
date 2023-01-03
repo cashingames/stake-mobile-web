@@ -244,6 +244,7 @@ function MyChallengeScore() {
             </div>
             {Number.parseFloat(user.walletBalance) < Number.parseFloat(challengeDetails.stakingAmount) &&
                 score.challengerStatus !== "COMPLETED" &&
+                user.username === challengeDetails.opponentUsername &&
                 score.opponentStatus !== "COMPLETED" ?
                 <BottomSheet open={openSheet} closeBottomSheet={closeBS} BSContent={<Tested />}
                 // {<ChallengeGameInstruction
