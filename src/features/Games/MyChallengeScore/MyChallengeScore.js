@@ -40,11 +40,13 @@ function MyChallengeScore() {
 
 
     const handleNavigation = () => {
-        navigate('/')
+        navigate('/challenges')
     }
 
     const closeBS = () => {
         setOpenSheet(false)
+        dispatch(getUser())
+
     }
 
     const openTermsSheet = () => {
@@ -247,11 +249,7 @@ function MyChallengeScore() {
                 score.challengerStatus !== "COMPLETED" &&
                 user.username === challengeDetails.opponentUsername &&
                 score.opponentStatus !== "COMPLETED" ?
-                <BottomSheet open={openSheet} closeBottomSheet={closeBS} BSContent={<LowWallet />}
-                // {<ChallengeGameInstruction
-                //     staking={challengeDetails.withStaking}
-                //     finalStakingWinAmount={challengeDetails.finalStakingWinAmount}
-                //     amountStaked={challengeDetails.stakingAmount} onClose={closeBS} />} 
+                <BottomSheet open={openSheet} closeBottomSheet={closeBS} BSContent={<LowWallet close={closeBS} />}
                 />
                 :
                 <BottomSheet open={openSheet} closeBottomSheet={closeBS} BSContent={<ChallengeGameInstruction
