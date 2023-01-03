@@ -19,6 +19,7 @@ import { getUser } from '../../Auth/AuthSlice';
 import LoaderScreen from '../../LoaderScreen/LoaderScreen'
 import { Spinner } from 'react-activity'
 import { unwrapResult } from '@reduxjs/toolkit'
+import LowWallet from '../../../components/LowWallet/LowWallet'
 
 function MyChallengeScore() {
     const dispatch = useDispatch();
@@ -237,15 +238,15 @@ function MyChallengeScore() {
                             score.challengerStatus === "PENDING" &&
                             challengeDetails.isExpired !== true &&
                             <button className='playBtn' onClick={challengerPlays}>{clicking ? <Spinner size={10} color="#FFFF" /> : "Play"}</button>
-                        }
+                         } 
                     </>
 
-                }
+                } 
             </div>
             {Number.parseFloat(user.walletBalance) < Number.parseFloat(challengeDetails.stakingAmount) &&
                 score.challengerStatus !== "COMPLETED" &&
                 score.opponentStatus !== "COMPLETED" ?
-                <BottomSheet open={openSheet} closeBottomSheet={closeBS} BSContent={<Tested />}
+                <BottomSheet open={openSheet} closeBottomSheet={closeBS} BSContent={<LowWallet />}
                 // {<ChallengeGameInstruction
                 //     staking={challengeDetails.withStaking}
                 //     finalStakingWinAmount={challengeDetails.finalStakingWinAmount}
@@ -265,10 +266,5 @@ function MyChallengeScore() {
     )
 }
 
-const Tested = () => {
-    return (
-        <div>vvvvvvvv</div>
-    )
-}
 
 export default MyChallengeScore

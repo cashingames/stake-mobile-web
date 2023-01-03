@@ -114,7 +114,7 @@ const MyChallenge = ({ item }) => {
                         loop
                         className='player'
                         style={
-                            { height: '32px' }
+                            { height: '40px' }
                         } />
                 }
             </div>
