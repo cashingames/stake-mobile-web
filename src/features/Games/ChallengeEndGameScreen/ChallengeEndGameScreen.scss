@@ -1,0 +1,54 @@
+.infoCase{
+    display: flex;
+    justify-content: center;
+    margin: 0 1.5rem;
+    margin-bottom: 1rem;
+    .resultInfoText{
+        color: #fff;
+        font-size: .8rem;
+        line-height: 1.5;
+        margin: 0;
+        text-align: center;
+        font-family: 'graphik-regular'
+    }
+}
+
+
+//Rank///
+.leaderboardLink{
+    background-color: #701F88;
+    border-radius: 8px;
+    padding: .9rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    .seeRank{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .rankText{
+            margin: 0;
+            font-size: 0.7rem;
+            color: #fff;
+            font-family: 'graphik-medium';
+        }
+    }
+}
+
+//End Button
+.homeBtns{
+    background-color: #EF2F55;
+        border: none;
+        border-radius: 8px;
+        width: 100%;
+        height: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 8px;
+
+        .gameText {
+            color: #fff;
+            font-size: 0.8rem;
+            font-family: 'graphik-medium';
+        }
+}

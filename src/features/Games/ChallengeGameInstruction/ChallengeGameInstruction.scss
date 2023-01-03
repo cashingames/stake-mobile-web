@@ -1,0 +1,63 @@
+
+.cgiContainer{
+    padding: 1.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .instructionHeader{
+        margin: 0;
+        font-size: 0.9;
+        font-family: 'graphik-regular';
+        color: #4F4F4F;
+        text-align: justify;
+        line-height: 1.4;
+        margin-bottom: 1rem;
+    }
+.cgiInstruction {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 11px;
+
+    .unicode {
+        margin: 0;
+        font-size: 1.2rem;
+        font-family: 'graphik-bold';
+        color: #4F4F4F;
+        margin-right: 10px;
+    }
+
+    .instructionText {
+        margin: 0;
+        font-size: .8rem;
+        color: #4F4F4F;
+        text-align: justify;
+        line-height: 1.5;
+        font-family: 'graphik-regular';
+
+    }
+
+}
+.cgiBtn{
+            background-color: #EF2F55;
+            font-family: 'graphik-medium';
+            color: #fff;
+            height: 3rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: none;
+            border-radius: 8px;
+            font-size: .9rem;
+            padding: .4rem 2rem;
+}
+
+.cgiTerms{
+    margin: 0;
+    font-size: .8rem;
+    color: #4F4F4F;
+    text-align: justify;
+    line-height: 1.5;
+    font-family: 'graphik-medium';
+    text-align: center;
+}
+}
