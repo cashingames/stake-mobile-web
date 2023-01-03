@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import './ChallengeStakingBottomSheet.scss'
 
 function ChallengeStakingBottomSheet({onPress,onStake}) {
-    const navigate = useNavigate()
 
    
   return (
