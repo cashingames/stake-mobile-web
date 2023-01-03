@@ -40,6 +40,7 @@ import LiveTriviaStaking from './features/LiveTrivia/LiveTriviaStaking/LiveTrivi
 import InviteFriends from './features/InviteFriends/InviteFriends';
 import SupportQuestions from './features/Support/SupportQuestions/SupportQuestions';
 import SupportAnswer from './features/Support/SupportQuestions/SupportAnswer';
+import MyChallengeScreen from './features/Games/MyChallengeScreen/MyChallengeScreen';
 
 const AppRouter = () => {
 
@@ -145,6 +146,9 @@ const AppRouter = () => {
             <Route
                 path="/support-answers"
                 element={<AuthRoute redirectTo="/"><SupportAnswer /></AuthRoute>} />
+                            <Route
+                path="/challenges"
+                element={<AuthRoute redirectTo="/"><MyChallengeScreen /></AuthRoute>} />
         </Routes>
     )
 }
