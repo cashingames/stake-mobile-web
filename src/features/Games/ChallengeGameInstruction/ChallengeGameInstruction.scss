@@ -6,12 +6,13 @@
     align-items: center;
     .instructionHeader{
         margin: 0;
-        font-size: 0.9;
+        font-size: 0.8rem;
         font-family: 'graphik-regular';
         color: #4F4F4F;
         text-align: justify;
         line-height: 1.4;
         margin-bottom: 1rem;
+        padding: 0 1rem;
     }
 .cgiInstruction {
     display: flex;
@@ -41,14 +42,14 @@
             background-color: #EF2F55;
             font-family: 'graphik-medium';
             color: #fff;
-            height: 3rem;
             display: flex;
             justify-content: center;
             align-items: center;
             border: none;
             border-radius: 8px;
             font-size: .9rem;
-            padding: .4rem 2rem;
+            padding: .6rem 1.5rem;
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
 .cgiTerms{

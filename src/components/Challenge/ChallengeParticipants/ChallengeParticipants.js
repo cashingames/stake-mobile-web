@@ -3,7 +3,7 @@ import './ChallengeParticipants.scss'
 
 function ChallengeParticipants({player}) {
     return (
-        <div style={{ backgroundImage: "url(/images/challenge-stage.png)" }} className="spImages">
+        <div style={{ backgroundImage: "url(/images/challenge-stage.png)" }} className="cp-images">
            {player.challengerStatus === "COMPLETED" &&
         player.opponentStatus === "COMPLETED" ?
                 <div className='winDetails'>
