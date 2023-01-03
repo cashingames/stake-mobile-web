@@ -304,31 +304,31 @@ export const GameSlice = createSlice({
                 state.challengeLeaders = action.payload;
                 // console.log(state.challengeLeaders)
             })
-            // .addCase(getChallengeDetails.fulfilled, (state, action) => {
-            //     state.challengeDetails = action.payload;
-            //     state.gameMode = {
-            //         name: action.payload.gameModeName,
-            //         id: action.payload.gameModeId,
-            //     };
-            //     state.gameCategory = {
-            //         id: action.payload.categoryId
-            //     };
-            //     state.gameType = {
-            //         id: 2
-            //     }
-            // })
-            // .addCase(startChallengeGame.fulfilled, (state, action) => {
-            //     state.questions = action.payload.data.questions;
-            //     state.displayedQuestion = state.questions[state.currentQuestionPosition]
-            //     state.displayedOptions = state.displayedQuestion.options
-            //     state.gameSessionToken = action.payload.data.game.token
-            //     state.isEnded = false
-            // })
-            // .addCase(challengeEndGame.fulfilled, (state, action) => {
-            //     state.isEnded = true;
-            //     state.pointsGained = action.payload.data.points_gained;
-            //     resetState(state)
-            // })
+            .addCase(getChallengeDetails.fulfilled, (state, action) => {
+                state.challengeDetails = action.payload;
+                state.gameMode = {
+                    name: action.payload.gameModeName,
+                    id: action.payload.gameModeId,
+                };
+                state.gameCategory = {
+                    id: action.payload.categoryId
+                };
+                state.gameType = {
+                    id: 2
+                }
+            })
+            .addCase(startChallengeGame.fulfilled, (state, action) => {
+                state.questions = action.payload.data.questions;
+                state.displayedQuestion = state.questions[state.currentQuestionPosition]
+                state.displayedOptions = state.displayedQuestion.options
+                state.gameSessionToken = action.payload.data.game.token
+                state.isEnded = false
+            })
+            .addCase(challengeEndGame.fulfilled, (state, action) => {
+                state.isEnded = true;
+                state.pointsGained = action.payload.data.points_gained;
+                resetState(state)
+            })
             .addCase(getGameStakes.fulfilled, (state, action) => {
                 state.gameStakes = action.payload.data;
             })

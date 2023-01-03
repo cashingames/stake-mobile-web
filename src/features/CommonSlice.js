@@ -137,6 +137,7 @@ const initialState = {
     userFriends: [],
     userChallenges: [],
     loadMoreChallenges: true,
+    periodBeforeChallengeStakingExpiry: '',
     featureFlags: [],
 }
 

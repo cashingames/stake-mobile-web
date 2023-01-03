@@ -1,33 +1,34 @@
 import React from 'react'
 import './ChallengeParticipants.scss'
 
-function ChallengeParticipants({score}) {
+function ChallengeParticipants({player}) {
     return (
         <div style={{ backgroundImage: "url(/images/challenge-stage.png)" }} className="spImages">
-            {score ?
+           {player.challengerStatus === "COMPLETED" &&
+        player.opponentStatus === "COMPLETED" ?
                 <div className='winDetails'>
                     <div className='wlContainer'>
-                        {score > 10 &&
+                    {player.challengerPoint > player.opponentPoint &&
                             <img src='/images/first-crown.png' alt='crown' className='winLose' />
                         }
-                        <ChallengeDetails name='John' />
+                        <ChallengeDetails challenger={player} />
                     </div>
                     <img src='/images/versus.png' alt='versus' />
                     <div className='wlContainer'>
-                        {score < 10 &&
+                    {player.opponentPoint > player.challengerPoint &&
                             <img src='/images/first-crown.png' alt='crown' className='winLose' />
                         }
-                        <OpponentDetails name='John' />
+                        <OpponentDetails opponent={player}  />
                     </div>
                 </div>
                 :
                 <div className='winDetails'>
                         <div className='wlContainer'>
-                            <ChallengeDetails name='John' />
+                            <ChallengeDetails challenger={player} />
                         </div>
                         <img src='/images/versus.png' alt='versus' />
                         <div className='wlContainer'>
-                            <OpponentDetails name='John' />
+                            <OpponentDetails opponent={player}  />
                         </div>
                     </div>
 
@@ -38,24 +39,28 @@ function ChallengeParticipants({score}) {
 
 export default ChallengeParticipants
 
-const OpponentDetails = ({ name }) => {
+const OpponentDetails = ({ opponent }) => {
     return (
         <div className='opponentAvatarCase'>
             <div className='spAvatar'>
-                <img src='images/user-icon.png' alt='user' onError={(e) => e.target.style.display = 'none'} />
+                <img 
+                src={opponent.opponentAvatar ? opponent.opponentAvatar : "/images/user-icon.png"}
+                alt='user' onError={(e) => e.target.style.display = 'none'} />
             </div>
-            <p className='spUsername'>@{name}</p>
+            <p className='spUsername'>@{opponent.opponentUsername}</p>
         </div>
     )
 }
 
-const ChallengeDetails = ({ name }) => {
+const ChallengeDetails = ({ challenger }) => {
     return (
         <div className='challengerAvatarCase'>
             <div className='spAvatar'>
-                <img src='images/user-icon.png' alt='user' onError={(e) => e.target.style.display = 'none'} />
+                <img 
+                src={challenger.challengerAvatar ? challenger.challengerAvatar : "/images/user-icon.png"}
+                alt='user' onError={(e) => e.target.style.display = 'none'} />
             </div>
-            <p className='spUsername'>@{name}</p>
+            <p className='spUsername'>@{challenger.challengerUsername}</p>
         </div>
     )
 }

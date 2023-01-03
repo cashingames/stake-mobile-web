@@ -1,7 +1,10 @@
 import React from 'react'
+import { useSelector } from 'react-redux';
 import './ChallengeGameInstruction.scss'
 
-function ChallengeGameInstruction({ staking }) {
+function ChallengeGameInstruction({ onClose, staking, finalStakingWinAmount, amountStaked }) {
+    const periodBeforeChallengeStakingExpiry = useSelector(state => state.common.periodBeforeChallengeStakingExpiry);
+
     return (
         <div className='cgiContainer'>
             <p className='instructionHeader'>Ready to start winning? Let’s get started
@@ -27,20 +30,20 @@ function ChallengeGameInstruction({ staking }) {
                     <p className='cgiTerms'>Terms and Condition</p>
                     <div className="cgiInstruction">
                         <p className="unicode">{'\u0031'}.</p>
-                        <p className="instructionText"> If you do not accept this challenge in 6hours, your opponent will be refunded and the challenge will be canceled.</p>
+                        <p className="instructionText"> If you do not accept this challenge in {periodBeforeChallengeStakingExpiry}, your opponent will be refunded and the challenge will be canceled.</p>
                     </div>
                     <div className="cgiInstruction">
                         <p className="unicode">{'\u0032'}.</p>
-                        <p className="instructionText">This challenge is a winner-take-all challenge. The winner of the challenge wins 200 naira</p>
+                        <p className="instructionText">This challenge is a winner-take-all challenge. The winner of the challenge wins {finalStakingWinAmount} naira</p>
                     </div>
                     <div className="cgiInstruction">
                         <p className="unicode">{'\u0033'}.</p>
                         <p className="instructionText">If this challenge ends in a draw, the challenger and
-                            the opponent would be credited individually with the amount staked (200 naira)</p>
+                            the opponent would be credited individually with the amount staked ({amountStaked} naira)</p>
                     </div>
                 </div>
             }
-            <button className='cgiBtn'>ok</button>
+            <button className='cgiBtn' onClick={onClose}>ok</button>
 
         </div>
     )
