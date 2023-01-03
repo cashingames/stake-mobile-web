@@ -221,10 +221,6 @@ const FriendDetails = ({ isSelected, onSelect, userFriend }) => {
         <div className={`${isSelected ? 'fdSelected' : 'friendDetails'}`} onClick={() => onSelect(userFriend)} >
             <div className="friendsLeft">
                 <div className="fdImgCase">
-
-                    <img src="/images/user-icon.png" alt='user' 
-                    onError={(e) => e.target.style.display='none'} /> 
-
                     <img
                         src={userFriend.avatar ? userFriend.avatar : "/images/user-icon.png"}
                         alt='user'

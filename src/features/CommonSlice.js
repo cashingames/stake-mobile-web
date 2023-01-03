@@ -102,6 +102,13 @@ export const searchUserFriends = createAsyncThunk(
         return response.data;
     }
 )
+export const getUserChallenges = createAsyncThunk(
+    'common/getUserChallenges  ',
+    async (data, thunkAPI) => {
+        const response = await axios.get(`v3/user/challenges`)
+        return response.data;
+    }
+)
 
 export const isFeatureEnabled = async (feature, features = {}) => {
 
@@ -128,6 +135,8 @@ const initialState = {
     minimumWalletFundableAmount: '',
     faqAndAnswers: [],
     userFriends: [],
+    userChallenges: [],
+    loadMoreChallenges: true,
     featureFlags: [],
 }
 
@@ -194,6 +203,10 @@ export const CommonSlice = createSlice({
             })
             .addCase(searchUserFriends.fulfilled, (state, action) => {
                 state.userFriends = action.payload
+            })
+            .addCase(getUserChallenges.fulfilled, (state, action) => {
+                state.loadMoreChallenges = action.payload.length >= 10;
+                state.userChallenges = state.userChallenges.concat(action.payload);
             })
             .addCase(fetchFeatureFlags.fulfilled, (state, action) => {
                 state.featureFlags = action.payload.data
