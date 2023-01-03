@@ -54,8 +54,13 @@ function MyChallengeScreen() {
 }
 
 const MyChallenge = ({ item }) => {
+    let navigate = useNavigate();
     const challengeDeclined = item.status === "DECLINED"
     const challengeExpired = item.status === "EXPIRED"
+    const checkScores = () => {
+        navigate('/challenge-score/'+ item.challengeId)
+
+    }
     return (
         <div className='mscCase'>
             <div className='categoryCase'>
@@ -120,7 +125,7 @@ const MyChallenge = ({ item }) => {
                 <p className='versus'>vs</p>
                 <p className='opponent'>{item.opponentUsername}</p>
             </div>
-            <button className='mscBtn' disabled={challengeDeclined || challengeExpired}>
+            <button className='mscBtn' disabled={challengeDeclined || challengeExpired} onClick={checkScores}>
                 {item.status === "DECLINED" ? "Declined" : item.status === "EXPIRED" ? "Expired" : [item.status === "CLOSED" ? "Scores" : "View challenge details"]}
             </button>
         </div>

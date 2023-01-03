@@ -41,6 +41,9 @@ import InviteFriends from './features/InviteFriends/InviteFriends';
 import SupportQuestions from './features/Support/SupportQuestions/SupportQuestions';
 import SupportAnswer from './features/Support/SupportQuestions/SupportAnswer';
 import MyChallengeScreen from './features/Games/MyChallengeScreen/MyChallengeScreen';
+import MyChallengeScore from './features/Games/MyChallengeScore/MyChallengeScore';
+import ChallengeGameInProgress from './features/Games/ChallengeGameInProgress/ChallengeGameInProgress';
+import ChallengeEndGameScreen from './features/Games/ChallengeEndGameScreen/ChallengeEndGameScreen';
 
 const AppRouter = () => {
 
@@ -146,9 +149,18 @@ const AppRouter = () => {
             <Route
                 path="/support-answers"
                 element={<AuthRoute redirectTo="/"><SupportAnswer /></AuthRoute>} />
-                            <Route
+            <Route
                 path="/challenges"
                 element={<AuthRoute redirectTo="/"><MyChallengeScreen /></AuthRoute>} />
+            <Route
+                path="/challenge-score/:id"
+                element={<AuthRoute redirectTo="/"><MyChallengeScore /></AuthRoute>} />
+                  <Route
+                path="/challenge-game"
+                element={<AuthRoute redirectTo="/"><ChallengeGameInProgress /></AuthRoute>} />
+                 <Route
+                path="/challenge-result"
+                element={<AuthRoute redirectTo="/"><ChallengeEndGameScreen /></AuthRoute>} />
         </Routes>
     )
 }

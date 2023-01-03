@@ -130,6 +130,15 @@ export const registerWithSocialLink = createAsyncThunk(
     }
 )
 
+export const getChallengeScores = createAsyncThunk(
+    'auth/getChallengeScores',
+    async (data, thunkAPI) => {
+        const response = await axios.get(`v3/challenge/${data}/leaderboard`);
+        console.log(response)
+        return response.data;
+    }
+)
+
 
 export const deleteUserAccount = createAsyncThunk(
     'auth/deleteUserAccount',
@@ -144,6 +153,7 @@ const initialState = {
     token: "",
     createAccount: null,
     user: {},
+    challengeScores: {},
     passwordReset: {
         // email: 'oyekunmi@gmail.com'
     },
@@ -204,6 +214,9 @@ export const AuthSlice = createSlice({
             })
             .addCase(registerWithSocialLink.fulfilled, (state, action) => {
                 state.token = action.payload.data;
+            })
+            .addCase(getChallengeScores.fulfilled, (state, action) => {
+                state.challengeScores = action.payload;
             })
     }
 });

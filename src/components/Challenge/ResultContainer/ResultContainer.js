@@ -1,16 +1,17 @@
 import React from 'react'
 import './ResultContainer.scss'
 
-function ResultContainer({playerScore, opponentScore, status}) {
+function ResultContainer({playerScore}) {
   return (
     <>
-    {status &&
+     {playerScore.challengerStatus === "COMPLETED" &&
+        playerScore.opponentStatus === "COMPLETED" &&
     <div className='resultsCase'>
         <p className='frText'>The final result is </p>
         <div className='playerResultCase'>
-            <p className='playerScore'>{playerScore}</p>
+            <p className='playerScore'>{playerScore.challengerPoint}</p>
             <p className='colon'>:</p>
-            <p className='opponentScore'>{opponentScore}</p>
+            <p className='opponentScore'>{playerScore.opponentPoint}</p>
         </div>
     </div>
     }
