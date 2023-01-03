@@ -11,7 +11,6 @@ import LoaderScreen from '../../LoaderScreen/LoaderScreen';
 
 
 
-
 const Login = () => {
     const dispatch = useDispatch();
     let navigate = useNavigate();
@@ -22,7 +21,6 @@ const Login = () => {
     const [canLogin, setCanLogin] = useState(true)
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
-
 
 
     useEffect(() => {

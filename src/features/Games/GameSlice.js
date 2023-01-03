@@ -183,13 +183,13 @@ export const GameSlice = createSlice({
             // console.log("here")
             state.gameMode = action.payload;
         },
-        // setSelectedFriend: (state, action) => {
-        //     // console.log("seeting")
-        //     state.selectedFriend = action.payload;
-        // },
-        // unselectFriend: (state) => {
-        //     state.selectedFriend = null;
-        // },
+        setSelectedFriend: (state, action) => {
+            // console.log("seeting")
+            state.selectedFriend = action.payload;
+        },
+        unselectFriend: (state) => {
+            state.selectedFriend = null;
+        },
         setGameDuration: (state, action) => {
             state.gameDuration = action.payload;
         },
