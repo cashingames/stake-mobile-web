@@ -40,7 +40,7 @@ function MyChallengeScore() {
 
 
     const handleNavigation = () => {
-        navigate('/challenges')
+        navigate(-1)
     }
 
     const closeBS = () => {
@@ -114,12 +114,12 @@ function MyChallengeScore() {
     }
 
     //disable browser back button
-    useEffect(() => {
-        window.history.pushState(null, null, window.location.href);
-        window.onpopstate = function () {
-            window.history.go(1);
-        };
-    })
+    // useEffect(() => {
+    //     window.history.pushState(null, null, window.location.href);
+    //     window.onpopstate = function () {
+    //         window.history.go(1);
+    //     };
+    // })
 
     useEffect(() => {
         dispatch(getChallengeDetails(id))
