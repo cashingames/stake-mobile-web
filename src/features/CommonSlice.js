@@ -117,11 +117,11 @@ const initialState = {
     boosts: [],
     plans: [],
     trivias: [],
-    gameModes: [],
-    gameTypes: [],
     gameCategories: [],
     banks: [],
-    globalLeaders: [],
+    gameTypes: [],
+    gameModes: [],
+    gameCategories: [],    
     userNotifications: [],
     userTransactions: [],
     loadMoreTransactions: true,
@@ -136,6 +136,9 @@ const initialState = {
     loadMoreChallenges: true,
     periodBeforeChallengeStakingExpiry: '',
     featureFlags: [],
+    boosts: [],
+    plans: [],
+    faqAndAnswers: [],
 }
 
 export const CommonSlice = createSlice({
