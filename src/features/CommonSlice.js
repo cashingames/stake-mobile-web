@@ -37,7 +37,9 @@ export const withdrawWinnings = async (data) => {
 export const getUserNotifications = createAsyncThunk(
     'common/getUserNotifications',
     async (data, thunkAPI) => {
+        //make a network request to the server
         const response = await axios.get('v3/notifications')
+        // console.log(response.data)
         return response.data;
     }
 )
@@ -45,7 +47,8 @@ export const getUserNotifications = createAsyncThunk(
 export const markNotificationRead = createAsyncThunk(
     'common/markNotificationRead',
     async (data, thunkAPI) => {
-        const response = await axios.post(`v3/notifications/read/${data}`, data)
+        //make a network request to the server
+        const response = await axios.put(`v3/notifications/read/${data}`, data)
         return response.data;
     }
 )
@@ -70,13 +73,40 @@ export const fetchFeatureFlags = createAsyncThunk(
         return response.data;
     }
 )
-
-
 export const getBankData = createAsyncThunk(
     'common/bank/get',
     async () => {
         const response = await axios.get('v2/wallet/banks')
         return response.data
+    }
+)
+export const fetchFaqAndAnswers = createAsyncThunk(
+    'common/faq/get',
+    async () => {
+        const response = await axios.get('v2/faq/fetch');
+        return response.data.data
+    }
+)
+export const fetchUserFriends = createAsyncThunk(
+    'common/fetchUserFriends',
+    async (thunkAPI) => {
+        const response = await axios.get('v3/user/search/friends')
+        return response.data;
+    }
+)
+export const searchUserFriends = createAsyncThunk(
+    'common/searchUserFriends',
+    async (data, thunkAPI) => {
+        const response = await axios.get(`v3/user/search/friends?search=${data}`)
+        console.log(response)
+        return response.data;
+    }
+)
+export const getUserChallenges = createAsyncThunk(
+    'common/getUserChallenges  ',
+    async (data, thunkAPI) => {
+        const response = await axios.get(`v3/user/challenges`)
+        return response.data;
     }
 )
 
@@ -90,9 +120,9 @@ const initialState = {
     boosts: [],
     plans: [],
     trivias: [],
-    banks: [],
-    gameTypes: [],
     gameModes: [],
+    gameTypes: [],
+    gameCategories: [],
     banks: [],
     globalLeaders: [],
     userNotifications: [],
@@ -109,9 +139,6 @@ const initialState = {
     loadMoreChallenges: true,
     periodBeforeChallengeStakingExpiry: '',
     featureFlags: [],
-    boosts: [],
-    plans: [],
-    faqAndAnswers: [],
 }
 
 export const CommonSlice = createSlice({
