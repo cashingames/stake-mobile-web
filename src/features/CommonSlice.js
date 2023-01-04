@@ -117,7 +117,10 @@ const initialState = {
     boosts: [],
     plans: [],
     trivias: [],
+<<<<<<< Updated upstream
     gameCategories: [],
+=======
+>>>>>>> Stashed changes
     banks: [],
     gameTypes: [],
     gameModes: [],
