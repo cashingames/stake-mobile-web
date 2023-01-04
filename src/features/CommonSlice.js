@@ -37,9 +37,7 @@ export const withdrawWinnings = async (data) => {
 export const getUserNotifications = createAsyncThunk(
     'common/getUserNotifications',
     async (data, thunkAPI) => {
-        //make a network request to the server
         const response = await axios.get('v3/notifications')
-        // console.log(response.data)
         return response.data;
     }
 )
@@ -47,8 +45,7 @@ export const getUserNotifications = createAsyncThunk(
 export const markNotificationRead = createAsyncThunk(
     'common/markNotificationRead',
     async (data, thunkAPI) => {
-        //make a network request to the server
-        const response = await axios.put(`v3/notifications/read/${data}`, data)
+        const response = await axios.post(`v3/notifications/read/${data}`, data)
         return response.data;
     }
 )

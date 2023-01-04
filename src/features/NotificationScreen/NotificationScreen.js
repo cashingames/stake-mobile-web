@@ -9,6 +9,7 @@ import Bell from '../../assets/bell.json'
 import './NotificationScreen.scss'
 import { Spinner } from "react-activity";
 import "react-activity/dist/library.css";
+import moment from "moment";
 import ScreenHeader from '../../components/ScreenHeader/ScreenHeader'
 import LoaderScreen from '../LoaderScreen/LoaderScreen'
 import { useNavigate } from 'react-router-dom'
@@ -17,14 +18,18 @@ function NotificationScreen() {
     const notifications = useSelector(state => state.common.userNotifications)
     const [loading, setLoading] = useState(true);
     const dispatch = useDispatch();
+    const [readAll, setReadAll] = useState(false)
     const [clicking, setClicking] = useState(false)
+    const features = useSelector(state => state.common.featureFlags);
+
 
     const navigate = useNavigate()
 
     const markAll = () => {
         setClicking(true)
-        dispatch(markNotificationRead("all")).then(() => {
+        dispatch(markNotificationRead('all')).then(() => {
             setClicking(false)
+            setReadAll(true)
         });
     }
     //disable browser back button
@@ -33,6 +38,12 @@ function NotificationScreen() {
         window.onpopstate = function () {
             window.history.go(1);
         };
+    })
+    useEffect(() => {
+        if (features.length < 1) {
+            navigate('/dashboard')
+        }
+        return
     })
 
     useEffect(() => {
@@ -84,8 +95,9 @@ function NotificationScreen() {
                                     { height: '150px' }
                                 } />
                             {notifications.map((notification, i) => <Notification key={i} notification={notification}
-                            // index={i + 1}
-                            // moment={moment}
+                                // index={i + 1}
+                                moment={moment}
+                                readAll={readAll}
                             />)}
                         </div>
                         :
