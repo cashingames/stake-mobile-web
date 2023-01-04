@@ -70,40 +70,13 @@ export const fetchFeatureFlags = createAsyncThunk(
         return response.data;
     }
 )
+
+
 export const getBankData = createAsyncThunk(
     'common/bank/get',
     async () => {
         const response = await axios.get('v2/wallet/banks')
         return response.data
-    }
-)
-export const fetchFaqAndAnswers = createAsyncThunk(
-    'common/faq/get',
-    async () => {
-        const response = await axios.get('v2/faq/fetch');
-        return response.data.data
-    }
-)
-export const fetchUserFriends = createAsyncThunk(
-    'common/fetchUserFriends',
-    async (thunkAPI) => {
-        const response = await axios.get('v3/user/search/friends')
-        return response.data;
-    }
-)
-export const searchUserFriends = createAsyncThunk(
-    'common/searchUserFriends',
-    async (data, thunkAPI) => {
-        const response = await axios.get(`v3/user/search/friends?search=${data}`)
-        console.log(response)
-        return response.data;
-    }
-)
-export const getUserChallenges = createAsyncThunk(
-    'common/getUserChallenges  ',
-    async (data, thunkAPI) => {
-        const response = await axios.get(`v3/user/challenges`)
-        return response.data;
     }
 )
 
@@ -117,14 +90,11 @@ const initialState = {
     boosts: [],
     plans: [],
     trivias: [],
-<<<<<<< Updated upstream
-    gameCategories: [],
-=======
->>>>>>> Stashed changes
     banks: [],
     gameTypes: [],
     gameModes: [],
-    gameCategories: [],    
+    banks: [],
+    globalLeaders: [],
     userNotifications: [],
     userTransactions: [],
     loadMoreTransactions: true,
