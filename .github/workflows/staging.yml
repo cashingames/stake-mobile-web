@@ -27,7 +27,6 @@ jobs:
       # - name: cypress test
       #   run: |
       #     npm run cypress-test
-
       - name: cd - deploy
         uses: SamKirkland/FTP-Deploy-Action@4.1.0
         with:
