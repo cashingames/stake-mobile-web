@@ -45,6 +45,7 @@ import MyChallengeScore from './features/Games/MyChallengeScore/MyChallengeScore
 import ChallengeGameInProgress from './features/Games/ChallengeGameInProgress/ChallengeGameInProgress';
 import ChallengeEndGameScreen from './features/Games/ChallengeEndGameScreen/ChallengeEndGameScreen';
 import ChallengeStaking from './features/Games/ChallengeStaking/ChallengeStaking';
+import WeeklyLeaderboard from './features/Leaderboard/WeeklyLeaderboards/WeeklyLeaderboards';
 
 const AppRouter = () => {
 
@@ -165,6 +166,9 @@ const AppRouter = () => {
             <Route
                 path="/challenge-staking"
                 element={<AuthRoute redirectTo="/"><ChallengeStaking /></AuthRoute>} />
+             <Route
+                path="/weekly-leaders"
+                element={<AuthRoute redirectTo="/"><WeeklyLeaderboard /></AuthRoute>} />
         </Routes>
     )
 }

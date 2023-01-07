@@ -1,0 +1,202 @@
+.weeklyLeaders-header {
+    background-color: #701F88;
+
+    p {
+        color: #fff;
+    }
+
+    .icon {
+        color: #fff;
+    }
+}
+
+.weeklyLeader-containter {
+    background-image: linear-gradient(#701F88, #752A00);
+    min-height: 100vh;
+    padding: 1rem 1.5rem;
+}
+
+
+
+/*======Weekly global leaders =======*/
+.rank-linear {
+    background-image: linear-gradient(#F5870F, #770D0F);
+    border-radius: 18px;
+    padding: 0.4rem 0.7rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+
+    .rank-text {
+        margin: 0;
+        font-family: 'graphik-medium';
+        font-size: 0.75rem;
+        color: #FFF;
+    }
+    .position-point{
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        .user-point{
+            margin: 0;
+            font-size: 0.6rem;
+            font-family: 'graphik-medium';
+            color: #fff;
+        }
+        .user-rank-case{
+            width: 2.2rem;
+            height: 2.2rem;
+            border-radius: 50%;
+            background-color: #752A00;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .user-rank-text{
+                margin: 0;
+                font-size: 0.6rem;
+            font-family: 'graphik-medium';
+            color: #fff;
+            }
+        }
+    }
+}
+
+
+
+
+/*========weekly top leaders =======*/
+.weeklyTopLeaders-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin: 2rem 0;
+
+    .avatar {
+        width: 120px;
+        height: 120px;
+        background-color: #fff;
+        border-radius: 50%;
+        border: 2px solid #FFD700;
+    }
+
+    .first-position {
+        background-color: #FFD700;
+        width: 0.8rem;
+        height: 0.8rem;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        bottom: -8px;
+
+        .weeklyLeaders-position {
+            text-align: center;
+            font-size: 0.6rem;
+            font-family: 'graphik-bold';
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    .second-avatar {
+        width: 70px;
+        height: 70px;
+        background-color: #fff;
+        border-radius: 50%;
+        border: 2px solid #2D9CDB;
+    }
+
+    .second-position {
+        background-color: #2D9CDB;
+        width: 0.8rem;
+        height: 0.8rem;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        bottom: -8px;
+
+        .weeklyLeaders-position {
+            text-align: center;
+            font-size: 0.6rem;
+            font-family: 'graphik-bold';
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    .third-avatar {
+        width: 70px;
+        height: 70px;
+        background-color: #fff;
+        border-radius: 50%;
+        border: 2px solid #9C3DB8;
+    }
+
+    .third-position {
+        background-color: #9C3DB8;
+        width: 0.8rem;
+        height: 0.8rem;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        bottom: -8px;
+
+        .weeklyLeaders-position {
+            text-align: center;
+            font-size: 0.6rem;
+            font-family: 'graphik-bold';
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+}
+
+
+
+
+
+/*weekly leader */
+.weekly-winners {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .avatar-container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 0.7rem;
+    }
+
+    .leader-name {
+        margin: 0;
+        font-size: 0.7rem;
+        font-family: 'graphik-medium';
+        color: #fff;
+        text-align: center;
+        width: 5rem;
+    }
+
+    .point {
+        margin: 0;
+        font-size: 0.6rem;
+        font-family: 'graphik-medium';
+        color: #fff;
+        text-align: center;
+    }
+}

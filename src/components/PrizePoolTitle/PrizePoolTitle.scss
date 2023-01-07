@@ -1,0 +1,79 @@
+.prize-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.2rem;
+    .prize-text{
+        margin: 0;
+        font-family: 'graphik-medium';
+        font-size: 0.55rem;
+        color: #fff;
+    }
+}
+
+
+/*Modal screen*/
+.modal-container{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 100;
+    
+    .modal{
+        background-color: #66142E;
+        border-radius: 20px;
+        padding: 1.2rem 2rem;
+        display: flex;
+        flex-direction: column;
+        .closeModal-btn{
+            margin: 0;
+            text-align: right;
+            width: 100%;
+            color: #fff;
+            font-family: 'graphik-medium';
+            font-size: 0.6rem;
+            margin-bottom: 1rem;
+        }
+        .modal-title{
+            margin: 0;
+            font-family: 'graphik-medium';
+            font-size: 1rem;
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+        .modal-text-contentents{
+            margin-top: 1.5rem;
+            .modal-text-winner{
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 1rem;
+                .winner-text{
+                    margin: 0;
+                    font-family: 'graphik-bold', sans-serif;
+                    font-weight: 550;
+                    font-size: 0.7rem;
+                    color: #fff;
+                }
+            }
+            .modal-text-others{
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 0.5rem;
+                .other-text{
+                    margin: 0;
+                    font-family: 'graphik-medium', sans-serif;
+                    font-weight: 500;
+                    font-size: 0.7rem;
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
