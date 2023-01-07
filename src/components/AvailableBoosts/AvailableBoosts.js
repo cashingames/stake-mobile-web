@@ -45,7 +45,6 @@ const AvailableBoosts = ({ onClose,
                 }))
                     .then(unwrapResult)
                     .catch((e) => {
-                        // console.log('Failed to log to server');
                     });
                 setLoading(false);
                 onClose();

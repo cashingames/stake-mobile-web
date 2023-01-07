@@ -29,14 +29,11 @@ function LiveTriviaLeaderboard() {
 
 
     useEffect(() => {
-        console.log(id)
         axios(`v3/live-trivia/${id}/leaderboard`)
             .then(response => {
                 setLeaders(response.data)
-                console.log(response.data)
             })
             .catch(error => {
-                console.log("error fetching data:", error)
                 setError(error)
             })
             .finally(() => {

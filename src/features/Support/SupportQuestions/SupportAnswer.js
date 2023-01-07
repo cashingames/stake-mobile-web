@@ -5,7 +5,6 @@ import './SupportAnswers.scss'
 
 export default function SupportAnswer() {
     const location = useLocation();
-    console.log(location)
     const navigate = useNavigate();
 
     // //disable browser back button

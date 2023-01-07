@@ -23,9 +23,7 @@ const shuffleArray = array => {
 export const startGame = createAsyncThunk(
     'game/startGame',
     async (data, thunkAPI) => {
-        // console.log(data)
         const response = await axios.post('v2/game/start/single-player', data)
-        // console.log(data.staking_amount)
         return response.data
     }
 )
@@ -52,12 +50,10 @@ export const endGame = createAsyncThunk(
     async (data, thunkAPI) => {
         //log if question_count exist more than once in the array
         data.chosenOptions.forEach(x => {
-            // console.log("loggind submitted question id", x.question_id);
         });
 
         //make a network request to the server
         const response = await axios.post('v2/game/end/single-player', data)
-        console.log(response)
         return response.data;
     }
 )
@@ -74,7 +70,6 @@ export const challengeTopLeaders = createAsyncThunk(
     async (data, sthunkAPI) => {
         //make a network request to the server
         const response = await axios.post('v3/challenge/leaders/global');
-        // console.log(response.data, 'this is response')
         return response.data;
     }
 )
@@ -111,7 +106,6 @@ export const getGameStakes = createAsyncThunk(
     async (data, thunkAPI) => {
         //make a network request to the server
         const response = await axios.get('v3/odds/standard', data)
-        // console.log(response.data)
         return response.data;
     }
 )
@@ -121,7 +115,6 @@ export const canStake = createAsyncThunk(
     async (data, thunkAPI) => {
         //make a network request to the server
         const response = await axios.post('v3/game/can-stake-in-game', data)
-        // console.log(response.data)
         return response.data;
     }
 )
@@ -176,15 +169,12 @@ export const GameSlice = createSlice({
             state.gameCategory = null;
         },
         setGameCategory: (state, action) => {
-            // console.log("seeting")
             state.gameCategory = action.payload;
         },
         setGameMode: (state, action) => {
-            // console.log("here")
             state.gameMode = action.payload;
         },
         setSelectedFriend: (state, action) => {
-            // console.log("seeting")
             state.selectedFriend = action.payload;
         },
         unselectFriend: (state) => {
@@ -302,7 +292,6 @@ export const GameSlice = createSlice({
             })
             .addCase(challengeTopLeaders.fulfilled, (state, action) => {
                 state.challengeLeaders = action.payload;
-                // console.log(state.challengeLeaders)
             })
             .addCase(getChallengeDetails.fulfilled, (state, action) => {
                 state.challengeDetails = action.payload;
@@ -333,7 +322,6 @@ export const GameSlice = createSlice({
                 state.gameStakes = action.payload.data;
             })
             .addCase(canStake.rejected, (state, payload) => {
-                console.log(state, payload)
             })
 
     },

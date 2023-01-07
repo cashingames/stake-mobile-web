@@ -29,20 +29,17 @@ const Login = () => {
     }, [email, password])
 
     const onLogin = () => {
-        // console.log('trying')
         setLoading(true);
         setCanLogin(false);
         setError("");
         loginUser({
             email, password
         }).then(response => {
-            // console.log(response, 'i am logging in')
             saveToken(response.data.data)
             dispatch(setToken(response.data.data))
             // navigate('/dashboard')
 
         }, err => {
-            // console.log('it failed')
             if (!err || !err.response || err.response === undefined) {
                 setError("Your Network is Offline.");
             }
@@ -62,7 +59,6 @@ const Login = () => {
                 }
 
                 const firstError = Array.isArray(errors) ? Object.values(errors, {})[0][0] : errors;
-                // console.log(firstError)
                 setError(firstError)
             }
             setLoading(false);

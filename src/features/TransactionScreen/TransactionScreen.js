@@ -12,7 +12,6 @@ function TransactionScreen() {
     const [loading, setLoading] = useState(true);
     // const [loadingMore, setLoadingMore] = useState(false);
     const transactions = useSelector(state => state.common.userTransactions);
-    console.log(transactions)
     // const [pageNumber, setPageNumber] = useState();
 
     // const loadMoreTransactions = useSelector(state => state.common.loadMoreTransactions);
@@ -38,7 +37,6 @@ function TransactionScreen() {
         // setLoadingMore(true)
         dispatch(fetchUserTransactions())
             .then(() => {
-                // console.log("fetching page ", pageNumber)
                 setLoading(false);
                 // setLoadingMore(false)
             })
@@ -49,7 +47,6 @@ function TransactionScreen() {
     }
 
     // const loadMoreItems = () => {
-    //   console.log("loading more")
     //   if (!loadMoreTransactions)
     //       return;
     //   //check if length of transactions has changed

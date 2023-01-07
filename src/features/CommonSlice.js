@@ -5,9 +5,7 @@ import axios from 'axios';
 export const getCommonData = createAsyncThunk(
     'common/get',
     async () => {
-        // console.log("fetching common data");
         const response = await axios.get('v3/game/common');
-        // console.log(response);
         return response.data
     }
 )
@@ -16,7 +14,6 @@ export const fetchRecentLiveTrivia = createAsyncThunk(
     'common/fetchRecentLiveTrivia',
     async (data, thunkAPI) => {
         const response = await axios.get(`v3/live-trivia/recent?page=${data}`)
-        // console.log(response)
         return response.data;
     }
 )
@@ -24,9 +21,14 @@ export const fetchRecentLiveTrivia = createAsyncThunk(
 export const getGlobalLeaders = createAsyncThunk(
     'common/globalLeaders/get',
     async () => {
-        // console.log("getting global leaders")
         const response = await axios.post('v2/leaders/global');
-        // console.log(response)
+        return response.data
+    }
+)
+export const getWeeklyLeadersByDate = createAsyncThunk(
+    'common/getWeeklyLeadersByDate/get',
+    async (data) => {
+        const response = await axios.post('v3/leaders/global', data);
         return response.data
     }
 )
@@ -39,7 +41,6 @@ export const getUserNotifications = createAsyncThunk(
     async (data, thunkAPI) => {
         //make a network request to the server
         const response = await axios.get('v3/notifications')
-        // console.log(response.data)
         return response.data;
     }
 )
@@ -97,7 +98,6 @@ export const searchUserFriends = createAsyncThunk(
     'common/searchUserFriends',
     async (data, thunkAPI) => {
         const response = await axios.get(`v3/user/search/friends?search=${data}`)
-        console.log(response)
         return response.data;
     }
 )
@@ -124,6 +124,10 @@ const initialState = {
     gameCategories: [],
     banks: [],
     globalLeaders: [],
+    weeklyLeaderboard: {
+        leaderboard: [],
+        userRank: {}
+    },
     userNotifications: [],
     userTransactions: [],
     loadMoreTransactions: true,
@@ -186,7 +190,12 @@ export const CommonSlice = createSlice({
             })
             .addCase(getGlobalLeaders.fulfilled, (state, action) => {
                 state.globalLeaders = action.payload.data
-                // console.log(state.globalLeaders)
+            })
+            .addCase(getWeeklyLeadersByDate.fulfilled, (state, action) => {
+                state.weeklyLeaderboard = {
+                    leaderboard:  action.payload.data.leaderboard,
+                    userRank: action.payload.data.userRank,
+                }
             })
             .addCase(getUserNotifications.fulfilled, (state, action) => {
                 state.userNotifications = action.payload.data.data;

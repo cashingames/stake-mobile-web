@@ -11,7 +11,6 @@ import ResendOtp from "../../../components/ResendOtp/ResendOtp";
 const VerifyRegistrationOtp = () => {
     const dispatch = useDispatch();
     const location = useLocation();
-    // console.log(location)
     let navigate = useNavigate();
     const [otpValues, setOtpValues] = useState(new Array(5).fill(''))
     const [counter, setCounter] = useState('');
@@ -60,7 +59,6 @@ const VerifyRegistrationOtp = () => {
     },[otpToken])
 
     const resendButton = () => {
-        // console.log('otp resent')
         dispatch(ResendPhoneOtp({
             username: location.state.username
         }))
@@ -73,18 +71,15 @@ const VerifyRegistrationOtp = () => {
             phone_number: location.state.phone_number,
             token: otpToken
         }))
-            // console.log("token phone", token)
 
             .then(unwrapResult)
             .then(response => {
-                // console.log("phone verification response", response.data);
                 saveToken(response.data)
                 dispatch(setToken(response.data))
                 setLoading(false);
                 navigate('/dashboard')
             })
             .catch((rejectedValueOrSerializedError) => {
-                // console.log(rejectedValueOrSerializedError)
                 alert("Failed to log in, please input the correct code");
                 setLoading(false);
             })

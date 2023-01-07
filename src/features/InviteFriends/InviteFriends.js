@@ -103,9 +103,7 @@ const InviteLink = () => {
             }).catch(err => {
 
                 // Handle errors, if occured
-                console.log(
-                    "Error while using Web share API:");
-                console.log(err);
+       
             });
         } else {
             setOpen(true)
@@ -122,7 +120,6 @@ const InviteLink = () => {
                 setAlert('Copied to clipboard')
             })
             .catch((err) => {
-                console.log(err);
             });
     }
     return (

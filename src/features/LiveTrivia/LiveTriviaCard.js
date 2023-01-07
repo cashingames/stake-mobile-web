@@ -87,7 +87,6 @@ function LiveTriviaCard({ trivia }) {
     }))
       .then(unwrapResult)
       .then(result => {
-        console.log('paid')
         navigate('/live-trivia-instructions', {state: {...trivia}})
         setLoading(false);
       })

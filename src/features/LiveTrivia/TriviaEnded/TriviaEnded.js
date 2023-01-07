@@ -36,10 +36,8 @@ function TriviaEnded() {
         ))
             .then(unwrapResult)
             .then((originalPromiseResult) => {
-                // console.log('fetched')
             })
             .catch((rejectedValueOrSerializedError) => {
-                // console.log(rejectedValueOrSerializedError)
             })
         // eslint-disable-next-line
     }, []);

@@ -67,7 +67,6 @@ const Signup = () => {
     }, [emailError, phoneErr, countryCodeErr, passwordError, password_confirmation, password, email, phone, countryCode, checked])
 
     const onNext = () => {
-        // console.log('saving')
         setLoading(true);
         //save this information in store
         dispatch(saveCreatedUserCredentials({ email, password, password_confirmation: password, phone_number: phone, country_code: countryCode }))

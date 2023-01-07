@@ -38,7 +38,6 @@ const ForgotPassword = () => {
         dispatch(verifyAccount({email})).then(unwrapResult).then((originalPromiseResult) => {
             setLoading(false);
             setCanSend(true);
-            // console.log(originalPromiseResult);
             navigate('/verify-otp', {
                 state: {
                     email: email
@@ -47,7 +46,6 @@ const ForgotPassword = () => {
         }).catch((rejectedValueOrSerializedError) => {
             setLoading(false);
             setCanSend(true);
-            // console.log(rejectedValueOrSerializedError)
             setError("Please Use Registered Email Address");
         })
 
