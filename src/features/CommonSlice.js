@@ -30,6 +30,13 @@ export const getGlobalLeaders = createAsyncThunk(
         return response.data
     }
 )
+export const getWeeklyLeadersByDate = createAsyncThunk(
+    'common/getWeeklyLeadersByDate/get',
+    async (data) => {
+        const response = await axios.post('v3/leaders/global', data);
+        return response.data
+    }
+)
 export const withdrawWinnings = async (data) => {
     return axios.post('v3/winnings/withdraw', data);
 
@@ -124,6 +131,10 @@ const initialState = {
     gameCategories: [],
     banks: [],
     globalLeaders: [],
+    weeklyLeaderboard: {
+        leaderboard: [],
+        userRank: {}
+    },
     userNotifications: [],
     userTransactions: [],
     loadMoreTransactions: true,
@@ -187,6 +198,12 @@ export const CommonSlice = createSlice({
             .addCase(getGlobalLeaders.fulfilled, (state, action) => {
                 state.globalLeaders = action.payload.data
                 // console.log(state.globalLeaders)
+            })
+            .addCase(getWeeklyLeadersByDate.fulfilled, (state, action) => {
+                state.weeklyLeaderboard = {
+                    leaderboard:  action.payload.data.leaderboard,
+                    userRank: action.payload.data.userRank,
+                }
             })
             .addCase(getUserNotifications.fulfilled, (state, action) => {
                 state.userNotifications = action.payload.data.data;
