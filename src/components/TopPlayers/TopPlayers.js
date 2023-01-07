@@ -15,13 +15,12 @@ function TopPlayers({ leaders }) {
         <>
             <div className='topPlayerContainer'>
                 <div className='wrapper'>
-                    <p className='topPlayer'>Top Players</p>
-                    {/* <div className='extended'>
-                        <p className='extendedText'>Extended leaderboard</p>
-                        <IoArrowForward className='icon' />
-                    </div> */}
+                    <p className='topPlayer'>Daily Top Players</p>
+                    <p className='viewMore-text'>View More</p>
                 </div>
-                <div className='leaderBoard'>
+                <div className='leaderboard-cover'>
+                    <p className='view-text'>click to view more</p>
+                    <div  className='leaderBoard'>
                     <TopLeader
                         podPosition='/images/position3.png'
                         name={`${thirdLeader.username}`}
@@ -38,6 +37,7 @@ function TopPlayers({ leaders }) {
                         name={`${secondLeader.username}`}
                         point={`${formatNumber(secondLeader.points ? `${secondLeader.points}` : 0)} pts`}
                         avatar={secondLeader.avatar} />
+                </div>
                 </div>
             </div>
         </>

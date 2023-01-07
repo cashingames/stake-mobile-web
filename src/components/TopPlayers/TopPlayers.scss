@@ -1,97 +1,101 @@
 .topPlayerContainer {
-    padding: 0 1.5rem;
     margin: 2rem 0;
     font-family: 'Graphik', sans-serif;
+    width: 100%;
+
 
     .wrapper {
         display: flex;
         align-items: center;
         width: 100%;
         justify-content: space-between;
-        margin-bottom: .5rem;
+
+
+        .viewMore-text {
+            margin: 0;
+            margin-bottom: 0.2rem;
+            font-size: 0.7rem;
+            font-family: 'graphik-medium';
+            color: #EF2F55;
+        }
 
         .topPlayer {
             margin: 0;
-            font-size: 1rem;
-            line-height: 1.3rem;
+            font-size: 0.8rem;
             font-family: 'graphik-bold';
-        }
-
-        .extended {
-            display: flex;
-            align-items: center;
-            font-size: 0.7rem;
-            margin: 0;
-            gap: 2px;
-            color: #EF2F55;
-
-            .extendedText {
-                font-size: 0.7rem;
-                font-family: 'graphik-medium';
-                margin: 0;
-                color: #EF2F55
-            }
-
-            .icon {
-                font-size: 1.3rem;
-                margin-bottom: 5px;
-            }
+            margin-left: 0.5rem;
+            margin-bottom: 0.2rem;
         }
     }
 
-    .leaderBoard {
-        display: flex;
-        width: 100%;
-        justify-content: space-around;
-        align-items: flex-end;
+    .leaderboard-cover {
         background: #FAC502;
-        border-top-left-radius: 8px;
-        border-top-right-radius: 8px;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
         padding: 1rem 1rem 0 1rem;
-        gap: 0.5rem;
 
-        .positionContainer {
+        .view-text {
+            margin: 0;
+            color: #fff;
+            text-align: right;
+            font-family: 'graphik-regular';
+            font-size: 0.6rem;
+        }
+
+        .leaderBoard {
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            position: relative;
+            width: 100%;
+            justify-content: space-around;
+            align-items: flex-end;
+            gap: 0.5rem;
+            padding-top: 1.5rem;
 
-            .avatarCase{
-                width: 2.5rem;
-                height: 2.5rem;
-                border-radius: 50%;
-                background-color: #ffff;
-            .avatar {
-                width: 100%;
-                height: 100%;
-                border-radius: 50%;
-                object-fit: cover;
-            }
-        }
-        .leaderBoardImg{
-            max-width: 100px;
-        }
-            .leaderName {
-                font-size: .7rem;
-                font-family: 'graphik-medium';
-                margin: 3px;
-                color: rgba(0, 0, 0, 0.6980392157);
-            }
-
-            .leaderPoint {
+            .positionContainer {
                 display: flex;
+                flex-direction: column;
                 align-items: center;
-                position: absolute;
-                background-color: #828282;
-                bottom: 8px;
-                padding: 0.1rem 0.3rem;
-                border-radius: 0.4rem;
+                position: relative;
 
-                .point {
-                    font-size: 0.55rem;
-                    margin: 0;
-                    color: #fff;
-                    font-family: 'graphik-regular';
+                .avatarCase {
+                    width: 2.5rem;
+                    height: 2.5rem;
+                    border-radius: 50%;
+                    background-color: #ffff;
+
+                    .avatar {
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 50%;
+                        object-fit: cover;
+                    }
+                }
+
+                .leaderBoardImg {
+                    max-width: 100px;
+                }
+
+                .leaderName {
+                    font-size: .7rem;
+                    font-family: 'graphik-medium';
+                    margin: 3px;
+                    color: rgba(0, 0, 0, 0.6980392157);
+                }
+
+                .leaderPoint {
+                    display: flex;
+                    align-items: center;
+                    position: absolute;
+                    background-color: #828282;
+                    bottom: 8px;
+                    padding: 0.1rem 0.3rem;
+                    border-radius: 0.4rem;
+
+                    .point {
+                        font-size: 0.55rem;
+                        margin: 0;
+                        color: #fff;
+                        font-family: 'graphik-regular';
+                    }
                 }
             }
         }
