@@ -5,7 +5,7 @@ import './AuthTitle.scss'
 
 const AuthTitle = ({titleText, styleProp}) => {
     return (
-        <h1 className={`authHeader ${styleProp}`}>{titleText}</h1>
+        <p className={`authHeader ${styleProp}`}>{titleText}</p>
     )
 }
 export default AuthTitle
