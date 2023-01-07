@@ -8,6 +8,8 @@ import TopPlayers from '../components/TopPlayers/TopPlayers'
 import { getUser } from './Auth/AuthSlice'
 import { fetchFeatureFlags, getCommonData, getGlobalLeaders } from '../features/CommonSlice'
 import { challengeTopLeaders } from './Games/GameSlice'
+import './dashboard.scss'
+import MonthlyLeaderBoard from '../components/MonthlyLeaderBoard/MonthlyLeaderBoard'
 
 
 function DashBoardScreen() {
@@ -41,8 +43,11 @@ function DashBoardScreen() {
       <AppHeader heading='Home' style={{ color: '#000000' }} />
       <HeroBanner user={user} trivia={trivia} />
       <SelectGame gameModes={gameModes} />
-      <TopChallengers challengeLeaders={challengeLeaders} />
+      <div className='leaderBoard-containers'>
+      <MonthlyLeaderBoard />
       <TopPlayers leaders={leaders} />
+      <TopChallengers challengeLeaders={challengeLeaders} />
+      </div>
     </div>
   )
 }

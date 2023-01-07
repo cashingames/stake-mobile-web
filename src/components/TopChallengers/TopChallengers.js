@@ -13,7 +13,9 @@ function TopChallengers({ challengeLeaders }) {
     return (
         <div className='topChallengers'>
             <p className='topChallengeTitle'>Top Challengers</p>
-            <div className='topChallengerContainer'>
+            <div className='topChallenge-cover'>
+            <p className='view-text'>click to view more</p>
+                <div className='topChallengerContainer'>
                 <TopWeeklyChallenger
                     trophyImageUrl='/images/third-crown.png'
                     stageImageUrl="/images/third-stage.png"
@@ -39,6 +41,7 @@ function TopChallengers({ challengeLeaders }) {
                     styleProp='others'
                     avatarProp='otherAvatar'
                 />
+                </div>
             </div>
         </div>
     )

@@ -8,34 +8,46 @@
 
 .topChallengers {
     padding: 0 1.5rem;
-    margin: 2rem 0;
     font-family: 'Graphik', sans-serif;
+    width: 100%;
 
     .topChallengeTitle {
-        font-size: 1rem;
-        font-family: 'graphik-medium';
-        margin-bottom: 10px;
+        margin: 0;
+        font-size: .8rem;
+        font-family: 'graphik-bold';
+        margin-left: 0.5rem;
+        margin-bottom: 0.2rem;
     }
 
-    .topChallengerContainer {
+    .topChallenge-cover{
         background-color: #701F88;
+        border-radius: 15px;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        padding: 1rem 1rem 0 1rem;
+        width: 100%;
+        .view-text{
+            margin: 0;
+            color: #fff;
+            text-align: right;
+            font-family: 'graphik-regular';
+            font-size: 0.6rem;
+        }
+    .topChallengerContainer {
         display: flex;
         justify-content: space-around;
         align-items: flex-end;
-        border-radius: 15px;
-        padding: .5rem 2rem;
-        width: 100%;
 
         .others {
             display: flex;
             flex-direction: column;
             align-items: center;
             position: absolute;
-            top: -3.5rem;
+            top: -4.5rem;
 
             .otherAvatar {
-                width: 2.5rem;
-                height: 2.5rem;
+                width: 2rem;
+                height: 2rem;
                 background-color: #ffff;
                 border-radius: 50%;
             }
@@ -47,8 +59,8 @@
             align-items: center;
 
             .avatar {
-                width: 4rem;
-                height: 4rem;
+                width: 3rem;
+                height: 3rem;
                 border-radius: 50%;
                 background-color: #ffff;
 
@@ -96,4 +108,5 @@
             }
         }
     }
+}
 }
