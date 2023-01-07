@@ -9,7 +9,6 @@ import { useNavigate } from 'react-router-dom';
 function SelectGame({ gameModes }) {
   let navigate = useNavigate();
   const dispatch = useDispatch();
-  // console.log(currentMode)
 
 
   const onSelectGameMode = (mode) => {

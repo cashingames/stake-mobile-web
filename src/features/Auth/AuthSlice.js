@@ -3,7 +3,6 @@ import axios from 'axios';
 
 export const saveToken = (data) => {
     window.localStorage.setItem("token", data);
-    // console.log(data, 'i have saved')
     window.localStorage.setItem("used", "token")
 }
 
@@ -20,11 +19,9 @@ export const logoutUser = createAsyncThunk(
 )
 
 export const registerUser = async (data) => {
-    // console.log('registering', data)
     return axios.post(`auth/register`, data);
 }
 export const loginUser = async (data) => {
-    // console.log('lets log this')
     return axios.post(`auth/login`, data);
 }
 export const ResendPhoneOtp = createAsyncThunk(
@@ -32,7 +29,6 @@ export const ResendPhoneOtp = createAsyncThunk(
     async (data, thunkAPI) => {
         //make a network request to the server
         const response = await axios.post(`auth/register/token/resend`, data);
-        // console.log('gotten phone token', response)
         return response.data;
     }
 )
@@ -42,7 +38,6 @@ export const verifyPhoneOtp = createAsyncThunk(
     async (data, thunkAPI) => {
         //make a network request to the server
         const response = await axios.post(`auth/register/verify-token`, data);
-        // console.log('gotten phone token',response)
         return response.data;
     }
 )
@@ -93,7 +88,6 @@ export const editProfileAvatar = createAsyncThunk(
             }
         }
         const response = await axios.post('v2/profile/me/picture', data, config).catch(e => {
-            // console.log(e);
         });
         return response.data
     }
@@ -110,7 +104,6 @@ export const getUser = createAsyncThunk(
     'auth/user/get',
     async (thunkAPI) => {
         const response = await axios.get(`v3/user/profile`);
-        // console.log(response, 'this is user')
         return response.data
     }
 )
@@ -134,7 +127,6 @@ export const getChallengeScores = createAsyncThunk(
     'auth/getChallengeScores',
     async (data, thunkAPI) => {
         const response = await axios.get(`v3/challenge/${data}/leaderboard`);
-        console.log(response)
         return response.data;
     }
 )
@@ -165,12 +157,10 @@ export const AuthSlice = createSlice({
     reducers: {
         setToken: (state, action) => {
             state.token = action.payload;
-            // console.log(action.payload)
         },
         saveCreatedUserCredentials: (state, action) => {
             state.createAccount = action.payload
-            // console.log('details saved')
-            // console.log(action.payload)
+    
 
         },
         setUser: (state, action) => {

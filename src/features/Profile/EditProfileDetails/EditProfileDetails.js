@@ -13,7 +13,6 @@ const EditProfileDetails = () => {
     const dispatch = useDispatch();
     let navigate = useNavigate();
     const user = useSelector(state => state.auth.user);
-    // console.log(user)
 
     const [email] = useState(user.email)
 

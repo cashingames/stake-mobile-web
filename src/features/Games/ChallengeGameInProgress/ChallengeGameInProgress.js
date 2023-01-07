@@ -29,7 +29,6 @@ function ChallengeGameInProgress() {
 
         if (ending) {
             //doe not delete
-            // console.log("Trying to end second time. If this happens, please notify Oye")
             return;
         }
 
@@ -56,7 +55,6 @@ function ChallengeGameInProgress() {
             })
             .catch((rejectedValueOrSerializedError) => {
                 setEnding(false);
-                // console.log(rejectedValueOrSerializedError);
                 alert('failed to end game')
             });
     }

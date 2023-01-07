@@ -45,7 +45,6 @@ const ResetPassword = () => {
                 navigate('/');
             })
             .catch((rejectedValueOrSerializedError) => {
-                console.log(rejectedValueOrSerializedError)
                 setError("Password reset failed, try again");
                 setLoading(false);
             })

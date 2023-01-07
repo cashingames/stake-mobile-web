@@ -30,6 +30,7 @@ function MonthlyLeaderBoard() {
             startDate,
             endDate
         }));
+        // eslint-disable-next-line
     }, [])
 
     const openModal = () => {

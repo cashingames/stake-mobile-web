@@ -128,14 +128,11 @@ function MyChallengeScore() {
     }, [dispatch])
 
     useEffect(() => {
-        console.log(id)
         axios(`v3/challenge/${id}/leaderboard`)
             .then(response => {
                 setScore(response.data)
-                // console.log(response.data)
             })
             .catch(error => {
-                console.log("error fetching data:", error)
                 setError(error)
             })
             .finally(() => {

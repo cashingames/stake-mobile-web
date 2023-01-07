@@ -56,7 +56,6 @@ const GoogleSignup = ({ buttonText }) => {
 
 
     const registerUserWithGoogle = () => {
-        console.log('here')
         setSaving(true);
         dispatch(registerWithSocialLink({
             email,
@@ -67,7 +66,6 @@ const GoogleSignup = ({ buttonText }) => {
             referrer
         })).then(unwrapResult)
             .then((originalPromiseResult) => {
-                console.log(originalPromiseResult, 'hitting');
                 saveToken(originalPromiseResult.data.token)
                 // dispatch(setToken(originalPromiseResult.data.token))
                 closeBottomSheet()
@@ -77,7 +75,6 @@ const GoogleSignup = ({ buttonText }) => {
     }
 
     const googleLoginSuccess = (e) => {
-        console.log(e)
         setloading(true)
         dispatch(loginWithSocialLink(
             {
@@ -87,7 +84,6 @@ const GoogleSignup = ({ buttonText }) => {
             }
         )).then(unwrapResult)
             .then((originalPromiseResult) => {
-                console.log(originalPromiseResult)
                 if (originalPromiseResult.data.isFirstTime) {
                     setEmail(originalPromiseResult.data.email)
                     setFirstName(originalPromiseResult.data.firstName)
@@ -97,18 +93,15 @@ const GoogleSignup = ({ buttonText }) => {
                     return
                 }
 
-                console.log(originalPromiseResult);
                 saveToken(originalPromiseResult.data.token)
                 dispatch(setToken(originalPromiseResult.data.token))
                 setloading(false)
             })
             .catch((rejectedValueOrSerializedError) => {
-                // console.log(rejectedValueOrSerializedError)
             })
     };
 
     const googleLoginFailed = (e) => {
-        console.log(e)
     }
 
     return (

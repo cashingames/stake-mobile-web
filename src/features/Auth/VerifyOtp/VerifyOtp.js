@@ -22,7 +22,6 @@ const VerifyOtp = () => {
     const location = useLocation()
     const token = otpValues.join('')
 
-    // console.log(location)
 
 
     
@@ -34,7 +33,6 @@ const VerifyOtp = () => {
         }
         let nextResendMinutes = 2;
 
-        console.log(nextResendMinutes)
         const futureDateStamp = new Date()
         futureDateStamp.setMinutes(futureDateStamp.getMinutes() + nextResendMinutes)
 
@@ -65,14 +63,12 @@ const VerifyOtp = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(token)
         setCanSubmit(false);
         setError('')
         dispatch(setUserPasswordResetToken(token));
         dispatch(verifyOtp({ token })).then(unwrapResult)
             .then((originalPromiseResult) => {
                 setCanSubmit(true);
-                console.log(originalPromiseResult, 'done')
                 navigate('/reset-password');
             })
             .catch((rejectedValueOrSerializedError) => {
@@ -82,7 +78,6 @@ const VerifyOtp = () => {
     }
 
     const resendButton = () => {
-        // console.log('otp resent')
         dispatch(verifyAccount({
             email: location.state.email
         }))

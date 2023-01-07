@@ -32,7 +32,6 @@ function GameInProgress() {
 
     if (ending) {
       //doe not delete
-      // console.log("Trying to end second time. If this happens, please notify Oye")
       return;
     }
 
@@ -55,10 +54,8 @@ function GameInProgress() {
         }))
           .then(unwrapResult)
           .then(result => {
-            // console.log(result, 'Action logged to server to end game');
           })
           .catch(() => {
-            // console.log('failed to log to server');
           });
         setEnding(false);
         if (isPlayingTrivia) {
@@ -73,7 +70,6 @@ function GameInProgress() {
       })
       .catch((rejectedValueOrSerializedError) => {
         setEnding(false);
-        // console.log(rejectedValueOrSerializedError);
         alert('failed to end game')
       });
   }

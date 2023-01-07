@@ -78,7 +78,6 @@ const ChallengeSelectPlayer = () => {
         ))
             .then(unwrapResult)
             .then(async result => {
-                console.log('alright')
                 setOpenSheet(true)
             })
             .catch((rejectedValueOrSerializedError) => {
@@ -97,7 +96,6 @@ const ChallengeSelectPlayer = () => {
         ))
             .then(unwrapResult)
             .then(async result => {
-                console.log('alright')
                 closeBS()
                 setOpenBox(true)
             })
@@ -116,18 +114,15 @@ const ChallengeSelectPlayer = () => {
     }
 
     const onSearchFriends = () => {
-        console.log('clicking')
         setSearching(true)
         dispatch(searchUserFriends(
             search
         )).then(() => {
             setSearching(false)
-            // console.log('friends')
         }
         )
         if (userFriends.length === 0) {
             setNoData(true)
-            console.log(noDATA)
         } else {
             setNoData(false)
         }
@@ -151,7 +146,6 @@ const ChallengeSelectPlayer = () => {
     useEffect(() => {
         if (search.length >= 2) {
             findFriends(search);
-            console.log('right here')
             setNoData(false)
         } else {
             setSearching(false);

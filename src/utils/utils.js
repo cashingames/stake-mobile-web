@@ -1,9 +1,7 @@
 export const calculateTimeRemaining = (futureTime, onComplete) => {
     var diff = futureTime - new Date().getTime();
 
-    // console.log(diff, typeof(diff), diff < 2000, diff < Number(2000))
     if (diff < 3000) {
-        // console.log("stop running countdown")
         onComplete();
         return "1s";
     }

@@ -108,7 +108,6 @@ function BankDetails() {
                 // navigate('/profile')
             })
             .catch((rejectedValueOrSerializedError) => {
-                // console.log(rejectedValueOrSerializedError);
                 setLoading(false);
                 setOpen(true)
                 setAlertMessage('Invalid data provided')
