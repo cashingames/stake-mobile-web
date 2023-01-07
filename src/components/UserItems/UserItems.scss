@@ -20,8 +20,8 @@
     .userItemsInfo {
         display: flex;
         flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
+        align-items: flex-end;
+        justify-content: center;
 
         .textContainer {
             .text1 {
@@ -62,7 +62,7 @@
     .shopLink {
         display: flex;
         justify-content: flex-end;
-        margin-right: .5rem;
+        margin-right: -1rem;
         font-size: 0.7rem;
         color: #EF2F55;
         text-decoration: none;

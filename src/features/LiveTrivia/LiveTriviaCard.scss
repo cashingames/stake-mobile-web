@@ -1,18 +1,18 @@
-@mixin devices ($breakpoint){
-    @if $breakpoint == xs {
-        @media only screen and (max-width:319px){
+@mixin devices ($breakpoint) {
+    @if $breakpoint ==xs {
+        @media only screen and (max-width:319px) {
             @content
         }
     }
 
-    @if $breakpoint == sm {
-        @media only screen and (min-width:320px) and (max-width:374px){
+    @if $breakpoint ==sm {
+        @media only screen and (min-width:320px) and (max-width:374px) {
             @content
         }
     }
 
-    @if $breakpoint == mobile {
-        @media only screen and (min-width:375px) and (max-width:400px){
+    @if $breakpoint ==mobile {
+        @media only screen and (min-width:375px) and (max-width:400px) {
             @content
         }
     }
@@ -29,7 +29,8 @@
     border-bottom-right-radius: 20px;
 
     .trivia-container {
-        padding: 1.1rem 1rem;
+        padding: 1rem;
+        padding-bottom: 0.9rem;
         display: flex;
         flex-direction: column;
 
@@ -37,6 +38,7 @@
             display: flex;
             flex-direction: row;
             justify-content: space-between;
+            align-items: baseline;
 
             .trivia-left {
                 .topText {
@@ -45,13 +47,13 @@
                     opacity: 0.8;
                     font-family: 'graphik-medium';
                     width: 12rem;
-                    margin-bottom: 1.8rem;
+                    margin: 0;
 
-                    @include devices(xs){
+                    @include devices(xs) {
                         font-size: 0.7rem;
                     }
 
-                    @include devices(sm){
+                    @include devices(sm) {
                         font-size: 0.8rem;
                     }
                 }
@@ -60,14 +62,14 @@
                     font-size: 1.8rem;
                     color: #FFFF;
                     font-family: 'graphik-medium', sans-serif;
-                    margin: 1.35rem 0;
-                    line-height: 0;
+                    margin: 0;
+                    line-height: 1.7;
 
-                    @include devices(xs){
+                    @include devices(xs) {
                         font-size: 1rem;
                     }
 
-                    @include devices(sm){
+                    @include devices(sm) {
                         font-size: 1.5rem;
                     }
                 }
@@ -77,13 +79,14 @@
                     color: #FFFF;
                     opacity: 0.8;
                     font-family: 'graphik-medium';
+                    margin: 0;
                     margin-bottom: 1.8rem;
 
-                    @include devices(xs){
+                    @include devices(xs) {
                         font-size: 0.7rem;
                     }
 
-                    @include devices(sm){
+                    @include devices(sm) {
                         font-size: 0.75rem;
                     }
                 }
@@ -99,14 +102,15 @@
                         line-height: 0;
                         color: #FFD064;
                         opacity: 0.8;
-                        font-family: 'graphik-bold',sans-serif;
+                        font-family: 'graphik-bold', sans-serif;
                         font-weight: 550;
                         margin-bottom: 1rem;
 
-                        @include devices(xs){
+                        @include devices(xs) {
                             font-size: 0.65rem;
                         }
-                        @include devices(sm){
+
+                        @include devices(sm) {
                             font-size: 0.75rem;
                         }
                     }
@@ -131,8 +135,10 @@
                     color: #FFFF;
                     font-family: 'graphik-regular';
                     line-height: 0.7rem;
+                    margin: 0.3rem 0;
                     margin-left: 5px;
                 }
+
                 .statusText {
                     font-size: 0.75rem;
                     color: #FFFF;
@@ -140,29 +146,34 @@
                     line-height: 0.7rem;
                     margin: 0.3rem 0;
 
-                    @include devices(xs){
+                    @include devices(xs) {
                         font-size: 0.65rem;
                     }
-                    @include devices(sm){
+
+                    @include devices(sm) {
                         font-size: 0.68rem;
                     }
                 }
             }
-            .yellowImg{
-                @include devices(xs){
+
+            .yellowImg {
+                @include devices(xs) {
                     max-width: 7rem;
                     height: 1.1rem;
                 }
-                @include devices(sm){
+
+                @include devices(sm) {
                     max-width: 8.5rem;
                     height: 1.1rem;
                 }
             }
+
             .eligible-button {
                 display: flex;
                 flex-direction: row;
                 align-items: center;
                 margin-top: .2rem;
+
                 .eligible-text {
                     font-size: .9rem;
                     color: #FFFF;
@@ -170,6 +181,7 @@
                     margin-right: .2rem;
                 }
             }
+
             .ineligible-button {
                 flex-direction: row;
                 background-color: #FFD064;
@@ -182,21 +194,23 @@
                 margin-top: .5rem;
                 justify-content: center;
                 display: flex;
+
                 .ineligible-text {
                     line-height: 0;
                 }
             }
+
             .triviaButton {
                 flex-direction: row;
-    background-color: #FFD064;
-    border-radius: 12px;
-    border-left-width: 8px;
-    border-right-width: 8px;
-    border-bottom: 0;
-    border-color: #C39938;
-    align-items: center;
-    display: flex;
-    padding: 0.3rem 0.19rem;
+                background-color: #FFD064;
+                border-radius: 12px;
+                border-left-width: 8px;
+                border-right-width: 8px;
+                border-bottom: 0;
+                border-color: #C39938;
+                align-items: center;
+                display: flex;
+                padding: 0.3rem 0.19rem;
 
                 .triviaButtonText {
                     line-height: 0.65rem;
