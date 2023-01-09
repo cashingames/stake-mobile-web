@@ -16,6 +16,8 @@ function WeeklyLeaderboard() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const leaders = useSelector(state => state.common.weeklyLeaderboard.leaderboard);
+    const userRank = useSelector(state => state.common.weeklyLeaderboard.userRank)
+
     const [loading, setLoading] = useState(true);
 
     const today = new Date();
@@ -52,7 +54,7 @@ function WeeklyLeaderboard() {
             <ScreenHeader title='Leaderboard' styleProp='weeklyLeaders-header' onClick={navigateHandler} />
             <div className='weeklyLeader-containter'>
                 <PrizePoolTitle />
-                <WeeklyGlobalLeaders leaders={leaders} />
+                <WeeklyGlobalLeaders leaders={leaders} userRank={userRank}  />
             </div>
         </>
     )
@@ -61,16 +63,16 @@ function WeeklyLeaderboard() {
 export default WeeklyLeaderboard
 
 
-const WeeklyGlobalLeaders = ({ leaders }) => {
+const WeeklyGlobalLeaders = ({ leaders,userRank }) => {
     return (
         <div>
             <WeeklyTopLeaders leaders={leaders} />
             <div className='rank-linear'>
                 <p className='rank-text'>Your current rank</p>
                 <div className='position-point'>
-                    <p className='user-point'>2 pts</p>
+                    <p className='user-point'>{userRank.points} pts</p>
                     <div className='user-rank-case'>
-                        <p className='user-rank-text'>668</p>
+                        <p className='user-rank-text'>{userRank.rank}</p>
                     </div>
                 </div>
             </div>
