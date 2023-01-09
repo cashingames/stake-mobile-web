@@ -1,6 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import OtherLeaders from '../../../components/OtherLeaders/OtherLeaders'
+import OtherWeeklyLeaders from '../../../components/OtherWeeklyLeaders/OtherWeeklyLeaders'
 import PrizePoolTitle from '../../../components/PrizePoolTitle/PrizePoolTitle'
 import ScreenHeader from '../../../components/ScreenHeader/ScreenHeader'
 import './WeeklyLeaderboards.scss'
@@ -40,10 +40,9 @@ const WeeklyGlobalLeaders = () => {
                     </div>
                 </div>
             </div>
-            <OtherLeaders />
-            <OtherLeaders />
-            <OtherLeaders />
-
+            <OtherWeeklyLeaders />
+            <OtherWeeklyLeaders />
+            <OtherWeeklyLeaders />
         </div>
     )
 }

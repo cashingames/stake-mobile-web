@@ -52,6 +52,7 @@ function WeeklyLeaderBoard() {
                             username={`${thirdLeader.username}`}
                             avatar={thirdLeader.avatar}
                             styleProp='others'
+                            avatarCase='other-avatar-case'
                             avatarProp='otherAvatar'
                             stage='stage'
                             points={`${formatNumber(thirdLeader.points ? `${thirdLeader.points}` : 0)} pts`}
@@ -64,6 +65,7 @@ function WeeklyLeaderBoard() {
                             styleProp='winner'
                             avatarProp='avatar'
                             stage='winner-stage'
+                            avatarCase='winner-avatar-case'
                             points={`${formatNumber(firstLeader.points ? `${firstLeader.points}` : 0)} pts`}
 
                         />
@@ -72,6 +74,7 @@ function WeeklyLeaderBoard() {
                             username={`${secondLeader.username}`}
                             avatar={secondLeader.avatar}
                             styleProp='others'
+                            avatarCase='other-avatar-case'
                             avatarProp='otherAvatar'
                             stage='stage'
                             points={`${formatNumber(secondLeader.points ? `${secondLeader.points}` : 0)} pts`}
@@ -83,15 +86,17 @@ function WeeklyLeaderBoard() {
     )
 }
 
-const WeeklyChallenger = ({ username, avatar, stageImageUrl, styleProp, avatarProp, points, stage }) => {
+const WeeklyChallenger = ({ username, avatar, stageImageUrl, styleProp, avatarProp, points, stage, avatarCase }) => {
 
     return (
-        <div className='monthly-position-container'>
+        <div className='weekly-position-container'>
             <div className={styleProp}>
+                <div className={avatarCase}>
                 <img
                 src={avatar ? `${backendUrl}/${avatar}` : "/images/user-icon.png"}
-                className={avatarProp} alt='avatar'
-                />
+                className={avatarProp} alt='user avatar'
+                onError={(e) => e.target.style.display='none'} />
+                </div>
                 <p className='leaderName'>{username}</p>
                 <p className='leader-points'>{points}</p>
             </div>

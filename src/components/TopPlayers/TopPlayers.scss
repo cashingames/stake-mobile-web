@@ -1,5 +1,4 @@
 .topPlayerContainer {
-    margin: 2rem 0;
     font-family: 'Graphik', sans-serif;
     width: 100%;
 
@@ -30,9 +29,10 @@
 
     .leaderboard-cover {
         background: #FAC502;
-        border-top-left-radius: 15px;
-        border-top-right-radius: 15px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
         padding: 1rem 1rem 0 1rem;
+        border-bottom: 1.5px solid #fff;
 
         .view-text {
             margin: 0;
@@ -75,7 +75,7 @@
                 }
 
                 .leaderName {
-                    font-size: .7rem;
+                    font-size: .65rem;
                     font-family: 'graphik-medium';
                     margin: 3px;
                     color: rgba(0, 0, 0, 0.6980392157);

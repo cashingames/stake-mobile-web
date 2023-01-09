@@ -46,6 +46,7 @@ import ChallengeGameInProgress from './features/Games/ChallengeGameInProgress/Ch
 import ChallengeEndGameScreen from './features/Games/ChallengeEndGameScreen/ChallengeEndGameScreen';
 import ChallengeStaking from './features/Games/ChallengeStaking/ChallengeStaking';
 import WeeklyLeaderboard from './features/Leaderboard/WeeklyLeaderboards/WeeklyLeaderboards';
+import ExtendedLeaderBoard from './features/Leaderboard/ExtendedLeaderBoard/ExtendedLeaderBoard';
 
 const AppRouter = () => {
 
@@ -169,6 +170,9 @@ const AppRouter = () => {
              <Route
                 path="/weekly-leaders"
                 element={<AuthRoute redirectTo="/"><WeeklyLeaderboard /></AuthRoute>} />
+             <Route
+                path="/leaderboards"
+                element={<AuthRoute redirectTo="/"><ExtendedLeaderBoard /></AuthRoute>} />
         </Routes>
     )
 }
