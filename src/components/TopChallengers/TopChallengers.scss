@@ -7,7 +7,6 @@
 }
 
 .topChallengers {
-    padding: 0 1.5rem;
     font-family: 'Graphik', sans-serif;
     width: 100%;
 
@@ -24,7 +23,7 @@
         border-radius: 15px;
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
-        padding: 1rem 1rem 0 1rem;
+        padding: 0.4rem 1rem 0 1rem;
         width: 100%;
         .view-text{
             margin: 0;
@@ -37,13 +36,14 @@
         display: flex;
         justify-content: space-around;
         align-items: flex-end;
+        padding-top: 0.89rem;
 
         .others {
             display: flex;
             flex-direction: column;
             align-items: center;
             position: absolute;
-            top: -4.5rem;
+            bottom: 4.5rem;
 
             .otherAvatar {
                 width: 2rem;
@@ -51,6 +51,16 @@
                 background-color: #ffff;
                 border-radius: 50%;
             }
+        }
+
+        .crown{
+            width: 33px;
+            height: 33px;
+        }
+
+        .otherCrown {
+            width: 23px;
+            height: 23px;
         }
 
         .winner {
@@ -73,28 +83,8 @@
             align-items: center;
             position: relative;
 
-            .crown {
-                height: 45px;
-                width: 45px;
-                object-fit: cover;
-            }
-
-            .firstCrown {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .otherCrown {
-                position: absolute;
-                top: -3.5rem;
-                display: flex;
-                align-items: center;
-                flex-direction: column;
-            }
-
             .leaderName {
-                font-size: .7rem;
+                font-size: 0.65rem;
                 font-family: 'graphik-medium';
                 margin: 3px;
                 color: #Fff;

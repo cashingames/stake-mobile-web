@@ -2,4 +2,11 @@
     display: flex;
     overflow: scroll;
     align-items: baseline;
+    margin: 2rem 0;
+    padding: 0 1.5rem;
+    gap: 1rem;
+}
+
+.leaderBoard-containers::-webkit-scrollbar{
+    display: none;
 }

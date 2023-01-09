@@ -14,7 +14,6 @@ function TopChallengers({ challengeLeaders }) {
         <div className='topChallengers'>
             <p className='topChallengeTitle'>Top Challengers</p>
             <div className='topChallenge-cover'>
-            <p className='view-text'>click to view more</p>
                 <div className='topChallengerContainer'>
                 <TopWeeklyChallenger
                     trophyImageUrl='/images/third-crown.png'
@@ -23,6 +22,7 @@ function TopChallengers({ challengeLeaders }) {
                     avatar={thirdLeader.avatar}
                     styleProp='others'
                     avatarProp='otherAvatar'
+                    crownProp ='otherCrown'
 
                 />
                 <TopWeeklyChallenger
@@ -32,6 +32,8 @@ function TopChallengers({ challengeLeaders }) {
                     avatar={firstLeader.avatar}
                     styleProp='winner'
                     avatarProp='avatar'
+                    crownProp ='crown'
+
                 />
                 <TopWeeklyChallenger
                     trophyImageUrl='/images/second-crown.png'
@@ -40,6 +42,8 @@ function TopChallengers({ challengeLeaders }) {
                     avatar={secondLeader.avatar}
                     styleProp='others'
                     avatarProp='otherAvatar'
+                    crownProp ='otherCrown'
+
                 />
                 </div>
             </div>
@@ -47,14 +51,14 @@ function TopChallengers({ challengeLeaders }) {
     )
 }
 
-const TopWeeklyChallenger = ({ username, avatar, stageImageUrl, trophyImageUrl, styleProp, avatarProp }) => {
+const TopWeeklyChallenger = ({ username, avatar, stageImageUrl, trophyImageUrl, styleProp, avatarProp, crownProp }) => {
 
     return (
         <div className='positionContainer'>
             <div className={styleProp}>
                 <img
                     src={trophyImageUrl}
-                    className="crown" alt='crown'
+                    className={crownProp} alt='crown'
                 />
                 <img
                     src={avatar ? `${avatar}` : "/images/user-icon.png"}
