@@ -28,6 +28,9 @@ function WeeklyLeaderBoard() {
 
     const endDate = new Date(today.setDate(today.getDate() - today.getDay() + 6));
 
+    const firstDay = startDate.toDateString()
+    const lastDay = endDate.toDateString()
+
     useEffect(() => {
         dispatch(getWeeklyLeadersByDate({
             startDate,
@@ -36,7 +39,7 @@ function WeeklyLeaderBoard() {
         // eslint-disable-next-line
     }, [])
 
-   
+
     return (
         <>
             <div className='weekly-challengers-container'>
@@ -45,7 +48,10 @@ function WeeklyLeaderBoard() {
                     <p className='viewMore-text' onClick={navigateHandler}>View More</p>
                 </div>
                 <div className='topChallenge-cover'>
+                    <div className='modal-top'>
+                    <p className='modal-date'>{firstDay} - {lastDay}</p>
                     <PrizePoolTitle styleProp='view-text' />
+                    </div>
                     <div className='topChallengerContainer'>
                         <WeeklyChallenger
                             stageImageUrl="/images/month-pod3.png"
@@ -89,8 +95,8 @@ const WeeklyChallenger = ({ username, avatar, stageImageUrl, styleProp, avatarPr
         <div className='monthly-position-container'>
             <div className={styleProp}>
                 <img
-                src={avatar ? `${backendUrl}/${avatar}` : "/images/user-icon.png"}
-                className={avatarProp} alt='avatar'
+                    src={avatar ? `${backendUrl}/${avatar}` : "/images/user-icon.png"}
+                    className={avatarProp} alt='avatar'
                 />
                 <p className='leaderName'>{username}</p>
                 <p className='leader-points'>{points}</p>

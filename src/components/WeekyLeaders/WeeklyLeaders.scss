@@ -36,12 +36,22 @@
         border-radius: 15px;
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
-        padding: 1.2rem 1rem 0 1rem;
+        padding: .5rem 1rem 0 1rem;
         width: 100%;
-
-        .view-text {
+        .modal-top {
             display: flex;
-            justify-content: flex-end;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            .modal-date {
+                font-size: .6rem;
+                font-family: 'graphik-medium';
+                color: #FFF;
+            }
+            .view-text {
+                display: flex;
+                justify-content: flex-end;
+            }
         }
 
         .topChallengerContainer {

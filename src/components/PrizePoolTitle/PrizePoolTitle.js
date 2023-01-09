@@ -27,6 +27,13 @@ export default PrizePoolTitle
 
 const Modal = ({ isModalOpen, setIsModalOpen }) => {
 
+    const today = new Date();
+    const startDate = new Date(today.setDate(today.getDate() - today.getDay()));
+    const endDate = new Date(today.setDate(today.getDate() - today.getDay() + 6));
+
+    const firstDay = startDate.toDateString()
+    const lastDay = endDate.toDateString()
+
   const closeModal = () => {
       setIsModalOpen(false)
   }
@@ -37,6 +44,7 @@ const Modal = ({ isModalOpen, setIsModalOpen }) => {
                   <div className='modal'>
                       <p className='closeModal-btn' onClick={closeModal}>Close x</p>
                       <p className='modal-title'>Weekly Prize Pool</p>
+                      <p className='modal-date'>{firstDay} - {lastDay}</p>
                       <div>
                           <Player src={Leaderboard}
                               alt='leaderboard'
