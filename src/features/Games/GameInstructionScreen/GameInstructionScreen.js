@@ -8,7 +8,7 @@ import BottomSheet from "../../../components/BottomSheet/BottomSheet";
 import ExhibitionStakingBanner from "../../../components/ExhibitionStakingBanner/ExhibitionStakingBanner";
 import NoGame from "../../../components/NoGame/NoGame";
 import ScreenHeader from "../../../components/ScreenHeader/ScreenHeader";
-import StakingButtons from "../../../components/StakingButtons/StakingButtons";
+// import StakingButtons from "../../../components/StakingButtons/StakingButtons";
 import './GameInstructionScreen.scss'
 
 
