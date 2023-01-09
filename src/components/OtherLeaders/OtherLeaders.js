@@ -1,13 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './OtherLeaders.scss'
 
 function OtherLeaders({styleProp, userStyleProp}) {
+    const [state] = useState(true)
   return (
     <div className={`${styleProp} otherleader-container`}>
+        { state ? 
+        <>
         <OtherLeader userName='adams2034' position={6} points={33} userStyleProp={userStyleProp}/>
         <OtherLeader userName='adams2034' position={6} points={33} userStyleProp={userStyleProp}/>
         <OtherLeader userName='adams2034' position={6}  points={33} userStyleProp={userStyleProp}/>
-
+        </>
+        :
+        <p className='no-data'>No Data</p>
+}
     </div>
   )
 }
