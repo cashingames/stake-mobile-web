@@ -8,6 +8,8 @@ import './Signup.scss'
 import { saveCreatedUserCredentials } from '../AuthSlice';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import ReactGA from 'react-ga';
+
 
 
 
@@ -15,8 +17,8 @@ const Signup = () => {
 
     const dispatch = useDispatch();
     let navigate = useNavigate();
-    const style = { color:'#CDD4DF', fontSize: "1.2rem" }
-    const styleI = { color:'#4299f5', fontSize: "1.2rem" }
+    const style = { color: '#CDD4DF', fontSize: "1.2rem" }
+    const styleI = { color: '#4299f5', fontSize: "1.2rem" }
     const [email, setEmail] = useState('')
     const [phone, setPhone] = useState('')
     const [countryCode, setCountryCode] = useState('+234')
@@ -70,6 +72,10 @@ const Signup = () => {
         setLoading(true);
         //save this information in store
         dispatch(saveCreatedUserCredentials({ email, password, password_confirmation: password, phone_number: phone, country_code: countryCode }))
+        ReactGA.event({
+            category: 'Authentication',
+            action: 'Sign up initiated'
+        });
         navigate("/sign-up-profile")
     }
 
@@ -174,7 +180,7 @@ const Signup = () => {
                     </div>
                     <div className='agreementsContainer'>
                         <span onClick={() => setChecked(!checked)}>{checked ? <FaCheckSquare style=
-                        {styleI} /> : <BiRectangle style={style}/>}</span>
+                            {styleI} /> : <BiRectangle style={style} />}</span>
                         <div className='agreementsTextContainer'>
                             <span className='agreementsText'>I agree to the</span>
                             <a className='agreementsLink' href="/terms">terms & conditions</a>
