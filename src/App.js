@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useDispatch, useSelector } from "react-redux";
 import React, { useEffect, useState } from "react";
 import LoaderScreen from "./features/LoaderScreen/LoaderScreen";
+import DateRange from "./components/DateRange/DateRange";
 
 
 function App() {
@@ -27,7 +28,8 @@ function App() {
   
   return (
     <div className="App">
-       <AppRouter /> 
+       {/* <AppRouter />  */}
+       <DateRange />
     </div>
   )
 }
