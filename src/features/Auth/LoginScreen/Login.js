@@ -8,6 +8,7 @@ import GoogleSignup from '../../../components/GoogleSignup/GoogleSignup';
 import { loginUser, saveToken, setToken } from '../AuthSlice';
 import { useNavigate } from "react-router-dom";
 import LoaderScreen from '../../LoaderScreen/LoaderScreen';
+import ReactGA from 'react-ga';
 
 
 
@@ -37,9 +38,15 @@ const Login = () => {
         }).then(response => {
             saveToken(response.data.data)
             dispatch(setToken(response.data.data))
-            // navigate('/dashboard')
-
+            ReactGA.event({
+                category: 'Authentication',
+                action: 'Logged in'
+              });
         }, err => {
+            ReactGA.exception({
+                description: 'An error ocurred',
+                fatal: true
+              });
             if (!err || !err.response || err.response === undefined) {
                 setError("Your Network is Offline.");
             }
