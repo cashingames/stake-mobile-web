@@ -79,7 +79,7 @@ const BuyBoost = ({onClick, boost, loading, buyBoost}) => {
         <div className='buyBoost'>
             <div className='buyItemHeader'>
                 <p className='buyItemTitle'>Buy Boost</p>
-                <IoCloseOutline size={20} color='#292D32' onClick={onClick} />
+                <IoCloseOutline size={20} color='#292D32' onClick={onClick} style={{cursor:'pointer'}}/>
             </div>
             <div className='buyItemCard'>
             <BoostCardDetails boost ={boost} />

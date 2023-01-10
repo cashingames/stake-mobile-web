@@ -1,9 +1,10 @@
 .transactionLink{
     margin: 0 2rem;
+
     .link{
         color: #ef2f55;
         text-decoration: none;
-        font-weight: 530;
+        font-family: 'graphik-medium';
     }
     .transactionBtn{
         background-color: #FFE900;
@@ -15,6 +16,7 @@
         align-items: center;
         width: 100%;
         margin-bottom: 1.5rem;
+        cursor: pointer;
         .transactionText{
             color: #ef2f55;
             font-size: 0.75rem;

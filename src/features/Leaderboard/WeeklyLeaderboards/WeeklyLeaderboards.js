@@ -131,7 +131,7 @@ const WeeklyLeaders = ({ name, points, position, avatarProp, positionProp, avata
                 </div>
             </div>
             <p className='leader-name'>{name}</p>
-            <p className='point'>{points}pts</p>
+            <p className='point'>{points}</p>
         </div>
     )
 }

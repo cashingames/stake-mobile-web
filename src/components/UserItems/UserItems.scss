@@ -59,13 +59,16 @@
         }
     }
 
-    .shopLink {
+    .link-case{
         display: flex;
         justify-content: flex-end;
         margin-right: -1rem;
-        font-size: 0.7rem;
-        color: #EF2F55;
-        text-decoration: none;
-        font-family: 'graphik-medium';
+        .shopLink {
+            font-size: 0.7rem;
+            color: #EF2F55;
+            text-decoration: none;
+            font-family: 'graphik-medium';
+        }
     }
+   
 }

@@ -6,6 +6,7 @@ import { formatNumber } from '../../utils/stringUtl';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUser } from '../../features/Auth/AuthSlice';
 import { getCommonData } from '../../features/CommonSlice';
+import { Link } from 'react-router-dom';
 
 function UserItems() {
     const dispatch = useDispatch();
@@ -57,7 +58,9 @@ function UserItems() {
 
                     </div>
                 </div>
-                <a href='/#' className='shopLink'>Buy more</a>
+                <div className='link-case'>
+                    <Link to='/store' className='shopLink'>Buy more</Link>
+                </div>
             </div>
         </>
     )
