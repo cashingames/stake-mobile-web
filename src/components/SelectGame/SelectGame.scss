@@ -32,6 +32,7 @@
             background-color: #701F88;
             color: #fff;
             margin-right: .7rem;
+            cursor: pointer;
             @include devices(sm){
                 max-width: 100px;
             }
