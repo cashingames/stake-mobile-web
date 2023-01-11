@@ -4,12 +4,13 @@ import { formatNumber } from '../../utils/stringUtl'
 import { useDispatch, useSelector } from 'react-redux'
 import { getWeeklyLeadersByDate } from '../../features/CommonSlice';
 import PrizePoolTitle from '../PrizePoolTitle/PrizePoolTitle'
+import { setGameMode } from '../../features/Games/GameSlice';
 import { useNavigate } from 'react-router-dom'
 
 const backendUrl = process.env.REACT_APP_API_ROOT_URL;
 
 
-function WeeklyLeaderBoard() {
+function WeeklyLeaderBoard({gameModes}) {
     const leaders = useSelector(state => state.common.weeklyLeaderboard.leaderboard)
     const topLeaders = leaders?.slice(0, 3) ?? null;
     const firstLeader = topLeaders[0] ?? { username: "..." };
@@ -23,6 +24,12 @@ function WeeklyLeaderBoard() {
         navigate('/weekly-leaders')
     }
 
+    const gameModeSelected = gameModes.find(mode => mode.name === 'EXHIBITION')
+
+    const gameNavigate = () => {
+        dispatch(setGameMode(gameModeSelected));
+        navigate('/select-category')
+    }
     const today = new Date();
     const startDate = new Date(today.setDate(today.getDate() - today.getDay()));
 
@@ -84,7 +91,7 @@ function WeeklyLeaderBoard() {
                         />
                     </div>
                 <div className='btn-case'>
-                <button className='plays-btn'>Play now</button>
+                <button className='plays-btn' onClick={gameNavigate}>Play now</button>
                 </div>
                 </div>
             </div>

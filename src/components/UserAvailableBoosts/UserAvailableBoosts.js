@@ -1,17 +1,17 @@
 import React from "react";
 import { Spinner } from "react-activity";
+import { useNavigate } from "react-router-dom";
 import GoToStore from "../GoToStore/GoToStore";
 import UserAvailableBoost from "../UserAvailableBoost/UserAvailableBoost";
 import './UserAvailableBoosts.scss'
 
 
 const UserAvailableBoosts = ({ onClose, gameMode, onStartGame, loading, boosts }) => {
-    // let navigate = useNavigate();
+    let navigate = useNavigate();
 
     const visitStore = () => {
         onClose();
-        // navigate('/')
-        alert('go to store')
+        navigate('/store')
     }
 
     const boostsToDisplay = () => {
