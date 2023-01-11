@@ -39,6 +39,8 @@
             color: #ffff;
             text-align: center;
             margin: 0;
+            cursor: pointer;
+
             @include devices(sm){
                 font-size: .7rem;
             }

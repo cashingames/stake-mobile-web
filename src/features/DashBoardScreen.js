@@ -44,7 +44,7 @@ function DashBoardScreen() {
       <HeroBanner user={user} trivia={trivia} />
       <SelectGame gameModes={gameModes} />
       <div className='leaderBoard-containers'>
-        <WeeklyLeaders />
+        <WeeklyLeaders gameModes={gameModes}/>
         {/* <TopPlayers leaders={leaders} /> */}
         <TopChallengers challengeLeaders={challengeLeaders} />
       </div>
