@@ -26,7 +26,7 @@ function WeeklyLeaderBoard({gameModes}) {
 
     const gameModeSelected = gameModes.find(mode => mode.name === 'EXHIBITION')
 
-    const gameNavigate = () => {
+    const playGame = () => {
         dispatch(setGameMode(gameModeSelected));
         navigate('/select-category')
     }
@@ -91,7 +91,7 @@ function WeeklyLeaderBoard({gameModes}) {
                         />
                     </div>
                 <div className='btn-case'>
-                <button className='plays-btn' onClick={gameNavigate}>Play now</button>
+                <button className='plays-btn' onClick={playGame}>Play now</button>
                 </div>
                 </div>
             </div>
@@ -102,7 +102,7 @@ function WeeklyLeaderBoard({gameModes}) {
 const WeeklyChallenger = ({ username, avatar, stageImageUrl, styleProp, avatarProp, points, stage }) => {
 
     return (
-        <div className='monthly-position-container'>
+        <div className='weekly-position-container'>
             <div className={styleProp}>
                 <img
                     src={avatar ? `${backendUrl}/${avatar}` : "/images/user-icon.png"}
