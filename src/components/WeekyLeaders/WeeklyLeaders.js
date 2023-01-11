@@ -83,6 +83,9 @@ function WeeklyLeaderBoard() {
                             points={`${formatNumber(secondLeader.points ? `${secondLeader.points}` : 0)} pts`}
                         />
                     </div>
+                <div className='btn-case'>
+                <button className='plays-btn'>Play now</button>
+                </div>
                 </div>
             </div>
         </>

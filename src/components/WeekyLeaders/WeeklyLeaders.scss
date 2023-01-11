@@ -39,6 +39,7 @@
         border-bottom-right-radius: 0;
         padding: .5rem 1rem 0 1rem;
         width: 100%;
+        position: relative;
         .modal-top {
             display: flex;
             flex-direction: row;
@@ -121,5 +122,23 @@
 
             }
         }
+        .btn-case{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        .plays-btn{
+            text-align: center;
+            font-size: .7rem;
+            font-family: 'graphik-medium';
+            padding:.5rem;
+            background: transparent;
+            color: #fff;
+            border: 1.5px solid #fff;
+            border-radius: 5px;
+            outline: none;
+            cursor: pointer;
+            margin: 0.5rem;
+        }
+    }
     }
 }
