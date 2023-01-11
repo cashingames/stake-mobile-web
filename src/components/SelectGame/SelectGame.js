@@ -10,6 +10,8 @@ function SelectGame({ gameModes }) {
   let navigate = useNavigate();
   const dispatch = useDispatch();
 
+//arranging the game cards in ascending in order to put the staking card in the middle  
+const gamesAscending = [...gameModes].sort((a, b) => a.id - b.id);
 
   const onSelectGameMode = (mode) => {
       dispatch(setGameMode(mode));
@@ -20,7 +22,7 @@ function SelectGame({ gameModes }) {
     <div className='gameContainer'>
       <p className='gameTitle'>Select game mode</p>
       <div className='gameCardContainer'>
-        {gameModes.map((gameMode, i) =>
+        {gamesAscending.map((gameMode, i) =>
           <AvailableMode
             key={i}
             gameMode={gameMode}

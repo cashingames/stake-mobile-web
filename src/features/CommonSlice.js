@@ -162,6 +162,7 @@ export const CommonSlice = createSlice({
                 state.plans = data.plans;
                 state.gameTypes = data.gameTypes;
                 state.gameModes = [
+                    ...data.gameModes,
                     {
                         "icon": "icons/money-bag.png",
                         "bgColor": "#EF2F55",
@@ -170,7 +171,6 @@ export const CommonSlice = createSlice({
                         "id": 1,
                         "name": "STAKING",
                     },
-                    ...data.gameModes
                 ];
                 state.gameCategories = data.gameCategories;
                 state.minVersionCode = data.minVersionCode;
