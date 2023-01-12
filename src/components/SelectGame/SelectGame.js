@@ -47,6 +47,7 @@ const AvailableMode = ({ gameMode, onPress}) => {
       style={{ backgroundColor: gameMode.bgColor }}
 
     >
+      <div className='card-top-row'>
       <div className='categoryCardTopRow'>
         <img
           src={`${backendUrl}/${gameMode.icon}`}
@@ -57,7 +58,10 @@ const AvailableMode = ({ gameMode, onPress}) => {
       </div>
       <p className='cardTitle'>{gameMode.name}</p>
       <p className='cardInstruction'>{gameMode.description}</p>
-
+      </div>
+      <div className={`${gameMode.name === 'EXHIBITION' ? 'action-btn-container': 'action-btn-container1'}`}>
+          <p className='action-btn-text'>Play Now</p>
+      </div>
     </div>
   )
 }

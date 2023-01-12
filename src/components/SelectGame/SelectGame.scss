@@ -25,10 +25,8 @@
 
         .gameCard {
             min-width: 132px;
-            height: 130px;
             border-radius: 7px;
             box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-            padding: 1rem 0.8rem;
             background-color: #701F88;
             color: #fff;
             margin-right: .7rem;
@@ -36,15 +34,34 @@
             @include devices(sm){
                 max-width: 100px;
             }
-
+            .card-top-row{
+                padding: 0.65rem 0.8rem;
             .categoryCardTopRow {
                 display: flex;
                 justify-content: space-between;
+                padding-bottom: 0;
+
                 .cardIcon {
-                    width: 2.5rem;
-                    height: 2.2rem;
+                    width: 55px;
+                    height: 55px;
+                    border-radius: 5px;
+                    object-fit: cover;
                 }
             }
+            
+            .cardTitle {
+                font-size: 0.87rem;
+                text-transform: uppercase;
+                margin: 6px 0;
+                font-family: 'graphik-bold';
+            }
+
+            .cardInstruction {
+                font-size: 0.68rem;
+                font-family: 'graphik-regular';
+                margin: 6px 0;
+            }
+        }
 
             .circleContainer {
                 width: 100%;
@@ -58,19 +75,32 @@
                     background-color: #EF2F55;
                 }
             }
-
-            .cardTitle {
-                font-size: 0.87rem;
-                text-transform: uppercase;
-                margin: 6px 0;
-                font-family: 'graphik-bold';
-
+            .action-btn-container{
+                border-top: 1px solid #fff;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 0.5rem 0;
+                margin-top: 0.75rem;
+                .action-btn-text{
+                    margin: 0;
+                    font-size: 0.6rem;
+                    font-family: 'graphik-regular';
+                    color:#fff
+                }
             }
-
-            .cardInstruction {
-                font-size: 0.68rem;
-                font-family: 'graphik-regular';
-                margin: 6px 0;
+            .action-btn-container1{
+                border-top: 1px solid #fff;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 0.5rem 0;
+                .action-btn-text{
+                    margin: 0;
+                    font-size: 0.6rem;
+                    font-family: 'graphik-regular';
+                    color:#fff
+                }
             }
         }
     }
