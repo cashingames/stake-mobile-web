@@ -40,19 +40,23 @@ function DrawerItems() {
                 <IoChevronForwardOutline className='icon' />
             </Link>
 
+            <Link to="/leaderboards" className='drawerItem'><p className='labelItem'>
+                Leaderboards
+            </p>
+                <IoChevronForwardOutline className='icon' />
+            </Link>
+
+            <Link to="/help" className='drawerItem'><p className='labelItem'>
+               Get Help
+            </p>
+                <IoChevronForwardOutline className='icon' />
+            </Link> 
+
             <Link to="/invite-friends" className='drawerItem'><p className='labelItem'>
                 Invite Friends
             </p>
                 <IoChevronForwardOutline className='icon' />
             </Link>
-
-
-             <Link to="/help" className='drawerItem'><p className='labelItem'>
-
-                Help
-            </p>
-                <IoChevronForwardOutline className='icon' />
-            </Link> 
             {/* <div className='versionContainer'>
                 <p className="appVersion">App version 1.0.68</p>
             </div> */}

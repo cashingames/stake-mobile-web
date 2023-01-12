@@ -61,6 +61,7 @@
             justify-content: space-around;
             align-items: flex-end;
             padding-top: 0.4rem;
+
             .others {
                 display: flex;
                 flex-direction: column;
@@ -68,20 +69,28 @@
                 position: absolute;
                 top: -4rem;
 
-                .otherAvatar {
+                .other-avatar-case {
                     width: 2.5rem;
                     height: 2.5rem;
                     background-color: #ffff;
                     border-radius: 50%;
+
+                    .otherAvatar {
+                        width: 2.5rem;
+                        height: 2.5rem;
+                        background-color: #ffff;
+                        border-radius: 50%;
+                    }
                 }
+
             }
 
-            .stage{
+            .stage {
                 height: 88px;
                 width: 88px;
             }
 
-            .winner-stage{
+            .winner-stage {
                 height: 98px;
                 width: 98px;
             }
@@ -91,12 +100,18 @@
                 flex-direction: column;
                 align-items: center;
 
-                .avatar {
+                .winner-avatar-case {
                     width: 4rem;
                     height: 4rem;
                     border-radius: 50%;
                     background-color: #ffff;
 
+                    .avatar {
+                        width: 4rem;
+                        height: 4rem;
+                        border-radius: 50%;
+                        background-color: #ffff;
+                    }
                 }
             }
 

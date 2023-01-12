@@ -1,0 +1,109 @@
+.sec-title{
+    font-family: 'graphik-medium';
+    font-size: 1rem;
+    margin: 0;
+    color: #fff;
+   }
+
+
+
+.rdrDefinedRangesWrapper{
+    display: none;
+}
+
+.date-container{
+    .rdrDateRangePickerWrapper{
+        display: flex;
+        width: 100%;
+    }
+    .rdrMonthAndYearPickers select{
+        font-size: 1rem;
+        font-family: 'graphik-medium';
+    }
+    .rdrCalendarWrapper{
+        width: 100%;
+        font-size: 0.8rem;
+        font-family: 'graphik-medium';
+    }
+    .rdrMonth{
+        width: 100%;
+    }
+    .rdrDateDisplayWrapper {
+        display: none;
+    }
+    .rdrDateDisplayItem input{
+        display: none;
+        height: 0;
+    }
+}
+
+
+
+.date-modal{
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    min-height: 100vh;
+    background-color: #fff;
+.date-header{
+    background-color: #FAC502;
+    padding: 1rem;
+    .date-title{
+        margin: 0;
+        font-size: 15px;
+        font-family: 'graphik-medium';
+        color: #fff;
+    }
+    .date-session{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 1rem 0;
+        .start-date{
+            margin: 0;
+            font-size: 1rem;
+            font-family: 'graphik-medium';
+            color: #fff;
+        }
+        .end-date{
+            margin: 0;
+            font-size: 1rem;
+            font-family: 'graphik-medium';
+            color: #fff;
+        }
+    }
+   
+}
+
+.btn-case{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 7rem;
+    .confirm-btn{
+        background-color: #EF2F55;
+        padding: 0.5rem 0.3rem;
+        border: none;
+        border-radius: 5px;
+        color: #fff;
+        font-family: 'graphik-medium';
+        width: 7rem;
+        margin-right: 1rem;
+    }
+
+    .cancel-btn{
+        background-color: #fff;
+        padding: 0.5rem 0.3rem;
+        border: 1px solid #EF2F55;
+        border-radius: 5px;
+        color: #EF2F55;
+        font-family: 'graphik-medium';
+        width: 7rem;
+    }
+}
+}

@@ -1,0 +1,42 @@
+.leaderboard-header{
+    background-color: #5d5fef;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 1rem 0.5rem;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    right: 0;
+    width: 100%;
+    z-index: 2;
+    height: 4.1rem;
+
+   .main-title{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    .icon{
+        font-size: 1.3rem;
+        color: #fff;
+    }
+    .title{
+        font-family: 'graphik-medium';
+        font-size: 1.3rem;
+        margin: 0;
+        color: #fff;
+    }
+   }
+}
+
+.leaderboard-container{
+    min-height: 100vh;
+    background-color: #5d5fef;
+    .leaderboards{
+        overflow: scroll;
+        display: flex;
+        align-items: baseline;
+    }
+    .leaderboards::-webkit-scrollbar{
+        display: none;
+    }
+}

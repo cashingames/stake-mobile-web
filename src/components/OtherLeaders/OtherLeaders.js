@@ -1,3 +1,5 @@
+
+
 import React from 'react'
 import { formatNumber } from '../../utils/stringUtl'
 import './OtherLeaders.scss';
@@ -42,5 +44,3 @@ const OtherLeader = ({leader, position}) => {
         </div>
     )
 }
-
-export default OtherLeaders

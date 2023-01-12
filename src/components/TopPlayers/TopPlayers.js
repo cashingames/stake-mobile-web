@@ -14,12 +14,7 @@ function TopPlayers({ leaders }) {
     return (
         <>
             <div className='topPlayerContainer'>
-                <div className='wrapper'>
-                    <p className='topPlayer'>Daily Top Players</p>
-                    <p className='viewMore-text'>View More</p>
-                </div>
                 <div className='leaderboard-cover'>
-                    <p className='view-text'>click to view more</p>
                     <div  className='leaderBoard'>
                     <TopLeader
                         podPosition='/images/position3.png'
