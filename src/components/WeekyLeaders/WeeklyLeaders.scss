@@ -21,6 +21,7 @@
             font-size: 0.7rem;
             font-family: 'graphik-medium';
             color: #EF2F55;
+            cursor: pointer;
         }
 
         .topChallengeTitle {
@@ -36,12 +37,23 @@
         border-radius: 15px;
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
-        padding: 1.2rem 1rem 0 1rem;
+        padding: .5rem 0.5rem 0 0.5rem;
         width: 100%;
-
-        .view-text {
+        position: relative;
+        .modal-top {
             display: flex;
-            justify-content: flex-end;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            .modal-date {
+                font-size: .6rem;
+                font-family: 'graphik-medium';
+                color: #FFF;
+            }
+            .view-text {
+                display: flex;
+                justify-content: flex-end;
+            }
         }
 
         .topChallengerContainer {
@@ -125,5 +137,25 @@
 
             }
         }
+        .btn-case{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        .plays-btn{
+            width: 100%;
+            text-align: center;
+            font-size: 0.6rem;
+            font-family: 'graphik-medium';
+            padding:0.1rem 0.5rem;
+            background: transparent;
+            color: #fff;
+            border: 1.5px solid #fff;
+            border-radius: 5px;
+            outline: none;
+            cursor: pointer;
+            margin: 0.5rem;
+            line-height: 1.5;
+        }
+    }
     }
 }

@@ -10,6 +10,8 @@ function SelectGame({ gameModes }) {
   let navigate = useNavigate();
   const dispatch = useDispatch();
 
+//arranging the game cards in ascending in order to put the staking card in the middle  
+const gamesAscending = [...gameModes].sort((a, b) => a.id - b.id);
 
   const onSelectGameMode = (mode) => {
       dispatch(setGameMode(mode));
@@ -20,7 +22,7 @@ function SelectGame({ gameModes }) {
     <div className='gameContainer'>
       <p className='gameTitle'>Select game mode</p>
       <div className='gameCardContainer'>
-        {gameModes.map((gameMode, i) =>
+        {gamesAscending.map((gameMode, i) =>
           <AvailableMode
             key={i}
             gameMode={gameMode}
@@ -45,6 +47,7 @@ const AvailableMode = ({ gameMode, onPress}) => {
       style={{ backgroundColor: gameMode.bgColor }}
 
     >
+      <div className='card-top-row'>
       <div className='categoryCardTopRow'>
         <img
           src={`${backendUrl}/${gameMode.icon}`}
@@ -55,7 +58,10 @@ const AvailableMode = ({ gameMode, onPress}) => {
       </div>
       <p className='cardTitle'>{gameMode.name}</p>
       <p className='cardInstruction'>{gameMode.description}</p>
-
+      </div>
+      <div className={`${gameMode.name === 'EXHIBITION' ? 'action-btn-container': 'action-btn-container1'}`}>
+          <p className='action-btn-text'>Play Now</p>
+      </div>
     </div>
   )
 }

@@ -4,12 +4,13 @@ import { formatNumber } from '../../utils/stringUtl'
 import { useDispatch, useSelector } from 'react-redux'
 import { getWeeklyLeadersByDate } from '../../features/CommonSlice';
 import PrizePoolTitle from '../PrizePoolTitle/PrizePoolTitle'
+import { setGameMode } from '../../features/Games/GameSlice';
 import { useNavigate } from 'react-router-dom'
 
 const backendUrl = process.env.REACT_APP_API_ROOT_URL;
 
 
-function WeeklyLeaderBoard() {
+function WeeklyLeaderBoard({gameModes}) {
     const leaders = useSelector(state => state.common.weeklyLeaderboard.leaderboard)
     const topLeaders = leaders?.slice(0, 3) ?? null;
     const firstLeader = topLeaders[0] ?? { username: "..." };
@@ -23,10 +24,19 @@ function WeeklyLeaderBoard() {
         navigate('/weekly-leaders')
     }
 
+    const gameModeSelected = gameModes.find(mode => mode.name === 'EXHIBITION')
+
+    const playGame = () => {
+        dispatch(setGameMode(gameModeSelected));
+        navigate('/select-category')
+    }
     const today = new Date();
     const startDate = new Date(today.setDate(today.getDate() - today.getDay()));
 
     const endDate = new Date(today.setDate(today.getDate() - today.getDay() + 6));
+
+    const firstDay = startDate.toDateString()
+    const lastDay = endDate.toDateString()
 
     useEffect(() => {
         dispatch(getWeeklyLeadersByDate({
@@ -36,7 +46,7 @@ function WeeklyLeaderBoard() {
         // eslint-disable-next-line
     }, [])
 
-   
+
     return (
         <>
             <div className='weekly-challengers-container'>
@@ -45,7 +55,10 @@ function WeeklyLeaderBoard() {
                     <p className='viewMore-text' onClick={navigateHandler}>View More</p>
                 </div>
                 <div className='topChallenge-cover'>
+                    <div className='modal-top'>
+                    <p className='modal-date'>{firstDay} - {lastDay}</p>
                     <PrizePoolTitle styleProp='view-text' />
+                    </div>
                     <div className='topChallengerContainer'>
                         <WeeklyChallenger
                             stageImageUrl="/images/month-pod3.png"
@@ -80,6 +93,9 @@ function WeeklyLeaderBoard() {
                             points={`${formatNumber(secondLeader.points ? `${secondLeader.points}` : 0)} pts`}
                         />
                     </div>
+                <div className='btn-case'>
+                <button className='plays-btn' onClick={playGame}>Play now</button>
+                </div>
                 </div>
             </div>
         </>
@@ -97,6 +113,7 @@ const WeeklyChallenger = ({ username, avatar, stageImageUrl, styleProp, avatarPr
                 className={avatarProp} alt='user avatar'
                 onError={(e) => e.target.style.display='none'} />
                 </div>
+
                 <p className='leaderName'>{username}</p>
                 <p className='leader-points'>{points}</p>
             </div>

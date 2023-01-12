@@ -9,7 +9,7 @@ const ExhibitionStakingBanner = ({onPress}) => {
                 Naira by playing this game
             </p>
             <button className="stakeButton" onClick={onPress}>
-                <p className="showMe">PLAY NOW</p>
+                <p className="showMe">STAKE NOW</p>
             </button>
         </div>
     )

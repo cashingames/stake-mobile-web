@@ -8,7 +8,7 @@ import BottomSheet from "../../../components/BottomSheet/BottomSheet";
 import ExhibitionStakingBanner from "../../../components/ExhibitionStakingBanner/ExhibitionStakingBanner";
 import NoGame from "../../../components/NoGame/NoGame";
 import ScreenHeader from "../../../components/ScreenHeader/ScreenHeader";
-import StakingButtons from "../../../components/StakingButtons/StakingButtons";
+// import StakingButtons from "../../../components/StakingButtons/StakingButtons";
 import './GameInstructionScreen.scss'
 
 
@@ -91,15 +91,9 @@ const GameInstructionScreen = () => {
                     <ExhibitionStakingBanner onPress={gotoStaking} />
                 }
                 <div className="buttons">
-                    {!isStakingEntryMode() &&
-                        <button className={isStakingFeatureEnabled ? 'proceedNow' : 'no-staking'} onClick={openBottomSheet}>
-                            <p className={isStakingFeatureEnabled ? 'text' : 'no-stake-text'}>{isStakingFeatureEnabled ? 'Play exhibition' : 'Proceed'}</p>
-                        </button>
-                    }
-                    {isStakingFeatureEnabled &&
-                        <StakingButtons onPressStake={gotoStaking} gameMode={gameMode} />
-                    }
-
+                    <button className='no-staking' onClick={isStakingEntryMode() ? gotoStaking : openBottomSheet}>
+                        <p className='no-stake-text'>Proceed</p>
+                    </button>
                 </div>
                 {hasActivePlan ?
                     <BottomSheet

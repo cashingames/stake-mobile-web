@@ -1,17 +1,16 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 // import { useNavigate } from 'react-router-dom';
 import GoToStore from '../GoToStore/GoToStore';
 import './NoGame.scss';
 
 
 const NoGame = ({ onClose, onPress }) => {
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
     const visitStore = () => {
         onClose();
-        alert('this is store')
-        // navigate('/dashboard')
+        navigate('/store')
     }
-
 
     return (
         <div className='noGames'>

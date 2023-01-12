@@ -1,40 +1,45 @@
-import React, { useState } from 'react'
-import './OtherLeaders.scss'
 
-function OtherLeaders({styleProp, userStyleProp}) {
-    const [state] = useState(true)
-  return (
-    <div className={`${styleProp} otherleader-container`}>
-        { state ? 
-        <>
-        <OtherLeader userName='adams2034' position={6} points={33} userStyleProp={userStyleProp}/>
-        <OtherLeader userName='adams2034' position={6} points={33} userStyleProp={userStyleProp}/>
-        <OtherLeader userName='adams2034' position={6}  points={33} userStyleProp={userStyleProp}/>
-        </>
-        :
-        <p className='no-data'>No Data</p>
+
+import React from 'react'
+import { formatNumber } from '../../utils/stringUtl'
+import './OtherLeaders.scss';
+
+const backendUrl = process.env.REACT_APP_API_ROOT_URL;
+
+
+function OtherLeaders({ leaders }) {
+    const currentLeader = leaders?.slice(3, leaders.length) ?? null;
+    if (currentLeader === null) {
+        return <></>;
+    }
+    return (
+        <div>
+            {currentLeader.map((leader, i) => <OtherLeader key={i} leader={leader}
+                position={formatNumber(i + 4)}
+            />)}
+        </div>
+    )
 }
-    </div>
-  )
-}
 
-export default OtherLeaders
+const OtherLeader = ({leader, position}) => {
+    return (
+        <div className='otherLeader-container'>
+            <div className='avatar-case'>
+                <div className='avatar-container'>
+                    <img
+                        src={leader.avatar ? `${backendUrl}/${leader.avatar}` : "/images/user-icon.png"}
+                        className='avatar'alt='avatar'
+                        onError={(e) => e.target.style.display = 'none'}
 
-function OtherLeader({points, userName, position, userStyleProp}) {
-    return(
-        <div className='other-container'>
-            <div className='avatar-container'>
-                <div className='avatar-case'>
-                    <img src='images/user-icon.png' alt='user' 
-                     onError={(e) => e.target.style.display='none'} />
+                    />
                 </div>
-                <div className='name-points'>
-                    <p className={userStyleProp}>{userName}</p>
-                    <p className='points'>{points}pts</p>
+                <div className='user-points'>
+                    <p className='user'>{`${leader.username}`}</p>
+                    <p className='points'>{formatNumber(leader.points)} pts</p>
                 </div>
             </div>
-            <div className='position'>
-                <p className='position-text'>{position}</p>
+            <div className='rank-case'>
+                <p className='rank'>{position}</p>
             </div>
         </div>
     )

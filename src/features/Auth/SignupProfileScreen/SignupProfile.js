@@ -4,6 +4,8 @@ import AuthTitle from '../../../components/AuthTitle/AuthTitle';
 import { useSelector } from 'react-redux';
 import { registerUser } from '../AuthSlice';
 import { useNavigate } from "react-router-dom";
+import ReactGA from 'react-ga';
+
 
 import './SignupProfile.scss'
 
@@ -76,6 +78,10 @@ const SignupProfile = () => {
             username: username,
             ...userCredentials
         }).then(response => {
+            ReactGA.event({
+                category: 'Authentication',
+                action: 'Sign up phone or email otp sent'
+            });
             navigate('/verify-phone-number', {
                 state: {
                     phone_number: userCredentials.phone_number,
@@ -84,6 +90,10 @@ const SignupProfile = () => {
             })
 
         }, err => {
+            ReactGA.exception({
+                description: 'An error ocurred',
+                fatal: true
+              });
             if (!err || !err.response || err.response === undefined) {
                 setError("Your Network is Offline.");
             }
