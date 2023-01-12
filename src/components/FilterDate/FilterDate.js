@@ -3,6 +3,8 @@ import { useState } from 'react';
 import { DateRangePicker } from 'react-date-range'
 import 'react-date-range/dist/styles.css'; // main css file
 import 'react-date-range/dist/theme/default.css'; // theme css file
+import { useDispatch } from 'react-redux';
+// import { getCategoryLeadersByDate, getGlobalLeadersByDate } from '../../features/CommonSlice';
 import './style.scss'
 
 const FilterDate = () => {
@@ -21,6 +23,9 @@ const FilterDate = () => {
 
 
 const DateRange = ({ setShowModal, showModal }) => {
+    // const dispatch = useDispatch();
+
+
     const [state, setState] = useState([
         {
             startDate: new Date(),
@@ -55,8 +60,6 @@ const DateRange = ({ setShowModal, showModal }) => {
                             moveRangeOnFirstSelection={false}
                             months={1}
                             ranges={state}
-                        //   direction="horizontal"
-                        // style={{display:'none'}}
                         />
                     </div>
                     <div className='btn-case'>
