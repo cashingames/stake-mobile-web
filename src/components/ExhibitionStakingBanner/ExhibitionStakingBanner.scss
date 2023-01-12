@@ -24,6 +24,7 @@
         text-align: center;
         line-height: 1.6;
         font-family: 'graphik-medium';
+        margin: 0;
         @include devices(sm){
             font-size: .9rem;
         }
