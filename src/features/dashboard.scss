@@ -1,12 +1,14 @@
-.leaderBoard-containers{
-    display: flex;
-    overflow: scroll;
-    align-items: baseline;
+.main-leaderBoards-container {
     margin: 1.3rem 0;
     padding: 0 1.5rem;
-    gap: 1rem;
-}
-
-.leaderBoard-containers::-webkit-scrollbar{
-    display: none;
+    .leaderBoard-containers{
+        display: flex;
+        overflow: scroll;
+        align-items: baseline;
+        gap: 1rem;
+    }
+    
+    .leaderBoard-containers::-webkit-scrollbar{
+        display: none;
+    }
 }

@@ -50,7 +50,7 @@ const AvailableMode = ({ gameMode, onPress}) => {
           className="cardIcon" alt={gameMode.name}
         />
       </div>
-      <p className='cardTitle'>{gameMode.name}</p>
+      <p className='cardTitle'>{gameMode.displayName}</p>
       <p className='cardInstruction'>{gameMode.description}</p>
       </div>
       <div className={`${gameMode.name === 'EXHIBITION' ? 'action-btn-container': 'action-btn-container1'}`}>
