@@ -1,0 +1,25 @@
+.helpPage-container{
+    background-color: #fff;
+    padding: 0 1.5rem;
+    .profile-tabs{
+        padding: 1.2rem 0;
+    }
+    
+}
+
+
+.tabContainer{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 0.1rem 0;
+    .tabText{
+        font-size: 0.93rem;
+        font-family: 'graphik-regular';
+        color: #151C2F;
+        line-height: 2;
+        width: 17.5rem;
+    }
+}

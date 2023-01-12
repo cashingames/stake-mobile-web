@@ -25,6 +25,7 @@
 
         .gameCard {
             min-width: 132px;
+            width: 135px;
             border-radius: 7px;
             box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
             background-color: #701F88;
@@ -35,7 +36,7 @@
                 max-width: 100px;
             }
             .card-top-row{
-                padding: 0.65rem 0.8rem;
+                padding: 1rem 0.8rem;
             .categoryCardTopRow {
                 display: flex;
                 justify-content: space-between;
