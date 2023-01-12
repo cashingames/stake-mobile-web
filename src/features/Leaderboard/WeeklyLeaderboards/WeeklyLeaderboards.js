@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import OtherLeaders from '../../../components/OtherLeaders/OtherLeaders';
+import OtherWeeklyLeaders from '../../../components/OtherWeeklyLeaders/OtherWeeklyLeaders';
 import PrizePoolTitle from '../../../components/PrizePoolTitle/PrizePoolTitle';
 import ScreenHeader from '../../../components/ScreenHeader/ScreenHeader';
 import { formatNumber } from '../../../utils/stringUtl';
@@ -77,7 +77,7 @@ const WeeklyGlobalLeaders = ({ leaders,userRank }) => {
                     </div>
                 </div>
             </div>
-            <OtherLeaders leaders={leaders} />
+            <OtherWeeklyLeaders leaders={leaders} />
         </div>
     )
 }
