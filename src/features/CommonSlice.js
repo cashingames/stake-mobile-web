@@ -25,6 +25,29 @@ export const getGlobalLeaders = createAsyncThunk(
         return response.data
     }
 )
+export const getGlobalLeadersByDate = createAsyncThunk(
+    'common/globalLeadersByDate/get',
+    async (data) => {
+        const response = await axios.post('v2/leaders/global', data);
+        return response.data
+    }
+)
+
+export const getCategoryLeaders = createAsyncThunk(
+    'common/categoryLeaders/get',
+    async () => {
+        const response = await axios.post('v2/leaders/categories');
+        return response.data
+    }
+)
+
+export const getCategoryLeadersByDate = createAsyncThunk(
+    'common/categoryLeadersByDate/get',
+    async (data) => {
+        const response = await axios.post('v2/leaders/categories', data);
+        return response.data
+    }
+)
 export const getWeeklyLeadersByDate = createAsyncThunk(
     'common/getWeeklyLeadersByDate/get',
     async (data) => {
@@ -124,6 +147,7 @@ const initialState = {
     gameCategories: [],
     banks: [],
     globalLeaders: [],
+    categoryLeaders: [],
     weeklyLeaderboard: {
         leaderboard: [],
         userRank: {}
@@ -190,6 +214,15 @@ export const CommonSlice = createSlice({
             })
             .addCase(getGlobalLeaders.fulfilled, (state, action) => {
                 state.globalLeaders = action.payload.data
+            })
+            .addCase(getGlobalLeadersByDate.fulfilled, (state, action) => {
+                state.globalLeaders = action.payload.data;
+            })
+            .addCase(getCategoryLeaders.fulfilled, (state, action) => {
+                state.categoryLeaders = action.payload.data
+            })
+            .addCase(getCategoryLeadersByDate.fulfilled, (state, action) => {
+                state.categoryLeaders = action.payload.data
             })
             .addCase(getWeeklyLeadersByDate.fulfilled, (state, action) => {
                 state.weeklyLeaderboard = {
