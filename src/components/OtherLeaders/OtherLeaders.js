@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { formatNumber } from '../../utils/stringUtl';
 import './OtherLeaders.scss';
 

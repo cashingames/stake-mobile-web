@@ -26,6 +26,9 @@ function GameEnded() {
   const goHome = () => {
     navigate('/dashboard')
   }
+  const viewLeaderboard =() => {
+    navigate('/leaderboards')
+  }
 
   const playAgain = () => {
     navigate('/game-instructions')
@@ -66,7 +69,7 @@ function GameEnded() {
       {withStaking &&
         <Winnings amountWon={amountWon} onPress={reviewStaking} />
       }
-      <SeeRank />
+      <SeeRank onClick={viewLeaderboard} />
       <FinalScore pointsGained={pointsGained} />
       <GameButton goHome={goHome} playAgain={playAgain} />
     </div>
