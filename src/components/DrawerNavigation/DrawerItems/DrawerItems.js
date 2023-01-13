@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { IoChevronForwardOutline } from 'react-icons/io5'
 import './DrawerItems.scss'
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 
 function DrawerItems() {
     // const user = useSelector(state => state.auth.user);
