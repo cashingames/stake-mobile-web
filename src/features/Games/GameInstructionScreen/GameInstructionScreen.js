@@ -87,7 +87,7 @@ const GameInstructionScreen = () => {
                     } />
                 <ExhibitionInstructions />
 
-                {isStakingFeatureEnabled &&
+                {isStakingFeatureEnabled && gameMode.name === 'EXHIBITION' &&
                     <ExhibitionStakingBanner onPress={gotoStaking} />
                 }
                 <div className="buttons">

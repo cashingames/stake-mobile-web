@@ -23,8 +23,12 @@ function GameEnded() {
   // const [loading, setLoading] = useState(false);
   // const [showText, setShowText] = useState(true);
 
+ 
   const goHome = () => {
-    navigate('/dashboard')
+    navigate('/dashboard', {
+      state: 
+        { showStakingAdvert: !withStaking}
+    })
   }
   const viewLeaderboard =() => {
     navigate('/leaderboards')

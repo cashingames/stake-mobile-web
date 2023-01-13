@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import AppHeader from '../components/AppHeader/AppHeader'
 import HeroBanner from '../components/HeroBanner/HeroBanner'
@@ -11,15 +11,20 @@ import { challengeTopLeaders } from './Games/GameSlice'
 import './dashboard.scss'
 import WeeklyLeaders from '../components/WeekyLeaders/WeeklyLeaders'
 import { getLiveTriviaStatus } from './LiveTrivia/LiveTriviaSlice'
+import StakingPopUp from '../components/StakingPopUp/StakingPopUp'
+import { useLocation } from 'react-router-dom'
 
 
 function DashBoardScreen() {
 
+  const location = useLocation()
   const dispatch = useDispatch();
   const gameModes = useSelector(state => state.common.gameModes);
   const challengeLeaders = useSelector(state => state.game.challengeLeaders)
+  const [showModal, setShowModal] = useState(false)
   // const leaders = useSelector(state => state.common.globalLeaders)
-
+  const showStakingAdvert = location.state?.showStakingAdvert ?? false;  
+  
   //disable browser back button
   useEffect(() => {
     window.history.pushState(null, null, window.location.href);
@@ -27,6 +32,10 @@ function DashBoardScreen() {
       window.history.go(1);
     };
   })
+
+  useEffect(()=>{
+    setShowModal(showStakingAdvert);
+}, [showStakingAdvert])
 
   useEffect(() => {
     dispatch(getUser());
@@ -50,6 +59,7 @@ function DashBoardScreen() {
           <TopChallengers challengeLeaders={challengeLeaders} />
         </div>
       </div>
+      <StakingPopUp setShowModal={setShowModal} showModal={showModal} />
     </div>
   )
 }
