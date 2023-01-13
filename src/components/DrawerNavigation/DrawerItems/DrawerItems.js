@@ -5,7 +5,7 @@ import './DrawerItems.scss'
 import { useSelector } from 'react-redux';
 
 function DrawerItems() {
-    const user = useSelector(state => state.auth.user);
+    // const user = useSelector(state => state.auth.user);
     return (
         <>
             {/* <Link to="/notifications" className='drawerItem'><p className='labelItem'>
