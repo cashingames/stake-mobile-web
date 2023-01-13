@@ -8,7 +8,7 @@ function GlobalLeaders({leaders}) {
     <div className='global'>
         <p className='global-title'> Global Leaderboard</p>
         <TopPlayers leaders={leaders}/>
-        <OtherLeaders styleProp='other-leaders' userStyleProp='global-user'/>
+        <OtherLeaders styleProp='other-leaders' userStyleProp='global-user' leaders={leaders}/>
     </div>
   )
 }

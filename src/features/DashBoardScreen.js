@@ -10,13 +10,12 @@ import { fetchFeatureFlags, getCommonData, getGlobalLeaders } from '../features/
 import { challengeTopLeaders } from './Games/GameSlice'
 import './dashboard.scss'
 import WeeklyLeaders from '../components/WeekyLeaders/WeeklyLeaders'
+import { getLiveTriviaStatus } from './LiveTrivia/LiveTriviaSlice'
 
 
 function DashBoardScreen() {
 
   const dispatch = useDispatch();
-  const user = useSelector(state => state.auth.user);
-  const trivia = useSelector(state => state.liveTrivia.data);
   const gameModes = useSelector(state => state.common.gameModes);
   const challengeLeaders = useSelector(state => state.game.challengeLeaders)
   // const leaders = useSelector(state => state.common.globalLeaders)
@@ -34,6 +33,7 @@ function DashBoardScreen() {
     dispatch(getCommonData())
     dispatch(challengeTopLeaders());
     dispatch(getGlobalLeaders());
+    dispatch(getLiveTriviaStatus())
     dispatch(fetchFeatureFlags())
 
   }, [dispatch]);
@@ -41,12 +41,14 @@ function DashBoardScreen() {
   return (
     <div>
       <AppHeader heading='Home' style={{ color: '#000000' }} />
-      <HeroBanner user={user} trivia={trivia} />
+      <HeroBanner />
       <SelectGame gameModes={gameModes} />
-      <div className='leaderBoard-containers'>
-        <WeeklyLeaders gameModes={gameModes}/>
-        {/* <TopPlayers leaders={leaders} /> */}
-        <TopChallengers challengeLeaders={challengeLeaders} />
+      <div className='main-leaderBoards-container'>
+        <div className='leaderBoard-containers'>
+          <WeeklyLeaders gameModes={gameModes} />
+          {/* <TopPlayers leaders={leaders} /> */}
+          <TopChallengers challengeLeaders={challengeLeaders} />
+        </div>
       </div>
     </div>
   )
