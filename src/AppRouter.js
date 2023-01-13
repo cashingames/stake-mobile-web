@@ -47,6 +47,8 @@ import ChallengeEndGameScreen from './features/Games/ChallengeEndGameScreen/Chal
 import ChallengeStaking from './features/Games/ChallengeStaking/ChallengeStaking';
 import WeeklyLeaderboard from './features/Leaderboard/WeeklyLeaderboards/WeeklyLeaderboards';
 import ExtendedLeaderBoard from './features/Leaderboard/ExtendedLeaderBoard/ExtendedLeaderBoard';
+import ContactUs from './features/Support/ContactUs/ContactUs';
+import HelpPages from './features/Support/HelpPages/HelpPages';
 
 const AppRouter = () => {
 
@@ -148,10 +150,16 @@ const AppRouter = () => {
                 element={<AuthRoute redirectTo="/"><InviteFriends /></AuthRoute>} />
             <Route
                 path="/help"
+                element={<AuthRoute redirectTo="/"><HelpPages /></AuthRoute>} />
+            <Route
+                path="/support"
                 element={<AuthRoute redirectTo="/"><SupportQuestions /></AuthRoute>} />
             <Route
                 path="/support-answers"
                 element={<AuthRoute redirectTo="/"><SupportAnswer /></AuthRoute>} />
+            <Route
+                path="/contact-us"
+                element={<AuthRoute redirectTo="/"><ContactUs /></AuthRoute>} />
             <Route
                 path="/challenges"
                 element={<AuthRoute redirectTo="/"><MyChallengeScreen /></AuthRoute>} />

@@ -16,7 +16,7 @@ export default function SupportAnswer() {
     // })
 
     const navigateHandler = () => {
-        navigate('/help')
+        navigate('/support')
     }
 
 
