@@ -19,7 +19,7 @@ const LiveTrivias = () => {
         dispatch(getLiveTriviaStatus())
         dispatch(fetchRecentLiveTrivia()).then(() => { setLoading(false) });
         // eslint-disable-next-line
-    }, []);
+    }, [dispatch]);
 
     //disable browser back button
     useEffect(() => {
@@ -35,7 +35,7 @@ const LiveTrivias = () => {
     }
 
     if (loading) {
-        return <LoaderScreen backgroundColor="background-color" color='#FFFF' />
+        return <LoaderScreen backgroundColor="trivia-background-color" color='#FFFF' />
     }
 
     return (
