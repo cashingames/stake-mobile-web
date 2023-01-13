@@ -35,7 +35,7 @@ function MyChallengeScreen() {
     })
 
     if (loading) {
-        return <LoaderScreen backgroundColor="background-color" color='#FFFF' />
+        return <LoaderScreen backgroundColor="challenge-background-color" color='#FFFF' />
     }
 
     return (
