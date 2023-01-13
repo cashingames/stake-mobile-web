@@ -29,7 +29,7 @@ function SupportQuestions() {
   }
 
   if (loading) {
-    return <LoaderScreen backgroundColor="store-background-color" />
+    return <LoaderScreen backgroundColor="support-background-color" />
   }
   return (
     <>

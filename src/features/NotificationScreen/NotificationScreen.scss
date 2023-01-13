@@ -16,14 +16,13 @@
     .markAsRead{
         display: flex;
         justify-content: flex-end;
-        padding: 0.1rem 0.3rem;
         .markBtn{
             display: flex;
             align-items: center;
             background-color: #ffe900;
             border: none;
             border-radius: 30px;
-            padding: .2rem;
+            padding: .4rem 0.5rem;
             gap: 0.27rem;
             cursor: pointer;
             .markText{

@@ -8,7 +8,7 @@ function DrawerItems() {
     const user = useSelector(state => state.auth.user);
     return (
         <>
-            <Link to="/notifications" className='drawerItem'><p className='labelItem'>
+            {/* <Link to="/notifications" className='drawerItem'><p className='labelItem'>
                 Notifications
             </p>
                 <div className='notificationSection'>
@@ -19,7 +19,7 @@ function DrawerItems() {
                             }</p> </div>}
                     <IoChevronForwardOutline className='notifyIcon' />
                 </div>
-            </Link>
+            </Link> */}
 
             <Link to="/live-trivia" className='drawerItem'><p className='labelItem'>
                 Live Trivia
@@ -47,10 +47,10 @@ function DrawerItems() {
             </Link>
 
             <Link to="/help" className='drawerItem'><p className='labelItem'>
-               Get Help
+                Get Help
             </p>
                 <IoChevronForwardOutline className='icon' />
-            </Link> 
+            </Link>
 
             <Link to="/invite-friends" className='drawerItem'><p className='labelItem'>
                 Invite Friends
