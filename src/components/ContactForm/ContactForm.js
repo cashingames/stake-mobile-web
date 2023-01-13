@@ -1,10 +1,13 @@
 import React, { useState } from 'react'
 import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { sendUserFeedback } from '../../features/CommonSlice';
 import Dialogue from '../Dialogue/Dialogue'
 import './ContactForm.scss'
 
-function ContactForm({user}) {
-    const [saving] = useState(false);
+function ContactForm({ user }) {
+    const dispatch = useDispatch();
+    const [saving, setSaving] = useState(false);
     const [first_name, setFirstName] = useState('');
     const [last_name, setLastName] = useState('');
     const [email] = useState(user.email);
@@ -13,11 +16,11 @@ function ContactForm({user}) {
     const [lastNameErr, setLastNameError] = useState(false);
     const [messageError, setMessageError] = useState(false);
     const [canSave, setCanSave] = useState(false);
-    const [alertMessage] = useState('')
+    const [alertMessage, setAlertMessage] = useState('')
     const [openAlert, setOpenAlert] = useState(false)
 
     const onChangeFirstName = (event) => {
-         first_name.length > 0 && first_name.length < 3 ? setFirstNameError(true) : setFirstNameError(false);
+        first_name.length > 0 && first_name.length < 3 ? setFirstNameError(true) : setFirstNameError(false);
         setFirstName(event.target.value)
     }
 
@@ -33,7 +36,21 @@ function ContactForm({user}) {
 
     const closeAlert = () => {
         setOpenAlert(false)
-      }
+    }
+
+    const sendFeedback = () => {
+        setSaving(true)
+        dispatch(sendUserFeedback({
+            first_name,
+            last_name,
+            email,
+            message_body,
+        })).then(() => {
+            setOpenAlert(true)
+            setAlertMessage('Thanks for your feedback. You would be responded to shortly')
+            setSaving(false)
+        })
+    }
 
     useEffect(() => {
         const invalid = firstNameErr || first_name === '' || lastNameErr || last_name === '' || messageError || message_body === ''
@@ -68,7 +85,7 @@ function ContactForm({user}) {
             </div>
             <div className='inputContainer'>
                 <label htmlFor='email' className='inputLabel'>Email</label>
-               <p className='email'>{email}</p>
+                <p className='email'>{email}</p>
             </div>
             <div className='inputContainer'>
                 <textarea
@@ -83,8 +100,9 @@ function ContactForm({user}) {
                 />
                 {messageError && <span className='inputError'>Please input your message</span>}
             </div>
-            <button className='send-btn' disabled={!canSave || saving} >Send</button>
-            <Dialogue open={openAlert} handleClose={closeAlert} dialogueMessage={alertMessage} />        </div>
+            <button className='send-btn' disabled={!canSave || saving} onClick={sendFeedback} >Send</button>
+            <Dialogue open={openAlert} handleClose={closeAlert} dialogueMessage={alertMessage} />
+        </div>
     )
 }
 
