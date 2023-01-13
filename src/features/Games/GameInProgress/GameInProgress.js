@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useLocation, useNavigate } from 'react-router-dom'
 import BottomSheet from '../../../components/BottomSheet/BottomSheet'
+import ButtonDialog from '../../../components/DoubleButtonDialog/ButtonDialog'
 import GameAppHeader from '../../../components/GameAppHeader/GameAppHeader'
 import GameInProgressAndBoost from '../../../components/GameInProgressAndBoost/GameInProgressAndBoost'
 import GameQuestions from '../../../components/GameQuestions/GameQuestions'
@@ -25,6 +26,9 @@ function GameInProgress() {
   const [ending, setEnding] = useState(false);
   const features = useSelector(state => state.common.featureFlags);
   const [open, setOpen] = useState(false);
+  const [alertMessage, setAlertMessage] = useState('')
+  const [openAlert, setOpenAlert] = useState(false)
+
 
 
 
@@ -84,6 +88,15 @@ function GameInProgress() {
     event.returnValue = '';
   }
 
+  const closeAlert = () => {
+    setOpenAlert(false)
+  }
+
+  const submitGame = () => {
+    setOpenAlert(false)
+    onEndGame()
+  }
+
   const openBottomSheet = async () => {
     setOpen(true)
   }
@@ -102,7 +115,8 @@ function GameInProgress() {
   })
 
   const showExitConfirmation = () => {
-    onEndGame();
+    setOpenAlert(true)
+    setAlertMessage('You have an ongoing game, do you want to submit this game?')
   }
 
   //disable browser back button
@@ -128,7 +142,7 @@ function GameInProgress() {
   return (
     <div className='gameInProgress'
       style={{ backgroundImage: 'url(/images/game_mode.png)' }}>
-      <GameAppHeader onPress={onEndGame} openBoost={openBottomSheet} />
+      <GameAppHeader onPress={showExitConfirmation} openBoost={openBottomSheet} />
       <GameInProgressAndBoost onComplete={() => onEndGame()} />
       <GameQuestions />
       <NextButton onClick={() => onEndGame()} ending={ending} />
@@ -137,6 +151,7 @@ function GameInProgress() {
         BSContent={<UserAvailableBoosts onClose={closeBottomSheet}
         />}
       />
+      <ButtonDialog dialogueMessage={alertMessage} open={openAlert} handleClose={closeAlert} onClick={submitGame} />
     </div>
   )
 }
@@ -178,7 +193,6 @@ const UserAvailableBoosts = ({ onClose }) => {
         :
         <p className="noBoosts">No boost available</p>
       }
-
     </div>
   )
 }
