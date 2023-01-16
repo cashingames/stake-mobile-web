@@ -1,45 +1,96 @@
-.sec-title{
+.sec-title {
     font-family: 'graphik-medium';
-    font-size: 1rem;
+    font-size: 0.9rem;
     margin: 0;
     color: #fff;
-   }
-
-
-
-.rdrDefinedRangesWrapper{
-    display: none;
-}
-
-.date-container{
-    .rdrDateRangePickerWrapper{
-        display: flex;
-        width: 100%;
-    }
-    .rdrMonthAndYearPickers select{
-        font-size: 1rem;
-        font-family: 'graphik-medium';
-    }
-    .rdrCalendarWrapper{
-        width: 100%;
-        font-size: 0.8rem;
-        font-family: 'graphik-medium';
-    }
-    .rdrMonth{
-        width: 100%;
-    }
-    .rdrDateDisplayWrapper {
-        display: none;
-    }
-    .rdrDateDisplayItem input{
-        display: none;
-        height: 0;
-    }
 }
 
 
+.react-datepicker {
+    font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+    font-size: 0.8rem;
+    background-color: #fff;
+    color: #000;
+    border: none;
+    border-radius: 0.3rem;
+    display: inline-block;
+    position: relative;
+    width: 100%;
 
-.date-modal{
+    .react-datepicker__month-container {
+        width: 100%;
+
+        .react-datepicker__header {
+            text-align: center;
+            background-color: #fff;
+            border: none;
+            padding: 8px 0;
+            position: relative;
+        }
+
+        .react-datepicker__current-month {
+            font-family: 'graphik-medium';
+            font-size: 1rem;
+        }
+
+        .react-datepicker__day-names {
+            margin-bottom: -8px;
+            display: flex;
+            justify-content: space-between;
+            margin-top: 0.5rem;
+
+            .react-datepicker__day-name,
+            .react-datepicker__day,
+            .react-datepicker__time-name {
+                color: #000;
+                display: inline-block;
+                width: 1.7rem;
+                line-height: 1.7rem;
+                text-align: center;
+                margin: 0.166rem;
+                font-family: 'graphik-medium';
+            }
+        }
+
+        .react-datepicker__day-names,
+        .react-datepicker__week {
+            display: flex;
+            justify-content: space-between;
+            margin: 0.5rem 0;
+
+            .react-datepicker__day-name,
+            .react-datepicker__day,
+            .react-datepicker__time-name {
+                color: #000;
+                display: inline-block;
+                width: 1.7rem;
+                line-height: 1.7rem;
+                text-align: center;
+                margin: 0.166rem;
+                font-family: 'graphik-medium';
+            }
+
+            .react-datepicker__day--selected,
+            .react-datepicker__day--in-selecting-range,
+            .react-datepicker__day--in-range,
+            .react-datepicker__month-text--selected,
+            .react-datepicker__month-text--in-selecting-range,
+            .react-datepicker__month-text--in-range,
+            .react-datepicker__quarter-text--selected,
+            .react-datepicker__quarter-text--in-selecting-range,
+            .react-datepicker__quarter-text--in-range,
+            .react-datepicker__year-text--selected,
+            .react-datepicker__year-text--in-selecting-range,
+            .react-datepicker__year-text--in-range {
+                border-radius: 0.3rem;
+                background-color: #EF2F55;
+                color: #fff;
+            }
+        }
+    }
+}
+
+.date-modal {
     display: flex;
     flex-direction: column;
     position: fixed;
@@ -47,63 +98,84 @@
     bottom: 0;
     left: 0;
     right: 0;
-    z-index: 100;
-    min-height: 100vh;
+    z-index: 10;
+    height: 100vh;
     background-color: #fff;
-.date-header{
-    background-color: #FAC502;
-    padding: 1rem;
-    .date-title{
-        margin: 0;
-        font-size: 15px;
-        font-family: 'graphik-medium';
-        color: #fff;
+    animation: my-animation 0.3s;
+
+    .date-header {
+        background-color: #FAC502;
+        padding: 1rem;
+
+        .date-title {
+            margin: 0;
+            font-size: 15px;
+            font-family: 'graphik-medium';
+            color: #fff;
+        }
+
+        .date-session {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 1rem 0;
+
+            .start-date {
+                margin: 0;
+                font-size: 1rem;
+                font-family: 'graphik-medium';
+                color: #fff;
+            }
+
+            .end-date {
+                margin: 0;
+                font-size: 1rem;
+                font-family: 'graphik-medium';
+                color: #fff;
+            }
+        }
+
     }
-    .date-session{
+
+    .btn-case {
         display: flex;
         align-items: center;
-        justify-content: space-between;
-        margin: 1rem 0;
-        .start-date{
-            margin: 0;
-            font-size: 1rem;
-            font-family: 'graphik-medium';
+        justify-content: center;
+        margin-top: 7rem;
+
+        .confirm-btn {
+            background-color: #EF2F55;
+            padding: 0.5rem 0.3rem;
+            border: none;
+            border-radius: 5px;
             color: #fff;
+            font-family: 'graphik-medium';
+            width: 7rem;
+            margin-right: 1rem;
         }
-        .end-date{
-            margin: 0;
-            font-size: 1rem;
+
+        .cancel-btn {
+            background-color: #fff;
+            padding: 0.5rem 0.3rem;
+            border: 1px solid #EF2F55;
+            border-radius: 5px;
+            color: #EF2F55;
             font-family: 'graphik-medium';
-            color: #fff;
+            width: 7rem;
         }
     }
-   
 }
 
-.btn-case{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 7rem;
-    .confirm-btn{
-        background-color: #EF2F55;
-        padding: 0.5rem 0.3rem;
-        border: none;
-        border-radius: 5px;
-        color: #fff;
-        font-family: 'graphik-medium';
-        width: 7rem;
-        margin-right: 1rem;
+.hide-modal {
+    display: none;
+}
+
+@keyframes my-animation {
+    from {
+        transform: translateY(100%);
     }
 
-    .cancel-btn{
-        background-color: #fff;
-        padding: 0.5rem 0.3rem;
-        border: 1px solid #EF2F55;
-        border-radius: 5px;
-        color: #EF2F55;
-        font-family: 'graphik-medium';
-        width: 7rem;
+    to {
+        transform: translateY(0);
     }
-}
 }

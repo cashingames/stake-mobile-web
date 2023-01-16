@@ -8,8 +8,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import './ExtendedLeaderBoard.scss'
 import CategoryLeader from '../../../components/CategoryLeader/CategoryLeader';
 import { useNavigate } from 'react-router';
-// import FilterDate from '../../../components/FilterDate/FilterDate';
 import LoaderScreen from '../../LoaderScreen/LoaderScreen';
+import FilterDate from '../../../components/FilterDate/FilterDate';
 
 
 function ExtendedLeaderBoard() {
@@ -50,7 +50,7 @@ function ExtendedLeaderBoard() {
                     <IoArrowBack color='#FFF' className='icon'  onClick={navigateHandler}/>
                     <p className='title'>Leaderboards</p>
                 </div>
-               {/* <FilterDate /> */}
+               <FilterDate />
             </div>
             <div className='leaderboard-container'>
                 <Player src={Gamepad}
