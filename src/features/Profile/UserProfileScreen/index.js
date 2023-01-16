@@ -12,6 +12,7 @@ import ScreensHeader from '../../../components/ScreenHeader/ScreenHeader';
 import Dialogue from '../../../components/Dialogue/Dialogue'
 import axios from 'axios';
 import './UserProfileScreen.scss'
+import LoaderScreen from '../../LoaderScreen/LoaderScreen';
 
 const backendUrl = process.env.REACT_APP_API_ROOT_URL;
 
@@ -22,6 +23,7 @@ function UserProfileScreen() {
     const [loading, setLoading] = useState(false);
     const [open, setOpen] = useState(false)
     const [alertMessage, setAlertMessage] = useState('')
+    const [screenLoader, setScreenLoader] = useState(true)
 
     const navigateHandler = () => {
         navigate('/dashboard')
@@ -74,6 +76,14 @@ function UserProfileScreen() {
         uploadElement.click();
     };
 
+    
+    useEffect(() => {
+        dispatch(getUser()).then(() => { setScreenLoader(false) });
+    }, [dispatch])
+
+    if (screenLoader) {
+        return <LoaderScreen backgroundColor="loader" />
+    }
 
     return (
         <>
