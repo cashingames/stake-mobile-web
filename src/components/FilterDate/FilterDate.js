@@ -37,8 +37,8 @@ const DateRange = ({ setShowModal, showModal }) => {
     };
 
 
-    console.log(startDate)
-    console.log(endDate)
+    // console.log(startDate)
+    // console.log(endDate)
     const confirmDate = () => {
         setShowModal(!showModal)
         

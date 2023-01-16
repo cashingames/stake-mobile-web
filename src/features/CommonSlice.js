@@ -127,7 +127,7 @@ export const searchUserFriends = createAsyncThunk(
 export const sendUserFeedback = createAsyncThunk(
     'common/sendUserFeedback',
     async (data, thunkAPI) => {
-        console.log(data)
+        // console.log(data)
         const response = await axios.post('v2/client/feedback', data)
         return response.data;
     }

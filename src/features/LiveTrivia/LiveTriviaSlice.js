@@ -10,7 +10,7 @@ export const getLiveTriviaStatus = createAsyncThunk(
     'liveTrivia/status',
     async () => {
         const response = await axios.get(`v3/live-trivia/status`)
-        console.log(response)
+        // console.log(response)
         return response.data;
     }
 )
