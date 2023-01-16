@@ -6,7 +6,7 @@ import { calculateTimeRemaining } from "../../../utils/utils";
 import './VerifyRegistrationOtp.scss'
 import { unwrapResult } from "@reduxjs/toolkit";
 import ResendOtp from "../../../components/ResendOtp/ResendOtp";
-import ReactGA from 'react-ga';
+// import ReactGA from 'react-ga';
 
 
 const VerifyRegistrationOtp = () => {
@@ -77,19 +77,19 @@ const VerifyRegistrationOtp = () => {
             .then(response => {
                 saveToken(response.data)
                 dispatch(setToken(response.data))
-                ReactGA.event({
-                    category: 'Authentication',
-                    action: 'Sign up successful'
-                });
+                // ReactGA.event({
+                //     category: 'Authentication',
+                //     action: 'Sign up successful'
+                // });
                 setLoading(false);
                 navigate('/dashboard')
             })
             .catch((rejectedValueOrSerializedError) => {
                 alert("Failed to log in, please input the correct code");
-                ReactGA.exception({
-                    description: 'An error ocurred',
-                    fatal: true
-                });
+                // ReactGA.exception({
+                //     description: 'An error ocurred',
+                //     fatal: true
+                // });
                 setLoading(false);
             })
     }

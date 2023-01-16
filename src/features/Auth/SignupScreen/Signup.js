@@ -8,7 +8,7 @@ import './Signup.scss'
 import { saveCreatedUserCredentials } from '../AuthSlice';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import ReactGA from 'react-ga';
+// import ReactGA from 'react-ga';
 
 
 
@@ -72,10 +72,10 @@ const Signup = () => {
         setLoading(true);
         //save this information in store
         dispatch(saveCreatedUserCredentials({ email, password, password_confirmation: password, phone_number: phone, country_code: countryCode }))
-        ReactGA.event({
-            category: 'Authentication',
-            action: 'Sign up initiated'
-        });
+        // ReactGA.event({
+        //     category: 'Authentication',
+        //     action: 'Sign up initiated'
+        // });
         navigate("/sign-up-profile")
     }
 

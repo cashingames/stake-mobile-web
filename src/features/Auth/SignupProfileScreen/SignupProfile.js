@@ -78,10 +78,10 @@ const SignupProfile = () => {
             username: username,
             ...userCredentials
         }).then(response => {
-            ReactGA.event({
-                category: 'Authentication',
-                action: 'Sign up phone or email otp sent'
-            });
+            // ReactGA.event({
+            //     category: 'Authentication',
+            //     action: 'Sign up phone or email otp sent'
+            // });
             navigate('/verify-phone-number', {
                 state: {
                     phone_number: userCredentials.phone_number,
@@ -90,10 +90,10 @@ const SignupProfile = () => {
             })
 
         }, err => {
-            ReactGA.exception({
-                description: 'An error ocurred',
-                fatal: true
-              });
+            // ReactGA.exception({
+            //     description: 'An error ocurred',
+            //     fatal: true
+            //   });
             if (!err || !err.response || err.response === undefined) {
                 setError("Your Network is Offline.");
             }

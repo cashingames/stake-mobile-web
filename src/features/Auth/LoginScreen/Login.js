@@ -38,15 +38,15 @@ const Login = () => {
         }).then(response => {
             saveToken(response.data.data)
             dispatch(setToken(response.data.data))
-            ReactGA.event({
-                category: 'Authentication',
-                action: 'Logged in'
-              });
+            // ReactGA.event({
+            //     category: 'Authentication',
+            //     action: 'Logged in'
+            //   });
         }, err => {
-            ReactGA.exception({
-                description: 'An error ocurred',
-                fatal: true
-              });
+            // ReactGA.exception({
+            //     description: 'An error ocurred',
+            //     fatal: true
+            //   });
             if (!err || !err.response || err.response === undefined) {
                 setError("Your Network is Offline.");
             }
