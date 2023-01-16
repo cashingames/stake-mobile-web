@@ -8,7 +8,7 @@ import GoogleSignup from '../../../components/GoogleSignup/GoogleSignup';
 import { loginUser, saveToken, setToken } from '../AuthSlice';
 import { useNavigate } from "react-router-dom";
 import LoaderScreen from '../../LoaderScreen/LoaderScreen';
-import ReactGA from 'react-ga';
+// import ReactGA from 'react-ga';
 
 
 
