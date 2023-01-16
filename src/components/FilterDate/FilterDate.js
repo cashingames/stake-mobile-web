@@ -1,10 +1,13 @@
 import React from 'react';
 import { useState } from 'react';
-import { DateRangePicker } from 'react-date-range'
-import 'react-date-range/dist/styles.css'; // main css file
-import 'react-date-range/dist/theme/default.css'; // theme css file
-// import { useDispatch } from 'react-redux';
-// import { getCategoryLeadersByDate, getGlobalLeadersByDate } from '../../features/CommonSlice';
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { useDispatch } from 'react-redux';
+import {
+    getCategoryLeadersByDate,
+    getGlobalLeadersByDate
+} from '../../features/CommonSlice';
+
 import './style.scss'
 
 const FilterDate = () => {
@@ -23,51 +26,65 @@ const FilterDate = () => {
 
 
 const DateRange = ({ setShowModal, showModal }) => {
-    // const dispatch = useDispatch();
+    
+    const dispatch = useDispatch();
+    const [startDate, setStartDate] = useState(new Date());
+    const [endDate, setEndDate] = useState(null);
+    const onChange = (dates) => {
+        const [start, end] = dates;
+        setStartDate(start);
+        setEndDate(end);
+    };
 
 
-    const [state, setState] = useState([
-        {
-            startDate: new Date(),
-            endDate: null,
-            key: 'selection'
-        }
-    ]);
-
+    console.log(startDate)
+    console.log(endDate)
     const confirmDate = () => {
-        setShowModal(false)
+        setShowModal(!showModal)
+        
+        dispatch(getGlobalLeadersByDate({
+            startDate,
+            endDate
+        }));
+        dispatch(getCategoryLeadersByDate({
+            startDate,
+            endDate
+        }));
     }
 
     const cancel = () => {
+        // setStartDate(null)
+        // setEndDate(null)
         setShowModal(false)
     }
 
+
     return (
         <>
-            {showModal &&
-                <div className='date-modal'>
-                    <div className='date-header'>
-                        <p className='date-title'>Select Date</p>
-                        <div className='date-session'>
-                            <p className='start-date'>Start Date</p>
-                            <p className='end-date'>End Date</p>
-                        </div>
+            <div className={`${showModal ? 'date-modal' : 'hide-modal'}`}>
+                <div className='date-header'>
+                    <p className='date-title'>Select Date</p>
+                    <div className='date-session'>
+                        <p className='start-date'>Start Date</p>
+                        <p className='end-date'>End Date</p>
                     </div>
-                    <div className='date-container'>
-                        <DateRangePicker
-                            onChange={item => setState([item.selection])}
-                            showSelectionPreview={true}
-                            moveRangeOnFirstSelection={false}
-                            months={1}
-                            ranges={state}
-                        />
-                    </div>
+                </div>
+                <div className='date-container'>
+
+                    <DatePicker
+                        selected={startDate}
+                        onChange={onChange}
+                        startDate={startDate}
+                        endDate={endDate}
+                        selectsRange
+                        inline
+                    />
                     <div className='btn-case'>
                         <button className='confirm-btn' onClick={confirmDate}>Ok</button>
                         <button className='cancel-btn' onClick={cancel}>Cancel</button>
                     </div>
                 </div>
-            }
+            </div>
         </>
     )
 
