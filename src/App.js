@@ -3,19 +3,18 @@ import { getToken, setToken } from "./features/Auth/AuthSlice";
 import axios from 'axios';
 import { useDispatch, useSelector } from "react-redux";
 import React, { useEffect, useState } from "react";
-import ReactGA from 'react-ga';
 import LoaderScreen from "./features/LoaderScreen/LoaderScreen";
-import RouteChangeTracker from "./RouteChangeTracker";
+import firebaseConfig from "./firebaseConfig";
+import { logEvent } from "firebase/analytics";
 
+const analytics = firebaseConfig();
+logEvent(analytics, "firebase_setup_complete");
 
 function App() {
 
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(true);
   const token = useSelector(state => state.auth.token);
-
-  const TRACKING_ID = process.env.REACT_APP_GOOGLE_ANALYTICS_TRACKING_ID;
-  ReactGA.initialize(TRACKING_ID);
 
 
   useEffect(() => {
@@ -31,7 +30,7 @@ function App() {
 
   return (
     <div className="App">
-      <RouteChangeTracker />
+      {/* <RouteChangeTracker /> */}
       <AppRouter />
     </div>
   )
