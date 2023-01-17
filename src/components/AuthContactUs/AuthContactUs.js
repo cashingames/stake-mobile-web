@@ -60,7 +60,7 @@ function AuthContactForm() {
             last_name,
             email,
             message_body,
-        })).then(() => {
+        })).then( async result => {
             setOpenAlert(true)
             setMessage('')
             setFirstName('')
@@ -69,6 +69,15 @@ function AuthContactForm() {
             setAlertMessage('Thanks for your feedback. You would be responded to shortly')
             setSaving(false)
         })
+        .catch((rejectedValueOrSerializedError) => {
+            setOpenAlert(true)
+            setMessage('')
+            setFirstName('')
+            setLastName('')
+            setEmail('')
+            setSaving(false)
+            setAlertMessage(rejectedValueOrSerializedError.message)
+        });
     }
 
     useEffect(() => {

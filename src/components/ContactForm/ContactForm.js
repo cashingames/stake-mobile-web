@@ -47,12 +47,18 @@ function ContactForm({ user }) {
             last_name,
             email,
             message_body,
-        })).then(() => {
+        })).then( async result => {
             setOpenAlert(true)
             setMessage('')
             setAlertMessage('Thanks for your feedback. You would be responded to shortly')
             setSaving(false)
         })
+        .catch((rejectedValueOrSerializedError) => {
+            setOpenAlert(true)
+            setMessage('')
+            setAlertMessage(rejectedValueOrSerializedError.message)
+            setSaving(false)
+        });
     }
 
     useEffect(() => {
