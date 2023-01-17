@@ -1,3 +1,4 @@
+import { unwrapResult } from '@reduxjs/toolkit';
 import React, { useState } from 'react'
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
@@ -47,7 +48,9 @@ function ContactForm({ user }) {
             last_name,
             email,
             message_body,
-        })).then( async result => {
+        }))
+        .then(unwrapResult)
+        .then( async result => {
             setOpenAlert(true)
             setMessage('')
             setAlertMessage('Thanks for your feedback. You would be responded to shortly')
