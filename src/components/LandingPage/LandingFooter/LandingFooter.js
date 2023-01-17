@@ -26,6 +26,8 @@ function LandingFooter() {
                     <a href='https://www.instagram.com/cashingames' className='icon'><FaInstagramSquare /></a>                    
                 </div>
             </div>
+            <Link to='/help-contact' className='contact-us'>Need help ? Contact us</Link>
+
         </div>
     )
 }

@@ -1,35 +1,48 @@
 import React, { useState } from 'react'
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { sendUserFeedback } from '../../features/CommonSlice';
 import Dialogue from '../Dialogue/Dialogue'
-import './ContactForm.scss'
+import './AuthContactUs.scss'
 
-function ContactForm({ user }) {
+function AuthContactForm() {
+    let navigate = useNavigate();
     const dispatch = useDispatch();
     const [saving, setSaving] = useState(false);
-    // const [first_name, setFirstName] = useState('');
-    // const [last_name, setLastName] = useState('');
-    const [email] = useState(user.email);
+    const [first_name, setFirstName] = useState('');
+    const [last_name, setLastName] = useState('');
+    const [email, setEmail] = useState('');
     const [message_body, setMessage] = useState('');
-    // const [firstNameErr, setFirstNameError] = useState(false);
-    // const [lastNameErr, setLastNameError] = useState(false);
+    const [firstNameErr, setFirstNameError] = useState(false);
+    const [lastNameErr, setLastNameError] = useState(false);
+    const [emailError, setEmailError] = useState(false)
     const [messageError, setMessageError] = useState(false);
     const [canSave, setCanSave] = useState(false);
     const [alertMessage, setAlertMessage] = useState('');
     const [openAlert, setOpenAlert] = useState(false);
-    const first_name = user.firstName;
-    const last_name = user.lastName;
 
-    // const onChangeFirstName = (event) => {
-    //     first_name.length > 0 && first_name.length < 3 ? setFirstNameError(true) : setFirstNameError(false);
-    //     setFirstName(event.target.value)
-    // }
+    const goBack = () => {
+        navigate(-1)
+    }
 
-    // const onChangeLastName = (event) => {
-    //     last_name.length > 0 && last_name.length < 3 ? setLastNameError(true) : setLastNameError(false);
-    //     setLastName(event.target.value)
-    // }
+
+    const onChangeFirstName = (event) => {
+        first_name.length > 0 && first_name.length < 3 ? setFirstNameError(true) : setFirstNameError(false);
+        setFirstName(event.target.value)
+    }
+
+    const onChangeLastName = (event) => {
+        last_name.length > 0 && last_name.length < 3 ? setLastNameError(true) : setLastNameError(false);
+        setLastName(event.target.value)
+    }
+
+    const onChangeEmail = (event) => {
+        /* eslint-disable-line */
+        const rule = /^([a-zA-Z0-9_/\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/; /* eslint-disable-line */
+        setEmailError(!rule.test(email))
+        setEmail(event.currentTarget.value)
+    }
 
     const onChangeMessage = (event) => {
         message_body.length > 0 && message_body.length < 3 ? setMessageError(true) : setMessageError(false);
@@ -50,19 +63,24 @@ function ContactForm({ user }) {
         })).then(() => {
             setOpenAlert(true)
             setMessage('')
+            setFirstName('')
+            setLastName('')
+            setEmail('')
             setAlertMessage('Thanks for your feedback. You would be responded to shortly')
             setSaving(false)
         })
     }
 
     useEffect(() => {
-        const invalid =  messageError || message_body === ''
+        const invalid = messageError || message_body === '' || firstNameErr || first_name === '' ||
+            lastNameErr || last_name === '' || emailError || email === ''
         setCanSave(!invalid);
-    }, [ messageError, message_body])
+    }, [messageError, message_body, firstNameErr, first_name, lastNameErr, last_name, emailError, email])
 
     return (
         <div className='form-container'>
-            {/* <div className='inputContainer'>
+            <h1 className='form-title'>Need help ? Fill the form and we would respond to you</h1>
+            <div className='inputContainer'>
                 <label htmlFor='email' className='inputLabel'>First Name</label>
                 <input
                     id='first_name'
@@ -73,8 +91,8 @@ function ContactForm({ user }) {
                     required
                 />
                 {firstNameErr && <span className='inputError'>*first name must not be empty</span>}
-            </div> */}
-            {/* <div className='inputContainer'>
+            </div>
+            <div className='inputContainer'>
                 <label htmlFor='email' className='inputLabel'>Last Name</label>
                 <input
                     id='last_name'
@@ -85,10 +103,18 @@ function ContactForm({ user }) {
                     required
                 />
                 {lastNameErr && <span className='inputError'>*last name must not be empty</span>}
-            </div> */}
+            </div>
             <div className='inputContainer'>
                 <label htmlFor='email' className='inputLabel'>Email</label>
-                <p className='email'>{email}</p>
+                <input
+                    id='email'
+                    type="text"
+                    className='inputBox'
+                    value={email}
+                    onChange={onChangeEmail}
+                    required
+                />
+                {emailError && <span className='inputError'>*please input a valid email</span>}
             </div>
             <div className='inputContainer'>
                 <textarea
@@ -103,10 +129,11 @@ function ContactForm({ user }) {
                 />
                 {messageError && <span className='inputError'>Please input your message</span>}
             </div>
-            <button className='send-btn' disabled={!canSave || saving} onClick={sendFeedback} >Send</button>
+            <button className='send-btn' disabled={!canSave || saving} onClick={sendFeedback}>Send</button>
+            <p className='go-btn' onClick={goBack}>Go Back</p>
             <Dialogue open={openAlert} handleClose={closeAlert} dialogueMessage={alertMessage} />
         </div>
     )
 }
 
-export default ContactForm;
+export default AuthContactForm;

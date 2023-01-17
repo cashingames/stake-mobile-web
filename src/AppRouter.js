@@ -49,6 +49,7 @@ import WeeklyLeaderboard from './features/Leaderboard/WeeklyLeaderboards/WeeklyL
 import ExtendedLeaderBoard from './features/Leaderboard/ExtendedLeaderBoard/ExtendedLeaderBoard';
 import ContactUs from './features/Support/ContactUs/ContactUs';
 import HelpPages from './features/Support/HelpPages/HelpPages';
+import AuthContactForm from './components/AuthContactUs/AuthContactUs';
 
 const AppRouter = () => {
 
@@ -64,6 +65,8 @@ const AppRouter = () => {
             <Route path="/forgot-password" element={<AnonymousRoute redirectTo="/dashboard"><ForgotPassword /></AnonymousRoute>} />
             <Route path="/reset-password" element={<AnonymousRoute redirectTo="/dashboard"><ResetPassword /></AnonymousRoute>} />
             <Route path="/verify-otp" element={<AnonymousRoute redirectTo="/dashboard"><VerifyOtp /></AnonymousRoute>} />
+            <Route path="/help-contact" element={<AnonymousRoute redirectTo="/dashboard"><AuthContactForm /></AnonymousRoute>} />
+
             <Route
                 path="/dashboard"
                 element={<AuthRoute redirectTo="/"><DashBoardScreen /></AuthRoute>} />

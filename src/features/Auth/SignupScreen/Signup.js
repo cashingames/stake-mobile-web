@@ -7,7 +7,7 @@ import { BiRectangle } from "react-icons/bi";
 import './Signup.scss'
 import { saveCreatedUserCredentials } from '../AuthSlice';
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 // import ReactGA from 'react-ga';
 
 
@@ -198,6 +198,7 @@ const Signup = () => {
                         </button>
                     </div>
                     <p className='have-account'>Have an account already ? <a className='sign-in' href="/login">Sign in</a></p>
+                    <Link to='/help-contact' className='contact-us'>Need help ? Contact us</Link>
                 </div>
             </div>
         </div>

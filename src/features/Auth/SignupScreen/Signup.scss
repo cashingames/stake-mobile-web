@@ -1,5 +1,6 @@
 .signupContainer {
     padding: 2rem 1rem;
+
     .headerTitle {
         margin-top: 3.5rem;
     }
@@ -23,6 +24,7 @@
 
         .inputsContainer {
             position: relative;
+
             .inputContainer {
                 display: flex;
                 flex-direction: column;
@@ -113,7 +115,7 @@
                         color: #00000080;
                     }
                 }
-               
+
             }
 
             .agreementsContainer {
@@ -144,6 +146,7 @@
 
             .appButtonContainer {
                 margin-bottom: 1.7rem;
+
                 .buttonContainer {
                     margin-top: 3rem;
                     background-color: #EF2F55;
@@ -169,17 +172,30 @@
                     color: white;
                 }
             }
+
             .have-account {
                 font-size: 0.87rem;
                 font-family: 'graphik-medium';
                 text-align: center;
                 color: #00000080;
             }
+
             .sign-in {
                 text-decoration: none;
                 color: #EF2F55;
                 font-family: 'graphik-medium';
                 font-size: 0.85rem;
+            }
+
+            .contact-us {
+                display: flex;
+                text-align: center;
+                font-size: 0.75rem;
+                color: #EF2F55;
+                justify-content: center;
+                text-decoration: none;
+                cursor: pointer;
+                font-family: 'graphik-medium';
             }
         }
     }

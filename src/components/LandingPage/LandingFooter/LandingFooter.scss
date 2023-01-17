@@ -1,4 +1,3 @@
-
 .LandingFooter {
     background-color: #141B2E;
     color: #fff;
@@ -9,7 +8,8 @@
         display: flex;
         justify-content: space-evenly;
         margin: 2rem;
-        .logo{
+
+        .logo {
             width: 116px;
             height: 60px;
             object-fit: cover;
@@ -21,15 +21,16 @@
         justify-content: space-evenly;
         width: 100%;
         margin-bottom: 2rem;
-            .footerLink {
-                text-decoration: none;
-                color: #fff;
-                margin: 1rem 0;
-                font-size: 0.9rem;
-                font-family: 'graphik-regular';
 
-            }
+        .footerLink {
+            text-decoration: none;
+            color: #fff;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+            font-family: 'graphik-regular';
+
         }
+    }
 
     .socialMediaLinks {
         display: flex;
@@ -45,9 +46,9 @@
             flex-direction: column;
             font-size: 0.9rem;
             color: #B5B1B1;
-           
 
-            p{
+
+            p {
                 margin: .5rem 0;
                 font-family: 'graphik-regular';
                 padding: 0;
@@ -58,10 +59,19 @@
             display: flex;
             justify-content: space-between;
             gap: 1rem;
-            .icon{
+
+            .icon {
                 text-decoration: none;
                 color: #fff;
             }
         }
+    }
+
+    .contact-us {
+        display: flex;
+        text-align: center;
+        font-size: 0.9rem;
+        color: #EF2F55;
+        justify-content: center;
     }
 }

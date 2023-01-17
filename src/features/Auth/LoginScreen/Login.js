@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import './Login.scss'
 import GoogleSignup from '../../../components/GoogleSignup/GoogleSignup';
 import { loginUser, saveToken, setToken } from '../AuthSlice';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import LoaderScreen from '../../LoaderScreen/LoaderScreen';
 // import ReactGA from 'react-ga';
 
@@ -130,6 +130,7 @@ const Login = () => {
                 <p className='socialLinkText2'>or</p>
                 <GoogleSignup buttonText='Sign in' />
             </div>
+            <Link to='/help-contact' className='contact-us'>Need help ? Contact us</Link>
         </div>
     )
 }
