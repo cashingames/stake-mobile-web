@@ -1,11 +1,19 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { logoutUser } from '../../../features/Auth/AuthSlice';
 import { IoChevronForwardOutline } from 'react-icons/io5'
 import './DrawerItems.scss'
+import { useDispatch } from 'react-redux';
 // import { useSelector } from 'react-redux';
 
 function DrawerItems() {
     // const user = useSelector(state => state.auth.user);
+    const dispatch = useDispatch();
+
+    const onLogout = () => {
+        dispatch(logoutUser())
+    }
+
     return (
         <>
             {/* <Link to="/notifications" className='drawerItem'><p className='labelItem'>
@@ -57,9 +65,9 @@ function DrawerItems() {
             </p>
                 <IoChevronForwardOutline className='icon' />
             </Link>
-            {/* <div className='versionContainer'>
-                <p className="appVersion">App version 1.0.68</p>
-            </div> */}
+            <div className='container-logout'>
+                <p className="logout-text" onClick={onLogout}>Logout</p>
+            </div>
         </>
     )
 }

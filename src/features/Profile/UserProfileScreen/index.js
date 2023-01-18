@@ -73,7 +73,7 @@ function UserProfileScreen() {
         uploadElement.click();
     };
 
-    
+
     useEffect(() => {
         dispatch(getUser()).then(() => { setScreenLoader(false) });
     }, [dispatch])
@@ -87,10 +87,13 @@ function UserProfileScreen() {
             <ScreensHeader title='Profile' onClick={navigateHandler} />
             <div className='userProfileContainer'>
                 <form className='userImgContainer'>
-                    <img
-                        src={user.avatar ? `${backendUrl}/${user.avatar}` : "/images/user-icon.png"}
-                        alt='user'
-                        className='userAvater' />
+                    <div className='avatar-case'>
+                        <img
+                            src={user.avatar ? `${backendUrl}/${user.avatar}` : "/images/user-icon.png"}
+                            alt='user'
+                            className='userAvater'
+                            onError={(e) => e.target.style.display = 'none'} />
+                    </div>
                     <input type='file'
                         accept="image/*"
                         onChange={pickImage}

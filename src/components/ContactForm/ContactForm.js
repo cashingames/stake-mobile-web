@@ -49,28 +49,28 @@ function ContactForm({ user }) {
             email,
             message_body,
         }))
-        .then(unwrapResult)
-        .then( async result => {
-            setOpenAlert(true)
-            setMessage('')
-            setAlertMessage('Thanks for your feedback. You would be responded to shortly')
-            setSaving(false)
-        })
-        .catch((rejectedValueOrSerializedError) => {
-            setOpenAlert(true)
-            setMessage('')
-            setAlertMessage(rejectedValueOrSerializedError.message)
-            setSaving(false)
-        });
+            .then(unwrapResult)
+            .then(async result => {
+                setOpenAlert(true)
+                setMessage('')
+                setAlertMessage('Thanks for your feedback. You would be responded to shortly')
+                setSaving(false)
+            })
+            .catch((rejectedValueOrSerializedError) => {
+                setOpenAlert(true)
+                setMessage('')
+                setAlertMessage(rejectedValueOrSerializedError.message)
+                setSaving(false)
+            });
     }
 
     useEffect(() => {
-        const invalid =  messageError || message_body === ''
+        const invalid = messageError || message_body === ''
         setCanSave(!invalid);
-    }, [ messageError, message_body])
+    }, [messageError, message_body])
 
     return (
-        <div className='form-container'>
+        <div className='container-form'>
             {/* <div className='inputContainer'>
                 <label htmlFor='email' className='inputLabel'>First Name</label>
                 <input

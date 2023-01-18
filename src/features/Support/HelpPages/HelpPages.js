@@ -16,8 +16,8 @@ function HelpPages() {
         <ScreenHeader title='Support' styleProp='supportHeader' onClick={navigateHandler} />
         <div className='helpPage-container'>
             <div className='profile-tabs'>
-            <HelpTab  tabName='FAQs' onClick={() => navigate('/support')}/>
             <HelpTab  tabName='Contact Us' onClick={() => navigate('/contact-us')}/>
+            <HelpTab  tabName='FAQs' onClick={() => navigate('/support')}/>
             </div>
         </div>
     </>

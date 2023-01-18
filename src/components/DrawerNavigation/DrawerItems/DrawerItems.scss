@@ -50,7 +50,7 @@
     }
 }
 
-.versionContainer {
+.container-logout {
     background-color: #fff;
     display: flex;
     justify-content: center;
@@ -58,11 +58,11 @@
     margin-top: 3rem;
     margin-bottom: 0;
 
-    .appVersion {
-        color: #000;
+    .logout-text {
+        color: #EF2F55;
         font-size: 0.8rem;
         line-height: 0.7;
-        opacity: 0.7;
-        font-family: 'graphik-regular';
+        font-family: 'graphik-medium';
+        cursor: pointer;
     }
 }
