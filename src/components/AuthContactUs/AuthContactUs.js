@@ -1,3 +1,4 @@
+import { unwrapResult } from '@reduxjs/toolkit';
 import React, { useState } from 'react'
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
@@ -60,7 +61,9 @@ function AuthContactForm() {
             last_name,
             email,
             message_body,
-        })).then(() => {
+        }))
+        .then(unwrapResult)
+        .then( async result => {
             setOpenAlert(true)
             setMessage('')
             setFirstName('')
@@ -69,6 +72,15 @@ function AuthContactForm() {
             setAlertMessage('Thanks for your feedback. You would be responded to shortly')
             setSaving(false)
         })
+        .catch((rejectedValueOrSerializedError) => {
+            setOpenAlert(true)
+            setMessage('')
+            setFirstName('')
+            setLastName('')
+            setEmail('')
+            setSaving(false)
+            setAlertMessage(rejectedValueOrSerializedError.message)
+        });
     }
 
     useEffect(() => {
