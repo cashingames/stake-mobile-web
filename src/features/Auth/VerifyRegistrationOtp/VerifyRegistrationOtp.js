@@ -6,10 +6,14 @@ import { calculateTimeRemaining } from "../../../utils/utils";
 import './VerifyRegistrationOtp.scss'
 import { unwrapResult } from "@reduxjs/toolkit";
 import ResendOtp from "../../../components/ResendOtp/ResendOtp";
+import firebaseConfig from "../../../firebaseConfig";
+import { logEvent } from "firebase/analytics";
 // import ReactGA from 'react-ga';
 
 
 const VerifyRegistrationOtp = () => {
+    const analytics = firebaseConfig();
+    
     const dispatch = useDispatch();
     const location = useLocation();
     let navigate = useNavigate();
@@ -76,6 +80,14 @@ const VerifyRegistrationOtp = () => {
             .then(unwrapResult)
             .then(response => {
                 saveToken(response.data)
+                logEvent(analytics, "verified_phone_number", {
+                    'id': location.state.username,
+                    'phone_number': location.state.phone_number
+                });
+                logEvent(analytics, "verified", {
+                    'id': location.state.username,
+                    'phone_number': location.state.phone_number
+                });
                 dispatch(setToken(response.data))
                 // ReactGA.event({
                 //     category: 'Authentication',
