@@ -38,12 +38,14 @@ function AuthContactForm() {
         setLastName(event.target.value)
     }
 
-    const onChangeEmail = (event) => {
-        /* eslint-disable-line */
-        const rule = /^([a-zA-Z0-9_/\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/; /* eslint-disable-line */
-        setEmailError(!rule.test(email))
-        setEmail(event.currentTarget.value)
-    }
+        const onChangeEmail = (event) => {
+            const email = event.currentTarget.value;
+            //  eslint-disable-next-line
+            const rule = /^([a-zA-Z0-9_/\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/; 
+            setEmailError(!rule.test(email))
+            setEmail(email)
+        }
+    
 
     const onChangeMessage = (event) => {
         message_body.length > 0 && message_body.length < 3 ? setMessageError(true) : setMessageError(false);
