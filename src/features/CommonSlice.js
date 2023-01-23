@@ -174,7 +174,7 @@ const initialState = {
     loadMoreChallenges: true,
     periodBeforeChallengeStakingExpiry: '',
     featureFlags: [],
-    minimumBoostScore:null
+    minimumBoostScore:0
 
 }
 
