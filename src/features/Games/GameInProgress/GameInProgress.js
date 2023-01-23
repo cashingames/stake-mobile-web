@@ -52,7 +52,7 @@ function GameInProgress() {
       consumedBoosts
     }))
       .then(unwrapResult)
-      .then(async () => {
+      .then(() => {
         logEvent(analytics, 'exhibition_game_completed', {
           'id': user.username,
           'phone_number': user.phoneNumber,
@@ -63,7 +63,6 @@ function GameInProgress() {
           data: chosenOptions
         }))
         if (isStaking) {
-          console.log(isStaking)
           logEvent(analytics, 'staking_game_completed', {
             'id': user.username,
             'phone_number': user.phoneNumber,
