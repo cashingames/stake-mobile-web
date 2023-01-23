@@ -62,14 +62,6 @@ function GameInProgress() {
           message: "Game session " + gameSessionToken + " chosen options for " + user.username,
           data: chosenOptions
         }))
-        if (isStaking) {
-          logEvent(analytics, 'staking_game_completed', {
-            'id': user.username,
-            'phone_number': user.phoneNumber,
-            'email': user.email
-          });
-          
-        }
         setEnding(false);
         if (isPlayingTrivia) {
           dispatch(setHasPlayedTrivia(true))
@@ -79,9 +71,15 @@ function GameInProgress() {
             'email': user.email
           });
           navigate('/trivia-ended', { state: { triviaId: location.state.triviaId } })
+        } else if (isStaking) {
+          logEvent(analytics, 'staking_game_completed', {
+            'id': user.username,
+            'phone_number': user.phoneNumber,
+            'email': user.email
+          });
+          navigate('/game-result');
         } else {
           navigate('/game-result');
-          // alert('game ended')
         }
 
       })
