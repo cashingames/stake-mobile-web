@@ -1,0 +1,97 @@
+.modal__container {
+    height: 100vh;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+
+    .modal {
+        background-image: linear-gradient(#151C2F, #792592);
+        margin: 20px;
+        border-radius: 20px;
+        margin-top: 5rem;
+
+        .modal__container-top {
+            padding: 1rem 1.3rem;
+
+            .modal__close-btn-case {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: #FAC502;
+                width: 1rem;
+                height: 1rem;
+                border-radius: 50%;
+                margin-left: auto;
+
+                .modal__close-btn {
+                    margin: 0;
+                    font-size: 0.6rem;
+                    font-family: 'graphik-bold';
+                    color: #fff;
+                    cursor: pointer
+                }
+            }
+
+            .modal__text-top {
+                margin: 0;
+                font-size: 1rem;
+                font-family: 'graphik-medium';
+                color: #fff;
+                text-align: center;
+                margin-bottom: 0.7rem;
+            }
+
+            .modal__container-img {
+                display: flex;
+                justify-content: center;
+
+                .boost-img {
+                    width: 11rem;
+                    height: 9.5rem;
+                }
+            }
+        }
+
+        .modal__container-bottomConatainer {
+            background-color: #FAC502;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            margin-top: 0.7rem;
+            padding-top: 0.65rem;
+            padding-bottom: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+
+            .modal__text-bottom {
+                margin: 0;
+                text-align: center;
+                font-size: 0.8rem;
+                font-family: 'graphik-medium';
+                padding: 0 0.5rem;
+                width: 15rem;
+            }
+
+            .modal__boost-btn {
+                position: absolute;
+                background-color: #EF2F55;
+                padding: 0.3rem 1.5rem;
+                bottom: -10px;
+                font-size: 0.65rem;
+                font-family: 'graphik-medium';
+                border-radius: 10px;
+                border: 1px solid #66142E;
+                color: #fff;
+                cursor: pointer;
+            }
+        }
+    }
+}

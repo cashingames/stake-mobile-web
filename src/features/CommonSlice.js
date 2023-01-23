@@ -174,6 +174,8 @@ const initialState = {
     loadMoreChallenges: true,
     periodBeforeChallengeStakingExpiry: '',
     featureFlags: [],
+    minimumBoostScore:null
+
 }
 
 export const CommonSlice = createSlice({
@@ -213,6 +215,7 @@ export const CommonSlice = createSlice({
                 state.minimumChallengeStakeAmount = data.minimumChallengeStakeAmount;
                 state.minimumWalletFundableAmount = data.minimumWalletFundableAmount;
                 state.periodBeforeChallengeStakingExpiry = data.periodBeforeChallengeStakingExpiry
+                state.minimumBoostScore = data.minimumBoostScore
             })
             .addCase(fetchRecentLiveTrivia.fulfilled, (state, action) => {
                 state.trivias = action.payload;
