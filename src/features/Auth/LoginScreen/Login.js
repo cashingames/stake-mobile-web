@@ -8,6 +8,8 @@ import GoogleSignup from '../../../components/GoogleSignup/GoogleSignup';
 import { loginUser, saveToken, setToken } from '../AuthSlice';
 import { useNavigate, Link } from "react-router-dom";
 import LoaderScreen from '../../LoaderScreen/LoaderScreen';
+import firebaseConfig from "../../../firebaseConfig";
+import { logEvent } from 'firebase/analytics';
 // import ReactGA from 'react-ga';
 
 
@@ -15,7 +17,7 @@ import LoaderScreen from '../../LoaderScreen/LoaderScreen';
 const Login = () => {
     const dispatch = useDispatch();
     let navigate = useNavigate();
-
+    const analytics = firebaseConfig();
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [showPassword, setShowPassword] = useState(false)
@@ -59,6 +61,10 @@ const Login = () => {
                     err.response && err.response.data && err.response.data.errors;
 
                 if (err.response.status === 400 && err.response.data.message === 'Account not verified') {
+                    logEvent(analytics, "unverified_user", {
+                        'username' : errors.username,
+                        'phone_number': errors.phone_number
+                    });
                     navigate('/', {
                         phone_number: err.response.data.errors.phoneNumber,
                         username: err.response.data.errors.username, next_resend_minutes: 1
@@ -115,7 +121,7 @@ const Login = () => {
                         </div>
                     </div>
                     <div className='forgotPasswordContainer'>
-                        <a  href='/forgot-password' className='forgotPasswordText'>Forgot Password?</a>
+                        <a href='/forgot-password' className='forgotPasswordText'>Forgot Password?</a>
                     </div>
                     <div className='appButtonContainer'>
                         <button className='buttonContainer' disabled={!canLogin || loading} type='submit' onClick={onLogin}>
