@@ -1,4 +1,5 @@
 import { unwrapResult } from '@reduxjs/toolkit'
+import { logEvent } from 'firebase/analytics'
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useLocation, useNavigate } from 'react-router-dom'
@@ -8,6 +9,7 @@ import GameAppHeader from '../../../components/GameAppHeader/GameAppHeader'
 import GameInProgressAndBoost from '../../../components/GameInProgressAndBoost/GameInProgressAndBoost'
 import GameQuestions from '../../../components/GameQuestions/GameQuestions'
 import UserAvailableBoost from '../../../components/UserAvailableBoost/UserAvailableBoost'
+import firebaseConfig from '../../../firebaseConfig'
 import { logActionToServer } from '../../CommonSlice'
 import { endGame, nextQuestion, setHasPlayedTrivia } from '../GameSlice'
 import './GameInProgress.scss'
@@ -21,6 +23,7 @@ function GameInProgress() {
   const chosenOptions = useSelector(state => state.game.chosenOptions);
   const consumedBoosts = useSelector(state => state.game.consumedBoosts);
   const isPlayingTrivia = useSelector(state => state.game.isPlayingTrivia);
+  const isStaking = useSelector(state => state.game.amountStaked);
   const user = useSelector(state => state.auth.user);
   const isEnded = useSelector(state => state.game.isEnded);
   const [ending, setEnding] = useState(false);
@@ -28,9 +31,7 @@ function GameInProgress() {
   const [open, setOpen] = useState(false);
   const [alertMessage, setAlertMessage] = useState('')
   const [openAlert, setOpenAlert] = useState(false)
-
-
-
+  const analytics = firebaseConfig();
 
   const onEndGame = (confirm = false) => {
 
@@ -52,20 +53,33 @@ function GameInProgress() {
     }))
       .then(unwrapResult)
       .then(async () => {
+        logEvent(analytics, 'exhibition_game_completed', {
+          'id': user.username,
+          'phone_number': user.phoneNumber,
+          'email': user.email
+        });
         dispatch(logActionToServer({
           message: "Game session " + gameSessionToken + " chosen options for " + user.username,
           data: chosenOptions
         }))
-          .then(unwrapResult)
-          .then(result => {
-          })
-          .catch(() => {
+        if (isStaking) {
+          console.log(isStaking)
+          logEvent(analytics, 'staking_game_completed', {
+            'id': user.username,
+            'phone_number': user.phoneNumber,
+            'email': user.email
           });
+          
+        }
         setEnding(false);
         if (isPlayingTrivia) {
           dispatch(setHasPlayedTrivia(true))
-          navigate('/trivia-ended', {state: {triviaId: location.state.triviaId }})
-       
+          logEvent(analytics, 'trivia_game_completed', {
+            'id': user.username,
+            'phone_number': user.phoneNumber,
+            'email': user.email
+          });
+          navigate('/trivia-ended', { state: { triviaId: location.state.triviaId } })
         } else {
           navigate('/game-result');
           // alert('game ended')
@@ -197,4 +211,7 @@ const UserAvailableBoosts = ({ onClose }) => {
   )
 }
 export default GameInProgress
+
+
+
 
