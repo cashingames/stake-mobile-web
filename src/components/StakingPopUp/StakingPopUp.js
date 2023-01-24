@@ -1,7 +1,28 @@
+import { logEvent } from 'firebase/analytics';
 import React from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { setGameMode } from '../../features/Games/GameSlice';
+import firebaseConfig from '../../firebaseConfig';
 import './StakingPopUp.scss'
 
-function StakingPopUp({showModal, setShowModal}) {
+function StakingPopUp({showModal, setShowModal, gameModes}) {
+    const gameModeSelected = gameModes.find(mode => mode.name === 'STAKING')
+    const user = useSelector(state => state.auth.user);
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+    const analytics = firebaseConfig();
+
+    const playStaking = () => {
+        dispatch(setGameMode(gameModeSelected));
+        setShowModal(!showModal)
+        logEvent(analytics, "stake_cash_now_button_clicked", {
+            'id': user.username,
+            'phone_number': user.phoneNumber,
+            'email': user.email
+        });
+        navigate('/select-category')       
+    }
     
     return (
         <>        
@@ -22,7 +43,7 @@ function StakingPopUp({showModal, setShowModal}) {
                     <p className='modal__text-bottom'>
                         A fellow Cashingamer just cashed out, stake cash now 🤑. and stand a chance to win big
                     </p>
-                    <button className='modal__stake-btn' onClick={() => setShowModal(!showModal)}>Stake cash now</button>
+                    <button className='modal__stake-btn' onClick={playStaking}>Stake cash now</button>
                 </div>
             </div>
         </div>

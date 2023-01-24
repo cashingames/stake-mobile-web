@@ -59,7 +59,7 @@ function DashBoardScreen() {
           <TopChallengers challengeLeaders={challengeLeaders} />
         </div>
       </div>
-      <StakingPopUp setShowModal={setShowModal} showModal={showModal} />
+      <StakingPopUp setShowModal={setShowModal} showModal={showModal} gameModes={gameModes}/>
     </div>
   )
 }
