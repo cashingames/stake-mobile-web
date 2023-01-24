@@ -4,14 +4,19 @@
 
     .boosts-header {
         font-size: 0.85rem;
-        font-weight: 500;
+        font-family: 'graphik-medium';
     }
 
+    .noBoosts{
+        font-size: 0.85rem;
+        font-family: 'graphik-regular';
+        text-align: center;
+        margin: 1rem 0;
+    }
     .storeLinks {
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-top: 1.2rem;
 
 
         .needBoost {

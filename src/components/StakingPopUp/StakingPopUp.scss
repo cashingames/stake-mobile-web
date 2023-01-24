@@ -31,7 +31,8 @@
                 margin: 0;
                 font-size: 0.6rem;
                 font-family: 'graphik-bold';
-                color: #fff
+                color: #fff;
+                cursor: pointer;
             }
         }
 
@@ -77,13 +78,14 @@
             .modal__stake-btn{
                 position: absolute;
                 background-color: #EF2F55;
-                padding: 0.3rem;
+                padding: 0.3rem 1rem;
                 bottom: -10px;
                 font-size: 0.65rem;
                 font-family: 'graphik-medium';
                 border-radius: 10px;
                 border: 1px solid #66142E;
                 color: #fff;
+                cursor: pointer;
             }
         }
     }
