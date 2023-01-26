@@ -10,6 +10,7 @@ import { useNavigate, Link } from "react-router-dom";
 import LoaderScreen from '../../LoaderScreen/LoaderScreen';
 import firebaseConfig from "../../../firebaseConfig";
 import { logEvent } from 'firebase/analytics';
+import FacebookSignIn from '../../../components/FacebookSignIn/FacebookSignIn';
 // import ReactGA from 'react-ga';
 
 
@@ -135,6 +136,7 @@ const Login = () => {
                 <p className='socialLinkText'>Don't have an account ?  <a className='signup' href='/sign-up'>Create one</a></p>
                 <p className='socialLinkText2'>or</p>
                 <GoogleSignup buttonText='Sign in' />
+                <FacebookSignIn text='hello'/>
             </div>
             <Link to='/help-contact' className='contact-us'>Need help ? Contact us</Link>
         </div>
