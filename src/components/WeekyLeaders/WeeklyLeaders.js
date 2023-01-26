@@ -59,6 +59,7 @@ function WeeklyLeaderBoard({gameModes}) {
                     <p className='modal-date'>{firstDay} - {lastDay}</p>
                     <PrizePoolTitle styleProp='view-text' />
                     </div>
+                    <p className='modal-text'>Earn at least 1200 points to win Prizes!</p>
                     <div className='topChallengerContainer'>
                         <WeeklyChallenger
                             stageImageUrl="/images/month-pod3.png"
