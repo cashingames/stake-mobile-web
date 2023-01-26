@@ -6,7 +6,7 @@ import { Provider } from 'react-redux'
 import { BrowserRouter } from "react-router-dom";
 import reportWebVitals from './reportWebVitals';
 import * as serviceWorker from "./serviceWorker";
-import ReactPWAInstallProvider from "react-pwa-install";
+// import ReactPWAInstallProvider from "react-pwa-install";
 import './index.css';
 
 
@@ -14,9 +14,9 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
     <Provider store={store}>
-      <ReactPWAInstallProvider enableLogging>
-        <App />
-      </ReactPWAInstallProvider>
+      <App />
+      {/* <ReactPWAInstallProvider enableLogging>
+      </ReactPWAInstallProvider> */}
     </Provider>
   </BrowserRouter>
 );
