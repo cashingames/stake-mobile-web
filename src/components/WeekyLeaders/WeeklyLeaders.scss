@@ -45,15 +45,24 @@
             flex-direction: row;
             justify-content: space-between;
             align-items: center;
+            margin: 0.3rem 0;
             .modal-date {
                 font-size: .6rem;
                 font-family: 'graphik-medium';
                 color: #FFF;
+                margin: 0;
             }
             .view-text {
                 display: flex;
                 justify-content: flex-end;
             }
+        }
+        .modal-text{
+            font-size: 0.65rem;
+            font-family: 'graphik-medium';
+            font-style: italic;
+            margin: 0;
+            color: #fff;
         }
 
         .topChallengerContainer {
