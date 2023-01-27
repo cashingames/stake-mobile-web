@@ -9,6 +9,8 @@ import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { getUser } from '../Auth/AuthSlice'
 import LoaderScreen from '../LoaderScreen/LoaderScreen'
+import firebaseConfig from '../../firebaseConfig'
+import { logEvent } from 'firebase/analytics'
 
 const InviteFriend = () => {
     const dispatch = useDispatch();
@@ -26,7 +28,7 @@ const InviteFriend = () => {
 
     if (loading) {
         return <LoaderScreen backgroundColor="store-background-color" />
-      }
+    }
 
     return (
         <>
@@ -73,13 +75,12 @@ const Instruction = () => {
 }
 
 const InviteLink = () => {
-
     const [open, setOpen] = useState(false)
     const [alertMessage, setAlert] = useState('')
-
+    const analytics = firebaseConfig();
     const user = useSelector(state => state.auth.user);
-
     const userRefCode = (user.referralCode)
+    const referralMsg = `Play exciting games with me on Cashingames and stand a chance to earn great rewards! Create an account with my referral code - ${userRefCode}`
 
     const closeDialogue = () => {
         setOpen(false)
@@ -94,16 +95,18 @@ const InviteLink = () => {
         }
     }
 
-
     const shareRef = () => {
         if (navigator.share) {
             navigator.share({
-                text: userRefCode
+                text: referralMsg
             }).then(() => {
+                logEvent(analytics, "share_referral", {
+                    'id': user.username,
+                });
             }).catch(err => {
 
                 // Handle errors, if occured
-       
+
             });
         } else {
             setOpen(true)
