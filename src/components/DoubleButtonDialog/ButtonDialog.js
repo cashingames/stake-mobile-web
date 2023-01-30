@@ -23,7 +23,7 @@ export default function ButtonDialog({open, onClick, handleClose, dialogueMessag
         <DialogContent>
           <DialogContentText id="alert-dialog-description"
           sx={{
-            fontFamily:'Graphik',
+            fontFamily:'graphik-medium',
             color:'#000'
 
           }}>
@@ -33,7 +33,7 @@ export default function ButtonDialog({open, onClick, handleClose, dialogueMessag
         <DialogActions>
           <Button onClick={onClick} autoFocus sx={{
             color:'black',
-            fontFamily:'Graphik',
+            fontFamily:'graphik-medium',
           }}>
             Yes
           </Button>
@@ -41,7 +41,7 @@ export default function ButtonDialog({open, onClick, handleClose, dialogueMessag
         <DialogActions>
           <Button onClick={handleClose} autoFocus sx={{
             color:'black',
-            fontFamily:'Graphik',
+            fontFamily:'graphik-medium',
           }}>
             Cancel
           </Button>

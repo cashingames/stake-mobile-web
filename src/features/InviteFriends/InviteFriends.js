@@ -95,22 +95,24 @@ const InviteLink = () => {
         }
     }
 
-    const shareRef = () => {
+    const shareRef = async () => {
         if (navigator.share) {
-            navigator.share({
-                text: referralMsg
-            }).then(() => {
-                logEvent(analytics, "share_referral", {
-                    'id': user.username,
-                });
-            }).catch(err => {
-
-                // Handle errors, if occured
-
-            });
+            try {
+                await navigator
+                    .share({
+                        title: 'Share Referral Code',
+                        text: referralMsg
+                    })
+                    .then(() =>
+                        logEvent(analytics, "share_referral", {
+                            'id': user.username,
+                        })
+                    );
+            } catch (error) {
+                return
+            }
         } else {
-            setOpen(true)
-            alertMessage("Browser doesn't support this API !");
+            return
         }
     }
 
@@ -145,3 +147,5 @@ const InviteLink = () => {
         </>
     )
 }
+
+
