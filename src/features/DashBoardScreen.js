@@ -3,13 +3,13 @@ import { useDispatch, useSelector } from 'react-redux'
 import AppHeader from '../components/AppHeader/AppHeader'
 import HeroBanner from '../components/HeroBanner/HeroBanner'
 import SelectGame from '../components/SelectGame/SelectGame'
-import TopChallengers from '../components/TopChallengers/TopChallengers'
+// import TopChallengers from '../components/TopChallengers/TopChallengers'
 // import TopPlayers from '../components/TopPlayers/TopPlayers'
 import { getUser } from './Auth/AuthSlice'
 import { fetchFeatureFlags, getCommonData, getGlobalLeaders } from '../features/CommonSlice'
 import { challengeTopLeaders } from './Games/GameSlice'
 import './dashboard.scss'
-import WeeklyLeaders from '../components/WeekyLeaders/WeeklyLeaders'
+// import WeeklyLeaders from '../components/WeekyLeaders/WeeklyLeaders'
 import { getLiveTriviaStatus } from './LiveTrivia/LiveTriviaSlice'
 import StakingPopUp from '../components/StakingPopUp/StakingPopUp'
 import { useLocation } from 'react-router-dom'
@@ -20,7 +20,7 @@ function DashBoardScreen() {
   const location = useLocation()
   const dispatch = useDispatch();
   const gameModes = useSelector(state => state.common.gameModes);
-  const challengeLeaders = useSelector(state => state.game.challengeLeaders)
+  // const challengeLeaders = useSelector(state => state.game.challengeLeaders)
   const [showModal, setShowModal] = useState(false)
   // const leaders = useSelector(state => state.common.globalLeaders)
   const showStakingAdvert = location.state?.showStakingAdvert ?? false;  
@@ -54,9 +54,9 @@ function DashBoardScreen() {
       <SelectGame gameModes={gameModes} />
       <div className='main-leaderBoards-container'>
         <div className='leaderBoard-containers'>
-          <WeeklyLeaders gameModes={gameModes} />
+          {/* <WeeklyLeaders gameModes={gameModes} /> */}
           {/* <TopPlayers leaders={leaders} /> */}
-          <TopChallengers challengeLeaders={challengeLeaders} />
+          {/* <TopChallengers challengeLeaders={challengeLeaders} /> */}
         </div>
       </div>
       <StakingPopUp setShowModal={setShowModal} showModal={showModal} gameModes={gameModes}/>

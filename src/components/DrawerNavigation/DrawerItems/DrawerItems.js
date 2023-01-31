@@ -29,11 +29,11 @@ function DrawerItems() {
                 </div>
             </Link> */}
 
-            <Link to="/live-trivia" className='drawerItem'><p className='labelItem'>
+            {/* <Link to="/live-trivia" className='drawerItem'><p className='labelItem'>
                 Live Trivia
             </p>
                 <IoChevronForwardOutline className='icon' />
-            </Link>
+            </Link> */}
 
             <Link to="/challenges" className='drawerItem'><p className='labelItem'>
 
