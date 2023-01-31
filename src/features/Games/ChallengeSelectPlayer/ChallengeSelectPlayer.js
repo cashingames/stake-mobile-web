@@ -1,30 +1,30 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { IoCheckmarkCircle, IoCheckmarkSharp, IoSearch } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
-import BottomSheet from "../../../components/BottomSheet/BottomSheet";
+// import BottomSheet from "../../../components/BottomSheet/BottomSheet";
 import ScreenHeader from "../../../components/ScreenHeader/ScreenHeader";
-import ChallengeInviteSuccessText from "../ChallengeInviteSuccessText/ChallengeInviteSuccessText";
-import ChallengeStakingBottomSheet from "../ChallengeStakingBottomSheet/ChallengeStakingBottomSheet";
+// import ChallengeInviteSuccessText from "../ChallengeInviteSuccessText/ChallengeInviteSuccessText";
+// import ChallengeStakingBottomSheet from "../ChallengeStakingBottomSheet/ChallengeStakingBottomSheet";
 import Dialogue from '../../../components/Dialogue/Dialogue'
 import './ChallengeSelectedPlayer.scss'
 import { useDispatch, useSelector } from "react-redux";
 import { Spinner } from "react-activity";
 import { fetchUserFriends, searchUserFriends } from "../../CommonSlice";
-import { sendFriendInvite, setSelectedFriend, unselectFriend } from "../GameSlice";
+import { setSelectedFriend, unselectFriend } from "../GameSlice";
 import { debounce } from 'lodash';
 import LoaderScreen from "../../LoaderScreen/LoaderScreen";
-import { unwrapResult } from "@reduxjs/toolkit";
+// import { unwrapResult } from "@reduxjs/toolkit";
 
 
 const ChallengeSelectPlayer = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const [loading, setLoading] = useState(true)
-    const activeCategory = useSelector(state => state.game.gameCategory);
+    // const activeCategory = useSelector(state => state.game.gameCategory);
     const userFriends = useSelector(state => state.common.userFriends);
     const selectedOpponent = useSelector(state => state.game.selectedFriend);
-    const [openSheet, setOpenSheet] = useState(false);
-    const [openBox, setOpenBox] = useState(false);
+    // const [openSheet, setOpenSheet] = useState(false);
+    // const [openBox, setOpenBox] = useState(false);
     const [alertMessage, setAlertMessage] = useState(false)
     // const user = useSelector(state => state.auth.user)
     const [search, setSearch] = useState("");
@@ -32,18 +32,18 @@ const ChallengeSelectPlayer = () => {
     const [sending, setSending] = useState(false)
     const [noDATA, setNoData] = useState(false)
     const features = useSelector(state => state.common.featureFlags);
-    const isChallengeStakingFeatureEnabled = features['challenge_game_staking'] !== undefined && features['challenge_game_staking'].enabled;
+    // const isChallengeStakingFeatureEnabled = features['challenge_game_staking'] !== undefined && features['challenge_game_staking'].enabled;
 
     const navigateHandler = () => {
         navigate('/dashboard')
     }
 
-    const closeBS = () => {
-        setOpenSheet(false)
-    }
-    const closeBox = () => {
-        setOpenBox(false)
-    }
+    // const closeBS = () => {
+    //     setOpenSheet(false)
+    // }
+    // const closeBox = () => {
+    //     setOpenBox(false)
+    // }
 
     const closeAlert = () => {
         setAlertMessage(false)
@@ -66,52 +66,56 @@ const ChallengeSelectPlayer = () => {
 
     const initiateChallengeStaking = () => {
         setSending(false)
-        setOpenSheet(true)
-    }
-
-    const sendInvite = () => {
-        setSending(false)
-        dispatch(sendFriendInvite({
-            opponentId: selectedOpponent.id,
-            categoryId: activeCategory.id
-        }
-        ))
-            .then(unwrapResult)
-            .then(async result => {
-                setOpenSheet(true)
-            })
-            .catch((rejectedValueOrSerializedError) => {
-                setSending(true)
-                setAlertMessage(true)
-            });
-        setSending(false)
-    }
-
-    const sendChallengeInvite = () => {
-        setSending(false)
-        dispatch(sendFriendInvite({
-            opponentId: selectedOpponent.id,
-            categoryId: activeCategory.id
-        }
-        ))
-            .then(unwrapResult)
-            .then(async result => {
-                closeBS()
-                setOpenBox(true)
-            })
-            .catch((rejectedValueOrSerializedError) => {
-                setSending(true)
-                setAlertMessage(true)
-            });
-        setSending(false)
-    }
-    const onStake = () => {
-        closeBS()
         navigate('/challenge-staking',{
             state:
             {selectedOpponent: selectedOpponent}
           });
+        // setOpenSheet(true)
     }
+
+    // const sendInvite = () => {
+    //     setSending(false)
+    //     dispatch(sendFriendInvite({
+    //         opponentId: selectedOpponent.id,
+    //         categoryId: activeCategory.id
+    //     }
+    //     ))
+    //         .then(unwrapResult)
+    //         .then(async result => {
+    //             setOpenSheet(true)
+    //         })
+    //         .catch((rejectedValueOrSerializedError) => {
+    //             setSending(true)
+    //             setAlertMessage(true)
+    //         });
+    //     setSending(false)
+    // }
+
+    // const sendChallengeInvite = () => {
+    //     setSending(false)
+    //     dispatch(sendFriendInvite({
+    //         opponentId: selectedOpponent.id,
+    //         categoryId: activeCategory.id
+    //     }
+    //     ))
+    //         .then(unwrapResult)
+    //         .then(async result => {
+    //             closeBS()
+    //             setOpenBox(true)
+    //         })
+    //         .catch((rejectedValueOrSerializedError) => {
+    //             setSending(true)
+    //             setAlertMessage(true)
+    //         });
+    //     setSending(false)
+    // }
+    // const onStake = () => {
+    //     closeBS()
+    //     navigate('/challenge-staking',{
+    //         state:
+    //         {selectedOpponent: selectedOpponent}
+    //       });
+    // }
 
     const onSearchFriends = () => {
         setSearching(true)
@@ -205,9 +209,9 @@ const ChallengeSelectPlayer = () => {
 
                 </div>
             </div>
-            <SendInviteButton disabled={!selectedOpponent || !sending} onPress={isChallengeStakingFeatureEnabled ? initiateChallengeStaking : sendInvite} />
-            <BottomSheet open={openSheet} closeBottomSheet={closeBS} BSContent={<ChallengeStakingBottomSheet onPress={sendChallengeInvite} onStake={onStake} />} />
-            <BottomSheet open={openBox} closeBottomSheet={closeBox} BSContent={<ChallengeInviteSuccessText onClose={closeBox} />} />
+            <SendInviteButton disabled={!selectedOpponent || !sending} onPress={initiateChallengeStaking} />
+            {/* <BottomSheet open={openSheet} closeBottomSheet={closeBS} BSContent={<ChallengeStakingBottomSheet onPress={sendChallengeInvite} onStake={onStake} />} />
+            <BottomSheet open={openBox} closeBottomSheet={closeBox} BSContent={<ChallengeInviteSuccessText onClose={closeBox} />} /> */}
             <Dialogue handleClose={closeAlert} open={alertMessage} dialogueMessage={alertMessage} />
         </>
     )
