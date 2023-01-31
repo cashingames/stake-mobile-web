@@ -1,6 +1,11 @@
 import React, { Suspense } from 'react';
 import { Routes, Route, Navigate } from "react-router-dom"
 import { getToken } from './features/Auth/AuthSlice'
+import LoaderScreen from './features/LoaderScreen/LoaderScreen';
+
+// un-lazyload dashboard
+import DashBoardScreen from './features/DashBoardScreen';
+
 const Login = React.lazy(() => import('./features/Auth/LoginScreen/Login'));
 const Signup = React.lazy(() => import('./features/Auth/SignupScreen/Signup'));
 const SignupProfile = React.lazy(() => import('./features/Auth/SignupProfileScreen/SignupProfile'));
@@ -10,7 +15,7 @@ const ForgotPassword = React.lazy(() => import('./features/Auth/ForgotPassword/F
 const ResetPassword = React.lazy(() => import('./features/Auth/ResetPassword/ResetPassword'));
 const VerifyOtp = React.lazy(() => import('./features/Auth/VerifyOtp/VerifyOtp'));
 const VerifyRegistrationOtp = React.lazy(() => import('./features/Auth/VerifyRegistrationOtp/VerifyRegistrationOtp'));
-const DashBoardScreen = React.lazy(() => import('./features/DashBoardScreen'));
+// const DashBoardScreen = React.lazy(() => import('./features/DashBoardScreen'));
 const WalletScreen = React.lazy(() => import('./features/WalletScreen/WalletScreen'));
 const NotificationScreen = React.lazy(() => import('./features/NotificationScreen/NotificationScreen'));
 const FundWalletScreen = React.lazy(() => import('./features/FundWalletScreen/FundWalletScreen'));
@@ -54,16 +59,7 @@ const AuthContactForm = React.lazy(() => import('./components/AuthContactUs/Auth
 const AppRouter = () => {
 
     return (
-        <Suspense fallback={
-            <div style={{ 
-                flex: 1,
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center'
-             }}>
-                loading, please wait...
-            </div>
-            }>
+        <Suspense fallback={<LoaderScreen />}>
             <Routes>
                 <Route path="/privacy" element={<PrivacyPolicy />} />
                 <Route path="/terms" element={<TermsAndConditions />} />
