@@ -48,7 +48,10 @@ function App() {
     <div className="App">
       {/* <RouteChangeTracker /> */}
       {/* <AddToHomescreen onAddToHomescreenClick={()=>{}} /> */}
-      <AppRouter />
+      <React.Suspense fallback={<LoaderScreen />}>
+        <AppRouter />
+      </React.Suspense>
+
     </div>
   )
 }
