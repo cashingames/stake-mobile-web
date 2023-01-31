@@ -26,12 +26,12 @@ function HeroBanner() {
 
   return (
     <div className='heroBanner'>
-      <div className='heroWallet'>
+      <div className='heroWallet'> 
         <Player
           src={Wallet} alt='wallet'
           autoplay
           loop
-          style={{ height: '50px' }} />
+          style={{height: '50px' }} />
         <p>&#8358;{user.walletBalance}</p>
       </div>
       {/* {show ?
