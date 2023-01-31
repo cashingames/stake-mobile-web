@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import { Routes, Route, Navigate } from "react-router-dom"
 import { getToken } from './features/Auth/AuthSlice'
 import LoaderScreen from './features/LoaderScreen/LoaderScreen';
@@ -59,7 +59,6 @@ const AuthContactForm = React.lazy(() => import('./components/AuthContactUs/Auth
 const AppRouter = () => {
 
     return (
-        <Suspense fallback={<LoaderScreen />}>
             <Routes>
                 <Route path="/privacy" element={<PrivacyPolicy />} />
                 <Route path="/terms" element={<TermsAndConditions />} />
@@ -191,7 +190,6 @@ const AppRouter = () => {
                     path="/leaderboards"
                     element={<AuthRoute redirectTo="/"><ExtendedLeaderBoard /></AuthRoute>} />
             </Routes>
-        </Suspense>
     )
 }
 
