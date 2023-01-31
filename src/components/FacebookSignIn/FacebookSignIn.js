@@ -90,8 +90,6 @@ function FacebookSignIn() {
     }
 
     const responseFacebook = (response) => {
-            console.log(response)
-            console.log(response.email)
             if(response.status === 'unknown' || response.email === null || !response || !response.email){
                 setError(true)
                 return
