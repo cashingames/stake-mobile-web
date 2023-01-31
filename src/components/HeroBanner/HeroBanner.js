@@ -31,7 +31,7 @@ function HeroBanner() {
           src={Wallet} alt='wallet'
           autoplay
           loop
-          style={{height: '50px' }} />
+          style={{height: '49px' }} />
         <p>&#8358;{user.walletBalance}</p>
       </div>
       {/* {show ?
