@@ -1,6 +1,11 @@
 import React from 'react';
 import { Routes, Route, Navigate } from "react-router-dom"
 import { getToken } from './features/Auth/AuthSlice'
+import LoaderScreen from './features/LoaderScreen/LoaderScreen';
+
+// un-lazyload dashboard
+import DashBoardScreen from './features/DashBoardScreen';
+
 const Login = React.lazy(() => import('./features/Auth/LoginScreen/Login'));
 const Signup = React.lazy(() => import('./features/Auth/SignupScreen/Signup'));
 const SignupProfile = React.lazy(() => import('./features/Auth/SignupProfileScreen/SignupProfile'));
@@ -10,7 +15,7 @@ const ForgotPassword = React.lazy(() => import('./features/Auth/ForgotPassword/F
 const ResetPassword = React.lazy(() => import('./features/Auth/ResetPassword/ResetPassword'));
 const VerifyOtp = React.lazy(() => import('./features/Auth/VerifyOtp/VerifyOtp'));
 const VerifyRegistrationOtp = React.lazy(() => import('./features/Auth/VerifyRegistrationOtp/VerifyRegistrationOtp'));
-const DashBoardScreen = React.lazy(() => import('./features/DashBoardScreen'));
+// const DashBoardScreen = React.lazy(() => import('./features/DashBoardScreen'));
 const WalletScreen = React.lazy(() => import('./features/WalletScreen/WalletScreen'));
 const NotificationScreen = React.lazy(() => import('./features/NotificationScreen/NotificationScreen'));
 const FundWalletScreen = React.lazy(() => import('./features/FundWalletScreen/FundWalletScreen'));

@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import './FacebookSignIn.scss'
 import BottomSheet from '../BottomSheet/BottomSheet';
+import Dialogue from '../Dialogue/Dialogue'
 import { FaFacebookF } from 'react-icons/fa';
 
 
@@ -24,6 +25,22 @@ function FacebookSignIn() {
     const [saving, setSaving] = useState(false);
     const [canSave, setCanSave] = useState(false);
     const [openBottomSheet, setOpenBottomSheet] = useState(false);
+    const [error, setError] = useState(false)
+    const [open, setOpen] = useState(false)
+    const [alertMessage, setAlert] = useState('')
+
+    const errorMessage = `Facebook not verified
+    Sign in with google or create an account`
+
+    const closeDialogue = () => {
+        setOpen(false)
+        setUsername('')
+        setPhoneNumber('')
+        setReferrer('')
+        setSaving(false)
+        closeBottomSheet()
+    }
+
     const closeBottomSheet = () => {
         setOpenBottomSheet(false)
     }
@@ -33,7 +50,7 @@ function FacebookSignIn() {
     }
     const onChangePhoneNumber = (e) => {
         const phone_number = e.currentTarget.value;
-      phone_number.length < 4 ? setPhoneError(true) : setPhoneError(false)
+        phone_number.length < 10 ? setPhoneError(true) : setPhoneError(false)
         setPhoneNumber(phone_number)
     }
     const onChangeReferrer = (e) => {
@@ -66,9 +83,18 @@ function FacebookSignIn() {
                 navigate('/dashboard')
                 setSaving(false)
             })
+            .catch((rejectedValueOrSerializedError) => {
+                setOpen(true)
+                setAlert(errorMessage)
+            })
     }
 
     const responseFacebook = (response) => {
+            if(response.status === 'unknown' || response.email === null || !response || !response.email){
+                setError(true)
+                return
+            }
+            else {
         dispatch(loginWithSocialLink(
             {
                 firstName: response.first_name,
@@ -89,19 +115,25 @@ function FacebookSignIn() {
             })
             .catch((rejectedValueOrSerializedError) => {
             })
+        }
     };
-    
+
+    if(error){
+        return <p className='error-text'>Facebook email not verified. Please verify and try again or log in with other options</p>
+    }
+
     return (
         <>
-        <FacebookLogin
-             appId={process.env.REACT_APP_FACEBOOK_CLIENT_ID}
-            fields="first_name,last_name,email,picture"
-            callback={responseFacebook}
-            buttonText=''
-            cssClass="my-facebook-button"
-            icon={<FaFacebookF fontSize='0.7rem' size={13}/>}
-        />
-         <BottomSheet open={openBottomSheet} closeBottomSheet={closeBottomSheet} BSContent={
+            <FacebookLogin
+                appId={process.env.REACT_APP_FACEBOOK_CLIENT_ID}
+                fields="first_name,last_name,email,picture"
+                callback={responseFacebook}
+                buttonText=''
+                cssClass="my-facebook-button"
+                disableMobileRedirect={true}
+                icon={<FaFacebookF fontSize='0.7rem' size={13} />}
+            />
+            <BottomSheet open={openBottomSheet} closeBottomSheet={closeBottomSheet} BSContent={
                 <RegisterFacebook
                     onPress={registerUserWithFacebook}
                     username={username}
@@ -115,12 +147,13 @@ function FacebookSignIn() {
                     canSave={canSave}
                     saving={saving}
                 />} />
+                <Dialogue open={open} handleClose={closeDialogue} dialogueMessage={alertMessage} />
         </>
     )
 }
 
 const RegisterFacebook = ({ username, onChangeUsername, usernameErr, onChangePhoneNumber
-    , phoneError, phoneNumber, referrer, onChangeReferrer, onPress, canSave, saving}) => {
+    , phoneError, phoneNumber, referrer, onChangeReferrer, onPress, canSave, saving }) => {
     return (
         <div className='google-sheet'>
             <p className='sheet-text'>Please input your details</p>

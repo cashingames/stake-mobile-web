@@ -95,24 +95,23 @@ const InviteLink = () => {
         }
     }
 
-    const shareRef = async () => {
+    const shareRef = () => {
         if (navigator.share) {
-            try {
-                await navigator
-                    .share({
-                        title: 'Share Referral Code',
-                        text: referralMsg
-                    })
-                    .then(() =>
-                        logEvent(analytics, "share_referral", {
-                            'id': user.username,
-                        })
-                    );
-            } catch (error) {
-                return
-            }
+            navigator.share({
+                title: 'Share Referral Code',
+                text: referralMsg
+            })
+            .then(() => console.log('Successful share'))
+            .then(() => logEvent(analytics, "share_referral", {
+                'id': user.username,
+            }))
+            .catch((error) => {
+                setOpen(true)
+                setAlert('Error:', error)
+            })
         } else {
-            return
+            setOpen(true)
+            setAlert("Web Share API not supported in this browser");
         }
     }
 
@@ -147,5 +146,4 @@ const InviteLink = () => {
         </>
     )
 }
-
 
