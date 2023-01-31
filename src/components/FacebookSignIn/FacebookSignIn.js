@@ -33,7 +33,7 @@ function FacebookSignIn() {
     }
     const onChangePhoneNumber = (e) => {
         const phone_number = e.currentTarget.value;
-      phone_number.length < 4 ? setPhoneError(true) : setPhoneError(false)
+        phone_number.length < 4 ? setPhoneError(true) : setPhoneError(false)
         setPhoneNumber(phone_number)
     }
     const onChangeReferrer = (e) => {
@@ -66,6 +66,12 @@ function FacebookSignIn() {
                 navigate('/dashboard')
                 setSaving(false)
             })
+            .catch((rejectedValueOrSerializedError) => {
+                setUsername('')
+                setPhoneNumber('')
+                setReferrer('')
+                setSaving(false)
+            })
     }
 
     const responseFacebook = (response) => {
@@ -90,18 +96,19 @@ function FacebookSignIn() {
             .catch((rejectedValueOrSerializedError) => {
             })
     };
-    
+
     return (
         <>
-        <FacebookLogin
-             appId={process.env.REACT_APP_FACEBOOK_CLIENT_ID}
-            fields="first_name,last_name,email,picture"
-            callback={responseFacebook}
-            buttonText=''
-            cssClass="my-facebook-button"
-            icon={<FaFacebookF fontSize='0.7rem' size={13}/>}
-        />
-         <BottomSheet open={openBottomSheet} closeBottomSheet={closeBottomSheet} BSContent={
+            <FacebookLogin
+                appId={process.env.REACT_APP_FACEBOOK_CLIENT_ID}
+                fields="first_name,last_name,email,picture"
+                callback={responseFacebook}
+                buttonText=''
+                cssClass="my-facebook-button"
+                disableMobileRedirect={true}
+                icon={<FaFacebookF fontSize='0.7rem' size={13} />}
+            />
+            <BottomSheet open={openBottomSheet} closeBottomSheet={closeBottomSheet} BSContent={
                 <RegisterFacebook
                     onPress={registerUserWithFacebook}
                     username={username}
@@ -120,7 +127,7 @@ function FacebookSignIn() {
 }
 
 const RegisterFacebook = ({ username, onChangeUsername, usernameErr, onChangePhoneNumber
-    , phoneError, phoneNumber, referrer, onChangeReferrer, onPress, canSave, saving}) => {
+    , phoneError, phoneNumber, referrer, onChangeReferrer, onPress, canSave, saving }) => {
     return (
         <div className='google-sheet'>
             <p className='sheet-text'>Please input your details</p>
