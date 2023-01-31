@@ -23,7 +23,7 @@ export default function AlertDialog({open, setOpen, handleClose, dialogueMessage
         <DialogContent>
           <DialogContentText id="alert-dialog-description"
           sx={{
-            fontFamily:'Graphik',
+            fontFamily:'graphik-medium',
             color:'#000'
 
           }}>
@@ -33,7 +33,7 @@ export default function AlertDialog({open, setOpen, handleClose, dialogueMessage
         <DialogActions>
           <Button onClick={handleClose} autoFocus sx={{
             color:'black',
-            fontFamily:'Graphik',
+            fontFamily:'graphik-medium',
           }}>
             OK
           </Button>
