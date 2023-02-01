@@ -1,7 +1,6 @@
 import React from 'react';
 import { Routes, Route, Navigate } from "react-router-dom"
 import { getToken } from './features/Auth/AuthSlice'
-import LoaderScreen from './features/LoaderScreen/LoaderScreen';
 
 // un-lazyload dashboard
 import DashBoardScreen from './features/DashBoardScreen';
