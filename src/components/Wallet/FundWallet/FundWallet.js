@@ -15,7 +15,7 @@ function FundWallet() {
     const user = useSelector((state) => state.auth.user);
     const [showPayment, setShowPayment] = useState(false);
     const minimumWalletFundableAmount = useSelector(state => state.common.minimumWalletFundableAmount);
-    console.log(minimumWalletFundableAmount)
+    // console.log(minimumWalletFundableAmount)
 
     const config = {
         email: user.email,

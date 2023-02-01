@@ -56,7 +56,7 @@ const GameStaking = () => {
         return
     })
     const navigateHandler = () => {
-        navigate('/game-instructions')
+        navigate('/select-category')
     }
 
 
@@ -123,7 +123,7 @@ const GameStaking = () => {
 
     if (onloading) {
         return <LoaderScreen backgroundColor="store-background-color" />
-      }
+    }
 
     return (
         <>
@@ -150,9 +150,14 @@ const GameStaking = () => {
                     </div>
                     <div className="buttonContainer">
                         <button onClick={startGame} disabled={loading} className='start-button'>
-                            <p className="start-text">{loading ? <Spinner
-                                color='#ffff'
-                                size={10} /> : "Stake Amount"} </p>
+                            <p className="start-text">{loading ?
+                                <Spinner
+                                    color='#ffff'
+                                    size={10}
+                                />
+                                : "Stake Amount"
+                            }
+                            </p>
                         </button>
                     </div>
                 </div>
@@ -195,6 +200,7 @@ const AvailableBoosts = ({ onClose,
 
     const boosts = useSelector(state => state.auth.user.boosts);
     const gameCategoryId = useSelector(state => state.game.gameCategory.id);
+    // console.log(gameCategoryId)
     const gameTypeId = useSelector(state => state.game.gameType.id);
     const gameModeId = useSelector(state => state.game.gameMode.id);
     const gameMode = useSelector(state => state.game.gameMode);

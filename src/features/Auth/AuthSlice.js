@@ -104,7 +104,6 @@ export const getUser = createAsyncThunk(
     'auth/user/get',
     async (thunkAPI) => {
         const response = await axios.get(`v3/user/profile`);
-        console.log(response, 'user')
         return response.data
     }
 )

@@ -19,7 +19,7 @@ const gamesAscending = [...gameModes].sort((a, b) => a.id - b.id);
 
   return (
     <div className='gameContainer'>
-      <p className='gameTitle'>Select game mode</p>
+      {/* <p className='gameTitle'>Select game mode</p> */}
       <div className='gameCardContainer'>
         {gamesAscending.map((gameMode, i) =>
           <AvailableMode

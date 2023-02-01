@@ -6,7 +6,6 @@ export const getCommonData = createAsyncThunk(
     'common/get',
     async () => {
         const response = await axios.get('v3/game/common');
-        console.log(response, 'hello')
         return response.data
     }
 )

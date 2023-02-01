@@ -1,7 +1,8 @@
 .heroBanner{
-    background-color: #072169;
+    // background-color: #072169;
+    background-image: linear-gradient(#072169 86%, #FFF);
     padding:0.1rem 1.5rem;
-    padding-bottom: .5rem;
+    padding-bottom: 3rem;
     color: #fff;
     .heroWallet{
         display: flex;
