@@ -47,12 +47,12 @@ function DrawerItems() {
             </p>
                 <IoChevronForwardOutline className='icon' />
             </Link>
-
+{/* 
             <Link to="/leaderboards" className='drawerItem'><p className='labelItem'>
                 Leaderboards
             </p>
                 <IoChevronForwardOutline className='icon' />
-            </Link>
+            </Link> */}
 
             <Link to="/help" className='drawerItem'><p className='labelItem'>
                 Get Help

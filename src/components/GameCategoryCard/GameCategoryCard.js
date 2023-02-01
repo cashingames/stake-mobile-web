@@ -12,6 +12,7 @@ const GameCategoryCard = ({ category, onSelect, isSelected }) => {
     const styleI = { backgroundColor: '#EF2F55', color: '#EF2F55', fontSize: "1rem", borderRadius:'50%', marginRight:'.5rem' }
 
     return (
+     
         <div onClick={() => onSelect(category)} className='cardContainer' style={{ backgroundColor: category.bgColor }} >
             <div className="categoryCardTopRow">
                 <p className="cardTitle">{category.name} Quiz</p>

@@ -9,7 +9,7 @@ function UserPoints({ user }) {
   var boosts = useSelector(state => state.auth.user.boosts ?? []);
   const [boostsString, setBboostsString] = useState('');
 
-  useEffect(() => {   
+  useEffect(() => {
 
     var boostResult = ''
     // eslint-disable-next-line
@@ -28,8 +28,12 @@ function UserPoints({ user }) {
         <p>pts</p>
         <p>TODAY</p>
       </div>
-      <div className='pointsNumber'>
-        <p className={boosts?.length > 0 ? 'text2' : 'emptyRow'}>{boostsString}</p>
+      <div className='user-boosts'>
+        <div className='boosts-square'>
+          <p className={boosts?.length > 0 ? 'text2' : 'emptyRow'}>{boostsString}</p>
+        </div>
+        <div className="arrow-right"></div>
+        {/* <p className='boosts-arrow'></p> */}
       </div>
       <img src='images/point-trophy.png' alt='trophy' className='trophy' />
     </div>

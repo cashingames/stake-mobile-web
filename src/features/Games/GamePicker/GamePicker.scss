@@ -1,3 +1,8 @@
+.sub-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
 .chooseCategory {
     display: flex;
     flex-direction: row;
@@ -26,11 +31,7 @@
         color: white;
     }
 }
-.subcategories {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
+
 .titleHead {
     font-size: 1rem;
     color: #ffff;

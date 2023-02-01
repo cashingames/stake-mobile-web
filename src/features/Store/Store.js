@@ -22,7 +22,7 @@ function Store() {
 
   useEffect(() => {
     dispatch(getUser());
-    dispatch(getCommonData()).then(() => { setLoading(false) });
+    dispatch(getCommonData())
   }, [dispatch]);
 
   //disable browser back button
@@ -37,9 +37,9 @@ function Store() {
     navigate('/dashboard')
   }
 
-  if (loading) {
-    return <LoaderScreen backgroundColor="store-background-color" />
-  }
+  // if (loading) {
+  //   return <LoaderScreen backgroundColor="store-background-color" />
+  // }
 
   return (
     <>
