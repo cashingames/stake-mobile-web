@@ -7,7 +7,7 @@ import ScreenHeader from '../../components/ScreenHeader/ScreenHeader'
 // import UserItems from '../../components/UserItems/UserItems'
 import { getUser } from '../Auth/AuthSlice'
 import { getCommonData } from '../CommonSlice'
-import LoaderScreen from '../LoaderScreen/LoaderScreen'
+// import LoaderScreen from '../LoaderScreen/LoaderScreen'
 import './Store.scss'
 
 function Store() {
@@ -15,7 +15,7 @@ function Store() {
   const user = useSelector(state => state.auth.user)
   // const plans = useSelector(state => state.common.plans);
   const boosts = useSelector(state => state.common.boosts);
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
 
 
   const navigate = useNavigate()
