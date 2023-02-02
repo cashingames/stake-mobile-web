@@ -39,7 +39,7 @@ const AvailableMode = ({ gameMode, onPress}) => {
   return (
     <div
       onClick={onPress}
-      className={`${gameMode.name === 'EXHIBITION' ? 'exhibition-gameCard': 'gameCard'}`}
+      className={`${gameMode.name === 'EXHIBITION' || gameMode.name === 'CHALLENGE' ? 'exhibition-gameCard': 'gameCard'}`}
       style={{ backgroundColor: gameMode.bgColor }}
 
     >

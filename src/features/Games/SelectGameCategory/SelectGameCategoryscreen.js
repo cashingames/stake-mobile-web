@@ -67,7 +67,7 @@ const SelectGameCategoryScreen = () => {
 
     return (
         <>
-            <ScreenHeader title='Select Game' styleProp='header' iconProp='backIcon' onClick={navigateHandler} />
+            <ScreenHeader title='Select Topic' styleProp='header' iconProp='backIcon' onClick={navigateHandler} />
             <div className="selectGameContainer">
                 <Player src={SelectGame}
                     alt='wallet'

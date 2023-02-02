@@ -16,7 +16,10 @@ const backendUrl = process.env.REACT_APP_API_ROOT_URL;
 function GameBoost({boosts, user}) {
     return (
         <div className='storeItem'>
-            <p className='storeTitle'>Buy Boosts</p>
+            {/* <p className='storeTitle'>Buy Boosts</p> */}
+            <div className='boost-container'>
+            <img src='/images/boost-popup.png' alt='coin hat' className='boost-img' />
+            </div>
             <p className='storeText'>Boost gives you super powers when you are playing quizes. Buy boosts to let you win more games</p>
             <div className='storeCard'>
             {boosts.map((boost, i) => <BoostCard key={i} boost={boost} user={user} />)}
