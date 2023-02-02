@@ -2,6 +2,15 @@
     display: flex;
     flex-direction: column;
     margin-top: 1.5rem;
+    .boost-container {
+        display: flex;
+        justify-content: center;
+        .boost-img {
+            width: 12rem;
+            // height: 10rem;
+        }
+    }
+   
 
     .storeTitle {
         font-family: 'graphik-bold';

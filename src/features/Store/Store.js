@@ -43,7 +43,7 @@ function Store() {
 
   return (
     <>
-      <ScreenHeader title='Store' onClick={navigateHandler} styleProp='storeHeader' />
+      <ScreenHeader title='Buy Boosts' onClick={navigateHandler} styleProp='storeHeader' />
       <div className='storeContainer'>
         {/* <UserItems /> */}
         {/* <GamePlan user={user} plans={plans} /> */}

@@ -40,6 +40,8 @@ function App() {
     setLoading(false);
   }, [token, dispatch]);
 
+
+
   if (loading) {
     return <LoaderScreen />
   }

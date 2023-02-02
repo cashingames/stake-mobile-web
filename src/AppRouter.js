@@ -58,137 +58,137 @@ const AuthContactForm = React.lazy(() => import('./components/AuthContactUs/Auth
 const AppRouter = () => {
 
     return (
-            <Routes>
-                <Route path="/privacy" element={<PrivacyPolicy />} />
-                <Route path="/terms" element={<TermsAndConditions />} />
-                <Route path="/" element={<AnonymousRoute redirectTo="/dashboard"><LandingPage /></AnonymousRoute>} />
-                <Route path="/login" element={<AnonymousRoute redirectTo="/dashboard"><Login /></AnonymousRoute>} />
-                <Route path="/sign-up" element={<AnonymousRoute redirectTo="/dashboard"><Signup /></AnonymousRoute>} />
-                <Route path="/sign-up-profile" element={<AnonymousRoute redirectTo="/dashboard"><SignupProfile /></AnonymousRoute>} />
-                <Route path="/verify-phone-number" element={<AnonymousRoute redirectTo="/dashboard"><VerifyRegistrationOtp /></AnonymousRoute>} />
-                <Route path="/forgot-password" element={<AnonymousRoute redirectTo="/dashboard"><ForgotPassword /></AnonymousRoute>} />
-                <Route path="/reset-password" element={<AnonymousRoute redirectTo="/dashboard"><ResetPassword /></AnonymousRoute>} />
-                <Route path="/verify-otp" element={<AnonymousRoute redirectTo="/dashboard"><VerifyOtp /></AnonymousRoute>} />
-                <Route path="/help-contact" element={<AnonymousRoute redirectTo="/dashboard"><AuthContactForm /></AnonymousRoute>} />
+        <Routes>
+            <Route path="/privacy" element={<PrivacyPolicy />} />
+            <Route path="/terms" element={<TermsAndConditions />} />
+            <Route path="/" element={<AnonymousRoute redirectTo="/dashboard"><LandingPage /></AnonymousRoute>} />
+            <Route path="/login" element={<AnonymousRoute redirectTo="/dashboard"><Login /></AnonymousRoute>} />
+            <Route path="/sign-up" element={<AnonymousRoute redirectTo="/dashboard"><Signup /></AnonymousRoute>} />
+            <Route path="/sign-up-profile" element={<AnonymousRoute redirectTo="/dashboard"><SignupProfile /></AnonymousRoute>} />
+            <Route path="/verify-phone-number" element={<AnonymousRoute redirectTo="/dashboard"><VerifyRegistrationOtp /></AnonymousRoute>} />
+            <Route path="/forgot-password" element={<AnonymousRoute redirectTo="/dashboard"><ForgotPassword /></AnonymousRoute>} />
+            <Route path="/reset-password" element={<AnonymousRoute redirectTo="/dashboard"><ResetPassword /></AnonymousRoute>} />
+            <Route path="/verify-otp" element={<AnonymousRoute redirectTo="/dashboard"><VerifyOtp /></AnonymousRoute>} />
+            <Route path="/help-contact" element={<AnonymousRoute redirectTo="/dashboard"><AuthContactForm /></AnonymousRoute>} />
 
-                <Route
-                    path="/dashboard"
-                    element={<AuthRoute redirectTo="/"><DashBoardScreen /></AuthRoute>} />
-                <Route
-                    path="/wallet"
-                    element={<AuthRoute redirectTo="/"><WalletScreen /></AuthRoute>} />
-                <Route
-                    path="/notifications"
-                    element={<AuthRoute redirectTo="/"><NotificationScreen /></AuthRoute>} />
-                <Route
-                    path="/fund-wallet"
-                    element={<AuthRoute redirectTo="/"><FundWalletScreen /></AuthRoute>} />
-                <Route
-                    path="/transactions"
-                    element={<AuthRoute redirectTo="/"><TransactionScreen /></AuthRoute>} />
-                <Route
-                    path="/select-category"
-                    element={<AuthRoute redirectTo="/"><SelectGameCategoryScreen /></AuthRoute>} />
-                <Route
-                    path="/game-instructions"
-                    element={<AuthRoute redirectTo="/"><GameInstructionScreen /></AuthRoute>} />
-                <Route
-                    path="/exhibition-staking"
-                    element={<AuthRoute redirectTo="/"><GameStaking /></AuthRoute>} />
-                <Route
-                    path="/game-board"
-                    element={<AuthRoute redirectTo="/"><GameInProgress /></AuthRoute>} />
-                <Route
-                    path="/game-result"
-                    element={<AuthRoute redirectTo="/"><GameEnded /></AuthRoute>} />
+            <Route
+                path="/dashboard"
+                element={<AuthRoute redirectTo="/"><DashBoardScreen /></AuthRoute>} />
+            <Route
+                path="/wallet"
+                element={<AuthRoute redirectTo="/"><WalletScreen /></AuthRoute>} />
+            <Route
+                path="/notifications"
+                element={<AuthRoute redirectTo="/"><NotificationScreen /></AuthRoute>} />
+            <Route
+                path="/fund-wallet"
+                element={<AuthRoute redirectTo="/"><FundWalletScreen /></AuthRoute>} />
+            <Route
+                path="/transactions"
+                element={<AuthRoute redirectTo="/"><TransactionScreen /></AuthRoute>} />
+            <Route
+                path="/select-category"
+                element={<AuthRoute redirectTo="/"><SelectGameCategoryScreen /></AuthRoute>} />
+            <Route
+                path="/game-instructions"
+                element={<AuthRoute redirectTo="/"><GameInstructionScreen /></AuthRoute>} />
+            <Route
+                path="/exhibition-staking"
+                element={<AuthRoute redirectTo="/"><GameStaking /></AuthRoute>} />
+            <Route
+                path="/game-board"
+                element={<AuthRoute redirectTo="/"><GameInProgress /></AuthRoute>} />
+            <Route
+                path="/game-result"
+                element={<AuthRoute redirectTo="/"><GameEnded /></AuthRoute>} />
 
-                <Route
-                    path="/select-player"
-                    element={<AuthRoute redirectTo="/"><ChallengeSelectPlayer /></AuthRoute>} />
+            <Route
+                path="/select-player"
+                element={<AuthRoute redirectTo="/"><ChallengeSelectPlayer /></AuthRoute>} />
 
-                <Route
-                    path="/profile"
-                    element={<AuthRoute redirectTo="/"><UserProfileScreen /></AuthRoute>} />
-                <Route
-                    path="/edit-profile"
-                    element={<AuthRoute redirectTo="/"><EditProfileDetails /></AuthRoute>} />
-                <Route
-                    path="/change-password"
-                    element={<AuthRoute redirectTo="/"><ChangePassword /></AuthRoute>} />
+            <Route
+                path="/profile"
+                element={<AuthRoute redirectTo="/"><UserProfileScreen /></AuthRoute>} />
+            <Route
+                path="/edit-profile"
+                element={<AuthRoute redirectTo="/"><EditProfileDetails /></AuthRoute>} />
+            <Route
+                path="/change-password"
+                element={<AuthRoute redirectTo="/"><ChangePassword /></AuthRoute>} />
 
-                <Route
-                    path="/stat"
-                    element={<AuthRoute redirectTo="/"><UserStat /></AuthRoute>} />
-                <Route
-                    path="/bank-details"
-                    element={<AuthRoute redirectTo="/"><BankDetails /></AuthRoute>} />
-                <Route
-                    path="/review-stake"
-                    element={<AuthRoute redirectTo="/"><ReviewStake /></AuthRoute>} />
-                <Route
-                    path="/store"
-                    element={<AuthRoute redirectTo="/"><Store /></AuthRoute>} />
-                <Route
-                    path="/boost-purchase-successful"
-                    element={<AuthRoute redirectTo="/"><GameBoostPurchaseSuccess /></AuthRoute>} />
-                <Route
-                    path="/plan-purchase-successful"
-                    element={<AuthRoute redirectTo="/"><GamePlanPurchaseSuccess /></AuthRoute>} />
-                <Route
-                    path="/purchase-failed"
-                    element={<AuthRoute redirectTo="/"><GameStorePurchaseFailed /></AuthRoute>} />
-                <Route
-                    path="/live-trivia"
-                    element={<AuthRoute redirectTo="/"><LiveTrivias /></AuthRoute>} />
-                <Route
-                    path="/live-trivia-instructions"
-                    element={<AuthRoute redirectTo="/"><TriviaInstructions /></AuthRoute>} />
-                <Route
-                    path="/live-trivia-staking"
-                    element={<AuthRoute redirectTo="/"><LiveTriviaStaking /></AuthRoute>} />
-                <Route
-                    path="/trivia-ended"
-                    element={<AuthRoute redirectTo="/"><TriviaEnded /></AuthRoute>} />
-                <Route
-                    path="/trivia-leaderboard/:id"
-                    element={<AuthRoute redirectTo="/"><LiveTriviaLeaderboard /></AuthRoute>} />
-                <Route
-                    path="/invite-friends"
-                    element={<AuthRoute redirectTo="/"><InviteFriends /></AuthRoute>} />
-                <Route
-                    path="/help"
-                    element={<AuthRoute redirectTo="/"><HelpPages /></AuthRoute>} />
-                <Route
-                    path="/support"
-                    element={<AuthRoute redirectTo="/"><SupportQuestions /></AuthRoute>} />
-                <Route
-                    path="/support-answers"
-                    element={<AuthRoute redirectTo="/"><SupportAnswer /></AuthRoute>} />
-                <Route
-                    path="/contact-us"
-                    element={<AuthRoute redirectTo="/"><ContactUs /></AuthRoute>} />
-                <Route
-                    path="/challenges"
-                    element={<AuthRoute redirectTo="/"><MyChallengeScreen /></AuthRoute>} />
-                <Route
-                    path="/challenge-score/:id"
-                    element={<AuthRoute redirectTo="/"><MyChallengeScore /></AuthRoute>} />
-                <Route
-                    path="/challenge-game"
-                    element={<AuthRoute redirectTo="/"><ChallengeGameInProgress /></AuthRoute>} />
-                <Route
-                    path="/challenge-result"
-                    element={<AuthRoute redirectTo="/"><ChallengeEndGameScreen /></AuthRoute>} />
-                <Route
-                    path="/challenge-staking"
-                    element={<AuthRoute redirectTo="/"><ChallengeStaking /></AuthRoute>} />
-                <Route
-                    path="/weekly-leaders"
-                    element={<AuthRoute redirectTo="/"><WeeklyLeaderboard /></AuthRoute>} />
-                <Route
-                    path="/leaderboards"
-                    element={<AuthRoute redirectTo="/"><ExtendedLeaderBoard /></AuthRoute>} />
-            </Routes>
+            <Route
+                path="/stat"
+                element={<AuthRoute redirectTo="/"><UserStat /></AuthRoute>} />
+            <Route
+                path="/bank-details"
+                element={<AuthRoute redirectTo="/"><BankDetails /></AuthRoute>} />
+            <Route
+                path="/review-stake"
+                element={<AuthRoute redirectTo="/"><ReviewStake /></AuthRoute>} />
+            <Route
+                path="/store"
+                element={<AuthRoute redirectTo="/"><Store /></AuthRoute>} />
+            <Route
+                path="/boost-purchase-successful"
+                element={<AuthRoute redirectTo="/"><GameBoostPurchaseSuccess /></AuthRoute>} />
+            <Route
+                path="/plan-purchase-successful"
+                element={<AuthRoute redirectTo="/"><GamePlanPurchaseSuccess /></AuthRoute>} />
+            <Route
+                path="/purchase-failed"
+                element={<AuthRoute redirectTo="/"><GameStorePurchaseFailed /></AuthRoute>} />
+            <Route
+                path="/live-trivia"
+                element={<AuthRoute redirectTo="/"><LiveTrivias /></AuthRoute>} />
+            <Route
+                path="/live-trivia-instructions"
+                element={<AuthRoute redirectTo="/"><TriviaInstructions /></AuthRoute>} />
+            <Route
+                path="/live-trivia-staking"
+                element={<AuthRoute redirectTo="/"><LiveTriviaStaking /></AuthRoute>} />
+            <Route
+                path="/trivia-ended"
+                element={<AuthRoute redirectTo="/"><TriviaEnded /></AuthRoute>} />
+            <Route
+                path="/trivia-leaderboard/:id"
+                element={<AuthRoute redirectTo="/"><LiveTriviaLeaderboard /></AuthRoute>} />
+            <Route
+                path="/invite-friends"
+                element={<AuthRoute redirectTo="/"><InviteFriends /></AuthRoute>} />
+            <Route
+                path="/help"
+                element={<AuthRoute redirectTo="/"><HelpPages /></AuthRoute>} />
+            <Route
+                path="/support"
+                element={<AuthRoute redirectTo="/"><SupportQuestions /></AuthRoute>} />
+            <Route
+                path="/support-answers"
+                element={<AuthRoute redirectTo="/"><SupportAnswer /></AuthRoute>} />
+            <Route
+                path="/contact-us"
+                element={<AuthRoute redirectTo="/"><ContactUs /></AuthRoute>} />
+            <Route
+                path="/challenges"
+                element={<AuthRoute redirectTo="/"><MyChallengeScreen /></AuthRoute>} />
+            <Route
+                path="/challenge-score/:id"
+                element={<AuthRoute redirectTo="/"><MyChallengeScore /></AuthRoute>} />
+            <Route
+                path="/challenge-game"
+                element={<AuthRoute redirectTo="/"><ChallengeGameInProgress /></AuthRoute>} />
+            <Route
+                path="/challenge-result"
+                element={<AuthRoute redirectTo="/"><ChallengeEndGameScreen /></AuthRoute>} />
+            <Route
+                path="/challenge-staking"
+                element={<AuthRoute redirectTo="/"><ChallengeStaking /></AuthRoute>} />
+            <Route
+                path="/weekly-leaders"
+                element={<AuthRoute redirectTo="/"><WeeklyLeaderboard /></AuthRoute>} />
+            <Route
+                path="/leaderboards"
+                element={<AuthRoute redirectTo="/"><ExtendedLeaderBoard /></AuthRoute>} />
+        </Routes>
     )
 }
 
