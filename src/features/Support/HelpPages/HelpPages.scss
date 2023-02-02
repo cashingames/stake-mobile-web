@@ -1,14 +1,29 @@
-.helpPage-container{
+.helpPage-container {
     background-color: #fff;
     padding: 0 1.5rem;
-    .profile-tabs{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .profile-tabs {
         padding: 1.2rem 0;
     }
-    
+
+    .container-logout {
+        background-color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        position: absolute;
+        bottom: 0;
+        right: 10rem;
+
+    }
+
 }
 
 
-.tabContainer{
+.tabContainer {
     width: 100%;
     display: flex;
     align-items: center;
@@ -16,7 +31,8 @@
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     padding: 0.1rem 0;
     cursor: pointer;
-    .tabText{
+
+    .tabText {
         font-size: 0.93rem;
         font-family: 'graphik-regular';
         color: #151C2F;

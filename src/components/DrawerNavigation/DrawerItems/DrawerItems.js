@@ -1,18 +1,18 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { logoutUser } from '../../../features/Auth/AuthSlice';
+// import { logoutUser } from '../../../features/Auth/AuthSlice';
 import { IoChevronForwardOutline } from 'react-icons/io5'
 import './DrawerItems.scss'
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 // import { useSelector } from 'react-redux';
 
 function DrawerItems() {
     // const user = useSelector(state => state.auth.user);
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
 
-    const onLogout = () => {
-        dispatch(logoutUser())
-    }
+    // const onLogout = () => {
+    //     dispatch(logoutUser())
+    // }
 
     return (
         <>
@@ -65,9 +65,9 @@ function DrawerItems() {
                 <IoChevronForwardOutline className='icon' />
             </Link>
 
-            <div className='container-logout'>
+            {/* <div className='container-logout'>
                 <p className="logout-text" onClick={onLogout}>Logout</p>
-            </div>
+            </div> */}
         </>
     )
 }
