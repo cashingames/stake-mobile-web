@@ -1,16 +1,15 @@
 import React from 'react'
-import './SelectGame.scss'
-import { useDispatch} from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setGameMode } from '../../features/Games/GameSlice';
 import { useNavigate } from 'react-router-dom';
+import './SelectGame.scss'
 
 
-function SelectGame({ gameModes }) {
+function SelectGame() {
   let navigate = useNavigate();
   const dispatch = useDispatch();
+  const gameModes = useSelector(state => state.common.gameModes);
 
-//arranging the game cards in ascending in order to put the staking card in the middle  
-const gamesAscending = [...gameModes].sort((a, b) => a.id - b.id);
 
   const onSelectGameMode = (mode) => {
       dispatch(setGameMode(mode));
@@ -21,9 +20,9 @@ const gamesAscending = [...gameModes].sort((a, b) => a.id - b.id);
     <div className='gameContainer'>
       {/* <p className='gameTitle'>Select game mode</p> */}
       <div className='gameCardContainer'>
-        {gamesAscending.map((gameMode, i) =>
+        {gameModes.map((gameMode, i) =>
           <AvailableMode
-            key={i}
+            key={i + Math.random()}
             gameMode={gameMode}
             onPress={() => onSelectGameMode(gameMode)}
           />

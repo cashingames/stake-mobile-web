@@ -1,30 +1,23 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { useSelector } from 'react-redux';
 import { formatNumber } from '../../utils/stringUtl';
+
 import './UserPoints.scss'
 
-function UserPoints({ user }) {
+function UserPoints() {
 
-  var plans = useSelector(state => state.auth.user.activePlans ?? []);
-  var boosts = useSelector(state => state.auth.user.boosts ?? []);
-  const [boostsString, setBboostsString] = useState('');
+  const todaysPoints = useSelector(state => state.auth.user.todaysPoints);
+  const boosts = useSelector(state => state.auth.user.boosts ?? []);
 
-  useEffect(() => {
+  let boostsString = boosts.map(boost => `${formatNumber(boost.count)} ${boost.name}`).join(', ');
 
-    var boostResult = ''
-    // eslint-disable-next-line
-    boosts && boosts.map((boost, i) => {
-      boostResult += `${formatNumber(boost.count)} ${boost.name}${i === boosts.length - 1 ? '' : ','} `
-    });
-
-    setBboostsString(boostResult?.length > 0 ? boostResult : "You have no boosts");
-
-  }, [boosts, plans]);
+  if (boosts.lenght > 0)
+    boostsString = "You have no boosts";
 
   return (
     <div className='userPoints'>
       <div className='pointsNumber'>
-        <p>{user.todaysPoints}</p>
+        <p>{todaysPoints}</p>
         <p>pts</p>
         <p>TODAY</p>
       </div>

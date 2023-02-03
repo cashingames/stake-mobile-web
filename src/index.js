@@ -21,8 +21,6 @@ root.render(
   <BrowserRouter>
     <Provider store={store}>
       <App />
-      {/* <ReactPWAInstallProvider enableLogging>
-      </ReactPWAInstallProvider> */}
     </Provider>
   </BrowserRouter>
 );
