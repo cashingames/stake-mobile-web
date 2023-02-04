@@ -5,8 +5,6 @@ import SelectGame from '../../../assets/select-game.json'
 import './SelectGameCategoryScreen.scss'
 import { useSelector } from "react-redux";
 import GamePicker from "../GamePicker/GamePicker";
-// import { IoArrowForward } from 'react-icons/io5'
-// import { isTrue } from "../../../utils/stringUtl";
 import { useNavigate } from "react-router-dom";
 
 
@@ -15,17 +13,8 @@ const SelectGameCategoryScreen = () => {
 
     const activeSubcategory = useSelector(state => state.game.gameCategory);
     const gameMode = useSelector(state => state.game.gameMode);
-    const features = useSelector(state => state.common.featureFlags);
 
-    useEffect(() => {
-        if (features.length < 1) {
-            navigate('/dashboard')
-        }
-        return
-    })
-
-    const handleGameBoardTabClosing = () => {
-    }
+    const handleGameBoardTabClosing = () => { }
 
     const alertUserBeforeClosinigGame = (event) => {
         event.preventDefault();
@@ -48,22 +37,14 @@ const SelectGameCategoryScreen = () => {
     })
 
     const onPlayButtonClick = () => {
-        onSelectGameMode();
+        navigate(
+            gameMode.name === "CHALLENGE" ? '/select-player' : "/exhibition-staking"
+        )
     }
 
-    const onSelectGameMode = () => {
-        if (gameMode.name === "CHALLENGE") {
-            navigate('/select-player')
-        }
-        else
-            navigate("/exhibition-staking")
-    };
     const navigateHandler = () => {
         navigate('/dashboard')
     }
-
-
-
 
     return (
         <>
@@ -77,13 +58,8 @@ const SelectGameCategoryScreen = () => {
                     style={
                         { height: '150px' }
                     } />
-                    <GamePicker activeSubcategory={activeSubcategory} onPlayButtonClick={onPlayButtonClick} />
-                {/* <button className="playButton" onClick={onPlayButtonClick} disabled={!isTrue(activeSubcategory)}>
-                    <IoArrowForward className='icon' />
-                </button> */}
+                <GamePicker activeSubcategory={activeSubcategory} onPlayButtonClick={onPlayButtonClick} />
             </div>
-
-
         </>
     )
 }

@@ -141,6 +141,12 @@ export const deleteUserAccount = createAsyncThunk(
     }
 )
 
+
+//
+export const selectUserPointToday = state => state.user.todaysPoints;
+export const selectUserBoots = state => state.user.boosts;
+
+
 const initialState = {
     token: "",
     createAccount: null,

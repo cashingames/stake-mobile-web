@@ -6,7 +6,6 @@ import './StakingPredictionTable.scss'
 const StakingPredictionTable = ({gameStake,amount, styleProp}) => {
     return(
         <div className={`${styleProp} stakeCase`}>
-            <p className="stakeWinnings">&#8358;{formatCurrency(amount * gameStake.odd)}</p>
             <div className="stakeScoreContainer">
                 <IoCheckmarkCircleOutline  size={16}/>
                 <p className="stakeScore">{gameStake.score}/10</p>
@@ -15,6 +14,7 @@ const StakingPredictionTable = ({gameStake,amount, styleProp}) => {
                 <IoTimeOutline size={15} color='#FF932F'/>
                 <p className="odds">x{gameStake.odd}</p>
             </div>
+            <p className="stakeWinnings">&#8358;{formatCurrency(amount * gameStake.odd)}</p>
         </div>
     )
 }

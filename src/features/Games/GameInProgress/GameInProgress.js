@@ -27,7 +27,6 @@ function GameInProgress() {
   const user = useSelector(state => state.auth.user);
   const isEnded = useSelector(state => state.game.isEnded);
   const [ending, setEnding] = useState(false);
-  const features = useSelector(state => state.common.featureFlags);
   const [open, setOpen] = useState(false);
   const [alertMessage, setAlertMessage] = useState('')
   const [openAlert, setOpenAlert] = useState(false)
@@ -136,13 +135,6 @@ function GameInProgress() {
     window.onpopstate = function () {
       window.history.go(1);
     };
-  })
-
-  useEffect(() => {
-    if (features.length < 1) {
-      navigate('/dashboard')
-    }
-    return
   })
 
   if (isEnded) {

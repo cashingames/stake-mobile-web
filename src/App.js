@@ -5,6 +5,9 @@ import { useDispatch, useSelector } from "react-redux";
 import React, { useEffect, useState } from "react";
 import LoaderScreen from "./features/LoaderScreen/LoaderScreen";
 import firebaseConfig from "./firebaseConfig";
+
+import './App.scss'
+
 firebaseConfig();
 
 function App() {
@@ -38,7 +41,10 @@ function App() {
 
 
 const booststrapAxios = function (token) {
+
+  axios.defaults.headers.common['x-brand-id'] = process.env.REACT_APP_BRAND_ID;
   axios.defaults.baseURL = process.env.REACT_APP_API_URL;
+
   if (token) {
     axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
   } else {

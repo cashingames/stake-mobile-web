@@ -12,17 +12,16 @@ const shuffleArray = array => {
     return array;
 }
 
-// function getAllIndexes(arr, val) {
-//     var indexes = [], i;
-//     for (i = 0; i < arr.length; i++)
-//         if (arr[i] === val)
-//             indexes.push(i);
-//     return indexes;
-// }
-
 export const startGame = createAsyncThunk(
-    'game/startGame',
-    async (data, thunkAPI) => {
+    'games/staking/exhibition/start',
+    async (_data, { getState }) => {
+        const state = getState().game;
+        const data = {
+            category: state.gameCategory.id,
+            type: state.gameType.id,
+            mode: state.gameMode.id,
+            staking_amount: state.amountStaked
+        };
         const response = await axios.post('v2/game/start/single-player', data)
         return response.data
     }
@@ -123,6 +122,7 @@ export const canStake = createAsyncThunk(
 
 //This is to store the currently ongoing active game
 let initialState = {
+    startingGame: true,
     gameMode: {},
     gameCategory: {},
     gameType: {},
@@ -137,8 +137,8 @@ let initialState = {
     consumedBoosts: [],
     activeBoost: [],
     pointsGained: 0,
-    amountWon: null,
-    amountStaked: null,
+    amountWon: 0,
+    amountStaked: 0,
     isEnded: true,
     displayedOptions: [],
     displayedQuestion: {},
@@ -154,7 +154,8 @@ let initialState = {
     hasPlayedTrivia: false,
     gameDuration: 60,
     challengeDetails: {},
-    gameStakes: [],
+    stakeOdds: [],
+    previousStakeOdds: [],
     withStaking: false,
     correctCount: null,
 }
@@ -271,12 +272,17 @@ export const GameSlice = createSlice({
         // Add reducers for additional action types here, and handle loading sAWAWAWAWtate as needed
         builder
             .addCase(startGame.fulfilled, (state, action) => {
+                console.log("action result success", action.payload);
                 state.questions = action.payload.data.questions;
                 state.displayedQuestion = state.questions[state.currentQuestionPosition]
                 state.displayedOptions = state.displayedQuestion.options
                 state.gameSessionToken = action.payload.data.game.token
                 state.isEnded = false
                 state.pointsGained = 0;
+                state.startingGame = false;
+            })
+            .addCase(startGame.rejected, (state, action) => {
+                console.log("action result rejected", action);
             })
             .addCase(endGame.fulfilled, (state, action) => {
                 state.isEnded = true;
@@ -319,7 +325,7 @@ export const GameSlice = createSlice({
                 resetState(state)
             })
             .addCase(getGameStakes.fulfilled, (state, action) => {
-                state.gameStakes = action.payload.data;
+                state.stakeOdds = action.payload.data;
             })
             .addCase(canStake.rejected, (state, payload) => {
             })

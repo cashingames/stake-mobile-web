@@ -13,8 +13,10 @@
   src: local('graphik-regular'), url(./assets/fonts/GraphikRegular.otf) format('opentype');
 }
 
-*{
-  box-sizing: border-box;
+html,
+body,
+#root {
+  height: 100%;
 }
 
 body {

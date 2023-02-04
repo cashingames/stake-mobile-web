@@ -22,7 +22,7 @@ function SelectGame() {
       <div className='gameCardContainer'>
         {gameModes.map((gameMode, i) =>
           <AvailableMode
-            key={i + Math.random()}
+            key={i}
             gameMode={gameMode}
             onPress={() => onSelectGameMode(gameMode)}
           />

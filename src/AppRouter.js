@@ -3,7 +3,8 @@ import { Routes, Route, Navigate } from "react-router-dom"
 import { getToken } from './features/Auth/AuthSlice'
 
 // un-lazyload dashboard
-import DashBoardScreen from './features/DashBoardScreen';
+import DashBoardScreen from './features/Dashboard/DashBoardScreen';
+import GameLoading from './features/Games/GameLoading/GameLoading';
 
 const Login = React.lazy(() => import('./features/Auth/LoginScreen/Login'));
 const Signup = React.lazy(() => import('./features/Auth/SignupScreen/Signup'));
@@ -14,7 +15,6 @@ const ForgotPassword = React.lazy(() => import('./features/Auth/ForgotPassword/F
 const ResetPassword = React.lazy(() => import('./features/Auth/ResetPassword/ResetPassword'));
 const VerifyOtp = React.lazy(() => import('./features/Auth/VerifyOtp/VerifyOtp'));
 const VerifyRegistrationOtp = React.lazy(() => import('./features/Auth/VerifyRegistrationOtp/VerifyRegistrationOtp'));
-// const DashBoardScreen = React.lazy(() => import('./features/DashBoardScreen'));
 const WalletScreen = React.lazy(() => import('./features/WalletScreen/WalletScreen'));
 const NotificationScreen = React.lazy(() => import('./features/NotificationScreen/NotificationScreen'));
 const FundWalletScreen = React.lazy(() => import('./features/FundWalletScreen/FundWalletScreen'));
@@ -96,7 +96,7 @@ const AppRouter = () => {
                 path="/exhibition-staking"
                 element={<AuthRoute redirectTo="/"><GameStaking /></AuthRoute>} />
             <Route
-                path="/game-board"
+                path="/games/staking/play/:gameId"
                 element={<AuthRoute redirectTo="/"><GameInProgress /></AuthRoute>} />
             <Route
                 path="/game-result"
@@ -188,6 +188,9 @@ const AppRouter = () => {
             <Route
                 path="/leaderboards"
                 element={<AuthRoute redirectTo="/"><ExtendedLeaderBoard /></AuthRoute>} />
+            <Route
+                path="/games/staking/loading"
+                element={<AuthRoute redirectTo="/"><GameLoading /></AuthRoute>} />
         </Routes>
     )
 }
