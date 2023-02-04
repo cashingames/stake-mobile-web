@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import './GameEnded.scss'
 import AnimatedClock from '../../../components/AnimatedClock/AnimatedClock';
 import UserName from '../../../components/UserName/UserName';
@@ -10,7 +10,6 @@ import GameButton from '../../../components/GameButton/GameButton'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { getUser } from '../../Auth/AuthSlice'
-import BoostPopUp from '../../../components/BoostPopUp/BoostPopUp'
 
 function GameEnded() {
   let navigate = useNavigate();
@@ -20,13 +19,6 @@ function GameEnded() {
   const amountWon = useSelector(state => state.game.amountWon);
   const withStaking = useSelector(state => state.game.withStaking);
   const isGameEnded = useSelector(state => state.game.isEnded);
-  const minimumBoostScore = useSelector(state => state.common.minimumBoostScore)
-
-
-  const [showModal, setShowModal] = useState(false);
-  // const [loading, setLoading] = useState(false);
-  // const [showText, setShowText] = useState(true);
-
 
   const goHome = () => {
     navigate('/dashboard', {
@@ -39,7 +31,7 @@ function GameEnded() {
   }
 
   const playAgain = () => {
-    navigate('/game-instructions')
+    navigate('/select-category')
   }
 
   useEffect(() => {
@@ -63,20 +55,11 @@ function GameEnded() {
       return () =>
         window.removeEventListener('hardwareBackPress', onBackPress);
     }, [isGameEnded])
-  );
+  )
+
   const reviewStaking = () => {
-    navigate("/review-stake")
+    navigate(`/games/staking/1/review`)
   }
-
-  useEffect(() => {
-    if (pointsGained <= minimumBoostScore) {
-      setShowModal(true)
-    } else {
-      setShowModal(false)
-    }
-  }, [pointsGained, minimumBoostScore])
-
-
 
   return (
     <div className='gameEndedCase'>
@@ -89,7 +72,7 @@ function GameEnded() {
       <SeeRank onClick={viewLeaderboard} />
       <FinalScore pointsGained={pointsGained} />
       <GameButton goHome={goHome} playAgain={playAgain} />
-      <BoostPopUp setShowModal={setShowModal} showModal={showModal} />
+      {/* <BoostPopUp setShowModal={setShowModal} showModal={showModal} /> */}
     </div>
   )
 }

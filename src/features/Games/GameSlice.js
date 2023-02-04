@@ -152,7 +152,7 @@ let initialState = {
     triviaMode: '',
     triviaId: '',
     hasPlayedTrivia: false,
-    gameDuration: 60,
+    gameDuration: 600,
     challengeDetails: {},
     stakeOdds: [],
     previousStakeOdds: [],
@@ -285,12 +285,14 @@ export const GameSlice = createSlice({
                 console.log("action result rejected", action);
             })
             .addCase(endGame.fulfilled, (state, action) => {
+                const token = state.gameSessionToken;
                 state.isEnded = true;
                 state.pointsGained = action.payload.data.points_gained;
                 state.amountWon = action.payload.data.amount_won;
                 state.withStaking = action.payload.data.with_staking;
                 state.amountStaked = action.payload.data.amount_staked;
                 state.correctCount = action.payload.data.correct_count;
+                state.previousStakeOdds = [...state.stakeOdds];
                 resetState(state)
             })
             .addCase(getLiveTriviaLeaders.fulfilled, (state, action) => {

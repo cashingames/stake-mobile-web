@@ -9,8 +9,8 @@ import './ReviewStake.scss'
 function ReviewStake() {
     const navigate = useNavigate()
 
-    const user = useSelector(state => state.auth.user)
-    const gameStakes = useSelector(state => state.game.gameStakes);
+    const walletBalance = useSelector(state => state.auth.user.walletBalance)
+    const gameStakes = useSelector(state => state.game.previousStakeOdds);
     const amountStaked = useSelector(state => state.game.amountStaked)
     const correctCount = useSelector(state => state.game.correctCount)
 
@@ -25,7 +25,7 @@ function ReviewStake() {
             <div className="reviewStaking-container">
                 <div className="amountContainer">
                     <div className="walletContainer">
-                        <p className="wallet">Wallet Balance : &#8358;{formatCurrency(user.walletBalance)}</p>
+                        <p className="wallet">Wallet Balance : &#8358;{formatCurrency(walletBalance)}</p>
                     </div>
                     <div className="inputContainer">
                         <input

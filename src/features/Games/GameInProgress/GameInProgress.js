@@ -83,6 +83,8 @@ function GameInProgress() {
 
       })
       .catch((rejectedValueOrSerializedError) => {
+        console.log('error ending game');
+        console.log(rejectedValueOrSerializedError);
         setEnding(false);
         alert('failed to end game')
       });
