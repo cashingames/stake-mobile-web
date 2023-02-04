@@ -1,28 +1,24 @@
 
 .appHeaderContainer {
-    display: flex;
+display: flex;
     justify-content: space-between;
-    padding: 1rem 2rem  0.5rem 1rem;
+    padding: 0.5rem 1rem;
     align-items: center;
     position: sticky;
     top: 0;
-    right: 0;
-    width: 100%;
     z-index: 2;
     background: #FAC502;
-    font-family: 'Graphik';
-    height: 4.1rem;
+    font-family: "Graphik";
     .appHeaderTitle {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        gap: 2rem;
+        gap: 1rem;
         .title {
             font-family: 'graphik-medium';
-            font-size: 1.3rem;
         }
         .icon {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             font-family: 'graphik-regular';
             cursor: pointer;
         }

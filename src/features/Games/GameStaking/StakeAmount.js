@@ -42,8 +42,9 @@ function StakeAmount({ onSubmit, onChange }) {
     }
 
     const amountChanged = (e) => {
-        setAmount(e.currentTarget.value);
-        onChange(e.currentTarget.value);
+        const value = e.currentTarget.value;
+        setAmount(value);
+        onChange(value);
     }
 
     return (

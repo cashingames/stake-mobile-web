@@ -14,9 +14,9 @@ const GameStaking = () => {
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const maximumExhibitionStakeAmount = useSelector(state => state.common.maximumExhibitionStakeAmount ?? 0);
+    const defaultStake = useSelector(state => state.common.maximumExhibitionStakeAmount ?? 0);
 
-    const [stake, setStake] = useState(maximumExhibitionStakeAmount);
+    const [stake, setStake] = useState(defaultStake);
 
     const backHandler = () => {
         navigate(-1);

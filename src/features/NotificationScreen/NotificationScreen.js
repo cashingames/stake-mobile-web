@@ -15,15 +15,13 @@ import LoaderScreen from '../LoaderScreen/LoaderScreen'
 import { useNavigate } from 'react-router-dom'
 
 function NotificationScreen() {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
     const notifications = useSelector(state => state.common.userNotifications)
     const [loading, setLoading] = useState(true);
-    const dispatch = useDispatch();
     const [readAll, setReadAll] = useState(false)
     const [clicking, setClicking] = useState(false)
-    const features = useSelector(state => state.common.featureFlags);
-
-
-    const navigate = useNavigate()
 
     const markAll = () => {
         setClicking(true)
@@ -32,18 +30,13 @@ function NotificationScreen() {
             setReadAll(true)
         });
     }
+
     //disable browser back button
     useEffect(() => {
         window.history.pushState(null, null, window.location.href);
         window.onpopstate = function () {
             window.history.go(1);
         };
-    })
-    useEffect(() => {
-        if (features.length < 1) {
-            navigate('/dashboard')
-        }
-        return
     })
 
     useEffect(() => {
@@ -61,13 +54,6 @@ function NotificationScreen() {
 
     return (
         <>
-            {/* <div className='NotificationHeader'>
-                <IoArrowBack className='icon'
-                    onClick={
-                        () => navigate(-1)
-                    } />
-                <AuthTitle titleText='Notifications' styleProp='title' />
-            </div> */}
             <ScreenHeader title='Notifications' styleProp='notificationHeader' onClick={navigateHandler} />
 
             <div style={
