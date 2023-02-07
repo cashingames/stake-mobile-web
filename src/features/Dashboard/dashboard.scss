@@ -1,14 +1,87 @@
+.dashboard-screen {
+    min-height: 100vh;
+    height: 100vh;
+    overflow: scroll;
+    min-width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    .dashboard-content {
+        padding: 0.1rem 1.5rem;
+
+        .winning-table {
+            background: linear-gradient(180deg, rgb(45 155 219 / 50%) 71.35%, #202608 100%);
+            box-shadow: 8px 8px 4px rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            padding: 1rem;
+            margin-top: 4rem;
+
+            .winner-section {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: .8rem;
+
+                .winner-identity {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+
+                    .winner-avatar {
+                        width: 40px;
+                        height: 40px;
+                        border-radius: 50px;
+                        background-color: #fff;
+                        margin-right: .5rem;
+                    }
+
+                    .winner-name {
+                        font-size: 12px;
+                        line-height: 30px;
+                        color: #fff;
+                        font-family: 'graphik-medium';
+                    }
+                }
+                .winner-amount {
+                    font-size: 12px;
+                    line-height: 30px;
+                    color: #fff;
+                    font-family: 'graphik-bold';
+                }
+                .winner-score {
+                    font-size: 12px;
+                    line-height: 30px;
+                    color: #fff;
+                    font-family: 'graphik-medium'; 
+                }
+            }
+            .view-more {
+                font-size: 12px;
+                line-height: 30px;
+                color: #fff;
+                font-family: 'graphik-medium';
+                margin-left: auto; 
+                display: flex;
+                justify-content: flex-end;
+            }
+        }
+    }
+}
+
 .main-leaderBoards-container {
     margin: 1.3rem 0;
     padding: 0 1.5rem;
-    .leaderBoard-containers{
+
+    .leaderBoard-containers {
         display: flex;
         overflow: scroll;
         align-items: baseline;
         gap: 1rem;
     }
-    
-    .leaderBoard-containers::-webkit-scrollbar{
+
+    .leaderBoard-containers::-webkit-scrollbar {
         display: none;
     }
 }

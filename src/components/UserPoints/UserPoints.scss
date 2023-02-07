@@ -1,5 +1,7 @@
 .userPoints {
-    background-color: #518ef8;
+    background-color: #1E5092;
+    box-shadow: 0px 6px 4px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(2px);
     padding: 0.9rem 0.5rem;
     border-radius: 8px;
     font-family: 'Graphik', sans-serif;
@@ -13,11 +15,11 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        background-color: #072169;
+        background-color: #15292F;
         font-size: 0.7rem;
         height: 75px;
         width: 75px;
-        padding: 0 1rem;
+        // padding: 0 1rem;
         justify-content: center;
         border-radius: 50%;
         font-family: 'graphik-medium';
@@ -35,7 +37,7 @@
         display: flex;
 
         .boosts-square {
-            background-color: #072169;
+            background-color: #15292F;
             padding: 0 .8rem 0 .8rem;
             border-top-left-radius: 30px;
             border-bottom-left-radius: 30px;
@@ -59,24 +61,24 @@
             border-top: 35px solid transparent;
             border-bottom: 35px solid transparent;
 
-            border-left: 35px solid #072169;
+            border-left: 35px solid #15292F;
         }
 
         .boosts-arrow {
             width: 44px;
             height: 44px;
             content: '';
-            border: 2px solid #072169;
+            border: 2px solid #15292F;
             transform: rotate(45deg);
             margin-left: -18px;
-            background-color: #072169;
+            background-color: #15292F;
 
         }
     }
     .trophy {
         margin-top: -2rem;
-        height: 97px;
-        width: 97px;
+        // height: 100px;
+        width: 100px;
         z-index: 1;
     }
 }
