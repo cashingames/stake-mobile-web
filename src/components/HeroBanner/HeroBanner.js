@@ -6,7 +6,6 @@ import './HeroBanner.scss';
 import { useSelector } from 'react-redux'
 
 function HeroBanner() {
-  console.log("rendering hero banner")
   return (
     <div className='heroBanner'>
       <NairaIcon />
@@ -17,7 +16,6 @@ function HeroBanner() {
 
 function NairaIcon() {
   const walletBalance = useSelector(state => state.auth.user.walletBalance ?? 0);
-  console.log("rendering naira icon")
   return (
     <div className='heroWallet'>
       <Player

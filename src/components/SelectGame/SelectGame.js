@@ -8,8 +8,8 @@ import './SelectGame.scss'
 function SelectGame() {
   let navigate = useNavigate();
   const dispatch = useDispatch();
-  const gameModes = useSelector(state => state.common.gameModes);
-
+  const gameMode = useSelector(state => state.common.gameModes[2]);
+console.log(gameMode)
 
   const onSelectGameMode = (mode) => {
       dispatch(setGameMode(mode));
@@ -19,7 +19,7 @@ function SelectGame() {
   return (
     <div className='gameContainer'>
       {/* <p className='gameTitle'>Select game mode</p> */}
-      <div className='gameCardContainer'>
+      {/* <div className='gameCardContainer'>
         {gameModes.map((gameMode, i) =>
           <AvailableMode
             key={i}
@@ -27,7 +27,8 @@ function SelectGame() {
             onPress={() => onSelectGameMode(gameMode)}
           />
         )}
-      </div>
+      </div> */}
+        <button className='start-game-button' onClick={() => onSelectGameMode(gameMode)}>Start game now</button>
     </div>
   )
 }

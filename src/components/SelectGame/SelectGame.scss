@@ -7,10 +7,22 @@
 }
 
 .gameContainer {
-    padding: 0 1.5rem;
-    font-weight: 500;
-    font-size: 0.85rem;
-    font-family: 'Graphik', sans-serif;
+    margin-top: 4rem;
+    .start-game-button {
+        background-color: #003D75;
+        padding: .8rem 0;
+        border-radius: 15px;
+        opacity: 0.65;
+        width: 100%;
+        border: 3px solid #FFF;
+        box-shadow: 10px 10px 4px rgba(0, 0, 0, 0.4);
+        font-size: 18px;
+        line-height: 20px;
+        text-align: center;
+        // text-transform: capitalize;        
+        font-family: 'graphik-medium';
+        color: #FFF;
+    }
 
     .gameTitle {
         font-size: 1rem;
