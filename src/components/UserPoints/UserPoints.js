@@ -11,7 +11,7 @@ function UserPoints() {
 
   let boostsString = boosts.map(boost => `${formatNumber(boost.count)} ${boost.name}`).join(', ');
 
-  if (boosts.lenght > 0)
+  if (boosts.length > 0)
     boostsString = "You have no boosts";
 
   return (
