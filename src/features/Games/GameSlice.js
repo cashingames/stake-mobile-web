@@ -285,7 +285,7 @@ export const GameSlice = createSlice({
                 console.log("action result rejected", action);
             })
             .addCase(endGame.fulfilled, (state, action) => {
-                const token = state.gameSessionToken;
+                // const token = state.gameSessionToken;
                 state.isEnded = true;
                 state.pointsGained = action.payload.data.points_gained;
                 state.amountWon = action.payload.data.amount_won;
