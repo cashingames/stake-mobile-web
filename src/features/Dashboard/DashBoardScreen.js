@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import AppHeader from '../../components/AppHeader/AppHeader'
 import HeroBanner from '../../components/HeroBanner/HeroBanner'
 import SelectGame from '../../components/SelectGame/SelectGame'
 import { getUser } from './../Auth/AuthSlice'
-import { getCommonData, } from '../../features/CommonSlice'
+import { getCommonData, getStakeWinners, } from '../../features/CommonSlice'
 import './dashboard.scss'
 import { formatCurrency } from '../../utils/stringUtl'
 
@@ -12,6 +12,8 @@ import { formatCurrency } from '../../utils/stringUtl'
 function DashBoardScreen() {
 
   const dispatch = useDispatch();
+  const stakeWinners = useSelector(state => state.common.stakeWinners)
+
 
   //disable browser back button
   useEffect(() => {
@@ -24,6 +26,7 @@ function DashBoardScreen() {
   useEffect(() => {
     dispatch(getUser());
     dispatch(getCommonData())
+    dispatch(getStakeWinners())
     // dispatch(fetchFeatureFlags())
   }, [dispatch]);
 
@@ -34,32 +37,34 @@ function DashBoardScreen() {
         <div className='dashboard-content'>
           <HeroBanner />
           <SelectGame />
-          <WinningTable />
+          <WinningTable stakeWinners={stakeWinners} />
         </div>
       </div>
     </>
   )
 }
 
-const WinningTable = () => {
+const WinningTable = ({ stakeWinners }) => {
   return (
+
     <div className='winning-table'>
-      <Winner />
-      <Winner />
-      <Winner />
-      <Winner />
-      <Winner />
-      <Winner />
-      <Winner />
-      <Winner />
-      <Winner />
-      <Winner />
-      <p className='view-more'>Click to view more</p>
+      {stakeWinners.length > 0 ?
+        <div>
+          {stakeWinners.map((stakeWinner, i) => <Winner key={i} stakeWinner={stakeWinner}
+          />)}
+          {/* <p className='view-more'>Click to view more</p> */}
+
+        </div>
+        :
+        <div className='no-winners-container'>
+          <p className='no-winners'>No Winners</p>
+        </div>
+      }
     </div>
   )
 }
 
-const Winner = () => {
+const Winner = ({ stakeWinner }) => {
   return (
     <div className='winner-section'>
       <div className='winner-identity'>
@@ -69,9 +74,9 @@ const Winner = () => {
           onError={(e) => e.target.style.display = 'none'} />
         <p className='winner-name'>Abimbola</p>
       </div>
-      <p className='winner-amount'>&#8358;{formatCurrency(10000)}</p>
+      <p className='winner-amount'>&#8358;{formatCurrency(stakeWinner.amount_won)}</p>
       {/* <div> */}
-        <p className='winner-score'>10/10</p>
+      <p className='winner-score'>{stakeWinner.correct_count}/10</p>
       {/* </div> */}
     </div>
   )

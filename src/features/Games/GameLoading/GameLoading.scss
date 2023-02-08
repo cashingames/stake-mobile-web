@@ -1,1 +1,83 @@
-.GameLoading {}
+.game-loading {
+    background-color: #9C3DB8;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    min-height: 100vh;
+    height: 100vh;
+
+    .game-loading-text {
+        font-size: 1.2rem;
+        // line-height: 30px;
+        text-align: center;
+        color: #fff;
+        font-family: 'graphik-bold';
+    }
+
+    .boost-container {
+        .boost-instruction {
+            font-size: 1rem;
+            line-height: 30px;
+            text-align: center;
+            color: #fff;
+            font-family: 'graphik-medium';
+        }
+
+        .boost-card-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #b83d835d;
+            margin-bottom: .8rem;
+            padding: .5rem .8rem;
+            border-radius: 10px;
+            box-shadow: 8px 8px 4px rgba(0, 0, 0, 0.4);
+
+            .boost-icon {
+                width: 40px;
+                height: 40px;
+            }
+
+            .boostDetailsContainer {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                .boostNameCount {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    .storeItemName {
+                        font-size: .8rem;
+                        text-align: center;
+                        color: #fff;
+                        font-family: 'graphik-medium';
+                        margin: 0;
+                    }
+                    .boostCount {
+                        font-size: .7rem;
+                        text-align: center;
+                        color: #EA5038;
+                        font-family: 'graphik-medium'; 
+                    }
+                }
+                .boostDescription {
+                    font-size: .8rem;
+                    text-align: center;
+                    color: #fff;
+                    font-family: 'graphik-medium';
+                    margin: 0;
+                }
+            }
+            .cashPrice {
+                font-size: .8rem;
+                    text-align: center;
+                    color: #fff;
+                    font-family: 'graphik-medium';
+                    margin: 0;
+            }
+        }
+    }
+}

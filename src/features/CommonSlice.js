@@ -139,6 +139,14 @@ export const getUserChallenges = createAsyncThunk(
         return response.data;
     }
 )
+export const getStakeWinners = createAsyncThunk(
+    'common/getStakeWinners',
+    async (data, thunkAPI) => {
+        const response = await axios.get(`v3/stakers/sessions/recent`)
+        // console.log(response)
+        return response.data;
+    }
+)
 
 export const isFeatureEnabled = async (feature, features = {}) => {
 
@@ -173,6 +181,7 @@ const initialState = {
     userChallenges: [],
     loadMoreChallenges: true,
     periodBeforeChallengeStakingExpiry: '',
+    stakeWinners:[],
     featureFlags: [],
     minimumBoostScore:0
 
@@ -260,6 +269,9 @@ export const CommonSlice = createSlice({
             .addCase(getUserChallenges.fulfilled, (state, action) => {
                 state.loadMoreChallenges = action.payload.length >= 10;
                 state.userChallenges = state.userChallenges.concat(action.payload);
+            })
+            .addCase(getStakeWinners.fulfilled, (state, action) => {
+                state.stakeWinners = action.payload
             })
             .addCase(fetchFeatureFlags.fulfilled, (state, action) => {
                 state.featureFlags = action.payload.data

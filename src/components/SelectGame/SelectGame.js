@@ -9,7 +9,7 @@ function SelectGame() {
   let navigate = useNavigate();
   const dispatch = useDispatch();
   const gameMode = useSelector(state => state.common.gameModes[2]);
-console.log(gameMode)
+// console.log(gameMode)
 
   const onSelectGameMode = (mode) => {
       dispatch(setGameMode(mode));

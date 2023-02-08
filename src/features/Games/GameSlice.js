@@ -272,7 +272,7 @@ export const GameSlice = createSlice({
         // Add reducers for additional action types here, and handle loading sAWAWAWAWtate as needed
         builder
             .addCase(startGame.fulfilled, (state, action) => {
-                console.log("action result success", action.payload);
+                // console.log("action result success", action.payload);
                 state.questions = action.payload.data.questions;
                 state.displayedQuestion = state.questions[state.currentQuestionPosition]
                 state.displayedOptions = state.displayedQuestion.options

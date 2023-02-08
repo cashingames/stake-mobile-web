@@ -29,7 +29,7 @@ const GameStaking = () => {
     const proceed = (amount) => {
         dispatch(setAmountStaked(amount))
         dispatch(setIsPlayingTrivia(false))
-        console.log('proceed to game loading')
+        // console.log('proceed to game loading')
         dispatch(startGame())
         navigate('/games/staking/loading')
     }

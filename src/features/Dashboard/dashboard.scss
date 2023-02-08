@@ -66,6 +66,15 @@
                 display: flex;
                 justify-content: flex-end;
             }
+            .no-winners-container {
+               .no-winners {
+                font-size: 1rem;
+                line-height: 30px;
+                color: #fff;
+                font-family: 'graphik-medium';
+                text-align: center;
+               } 
+            }
         }
     }
 }
