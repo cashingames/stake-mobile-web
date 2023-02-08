@@ -10,13 +10,25 @@
     .dashboard-content {
         padding: 0.1rem 1.5rem;
 
+        .no-winning-table {
+            background: linear-gradient(180deg, rgb(45 155 219 / 50%) 71.35%, #202608 100%);
+            box-shadow: 8px 8px 4px rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            padding: 1rem;
+            margin: 4rem 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
         .winning-table {
             background: linear-gradient(180deg, rgb(45 155 219 / 50%) 71.35%, #202608 100%);
             box-shadow: 8px 8px 4px rgba(0, 0, 0, 0.5);
             border-radius: 10px;
             padding: 1rem;
-            margin-top: 4rem;
-
+            margin: 4rem 0;
+            display: flex;
+            flex-direction: column;
             .winner-section {
                 display: flex;
                 flex-direction: row;

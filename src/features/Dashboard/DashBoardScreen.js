@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import AppHeader from '../../components/AppHeader/AppHeader'
 import HeroBanner from '../../components/HeroBanner/HeroBanner'
@@ -7,13 +7,14 @@ import { getUser } from './../Auth/AuthSlice'
 import { getCommonData, getStakeWinners, } from '../../features/CommonSlice'
 import './dashboard.scss'
 import { formatCurrency } from '../../utils/stringUtl'
+import { Spinner } from 'react-activity'
 
 
 function DashBoardScreen() {
 
   const dispatch = useDispatch();
   const stakeWinners = useSelector(state => state.common.stakeWinners)
-
+  const [loading, setLoading] = useState(true)
 
   //disable browser back button
   useEffect(() => {
@@ -26,7 +27,9 @@ function DashBoardScreen() {
   useEffect(() => {
     dispatch(getUser());
     dispatch(getCommonData())
-    dispatch(getStakeWinners())
+    dispatch(getStakeWinners()).then(() => {
+      setLoading(false)
+    });
     // dispatch(fetchFeatureFlags())
   }, [dispatch]);
 
@@ -37,14 +40,24 @@ function DashBoardScreen() {
         <div className='dashboard-content'>
           <HeroBanner />
           <SelectGame />
-          <WinningTable stakeWinners={stakeWinners} />
+          <WinningTable stakeWinners={stakeWinners} loading={loading} />
         </div>
       </div>
     </>
   )
 }
 
-const WinningTable = ({ stakeWinners }) => {
+const WinningTable = ({ stakeWinners, loading }) => {
+  if (loading) {
+    return (
+      <div className='no-winning-table'>
+        <Spinner
+          color='#fff'
+          size={10}
+        />
+      </div>
+    )
+  }
   return (
 
     <div className='winning-table'>

@@ -11,7 +11,7 @@ function UserPoints() {
 
   let boostsString = boosts.map(boost => `${formatNumber(boost.count)} ${boost.name}`).join(', ');
 
-  if (boosts.length < 0)
+  if (boosts.length <= 0)
     boostsString = "You have no boosts";
 
   return (
@@ -23,7 +23,7 @@ function UserPoints() {
       </div>
       <div className='user-boosts'>
         <div className='boosts-square'>
-          <p className={boosts?.length >= 0 ? 'text2' : 'emptyRow'}>{boostsString}</p>
+          <p className={boosts?.length > 0 ? 'text2' : 'emptyRow'}>{boostsString}</p>
         </div>
         <div className="arrow-right"></div>
         {/* <p className='boosts-arrow'></p> */}
