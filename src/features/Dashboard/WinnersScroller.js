@@ -1,12 +1,11 @@
 import { useState, useEffect } from 'react';
 import { Spinner } from 'react-activity'
 import { useDispatch } from 'react-redux'
-
-
 import { getStakeWinners } from '../../features/CommonSlice'
 import { formatCurrency } from '../../utils/stringUtl'
+import './WinnersScroller.scss';
 
-import './WinnersScroller.scss'
+
 
 export default function WinnersScroller() {
 
@@ -54,10 +53,10 @@ const Winner = ({ winner }) => {
     return (
         <div className='winner-section'>
             <div className='winner-identity'>
-                <img src={'/images/user-icon.png'}
-                    alt='avatar'
+                <img src={winner.avatar  ? winner.avatar  : "/images/user-icon.png"}
+                    alt='pic'
                     className='winner-avatar'
-                    onError={(e) => e.target.style.display = 'none'} />
+                    />
                 <p className='winner-name'>{winner.username}</p>
             </div>
             <p className='winner-amount'>&#8358;{formatCurrency(winner.amount_won)}</p>
