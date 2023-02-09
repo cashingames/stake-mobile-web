@@ -25,7 +25,7 @@ export default function GameLoading() {
 
     return (
         <div className="game-loading">
-            <p className="game-loading-text">Game is loading...</p>
+            <p className="game-loading-text">Preparing your game board</p>
             <Player src={Boost}
                 alt='boost'
                 autoplay
