@@ -1,20 +1,20 @@
-import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import React, { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
 import AppHeader from '../../components/AppHeader/AppHeader'
 import HeroBanner from '../../components/HeroBanner/HeroBanner'
 import SelectGame from '../../components/SelectGame/SelectGame'
 import { getUser } from './../Auth/AuthSlice'
-import { getCommonData, getStakeWinners, } from '../../features/CommonSlice'
+import { getCommonData } from '../../features/CommonSlice'
+// import { formatCurrency } from '../../utils/stringUtl'
+// import { Spinner } from 'react-activity'
+import WinnersScroller from './WinnersScroller'
+
 import './dashboard.scss'
-import { formatCurrency } from '../../utils/stringUtl'
-import { Spinner } from 'react-activity'
 
 
 function DashBoardScreen() {
 
   const dispatch = useDispatch();
-  const stakeWinners = useSelector(state => state.common.stakeWinners)
-  const [loading, setLoading] = useState(true)
 
   //disable browser back button
   useEffect(() => {
@@ -27,10 +27,6 @@ function DashBoardScreen() {
   useEffect(() => {
     dispatch(getUser());
     dispatch(getCommonData())
-    dispatch(getStakeWinners()).then(() => {
-      setLoading(false)
-    });
-    // dispatch(fetchFeatureFlags())
   }, [dispatch]);
 
   return (
@@ -40,58 +36,10 @@ function DashBoardScreen() {
         <div className='dashboard-content'>
           <HeroBanner />
           <SelectGame />
-          <WinningTable stakeWinners={stakeWinners} loading={loading} />
+          <WinnersScroller />
         </div>
       </div>
     </>
-  )
-}
-
-const WinningTable = ({ stakeWinners, loading }) => {
-  if (loading) {
-    return (
-      <div className='no-winning-table'>
-        <Spinner
-          color='#fff'
-          size={10}
-        />
-      </div>
-    )
-  }
-  return (
-
-    <div className='winning-table'>
-      {stakeWinners.length > 0 ?
-        <div>
-          {stakeWinners.map((stakeWinner, i) => <Winner key={i} stakeWinner={stakeWinner}
-          />)}
-          {/* <p className='view-more'>Click to view more</p> */}
-
-        </div>
-        :
-        <div className='no-winners-container'>
-          <p className='no-winners'>No Winners</p>
-        </div>
-      }
-    </div>
-  )
-}
-
-const Winner = ({ stakeWinner }) => {
-  return (
-    <div className='winner-section'>
-      <div className='winner-identity'>
-        <img src="/images/user-icon.png"
-          alt='avatar'
-          className='winner-avatar'
-          onError={(e) => e.target.style.display = 'none'} />
-        <p className='winner-name'>Abimbola</p>
-      </div>
-      <p className='winner-amount'>&#8358;{formatCurrency(stakeWinner.amount_won)}</p>
-      {/* <div> */}
-      <p className='winner-score'>{stakeWinner.correct_count}/10</p>
-      {/* </div> */}
-    </div>
   )
 }
 

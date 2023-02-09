@@ -1,0 +1,83 @@
+.no-winning-table {
+    background: linear-gradient(180deg, rgb(45 155 219 / 50%) 71.35%, #202608 100%);
+    box-shadow: 8px 8px 4px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    padding: 1rem;
+    margin: 4rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.winning-table {
+    background: linear-gradient(180deg, rgb(45 155 219 / 50%) 71.35%, #202608 100%);
+    box-shadow: 8px 8px 4px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    padding: 1rem;
+    margin: 2.5rem 0;
+    display: flex;
+    flex-direction: column;
+
+    .winner-section {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: .8rem;
+
+        .winner-identity {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            .winner-avatar {
+                width: 40px;
+                height: 40px;
+                border-radius: 50px;
+                background-color: #fff;
+                margin-right: .5rem;
+            }
+
+            .winner-name {
+                font-size: 12px;
+                line-height: 30px;
+                color: #fff;
+                font-family: 'graphik-medium';
+            }
+        }
+
+        .winner-amount {
+            font-size: 12px;
+            line-height: 30px;
+            color: #fff;
+            font-family: 'graphik-bold';
+        }
+
+        .winner-score {
+            font-size: 12px;
+            line-height: 30px;
+            color: #fff;
+            font-family: 'graphik-medium';
+        }
+    }
+
+    .view-more {
+        font-size: 12px;
+        line-height: 30px;
+        color: #fff;
+        font-family: 'graphik-medium';
+        margin-left: auto;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .no-winners-container {
+        .no-winners {
+            font-size: 1rem;
+            line-height: 30px;
+            color: #fff;
+            font-family: 'graphik-medium';
+            text-align: center;
+        }
+    }
+}

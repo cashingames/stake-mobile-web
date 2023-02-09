@@ -53,9 +53,13 @@ function ReviewStake() {
                     </div>
                 </div>
 
-                {gameStakes.map((gameStake, i) => <StakingPredictionTable key={i} gameStake={gameStake} position={i + 1}
-                    // eslint-disable-next-line
-                    amount={amountStaked} styleProp={correctCount == (gameStake.score) ? 'amountWon' : {}} />)}
+                {gameStakes.map((gameStake, i) => <StakingPredictionTable
+                    key={gameStake.id}
+                    gameStake={gameStake}
+                    position={i + 1}
+                    amount={amountStaked}
+                    styleProp={correctCount === (gameStake.score) ? 'amountWon' : {}} />
+                )}
             </div>
         </>
     )
