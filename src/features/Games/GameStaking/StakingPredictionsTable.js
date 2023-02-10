@@ -36,6 +36,7 @@ export default function StakingPredictionsTable({ stake, usePreviousOdds, correc
                 </tr>
             </thead>
             <tbody>
+            {/* eslint-disable-next-line  */}
                 {odds.map((odd, index) => <StakingPredictionsRow key={index} stake={stake} odd={odd} styleProp={correctCount == (odd.score) ? 'amountWon' : {}} />)}
             </tbody>
         </table>

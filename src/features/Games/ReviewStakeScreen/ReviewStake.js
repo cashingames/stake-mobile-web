@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import ScreenHeader from '../../../components/ScreenHeader/ScreenHeader'
@@ -9,7 +9,6 @@ import './ReviewStake.scss'
 function ReviewStake() {
     const navigate = useNavigate()
 
-    const gameStakes = useSelector(state => state.game.previousStakeOdds);
     const amountStaked = useSelector(state => state.game.amountStaked);
     const correctCount = useSelector(state => state.game.correctCount);
 

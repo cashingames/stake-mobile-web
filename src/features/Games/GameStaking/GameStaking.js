@@ -31,7 +31,7 @@ const GameStaking = () => {
     }
     useEffect(() => {
         dispatch(getUser());
-    },[])
+    })
 
 
     const proceed = (amount) => {
