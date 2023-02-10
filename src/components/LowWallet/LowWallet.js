@@ -15,7 +15,7 @@ function LowWallet({ open, onClose }) {
   )
 }
 
-function RenderLowWallet(onClose) {
+function RenderLowWallet({onClose}) {
   return (
     <>
       <div className='lowWallet'>

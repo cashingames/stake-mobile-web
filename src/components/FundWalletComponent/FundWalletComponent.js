@@ -13,6 +13,8 @@ function FundWalletComponent({close}) {
     const [canSend, setCanSend] = useState(true)
     const user = useSelector((state) => state.auth.user);
     const [showPayment, setShowPayment] = useState(false);
+    const minimumWalletFundableAmount = useSelector(state => state.common.minimumWalletFundableAmount);
+
 
     const config = {
         email: user.email,
@@ -36,10 +38,10 @@ function FundWalletComponent({close}) {
     const onChangeAmount = (e) => {
         const amount = e.currentTarget.value;
         const amountEntered = amount.trim().length === 0 ? 0 : Number.parseFloat(amount)
-        if (amountEntered < 100) {
+        if (amountEntered < minimumWalletFundableAmount) {
             setAmountError(true)
         } else setAmountError(false)
-        setAmount(amount)
+        setAmount(amount)``
     }
 
     useEffect(() => {
@@ -70,7 +72,7 @@ function FundWalletComponent({close}) {
                                 <p className='flagText'>NGN</p>
                             </div>
                             {amountErr &&
-                                <span className='inputError'>*please input an amount equal to or greater than 100 naira</span>
+                                <span className='inputError'>*Amount cannot be less than {minimumWalletFundableAmount} naira</span>
                             }
                         </div>
                     </div>

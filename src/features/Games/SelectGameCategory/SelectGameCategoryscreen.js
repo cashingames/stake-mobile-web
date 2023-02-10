@@ -13,13 +13,15 @@ const SelectGameCategoryScreen = () => {
 
     const activeSubcategory = useSelector(state => state.game.gameCategory);
     const gameMode = useSelector(state => state.game.gameMode);
-
     const handleGameBoardTabClosing = () => { }
 
     const alertUserBeforeClosinigGame = (event) => {
         event.preventDefault();
         event.returnValue = '';
     }
+
+
+
     useEffect(() => {
         window.addEventListener('beforeunload', alertUserBeforeClosinigGame)
         window.addEventListener('unload', handleGameBoardTabClosing)

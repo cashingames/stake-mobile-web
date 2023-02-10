@@ -1,0 +1,61 @@
+.fundWalletContainer {
+    display: flex;
+    justify-content: center;
+
+    .balance {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        .availableAmount {
+            font-family: 'graphik-medium';
+            font-size: 1rem;
+        }
+
+        .walletTitle {
+            font-family: 'graphik-medium';
+            font-size: .9rem;
+        }
+
+        .fundAmount {
+            padding: .8rem 1rem;
+            border: none;
+            text-align: center;
+            font-size: 1rem;
+        }
+
+        .flag {
+            display: flex;
+            align-items: center;
+            font-family: 'graphik-medium';
+            font-size: .7rem;
+        }
+    }
+}
+.fundButtonContainer {
+    padding: 1rem 1.5rem;
+    .actionBtnContainer {
+        display: flex;
+        justify-content: center;
+        border-radius: 12px;
+        cursor: pointer;
+        background-color: #ef2f55;
+        border: none;
+        width: 100%;
+
+        .text {
+            line-height: 1;
+            letter-spacing: 0.25;
+            color: #fff;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+    }
+
+    button[disabled] {
+        border: none;
+        background-color: #DFCBCF;
+        color: white;
+    }
+}

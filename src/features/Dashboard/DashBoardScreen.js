@@ -4,7 +4,7 @@ import AppHeader from '../../components/AppHeader/AppHeader'
 import HeroBanner from '../../components/HeroBanner/HeroBanner'
 import SelectGame from '../../components/SelectGame/SelectGame'
 import { getUser } from './../Auth/AuthSlice'
-import { getCommonData } from '../../features/CommonSlice'
+import { fetchFeatureFlags, getCommonData } from '../../features/CommonSlice'
 // import { formatCurrency } from '../../utils/stringUtl'
 // import { Spinner } from 'react-activity'
 import WinnersScroller from './WinnersScroller'
@@ -27,6 +27,7 @@ function DashBoardScreen() {
   useEffect(() => {
     dispatch(getUser());
     dispatch(getCommonData())
+    dispatch(fetchFeatureFlags())
   }, [dispatch]);
 
   return (

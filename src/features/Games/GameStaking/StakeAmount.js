@@ -5,12 +5,11 @@ import { formatCurrency } from '../../../utils/stringUtl'
 
 import './StakeAmount.scss'
 
-function StakeAmount({ onSubmit, onChange }) {
+function StakeAmount({ onSubmit, onChange, amount, setAmount, readOnly, disabled }) {
 
     const user = useSelector((state) => state.auth.user);
     const maximumExhibitionStakeAmount = useSelector(state => Number.parseFloat(state.common.maximumExhibitionStakeAmount ?? 0));
     const minimumExhibitionStakeAmount = useSelector(state => Number.parseFloat(state.common.minimumExhibitionStakeAmount ?? 0));
-    const [amount, setAmount] = useState(maximumExhibitionStakeAmount);
     const [showLowWallet, setShowLowWallet] = useState(false);
 
     const validate = () => {
@@ -61,12 +60,13 @@ function StakeAmount({ onSubmit, onChange }) {
                     value={amount}
                     className='stakeInput'
                     onChange={amountChanged}
+                    readOnly={readOnly}
                     required
                 />
             </div>
 
             <div className="buttonContainer">
-                <button onClick={submit} className='start-button'>
+                <button onClick={submit} className='start-button' disabled={disabled}>
                     <p className="start-text">Start Game</p>
                 </button>
             </div>

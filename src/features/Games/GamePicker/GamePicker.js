@@ -23,6 +23,7 @@ const GamePicker = ({ activeSubcategory, onPlayButtonClick }) => {
         onPlayButtonClick()
     }
 
+
     useEffect(() => {
         setActiveCategory(undefined);
         dispatch(setGameType(currentGame));

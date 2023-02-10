@@ -10,7 +10,7 @@ import { formatCurrency } from "../../../utils/stringUtl";
 
 import './StakingPredictionsTable.scss'
 
-export default function StakingPredictionsTable({ stake, usePreviousOdds }) {
+export default function StakingPredictionsTable({ stake, usePreviousOdds, correctCount }) {
 
     const dispatch = useDispatch();
     const odds = useSelector(state => usePreviousOdds ? state.game.previousStakeOdds : state.game.stakeOdds);
@@ -27,7 +27,7 @@ export default function StakingPredictionsTable({ stake, usePreviousOdds }) {
 
     return (
         <table className="staking-predictions-table">
-            <caption>How to win</caption>
+            <caption>How to win</caption>.
             <thead>
                 <tr>
                     <th>Outcome</th>
@@ -36,15 +36,15 @@ export default function StakingPredictionsTable({ stake, usePreviousOdds }) {
                 </tr>
             </thead>
             <tbody>
-                {odds.map((odd, index) => <StakingPredictionsRow key={index} stake={stake} odd={odd} />)}
+                {odds.map((odd, index) => <StakingPredictionsRow key={index} stake={stake} odd={odd} styleProp={correctCount == (odd.score) ? 'amountWon' : {}} />)}
             </tbody>
         </table>
     )
 }
 
-const StakingPredictionsRow = ({ stake, odd }) => {
+const StakingPredictionsRow = ({ stake, odd, styleProp }) => {
     return (
-        <tr>
+        <tr className={styleProp}>
             <td><IoCheckmarkCircleOutline size={16} /><span>{odd.score}</span></td>
             <td><IoTimeOutline size={15} color='#FF932F' /><span className="odds">x{odd.odd}</span></td>
             <td>&#8358;{formatCurrency(stake * odd.odd)}</td>
