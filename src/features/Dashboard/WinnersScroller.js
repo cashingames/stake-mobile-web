@@ -40,7 +40,6 @@ export default function WinnersScroller() {
                 key={winner.id}
                 winner={winner}
             />)}
-
             {winners.length === 0 &&
                 <p className='no-winners'>No Winners</p>
             }
@@ -64,3 +63,4 @@ const Winner = ({ winner }) => {
         </div>
     )
 }
+

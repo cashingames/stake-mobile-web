@@ -34,17 +34,19 @@ const InviteFriend = () => {
         <>
             <ScreenHeader title='Invite Friends' styleProp='inviteHeader' onClick={navigateHandler} />
             <div className='inviteContainer'>
-                <Player src={Friends}
-                    alt='Friends'
-                    autoplay
-                    loop
-                    className='player'
-                    style={
-                        {
-                            height: '150px',
-                            width: '100%'
-                        }
-                    } />
+                <div className='player-container'>
+                    <Player src={Friends}
+                        alt='Friends'
+                        autoplay
+                        loop
+                        className='player'
+                        style={
+                            {
+                                height: '150px',
+                                width: '100%'
+                            }
+                        } />
+                </div>
                 <Heading />
                 <Instruction />
                 <InviteLink />
@@ -101,14 +103,14 @@ const InviteLink = () => {
                 title: 'Share Referral Code',
                 text: referralMsg
             })
-            .then(() => console.log('Successful share'))
-            .then(() => logEvent(analytics, "share_referral", {
-                'id': user.username,
-            }))
-            .catch((error) => {
-                setOpen(true)
-                setAlert('Error:', error)
-            })
+                .then(() => console.log('Successful share'))
+                .then(() => logEvent(analytics, "share_referral", {
+                    'id': user.username,
+                }))
+                .catch((error) => {
+                    setOpen(true)
+                    setAlert('Error:', error)
+                })
         } else {
             setOpen(true)
             setAlert("Web Share API not supported in this browser");
@@ -127,7 +129,7 @@ const InviteLink = () => {
             });
     }
     return (
-        <>
+        <div>
             <p className='inviteLink'>Your Referral Code</p>
             <div className='linkCase'>
                 <p className='link'>{userRefCode}</p>
@@ -143,7 +145,7 @@ const InviteLink = () => {
                 </div>
             </div>
             <Dialogue open={open} handleClose={closeDialogue} dialogueMessage={alertMessage} />
-        </>
+        </div>
     )
 }
 

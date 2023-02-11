@@ -1,40 +1,47 @@
-
-.inviteHeader{
+.inviteHeader {
     background-color: #fff;
 }
 
-.inviteContainer{
+.inviteContainer {
     background-color: #F8F9FD;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    // align-items: flex-start;
     padding: 1rem;
+
+    .player-container {
+        display: flex;
+        align-items: flex-start;
+    }
 }
 
 
 //header
-.headerCase{
+.headerCase {
     margin: 2rem 0;
-    p{
+
+    p {
         margin: 0;
     }
-    .headerValue{
+
+    .headerValue {
         font-size: 1.5rem;
         font-family: 'graphik-medium';
         color: #151C2F;
         margin-bottom: .5rem;
     }
-    .headerText{
+
+    .headerText {
         font-size: 1.5rem;
         font-family: 'graphik-medium';
-        color:#EF2F55;
+        color: #EF2F55;
     }
 }
 
 
 //Instructions
-.instructions{
+.instructions {
     margin: 0;
     font-size: 0.95rem;
     font-family: 'graphik-regular';
@@ -46,7 +53,7 @@
 
 
 //invite link
-.inviteLink{
+.inviteLink {
     color: rgba(0, 0, 0, 0.6);
     font-size: 0.79rem;
     font-family: 'graphik-medium';
@@ -54,31 +61,33 @@
     margin-bottom: .6rem;
 }
 
-.linkCase{
+.linkCase {
     background-color: #fff;
     padding: 0.9rem 1rem;
-    width: 100%;
     border-radius: 16px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    .link{
+
+    .link {
         margin: 0;
         font-size: 0.73rem;
         font-family: 'graphik-medium';
         color: #151C2F;
-        width: 80%;
     }
-    .shareCase{
+
+    .shareCase {
         display: flex;
-        .iconCase{
+
+        .iconCase {
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             margin-left: .9rem;
             cursor: pointer;
-            .iconText{
+
+            .iconText {
                 margin: 0;
                 color: #EB5757;
                 font-size: 0.5rem;

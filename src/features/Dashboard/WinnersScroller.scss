@@ -40,9 +40,11 @@
 
             .winner-name {
                 font-size: 12px;
-                line-height: 30px;
+                // line-height: 30px;
                 color: #fff;
                 font-family: 'graphik-medium';
+                width: 7rem;
+                word-wrap: break-word;
             }
         }
 
@@ -51,6 +53,8 @@
             line-height: 30px;
             color: #fff;
             font-family: 'graphik-bold';
+            width: 6rem;
+            word-wrap: break-word;
         }
 
         .winner-score {
