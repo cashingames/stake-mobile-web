@@ -4,9 +4,12 @@ import { useNavigate } from 'react-router-dom';
 import { getUser } from '../../../features/Auth/AuthSlice';
 import { formatCurrency } from '../../../utils/stringUtl'
 import { usePaystackPayment } from 'react-paystack';
+import { logEvent } from 'firebase/analytics';
+import firebaseConfig from '../../../firebaseConfig';
 import './FundWallet.scss'
 
 function FundWallet() {
+    const analytics = firebaseConfig();
     const dispatch = useDispatch();
     let navigate = useNavigate();
     const [amount, setAmount] = useState()
@@ -31,6 +34,14 @@ function FundWallet() {
 
 
     const onSuccess = () => {
+        logEvent(analytics, 'wallet_funding_successfully', {
+            'product_id': user.username,
+            'item_name': 'Wallet Funding',
+            'phone_number': user.phoneNumber,
+            'email': user.email,
+            'currency': 'NGN',
+            'value': formatCurrency(amount),
+        });
         dispatch(getUser());
         setShowPayment(false);
         navigate('/wallet');

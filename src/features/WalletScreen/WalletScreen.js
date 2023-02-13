@@ -9,10 +9,14 @@ import Withdrawable from '../../components/Wallet/Withdrawable/Withdrawable'
 import WithdrawnBalance from '../../components/Wallet/WithdrawnBalance/WithdrawnBalance'
 import { getUser } from '../Auth/AuthSlice'
 import { withdrawWinnings } from '../CommonSlice'
-import './WalletScreen.scss'
+import './WalletScreen.scss';
+import { logEvent } from 'firebase/analytics';
+import firebaseConfig from '../../firebaseConfig';
+
 // import LoaderScreen from '../LoaderScreen/LoaderScreen'
 
 function WalletScreen() {
+  const analytics = firebaseConfig();
   const dispatch = useDispatch();
   const user = useSelector(state => state.auth.user)
   const [withdraw, setWithdraw] = useState(false)
@@ -47,7 +51,14 @@ function WalletScreen() {
   const withdrawBalance = () => {
     setWithdraw(true)
     withdrawWinnings()
-      .then(async response => {
+      .then(response => {
+        logEvent(analytics, 'winnings_withdrawn_successfully', {
+          'product_id': user.username,
+          'phone_number': user.phoneNumber,
+          'email': user.email,
+          'value': user.withdrawableBalance,
+          'currency': 'NGN'
+        });
         setOpen(true)
         setWithdraw(false)
         dispatch(getUser())

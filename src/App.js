@@ -6,7 +6,7 @@ import React, { useEffect, useState } from "react";
 import LoaderScreen from "./features/LoaderScreen/LoaderScreen";
 import firebaseConfig from "./firebaseConfig";
 
-// import './App.scss'
+import './App.scss'
 
 firebaseConfig();
 

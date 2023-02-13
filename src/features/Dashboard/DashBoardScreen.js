@@ -12,6 +12,7 @@ import WinnersScroller from './WinnersScroller'
 import './dashboard.scss'
 
 
+
 function DashBoardScreen() {
 
   const dispatch = useDispatch();
@@ -44,4 +45,4 @@ function DashBoardScreen() {
   )
 }
 
-export default DashBoardScreen
+export default DashBoardScreen;

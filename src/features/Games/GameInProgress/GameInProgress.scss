@@ -39,10 +39,10 @@
             font-family: 'graphik-medium';
         }
     }
+    button[disabled] {
+        border: none;
+        background-color: #DFCBCF;
+        color: white;
+    }
 }
 
-button[disabled] {
-    border: none;
-    background-color: #DFCBCF;
-    color: white;
-}

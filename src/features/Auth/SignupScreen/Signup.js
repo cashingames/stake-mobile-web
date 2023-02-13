@@ -44,7 +44,7 @@ const Signup = () => {
     };
     const onChangePhone = (e) => {
         const phone = e.currentTarget.value;
-        phone.length > 0 && phone.length < 4 ? setPhoneError(true) : setPhoneError(false)
+        phone.length > 0 && phone.length < 11 ? setPhoneError(true) : setPhoneError(false)
         setPhone(phone)
     }
     const onChangeCountryCode = (e) => {
@@ -128,6 +128,7 @@ const Signup = () => {
                                 value={phone}
                                 className='phoneInput'
                                 onChange={e => onChangePhone(e)}
+                                maxLength={11}
                             />
                         </div>
 

@@ -14,6 +14,7 @@ const SelectGameCategoryScreen = () => {
     const activeSubcategory = useSelector(state => state.game.gameCategory);
     const gameMode = useSelector(state => state.game.gameMode);
     const handleGameBoardTabClosing = () => { }
+    
 
     const alertUserBeforeClosinigGame = (event) => {
         event.preventDefault();

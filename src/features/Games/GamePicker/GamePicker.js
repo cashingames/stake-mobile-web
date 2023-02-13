@@ -4,10 +4,14 @@ import { useDispatch, useSelector } from "react-redux";
 import GameSubCategoryCard from "../../../components/GameSubCategoryCard/GameSubCategoryCard";
 // import { isTrue } from "../../../utils/stringUtl";
 import { setGameCategory, setGameType } from "../GameSlice";
-import './GamePicker.scss'
+import './GamePicker.scss';
+import { useNavigate } from "react-router-dom";
+
 
 
 const GamePicker = ({ activeSubcategory, onPlayButtonClick }) => {
+    let navigate = useNavigate();
+
     const dispatch = useDispatch();
     const currentGame = useSelector(state => state.common.gameTypes ? state.common.gameTypes[0] : null);
     // eslint-disable-next-line
@@ -15,7 +19,7 @@ const GamePicker = ({ activeSubcategory, onPlayButtonClick }) => {
     // console.log(activeCategory)
     const activeGame = useSelector(state => state.game.gameType);
     const chosenCategory = currentGame.categories[0]
-
+    const allCategories = currentGame.categories
 
     const onSubCategorySelected = (subcategory) => {
         setActiveCategory(chosenCategory);
@@ -23,7 +27,12 @@ const GamePicker = ({ activeSubcategory, onPlayButtonClick }) => {
         onPlayButtonClick()
     }
 
-
+    useEffect(() => {
+        if (allCategories.length < 1) {
+            navigate('/dashboard')
+        }
+        return
+    })
     useEffect(() => {
         setActiveCategory(undefined);
         dispatch(setGameType(currentGame));
@@ -49,6 +58,9 @@ const GamePicker = ({ activeSubcategory, onPlayButtonClick }) => {
                     isSelected={subcategory === activeSubcategory}
                     onSelect={onSubCategorySelected} />
             )}
+             {currentGame.categories[0].subcategories.length === 0 &&
+                <p className='no-winners'>No Categories</p>
+            }
             {/* {isTrue(activeCategory) && <SubCategories category={activeCategory} onSubCategorySelected={onSubCategorySelected} 
             selectedSubcategory={activeSubcategory} 
              />} */}

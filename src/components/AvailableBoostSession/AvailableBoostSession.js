@@ -3,16 +3,21 @@ import { useDispatch, useSelector } from 'react-redux';
 import { reduceBoostCount } from '../../features/Auth/AuthSlice';
 import { bombOptions, boostReleased, consumeBoost, pauseGame, skipQuestion } from '../../features/Games/GameSlice';
 import { formatNumber } from '../../utils/stringUtl';
-import './AvailableBoostSession.scss'
+import { logEvent } from 'firebase/analytics';
+import firebaseConfig from '../../firebaseConfig';
+import './AvailableBoostSession.scss';
 const backendUrl = process.env.REACT_APP_API_ROOT_URL;
 
 
 function AvailableBoostSession() {
+    const analytics = firebaseConfig();
     const dispatch = useDispatch();
     const gameMode = useSelector(state => state.game.gameMode);
     const displayedOptions = useSelector(state => state.game.displayedOptions);
     const boosts = useSelector(state => state.auth.user.boosts);
     const [showText, setShowText] = useState(true);
+    const user = useSelector((state) => state.auth.user);
+
 
     const boostsToDisplay = () => {
         //  bomb is only applicable to multiple choices
@@ -36,6 +41,10 @@ function AvailableBoostSession() {
     const boostApplied = (data) => {
         dispatch(consumeBoost(data));
         dispatch(reduceBoostCount(data.id))
+        logEvent(analytics, 'boost_used', {
+            'id': user.username,
+            'boostName': data.name
+        });
         const name = data.name.toUpperCase();
         if (name === 'TIME FREEZE') {
             dispatch(pauseGame(true));
