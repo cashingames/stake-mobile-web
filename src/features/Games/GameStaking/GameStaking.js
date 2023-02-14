@@ -31,7 +31,8 @@ const GameStaking = () => {
     }
     useEffect(() => {
         dispatch(getUser());
-    })
+         // eslint-disable-next-line
+    },[])
 
 
     const proceed = (amount) => {

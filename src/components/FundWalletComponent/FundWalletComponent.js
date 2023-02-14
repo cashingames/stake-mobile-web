@@ -8,9 +8,9 @@ import { getUser } from '../../features/Auth/AuthSlice';
 function FundWalletComponent({close}) {
     const dispatch = useDispatch();
 
-    const [amount, setAmount] = useState()
+    const [amount, setAmount] = useState();
     const [amountErr, setAmountError] = useState(false);
-    const [canSend, setCanSend] = useState(true)
+    const [canSave, setCanSave] = useState(false);
     const user = useSelector((state) => state.auth.user);
     const [showPayment, setShowPayment] = useState(false);
     const minimumWalletFundableAmount = useSelector(state => state.common.minimumWalletFundableAmount);
@@ -23,30 +23,29 @@ function FundWalletComponent({close}) {
     };
 
     const onClose = () => {
+        dispatch(getUser());
         setShowPayment(false);
         close()
-        dispatch(getUser());
     };
 
 
     const onSuccess = () => {
+        dispatch(getUser());
         setShowPayment(false);
         close()
-        dispatch(getUser());
     }
 
     const onChangeAmount = (e) => {
         const amount = e.currentTarget.value;
         const amountEntered = amount.trim().length === 0 ? 0 : Number.parseFloat(amount)
-        if (amountEntered < minimumWalletFundableAmount) {
+        if (amountEntered < minimumWalletFundableAmount ) {
             setAmountError(true)
         } else setAmountError(false)
-        setAmount(amount)``
+        setAmount(amount)
     }
-
     useEffect(() => {
-        const invalid = amountErr || amount === '';
-        setCanSend(!invalid);
+        const invalid = amountErr || amount === '' || amount === undefined || amount === null  ;
+        setCanSave(!invalid);
     }, [amount, amountErr])
 
     const initializePayment = usePaystackPayment(config);
@@ -78,7 +77,7 @@ function FundWalletComponent({close}) {
                     </div>
                     <div className='fundButtonContainer'>
                         <button className='actionBtnContainer'
-                            disabled={!canSend}
+                            disabled={!canSave}
                             onClick={() => {
                                 initializePayment(onSuccess, onClose)
                             }}

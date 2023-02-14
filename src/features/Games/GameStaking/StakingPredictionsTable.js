@@ -37,18 +37,18 @@ export default function StakingPredictionsTable({ stake, usePreviousOdds, correc
             </thead>
             <tbody>
             {/* eslint-disable-next-line  */}
-                {odds.map((odd, index) => <StakingPredictionsRow key={index} stake={stake} odd={odd} styleProp={correctCount == (odd.score) ? 'amountWon' : {}} />)}
+                {odds.map((odd, index) => <StakingPredictionsRow key={index} stake={stake} odd={odd} styleProp={correctCount == (odd.score) ? 'amountWon' : {}} textStyleProp={correctCount == (odd.score) ? 'winner-text' : {}} />)}
             </tbody>
         </table>
     )
 }
 
-const StakingPredictionsRow = ({ stake, odd, styleProp }) => {
+const StakingPredictionsRow = ({ stake, odd, styleProp, textStyleProp }) => {
     return (
         <tr className={styleProp}>
-            <td><IoCheckmarkCircleOutline size={16} /><span>{odd.score}</span></td>
-            <td><IoTimeOutline size={15} color='#FF932F' /><span className="odds">x{odd.odd}</span></td>
-            <td>&#8358;{formatCurrency(stake * odd.odd)}</td>
+            <td className={textStyleProp}><IoCheckmarkCircleOutline size={16} /><span>{odd.score}</span></td>
+            <td className={textStyleProp}><IoTimeOutline size={15} color='#FF932F' /><span className="odds">x{odd.odd}</span></td>
+            <td className={textStyleProp}>&#8358;{formatCurrency(stake * odd.odd)}</td>
         </tr>
     )
 }
