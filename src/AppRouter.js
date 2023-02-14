@@ -8,6 +8,7 @@ import GameLoading from './features/Games/GameLoading/GameLoading';
 
 const Login = React.lazy(() => import('./features/Auth/LoginScreen/Login'));
 const Signup = React.lazy(() => import('./features/Auth/SignupScreen/Signup'));
+const Authenticate = React.lazy(() => import('./features/Auth/Authenticate'));
 const SignupProfile = React.lazy(() => import('./features/Auth/SignupProfileScreen/SignupProfile'));
 const PrivacyPolicy = React.lazy(() => import('./features/Agreements/PrivacyPolicy'));
 const TermsAndConditions = React.lazy(() => import('./features/Agreements/TermsAndConditions'));
@@ -51,6 +52,7 @@ const AppRouter = () => {
 
     return (
         <Routes>
+            <Route path="/authenticate/:token" element={<Authenticate />} />
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/terms" element={<TermsAndConditions />} />
             <Route path="/" element={<AnonymousRoute redirectTo="/dashboard"><LandingPage /></AnonymousRoute>} />
