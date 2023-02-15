@@ -9,7 +9,7 @@ function LandingMainFooter() {
         <div className='mainFooter'>
             <img src='/images/bonus.png' alt='bonus'/>
             <AuthTitle titleText='Welcome Bonus' styleProp='authHeader'/>
-            <p className='mainFooterText'>Join our live trivia and</p>
+            <p className='mainFooterText'>Join our community and</p>
             <p className='mainFooterText'>win amazing prizes</p>
             <Link to='/sign-up'>
                 <button className='singupLink'>

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Player } from "@lottiefiles/react-lottie-player";
 import SelectGame from '../../../assets/select-game.json'
@@ -10,36 +10,9 @@ import './SelectGameCategoryScreen.scss'
 const SelectGameCategoryScreen = () => {
     let navigate = useNavigate();
 
-    const handleGameBoardTabClosing = () => { }
-    
-
-    const alertUserBeforeClosinigGame = (event) => {
-        event.preventDefault();
-        event.returnValue = '';
-    }
-
-
-
-    useEffect(() => {
-        window.addEventListener('beforeunload', alertUserBeforeClosinigGame)
-        window.addEventListener('unload', handleGameBoardTabClosing)
-        return () => {
-            window.removeEventListener('beforeunload', alertUserBeforeClosinigGame)
-            window.removeEventListener('unload', handleGameBoardTabClosing)
-        }
-    })
-    //disable browser back button
-    useEffect(() => {
-        window.history.pushState(null, null, window.location.href);
-        window.onpopstate = function () {
-            window.history.go(1);
-        };
-    })
-
-
 
     const navigateHandler = () => {
-        navigate('/dashboard')
+        navigate(-1);
     }
 
     return (

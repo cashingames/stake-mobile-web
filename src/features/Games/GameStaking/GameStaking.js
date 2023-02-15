@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import ScreenHeader from "../../../components/ScreenHeader/ScreenHeader";
 import StakeAmount from "./StakeAmount";
 import StakingPredictionsTable from "./StakingPredictionsTable";
 import { setAmountStaked, startGame, setStartingGame } from "../GameSlice";
-import { getUser } from "../../Auth/AuthSlice";
 
 import './GameStaking.scss'
 
@@ -17,7 +16,6 @@ const GameStaking = () => {
     const maximumExhibitionStakeAmount = useSelector(state => Number.parseFloat(state.common.maximumExhibitionStakeAmount ?? 0));
     const [amount, setAmount] = useState(maximumExhibitionStakeAmount);
 
-
     const [stake, setStake] = useState(maximumExhibitionStakeAmount);
 
     const backHandler = () => {
@@ -27,11 +25,6 @@ const GameStaking = () => {
     const onStakeChange = (amount) => {
         setStake(amount);
     }
-    useEffect(() => {
-        dispatch(getUser());
-         // eslint-disable-next-line
-    },[])
-
 
     const proceed = (amount) => {
         dispatch(setAmountStaked(amount))
@@ -40,7 +33,7 @@ const GameStaking = () => {
         navigate('/games/staking/loading')
     }
 
-    return (    
+    return (
         <>
             <ScreenHeader title='Stake Cash' styleProp='staking' onClick={backHandler} />
             <div className="staking-container">
