@@ -10,18 +10,6 @@ function ReviewStake() {
     const navigate = useNavigate()
 
     const amountStaked = useSelector(state => state.game.amountStaked);
-    const correctCount = useSelector(state => state.game.correctCount);
-
-
-
-
-    const onStakeChange = () => {
-    
-    }
-    const proceed = () => {
-        
-    }
-
 
     const navigateHandler = () => {
         navigate(-1)
@@ -31,8 +19,8 @@ function ReviewStake() {
         <>
             <ScreenHeader title='Review Stake' onClick={navigateHandler} styleProp='review-header' />
             <div className="reviewStaking-container">
-                <StakeAmount onSubmit={proceed} onChange={onStakeChange} amount={amountStaked} readOnly={true} disabled={true} />
-                <StakingPredictionsTable stake={amountStaked} correctCount={correctCount} />
+                <StakeAmount amount={amountStaked} readOnly={true} disabled={true} />
+                <StakingPredictionsTable stake={amountStaked} usePreviousOdds={true} />
             </div>
         </>
     )

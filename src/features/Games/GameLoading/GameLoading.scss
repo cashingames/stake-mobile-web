@@ -10,10 +10,9 @@
 
     .game-loading-text {
         font-size: 1.2rem;
-        // line-height: 30px;
         text-align: center;
         color: #fff;
-        font-family: 'graphik-bold';
+        font-family: 'graphik-bold', sans-serif;
     }
 
     .boost-container {
@@ -22,7 +21,7 @@
             line-height: 30px;
             text-align: center;
             color: #fff;
-            font-family: 'graphik-medium';
+            font-family: 'graphik-medium', sans-serif;
         }
 
         .boost-card-container {
@@ -53,21 +52,21 @@
                         font-size: .8rem;
                         text-align: center;
                         color: #fff;
-                        font-family: 'graphik-medium';
+                        font-family: 'graphik-medium', sans-serif;
                         margin: 0;
                     }
                     .boostCount {
                         font-size: .7rem;
                         text-align: center;
                         color: #EA5038;
-                        font-family: 'graphik-medium'; 
+                        font-family: 'graphik-medium', sans-serif;
                     }
                 }
                 .boostDescription {
                     font-size: .8rem;
                     text-align: center;
                     color: #fff;
-                    font-family: 'graphik-medium';
+                    font-family: 'graphik-medium', sans-serif;
                     margin: 0;
                 }
             }
@@ -75,7 +74,7 @@
                 font-size: .8rem;
                     text-align: center;
                     color: #fff;
-                    font-family: 'graphik-medium';
+                    font-family: 'graphik-medium', sans-serif;
                     margin: 0;
             }
         }
