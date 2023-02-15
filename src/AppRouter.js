@@ -37,6 +37,7 @@ import SupportAnswer from './features/Support/SupportQuestions/SupportAnswer';
 import ContactUs from './features/Support/ContactUs/ContactUs';
 import HelpPages from './features/Support/HelpPages/HelpPages';
 import AuthContactForm from './components/AuthContactUs/AuthContactUs';
+import Authenticate from './features/Auth/Authenticate';
 
 const AppRouter = () => {
 

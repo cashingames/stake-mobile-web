@@ -13,10 +13,10 @@ function Authenticate() {
     useEffect(() => {
         saveToken(token)
         dispatch(setToken(token))
-        console.log('user from mobile or web authenticated');
-        console.log('navigating to dashboard...');
         navigate('/dashboard')
     }, []);
+
+    return <div> Loading ... </div>;
 
 }
 
