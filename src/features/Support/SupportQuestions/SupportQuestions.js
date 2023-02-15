@@ -12,13 +12,6 @@ function SupportQuestions() {
   const faqs = useSelector(state => state.common.faqAndAnswers);
   const [loading, setLoading] = useState(true);
 
-  //disable browser back button
-  useEffect(() => {
-    window.history.pushState(null, null, window.location.href);
-    window.onpopstate = function () {
-      window.history.go(1);
-    };
-  })
 
   useEffect(() => {
     dispatch(fetchFaqAndAnswers()).then(() => setLoading(false));
@@ -38,8 +31,9 @@ function SupportQuestions() {
         <p className='supportTitle'>Need some help ?</p>
         <p className='supportTitle'>Go through our FAQs</p>
         <div className='profileTabs'>
-          {faqs.map((faq, index) =>
+          {faqs?.map((faq, index) =>
             <QuestionTab
+              key={index}
               question={faq.question}
               answer={faq.answer} />
           )}

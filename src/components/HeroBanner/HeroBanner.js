@@ -4,6 +4,7 @@ import { Player } from '@lottiefiles/react-lottie-player'
 import Wallet from '../../assets/wallet.json'
 import './HeroBanner.scss';
 import { useSelector } from 'react-redux'
+import { formatCurrency } from '../../utils/stringUtl';
 
 function HeroBanner() {
   return (
@@ -23,7 +24,7 @@ function NairaIcon() {
         autoplay
         loop
         style={{ height: '49px', width: '49px' }} />
-      <p>&#8358;{walletBalance}</p>
+      <p>&#8358;{formatCurrency(walletBalance)}</p>
     </div>
   )
 }

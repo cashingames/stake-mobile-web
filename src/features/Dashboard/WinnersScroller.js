@@ -19,6 +19,9 @@ export default function WinnersScroller() {
         dispatch(getStakeWinners()).then((response) => {
             setWinners(response.payload);
             setLoading(false);
+        }, err => {
+            setLoading(false);
+            setWinners([]);
         });
 
     }, [dispatch]);
@@ -36,7 +39,7 @@ export default function WinnersScroller() {
 
     return (
         <div className='winning-table'>
-            {winners.map((winner) => <Winner
+            {winners?.map((winner) => <Winner
                 key={winner.id}
                 winner={winner}
             />)}
@@ -58,8 +61,8 @@ const Winner = ({ winner }) => {
                     />
                 <p className='winner-name'>{winner.username}</p>
             </div>
-            <p className='winner-amount'>&#8358;{formatCurrency(winner.amount_won)}</p>
-            <p className='winner-score'>{winner.correct_count}/10</p>
+            <p className='winner-amount'>&#8358;{formatCurrency(winner.amountWon)}</p>
+            <p className='winner-score'>{winner.correctCount}/10</p>
         </div>
     )
 }
