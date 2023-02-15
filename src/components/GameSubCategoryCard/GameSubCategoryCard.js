@@ -1,17 +1,29 @@
-import React from "react";
+import React, { } from "react";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { setGameCategory } from '../../features/Games/GameSlice';
+
 import './GameSubCategoryCard.scss'
 
 const backendUrl = process.env.REACT_APP_API_ROOT_URL;
 
 
-const GameSubCategoryCard = ({ game, onSelect, isSelected }) => {
+const GameSubCategoryCard = ({ subcategory }) => {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    const clicked = () => {
+        dispatch(setGameCategory(subcategory));
+        navigate('/exhibition-staking');
+    }
+
     return (
-        <div onClick={() => onSelect(game)} className='card' style={isSelected ? { backgroundColor: "#EF8318" } : {}}  >
+        <div className='card' onClick={clicked}>
             <img
-                src={`${backendUrl}/${game.icon}`}
-                className="cardIconBigger" alt={game.name}
+                src={`${backendUrl}/${subcategory.icon}`}
+                className="cardIconBigger" alt={subcategory.name}
             />
-                <p style={isSelected ? { color: "#FFFF" } : {}} className='cardTitle' >{game.name}</p>
+            <p className='cardTitle' >{subcategory.name}</p>
         </div >
 
     )
