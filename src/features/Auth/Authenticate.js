@@ -11,9 +11,10 @@ function Authenticate() {
     const dispatch = useDispatch();
     
     useEffect(() => {
-        saveToken(token)
-        dispatch(setToken(token))
-        navigate('/dashboard')
+        saveToken(token);
+        dispatch(setToken(token));
+        navigate('/dashboard');
+        // eslint-disable-next-line
     }, []);
 
     return <div> Loading ... </div>;
