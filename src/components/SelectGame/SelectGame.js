@@ -14,7 +14,6 @@ function SelectGame() {
   const onSelectGameMode = () => {
     dispatch(setGameMode(gameMode));
     dispatch(setGameType(gameType));
-    console.log(gameMode, gameType);
     navigate('/select-category')
   };
 

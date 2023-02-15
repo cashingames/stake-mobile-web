@@ -18,7 +18,6 @@ export default function GameLoading() {
 
     useEffect(() => {
         if (!loading) {
-            // console.log('game loading complete')
             navigate('/games/staking/play/1')
         }
     }, [navigate, loading])
