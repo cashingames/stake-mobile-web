@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import ScreenHeader from "../../../components/ScreenHeader/ScreenHeader";
@@ -15,8 +15,15 @@ const GameStaking = () => {
     const dispatch = useDispatch();
     const maximumExhibitionStakeAmount = useSelector(state => Number.parseFloat(state.common.maximumExhibitionStakeAmount ?? 0));
     const [amount, setAmount] = useState(maximumExhibitionStakeAmount);
-
     const [stake, setStake] = useState(maximumExhibitionStakeAmount);
+    const gameType = useSelector(state => state.game.gameType);
+
+    useEffect(() => {
+
+        //if no gameType name, it means the user navigated to this page directly
+        if (gameType.name === undefined)
+            navigate('/dashboard');
+    }, [gameType.name, navigate]);
 
     const backHandler = () => {
         navigate(-1);

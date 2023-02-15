@@ -1,5 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { logEvent } from 'firebase/analytics';
+
 import AppHeader from '../../components/AppHeader/AppHeader'
 import BottomSheet from '../../components/BottomSheet/BottomSheet'
 import TransactionLink from '../../components/Wallet/TransactionLink/TransactionLink'
@@ -9,36 +11,18 @@ import Withdrawable from '../../components/Wallet/Withdrawable/Withdrawable'
 import WithdrawnBalance from '../../components/Wallet/WithdrawnBalance/WithdrawnBalance'
 import { getUser } from '../Auth/AuthSlice'
 import { withdrawWinnings } from '../CommonSlice'
-import './WalletScreen.scss';
-import { logEvent } from 'firebase/analytics';
 import firebaseConfig from '../../firebaseConfig';
 
-// import LoaderScreen from '../LoaderScreen/LoaderScreen'
+import './WalletScreen.scss';
 
 function WalletScreen() {
   const analytics = firebaseConfig();
   const dispatch = useDispatch();
-  const user = useSelector(state => state.auth.user)
-  const [withdraw, setWithdraw] = useState(false)
-  const [open, setOpen] = useState(false)
-  const [openDialogue, setOpenDialogue] = useState(false)
-  const [alertMessage, setAlert] = useState('')
-  // const [loading, setLoading] = useState(true);
-
-
-  //disable browser back button
-  useEffect(() => {
-    window.history.pushState(null, null, window.location.href);
-    window.onpopstate = function () {
-      window.history.go(1);
-    };
-  })
-
-
-  useEffect(() => {
-    // setLoading(false)
-    dispatch(getUser());
-  }, [dispatch]);
+  const user = useSelector(state => state.auth.user);
+  const [withdraw, setWithdraw] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [openDialogue, setOpenDialogue] = useState(false);
+  const [alertMessage, setAlert] = useState('');
 
   //Bottom sheet close function
   const closeBS = () => {
@@ -79,10 +63,6 @@ function WalletScreen() {
 
       )
   }
-
-  // if (loading) {
-  //   return <LoaderScreen backgroundColor="wallet-background-color" />
-  // }
 
   return (
     <>
