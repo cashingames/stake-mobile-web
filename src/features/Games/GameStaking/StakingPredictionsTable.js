@@ -10,24 +10,36 @@ import { formatCurrency } from "../../../utils/stringUtl";
 
 import './StakingPredictionsTable.scss'
 
-export default function StakingPredictionsTable({ stake, usePreviousOdds, correctCount }) {
+export default function StakingPredictionsTable({ stake, usePreviousOdds }) {
 
     const dispatch = useDispatch();
     const odds = useSelector(state => usePreviousOdds ? state.game.previousStakeOdds : state.game.stakeOdds);
+    const correctCount = useSelector(state => state.game.correctCount);
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
+
+        if (usePreviousOdds)
+            return;
+
         setLoading(true);
         dispatch(getGameStakes()).then(() => { setLoading(false) });
-    }, [dispatch])
+    }, [dispatch, usePreviousOdds])
 
+
+    const highlightCorrect = (score) => {
+
+        if (correctCount === Number(score) && usePreviousOdds) {
+            return 'amountWon'
+        }
+    }
 
     if (loading)
         return <LoaderScreen backgroundColor="store-background-color" />
 
     return (
         <table className="staking-predictions-table">
-            <caption>How to win</caption>.
+            <caption>How to win</caption>
             <thead>
                 <tr>
                     <th>Outcome</th>
@@ -36,19 +48,24 @@ export default function StakingPredictionsTable({ stake, usePreviousOdds, correc
                 </tr>
             </thead>
             <tbody>
-            {/* eslint-disable-next-line  */}
-                {odds.map((odd, index) => <StakingPredictionsRow key={index} stake={stake} odd={odd} styleProp={correctCount == (odd.score) ? 'amountWon' : {}} />)}
+                {odds.map((odd) => <StakingPredictionsRow
+                    key={odd.id}
+                    stake={stake}
+                    odd={odd}
+                    styleProp={highlightCorrect(odd.score)}  />)
+                }
             </tbody>
         </table>
     )
 }
 
 const StakingPredictionsRow = ({ stake, odd, styleProp }) => {
+    const textStyleProp = styleProp ? 'winner-text': null;
     return (
         <tr className={styleProp}>
-            <td><IoCheckmarkCircleOutline size={16} /><span>{odd.score}</span></td>
-            <td><IoTimeOutline size={15} color='#FF932F' /><span className="odds">x{odd.odd}</span></td>
-            <td>&#8358;{formatCurrency(stake * odd.odd)}</td>
+            <td className={textStyleProp}><IoCheckmarkCircleOutline size={16} /><span>{odd.score}</span></td>
+            <td className={textStyleProp}><IoTimeOutline size={15} color='#FF932F' /><span className="odds">x{odd.odd}</span></td>
+            <td className={textStyleProp}>&#8358;{formatCurrency(stake * odd.odd)}</td>
         </tr>
     )
 }

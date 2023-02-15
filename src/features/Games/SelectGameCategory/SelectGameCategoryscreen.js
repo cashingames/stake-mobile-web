@@ -1,18 +1,15 @@
-import { Player } from "@lottiefiles/react-lottie-player";
 import React, { useEffect } from "react";
-import ScreenHeader from "../../../components/ScreenHeader/ScreenHeader";
-import SelectGame from '../../../assets/select-game.json'
-import './SelectGameCategoryScreen.scss'
-import { useSelector } from "react-redux";
-import GamePicker from "../GamePicker/GamePicker";
 import { useNavigate } from "react-router-dom";
+import { Player } from "@lottiefiles/react-lottie-player";
+import SelectGame from '../../../assets/select-game.json'
+import ScreenHeader from "../../../components/ScreenHeader/ScreenHeader";
+import GamePicker from "../GamePicker/GamePicker";
+import './SelectGameCategoryScreen.scss'
 
 
 const SelectGameCategoryScreen = () => {
     let navigate = useNavigate();
 
-    const activeSubcategory = useSelector(state => state.game.gameCategory);
-    const gameMode = useSelector(state => state.game.gameMode);
     const handleGameBoardTabClosing = () => { }
     
 
@@ -39,11 +36,7 @@ const SelectGameCategoryScreen = () => {
         };
     })
 
-    const onPlayButtonClick = () => {
-        navigate(
-            gameMode.name === "CHALLENGE" ? '/select-player' : "/exhibition-staking"
-        )
-    }
+
 
     const navigateHandler = () => {
         navigate('/dashboard')
@@ -61,7 +54,7 @@ const SelectGameCategoryScreen = () => {
                     style={
                         { height: '150px' }
                     } />
-                <GamePicker activeSubcategory={activeSubcategory} onPlayButtonClick={onPlayButtonClick} />
+                <GamePicker />
             </div>
         </>
     )

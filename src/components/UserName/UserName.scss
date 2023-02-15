@@ -2,11 +2,12 @@
     display: flex;
     justify-content: center;
     margin-bottom: 0.4rem;
+    margin-top: 0.4rem;
     .name{
         color:#fff;
         text-align: center;
         font-size: 2.1rem;
-        font-family: 'graphik-medium';
+        font-family: 'graphik-medium', sans-serif;
         margin: 0;
     }
 }

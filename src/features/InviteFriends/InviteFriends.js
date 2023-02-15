@@ -8,13 +8,13 @@ import { IoCopy, IoShareSocial } from 'react-icons/io5'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { getUser } from '../Auth/AuthSlice'
-import LoaderScreen from '../LoaderScreen/LoaderScreen'
+// import LoaderScreen from '../LoaderScreen/LoaderScreen'
 import firebaseConfig from '../../firebaseConfig'
 import { logEvent } from 'firebase/analytics'
 
 const InviteFriend = () => {
     const dispatch = useDispatch();
-    const [loading, setLoading] = useState(true);
+    // const [loading, setLoading] = useState(true);
 
     const navigate = useNavigate()
 
@@ -23,12 +23,12 @@ const InviteFriend = () => {
     }
 
     useEffect(() => {
-        dispatch(getUser()).then(() => { setLoading(false) });
+        dispatch(getUser());
     }, [dispatch]);
 
-    if (loading) {
-        return <LoaderScreen backgroundColor="store-background-color" />
-    }
+    // if (loading) {
+    //     return <LoaderScreen backgroundColor="store-background-color" />
+    // }
 
     return (
         <>

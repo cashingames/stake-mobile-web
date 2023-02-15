@@ -122,7 +122,7 @@ export const canStake = createAsyncThunk(
 
 //This is to store the currently ongoing active game
 let initialState = {
-    startingGame: true,
+    startingGame: false,
     gameMode: {},
     gameCategory: {},
     gameType: {},
@@ -157,7 +157,7 @@ let initialState = {
     stakeOdds: [],
     previousStakeOdds: [],
     withStaking: false,
-    correctCount: null,
+    correctCount: 0,
 }
 
 
@@ -201,9 +201,6 @@ export const GameSlice = createSlice({
         },
         setCorrectCount: (state, action) => {
             state.correctCount = action.payload;
-        },
-        setIsPlayingTrivia: (state, action) => {
-            state.isPlayingTrivia = action.payload;
         },
         setHasPlayedTrivia: (state, action) => {
             state.hasPlayedTrivia = action.payload;
@@ -257,6 +254,9 @@ export const GameSlice = createSlice({
         boostReleased: (state) => {
             state.activeBoost = {}
         },
+        setStartingGame: (state, action) => {
+            state.startingGame = action.payload
+        },
         // resetGameStats: (state) => {
         //     state.chosenOptions = [];
         //     state.pointsGained = 0;
@@ -272,10 +272,11 @@ export const GameSlice = createSlice({
         // Add reducers for additional action types here, and handle loading sAWAWAWAWtate as needed
         builder
             .addCase(startGame.fulfilled, (state, action) => {
-                // console.log("action result success", action.payload);
-                state.questions = action.payload.data.questions;
-                state.displayedQuestion = state.questions[state.currentQuestionPosition]
-                state.displayedOptions = state.displayedQuestion.options
+                const questions = action.payload.data.questions;
+                const activeQuestion = questions[0];
+                state.questions = questions;
+                state.displayedQuestion = activeQuestion
+                state.displayedOptions = activeQuestion.options
                 state.gameSessionToken = action.payload.data.game.token
                 state.isEnded = false
                 state.pointsGained = 0;
@@ -287,6 +288,7 @@ export const GameSlice = createSlice({
             .addCase(endGame.fulfilled, (state, action) => {
                 // const token = state.gameSessionToken;
                 state.isEnded = true;
+                state.startingGame = false;
                 state.pointsGained = action.payload.data.points_gained;
                 state.amountWon = action.payload.data.amount_won;
                 state.withStaking = action.payload.data.with_staking;
@@ -338,10 +340,10 @@ export const GameSlice = createSlice({
 export const {
     setGameType,
     setGameMode,
-    setGameCategory, setIsPlayingTrivia, setHasPlayedTrivia, questionAnswered, nextQuestion, consumeBoost, incrementCountdownResetIndex,
+    setGameCategory, setHasPlayedTrivia, questionAnswered, nextQuestion, consumeBoost, incrementCountdownResetIndex,
     pauseGame, skipQuestion, boostReleased, bombOptions, setGameDuration, setQuestionsCount, setCorrectCount,
     setPointsGained, setAmountWon, setAmountStaked, setSelectedFriend,
-    unselectFriend, setWithStaking
+    unselectFriend, setWithStaking, setStartingGame
 } = GameSlice.actions
 
 

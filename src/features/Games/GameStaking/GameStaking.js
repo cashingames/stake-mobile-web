@@ -1,26 +1,24 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-
 import ScreenHeader from "../../../components/ScreenHeader/ScreenHeader";
 import StakeAmount from "./StakeAmount";
+import StakingPredictionsTable from "./StakingPredictionsTable";
+import { setAmountStaked, startGame, setStartingGame } from "../GameSlice";
+import { getUser } from "../../Auth/AuthSlice";
 
 import './GameStaking.scss'
-import StakingPredictionsTable from "./StakingPredictionsTable";
-import { setAmountStaked, startGame, setIsPlayingTrivia } from "../GameSlice";
-import { getUser } from "../../Auth/AuthSlice";
 
 
 const GameStaking = () => {
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const defaultStake = useSelector(state => state.common.maximumExhibitionStakeAmount ?? 0);
     const maximumExhibitionStakeAmount = useSelector(state => Number.parseFloat(state.common.maximumExhibitionStakeAmount ?? 0));
     const [amount, setAmount] = useState(maximumExhibitionStakeAmount);
 
 
-    const [stake, setStake] = useState(defaultStake);
+    const [stake, setStake] = useState(maximumExhibitionStakeAmount);
 
     const backHandler = () => {
         navigate(-1);
@@ -31,13 +29,13 @@ const GameStaking = () => {
     }
     useEffect(() => {
         dispatch(getUser());
-    })
+         // eslint-disable-next-line
+    },[])
 
 
     const proceed = (amount) => {
         dispatch(setAmountStaked(amount))
-        dispatch(setIsPlayingTrivia(false))
-        // console.log('proceed to game loading')
+        dispatch(setStartingGame(true))
         dispatch(startGame())
         navigate('/games/staking/loading')
     }

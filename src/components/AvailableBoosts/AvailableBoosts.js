@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { logActionToServer } from "../../features/CommonSlice";
-import { setIsPlayingTrivia, startGame } from "../../features/Games/GameSlice";
+import { startGame } from "../../features/Games/GameSlice";
 import Dialogue from '../Dialogue/Dialogue'
 import UserAvailableBoosts from "../UserAvailableBoosts/UserAvailableBoosts";
 
@@ -31,7 +31,6 @@ const AvailableBoosts = ({ onClose,
 
     const onStartGame = () => {
         setLoading(true);
-        dispatch(setIsPlayingTrivia(false))
         dispatch(startGame({
             category: gameCategoryId,
             type: gameTypeId,

@@ -1,12 +1,13 @@
 import React from 'react'
-import {Player} from '@lottiefiles/react-lottie-player'
-import Boost from '../../assets/boost.json'
+// import {Player} from '@lottiefiles/react-lottie-player'
+// import Boost from '../../assets/boost.json'
 import './GameAppHeader.scss'
 
 function GameAppHeader({onPress, openBoost}) {
     return (
         <div className='gameInHeader'>
-            <div className='boostContainer' onClick={openBoost}>
+            <div></div>
+            {/* <div className='boostContainer' onClick={openBoost}>
                 <p className='gameInText'>Power Ups</p>
                 <Player src={Boost}
                     alt='boost'
@@ -16,7 +17,7 @@ function GameAppHeader({onPress, openBoost}) {
                     style={
                         {height: '40px', width:'40px'}
                     }/>
-            </div>
+            </div> */}
             <button onClick={onPress} className='exitGame'>Exit</button>
         </div>
     )
