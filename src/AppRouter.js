@@ -38,11 +38,11 @@ import ContactUs from './features/Support/ContactUs/ContactUs';
 import HelpPages from './features/Support/HelpPages/HelpPages';
 import AuthContactForm from './components/AuthContactUs/AuthContactUs';
 
-
 const AppRouter = () => {
 
     return (
         <Routes>
+            <Route path="/authenticate/:token" element={<Authenticate />} />
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/terms" element={<TermsAndConditions />} />
             <Route path="/" element={<AnonymousRoute redirectTo="/dashboard"><LandingPage /></AnonymousRoute>} />
