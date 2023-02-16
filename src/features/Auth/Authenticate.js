@@ -1,3 +1,4 @@
+import { Base64 } from "js-base64";
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -11,11 +12,11 @@ function Authenticate() {
     const dispatch = useDispatch();
     
     useEffect(() => {
-        saveToken(token);
-        dispatch(setToken(token));
+        saveToken(Base64.decode(token));
+        dispatch(setToken(Base64.decode(token)));
         navigate('/dashboard');
-        // eslint-disable-next-line
-    }, []);
+        // eslint-disable-next-lin
+    }, [dispatch, navigate, token]);
 
     return <div> Loading ... </div>;
 
