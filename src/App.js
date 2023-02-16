@@ -16,8 +16,12 @@ function App() {
   const dispatch = useDispatch();
   const loading = useSelector(state => state.common.initialLoading);
 
+  //the token here is to refresh the router when the token changes
+  const token = useSelector(state => state.auth.token);     
+
   useEffect(() => {
     const token = getToken();
+    booststrapAxios(token);
 
     if (!token) {
       dispatch(initialLoadingComplete());
@@ -26,7 +30,6 @@ function App() {
 
     console.log("Token found");
     dispatch(setToken(token));
-    booststrapAxios(token);
 
     const _1 = dispatch(getUser());
     const _2 = dispatch(getCommonData());
@@ -37,7 +40,8 @@ function App() {
       alert(e.message);
     });
 
-  }, [dispatch]);
+    //the token here is to refresh the router when the token changes
+  }, [dispatch, token]);
 
   return (
     <div className="App">
