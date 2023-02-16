@@ -39,18 +39,14 @@ function App() {
 
   }, [dispatch]);
 
-
-
-  if (loading) {
-    return <LoaderScreen />
-  }
-
   return (
     <div className="App">
-      <React.Suspense fallback={<LoaderScreen />}>
-        <AppRouter />
-      </React.Suspense>
-
+      {loading ?
+        <LoaderScreen /> :
+        < React.Suspense fallback={<LoaderScreen />}>
+          <AppRouter />
+        </React.Suspense>
+      }
     </div>
   )
 }

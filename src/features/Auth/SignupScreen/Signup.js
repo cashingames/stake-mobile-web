@@ -1,16 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import AuthBanner from '../../../components/AuthBanner/AuthBanner';
-import AuthTitle from '../../../components/AuthTitle/AuthTitle';
-import GoogleSignup from '../../../components/GoogleSignup/GoogleSignup';
 import { FaEye, FaEyeSlash, FaCheckSquare } from 'react-icons/fa'
-import { BiRectangle } from "react-icons/bi";
-import './Signup.scss'
 import { saveCreatedUserCredentials } from '../AuthSlice';
 import { useDispatch } from 'react-redux';
 import { useNavigate, Link } from 'react-router-dom';
-// import ReactGA from 'react-ga';
+import { BiRectangle } from "react-icons/bi";
+import AuthBanner from '../../../components/AuthBanner/AuthBanner';
+import AuthTitle from '../../../components/AuthTitle/AuthTitle';
 
-
+import './Signup.scss'
 
 
 const Signup = () => {
@@ -84,13 +81,6 @@ const Signup = () => {
         <div className='signupContainer'>
             <AuthBanner />
             <AuthTitle titleText="Create an account" styleProp='headerTitle' />
-            <div className='socialLinkContainer'>
-                <p className='socialLinkText'>Use your social link</p>
-                <div>
-                    <GoogleSignup buttonText="Sign up" />
-                </div>
-                <p className='socialLinkText'>or</p>
-            </div>
             <div className='formContainer'>
                 <div className='inputsContainer'>
                     <div className='inputContainer'>
@@ -203,7 +193,6 @@ const Signup = () => {
                 </div>
             </div>
         </div>
-
     )
 }
 export default Signup;

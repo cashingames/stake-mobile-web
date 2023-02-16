@@ -1,19 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate, Link } from "react-router-dom";
+import { useDispatch } from 'react-redux';
+import { logEvent } from 'firebase/analytics';
+import { FaEye, FaEyeSlash } from 'react-icons/fa'
+
 import AuthBanner from '../../../components/AuthBanner/AuthBanner';
 import AuthTitle from '../../../components/AuthTitle/AuthTitle';
-import { FaEye, FaEyeSlash } from 'react-icons/fa'
-import { useDispatch } from 'react-redux';
-import './Login.scss'
-import GoogleSignup from '../../../components/GoogleSignup/GoogleSignup';
-import { loginUser, saveToken, setToken } from '../AuthSlice';
-import { useNavigate, Link } from "react-router-dom";
 import LoaderScreen from '../../LoaderScreen/LoaderScreen';
 import firebaseConfig from "../../../firebaseConfig";
-import { logEvent } from 'firebase/analytics';
-import FacebookSignIn from '../../../components/FacebookSignIn/FacebookSignIn';
-// import ReactGA from 'react-ga';
+import { loginUser, saveToken, setToken } from '../AuthSlice';
 
-
+import './Login.scss'
 
 const Login = () => {
     const dispatch = useDispatch();
@@ -30,7 +27,7 @@ const Login = () => {
     useEffect(() => {
         const invalid = email.length < 4 || password.length < 8;
         setCanLogin(!invalid)
-    }, [email, password])
+    }, [email, password]);
 
     const onLogin = () => {
         setLoading(true);
@@ -39,17 +36,9 @@ const Login = () => {
         loginUser({
             email, password
         }).then(response => {
-            saveToken(response.data.data)
-            dispatch(setToken(response.data.data))
-            // ReactGA.event({
-            //     category: 'Authentication',
-            //     action: 'Logged in'
-            //   });
+            saveToken(response.data.data);
+            dispatch(setToken(response.data.data));
         }, err => {
-            // ReactGA.exception({
-            //     description: 'An error ocurred',
-            //     fatal: true
-            //   });
             if (!err || !err.response || err.response === undefined) {
                 setError("Your Network is Offline.");
             }
@@ -134,9 +123,6 @@ const Login = () => {
             </div>
             <div className='socialContainer'>
                 <p className='socialLinkText'>Don't have an account ?  <a className='signup' href='/sign-up'>Create one</a></p>
-                <p className='socialLinkText2'>or</p>
-                <GoogleSignup buttonText='Sign in' />
-                <FacebookSignIn text='hello'/>
             </div>
             <Link to='/help-contact' className='contact-us'>Need help ? Contact us</Link>
         </div>
