@@ -6,13 +6,14 @@ import { saveToken, setToken } from './AuthSlice';
 
 function Authenticate() {
     const { token } = useParams();
-    const decodedToken = Base64.decode(token)
-    
+
+
     const navigate = useNavigate();
 
     const dispatch = useDispatch();
-    
+
     useEffect(() => {
+        const decodedToken = Base64.decode(token)
         saveToken(decodedToken);
         dispatch(setToken(decodedToken));
         navigate('/dashboard');
