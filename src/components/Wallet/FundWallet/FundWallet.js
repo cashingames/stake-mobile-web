@@ -12,7 +12,7 @@ function FundWallet() {
     const analytics = firebaseConfig();
     const dispatch = useDispatch();
     let navigate = useNavigate();
-    const [amount, setAmount] = useState('')
+    const [amount, setAmount] = useState(0)
     const [amountErr, setAmountError] = useState(false);
     const [canSend, setCanSend] = useState(true)
     const user = useSelector((state) => state.auth.user);
@@ -57,7 +57,7 @@ function FundWallet() {
     }
 
     useEffect(() => {
-        const invalid = amountErr || amount === '';
+        const invalid = amountErr || amount === 0;
         setCanSend(!invalid);
     }, [amount, amountErr])
 
