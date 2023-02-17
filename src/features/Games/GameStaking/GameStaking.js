@@ -26,7 +26,7 @@ const GameStaking = () => {
     }, [gameType.name, navigate]);
 
     const backHandler = () => {
-        navigate(-1);
+        navigate('/select-category');
     }
 
     const onStakeChange = (amount) => {

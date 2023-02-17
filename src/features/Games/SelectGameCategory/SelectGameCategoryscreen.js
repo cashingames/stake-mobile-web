@@ -21,7 +21,7 @@ const SelectGameCategoryScreen = () => {
 
 
     const navigateHandler = () => {
-        navigate(-1);
+        navigate('/dashboard');
     }
 
     return (
