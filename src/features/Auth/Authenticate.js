@@ -1,3 +1,4 @@
+import { Base64 } from "js-base64";
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -5,17 +6,19 @@ import { saveToken, setToken } from './AuthSlice';
 
 function Authenticate() {
     const { token } = useParams();
-    
+
+
     const navigate = useNavigate();
 
     const dispatch = useDispatch();
-    
+
     useEffect(() => {
-        saveToken(token);
-        dispatch(setToken(token));
+        const decodedToken = Base64.decode(token)
+        saveToken(decodedToken);
+        dispatch(setToken(decodedToken));
         navigate('/dashboard');
-        // eslint-disable-next-line
-    }, []);
+        // eslint-disable-next-lin
+    }, [dispatch, navigate, decodedToken]);
 
     return <div> Loading ... </div>;
 
