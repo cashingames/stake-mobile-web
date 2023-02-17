@@ -17,7 +17,7 @@ function Authenticate() {
         saveToken(decodedToken);
         dispatch(setToken(decodedToken));
         navigate('/dashboard');
-        // eslint-disable-next-lin
+        // eslint-disable-next-line
     }, []);
 
     return <div> Loading ... </div>;
