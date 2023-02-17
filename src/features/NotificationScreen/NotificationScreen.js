@@ -80,11 +80,14 @@ function NotificationScreen() {
                                 style={
                                     { height: '150px' }
                                 } />
-                            {notifications.map((notification, i) => <Notification key={i} notification={notification}
-                                // index={i + 1}
-                                moment={moment}
-                                readAll={readAll}
-                            />)}
+                            {// eslint-disable-next-line
+                                notifications.map((notification, i) => {
+                                    notification.data.action_type !== "CHALLENGE" && <Notification key={i} notification={notification}
+                                        // index={i + 1}
+                                        moment={moment}
+                                        readAll={readAll}
+                                    />
+                                })}
                         </div>
                         :
                         <div className='noNotificationContainer'>
