@@ -18,7 +18,7 @@ function Authenticate() {
         dispatch(setToken(decodedToken));
         navigate('/dashboard');
         // eslint-disable-next-lin
-    }, [dispatch, navigate, decodedToken]);
+    }, []);
 
     return <div> Loading ... </div>;
 
