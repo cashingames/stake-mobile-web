@@ -28,7 +28,6 @@ function App() {
       return;
     }
 
-    console.log("Token found");
     dispatch(setToken(token));
 
     const _1 = dispatch(getUser());
@@ -41,7 +40,8 @@ function App() {
     });
 
     //the token here is to refresh the router when the token changes
-  }, [dispatch, token]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [token]);
 
   return (
     <div className="App">

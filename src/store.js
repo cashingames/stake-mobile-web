@@ -4,6 +4,8 @@ import CommonSlice from './features/CommonSlice'
 import GameSlice from './features/Games/GameSlice'
 import LiveTriviaSlice from './features/LiveTrivia/LiveTriviaSlice'
 import StoreSlice from './features/Store/StoreSlice'
+import { stakersApi } from './services/stakers-api'
+
 
 export const store = configureStore({
   reducer: {
@@ -12,5 +14,8 @@ export const store = configureStore({
     liveTrivia: LiveTriviaSlice,
     game: GameSlice,
     store: StoreSlice,
+    [stakersApi.reducerPath]: stakersApi.reducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(stakersApi.middleware),
 })

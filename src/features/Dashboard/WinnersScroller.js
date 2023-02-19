@@ -1,32 +1,15 @@
-import { useState, useEffect } from 'react';
-import { Spinner } from 'react-activity'
-import { useDispatch } from 'react-redux'
-import { getStakeWinners } from '../../features/CommonSlice'
+import { Spinner } from 'react-activity';
 import { formatCurrency } from '../../utils/stringUtl'
+import { useGetRecentWinnersQuery } from '../../services/stakers-api';
+
 import './WinnersScroller.scss';
 
-
-
 export default function WinnersScroller() {
+    const { data = [], isLoading, isFetching } = useGetRecentWinnersQuery()
 
-    const dispatch = useDispatch();
+    console.log('winners', data)
 
-    const [winners, setWinners] = useState([]);
-    const [loading, setLoading] = useState(true);
-
-    useEffect(() => {
-
-        dispatch(getStakeWinners()).then((response) => {
-            setWinners(response.payload);
-            setLoading(false);
-        }, err => {
-            setLoading(false);
-            setWinners([]);
-        });
-
-    }, [dispatch]);
-
-    if (loading) {
+    if (isLoading || isFetching) {
         return (
             <div className='no-winning-table'>
                 <Spinner
@@ -41,11 +24,11 @@ export default function WinnersScroller() {
         <>
             <div className='winning-table'>
                 <div className='winning-table-caption'>Top winners</div>
-                {winners?.map((winner) => <Winner
+                {data?.map((winner) => <Winner
                     key={winner.id}
                     winner={winner}
                 />)}
-                {winners.length === 0 &&
+                {data.length === 0 &&
                     <p className='no-winners'>No Winners</p>
                 }
             </div>
