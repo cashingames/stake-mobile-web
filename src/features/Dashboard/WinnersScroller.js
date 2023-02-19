@@ -38,15 +38,18 @@ export default function WinnersScroller() {
     }
 
     return (
-        <div className='winning-table'>
-            {winners?.map((winner) => <Winner
-                key={winner.id}
-                winner={winner}
-            />)}
-            {winners.length === 0 &&
-                <p className='no-winners'>No Winners</p>
-            }
-        </div>
+        <>
+            <div className='winning-table'>
+                <div className='winning-table-caption'>Top winners</div>
+                {winners?.map((winner) => <Winner
+                    key={winner.id}
+                    winner={winner}
+                />)}
+                {winners.length === 0 &&
+                    <p className='no-winners'>No Winners</p>
+                }
+            </div>
+        </>
     );
 }
 
@@ -55,10 +58,10 @@ const Winner = ({ winner }) => {
     return (
         <div className='winner-section'>
             <div className='winner-identity'>
-                <img src={winner.avatar  ? winner.avatar  : "/images/user-icon.png"}
+                <img src={winner.avatar ? winner.avatar : "/images/user-icon.png"}
                     alt='pic'
                     className='winner-avatar'
-                    />
+                />
                 <p className='winner-name'>{winner.username}</p>
             </div>
             <p className='winner-amount'>&#8358;{formatCurrency(winner.amountWon)}</p>
