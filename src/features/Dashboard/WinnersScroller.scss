@@ -20,14 +20,14 @@
     flex-direction: column;
 
     .winning-table-caption {
-            padding: 1rem 0;
+        font-family: 'graphik-bold';
             text-align: center;
             border-bottom: solid 1px #ccc;
             margin-bottom: 1rem;
             color: #fff;
-            font-family: 'graphik-bold';
-    
+        padding: 1rem 0;
         }
+
     .winner-section {
         display: flex;
         flex-direction: row;

@@ -43,7 +43,7 @@ function DrawerItems() {
             </Link> */}
 
             <Link to="/store" className='drawerItem'><p className='labelItem'>
-                Buy Boosts
+                Get Boosts
             </p>
                 <IoChevronForwardOutline className='icon' />
             </Link>
