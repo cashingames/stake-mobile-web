@@ -1,22 +1,50 @@
-.finalScoreCase{
+.finalScoreCase {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #F9E821;
-    border-radius: 16px;
+    // align-items: center;
+    // justify-content: space-between;
+    flex-direction: column;
+    background-color: #EFB321;
+    border-radius: 15px;
     margin-bottom: 2.5rem;
     margin-top: .5rem;
-    padding: 0.9rem;
-    .finalScoreText{
-        margin: 0;
-        color: #9236AD;
-        font-size: 0.75rem;
-        font-family: 'graphik-medium';
+    padding: 1.2rem 1.5rem;
+
+    .sub-containers {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: row;
+        margin-bottom: 12px;
+
+        .finalScoreText {
+            margin: 0;
+            color: #FFF;
+            font-size: 0.9rem;
+            font-family: 'graphik-medium';
+        }
+
+        .score {
+            color: #FFF;
+            font-size: 0.8rem;
+            font-family: 'graphik-medium';
+            margin: 0;
+        }
     }
-    .score{
-        color: #9236AD;
-        font-size: 4rem;
-        font-family: 'graphik-bold';
-        margin: 0;
+
+    .score-button-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 1rem;
+
+        .score-button {
+            background-color: #EF2F55;
+            border: none;
+            color: #FFF;
+            font-size: 0.8rem;
+            font-family: 'graphik-medium';
+            padding: .3rem 3rem;
+            border-radius: 15px;
+        }
     }
+
 }

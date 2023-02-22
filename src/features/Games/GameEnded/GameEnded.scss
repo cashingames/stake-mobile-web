@@ -1,8 +1,18 @@
 .gameEndedCase{
     background-color: #9C3DB8;
     min-height: 100vh;
-    padding: 1rem;
+    padding: 1rem 2rem;
     display: flex;
     font-family: 'Graphik', sans-serif;
     flex-direction: column;
+    justify-content: center;
+    .game-tag-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .game-tag {
+            width: 20rem;
+        }
+    }
+   
 }

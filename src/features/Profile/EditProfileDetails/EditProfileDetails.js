@@ -104,7 +104,7 @@ const EditProfileDetails = () => {
     }
 
     if (onloading) {
-        return <LoaderScreen backgroundColor="background-color" />
+        return <LoaderScreen backgroundColor="edit-background-color" />
     }
 
     return (

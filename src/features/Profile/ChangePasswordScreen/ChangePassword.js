@@ -111,7 +111,7 @@ function ChangePassword() {
 
     return (
         <>
-            <ScreenHeader title='Change Password' onClick={navigateHandler}/>
+            <ScreenHeader title='Change Password' onClick={navigateHandler} styleProp='changeNavBar'/>
             <div className='changePasswordContainer'>
                 <form>
                     <PasswordInput value={password}

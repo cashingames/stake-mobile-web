@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
 import './GameEnded.scss'
-import AnimatedClock from '../../../components/AnimatedClock/AnimatedClock';
+// import AnimatedClock from '../../../components/AnimatedClock/AnimatedClock';
 import UserName from '../../../components/UserName/UserName';
-import Winnings from '../../../components/Winnings/Winnings';
+// import Winnings from '../../../components/Winnings/Winnings';
 import FinalScore from '../../../components/FinalScore/FinalScore';
 import GameButton from '../../../components/GameButton/GameButton';
 import { useDispatch, useSelector } from 'react-redux';
@@ -19,6 +19,11 @@ function GameEnded() {
   const pointsGained = useSelector(state => state.game.pointsGained);
   const amountWon = useSelector(state => state.game.amountWon);
   const isGameEnded = useSelector(state => state.game.isEnded);
+  const amountStaked = useSelector(state => state.game.amountStaked);
+  const correctCount = useSelector(state => state.game.correctCount);
+  const wrongCount = useSelector(state => state.game.wrongCount);
+
+
 
   const goHome = () => {
     logEvent(analytics, 'staking_exhibition_go_home_clicked');
@@ -59,10 +64,20 @@ function GameEnded() {
 
   return (
     <div className='gameEndedCase'>
-      <AnimatedClock />
+      {/* <AnimatedClock /> */}
+      <div className='game-tag-container'>
+      <img src='/images/game-tag.png' alt='tag' className='game-tag' />
+      </div>
       <UserName userName={user.firstName} />
-      <Winnings amountWon={amountWon} onPress={reviewStaking} />
-      <FinalScore pointsGained={pointsGained} />
+      {/* <Winnings amountWon={amountWon} onPress={reviewStaking} /> */}
+      <FinalScore
+        pointsGained={pointsGained}
+        amountWon={amountWon}
+        amountStaked={amountStaked}
+        correctCount={correctCount}
+        wrongCount={wrongCount}
+        onPress={reviewStaking}
+      />
       <GameButton goHome={goHome} playAgain={playAgain} />
       {/* <BoostPopUp setShowModal={setShowModal} showModal={showModal} /> */}
     </div>
