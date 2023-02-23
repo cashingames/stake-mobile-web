@@ -8,15 +8,15 @@ import './EditProfileDetails.scss'
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import LoaderScreen from '../../LoaderScreen/LoaderScreen';
+import { subYears } from 'date-fns';
 
 const EditProfileDetails = () => {
     const dispatch = useDispatch();
     let navigate = useNavigate();
     const user = useSelector(state => state.auth.user);
 
-    const [email] = useState(user.email)
-
-    const [userName] = useState(user.username)
+    const [email, setEmail] = useState(user.email)
+    const [username, setUsername] = useState(user.username)
     const [phone] = useState(user.phoneNumber)
     const [countryCode] = useState('+234')
     const [firstName, setFirstName] = useState(user.firstName)
@@ -30,7 +30,7 @@ const EditProfileDetails = () => {
     const [alertMessage, setAlert] = useState('')
     const [loading, setLoading] = useState(false);
     const [onloading, setOnLoading] = useState(true);
-
+    const calenderAge = subYears(new Date(), 18).toISOString().slice(0, 10);
 
     useEffect(() => {
         dispatch(getUser()).then(() => { setOnLoading(false) });
@@ -62,6 +62,13 @@ const EditProfileDetails = () => {
         navigate('/profile')
     }
 
+    const changeUsername = (e) => {
+        setUsername(e.target.value)
+    }
+
+    const changeEmail = (e) => {
+        setEmail(e.target.value)
+    }
 
     const changeFirstName = (e) => {
         setFirstName(e.target.value)
@@ -81,16 +88,25 @@ const EditProfileDetails = () => {
         dispatch(editPersonalDetails({
             firstName,
             lastName,
+            username,
+            email,
             dateOfBirth,
             gender: selectGender
         }))
             // .then(unwrapResult)
             .then(result => {
-
-                dispatch(getUser())
-                setOpen(true)
-                setAlert('Personal details updated successfully');
-                setLoading(false);
+                if (result.error.message === "Request failed with status code 422") {
+                    dispatch(getUser())
+                    setOpen(true)
+                    setAlert('The username or email has already been taken')
+                    setLoading(false);
+                }
+                else {
+                    dispatch(getUser())
+                    setOpen(true)
+                    setAlert('Personal details updated successfully');
+                    setLoading(false);
+                }
             })
             .catch((rejectedValueOrSerializedError) => {
                 if (rejectedValueOrSerializedError.message === "Request failed with status code 422") {
@@ -113,21 +129,6 @@ const EditProfileDetails = () => {
             <div className='formCase'>
                 <div className='inputsCase'>
                     <div className='inputCase'>
-                        <label htmlFor='email' className='inputLabel'>Username</label>
-                        <input
-                            className='inputBox'
-                            readOnly
-                            value={userName} />
-                    </div>
-                    <div className='inputCase'>
-                        <label htmlFor='email' className='inputLabel'>Email</label>
-                        <input
-                            readOnly
-                            className='inputBox'
-                            placeholder='ufuoma95@gmail.com'
-                            value={email} />
-                    </div>
-                    <div className='inputCase'>
                         <label htmlFor='phone' className='inputLabel'>Phone number</label>
                         <div className='phoneContainer'>
                             <input
@@ -148,6 +149,22 @@ const EditProfileDetails = () => {
                         </div>
                     </div>
                     <div className='inputCase'>
+                        <label htmlFor='Username' className='inputLabel'>Username</label>
+                        <input
+                            className='inputBox2'
+                            onChange={changeUsername}
+                            value={username} />
+                    </div>
+
+                    <div className='inputCase'>
+                        <label htmlFor='Email' className='inputLabel'>Email</label>
+                        <input
+                            className='inputBox2'
+                            onChange={changeEmail}
+                            value={email} />
+                    </div>
+
+                    <div className='inputCase'>
                         <label htmlFor='firstName' className='inputLabel'>First Name</label>
                         <input
                             className='inputBox2'
@@ -167,6 +184,7 @@ const EditProfileDetails = () => {
                             className='inputBox2'
                             type='date'
                             value={dateOfBirth}
+                            max={calenderAge}
                             onChange={(e) => setDateOfBirth(e.target.value)}
                         />
 
