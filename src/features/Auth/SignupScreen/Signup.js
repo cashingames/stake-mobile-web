@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FaEye, FaEyeSlash, FaCheckSquare } from 'react-icons/fa'
-import { saveCreatedUserCredentials } from '../AuthSlice';
+import { registerUser, saveCreatedUserCredentials } from '../AuthSlice';
 import { useDispatch } from 'react-redux';
 import { useNavigate, Link } from 'react-router-dom';
 import { BiRectangle } from "react-icons/bi";
@@ -18,10 +18,15 @@ const Signup = () => {
     const styleI = { color: '#4299f5', fontSize: "1.2rem" }
     const [email, setEmail] = useState('')
     const [phone, setPhone] = useState('')
+    const [firstName, setFirstName] = useState('')
+    const [lastName, setLastName] = useState('')
+    const [firstnameError, setFirstnameError] = useState(false);
+    const [lastnameError, setLastnameError] = useState(false);
+    const [referrer, setReferrer] = useState('');
     const [countryCode, setCountryCode] = useState('+234')
     const [password, setPassword] = useState('')
-    const [password_confirmation, setPasswordConfirmation] = useState('');
     const [checked, setChecked] = useState(false)
+    const [error, setError] = useState('')
     const [emailError, setEmailError] = useState(false)
     const [phoneErr, setPhoneError] = useState(false);
     const [countryCodeErr, setCountryCodeError] = useState(false);
@@ -39,9 +44,17 @@ const Signup = () => {
         setEmail(email)
 
     };
+    const onChangeFirstname = (e) => {
+        const firstName = e.currentTarget.value;
+        setFirstName(firstName)
+    }
+    const onChangeLastname = (e) => {
+        const lastName = e.currentTarget.value;
+        setLastName(lastName)
+    }
     const onChangePhone = (e) => {
         const phone = e.currentTarget.value;
-        phone.length > 0 && phone.length < 11 ? setPhoneError(true) : setPhoneError(false)
+        phone.length > 0 && phone.length < 10 ? setPhoneError(true) : setPhoneError(false)
         setPhone(phone)
     }
     const onChangeCountryCode = (e) => {
@@ -54,26 +67,77 @@ const Signup = () => {
         password.length > 0 && password.length < 8 ? setPasswordError(true) : setPasswordError(false)
         setPassword(password)
     }
-    const onChangeConfirmPassword = (e) => {
-        const password_confirmation = e.currentTarget.value;
-        setPasswordConfirmation(password_confirmation)
+    const onChangeReferrer = (e) => {
+        const referrer = e.currentTarget.value;
+        setReferrer(referrer)
     }
 
-    useEffect(() => {
-        const invalid = emailError || email === '' || phone === '' || countryCode === '' || password === '' || phoneErr
-            || countryCodeErr || passwordError || password_confirmation !== password || checked === false;
-        setCanSend(!invalid);
-    }, [emailError, phoneErr, countryCodeErr, passwordError, password_confirmation, password, email, phone, countryCode, checked])
 
-    const onNext = () => {
+    useEffect(() => {
+        const nameRule = /\d/;
+        const validFirstName = !nameRule.test(firstName)
+        const validLastName = !nameRule.test(lastName)
+        setFirstnameError(!validFirstName);
+        setLastnameError(!validLastName);
+
+        const invalid = firstnameError || firstName === "" || lastnameError || lastName === "" || emailError || email === '' || phone === '' || countryCode === '' || password === '' || phoneErr
+            || countryCodeErr || passwordError || checked === false;
+        setCanSend(!invalid);
+    }, [firstName, lastName, firstnameError, lastnameError, emailError, phoneErr, countryCodeErr, passwordError, password, email, phone, countryCode, checked])
+
+    // const onNext = () => {
+    //     setLoading(true);
+    //     //save this information in store
+    //     dispatch(saveCreatedUserCredentials({ email, password, password_confirmation: password, phone_number: phone, country_code: countryCode }))
+    //     // ReactGA.event({
+    //     //     category: 'Authentication',
+    //     //     action: 'Sign up initiated'
+    //     // });
+    //     navigate("/sign-up-profile")
+    // }
+
+    const onSend = () => {
         setLoading(true);
-        //save this information in store
-        dispatch(saveCreatedUserCredentials({ email, password, password_confirmation: password, phone_number: phone, country_code: countryCode }))
-        // ReactGA.event({
-        //     category: 'Authentication',
-        //     action: 'Sign up initiated'
-        // });
-        navigate("/sign-up-profile")
+        //dispatch(saveCreatedUserCredentials({ email, password, password_confirmation: password, phone_number: phone, country_code: countryCode }))
+        registerUser({
+            email, password,
+            password_confirmation: password,
+            phone_number: phone,
+            country_code: countryCode,
+            first_name: firstName,
+            last_name: lastName,
+            referrer: referrer,
+        }).then(response => {
+            // ReactGA.event({
+            //     category: 'Authentication',
+            //     action: 'Sign up phone or email otp sent'
+            // });
+            navigate('/verify-phone-number', {
+                state: {
+                    phone_number: phone,
+                    next_resend_minutes: response.data.data.next_resend_minutes
+                }
+            })
+
+        }, err => {
+            // ReactGA.exception({
+            //     description: 'An error ocurred',
+            //     fatal: true
+            //   });
+            if (!err || !err.response || err.response === undefined) {
+                setError("Your Network is Offline.");
+            }
+            else if (err.response.status === 500) {
+                setError("Service not currently available. Please contact support");
+            }
+            else {
+                const errors =
+                    err.response && err.response.data && err.response.data.errors;
+                const firstError = Object.values(errors, {})[0];
+                setError(firstError[0])
+            }
+            setLoading(false);
+        });
     }
 
 
@@ -83,6 +147,37 @@ const Signup = () => {
             <AuthTitle titleText="Create an account" styleProp='headerTitle' />
             <div className='formContainer'>
                 <div className='inputsContainer'>
+                    <div className='inputContainer'>
+                        <label htmlFor='firstname' className='inputLabel'>First name</label>
+                        <input
+                            placeholder="John"
+                            type='text'
+                            id='firstname'
+                            value={firstName}
+                            className='inputBox'
+                            autoFocus={true}
+                            onChange={e => onChangeFirstname(e)}
+                            required
+                        />
+                        {firstnameError &&
+                            <span className='inputError'>*First name can't have numbers</span>
+                        }
+                    </div>
+                    <div className='inputContainer'>
+                        <label htmlFor='lastname' className='inputLabel'>Last name</label>
+                        <input
+                            placeholder="Doe"
+                            type='text'
+                            id='lastname'
+                            value={lastName}
+                            className='inputBox'
+                            onChange={e => onChangeLastname(e)}
+                            required
+                        />
+                        {lastnameError &&
+                            <span className='inputError'>*lLast name can't have numbers</span>
+                        }
+                    </div>
                     <div className='inputContainer'>
                         <label htmlFor='email' className='inputLabel'>Email</label>
                         <input
@@ -149,7 +244,7 @@ const Signup = () => {
                             <span className='inputError'>*password must not be less than eight(8) characters</span>
                         }
                     </div>
-                    <div className='inputContainer'>
+                    {/* <div className='inputContainer'>
                         <label htmlFor='confirm-password' className='inputLabel'>Confirm password</label>
                         <div className='passInput'>
                             <input
@@ -168,7 +263,7 @@ const Signup = () => {
                         {password_confirmation !== password &&
                             <span className='inputError'>*passwords must match</span>
                         }
-                    </div>
+                    </div> */}
                     <div className='agreementsContainer'>
                         <span onClick={() => setChecked(!checked)}>{checked ? <FaCheckSquare style=
                             {styleI} /> : <BiRectangle style={style} />}</span>
@@ -183,8 +278,8 @@ const Signup = () => {
 
                     <div className='appButtonContainer'>
                         <button className='buttonContainer'
-                            type="submit" disabled={!canSend || loading} onClick={onNext}>
-                            <span className='buttonText'>{loading ? "Processing" : "Continue"}</span>
+                            type="submit" disabled={!canSend || loading} onClick={onSend}>
+                            <span className='buttonText'>{loading ? "Processing" : "Create Account"}</span>
 
                         </button>
                     </div>
