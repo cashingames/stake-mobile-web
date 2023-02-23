@@ -31,7 +31,7 @@ jobs:
           REACT_APP_FIREBASE_STORAGE_BUCKET: ${{secrets.STAGING_FIREBASE_STORAGE_BUCKET}}
           REACT_APP_FIREBASE_MESSAGING_SENDER_ID: ${{secrets.STAGING_FIREBASE_MESSAGING_SENDER_ID}}
           REACT_APP_FACEBOOK_CLIENT_ID: ${{secrets.STAGING_FACEBOOK_CLIENT_ID}}
-
+          REACT_APP_BRAND_ID: 2
       # - name: cypress test
       #   run: |
       #     npm run cypress-test
