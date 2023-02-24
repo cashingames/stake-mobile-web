@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import ProfileLink from '../ProfileLinks/ProfileLink';
 import { Spinner } from 'react-activity'
 import { IoCameraSharp } from 'react-icons/io5';
-import { getUser } from '../../Auth/AuthSlice';
+import { getUser, sendEmailOTP } from '../../Auth/AuthSlice';
 import ScreensHeader from '../../../components/ScreenHeader/ScreenHeader';
 import Dialogue from '../../../components/Dialogue/Dialogue'
 import axios from 'axios';
@@ -21,13 +21,18 @@ function UserProfileScreen() {
     const [open, setOpen] = useState(false)
     const [alertMessage, setAlertMessage] = useState('')
     const [screenLoader, setScreenLoader] = useState(true)
-
+    const isEmailVerified = user.isEmailVerified;
     const navigateHandler = () => {
         navigate('/dashboard')
     }
 
     const closeAlert = () => {
         setOpen(false)
+    }
+
+    const goToVerifyEmailScreen = () => {
+        dispatch(sendEmailOTP())
+        navigate('/email-verification')
     }
 
     //disable browser back button
@@ -115,6 +120,8 @@ function UserProfileScreen() {
                     }
 
                 </form>
+                {!isEmailVerified &&
+                    <p className='warning-text' onClick={goToVerifyEmailScreen}>Your email is not verified. Please, verify your email!</p>}
                 <ProfileLink />
             </div>
             <Dialogue open={open} handleClose={closeAlert} dialogueMessage={alertMessage} />

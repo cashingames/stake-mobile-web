@@ -38,6 +38,7 @@ import ContactUs from './features/Support/ContactUs/ContactUs';
 import HelpPages from './features/Support/HelpPages/HelpPages';
 import AuthContactForm from './components/AuthContactUs/AuthContactUs';
 import Authenticate from './features/Auth/Authenticate';
+import EmailVerification from './features/Auth/EmailVerification/EmailVerification';
 
 const AppRouter = () => {
 
@@ -130,6 +131,9 @@ const AppRouter = () => {
             <Route
                 path="/games/staking/loading"
                 element={<AuthRoute redirectTo="/"><GameLoading /></AuthRoute>} />
+             <Route
+                path="/email-verification"
+                element={<AuthRoute redirectTo="/"><EmailVerification /></AuthRoute>} />
         </Routes>
     )
 }
