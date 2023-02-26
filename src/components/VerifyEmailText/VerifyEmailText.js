@@ -1,11 +1,12 @@
 import React from 'react'
+import './VerifyEmailText.scss'
 const VerifyEmailText = ({text}) => {
     return (
-        <div className="verifyText">
-            <h1 className="verifyHeadText">
+        <div className="verify-text">
+            <h1 className="verify__head-text">
                 Good job, you are almost there
             </h1>
-            <p className="verifySubText">
+            <p className="verify__sub-text">
                 {text}
             </p>
         </div>

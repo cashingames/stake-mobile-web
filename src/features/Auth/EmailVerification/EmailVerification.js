@@ -6,6 +6,7 @@ import { unwrapResult } from "@reduxjs/toolkit";
 import InputOTP from "../../../components/InputOTP/InputOTP";
 import VerifyEmailText from "../../../components/VerifyEmailText/VerifyEmailText";
 import Dialogue from '../../../components/Dialogue/Dialogue'
+import './EmailVerification.scss'
 
 
 const EmailVerification = () => {
@@ -59,11 +60,11 @@ const EmailVerification = () => {
 
 
     return (
-        <div className="verifyRegistrationOtp-container">
+        <div className="verification__email-container">
             <VerifyEmailText text={otpScreenText} />
             <InputOTP otpValues={otpValues} changeValue={changeValue} />
-            <button className='buttonContainer' disabled={!canLogin || loading} type='submit' onClick={goToDashboard}>
-                <span className='buttonText'>{loading ? "Verifying" : "Login"}</span>
+            <button className='button-container' disabled={!canLogin || loading} type='submit' onClick={goToDashboard}>
+                <span className='button-text'>{loading ? "Verifying" : "Login"}</span>
             </button>
             <Dialogue open={openDialogue} handleClose={closeAlert} dialogueMessage={alertMessage} />
         </div>

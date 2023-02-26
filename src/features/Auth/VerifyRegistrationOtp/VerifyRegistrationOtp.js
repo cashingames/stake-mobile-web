@@ -111,12 +111,12 @@ const VerifyRegistrationOtp = () => {
 
 
     return (
-        <div className="verifyRegistrationOtp-container">
+        <div className="verification__phone-container">
             <VerifyEmailText text={otpScreenText}/>
             <InputOTP otpValues={otpValues} changeValue={changeValue} />
             <ResendOtp onPress={resendButton} counter={counter} isCountdownInProgress={isCountdownInProgress} />
-            <button className='buttonContainer' disabled={!canLogin || loading} type='submit' onClick={goToDashboard}>
-                <span className='buttonText'>{loading ? "Verifying" : "Login"}</span>
+            <button className='button-container' disabled={!canLogin || loading} type='submit' onClick={goToDashboard}>
+                <span className='button-text'>{loading ? "Verifying" : "Login"}</span>
             </button>
         </div>
     )
