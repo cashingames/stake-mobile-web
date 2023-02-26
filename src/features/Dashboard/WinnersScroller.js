@@ -9,7 +9,7 @@ export default function WinnersScroller() {
         refetchOnMountOrArgChange: false,
     })
 
-    console.log('winners', data, isLoading, isFetching)
+    console.log('winners', data, isLoading)
 
     if (isLoading) {
         return (
