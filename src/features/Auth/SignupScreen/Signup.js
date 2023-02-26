@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FaEye, FaEyeSlash, FaCheckSquare } from 'react-icons/fa'
-import { saveCreatedUserCredentials } from '../AuthSlice';
-import { useDispatch } from 'react-redux';
+import { registerUser} from '../AuthSlice';
 import { useNavigate, Link } from 'react-router-dom';
 import { BiRectangle } from "react-icons/bi";
 import AuthBanner from '../../../components/AuthBanner/AuthBanner';
@@ -12,16 +11,16 @@ import './Signup.scss'
 
 const Signup = () => {
 
-    const dispatch = useDispatch();
     let navigate = useNavigate();
     const style = { color: '#CDD4DF', fontSize: "1.2rem" }
     const styleI = { color: '#4299f5', fontSize: "1.2rem" }
     const [email, setEmail] = useState('')
     const [phone, setPhone] = useState('')
+    const [referrer, setReferrer] = useState('');
     const [countryCode, setCountryCode] = useState('+234')
     const [password, setPassword] = useState('')
-    const [password_confirmation, setPasswordConfirmation] = useState('');
     const [checked, setChecked] = useState(false)
+    const [error, setError] = useState('')
     const [emailError, setEmailError] = useState(false)
     const [phoneErr, setPhoneError] = useState(false);
     const [countryCodeErr, setCountryCodeError] = useState(false);
@@ -41,7 +40,7 @@ const Signup = () => {
     };
     const onChangePhone = (e) => {
         const phone = e.currentTarget.value;
-        phone.length > 0 && phone.length < 11 ? setPhoneError(true) : setPhoneError(false)
+        phone.length > 0 && phone.length < 10 ? setPhoneError(true) : setPhoneError(false)
         setPhone(phone)
     }
     const onChangeCountryCode = (e) => {
@@ -54,26 +53,59 @@ const Signup = () => {
         password.length > 0 && password.length < 8 ? setPasswordError(true) : setPasswordError(false)
         setPassword(password)
     }
-    const onChangeConfirmPassword = (e) => {
-        const password_confirmation = e.currentTarget.value;
-        setPasswordConfirmation(password_confirmation)
+    const onChangeReferrer = (e) => {
+        const referrer = e.currentTarget.value;
+        setReferrer(referrer)
     }
 
-    useEffect(() => {
-        const invalid = emailError || email === '' || phone === '' || countryCode === '' || password === '' || phoneErr
-            || countryCodeErr || passwordError || password_confirmation !== password || checked === false;
-        setCanSend(!invalid);
-    }, [emailError, phoneErr, countryCodeErr, passwordError, password_confirmation, password, email, phone, countryCode, checked])
 
-    const onNext = () => {
+    useEffect(() => {
+
+        const invalid = emailError || email === '' || phone === '' || countryCode === '' || password === '' || phoneErr
+            || countryCodeErr || passwordError || checked === false;
+        setCanSend(!invalid);
+    }, [emailError, phoneErr, countryCodeErr, passwordError, password, email, phone, countryCode, checked])
+
+    const onSend = () => {
         setLoading(true);
-        //save this information in store
-        dispatch(saveCreatedUserCredentials({ email, password, password_confirmation: password, phone_number: phone, country_code: countryCode }))
-        // ReactGA.event({
-        //     category: 'Authentication',
-        //     action: 'Sign up initiated'
-        // });
-        navigate("/sign-up-profile")
+        //dispatch(saveCreatedUserCredentials({ email, password, password_confirmation: password, phone_number: phone, country_code: countryCode }))
+        registerUser({
+            email, password,
+            password_confirmation: password,
+            phone_number: phone,
+            country_code: countryCode,
+            referrer: referrer,
+        }).then(response => {
+            // ReactGA.event({
+            //     category: 'Authentication',
+            //     action: 'Sign up phone or email otp sent'
+            // });
+            navigate('/verify-phone-number', {
+                state: {
+                    phone_number: phone,
+                    next_resend_minutes: response.data.data.next_resend_minutes
+                }
+            })
+
+        }, err => {
+            // ReactGA.exception({
+            //     description: 'An error ocurred',
+            //     fatal: true
+            //   });
+            if (!err || !err.response || err.response === undefined) {
+                setError("Your Network is Offline.");
+            }
+            else if (err.response.status === 500) {
+                setError("Service not currently available. Please contact support");
+            }
+            else {
+                const errors =
+                    err.response && err.response.data && err.response.data.errors;
+                const firstError = Object.values(errors, {})[0];
+                setError(firstError[0])
+            }
+            setLoading(false);
+        });
     }
 
 
@@ -83,6 +115,9 @@ const Signup = () => {
             <AuthTitle titleText="Create an account" styleProp='headerTitle' />
             <div className='formContainer'>
                 <div className='inputsContainer'>
+                    {error.length > 0 &&
+                        <span className='inputError'>{error}</span>
+                    }
                     <div className='inputContainer'>
                         <label htmlFor='email' className='inputLabel'>Email</label>
                         <input
@@ -150,24 +185,16 @@ const Signup = () => {
                         }
                     </div>
                     <div className='inputContainer'>
-                        <label htmlFor='confirm-password' className='inputLabel'>Confirm password</label>
-                        <div className='passInput'>
-                            <input
-                                placeholder="Confirm password"
-                                type={showPassword ? 'text' : 'password'}
-                                id='confirm-password'
-                                value={password_confirmation}
-                                className='passwordInput'
-                                onChange={e => onChangeConfirmPassword(e)}
-                                minLength={8}
-                                required
-                            />
-                            {password_confirmation.length > 0 && <span className='show'
-                                onClick={() => setShowPassword(!showPassword)}>{showPassword ? <FaEye /> : <FaEyeSlash />}</span>}
-                        </div>
-                        {password_confirmation !== password &&
-                            <span className='inputError'>*passwords must match</span>
-                        }
+                        <label htmlFor='referrer' className='inputLabel'>Referral Code</label>
+                        <input
+                            placeholder="optional"
+                            type='text'
+                            id='referrer'
+                            value={referrer}
+                            className='inputBox'
+                            onChange={e => onChangeReferrer(e)}
+                            required
+                        />
                     </div>
                     <div className='agreementsContainer'>
                         <span onClick={() => setChecked(!checked)}>{checked ? <FaCheckSquare style=
@@ -183,8 +210,8 @@ const Signup = () => {
 
                     <div className='appButtonContainer'>
                         <button className='buttonContainer'
-                            type="submit" disabled={!canSend || loading} onClick={onNext}>
-                            <span className='buttonText'>{loading ? "Processing" : "Continue"}</span>
+                            type="submit" disabled={!canSend || loading} onClick={onSend}>
+                            <span className='buttonText'>{loading ? "Processing" : "Create Account"}</span>
 
                         </button>
                     </div>

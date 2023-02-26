@@ -16,9 +16,10 @@ const ResetPassword = () => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
     const [passErr, setPassError] = useState(false);
-    const email = useSelector(state => state.auth.passwordReset.email);
+    const phone = useSelector(state => state.auth.passwordReset.userPhone);
     const code = useSelector(state => state.auth.passwordReset.userCode);
 
+    console.log(code);
     const onChangePassword = (e) => {
         const password = e.currentTarget.value;
         password.length > 0 && password.length < 8 ? setPassError(true) : setPassError(false)
@@ -36,7 +37,7 @@ const ResetPassword = () => {
         setCanSubmit(false);
         setError('');
 
-        dispatch(resetPassword({ password, email, code, password_confirmation: password }))
+        dispatch(resetPassword({ password, phone, code, password_confirmation: password }))
             .then(unwrapResult)
             .then((originalPromiseResult) => {
                 setLoading(false);
