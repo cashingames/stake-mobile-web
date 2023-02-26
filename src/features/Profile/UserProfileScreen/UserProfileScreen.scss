@@ -6,6 +6,13 @@
     margin-top: 2rem;
     padding: 0 1rem;
 
+    .warning-text{
+        font-size: 0.7rem;
+        font-family: 'graphik-medium';
+        color: #EF2F55;
+        text-align: center;
+        cursor: pointer;
+    }
     .userImgContainer {
         display: flex;
         flex-direction: column;

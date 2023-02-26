@@ -8,6 +8,8 @@ import { unwrapResult } from "@reduxjs/toolkit";
 import ResendOtp from "../../../components/ResendOtp/ResendOtp";
 import firebaseConfig from "../../../firebaseConfig";
 import { logEvent } from "firebase/analytics";
+import InputOTP from "../../../components/InputOTP/InputOTP";
+import VerifyEmailText from "../../../components/VerifyEmailText/VerifyEmailText";
 // import ReactGA from 'react-ga';
 
 
@@ -22,6 +24,7 @@ const VerifyRegistrationOtp = () => {
     const [isCountdownInProgress, setIsCountdownInProgress] = useState(true);
     const [canLogin, setCanLogin] = useState(true);
     const [loading, setLoading] = useState(false);
+    const otpScreenText = 'To verify your account, please input the One Time Password sent to your phone.';
 
 
     useEffect(() => {
@@ -108,40 +111,14 @@ const VerifyRegistrationOtp = () => {
 
 
     return (
-        <div className="verifyRegistrationOtp-container">
-            <VerifyEmailText />
-            <form className="otpForm">
-                {otpValues.map((data, index) => {
-                    return (
-                        <input
-                            key={index}
-                            value={data}
-                            maxLength={1}
-                            onChange={(e) => changeValue(e.target, index)}
-                            className='otpInput' />
-                    )
-                })}
-            </form>
+        <div className="verification__phone-container">
+            <VerifyEmailText text={otpScreenText}/>
+            <InputOTP otpValues={otpValues} changeValue={changeValue} />
             <ResendOtp onPress={resendButton} counter={counter} isCountdownInProgress={isCountdownInProgress} />
-            <button className='buttonContainer' disabled={!canLogin || loading} type='submit' onClick={goToDashboard}>
-                <span className='buttonText'>{loading ? "Verifying" : "Login"}</span>
+            <button className='button-container' disabled={!canLogin || loading} type='submit' onClick={goToDashboard}>
+                <span className='button-text'>{loading ? "Verifying" : "Login"}</span>
             </button>
         </div>
     )
 }
-
-const VerifyEmailText = () => {
-    return (
-        <div className="verifyText">
-            <h1 className="verifyHeadText">
-                Good job, you are almost there
-            </h1>
-            <p className="verifySubText">
-                To verify your account, please input the One Time Password sent to your phone number.
-            </p>
-        </div>
-    )
-}
-
-
 export default VerifyRegistrationOtp
