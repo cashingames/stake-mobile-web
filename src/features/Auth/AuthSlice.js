@@ -175,6 +175,9 @@ export const AuthSlice = createSlice({
         setUserPasswordResetToken: (state, action) => {
             state.passwordReset.userCode = action.payload;
         },
+        setUserPhone: (state, action) => {
+            state.passwordReset.userPhone = action.payload;
+        },
         reduceBoostCount: (state, action) => {
             // eslint-disable-next-line
             state.user.boosts.map(boost => {
@@ -217,6 +220,6 @@ export const AuthSlice = createSlice({
     }
 });
 
-export const { setToken, saveCreatedUserCredentials, setUser, setUserPasswordResetToken, reduceBoostCount } = AuthSlice.actions
+export const { setToken, saveCreatedUserCredentials, setUser, setUserPhone, setUserPasswordResetToken, reduceBoostCount } = AuthSlice.actions
 
 export default AuthSlice.reducer

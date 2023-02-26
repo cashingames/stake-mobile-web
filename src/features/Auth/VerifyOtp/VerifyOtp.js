@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate, useLocation } from "react-router-dom";
 import AnonymousRouteHeader from "../../../components/AnonymousRouteHeader/AnonymousRouteHeader";
-import { verifyAccount } from '../AuthSlice';
+import { setUserPhone, verifyAccount } from '../AuthSlice';
 import ResendOtp from "../../../components/ResendOtp/ResendOtp";
 import { setUserPasswordResetToken, verifyOtp } from "../AuthSlice";
 import './VerifyOtp.scss'
@@ -66,6 +66,7 @@ const VerifyOtp = () => {
         setCanSubmit(false);
         setError('')
         dispatch(setUserPasswordResetToken(token));
+        dispatch(setUserPhone(location.state.phone));
         dispatch(verifyOtp({ token })).then(unwrapResult)
             .then((originalPromiseResult) => {
                 setCanSubmit(true);
@@ -79,7 +80,7 @@ const VerifyOtp = () => {
 
     const resendButton = () => {
         dispatch(verifyAccount({
-            email: location.state.email
+            phone_number: location.state.phone
         }))
         setIsCountdownInProgress(true)
     }
@@ -117,7 +118,7 @@ const VerifyOtp = () => {
                             )
                         })}
                     </div>
-                    <ResendOtp onPress={resendButton} counter={counter} isCountdownInProgress={isCountdownInProgress}/>
+                   <ResendOtp onPress={resendButton} counter={counter} isCountdownInProgress={isCountdownInProgress}/>
                     <button className='btn' type='submit' disabled={!canSubmit}> Continue</button>
                 </form>
             </div>

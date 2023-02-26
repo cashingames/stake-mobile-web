@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FaEye, FaEyeSlash, FaCheckSquare } from 'react-icons/fa'
-import { registerUser, saveCreatedUserCredentials } from '../AuthSlice';
-import { useDispatch } from 'react-redux';
+import { registerUser} from '../AuthSlice';
 import { useNavigate, Link } from 'react-router-dom';
 import { BiRectangle } from "react-icons/bi";
 import AuthBanner from '../../../components/AuthBanner/AuthBanner';
@@ -12,16 +11,11 @@ import './Signup.scss'
 
 const Signup = () => {
 
-    const dispatch = useDispatch();
     let navigate = useNavigate();
     const style = { color: '#CDD4DF', fontSize: "1.2rem" }
     const styleI = { color: '#4299f5', fontSize: "1.2rem" }
     const [email, setEmail] = useState('')
     const [phone, setPhone] = useState('')
-    const [firstName, setFirstName] = useState('')
-    const [lastName, setLastName] = useState('')
-    const [firstnameError, setFirstnameError] = useState(false);
-    const [lastnameError, setLastnameError] = useState(false);
     const [referrer, setReferrer] = useState('');
     const [countryCode, setCountryCode] = useState('+234')
     const [password, setPassword] = useState('')
@@ -44,14 +38,6 @@ const Signup = () => {
         setEmail(email)
 
     };
-    const onChangeFirstname = (e) => {
-        const firstName = e.currentTarget.value;
-        setFirstName(firstName)
-    }
-    const onChangeLastname = (e) => {
-        const lastName = e.currentTarget.value;
-        setLastName(lastName)
-    }
     const onChangePhone = (e) => {
         const phone = e.currentTarget.value;
         phone.length > 0 && phone.length < 10 ? setPhoneError(true) : setPhoneError(false)
@@ -74,27 +60,11 @@ const Signup = () => {
 
 
     useEffect(() => {
-        const nameRule = /\d/;
-        const validFirstName = !nameRule.test(firstName)
-        const validLastName = !nameRule.test(lastName)
-        setFirstnameError(!validFirstName);
-        setLastnameError(!validLastName);
 
-        const invalid = firstnameError || firstName === "" || lastnameError || lastName === "" || emailError || email === '' || phone === '' || countryCode === '' || password === '' || phoneErr
+        const invalid = emailError || email === '' || phone === '' || countryCode === '' || password === '' || phoneErr
             || countryCodeErr || passwordError || checked === false;
         setCanSend(!invalid);
-    }, [firstName, lastName, firstnameError, lastnameError, emailError, phoneErr, countryCodeErr, passwordError, password, email, phone, countryCode, checked])
-
-    // const onNext = () => {
-    //     setLoading(true);
-    //     //save this information in store
-    //     dispatch(saveCreatedUserCredentials({ email, password, password_confirmation: password, phone_number: phone, country_code: countryCode }))
-    //     // ReactGA.event({
-    //     //     category: 'Authentication',
-    //     //     action: 'Sign up initiated'
-    //     // });
-    //     navigate("/sign-up-profile")
-    // }
+    }, [emailError, phoneErr, countryCodeErr, passwordError, password, email, phone, countryCode, checked])
 
     const onSend = () => {
         setLoading(true);
@@ -104,8 +74,6 @@ const Signup = () => {
             password_confirmation: password,
             phone_number: phone,
             country_code: countryCode,
-            first_name: firstName,
-            last_name: lastName,
             referrer: referrer,
         }).then(response => {
             // ReactGA.event({
@@ -147,37 +115,9 @@ const Signup = () => {
             <AuthTitle titleText="Create an account" styleProp='headerTitle' />
             <div className='formContainer'>
                 <div className='inputsContainer'>
-                    <div className='inputContainer'>
-                        <label htmlFor='firstname' className='inputLabel'>First name</label>
-                        <input
-                            placeholder="John"
-                            type='text'
-                            id='firstname'
-                            value={firstName}
-                            className='inputBox'
-                            autoFocus={true}
-                            onChange={e => onChangeFirstname(e)}
-                            required
-                        />
-                        {firstnameError &&
-                            <span className='inputError'>*First name can't have numbers</span>
-                        }
-                    </div>
-                    <div className='inputContainer'>
-                        <label htmlFor='lastname' className='inputLabel'>Last name</label>
-                        <input
-                            placeholder="Doe"
-                            type='text'
-                            id='lastname'
-                            value={lastName}
-                            className='inputBox'
-                            onChange={e => onChangeLastname(e)}
-                            required
-                        />
-                        {lastnameError &&
-                            <span className='inputError'>*lLast name can't have numbers</span>
-                        }
-                    </div>
+                    {error.length > 0 &&
+                        <span className='inputError'>{error}</span>
+                    }
                     <div className='inputContainer'>
                         <label htmlFor='email' className='inputLabel'>Email</label>
                         <input
@@ -244,26 +184,18 @@ const Signup = () => {
                             <span className='inputError'>*password must not be less than eight(8) characters</span>
                         }
                     </div>
-                    {/* <div className='inputContainer'>
-                        <label htmlFor='confirm-password' className='inputLabel'>Confirm password</label>
-                        <div className='passInput'>
-                            <input
-                                placeholder="Confirm password"
-                                type={showPassword ? 'text' : 'password'}
-                                id='confirm-password'
-                                value={password_confirmation}
-                                className='passwordInput'
-                                onChange={e => onChangeConfirmPassword(e)}
-                                minLength={8}
-                                required
-                            />
-                            {password_confirmation.length > 0 && <span className='show'
-                                onClick={() => setShowPassword(!showPassword)}>{showPassword ? <FaEye /> : <FaEyeSlash />}</span>}
-                        </div>
-                        {password_confirmation !== password &&
-                            <span className='inputError'>*passwords must match</span>
-                        }
-                    </div> */}
+                    <div className='inputContainer'>
+                        <label htmlFor='referrer' className='inputLabel'>Referral Code</label>
+                        <input
+                            placeholder="optional"
+                            type='text'
+                            id='referrer'
+                            value={referrer}
+                            className='inputBox'
+                            onChange={e => onChangeReferrer(e)}
+                            required
+                        />
+                    </div>
                     <div className='agreementsContainer'>
                         <span onClick={() => setChecked(!checked)}>{checked ? <FaCheckSquare style=
                             {styleI} /> : <BiRectangle style={style} />}</span>
