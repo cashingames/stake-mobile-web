@@ -100,6 +100,22 @@ export const editBankDetails = createAsyncThunk(
     }
 )
 
+export const sendEmailOTP = createAsyncThunk(
+    'auth/user/verifyEmail',
+    async (data, thunkAPI) => {
+        const response = await axios.post('v3/stakers/otp/send', data)
+        return response.data
+    }
+)
+
+export const verifyEmailOTP = createAsyncThunk(
+    'auth/user/verifyEmail',
+    async (data, thunkAPI) => {
+        const response = await axios.post('v3/stakers/email/verify', data)
+        return response.data
+    }
+)
+
 export const getUser = createAsyncThunk(
     'auth/user/get',
     async (thunkAPI) => {

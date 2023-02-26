@@ -12,7 +12,6 @@ import WithdrawnBalance from '../../components/Wallet/WithdrawnBalance/Withdrawn
 import { getUser } from '../Auth/AuthSlice'
 import { withdrawWinnings } from '../CommonSlice'
 import firebaseConfig from '../../firebaseConfig';
-
 import './WalletScreen.scss';
 
 function WalletScreen() {
@@ -23,7 +22,7 @@ function WalletScreen() {
   const [open, setOpen] = useState(false);
   const [openDialogue, setOpenDialogue] = useState(false);
   const [alertMessage, setAlert] = useState('');
-
+  
   //Bottom sheet close function
   const closeBS = () => {
     setOpen(false)
@@ -32,6 +31,7 @@ function WalletScreen() {
   const closeAlert = () => {
     setOpenDialogue(false)
   }
+
   const withdrawBalance = () => {
     setWithdraw(true)
     withdrawWinnings()

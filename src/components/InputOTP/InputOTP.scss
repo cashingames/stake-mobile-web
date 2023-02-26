@@ -1,0 +1,16 @@
+.otp-form{
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin: 2.5rem 0;
+    .otp-input{
+        width: 48px;
+        height: 48px;
+        background-color: #fff;
+        border-radius: 8px;
+        text-align: center;
+        border:1px solid rgba(0,0,0,0.15);
+        outline: none;
+        font-family: 'graphik-regular';
+    }
+}
