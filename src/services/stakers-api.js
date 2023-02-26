@@ -5,7 +5,7 @@ export const stakersApi = createApi({
         baseUrl: process.env.REACT_APP_API_URL,
         prepareHeaders: (headers, { getState }) => {
             // By default, if we have a token in the store, let's use that for authenticated requests
-            const token = getState().auth.token;
+            const token = getState().auth.token || window.localStorage.getItem("token");
 
             if (token) {
                 headers.set('authorization', `Bearer ${token}`)
@@ -21,8 +21,14 @@ export const stakersApi = createApi({
         getRecentWinners: builder.query({
             query: () => `v3/stakers/sessions/recent`,
         }),
+        getProfile: builder.query({
+            query: () => `v3/user/profile`,
+        }),
+        getCommon: builder.query({
+            query: () => `v3/user/profile`,
+        }),
     }),
 })
 
 // Export hooks for usage in functional components
-export const { useGetRecentWinnersQuery } = stakersApi
+export const { useGetRecentWinnersQuery, useGetProfileQuery, useGetCommonQuery } = stakersApi

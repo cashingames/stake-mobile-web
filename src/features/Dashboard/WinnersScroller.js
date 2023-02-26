@@ -5,11 +5,13 @@ import { useGetRecentWinnersQuery } from '../../services/stakers-api';
 import './WinnersScroller.scss';
 
 export default function WinnersScroller() {
-    const { data = [], isLoading, isFetching } = useGetRecentWinnersQuery()
+    const { data = [], isLoading } = useGetRecentWinnersQuery({}, {
+        refetchOnMountOrArgChange: false,
+    })
 
-    console.log('winners', data)
+    console.log('winners', data, isLoading, isFetching)
 
-    if (isLoading || isFetching) {
+    if (isLoading) {
         return (
             <div className='no-winning-table'>
                 <Spinner
@@ -19,11 +21,10 @@ export default function WinnersScroller() {
             </div>
         )
     }
-
     return (
         <>
             <div className='winning-table'>
-                <div className='winning-table-caption'>Top winners</div>
+                <div className='winning-table-caption'>Recent winners</div>
                 {data?.map((winner) => <Winner
                     key={winner.id}
                     winner={winner}

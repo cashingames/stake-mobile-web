@@ -2,7 +2,7 @@ import { unwrapResult } from '@reduxjs/toolkit'
 import { logEvent } from 'firebase/analytics'
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import BottomSheet from '../../../components/BottomSheet/BottomSheet'
 import ButtonDialog from '../../../components/DoubleButtonDialog/ButtonDialog'
 import GameAppHeader from '../../../components/GameAppHeader/GameAppHeader'
@@ -10,20 +10,16 @@ import GameInProgressAndBoost from '../../../components/GameInProgressAndBoost/G
 import GameQuestions from '../../../components/GameQuestions/GameQuestions'
 import UserAvailableBoost from '../../../components/UserAvailableBoost/UserAvailableBoost'
 import firebaseConfig from '../../../firebaseConfig'
-import { logActionToServer } from '../../CommonSlice'
-import { endGame, nextQuestion, setHasPlayedTrivia } from '../GameSlice'
+import { endGame, nextQuestion } from '../GameSlice'
 import './GameInProgress.scss'
 
 function GameInProgress() {
 
   const dispatch = useDispatch();
   let navigate = useNavigate();
-  const location = useLocation();
   const gameSessionToken = useSelector(state => state.game.gameSessionToken);
   const chosenOptions = useSelector(state => state.game.chosenOptions);
   const consumedBoosts = useSelector(state => state.game.consumedBoosts);
-  const isPlayingTrivia = useSelector(state => state.game.isPlayingTrivia);
-  const isStaking = useSelector(state => state.game.amountStaked);
   const user = useSelector(state => state.auth.user);
   const isEnded = useSelector(state => state.game.isEnded);
   const [ending, setEnding] = useState(false);
@@ -35,7 +31,7 @@ function GameInProgress() {
   const onEndGame = (confirm = false) => {
 
     if (ending) {
-      //doe not delete
+      //do not delete
       return;
     }
 
@@ -52,44 +48,23 @@ function GameInProgress() {
     }))
       .then(unwrapResult)
       .then(() => {
-        logEvent(analytics, 'exhibition_game_completed', {
+        logEvent(analytics, 'exhibition_staking_game_ended', {
           'id': user.username,
           'phone_number': user.phoneNumber,
           'email': user.email
         });
-        dispatch(logActionToServer({
-          message: "Game session " + gameSessionToken + " chosen options for " + user.username,
-          data: chosenOptions
-        }))
-        setEnding(false);
-        if (isPlayingTrivia) {
-          dispatch(setHasPlayedTrivia(true))
-          logEvent(analytics, 'trivia_game_completed', {
-            'id': user.username,
-            'phone_number': user.phoneNumber,
-            'email': user.email
-          });
-          navigate('/trivia-ended', { state: { triviaId: location.state.triviaId } })
-        } else if (isStaking) {
-          logEvent(analytics, 'staking_game_completed', {
-            'id': user.username,
-            'phone_number': user.phoneNumber,
-            'email': user.email
-          });
-          navigate('/game-result');
-        } else {
-          navigate('/game-result');
-        }
-
+        navigate('/game-result');
       })
-      .catch((rejectedValueOrSerializedError) => {
-        console.log('error ending game');
-        console.log(rejectedValueOrSerializedError);
+      .catch((_rejectedValueOrSerializedError) => {
+        logEvent(analytics, 'exhibition_staking_game_error', {
+          'id': user.username,
+          'phone_number': user.phoneNumber,
+          'email': user.email
+        });
         setEnding(false);
         alert('failed to end game')
       });
   }
-
 
   const handleGameBoardTabClosing = () => {
     onEndGame();

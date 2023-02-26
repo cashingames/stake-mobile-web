@@ -1,21 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from "react-router-dom";
 import { useDispatch } from 'react-redux';
-import { logEvent } from 'firebase/analytics';
 import { FaEye, FaEyeSlash } from 'react-icons/fa'
 
 import AuthBanner from '../../../components/AuthBanner/AuthBanner';
 import AuthTitle from '../../../components/AuthTitle/AuthTitle';
 import LoaderScreen from '../../LoaderScreen/LoaderScreen';
-import firebaseConfig from "../../../firebaseConfig";
 import { loginUser, saveToken, setToken } from '../AuthSlice';
-
 import './Login.scss'
+import logToAnalytics from '../../../utils/analytics';
+
 
 const Login = () => {
     const dispatch = useDispatch();
     let navigate = useNavigate();
-    const analytics = firebaseConfig();
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [showPassword, setShowPassword] = useState(false)
@@ -38,6 +36,7 @@ const Login = () => {
         }).then(response => {
             saveToken(response.data.data);
             dispatch(setToken(response.data.data));
+            logToAnalytics('login_successful');
         }, err => {
             if (!err || !err.response || err.response === undefined) {
                 setError("Your Network is Offline.");
@@ -51,10 +50,6 @@ const Login = () => {
                     err.response && err.response.data && err.response.data.errors;
 
                 if (err.response.status === 400 && err.response.data.message === 'Account not verified') {
-                    logEvent(analytics, "unverified_user", {
-                        'username' : errors.username,
-                        'phone_number': errors.phone_number
-                    });
                     navigate('/', {
                         phone_number: err.response.data.errors.phoneNumber,
                         username: err.response.data.errors.username, next_resend_minutes: 1
