@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import ProfileLink from '../ProfileLinks/ProfileLink';
 import { Spinner } from 'react-activity'
 import { IoCameraSharp } from 'react-icons/io5';
-import { getUser, sendEmailOTP } from '../../Auth/AuthSlice';
+import { getUser} from '../../Auth/AuthSlice';
 import ScreensHeader from '../../../components/ScreenHeader/ScreenHeader';
 import Dialogue from '../../../components/Dialogue/Dialogue'
 import axios from 'axios';
