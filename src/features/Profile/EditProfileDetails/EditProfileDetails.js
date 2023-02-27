@@ -1,36 +1,46 @@
 import React, { useState, useEffect } from 'react';
-import ScreenHeader from '../../../components/ScreenHeader/ScreenHeader'
+import ScreenHeader from '../../../components/ScreenHeader/ScreenHeader';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
-import { getUser, editPersonalDetails } from '../../Auth/AuthSlice'
-import Dialogue from '../../../components/Dialogue/Dialogue'
-import './EditProfileDetails.scss'
+import { getUser, editPersonalDetails, sendEmailOTP } from '../../Auth/AuthSlice';
+import Dialogue from '../../../components/Dialogue/Dialogue';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import LoaderScreen from '../../LoaderScreen/LoaderScreen';
 import { subYears } from 'date-fns';
+import './EditProfileDetails.scss';
+
 
 const EditProfileDetails = () => {
     const dispatch = useDispatch();
     let navigate = useNavigate();
     const user = useSelector(state => state.auth.user);
+    const isEmailVerified = user.isEmailVerified;
 
-    const [email, setEmail] = useState(user.email)
-    const [username, setUsername] = useState(user.username)
-    const [phone] = useState(user.phoneNumber)
-    const [countryCode] = useState('+234')
-    const [firstName, setFirstName] = useState(user.firstName)
-    const [lastName, setLastName] = useState(user.lastName)
+    const [email, setEmail] = useState(user.email);
+    const [username, setUsername] = useState(user.username);
+    const [firstName, setFirstName] = useState(user.firstName ? user.firstName : '');
+    const [lastName, setLastName] = useState(user.lastName ? user.lastName : '');
     const [selectGender, setSelectGender] = useState(user.gender ? user.gender : 'male')
-    const [firstNameErr] = useState(false);
-    const [lastNameErr] = useState(false);
     const [dateOfBirth, setDateOfBirth] = useState(user.dateOfBirth ? user.dateOfBirth : '')
-    const [canSave, setCanSave] = useState(true)
-    const [open, setOpen] = useState(false)
-    const [alertMessage, setAlert] = useState('')
+    const [phone] = useState(user.phoneNumber);
+    const [countryCode] = useState('+234');
+    const [emailError, setEmailError] = useState(false);
+    const [usernameError, setUsernameError] = useState(false);
+    const [firstnameError, setFirstnameError] = useState(false);
+    const [lastnameError, setLastnameError] = useState(false);
+    const [canSave, setCanSave] = useState(true);
+    const [open, setOpen] = useState(false);
+    const [alertMessage, setAlert] = useState('');
     const [loading, setLoading] = useState(false);
     const [onloading, setOnLoading] = useState(true);
     const calenderAge = subYears(new Date(), 18).toISOString().slice(0, 10);
+
+    const goToVerifyEmailScreen = () => {
+        dispatch(sendEmailOTP())
+        navigate('/email-verification')
+    }
+
 
     useEffect(() => {
         dispatch(getUser()).then(() => { setOnLoading(false) });
@@ -59,7 +69,6 @@ const EditProfileDetails = () => {
 
     const closeAlert = () => {
         setOpen(false)
-        navigate('/profile')
     }
 
     const changeUsername = (e) => {
@@ -78,50 +87,72 @@ const EditProfileDetails = () => {
         setLastName(e.target.value)
     }
 
-    useEffect(() => {
-        const invalid = firstNameErr || firstName === '' || lastNameErr || lastName === ''
-        setCanSave(!invalid);
-    }, [firstNameErr, firstName, lastNameErr, lastName])
+    const changeDateOfBirth = (e) => {
+        setDateOfBirth(e.target.value)
+    }
+
 
     const SavePersonalDetails = () => {
         setLoading(true)
-        dispatch(editPersonalDetails({
+        editPersonalDetails({
             firstName,
             lastName,
             username,
             email,
             dateOfBirth,
             gender: selectGender
-        }))
-            // .then(unwrapResult)
-            .then(result => {
-                if (result.error.message === "Request failed with status code 422") {
-                    dispatch(getUser())
-                    setOpen(true)
-                    setAlert('The username or email has already been taken')
-                    setLoading(false);
-                }
-                else {
-                    dispatch(getUser())
-                    setOpen(true)
-                    setAlert('Personal details updated successfully');
-                    setLoading(false);
-                }
-            })
-            .catch((rejectedValueOrSerializedError) => {
-                if (rejectedValueOrSerializedError.message === "Request failed with status code 422") {
-                    setAlert('The phone number has already been taken')
-                }
-                else {
-                    setAlert("Could not update profile, Please try again later.");
-                }
+        })
+            .then(response => {
+                dispatch(getUser())
+                setOpen(true)
+                setAlert('Personal details updated successfully');
                 setLoading(false);
-            });
+            },
+                err => {
+                    if (!err || !err.response || err.response === undefined) {
+                        setOpen(true)
+                        setAlert('Your Network is Offline.')
+                        setLoading(false);
+                    }
+                    else if (err.response.status === 500) {
+                        setOpen(true)
+                        setAlert('Service not currently available. Please contact support')
+                        setLoading(false);
+                    }
+                    else {
+                        const errors =
+                            err.response && err.response.data && err.response.data.errors;
+                        const firstError = Object.values(errors, {})[0];
+                        setOpen(true)
+                        setAlert(firstError[0])
+                        setLoading(false);
+                    }
+                }
+            );
     }
+
+    useEffect(() => {
+        const emailRule = /^([a-zA-Z0-9_/\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/; /* eslint-disable-line */
+        const nameRule = /\d/;
+        const usernameRule = /\s/;
+        const validFirstName = !nameRule.test(firstName);
+        const validLastName = !nameRule.test(lastName);
+        const validUsername = !usernameRule.test(username);
+        const validEmail = emailRule.test(email);
+        setEmailError(!validEmail);
+        setFirstnameError(!validFirstName);
+        setLastnameError(!validLastName);
+        setUsernameError(!validUsername);
+        const invalid = firstnameError || firstName === '' || lastnameError || lastName === '' || dateOfBirth === ''
+            || usernameError || username === "" || emailError || email === ''
+        setCanSave(!invalid);
+    }, [firstnameError, firstName, lastnameError, lastName, dateOfBirth, usernameError, username, emailError, email]);
+
 
     if (onloading) {
         return <LoaderScreen backgroundColor="edit-background-color" />
     }
+
 
     return (
         <>
@@ -150,6 +181,12 @@ const EditProfileDetails = () => {
                     </div>
                     <div className='inputCase'>
                         <label htmlFor='Username' className='inputLabel'>Username</label>
+                        {username === '' &&
+                            <span className='input-error'>*required field</span>
+                        }
+                        {usernameError &&
+                            <span className='input-error'>*Username can't have space</span>
+                        }
                         <input
                             className='inputBox2'
                             onChange={changeUsername}
@@ -158,21 +195,51 @@ const EditProfileDetails = () => {
 
                     <div className='inputCase'>
                         <label htmlFor='Email' className='inputLabel'>Email</label>
-                        <input
-                            className='inputBox2'
-                            onChange={changeEmail}
-                            value={email} />
+                        {email === '' &&
+                            <span className='input-error'>*required field</span>
+                        }
+                        {emailError &&
+                            <span className='input-error'>*invalid email address</span>
+                        }
+                        {!isEmailVerified &&
+                            <p className='warning-text' onClick={goToVerifyEmailScreen}>Your email is not verified. Please, click to verify your email!</p>
+                        }
+                        <div className='email-input'>
+                            <input
+                                className='input-email'
+                                onChange={changeEmail}
+                                value={email}
+                                readOnly={!isEmailVerified ? false : true}
+                            />
+                            {!isEmailVerified &&
+                                <p className='verified-text'>unverified</p>
+                            }
+                        </div>
                     </div>
 
                     <div className='inputCase'>
                         <label htmlFor='firstName' className='inputLabel'>First Name</label>
+                        {firstName === '' &&
+                            <span className='input-error'>*required field</span>
+                        }
+                        {firstnameError &&
+                            <span className='input-error'>*First name can't have numbers</span>
+                        }
                         <input
                             className='inputBox2'
                             onChange={changeFirstName}
-                            value={firstName} />
+                            value={firstName}
+                            required
+                        />
                     </div>
                     <div className='inputCase'>
                         <label htmlFor='lastName' className='inputLabel'>Last Name</label>
+                        {lastName === '' &&
+                            <span className='input-error'>*required field</span>
+                        }
+                        {lastnameError &&
+                            <span className='input-error'>*Last name can't have numbers</span>
+                        }
                         <input
                             className='inputBox2'
                             onChange={changeLastName}
@@ -180,14 +247,16 @@ const EditProfileDetails = () => {
                     </div>
                     <div className='inputCase'>
                         <label htmlFor='lastName' className='inputLabel'>Date of Birth</label>
+                        {dateOfBirth === '' &&
+                            <span className='input-error'>*required field</span>
+                        }
                         <input
                             className='inputBox2'
                             type='date'
                             value={dateOfBirth}
                             max={calenderAge}
-                            onChange={(e) => setDateOfBirth(e.target.value)}
+                            onChange={changeDateOfBirth}
                         />
-
                     </div>
                     <div className='inputCase'>
                         <label htmlFor='lastName' className='inputLabel'>Select Gender</label>

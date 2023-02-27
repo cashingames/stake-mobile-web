@@ -50,9 +50,19 @@ const Login = () => {
                     err.response && err.response.data && err.response.data.errors;
 
                 if (err.response.status === 400 && err.response.data.message === 'Account not verified') {
-                    navigate('/', {
-                        phone_number: err.response.data.errors.phoneNumber,
-                        username: err.response.data.errors.username, next_resend_minutes: 1
+                    console.log(err)
+                    logToAnalytics('registration_unverified', {
+                        'username': errors.username,
+                        'phone_number': errors.phone_number,
+                        'email': errors.email
+                    });
+                    console.log('failed')
+                    navigate('/verify-phone-number', {
+                        state: {
+                            phone_number: err.response.data.errors.phoneNumber,
+                            username: err.response.data.errors.username,
+                            next_resend_minutes: 1
+                        }
                     })
                 }
 

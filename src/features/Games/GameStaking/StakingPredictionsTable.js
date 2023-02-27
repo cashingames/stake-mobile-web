@@ -63,7 +63,7 @@ const StakingPredictionsRow = ({ stake, odd, styleProp }) => {
     const textStyleProp = styleProp ? 'winner-text': null;
     return (
         <tr className={styleProp}>
-            <td className={textStyleProp}><IoCheckmarkCircleOutline size={16} /><span>{odd.score}</span></td>
+            <td className={textStyleProp}><IoCheckmarkCircleOutline size={15} /><span>{odd.score}</span></td>
             <td className={textStyleProp}><IoTimeOutline size={15} color='#FF932F' /><span className="odds">x{odd.odd}</span></td>
             <td className={textStyleProp}>&#8358;{formatCurrency(stake * odd.odd)}</td>
         </tr>

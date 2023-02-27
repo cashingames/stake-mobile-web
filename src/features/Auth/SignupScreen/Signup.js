@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { FaEye, FaEyeSlash, FaCheckSquare } from 'react-icons/fa'
-import { registerUser} from '../AuthSlice';
+import { registerUser } from '../AuthSlice';
 import { useNavigate, Link } from 'react-router-dom';
 import { BiRectangle } from "react-icons/bi";
 import AuthBanner from '../../../components/AuthBanner/AuthBanner';
 import AuthTitle from '../../../components/AuthTitle/AuthTitle';
 
 import './Signup.scss'
+import logToAnalytics from '../../../utils/analytics';
 
 
 const Signup = () => {
@@ -76,6 +77,10 @@ const Signup = () => {
             country_code: countryCode,
             referrer: referrer,
         }).then(response => {
+            logToAnalytics('registration_unverified', {
+                'email': email,
+                'phone_number': phone
+            });
             // ReactGA.event({
             //     category: 'Authentication',
             //     action: 'Sign up phone or email otp sent'
@@ -116,7 +121,7 @@ const Signup = () => {
             <div className='formContainer'>
                 <div className='inputsContainer'>
                     {error.length > 0 &&
-                        <span className='inputError'>{error}</span>
+                        <span className='inputsError'>{error}</span>
                     }
                     <div className='inputContainer'>
                         <label htmlFor='email' className='inputLabel'>Email</label>

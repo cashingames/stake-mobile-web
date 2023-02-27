@@ -16,9 +16,11 @@ function UserPoints() {
   return (
     <div className='userPoints'>
       <div className='user-boosts'>
-        <div className='boosts-square'>
+        <p className={boosts?.length > 0 ? 'text2' : 'emptyRow'}>{boostsString}</p>
+
+        {/* <div className='boosts-square'>
           <p className={boosts?.length > 0 ? 'text2' : 'emptyRow'}>{boostsString}</p>
-        </div>
+        </div> */}
         {/* <div className="arrow-right"></div> */}
         {/* <p className='boosts-arrow'></p> */}
       </div>

@@ -21,7 +21,6 @@ function UserProfileScreen() {
     const [open, setOpen] = useState(false)
     const [alertMessage, setAlertMessage] = useState('')
     const [screenLoader, setScreenLoader] = useState(true)
-    const isEmailVerified = user.isEmailVerified;
     const navigateHandler = () => {
         navigate('/dashboard')
     }
@@ -30,10 +29,6 @@ function UserProfileScreen() {
         setOpen(false)
     }
 
-    const goToVerifyEmailScreen = () => {
-        dispatch(sendEmailOTP())
-        navigate('/email-verification')
-    }
 
     //disable browser back button
     useEffect(() => {
@@ -119,9 +114,7 @@ function UserProfileScreen() {
 
                     }
 
-                </form>
-                {!isEmailVerified &&
-                    <p className='warning-text' onClick={goToVerifyEmailScreen}>Your email is not verified. Please, verify your email!</p>}
+                </form>                   
                 <ProfileLink />
             </div>
             <Dialogue open={open} handleClose={closeAlert} dialogueMessage={alertMessage} />

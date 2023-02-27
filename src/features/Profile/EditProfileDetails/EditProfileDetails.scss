@@ -1,22 +1,61 @@
-.editNavBar{
+.editNavBar {
+    background-color: #fff;
     edit-background-color: #fff;
 }
 
 .formCase {
     // display: flex;
     padding: 1rem;
-    .inputsCase{
-        .inputCase{
+
+    .inputsCase {
+        .inputCase {
             display: flex;
             flex-direction: column;
             width: 100%;
-            .inputLabel{
+
+            .email-input {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                border: 1px solid #CDD4DF;
+                padding: 0.5rem 0.6rem;
+                align-items: center;
+                border-radius: 7px;
+                margin-bottom: .5rem;
+
+                .input-email {
+                    color: rgba(0, 0, 0, 0.5019607843);
+                    font-size: 0.7rem;
+                    border: none;
+                    outline: none;
+                    font-family: "graphik-regular";
+                    width: 70%;
+                }
+
+                .verified-text {
+                    line-height: 0;
+                    margin: 0;
+                    text-align: center;
+                    background-color: rgba(244, 66, 116, 0.1019607843);
+                    border-radius: 7px;
+                    color: #EF2F55;
+                    font-size: 0.7rem;
+                    font-family: "graphik-regular";
+                    padding: 0.6rem 0.5rem;
+                }
+
+
+            }
+
+            .inputLabel {
                 margin-bottom: .45rem;
                 font-size: 0.7rem;
                 color: #000000B2;
                 font-family: 'graphik-medium';
             }
-            .inputBox, .inputBox2{
+
+            .inputBox,
+            .inputBox2 {
                 color: #00000080;
                 font-size: 0.7rem;
                 border-radius: 7px;
@@ -27,8 +66,8 @@
                 font-family: 'graphik-regular';
             }
 
-            .inputBox2{
-                border:1px solid #CDD4DF;
+            .inputBox2 {
+                border: 1px solid #CDD4DF;
                 padding: 0.5rem .6rem;
             }
 
@@ -60,19 +99,34 @@
 
             }
 
-            .selectBox{
+            .selectBox {
                 color: #00000080;
                 font-size: 0.7rem;
                 padding: 0.5rem 0;
                 border: 1px solid #CDD4DF;
                 background-color: #ebeff5;
-                .selectItem{
+
+                .selectItem {
                     font-size: 0.75rem;
                 }
             }
+
+            .warning-text {
+                font-size: 0.7rem;
+                font-family: 'graphik-medium';
+                color: #EF2F55;
+                cursor: pointer;
+            }
+            .input-error {
+                font-size: 0.65rem;
+                font-family: 'graphik-regular';
+                color: #EF2F55;
+                margin-bottom: 5px;
+            }
         }
-        .submitBtn{
-            margin-top: 7rem;
+
+        .submitBtn {
+            margin-top: 4rem;
             background-color: #EF2F55;
             justify-content: center;
             display: flex;
@@ -86,6 +140,7 @@
             font-family: 'graphik-medium';
             letter-spacing: 1px;
         }
+
         button[disabled] {
             border: none;
             background-color: #DFCBCF;

@@ -148,7 +148,7 @@ const SignupProfile = () => {
                             required
                         />
                         {lastnameError &&
-                            <span className='inputError'>*lLast name can't have numbers</span>
+                            <span className='inputError'>*Last name can't have numbers</span>
                         }
                     </div>
                     <div className='inputContainer'>

@@ -8,7 +8,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 0.5rem;
+    gap: 1rem;
     position: relative;
 
     .pointsNumber {
@@ -35,25 +35,42 @@
         justify-content: center;
         flex-direction: row;
         display: flex;
+        flex-grow: 1;
+        background-color: #15292F;
+        padding: 0 .8rem 0 .8rem;
+        border-top-left-radius: 30px;
+        border-bottom-left-radius: 30px;
+        .text2 {
+            font-size: 0.7rem;
+            text-align: center;
 
-        .boosts-square {
-            background-color: #15292F;
-            padding: 0 .8rem 0 .8rem;
-            border-top-left-radius: 30px;
-            border-bottom-left-radius: 30px;
-
-
-            .text2 {
-                font-size: 0.7rem;
-                text-align: center;
-
-            }
-            .emptyRow {
-                font-size: 0.7rem;
-                text-align: center;
-
-            }
         }
+
+        .emptyRow {
+            font-size: 0.7rem;
+            text-align: center;
+
+        }
+
+        // .boosts-square {
+        //     background-color: #15292F;
+        //     padding: 0 .8rem 0 .8rem;
+        //     border-top-left-radius: 30px;
+        //     border-bottom-left-radius: 30px;
+
+
+        //     .text2 {
+        //         font-size: 0.7rem;
+        //         text-align: center;
+
+        //     }
+
+        //     .emptyRow {
+        //         font-size: 0.7rem;
+        //         text-align: center;
+
+        //     }
+        // }
 
         .arrow-right {
             width: 0;
@@ -75,6 +92,7 @@
 
         }
     }
+
     .trophy {
         margin-top: -2rem;
         // height: 100px;
