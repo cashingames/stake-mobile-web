@@ -43,6 +43,11 @@
                 font-family: 'graphik-medium';
                 cursor: pointer;
             }
+            button[disabled] {
+                border: none;
+                background-color: #DFCBCF;
+                color: white;
+            }
             .note{
                 font-size: 0.7rem;
                 color: #fff;

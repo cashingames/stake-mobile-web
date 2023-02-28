@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import './GameEnded.scss'
 // import AnimatedClock from '../../../components/AnimatedClock/AnimatedClock';
 import UserName from '../../../components/UserName/UserName';
-// import Winnings from '../../../components/Winnings/Winnings';
+import Winnings from '../../../components/Winnings/Winnings';
 import FinalScore from '../../../components/FinalScore/FinalScore';
 import GameButton from '../../../components/GameButton/GameButton';
 import { useDispatch, useSelector } from 'react-redux';
@@ -19,9 +19,9 @@ function GameEnded() {
   const pointsGained = useSelector(state => state.game.pointsGained);
   const amountWon = useSelector(state => state.game.amountWon);
   const isGameEnded = useSelector(state => state.game.isEnded);
-  const amountStaked = useSelector(state => state.game.amountStaked);
+  // const amountStaked = useSelector(state => state.game.amountStaked);
   const correctCount = useSelector(state => state.game.correctCount);
-  const wrongCount = useSelector(state => state.game.wrongCount);
+  // const wrongCount = useSelector(state => state.game.wrongCount);
 
 
 
@@ -66,17 +66,21 @@ function GameEnded() {
     <div className='gameEndedCase'>
       {/* <AnimatedClock /> */}
       <div className='game-tag-container'>
-      <img src='/images/game-tag.png' alt='tag' className='game-tag' />
+      <img src='images/point-trophy.png' alt='trophy' className='trophy' />
       </div>
       <UserName userName={user.firstName} />
-      {/* <Winnings amountWon={amountWon} onPress={reviewStaking} /> */}
+      <Winnings amountWon={amountWon} onPress={reviewStaking} />
+      <div className='correct-container'>
+        <p className='correct-count'>{correctCount}</p>
+        <p className='correct-count'>Correct answers</p>
+      </div>
       <FinalScore
         pointsGained={pointsGained}
-        amountWon={amountWon}
-        amountStaked={amountStaked}
-        correctCount={correctCount}
-        wrongCount={wrongCount}
-        onPress={reviewStaking}
+        // amountWon={amountWon}
+        // amountStaked={amountStaked}
+        // correctCount={correctCount}
+        // wrongCount={wrongCount}
+        // onPress={reviewStaking}
       />
       <GameButton goHome={goHome} playAgain={playAgain} />
       {/* <BoostPopUp setShowModal={setShowModal} showModal={showModal} /> */}
