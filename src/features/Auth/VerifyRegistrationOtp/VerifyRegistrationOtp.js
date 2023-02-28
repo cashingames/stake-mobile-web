@@ -18,7 +18,6 @@ const VerifyRegistrationOtp = () => {
     
     const dispatch = useDispatch();
     const location = useLocation();
-    let navigate = useNavigate();
     const [otpValues, setOtpValues] = useState(new Array(5).fill(''))
     const [counter, setCounter] = useState('');
     const [isCountdownInProgress, setIsCountdownInProgress] = useState(true);
