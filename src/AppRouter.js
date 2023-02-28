@@ -1,50 +1,46 @@
-import React from 'react';
+import React, { lazy } from 'react';
 import { Routes, Route, Navigate } from "react-router-dom"
 import { getToken } from './features/Auth/AuthSlice'
 
-// un-lazyload dashboard
-import DashBoardScreen from './features/Dashboard/DashBoardScreen';
+const DashBoardScreen = lazy(() => import('./features/Dashboard/DashBoardScreen'));
 
-import PrivacyPolicy from './features/Agreements/PrivacyPolicy';
-import HelpPages from './features/Support/HelpPages/HelpPages';
-import TermsAndConditions from './features/Agreements/TermsAndConditions';
-
-
-import InviteFriends from './features/InviteFriends/InviteFriends';
-import SupportQuestions from './features/Support/SupportQuestions/SupportQuestions';
-import SupportAnswer from './features/Support/SupportQuestions/SupportAnswer';
-import ContactUs from './features/Support/ContactUs/ContactUs';
+const PrivacyPolicy = lazy(() => import('./features/Agreements/PrivacyPolicy'));
+const HelpPages = lazy(() => import('./features/Support/HelpPages/HelpPages'));
+const TermsAndConditions = lazy(() => import('./features/Agreements/TermsAndConditions'));
 
 
-import GameLoading from './features/Games/GameLoading/GameLoading';
-import LandingPage from './features/LandingPageScreen/LandingPage';
-import Login from './features/Auth/LoginScreen/Login';
-import Signup from './features/Auth/SignupScreen/Signup';
-// import SignupProfile from './features/Auth/SignupProfileScreen/SignupProfile';
-import ForgotPassword from './features/Auth/ForgotPassword/ForgotPassword';
-import ResetPassword from './features/Auth/ResetPassword/ResetPassword';
-import VerifyOtp from './features/Auth/VerifyOtp/VerifyOtp';
-import VerifyRegistrationOtp from './features/Auth/VerifyRegistrationOtp/VerifyRegistrationOtp';
-import WalletScreen from './features/WalletScreen/WalletScreen';
-import NotificationScreen from './features/NotificationScreen/NotificationScreen';
-import FundWalletScreen from './features/FundWalletScreen/FundWalletScreen';
-import TransactionScreen from './features/TransactionScreen/TransactionScreen';
-import SelectGameCategoryScreen from './features/Games/SelectGameCategory/SelectGameCategoryscreen';
-import GameStaking from './features/Games/GameStaking/GameStaking';
-import UserProfileScreen from './features/Profile/UserProfileScreen';
-import EditProfileDetails from './features/Profile/EditProfileDetails/EditProfileDetails';
-import ChangePassword from './features/Profile/ChangePasswordScreen/ChangePassword';
-import BankDetails from './features/Profile/BankDetails/BankDetails';
-import GameInProgress from './features/Games/GameInProgress/GameInProgress';
-import GameEnded from './features/Games/GameEnded/GameEnded';
-import ReviewStake from './features/Games/ReviewStakeScreen/ReviewStake';
-import Store from './features/Store/Store';
-import GameBoostPurchaseSuccess from './features/Store/GameBoostPurchaseSuccess/GameBoostPurchaseSuccess';
-import GameStorePurchaseFailed from './features/Store/GameStorePurchaseFailed/GameStorePurchaseFailed';
-import AuthContactForm from './components/AuthContactUs/AuthContactUs';
-import Authenticate from './features/Auth/Authenticate';
-import EmailVerification from './features/Auth/EmailVerification/EmailVerification';
+const InviteFriends = lazy(() => import('./features/InviteFriends/InviteFriends'));
+const SupportQuestions = lazy(() => import('./features/Support/SupportQuestions/SupportQuestions'));
+const SupportAnswer = lazy(() => import('./features/Support/SupportQuestions/SupportAnswer'));
+const ContactUs = lazy(() => import('./features/Support/ContactUs/ContactUs'));
 
+const GameLoading = lazy(() => import('./features/Games/GameLoading/GameLoading'));
+const LandingPage = lazy(() => import('./features/LandingPageScreen/LandingPage'));
+const Login = lazy(() => import('./features/Auth/LoginScreen/Login'));
+const Signup = lazy(() => import('./features/Auth/SignupScreen/Signup'));
+const ForgotPassword = lazy(() => import('./features/Auth/ForgotPassword/ForgotPassword'));
+const ResetPassword = lazy(() => import('./features/Auth/ResetPassword/ResetPassword'));
+const VerifyOtp = lazy(() => import('./features/Auth/VerifyOtp/VerifyOtp'));
+const VerifyRegistrationOtp = lazy(() => import('./features/Auth/VerifyRegistrationOtp/VerifyRegistrationOtp'));
+const WalletScreen = lazy(() => import('./features/WalletScreen/WalletScreen'));
+const NotificationScreen = lazy(() => import('./features/NotificationScreen/NotificationScreen'));
+const FundWalletScreen = lazy(() => import('./features/FundWalletScreen/FundWalletScreen'));
+const TransactionScreen = lazy(() => import('./features/TransactionScreen/TransactionScreen'));
+const SelectGameCategoryScreen = lazy(() => import('./features/Games/SelectGameCategory/SelectGameCategoryscreen'));
+const GameStaking = lazy(() => import('./features/Games/GameStaking/GameStaking'));
+const UserProfileScreen = lazy(() => import('./features/Profile/UserProfileScreen'));
+const EditProfileDetails = lazy(() => import('./features/Profile/EditProfileDetails/EditProfileDetails'));
+const ChangePassword = lazy(() => import('./features/Profile/ChangePasswordScreen/ChangePassword'));
+const BankDetails = lazy(() => import('./features/Profile/BankDetails/BankDetails'));
+const GameInProgress = lazy(() => import('./features/Games/GameInProgress/GameInProgress'));
+const GameEnded = lazy(() => import('./features/Games/GameEnded/GameEnded'));
+const ReviewStake = lazy(() => import('./features/Games/ReviewStakeScreen/ReviewStake'));
+const Store = lazy(() => import('./features/Store/Store'));
+const GameBoostPurchaseSuccess = lazy(() => import('./features/Store/GameBoostPurchaseSuccess/GameBoostPurchaseSuccess'));
+const GameStorePurchaseFailed = lazy(() => import('./features/Store/GameStorePurchaseFailed/GameStorePurchaseFailed'));
+const AuthContactForm = lazy(() => import('./components/AuthContactUs/AuthContactUs'));
+const Authenticate = lazy(() => import('./features/Auth/Authenticate'));
+const EmailVerification = lazy(() => import('./features/Auth/EmailVerification/EmailVerification'));
 const AppRouter = () => {
 
     return (
