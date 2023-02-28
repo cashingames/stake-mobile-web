@@ -206,9 +206,9 @@ const Signup = () => {
                             {styleI} /> : <BiRectangle style={style} />}</span>
                         <div className='agreementsTextContainer'>
                             <span className='agreementsText'>I agree to the</span>
-                            <a className='agreementsLink' href="/terms">terms & conditions</a>
+                            <Link className='agreementsLink' to="/terms">terms & conditions</Link>
                             <span className='agreementsText'>and</span>
-                            <a className='agreementsLink' href="/privacy">privacy policy</a>
+                            <Link className='agreementsLink' to="/privacy">privacy policy</Link>
 
                         </div>
                     </div>
@@ -220,7 +220,7 @@ const Signup = () => {
 
                         </button>
                     </div>
-                    <p className='have-account'>Have an account already ? <a className='sign-in' href="/login">Sign in</a></p>
+                    <p className='have-account'>Have an account already ? <Link className='sign-in' to="/login">Sign in</Link></p>
                     <Link to='/help-contact' className='contact-us'>Need help ? Contact us</Link>
                 </div>
             </div>

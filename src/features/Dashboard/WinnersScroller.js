@@ -5,9 +5,7 @@ import { useGetRecentWinnersQuery } from '../../services/stakers-api';
 import './WinnersScroller.scss';
 
 export default function WinnersScroller() {
-    const { data = [], isLoading } = useGetRecentWinnersQuery({}, {
-        refetchOnMountOrArgChange: false,
-    })
+    const { data = [], isLoading } = useGetRecentWinnersQuery()
 
     console.log('winners', data, isLoading)
 

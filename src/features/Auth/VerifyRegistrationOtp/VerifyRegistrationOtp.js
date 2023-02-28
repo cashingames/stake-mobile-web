@@ -73,7 +73,7 @@ const VerifyRegistrationOtp = () => {
         setIsCountdownInProgress(true)
     }
 
-    const goToDashboard = () => {
+    const verify = () => {
         setLoading(true);
         dispatch(verifyPhoneOtp({
             phone_number: location.state.phone_number,
@@ -83,28 +83,22 @@ const VerifyRegistrationOtp = () => {
             .then(unwrapResult)
             .then(response => {
                 saveToken(response.data)
-                logEvent(analytics, "verified_phone_number", {
+                logEvent(analytics, "verification_registratiion_phone_number_success", {
                     'id': location.state.username,
                     'phone_number': location.state.phone_number
                 });
-                logEvent(analytics, "verified", {
+                logEvent(analytics, "verified_user", {
                     'id': location.state.username,
                     'phone_number': location.state.phone_number
                 });
                 dispatch(setToken(response.data))
-                // ReactGA.event({
-                //     category: 'Authentication',
-                //     action: 'Sign up successful'
-                // });
-                setLoading(false);
-                navigate('/dashboard')
             })
             .catch((rejectedValueOrSerializedError) => {
                 alert("Failed to log in, please input the correct code");
-                // ReactGA.exception({
-                //     description: 'An error ocurred',
-                //     fatal: true
-                // });
+                logEvent(analytics, "verified_user_error", {
+                    'id': location.state.username,
+                    'phone_number': location.state.phone_number
+                });
                 setLoading(false);
             })
     }
@@ -115,8 +109,8 @@ const VerifyRegistrationOtp = () => {
             <VerifyEmailText text={otpScreenText}/>
             <InputOTP otpValues={otpValues} changeValue={changeValue} />
             <ResendOtp onPress={resendButton} counter={counter} isCountdownInProgress={isCountdownInProgress} />
-            <button className='button-container' disabled={!canLogin || loading} type='submit' onClick={goToDashboard}>
-                <span className='button-text'>{loading ? "Verifying" : "Login"}</span>
+            <button className='button-container' disabled={!canLogin || loading} type='submit' onClick={verify}>
+                <span className='button-text'>{loading ? "Verifying..." : "Verify"}</span>
             </button>
         </div>
     )

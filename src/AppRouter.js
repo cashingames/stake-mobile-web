@@ -4,13 +4,23 @@ import { getToken } from './features/Auth/AuthSlice'
 
 // un-lazyload dashboard
 import DashBoardScreen from './features/Dashboard/DashBoardScreen';
+
 import PrivacyPolicy from './features/Agreements/PrivacyPolicy';
-import GameLoading from './features/Games/GameLoading/GameLoading';
+import HelpPages from './features/Support/HelpPages/HelpPages';
 import TermsAndConditions from './features/Agreements/TermsAndConditions';
+
+
+import InviteFriends from './features/InviteFriends/InviteFriends';
+import SupportQuestions from './features/Support/SupportQuestions/SupportQuestions';
+import SupportAnswer from './features/Support/SupportQuestions/SupportAnswer';
+import ContactUs from './features/Support/ContactUs/ContactUs';
+
+
+import GameLoading from './features/Games/GameLoading/GameLoading';
 import LandingPage from './features/LandingPageScreen/LandingPage';
 import Login from './features/Auth/LoginScreen/Login';
 import Signup from './features/Auth/SignupScreen/Signup';
-import SignupProfile from './features/Auth/SignupProfileScreen/SignupProfile';
+// import SignupProfile from './features/Auth/SignupProfileScreen/SignupProfile';
 import ForgotPassword from './features/Auth/ForgotPassword/ForgotPassword';
 import ResetPassword from './features/Auth/ResetPassword/ResetPassword';
 import VerifyOtp from './features/Auth/VerifyOtp/VerifyOtp';
@@ -31,11 +41,6 @@ import ReviewStake from './features/Games/ReviewStakeScreen/ReviewStake';
 import Store from './features/Store/Store';
 import GameBoostPurchaseSuccess from './features/Store/GameBoostPurchaseSuccess/GameBoostPurchaseSuccess';
 import GameStorePurchaseFailed from './features/Store/GameStorePurchaseFailed/GameStorePurchaseFailed';
-import InviteFriends from './features/InviteFriends/InviteFriends';
-import SupportQuestions from './features/Support/SupportQuestions/SupportQuestions';
-import SupportAnswer from './features/Support/SupportQuestions/SupportAnswer';
-import ContactUs from './features/Support/ContactUs/ContactUs';
-import HelpPages from './features/Support/HelpPages/HelpPages';
 import AuthContactForm from './components/AuthContactUs/AuthContactUs';
 import Authenticate from './features/Auth/Authenticate';
 import EmailVerification from './features/Auth/EmailVerification/EmailVerification';
@@ -50,7 +55,7 @@ const AppRouter = () => {
             <Route path="/" element={<AnonymousRoute redirectTo="/dashboard"><LandingPage /></AnonymousRoute>} />
             <Route path="/login" element={<AnonymousRoute redirectTo="/dashboard"><Login /></AnonymousRoute>} />
             <Route path="/sign-up" element={<AnonymousRoute redirectTo="/dashboard"><Signup /></AnonymousRoute>} />
-            <Route path="/sign-up-profile" element={<AnonymousRoute redirectTo="/dashboard"><SignupProfile /></AnonymousRoute>} />
+            {/* <Route path="/sign-up-profile" element={<AnonymousRoute redirectTo="/dashboard"><SignupProfile /></AnonymousRoute>} /> */}
             <Route path="/verify-phone-number" element={<AnonymousRoute redirectTo="/dashboard"><VerifyRegistrationOtp /></AnonymousRoute>} />
             <Route path="/forgot-password" element={<AnonymousRoute redirectTo="/dashboard"><ForgotPassword /></AnonymousRoute>} />
             <Route path="/reset-password" element={<AnonymousRoute redirectTo="/dashboard"><ResetPassword /></AnonymousRoute>} />

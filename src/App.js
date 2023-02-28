@@ -5,9 +5,9 @@ import React, { useEffect } from "react";
 import LoaderScreen from "./features/LoaderScreen/LoaderScreen";
 import firebaseConfig from "./firebaseConfig";
 import { getToken, getUser, setToken } from "./features/Auth/AuthSlice";
+import { getCommonData, initialLoadingComplete } from "./features/CommonSlice";
 
 import './App.scss'
-import { getCommonData, initialLoadingComplete } from "./features/CommonSlice";
 
 firebaseConfig();
 
