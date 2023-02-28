@@ -37,9 +37,10 @@
         display: flex;
         flex-grow: 1;
         background-color: #15292F;
-        padding: 0 .8rem 0 .8rem;
+        padding: .5rem .8rem .5rem 0;
         border-top-left-radius: 30px;
         border-bottom-left-radius: 30px;
+
         .text2 {
             font-size: 0.7rem;
             text-align: center;
@@ -50,6 +51,26 @@
             font-size: 0.7rem;
             text-align: center;
 
+        }
+
+        .points-number {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            // background-color: #072169;
+            height: 60px;
+            width: 60px;
+            padding: 0 1rem;
+            justify-content: center;
+            border-radius: 50%;
+            margin-right: 10px;
+            border: 1px solid #fff;
+
+            .points {
+                font-family: 'graphik-medium';
+                margin: 0;
+                font-size: 0.65rem;
+            }
         }
 
         // .boosts-square {
