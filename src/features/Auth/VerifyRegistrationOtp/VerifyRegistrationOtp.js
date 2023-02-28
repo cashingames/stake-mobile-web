@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { ResendPhoneOtp, verifyPhoneOtp, setToken, saveToken } from '../AuthSlice';
 import { calculateTimeRemaining } from "../../../utils/utils";
 import './VerifyRegistrationOtp.scss'
