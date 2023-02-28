@@ -1,13 +1,29 @@
-.finalScoreCase {
+.final-score-case {
     display: flex;
     // align-items: center;
     // justify-content: space-between;
     flex-direction: column;
-    background-color: #EFB321;
+    background-color: #F9E821;
     border-radius: 15px;
     margin-bottom: 2.5rem;
     margin-top: .5rem;
-    padding: 1.2rem 1.5rem;
+    padding: 0.8rem 1.5rem;
+    justify-content: center;
+    align-items: center;
+    .point-text {
+        font-size: 1rem;
+        font-family: 'graphik-medium'; 
+        color: #9236AD;
+        margin: 0;
+        line-height: 2;
+    }
+    .point-number {
+        font-size: 1.5rem;
+        font-family: 'graphik-bold'; 
+        color: #9236AD;
+        margin: 0;
+        line-height: 2;
+    }
 
     .sub-containers {
         display: flex;
