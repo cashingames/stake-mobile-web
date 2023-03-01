@@ -27,8 +27,11 @@ export const stakersApi = createApi({
         getCommon: builder.query({
             query: () => `v3/user/profile`,
         }),
+        getWinningOdds: builder.query({
+            query: () => `v3/odds/standard`,
+        }),
     }),
 })
 
 // Export hooks for usage in functional components
-export const { useGetRecentWinnersQuery, useGetProfileQuery, useGetCommonQuery } = stakersApi
+export const { useGetRecentWinnersQuery, useGetProfileQuery, useGetCommonQuery, useGetWinningOddsQuery } = stakersApi

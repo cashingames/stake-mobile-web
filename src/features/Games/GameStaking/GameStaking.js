@@ -45,7 +45,7 @@ const GameStaking = () => {
             <ScreenHeader title='Stake Cash' styleProp='staking' onClick={backHandler} />
             <div className="staking-container">
                 <StakeAmount onSubmit={proceed} onChange={onStakeChange} amount={amount} setAmount={setAmount} readOnly={false} disabled={false} />
-                <StakingPredictionsTable stake={stake} />
+                <StakingPredictionsTable stake={stake} usePreviousOdds={false} />
             </div>
         </>
     )
