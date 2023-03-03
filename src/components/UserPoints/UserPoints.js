@@ -7,7 +7,7 @@ import './UserPoints.scss'
 function UserPoints() {
 
   const boosts = useSelector(state => state.auth.user.boosts ?? []);
-  const userPoints = useSelector(state => state.auth.user.points ?? 0);
+  // const userPoints = useSelector(state => state.auth.user.points ?? 0);
 
   let boostsString = boosts.map(boost => `${formatNumber(boost.count)} ${boost.name}`).join(', ');
 
