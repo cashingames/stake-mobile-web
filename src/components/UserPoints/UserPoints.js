@@ -17,11 +17,11 @@ function UserPoints() {
   return (
     <div className='userPoints'>
       <div className='user-boosts'>
-        <div className='points-number'>
+        {/* <div className='points-number'>
           <p className='points'>{userPoints}</p>
           <p className='points'>pts</p>
           <p className='points'>TOTAL</p>
-        </div>
+        </div> */}
         <p className={boosts?.length > 0 ? 'text2' : 'emptyRow'}>{boostsString}</p>
 
         {/* <div className='boosts-square'>
