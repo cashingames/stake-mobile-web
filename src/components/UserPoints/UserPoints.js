@@ -15,7 +15,7 @@ function UserPoints() {
     boostsString = "You have no boosts";
 
   return (
-    <div className='userPoints'>
+    <div className='User-points'>
       <div className='user-boosts'>
         {/* <div className='points-number'>
           <p className='points'>{userPoints}</p>

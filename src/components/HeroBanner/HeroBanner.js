@@ -8,7 +8,7 @@ import { formatCurrency } from '../../utils/stringUtl';
 
 function HeroBanner() {
   return (
-    <div className='heroBanner'>
+    <div className='hero-banner'>
       <NairaIcon />
       <UserPoints />
     </div>
@@ -18,7 +18,7 @@ function HeroBanner() {
 function NairaIcon() {
   const walletBalance = useSelector(state => state.auth.user.walletBalance ?? 0);
   return (
-    <div className='heroWallet'>
+    <div className='hero-wallet'>
       <Player
         src={Wallet} alt='wallet'
         autoplay
