@@ -12,17 +12,19 @@ import WithdrawnBalance from '../../components/Wallet/WithdrawnBalance/Withdrawn
 import { getUser } from '../Auth/AuthSlice'
 import { withdrawWinnings } from '../CommonSlice'
 import firebaseConfig from '../../firebaseConfig';
+import { useNavigate } from 'react-router-dom';
 import './WalletScreen.scss';
 
 function WalletScreen() {
   const analytics = firebaseConfig();
+  let navigate = useNavigate();
   const dispatch = useDispatch();
   const user = useSelector(state => state.auth.user);
   const [withdraw, setWithdraw] = useState(false);
   const [open, setOpen] = useState(false);
   const [openDialogue, setOpenDialogue] = useState(false);
   const [alertMessage, setAlert] = useState('');
-  
+
   //Bottom sheet close function
   const closeBS = () => {
     setOpen(false)
@@ -51,6 +53,12 @@ function WalletScreen() {
           if (!err || !err.response || err.response === undefined) {
             setOpenDialogue(true)
             setAlert("Your Network is Offline.");
+            setWithdraw(false)
+          }
+          else if (err.response.data.errors.verifyEmailNavigation) {
+            setOpenDialogue(true)
+            navigate('/edit-profile')
+            setAlert(err.response.data.message);
             setWithdraw(false)
           }
           else if (err.response.status === 400) {
