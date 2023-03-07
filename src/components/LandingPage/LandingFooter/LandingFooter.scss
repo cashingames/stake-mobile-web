@@ -32,6 +32,15 @@
         }
     }
 
+    .stores-icon {
+        display: flex;
+        justify-content: center;
+
+        img {
+            margin-left: 1rem;
+        }
+    }
+
     .socialMediaLinks {
         display: flex;
         justify-content: space-evenly;
