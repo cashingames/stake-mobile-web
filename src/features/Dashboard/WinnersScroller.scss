@@ -53,8 +53,10 @@
                 // line-height: 30px;
                 color: #fff;
                 font-family: 'graphik-medium';
-                width: 7rem;
-                word-wrap: break-word;
+                width: 4rem;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                // word-wrap: break-word;
             }
         }
 

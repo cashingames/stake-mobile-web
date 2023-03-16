@@ -17,7 +17,7 @@ const EmailVerification = () => {
     const [loading, setLoading] = useState(false);
     const [openDialogue, setOpenDialogue] = useState(false);
     const [alertMessage, setAlert] = useState('');
-    const otpScreenText = 'To verify your account, please input the One Time Password sent to your email.';
+    const otpScreenText = 'To verify your account, please input the One Time Code sent to your email.';
 
     const closeAlert = () => {
         setOpenDialogue(false)
@@ -64,7 +64,7 @@ const EmailVerification = () => {
             <VerifyEmailText text={otpScreenText} />
             <InputOTP otpValues={otpValues} changeValue={changeValue} />
             <button className='button-container' disabled={!canLogin || loading} type='submit' onClick={goToDashboard}>
-                <span className='button-text'>{loading ? "Verifying" : "Login"}</span>
+                <span className='button-text'>{loading ? "Verifying" : "Proceed"}</span>
             </button>
             <Dialogue open={openDialogue} handleClose={closeAlert} dialogueMessage={alertMessage} />
         </div>

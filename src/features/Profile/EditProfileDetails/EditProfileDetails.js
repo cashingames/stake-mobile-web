@@ -202,7 +202,7 @@ const EditProfileDetails = () => {
                             <span className='input-error'>*invalid email address</span>
                         }
                         {!isEmailVerified &&
-                            <p className='warning-text' onClick={goToVerifyEmailScreen}>Your email is not verified. Please, click to verify your email!</p>
+                            <p className='warning-text' onClick={goToVerifyEmailScreen}>Your email is not verified. Please, CLICK to verify your email!</p>
                         }
                         <div className='email-input'>
                             <input
