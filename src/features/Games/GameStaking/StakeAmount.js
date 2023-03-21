@@ -5,7 +5,7 @@ import { formatCurrency } from '../../../utils/stringUtl'
 
 import './StakeAmount.scss'
 
-function StakeAmount({ onSubmit, onChange, amount, setAmount, readOnly, disabled }) {
+function StakeAmount({ onSubmit, onChange, amount, setAmount, readOnly, disabled,setOpenDialogue, setAlert}) {
 
     const user = useSelector((state) => state.auth.user);
     const maximumExhibitionStakeAmount = useSelector(state => Number.parseFloat(state.common.maximumExhibitionStakeAmount ?? 0));
@@ -16,19 +16,21 @@ function StakeAmount({ onSubmit, onChange, amount, setAmount, readOnly, disabled
 
         const lowAmount = amount < minimumExhibitionStakeAmount;
         if (lowAmount) {
-            alert(`Minimum amount that can be staked is ${minimumExhibitionStakeAmount}`);
+            setOpenDialogue(true)
+            setAlert(`Minimum amount that can be staked is ${minimumExhibitionStakeAmount}`);
+            return false;
+        }
+
+        const highAmount = amount > maximumExhibitionStakeAmount;
+        if (highAmount) {
+            setOpenDialogue(true)
+            setAlert(`Maximum amount that can be staked is ${maximumExhibitionStakeAmount}`);
             return false;
         }
 
         const insufficientFunds = amount > Number.parseFloat(user.walletBalance);
         if (insufficientFunds) {
             setShowLowWallet(true)
-            return false;
-        }
-
-        const highAmount = amount > maximumExhibitionStakeAmount;
-        if (highAmount) {
-            alert(`Maximum amount that can be staked is ${maximumExhibitionStakeAmount}`);
             return false;
         }
 

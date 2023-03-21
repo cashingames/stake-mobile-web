@@ -14,18 +14,17 @@ const shuffleArray = array => {
 
 export const startGame = createAsyncThunk(
     'games/staking/exhibition/start',
-    async (_data, { getState }) => {
-        const state = getState().game;
-        const data = {
-            category: state.gameCategory.id,
-            type: state.gameType.id,
-            mode: state.gameMode.id,
-            staking_amount: state.amountStaked
-        };
-        const response = await axios.post('v2/game/start/single-player', data)
-        return response.data
+    async (data, thunkAPI) => {
+        try {
+            const response = await axios.post('v2/game/start/single-player', data);
+            console.log(data.staking_amount, 'stake amount');
+            return response.data;
+        } catch (err) {
+            return thunkAPI.rejectWithValue(err.response.data);
+        }
     }
 )
+
 
 export const startChallengeGame = createAsyncThunk(
     'game/startChallengeGame',
@@ -277,19 +276,17 @@ export const GameSlice = createSlice({
         // Add reducers for additional action types here, and handle loading sAWAWAWAWtate as needed
         builder
             .addCase(startGame.fulfilled, (state, action) => {
-                const questions = action.payload.data.questions;
-                const activeQuestion = questions[0];
-                state.questions = questions;
-                state.displayedQuestion = activeQuestion
-                state.displayedOptions = activeQuestion.options
+                state.questions = action.payload.data.questions;
+                state.displayedQuestion = state.questions[state.currentQuestionPosition]
+                state.displayedOptions = state.displayedQuestion.options
                 state.gameSessionToken = action.payload.data.game.token
                 state.isEnded = false
                 state.pointsGained = 0;
                 state.startingGame = false;
             })
-            .addCase(startGame.rejected, (state, action) => {
-                console.log("action result rejected", action);
-            })
+            // .addCase(startGame.rejected, (state, action) => {
+            //     console.log("action result rejected", action);
+            // })
             .addCase(endGame.fulfilled, (state, action) => {
                 // const token = state.gameSessionToken;
                 state.isEnded = true;
