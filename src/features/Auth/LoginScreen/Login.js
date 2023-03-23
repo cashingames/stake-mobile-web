@@ -116,7 +116,7 @@ const Login = () => {
                         </div>
                     </div>
                     <div className='forgotPasswordContainer'>
-                        <a href='/forgot-password' className='forgotPasswordText'>Forgot Password?</a>
+                        <Link to='/forgot-password' className='forgotPasswordText'>Forgot Password?</Link>
                     </div>
                     <div className='appButtonContainer'>
                         <button className='buttonContainer' disabled={!canLogin || loading} type='submit' onClick={onLogin}>
@@ -127,14 +127,14 @@ const Login = () => {
 
             </div>
             <div className='socialContainer'>
-                <p className='socialLinkText'>Don't have an account ?  <a className='signup' href='/sign-up'>Create one</a></p>
+                <p className='socialLinkText'>Don't have an account ?  <Link className='signup' to='/sign-up'>Create one</Link></p>
             </div>
             <Link to='/help-contact' className='contact-us'>Need help ? Contact us</Link>
             <div className='stores-icon'>
-                <a href="https://play.google.com/store/apps/details?id=com.cashingames.cashingames">
-                    <img width="100px" src="/images/googleplay_icon.png" alt="logo" height="50px" className="social-img" /></a>
-                <a href="https://apps.apple.com/ng/app/cashingames/id6443878628">
-                    <img width="100px" height="35px" src="/images/apple_store_icon.png" alt="logo" className="social-img" /></a>
+                <Link to="https://play.google.com/store/apps/details?id=com.cashingames.cashingames">
+                    <img width="100px" src="/images/googleplay_icon.png" alt="logo" height="50px" className="social-img" /></Link>
+                <Link to="https://apps.apple.com/ng/app/cashingames/id6443878628">
+                    <img width="100px" height="35px" src="/images/apple_store_icon.png" alt="logo" className="social-img" /></Link>
             </div>
         </div>
     )

@@ -1,7 +1,7 @@
 import React from 'react'
 import AppHeader from '../../components/AppHeader/AppHeader'
 import HeroBanner from '../../components/HeroBanner/HeroBanner'
-import SelectGame from '../../components/SelectGame/SelectGame'
+import SelectGame from '../../components/SelectGame/SelectGame';
 
 import WinnersScroller from './WinnersScroller'
 
