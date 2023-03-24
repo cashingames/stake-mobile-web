@@ -7,6 +7,12 @@ function LandingBanner() {
     <div className='landingBanner'>
       <div className='bannerTextContainer'>
         <h2 className='bannerText'><span className='red'>Play trivia while </span> competing <br />with family and <br />friends</h2>
+        <div className='stores-icon'>
+          <Link to="https://play.google.com/store/apps/details?id=com.cashingames.cashingames">
+            <img width="100px" src="/images/googleplay_icon.png" alt="logo" height="40px" className="social-img" /></Link>
+          <Link to="https://apps.apple.com/ng/app/cashingames/id6443878628">
+            <img width="100px" height="30px" src="/images/apple_store_icon.png" alt="logo" className="social-img" /></Link>
+        </div>
         <p className='bannerText2'>Show you are the true <br /> champion today!</p>
         <div className='clipContainer'>
           <div className='bubble'></div>

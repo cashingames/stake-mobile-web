@@ -25,6 +25,21 @@ export const startGame = createAsyncThunk(
     }
 )
 
+// export const startGame = createAsyncThunk(
+//     'games/staking/exhibition/start',
+//     async (_data, { getState }) => {
+//         const state = getState().game;
+//         const data = {
+//             category: state.gameCategory.id,
+//             type: state.gameType.id,
+//             mode: state.gameMode.id,
+//             staking_amount: state.amountStaked
+//         };
+//         const response = await axios.post('v2/game/start/single-player', data)
+//         return response.data
+//     }
+// )
+
 
 export const startChallengeGame = createAsyncThunk(
     'game/startChallengeGame',

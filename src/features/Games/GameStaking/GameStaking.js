@@ -44,31 +44,36 @@ const GameStaking = () => {
     }
     const closeAlert = () => {
         setOpenDialogue(false)
-      }
+    }
 
+
+    
     const proceed = (amount) => {
         dispatch(setAmountStaked(amount))
         dispatch(setStartingGame(true))
         onStartGame()
+        navigate('/games/staking/loading')
+
     }
 
     const onStartGame = () => {
         setLoading(true);
-        dispatch(startGame({
+        dispatch(startGame(
+            {
             category: gameCategoryId,
             type: gameTypeId,
             mode: gameMode.id,
             staking_amount: amount
-        })).then(unwrapResult)
-        .then(result => {
-            setLoading(false);
-            navigate('/games/staking/loading')
-        })
-        .catch((err) => {
-            processStartGameError(err)
-        }).finally(() => {
-            setLoading(false);
-        });
+        }
+        )).then(unwrapResult)
+            .then(result => {
+                setLoading(false);
+            })
+            .catch((err) => {
+                processStartGameError(err)
+            }).finally(() => {
+                setLoading(false);
+            });
 
     }
 
@@ -87,8 +92,8 @@ const GameStaking = () => {
         <>
             <ScreenHeader title='Stake Cash' styleProp='staking' onClick={backHandler} />
             <div className="staking-container">
-                <StakeAmount onSubmit={proceed} onChange={onStakeChange} amount={amount} setAmount={setAmount} 
-                readOnly={false} disabled={loading ? true : false} setOpenDialogue={setOpenDialogue} setAlert={setAlert} />
+                <StakeAmount onSubmit={proceed} onChange={onStakeChange} amount={amount} setAmount={setAmount}
+                    readOnly={false} disabled={ false} setOpenDialogue={setOpenDialogue} setAlert={setAlert} />
                 <StakingPredictionsTable stake={stake} usePreviousOdds={false} />
                 <Dialogue open={openDialogue} handleClose={closeAlert} dialogueMessage={alertMessage} />
             </div>
