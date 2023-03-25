@@ -41,6 +41,7 @@ const GameStorePurchaseFailed = lazy(() => import('./features/Store/GameStorePur
 const AuthContactForm = lazy(() => import('./components/AuthContactUs/AuthContactUs'));
 const Authenticate = lazy(() => import('./features/Auth/Authenticate'));
 const EmailVerification = lazy(() => import('./features/Auth/EmailVerification/EmailVerification'));
+const Roulette = lazy(() => import('./features/Games/Roulette'));
 const AppRouter = () => {
 
     return (
@@ -135,6 +136,11 @@ const AppRouter = () => {
              <Route
                 path="/email-verification"
                 element={<AuthRoute redirectTo="/"><EmailVerification /></AuthRoute>} />
+
+            <Route
+                path="/games/roulette"
+                element={<AuthRoute redirectTo="/"><Roulette /></AuthRoute>} />
+
         </Routes>
     )
 }
