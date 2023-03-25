@@ -1,7 +1,6 @@
 import React from 'react';
 
 import './wheel.css';
-import { ReactComponent as Arrow } from './arrow.svg';
 import { ReactComponent as Ellipse } from './Ellipse.svg';
 // import { setResults } from 'services/spinResults';
 import {
@@ -11,7 +10,7 @@ import {
     getPositionFromCenter,
     getWheelVars,
 } from './helper';
-import { arrowStyles, leftEllipseStyles, rightEllipseStyles } from './styles';
+import { leftEllipseStyles, rightEllipseStyles } from './styles';
 
 export class Wheel extends React.Component {
     box;
