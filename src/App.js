@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import React, { useEffect } from "react";
 import LoaderScreen from "./features/LoaderScreen/LoaderScreen";
 import firebaseConfig from "./firebaseConfig";
-import { getToken, getUser, setToken } from "./features/Auth/AuthSlice";
+import { getToken, getUser, logoutUser, setToken } from "./features/Auth/AuthSlice";
 import { getCommonData, initialLoadingComplete } from "./features/CommonSlice";
 
 import './App.scss'
@@ -21,7 +21,7 @@ function App() {
 
   useEffect(() => {
     const token = getToken();
-    booststrapAxios(token);
+    booststrapAxios(token, dispatch);
 
     if (!token) {
       dispatch(initialLoadingComplete());
@@ -56,7 +56,7 @@ function App() {
 }
 
 
-const booststrapAxios = function (token) {
+const booststrapAxios = function (token, dispatch) {
 
   axios.defaults.headers.common['x-brand-id'] = process.env.REACT_APP_BRAND_ID;
   axios.defaults.baseURL = process.env.REACT_APP_API_URL;
@@ -67,6 +67,18 @@ const booststrapAxios = function (token) {
     axios.defaults.headers.common['Authorization'] = null;
     delete axios.defaults.headers.common['Authorization'];
   }
+
+  axios.interceptors.response.use(
+    response => response,
+    error => {
+      console.log(error.config.url, error.message);
+
+      if (error.response && error.response.status === 401) {
+        dispatch(logoutUser())
+      }
+      return Promise.reject(error);
+    });
+
 };
 
 
