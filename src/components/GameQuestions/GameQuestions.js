@@ -1,5 +1,4 @@
 import React from 'react'
-import { Base64 } from "js-base64";
 import GameOption from '../GameOptions/GameOption'
 import './GameQuestions.scss'
 import { useDispatch, useSelector } from 'react-redux';
@@ -18,7 +17,7 @@ function GameQuestions() {
   return (
     <>
         <div className='gameQuestionsCase'>
-            <p className='gameQuestions'>{Base64.decode(displayedQuestion.label)}</p>
+            <p className='gameQuestions'>{displayedQuestion.label}</p>
         </div>
         <div>
         {displayedOptions.map((option, i) => <GameOption option={option} key={i} onSelected={() => optionSelected(option)} />)}
