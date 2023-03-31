@@ -1,10 +1,14 @@
 
 import React from 'react'
 import { Link } from 'react-router-dom'
+import logToAnalytics from '../../../utils/analytics'
 import AuthTitle from '../../AuthTitle/AuthTitle'
 import './LandingMainFooter.scss'
 
 function LandingMainFooter() {
+    const registerHere = () => {
+        logToAnalytics('register_here_clicked');
+    }
     return (
         <div className='mainFooter'>
             <img src='/images/bonus.png' alt='bonus'/>
@@ -12,7 +16,7 @@ function LandingMainFooter() {
             <p className='mainFooterText'>Join our community and</p>
             <p className='mainFooterText'>win amazing prizes</p>
             <Link to='/sign-up'>
-                <button className='singupLink'>
+                <button className='singupLink' onClick={registerHere}>
                  Register here</button>
             </Link>
         </div>
