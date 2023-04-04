@@ -6,7 +6,7 @@ function LandingBanner() {
   return (
     <div className='landingBanner'>
       <div className='bannerTextContainer'>
-        <h2 className='bannerText'><span className='red'>Play trivia while </span> competing <br />with family and <br />friends</h2>
+        <h2 className='bannerText'><span className='red'>Think you have what it takes </span> <br />to win big? <br />Put your skills to the test <br />with our thrilling staking games</h2>
         <div className='stores-icon'>
           <Link to="https://play.google.com/store/apps/details?id=com.cashingames.cashingames">
             <img width="100px" src="/images/googleplay_icon.png" alt="logo" height="40px" className="social-img" /></Link>
