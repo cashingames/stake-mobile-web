@@ -1,6 +1,7 @@
 import React, { lazy } from 'react';
 import { Routes, Route, Navigate } from "react-router-dom"
 import { getToken } from './features/Auth/AuthSlice'
+import GamesListScreen from './features/Games/GamesListScreen/GamesListScreen';
 
 const DashBoardScreen = lazy(() => import('./features/Dashboard/DashBoardScreen'));
 
@@ -75,6 +76,9 @@ const AppRouter = () => {
                 path="/transactions"
                 element={<AuthRoute redirectTo="/"><TransactionScreen /></AuthRoute>} />
             <Route
+                path="/games-list"
+                element={<AuthRoute redirectTo="/"><GamesListScreen /></AuthRoute>} />
+            <Route
                 path="/select-category"
                 element={<AuthRoute redirectTo="/"><SelectGameCategoryScreen /></AuthRoute>} />
             <Route
@@ -83,6 +87,9 @@ const AppRouter = () => {
             <Route
                 path="/games/staking/play/:gameId"
                 element={<AuthRoute redirectTo="/"><GameInProgress /></AuthRoute>} />
+            <Route
+                path="/games/staking/loading"
+                element={<AuthRoute redirectTo="/"><GameLoading /></AuthRoute>} />
             <Route
                 path="/game-result"
                 element={<AuthRoute redirectTo="/"><GameEnded /></AuthRoute>} />
@@ -130,10 +137,8 @@ const AppRouter = () => {
             <Route
                 path="/contact-us"
                 element={<AuthRoute redirectTo="/"><ContactUs /></AuthRoute>} />
+
             <Route
-                path="/games/staking/loading"
-                element={<AuthRoute redirectTo="/"><GameLoading /></AuthRoute>} />
-             <Route
                 path="/email-verification"
                 element={<AuthRoute redirectTo="/"><EmailVerification /></AuthRoute>} />
 
