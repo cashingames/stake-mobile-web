@@ -11,6 +11,7 @@ import ScreenHeader from '../../../../components/ScreenHeader/ScreenHeader';
 import { getUser } from '../../../Auth/AuthSlice';
 import { startChallengeRequest } from '../TriviaChallengeGameSlice';
 import { unwrapResult } from '@reduxjs/toolkit';
+import logToAnalytics from '../../../../utils/analytics';
 
 const backendUrl = process.env.REACT_APP_API_ROOT_URL;
 
@@ -65,6 +66,9 @@ const ChallengeStakingScreen = () => {
         })).then(unwrapResult)
             .then(async result => {
                 setLoading(false)
+                logToAnalytics("trivia_challenge_stake_now_clicked", {
+                    'amount': amount,
+                });
                 // navigate('/')
                 alert("doneeee")
             })
@@ -75,6 +79,7 @@ const ChallengeStakingScreen = () => {
     }
 
     const goToStore = () => {
+        logToAnalytics("trivia_challenge_get_boost_clicked");
         navigate('/store');
     }
 
