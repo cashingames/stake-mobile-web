@@ -1,5 +1,5 @@
 import React, { } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { setGameCategory } from '../../features/Games/GameSlice';
 
@@ -11,10 +11,17 @@ const backendUrl = process.env.REACT_APP_API_ROOT_URL;
 const GameSubCategoryCard = ({ subcategory }) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const gameMode = useSelector(state => state.game.gameMode);
+
 
     const clicked = () => {
         dispatch(setGameCategory(subcategory));
-        navigate('/exhibition-staking');
+        if (gameMode.name === "CHALLENGE") {
+            navigate('/challenge-staking');
+        }
+        else {
+            navigate('/exhibition-staking');
+        }
     }
 
     return (

@@ -1,0 +1,189 @@
+.challenge-staking-header {
+    background-color: #EDDA74;
+}
+
+.challenge-staking-container {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    overflow: scroll;
+    padding: 2rem 1rem;
+
+    .players-container {
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 20px;
+        padding: 2rem 1.5rem;
+        margin-bottom: 2rem;
+
+        .player-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .avatar-container {
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+                background-color: #fff;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 50%;
+                }
+            }
+
+            .player-name {
+                margin: 0;
+                margin-top: 0.8rem;
+                font-size: 0.75rem;
+                font-family: 'graphik-regular';
+                color: #fff;
+                width: 5rem;
+                text-align: center;
+            }
+        }
+    }
+
+    .amountContainers {
+        background-color: #EDDA74;
+        border-top: 1px solid #E0E0E0;
+        padding: 1rem 0;
+        border-radius: 20px;
+
+        .walletContainer {
+            background-color: #301934;
+            text-align: center;
+            padding: .6rem 0;
+            border-radius: 64px;
+            margin: 0 1.5rem;
+
+            .wallet {
+                font-size: 0.7rem;
+                font-weight: 500;
+                margin: 0;
+                color: #fff;
+            }
+        }
+
+        .inputContainer {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            margin-top: 1rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            padding-bottom: 1rem;
+
+            .stakeInput {
+                border: none;
+                width: 100%;
+                text-align: center;
+                font-size: 1.65rem;
+                font-weight: 550;
+                color: #333333;
+                opacity: 0.6;
+                background: none;
+                outline-style: none;
+            }
+
+            ::placeholder {
+                opacity: 0.4;
+                font-weight: 550;
+            }
+        }
+
+        .buttonContainer {
+            padding: 0 1.5rem;
+
+            .start-button {
+                width: 100%;
+                margin: .7rem 0;
+                background-color: #EF2F55;
+                border: none;
+                border-radius: 8px;
+                align-items: center;
+                padding: .7rem 0;
+
+                .start-text {
+                    font-size: 0.8rem;
+                    font-family: 'graphik-medium';
+                    color: #ffff;
+                    margin: 0;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+
+            button[disabled] {
+                border: none;
+                background-color: #DFCBCF;
+                color: white;
+            }
+        }
+
+
+    }
+    .purchase-boost {
+        background-color: #301934;
+        margin: 1rem 0;
+        padding: 1rem 1.5rem;
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        .boost-text {
+            font-size: .8rem;
+            font-family: 'graphik-medium';
+            color: #fff;
+            text-align: center;
+            line-height: 1.2;
+        }
+        .boost-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            .boost-card-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin-top: 1rem;
+                margin-left: 1rem;
+                margin-right: 1rem;
+            }
+            .boost-icon {
+                width: 3rem;
+                height: 3rem;
+            }
+            .boost-details-container {
+                display: flex;
+                flex-direction: column;
+                .boost-name-count {
+                    align-items: center;
+                    .boost-name {
+                        font-family: 'graphik-medium';
+                        font-size: 0.7rem;
+                        color: #fff;
+                    }
+                }
+            }
+        }
+        .buy-boost-text {
+            font-size: .8rem;
+            font-family: 'graphik-medium';
+            color: #EF2F55;
+            text-align: center;
+            line-height: 2;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    }
+}

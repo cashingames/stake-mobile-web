@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import AuthSlice from './features/Auth/AuthSlice'
 import CommonSlice from './features/CommonSlice'
 import GameSlice from './features/Games/GameSlice'
+import TriviaChallengeGameSlice from './features/Games/TriviaChallengeStaking/TriviaChallengeGameSlice'
 import LiveTriviaSlice from './features/LiveTrivia/LiveTriviaSlice'
 import StoreSlice from './features/Store/StoreSlice'
 import { stakersApi } from './services/stakers-api'
@@ -16,6 +17,7 @@ export const store = configureStore({
     liveTrivia: LiveTriviaSlice,
     game: GameSlice,
     store: StoreSlice,
+    triviaChallenge: TriviaChallengeGameSlice,
     [stakersApi.reducerPath]: stakersApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>

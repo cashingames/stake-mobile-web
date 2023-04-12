@@ -7,7 +7,6 @@ import './WinnersScroller.scss';
 export default function WinnersScroller() {
     const { data = [], isLoading } = useGetRecentWinnersQuery()
 
-    console.log('winners', data, isLoading)
 
     if (isLoading) {
         return (

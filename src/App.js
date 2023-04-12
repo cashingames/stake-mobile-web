@@ -59,6 +59,7 @@ function App() {
 const booststrapAxios = function (token, dispatch) {
 
   axios.defaults.headers.common['x-brand-id'] = process.env.REACT_APP_BRAND_ID;
+  axios.defaults.headers.common['x-request-env'] = process.env.REACT_APP_REQUEST_ENV;
   axios.defaults.baseURL = process.env.REACT_APP_API_URL;
 
   if (token) {

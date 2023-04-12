@@ -93,7 +93,6 @@ export const fetchFeatureFlags = createAsyncThunk(
     'common/fetchFeatureFlags',
     async () => {
         const response = await axios.get(`v3/feature-flags`)
-        console.log(response)
         return response.data;
     }
 )

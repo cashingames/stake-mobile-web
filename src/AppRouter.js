@@ -2,6 +2,7 @@ import React, { lazy } from 'react';
 import { Routes, Route, Navigate } from "react-router-dom"
 import { getToken } from './features/Auth/AuthSlice'
 import GamesListScreen from './features/Games/GamesListScreen/GamesListScreen';
+import ChallengeStakingScreen from './features/Games/TriviaChallengeStaking/ChallengeStakingScreen/ChallengeStakingScreen';
 
 const DashBoardScreen = lazy(() => import('./features/Dashboard/DashBoardScreen'));
 
@@ -90,6 +91,9 @@ const AppRouter = () => {
             <Route
                 path="/games/staking/loading"
                 element={<AuthRoute redirectTo="/"><GameLoading /></AuthRoute>} />
+            <Route
+                path="/challenge-staking"
+                element={<AuthRoute redirectTo="/"><ChallengeStakingScreen /></AuthRoute>} />
             <Route
                 path="/game-result"
                 element={<AuthRoute redirectTo="/"><GameEnded /></AuthRoute>} />
