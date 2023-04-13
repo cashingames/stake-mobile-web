@@ -1,0 +1,116 @@
+.challenge-matching-container {
+    background-color: #301934;
+    height: 100vh;
+    overflow: scroll;
+    padding: 1rem 2rem;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+
+    .message {
+        font-size: 1rem;
+        font-family: 'graphik-medium';
+        color: #fff;
+        text-align: center;
+        line-height: 2;
+        margin: .5rem 0;
+    }
+
+    .message-container {
+        .players-container {
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 20px;
+            padding: 2rem 1.5rem;
+            margin-bottom: 2rem;
+            border: 1px solid #fff;
+            .player-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+    
+                .avatar-container {
+                    width: 60px;
+                    height: 60px;
+                    border-radius: 50%;
+                    background-color: #fff;
+    
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 50%;
+                    }
+                }
+    
+                .player-name {
+                    margin: 0;
+                    margin-top: 0.8rem;
+                    font-size: 0.75rem;
+                    font-family: 'graphik-regular';
+                    color: #fff;
+                    width: 5rem;
+                    text-align: center;
+                }
+            }
+
+        }
+    }
+    .purchase-boost {
+        display: flex;
+        flex-direction: column;
+        .boost-text {
+            font-size: .8rem;
+            font-family: 'graphik-medium';
+            color: #fff;
+            text-align: center;
+            line-height: 1.2;
+        }
+        .boost-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            .boost-card-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin-top: 1rem;
+                margin-left: 1rem;
+                margin-right: 1rem;
+            }
+            .boost-icon {
+                width: 2.5rem;
+                height: 2.5rem;
+            }
+            .boost-details-container {
+                display: flex;
+                flex-direction: column;
+                .boost-name-count {
+                    align-items: center;
+                    .boost-name {
+                        font-family: 'graphik-medium';
+                        font-size: 0.7rem;
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
+    .cancel-button {
+        background-color: #EF2F55;
+        border: none;
+        border-radius: 8px;
+        // width: 35%;
+        height: 3rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 8px;
+        color: #fff;
+        font-family: 'graphik-medium';
+    }
+}

@@ -13,12 +13,13 @@ function SelectGame() {
   const gameMode = useSelector(state => state.common.gameModes[0]); //to be controller from backend
   const gameType = useSelector(state => state.common.gameTypes[0]); //to be controlled from backend
   const features = useSelector(state => state.common.featureFlags);
+  // eslint-disable-next-line 
   const isChallengeFeatureEnabled = features['enable_challenge'] !== undefined && features['enable_challenge'].enabled == true;
   const user = useSelector(state => state.auth.user);
 
   useEffect(() => {
     dispatch(fetchFeatureFlags())
-  }, [])
+  }, [dispatch])
 
 
   const selectTriviaStakingMode = () => {

@@ -3,7 +3,7 @@ import React from 'react'
 // import Boost from '../../assets/boost.json'
 import './GameAppHeader.scss'
 
-function GameAppHeader({onPress, openBoost}) {
+function GameAppHeader({onPress}) {
     return (
         <div className='gameInHeader'>
             <div></div>

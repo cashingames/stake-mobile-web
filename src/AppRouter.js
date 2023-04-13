@@ -2,7 +2,11 @@ import React, { lazy } from 'react';
 import { Routes, Route, Navigate } from "react-router-dom"
 import { getToken } from './features/Auth/AuthSlice'
 import GamesListScreen from './features/Games/GamesListScreen/GamesListScreen';
+import ChallengeEndGameScreen from './features/Games/TriviaChallengeStaking/ChallengeEndGameScreen/ChallengeEndGameScreen';
+import ChallengeGameBoardScreen from './features/Games/TriviaChallengeStaking/ChallengeGameBoardScreen/ChallengeGameBoardScreen';
+import ChallengeMatchingScreen from './features/Games/TriviaChallengeStaking/ChallengeMatchingScreen/ChallengeMatchingScreen';
 import ChallengeStakingScreen from './features/Games/TriviaChallengeStaking/ChallengeStakingScreen/ChallengeStakingScreen';
+import ChallengeWaitingScreen from './features/Games/TriviaChallengeStaking/ChallengeWaitingScreen/ChallengeWaitingScreen';
 
 const DashBoardScreen = lazy(() => import('./features/Dashboard/DashBoardScreen'));
 
@@ -94,6 +98,18 @@ const AppRouter = () => {
             <Route
                 path="/challenge-staking"
                 element={<AuthRoute redirectTo="/"><ChallengeStakingScreen /></AuthRoute>} />
+            <Route
+                path="/challenge-matching"
+                element={<AuthRoute redirectTo="/"><ChallengeMatchingScreen /></AuthRoute>} />
+            <Route
+                path="/challenge-game"
+                element={<AuthRoute redirectTo="/"><ChallengeGameBoardScreen /></AuthRoute>} />
+            <Route
+                path="/challenge-ended"
+                element={<AuthRoute redirectTo="/"><ChallengeEndGameScreen /></AuthRoute>} />
+            <Route
+                path="/challenge-waiting"
+                element={<AuthRoute redirectTo="/"><ChallengeWaitingScreen /></AuthRoute>} />
             <Route
                 path="/game-result"
                 element={<AuthRoute redirectTo="/"><GameEnded /></AuthRoute>} />

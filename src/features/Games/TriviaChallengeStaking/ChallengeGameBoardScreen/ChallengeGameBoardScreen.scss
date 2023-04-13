@@ -1,0 +1,107 @@
+@mixin devices ($breakpoint) {
+    @if $breakpoint ==sm {
+        @media only screen and (max-width:374px) {
+            @content
+        }
+    }
+}
+
+.gameInProgress {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    font-family: 'Graphik';
+    padding: 2rem 1rem 2rem 1rem;
+    min-height: 100vh;
+
+    .game-questions {
+        margin: 0 1rem;
+        margin-bottom: 1.2rem;
+
+        .game-question {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            color: #fff;
+            font-size: 0.9rem;
+            font-family: 'graphik-medium';
+            line-height: 1.6;
+            text-align: center;
+
+            @include devices(sm) {
+                line-height: 1.4;
+                font-size: 0.8rem;
+            }
+        }
+
+    }
+    .is-selected {
+        background-color: #F5D2FF;
+        margin-bottom: .5rem;
+        padding: .8rem ;
+        border-radius: 16px;
+        border-bottom: 7px solid #C97AE0;
+
+        .option-text{
+            margin: 0;
+            color: #151C2F;
+            text-align: center;
+            font-size: 0.75rem;
+            font-family: 'graphik-medium';
+        }
+    }
+    .answer {
+        background-color: #fff;
+        margin-bottom: .5rem;
+        padding: .8rem ;
+        border-radius: 16px;
+        border-bottom: 7px solid #C97AE0;
+
+        .option-text{
+            margin: 0;
+            color: #151C2F;
+            text-align: center;
+            font-size: 0.75rem;
+            font-family: 'graphik-medium';
+        }
+    }
+
+  
+}
+
+
+.nextButtonCase {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+
+    .nextButton {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #EF2F55;
+        border-radius: 8px;
+        margin-top: 2rem;
+
+        border: none;
+
+        @include devices(sm) {
+            margin-top: 1rem;
+        }
+
+        .btnText {
+            color: #fff;
+            font-family: 'graphik-medium';
+        }
+    }
+
+    button[disabled] {
+        border: none;
+        background-color: #DFCBCF;
+        color: white;
+    }
+
+ 
+}

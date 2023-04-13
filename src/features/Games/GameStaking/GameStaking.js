@@ -10,6 +10,9 @@ import Dialogue from '../../../components/Dialogue/Dialogue'
 
 import './GameStaking.scss'
 import { unwrapResult } from "@reduxjs/toolkit";
+import BottomSheet from "../../../components/BottomSheet/BottomSheet";
+import LowWallet from "../../../components/LowWallet/LowWallet";
+import { getUser } from "../../Auth/AuthSlice";
 
 
 const GameStaking = () => {
@@ -26,6 +29,8 @@ const GameStaking = () => {
     const [openDialogue, setOpenDialogue] = useState(false);
     const [alertMessage, setAlert] = useState('');
     const [loading, setLoading] = useState(false);
+    const [showLowWallet, setShowLowWallet] = useState(false);
+
 
 
     useEffect(() => {
@@ -44,6 +49,10 @@ const GameStaking = () => {
     }
     const closeAlert = () => {
         setOpenDialogue(false)
+    }
+    const closeBS = () => {
+        dispatch(getUser())
+        setShowLowWallet(false)
     }
 
 
@@ -93,8 +102,9 @@ const GameStaking = () => {
             <ScreenHeader title='Stake Cash' styleProp='staking' onClick={backHandler} />
             <div className="staking-container">
                 <StakeAmount onSubmit={proceed} onChange={onStakeChange} amount={amount} setAmount={setAmount}
-                    readOnly={false} disabled={loading ? true : false} setOpenDialogue={setOpenDialogue} setAlert={setAlert} />
+                    readOnly={false} disabled={loading ? true : false} setOpenDialogue={setOpenDialogue} setAlert={setAlert} setShowLowWallet={setShowLowWallet} />
                 <StakingPredictionsTable stake={stake} usePreviousOdds={false} />
+                <BottomSheet open={showLowWallet} closeBottomSheet={closeBS} BSContent={<LowWallet onClose={closeBS} />} />
                 <Dialogue open={openDialogue} handleClose={closeAlert} dialogueMessage={alertMessage} />
             </div>
         </>

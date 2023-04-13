@@ -1,16 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
-import LowWallet from "../../../components/LowWallet/LowWallet";
 import { formatCurrency } from '../../../utils/stringUtl'
 
 import './StakeAmount.scss'
 
-function StakeAmount({ onSubmit, onChange, amount, setAmount, readOnly, disabled,setOpenDialogue, setAlert}) {
+function StakeAmount({ onSubmit, onChange, amount, setAmount, readOnly, disabled,setOpenDialogue, setAlert,setShowLowWallet}) {
 
     const user = useSelector((state) => state.auth.user);
     const maximumExhibitionStakeAmount = useSelector(state => Number.parseFloat(state.common.maximumExhibitionStakeAmount ?? 0));
     const minimumExhibitionStakeAmount = useSelector(state => Number.parseFloat(state.common.minimumExhibitionStakeAmount ?? 0));
-    const [showLowWallet, setShowLowWallet] = useState(false);
 
     const validate = () => {
 
@@ -72,8 +70,6 @@ function StakeAmount({ onSubmit, onChange, amount, setAmount, readOnly, disabled
                     <p className="start-text">Start Game</p>
                 </button>
             </div>
-
-            <LowWallet open={showLowWallet} onClose={() => setShowLowWallet(false)} />
 
         </div>
     )

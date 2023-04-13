@@ -69,7 +69,7 @@ const ChallengeStakingScreen = () => {
                 logToAnalytics("trivia_challenge_stake_now_clicked", {
                     'amount': amount,
                 });
-                // navigate('/')
+                navigate('/challenge-matching')
                 alert("doneeee")
             })
             .catch((rejectedValueOrSerializedError) => {

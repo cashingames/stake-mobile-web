@@ -1,6 +1,5 @@
 import React from 'react';
 import FundWalletComponent from '../FundWalletComponent/FundWalletComponent';
-import BottomSheet from '../BottomSheet/BottomSheet';
 import { IoCloseOutline } from 'react-icons/io5';
 
 import './LowWallet.scss'

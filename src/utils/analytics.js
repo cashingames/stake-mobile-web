@@ -1,6 +1,6 @@
 import { logEvent } from "firebase/analytics";
-import firebaseConfig from "../firebaseConfig";
-const analytics = firebaseConfig();
+import { initializeAnalytics } from "../firebaseConfig";
+const analytics = initializeAnalytics()
 
 export default function logToAnalytics(eventName, data) {
 

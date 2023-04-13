@@ -1,0 +1,41 @@
+.gameProgressBoost {
+    display: flex;
+    // flex-direction: row;
+    .players-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 1rem 1rem;
+        align-items: center;
+        .versus {
+            font-size: 'graphik-medium';
+            font-size: 0.75rem;
+            color: white;
+        }
+        .player-container{
+            display: flex;
+            flex-direction: row;
+            display: flex;
+            align-items: center;
+            .player-avatar {
+                width: 2.5rem;
+                height: 2.5rem;
+                border-radius: 50px;
+            }
+            .player-name {
+                font-size: 'graphik-medium';
+                font-size: 0.75rem;
+                color: white;
+                margin-left: 2rem;
+                // width: 4rem;
+            }
+            .user-name {
+                font-size: 'graphik-medium';
+                font-size: 0.75rem;
+                color: white;
+                margin-right: 2rem;
+                // width: 4rem;
+            }
+        }
+    }
+}

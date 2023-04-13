@@ -34,6 +34,7 @@ jobs:
           REACT_APP_FIREBASE_MESSAGING_SENDER_ID: ${{secrets.FIREBASE_MESSAGING_SENDER_ID}}
           REACT_APP_FACEBOOK_CLIENT_ID: ${{secrets.PRODUCTION_FACEBOOK_CLIENT_ID}}
           REACT_APP_BRAND_ID: 2
+          REACT_APP_REQUEST_ENV: stake-production
 
       # - name: cypress test
       #   run: |

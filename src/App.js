@@ -3,13 +3,13 @@ import axios from 'axios';
 import { useDispatch, useSelector } from "react-redux";
 import React, { useEffect } from "react";
 import LoaderScreen from "./features/LoaderScreen/LoaderScreen";
-import firebaseConfig from "./firebaseConfig";
 import { getToken, getUser, logoutUser, setToken } from "./features/Auth/AuthSlice";
 import { getCommonData, initialLoadingComplete } from "./features/CommonSlice";
 
 import './App.scss'
+import { initializeAnalytics } from "./firebaseConfig";
 
-firebaseConfig();
+initializeAnalytics();
 
 function App() {
 
