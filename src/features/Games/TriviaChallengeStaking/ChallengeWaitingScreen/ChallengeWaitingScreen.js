@@ -62,8 +62,8 @@ const ChallengeWaitingScreen = () => {
                     } />
             </div>
             <SelectedPlayers challengeDetails={challengeDetails} />
-            <p className="message">Wait for both scores to be calculated</p>
-            <p className="message">Calculating....</p>
+            <p className="message">Waiting for your opponent to finish</p>
+            <p className="message">Loading....</p>
         </div>
     )
 }
