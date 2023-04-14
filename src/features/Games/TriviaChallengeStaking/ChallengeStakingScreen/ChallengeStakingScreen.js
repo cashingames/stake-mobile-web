@@ -70,7 +70,6 @@ const ChallengeStakingScreen = () => {
                     'amount': amount,
                 });
                 navigate('/challenge-matching')
-                alert("doneeee")
             })
             .catch((rejectedValueOrSerializedError) => {
                 alert("Something went wrong. Please try again or contact support")

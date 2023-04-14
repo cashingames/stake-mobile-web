@@ -1,0 +1,168 @@
+.end-game-container {
+    display: flex;
+    background-color: #9C3DB8;
+    padding: 1rem 2rem;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 100vh;
+
+    .head-text {
+        font-size: 1.2rem;
+        font-family: 'graphik-medium';
+        color: #fff;
+        text-align: center;
+        line-height: 2;
+    }
+
+    .players-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin: 1rem 0;
+
+        .player-info-container {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+
+            .username {
+                font-size: 0.75rem;
+                font-family: 'graphik-medium';
+                color: #fff;
+                text-align: center;
+                margin-bottom: .4rem;
+                width: 5rem;
+                word-wrap: break-word;
+            }
+
+            .avatar-container {
+                border-radius: 100px;
+                border: 6px solid #fff;
+                display: flex;
+                align-items: center;
+
+                .winner-avatar {
+                    width: 100px;
+                    height: 100px;
+                    background-color: #fff;
+                    border-radius: 100px;
+                    border: 8px solid #6895FF;
+                }
+
+            }
+
+            .loser-avatar {
+                width: 60px;
+                height: 60px;
+                background-color: #fff;
+                border-radius: 100px;
+                border: 4px solid #FF716C;
+            }
+        }
+    }
+
+    .winnings-container {
+        background-color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem 0;
+        margin: .5rem 0;
+        border-radius: 10px;
+
+        .winning-text {
+            font-size: .9rem;
+            font-family: 'graphik-bold';
+            color: #000000;
+            text-align: center;
+
+            .winning-amount {
+                color: #EB7474;
+            }
+        }
+    }
+
+    .score-container {
+        display: flex;
+        background-color: #F9E821;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 2rem 1rem;
+        margin-top: .3rem;
+        border-radius: 16px;
+
+        .score-text {
+            font-size: .9rem;
+            font-family: 'graphik-medium';
+            color: #9236AD;
+            text-align: center;
+        }
+
+        .score-count-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            .winner-count {
+                font-size: 5.5rem;
+                font-family: 'graphik-bold';
+                color: #6895FF;
+                text-align: center;
+                margin: 0;
+            }
+
+            .loser-count {
+                font-size: 5.5rem;
+                font-family: 'graphik-bold';
+                color: #FF716C;
+                text-align: center;
+                margin: 0;
+            }
+
+            .colon {
+                font-size: 5.5rem;
+                font-family: 'graphik-bold';
+                color: #9236AD;
+                text-align: center;
+                margin: 0 1rem;
+            }
+        }
+    }
+
+    .game-buttons {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 30px 0;
+
+        .game-button {
+            border: 1px solid #fff;
+            width: 9rem;
+            height: 3rem;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: none;
+            color: #fff;
+            font-size: 0.75rem;
+            font-family: 'graphik-medium';
+            text-align: center;
+        }
+        .is-disabled {
+            border: 1px solid #fff;
+            width: 9rem;
+            height: 3rem;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 0.75rem;
+            font-family: 'graphik-medium';
+            text-align: center;
+            background-color: #DFCBCF;
+        }
+    }
+}

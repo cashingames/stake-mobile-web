@@ -9,6 +9,7 @@ import { doc, getDoc } from "firebase/firestore";
 import { initializeFirestore } from '../../../../firebaseConfig'
 import DoubleDialog from '../../../../components/DoubleButtonDialog/DoubleDialogButton'
 import ChallengeProgressWidget from '../../../../components/ChallengeProgressWidget/ChallengeProgressWidget'
+import logToAnalytics from '../../../../utils/analytics'
 
 const db = initializeFirestore();
 
@@ -92,6 +93,14 @@ function ChallengeGameBoardScreen() {
         }
     })
 
+    useEffect(() => {
+        logToAnalytics("trivia_challenge_stake_started", {
+            'documentId': documentId,
+            'opponentName': challengeDetails.opponent.username,
+            'username': challengeDetails.username,
+        })
+          // eslint-disable-next-line 
+    }, [])
 
     useEffect(() => {
 

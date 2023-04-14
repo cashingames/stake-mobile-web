@@ -8,6 +8,7 @@ import { initializeFirestore } from "../../../../firebaseConfig";
 import DoubleDialog from "../../../../components/DoubleButtonDialog/DoubleDialogButton";
 import { useNavigate } from "react-router-dom";
 import { setChallengeDetails } from "../TriviaChallengeGameSlice";
+import logToAnalytics from "../../../../utils/analytics";
 
 const backendUrl = process.env.REACT_APP_API_ROOT_URL;
 const db = initializeFirestore();
@@ -30,12 +31,21 @@ const ChallengeMatchingScreen = () => {
     console.log("this is the document we are working with", documentId)
 
     useEffect(() => {
-        // eslint-disable-next-line 
         const unsub = onSnapshot(doc(db, documentId), (doc) => {
             const data = doc.data()
             console.log("Current data: ", data);
 
             if (data.status === "MATCHED" && data.opponent.status !== "COMPLETED") {
+                logToAnalytics("trivia_challenge_stake_matched", {
+                    'documentId': documentId,
+                    'opponentName': data.opponent.username,
+                    'username': data.username,
+                });
+                logToAnalytics("trivia_challenge_stake_start_initiated", {
+                    'documentId': documentId,
+                    'opponentName': data.opponent.username,
+                    'username': data.username,
+                });
                 dispatch(setChallengeDetails(data));
                 setChallengeInfo(data);
                 setDataUpdated(true);
@@ -45,27 +55,12 @@ const ChallengeMatchingScreen = () => {
                 }, 5000);
             }
 
+        }, error => {
+            console.log('listening and got updated: ', "error", error);
         });
+        return () => unsub();
         // eslint-disable-next-line 
-    }, [])
-
-    // const unsub = onSnapshot(doc(db, documentId), (doc) => {
-    //     const data = doc.data()
-    //     console.log("Current data: ", data);
-
-    //     if (data.status === "MATCHED" && data.opponent.status !== "COMPLETED") {
-    //         dispatch(setChallengeDetails(data));
-    //         setChallengeInfo(data);
-    //         setDataUpdated(true);
-    //         setTimeout(() => {
-    //             console.log("game loading", "navigating after 5 seconds")
-    //             navigate('/challenge-game');
-    //         }, 5000);
-    //     }
-
-    // });
-
-    // unsub();
+    }, [documentId])
 
 
     const closeAlert = () => {
@@ -81,6 +76,31 @@ const ChallengeMatchingScreen = () => {
         setOpenAlert(false)
         navigate('/dashboard')
     }
+
+    // disable browser back button
+    useEffect(() => {
+        window.history.pushState(null, null, window.location.href);
+        window.onpopstate = function () {
+            window.history.go(1);
+        };
+    })
+
+    const handleGameBoardTabClosing = () => {
+        navigate('/dashboard')
+    }
+
+    const alertUserBeforeClosinigGame = (event) => {
+        event.preventDefault();
+        event.returnValue = '';
+    }
+    useEffect(() => {
+        window.addEventListener('beforeunload', alertUserBeforeClosinigGame)
+        window.addEventListener('unload', handleGameBoardTabClosing)
+        return () => {
+            window.removeEventListener('beforeunload', alertUserBeforeClosinigGame)
+            window.removeEventListener('unload', handleGameBoardTabClosing)
+        }
+    })
 
     useEffect(() => {
 

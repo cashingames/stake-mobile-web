@@ -1,10 +1,11 @@
-import React from 'react'
-import { Player } from '@lottiefiles/react-lottie-player'
-import { CountdownCircleTimer } from 'react-countdown-circle-timer'
-import GameBoard from '../../assets/game-board.json'
-import './ChallengeGameWidget.scss'
+import React from 'react';
 import { useSelector } from 'react-redux';
+import { Player } from '@lottiefiles/react-lottie-player';
+import { CountdownCircleTimer } from 'react-countdown-circle-timer';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
+import GameBoard from '../../assets/game-board.json';
+import './ChallengeGameWidget.scss';
 
 
 function ChallengeGameWidget({ onComplete }) {

@@ -1,5 +1,4 @@
 import React from 'react'
-// import './GameInProgressAndBoost.scss'
 // import AvailableBoostSession from '../AvailableBoostSession/AvailableBoostSession'
 import ChallengeGameWidget from '../ChallengeGameWidget/ChallengeGameWidget';
 import './ChallengeProgressWidget.scss'

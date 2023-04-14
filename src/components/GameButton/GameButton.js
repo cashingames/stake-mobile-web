@@ -1,7 +1,7 @@
 import React from 'react'
 import './GameButton.scss'
 
-function GameButton({goHome, playAgain}) {
+function GameButton({goHome, playAgain, disabled}) {
   return (
     <div className='gameBtnCase'>
         <button className='homeBtn' onClick={goHome}>
@@ -9,7 +9,7 @@ function GameButton({goHome, playAgain}) {
                 Return to Home
             </p>
         </button>
-        <button className='homeBtn' onClick={playAgain}>
+        <button className='homeBtn' onClick={playAgain} disabled={disabled}>
             <p className='gameText'>
                 Play Again
             </p>

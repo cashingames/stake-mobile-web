@@ -22,8 +22,8 @@ const GamesListScreen = () => {
             <ScreenHeader title='Games' styleProp='games-header' iconProp='games-back' onClick={navigateHandler} />
             <div className="games-list-container">
                 <div className="games-container">
-                    <TriviaStakingCard />
                     <ChallengeStakingCard />
+                    <TriviaStakingCard />
                 </div>
             </div>
         </>
@@ -93,8 +93,8 @@ const ChallengeStakingCard = () => {
                 <img src={user.avatar ? `${backendUrl}/${user.avatar}` : "/images/user-icon.png"}
                     alt='avatar'
                     className="avatar"
-                    onError={(e) => e.target.style.display = 'none'} />                
-                    <img src="/images/versus.png" alt="versus" className="versus" />
+                    onError={(e) => e.target.style.display = 'none'} />
+                <img src="/images/versus.png" alt="versus" className="versus" />
                 <img src="/images/question.png" alt="question" className="avatar" />
             </div>
             <p className="title">Challenge a friend</p>

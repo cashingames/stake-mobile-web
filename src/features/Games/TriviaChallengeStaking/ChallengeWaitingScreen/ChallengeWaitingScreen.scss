@@ -1,0 +1,75 @@
+.game-waiting-container {
+    display: flex;
+    justify-content: center;
+    background-color: #9C3DB8;
+    padding: 2rem;
+    flex-direction: column;
+    min-height: 100vh;
+
+    .animation-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .players-container {
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 20px;
+        padding: 2rem 1.5rem;
+        margin-bottom: 2rem;
+        border: 1px solid #fff;
+
+        .player-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .avatar-container {
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+                background-color: #fff;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 50%;
+                }
+            }
+
+            .player-name {
+                margin: 0;
+                margin-top: 0.8rem;
+                font-size: 0.75rem;
+                font-family: 'graphik-regular';
+                color: #fff;
+                width: 5rem;
+                word-wrap: break-word;
+                text-align: center;
+            }
+        }
+
+    }
+
+    .message {
+        margin: 4px 0;
+        font-size: 1rem;
+        font-family: 'graphik-medium';
+        color: #fff;
+        text-align: center;
+        line-height: 2;
+    }
+    .matching-text {
+        margin: 4px 0;
+        font-size: 1rem;
+        font-family: 'graphik-italic';
+        color: #fff;
+        text-align: center;
+        line-height: 2;
+    }
+}
