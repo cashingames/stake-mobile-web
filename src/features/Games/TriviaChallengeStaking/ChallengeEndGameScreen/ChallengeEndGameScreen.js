@@ -38,21 +38,21 @@ const ChallengeEndGameScreen = () => {
 
 
     useEffect(() => {
-        if (formatNumber(challengeDetails.score) > formatNumber(challengeDetails.opponent.score)) {
+        if (Number.parseFloat(challengeDetails.score) > Number.parseFloat(challengeDetails.opponent.score)) {
             logToAnalytics("trivia_challenge_stake_won", {
                 'opponentName': challengeDetails.opponent.username,
                 'username': challengeDetails.username,
             })
             return
         }
-        if (formatNumber(challengeDetails.score) < formatNumber(challengeDetails.opponent.score)) {
+        if (Number.parseFloat(challengeDetails.score) < Number.parseFloat(challengeDetails.opponent.score)) {
             logToAnalytics("trivia_challenge_stake_lost", {
                 'opponentName': challengeDetails.opponent.username,
                 'username': challengeDetails.username,
             })
             return
         }
-        if (formatNumber(challengeDetails.score) === formatNumber(challengeDetails.opponent.score)) {
+        if (Number.parseFloat(challengeDetails.score) === Number.parseFloat(challengeDetails.opponent.score)) {
             logToAnalytics("trivia_challenge_stake_draw", {
                 'opponentName': challengeDetails.opponent.username,
                 'username': challengeDetails.username,
@@ -72,13 +72,13 @@ const ChallengeEndGameScreen = () => {
 
     return (
         <div className="end-game-container">
-            {formatNumber(challengeDetails.score) > formatNumber(challengeDetails.opponent.score) &&
+            {Number.parseFloat(challengeDetails.score) > Number.parseFloat(challengeDetails.opponent.score) &&
                 <p className="head-text">Congrats {user.username}</p>
             }
-            {formatNumber(challengeDetails.score) < formatNumber(challengeDetails.opponent.score) &&
+            {Number.parseFloat(challengeDetails.score) < Number.parseFloat(challengeDetails.opponent.score) &&
                 <p className="head-text">Sorry {user.username}</p>
             }
-            {formatNumber(challengeDetails.score) === formatNumber(challengeDetails.opponent.score) &&
+            {Number.parseFloat(challengeDetails.score) === Number.parseFloat(challengeDetails.opponent.score) &&
                 <p className="head-text">Draw, you can try again</p>
             }
             <ChallengePlayers challengeDetails={challengeDetails} />
@@ -95,17 +95,17 @@ const ChallengeEndGameScreen = () => {
 const ChallengePlayers = ({ challengeDetails }) => {
     return (
         <div className="players-container">
-            {formatNumber(challengeDetails.score) > formatNumber(challengeDetails.opponent.score) && <>
+            {Number.parseFloat(challengeDetails.score) > Number.parseFloat(challengeDetails.opponent.score) && <>
                 <ChallengeWinner playerName={challengeDetails.username} playerAvatar={challengeDetails.avatar ? `${backendUrl}/${challengeDetails.avatar}` : "/images/user-icon.png"} />
                 <ChallengeLoser playerName={challengeDetails.opponent.username} playerAvatar={challengeDetails.opponent.avatar ? `${backendUrl}/${challengeDetails.opponent.avatar}` : "/images/user-icon.png"} />
             </>
             }
-            {formatNumber(challengeDetails.score) < formatNumber(challengeDetails.opponent.score) && <>
+            {Number.parseFloat(challengeDetails.score) < Number.parseFloat(challengeDetails.opponent.score) && <>
                 <ChallengeLoser playerName={challengeDetails.username} playerAvatar={challengeDetails.avatar ? `${backendUrl}/${challengeDetails.avatar}` : "/images/user-icon.png"} />
                 <ChallengeWinner playerName={challengeDetails.opponent.username} playerAvatar={challengeDetails.opponent.avatar ? `${backendUrl}/${challengeDetails.opponent.avatar}` : "/images/user-icon.png"} />
             </>
             }
-            {formatNumber(challengeDetails.score) === formatNumber(challengeDetails.opponent.score) &&
+            {Number.parseFloat(challengeDetails.score) === Number.parseFloat(challengeDetails.opponent.score) &&
                 <>
                     <ChallengeWinner playerName={challengeDetails.username} playerAvatar={challengeDetails.avatar ? `${backendUrl}/${challengeDetails.avatar}` : "/images/user-icon.png"} />
                     <ChallengeLoser playerName={challengeDetails.opponent.username} playerAvatar={challengeDetails.opponent.avatar ? `${backendUrl}/${challengeDetails.opponent.avatar}` : "/images/user-icon.png"} />
