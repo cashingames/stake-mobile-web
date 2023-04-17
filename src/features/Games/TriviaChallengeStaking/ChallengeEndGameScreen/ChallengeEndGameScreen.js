@@ -59,13 +59,13 @@ const ChallengeEndGameScreen = () => {
             })
             return
         }
-        if (challengeDetails.opponent.is_bot === true) {
-            logToAnalytics("trivia_challenge_stake_draw", {
-                'opponentName': challengeDetails.opponent.username,
-                'username': challengeDetails.username,
-            })
-            return
-        }
+        // if (challengeDetails.opponent.is_bot === true) {
+        //     logToAnalytics("trivia_challenge_stake_draw", {
+        //         'opponentName': challengeDetails.opponent.username,
+        //         'username': challengeDetails.username,
+        //     })
+        //     return
+        // }
         return
         // eslint-disable-next-line 
     }, [])
