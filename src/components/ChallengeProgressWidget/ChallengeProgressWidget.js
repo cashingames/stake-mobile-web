@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { reduceBoostCount } from '../../features/Auth/AuthSlice';
 import { boostReleased, consumeBoost, pauseGame, skipQuestion } from '../../features/Games/TriviaChallengeStaking/TriviaChallengeGameSlice';
+import logToAnalytics from '../../utils/analytics';
 import { formatNumber } from '../../utils/stringUtl';
 import ChallengeGameWidget from '../ChallengeGameWidget/ChallengeGameWidget';
 import './ChallengeProgressWidget.scss'
@@ -27,20 +28,20 @@ function ChallengeProgressWidget({ onComplete, challengeDetails }) {
                 dispatch(pauseGame(false))
                 dispatch(boostReleased())
             }, 10000);
-            // analytics().logEvent("trivia_challenge_freeze_boost_used", {
-            //     'documentId': documentId,
-            //     'opponentName': challengeDetails.opponent.username,
-            //     'username': challengeDetails.username,
-            // })
+            logToAnalytics("trivia_challenge_freeze_boost_used", {
+                'documentId': documentId,
+                'opponentName': challengeDetails.opponent.username,
+                'username': challengeDetails.username,
+            })
         }
         if (name === 'SKIP') {
             dispatch(skipQuestion());
             dispatch(boostReleased());
-            // analytics().logEvent("trivia_challenge_skip_boost_used", {
-            //     'documentId': documentId,
-            //     'opponentName': challengeDetails.opponent.username,
-            //     'username': challengeDetails.username,
-            // })
+            logToAnalytics("trivia_challenge_skip_boost_used", {
+                'documentId': documentId,
+                'opponentName': challengeDetails.opponent.username,
+                'username': challengeDetails.username,
+            })
         }
         // if (name === "BOMB") {
         //     dispatch(bombOptions());

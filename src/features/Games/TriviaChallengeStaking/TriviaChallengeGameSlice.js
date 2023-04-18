@@ -92,6 +92,7 @@ export const TriviaChallengeStakeGameSlice = createSlice({
             const q = state.questions.filter(x => x.id !== state.currentQuestion.id);
             state.questions = q
             state.currentQuestion = state.questions[state.currentQuestionIndex]
+            // eslint-disable-next-line 
             state.currentQuestion.options = state.currentQuestion.options
         },
         boostReleased: (state) => {
