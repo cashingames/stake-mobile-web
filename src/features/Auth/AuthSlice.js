@@ -195,6 +195,8 @@ export const AuthSlice = createSlice({
             state.user.boosts.map(boost => {
                 if (boost.id === action.payload) {
                     boost.count -= 1;
+                    console.log('reduced')
+
                 }
             })
         }

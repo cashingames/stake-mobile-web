@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import logToAnalytics from "../../../../utils/analytics";
 import { formatCurrency, formatNumber } from '../../../../utils/stringUtl';
+import { getUser } from "../../../Auth/AuthSlice";
 import { clearSession } from "../TriviaChallengeGameSlice";
 import './ChallengeEndGameScreen.scss';
 
@@ -35,6 +36,10 @@ const ChallengeEndGameScreen = () => {
         setLoading(false);
 
     }
+
+    useEffect(() => {
+        dispatch(getUser());
+      }, [dispatch])
 
 
     useEffect(() => {

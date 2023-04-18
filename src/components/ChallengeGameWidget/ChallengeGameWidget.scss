@@ -1,19 +1,23 @@
-.inProgress{
+.inProgress {
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    .gameProgressTimer{
+
+    .gameProgressTimer {
         display: flex;
         align-items: center;
         gap: 1rem;
-        .countdownCase{
-        margin-right: 20px;      
+
+        .countdownCase {
+            margin-right: 20px;
+        }
+
+        .timerCount {
+            margin: 0;
+            font-size: 0.7rem;
+            color: #fff;
+        }
     }
-    .timerCount{
-        margin: 0;
-        font-size: 0.7rem;
-        color:#fff;
-    }
-}
+   
 }

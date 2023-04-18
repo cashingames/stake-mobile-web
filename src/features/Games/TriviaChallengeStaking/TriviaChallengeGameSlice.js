@@ -4,7 +4,7 @@ import axios from 'axios'
 export const startChallengeRequest = createAsyncThunk(
     'game/createRealTimeChallenge',
     async (data, _thunkAPI) => {
-        const response = await axios.post('v3/challenges/create', data);
+        const response = await axios.post('v3/challenges/create', data)
         console.log(response.data, 'this is the challenge data')
         return response.data
     }
@@ -18,8 +18,9 @@ export const submitGameSession = createAsyncThunk(
         const data = {
             challenge_request_id: state.challengeDetails.challenge_request_id,
             selected_options: state.selectedOptions,
+            consumed_boosts: state.consumedBoosts
         }
-        // console.log('submitting game session')
+        console.log(data,'submitting game session')
 
         const response = await axios.post('v3/challenges/submit', data);
         // console.log(response.data)
@@ -34,9 +35,11 @@ let initialState = {
     currentQuestion: {},
     selectedOptions: [],
     currentQuestionIndex: 0,
-    totalQuestions: 0,
+    totalQuestions: 10,
     countdownFrozen: false,
-    gameDuration: 60,
+    consumedBoosts: [],
+    activeBoost: [],
+    gameDuration: 285,
     countdownKey: 0,
     challengeDetails: {},
     isEnded: false,
@@ -49,7 +52,7 @@ export const TriviaChallengeStakeGameSlice = createSlice({
         setChallengeDetails: (state, action) => {
             state.challengeDetails = action.payload;
             state.questions = state.challengeDetails.questions;
-            state.totalQuestions = state.questions.length;
+            // state.totalQuestions = state.questions.length;
             state.currentQuestion = state.questions[state.currentQuestionIndex];
         },
         getNextQuestion: (state) => {
@@ -69,8 +72,30 @@ export const TriviaChallengeStakeGameSlice = createSlice({
                 state.selectedOptions[currentIndex] = data;
             }
         },
+        consumeBoost: (state, action) => {
+            state.consumedBoosts = [...state.consumedBoosts,
+            {
+                boost: action.payload
+            }];
+            state.activeBoost = action.payload;
+        },
         pauseGame: (state, action) => {
             state.countdownFrozen = action.payload
+        },
+        // bombOptions: (state) => {
+        //     const correctOption = state.currentQuestion.options.find(option => option.is_correct === '1')
+        //     const falseOptions = state.currentQuestion.options.filter(option => option.is_correct === '0')
+        //     const randomWrongOption = falseOptions[Math.floor(Math.random() * falseOptions.length)];
+        //     state.currentQuestion.options = shuffleArray([correctOption, randomWrongOption]);
+        // },
+        skipQuestion: (state) => {
+            const q = state.questions.filter(x => x.id !== state.currentQuestion.id);
+            state.questions = q
+            state.currentQuestion = state.questions[state.currentQuestionIndex]
+            state.currentQuestion.options = state.currentQuestion.options
+        },
+        boostReleased: (state) => {
+            state.activeBoost = {}
         },
         setGameDuration: (state, action) => {
             state.gameDuration = action.payload;
@@ -86,7 +111,10 @@ export const TriviaChallengeStakeGameSlice = createSlice({
             state.selectedOptions = [];
             state.currentQuestionIndex = 0;
             state.countdownFrozen = false;
+            state.consumedBoosts = [];
+            state.activeBoost= [];
             state.challengeDetails = {};
+            state.totalQuestions = 10
             state.isEnded = false;
         },
         setIsEnded: (state, action) => {
@@ -102,6 +130,8 @@ export const TriviaChallengeStakeGameSlice = createSlice({
     },
 })
 
-export const { getNextQuestion, selectedOption, setGameDuration, pauseGame, incrementCountdownResetIndex, setChallengeDetails, clearSession, setIsEnded } = TriviaChallengeStakeGameSlice.actions
+export const { getNextQuestion, selectedOption, setGameDuration, pauseGame, incrementCountdownResetIndex, setChallengeDetails, clearSession, setIsEnded,
+    consumeBoost, boostReleased, skipQuestion } = TriviaChallengeStakeGameSlice.actions
 
 export default TriviaChallengeStakeGameSlice.reducer
+
