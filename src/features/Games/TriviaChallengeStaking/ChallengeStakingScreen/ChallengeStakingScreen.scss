@@ -18,8 +18,13 @@
         justify-content: space-between;
         align-items: center;
         border-radius: 20px;
-        padding: 2rem 1.5rem;
-        margin-bottom: 2rem;
+        padding: 1.5rem 1.5rem;
+        margin-bottom: 1.5rem;
+
+        .versus {
+            width: 40px;
+            height: 80px;
+        }
 
         .player-container {
             display: flex;
@@ -27,8 +32,8 @@
             align-items: center;
 
             .avatar-container {
-                width: 60px;
-                height: 60px;
+                width: 50px;
+                height: 50px;
                 border-radius: 50%;
                 background-color: #fff;
 
@@ -131,6 +136,7 @@
 
 
     }
+
     .purchase-boost {
         background-color: #301934;
         margin: 1rem 0;
@@ -139,50 +145,61 @@
         display: flex;
         align-items: center;
         flex-direction: column;
+
         .boost-text {
             font-size: .8rem;
             font-family: 'graphik-medium';
             color: #fff;
             text-align: center;
             line-height: 1.2;
+            margin: 0;
         }
+
         .boost-container {
             display: flex;
             flex-direction: row;
             align-items: center;
             justify-content: center;
+            margin: 1rem 0;
+
             .boost-card-container {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                margin-top: 1rem;
                 margin-left: 1rem;
                 margin-right: 1rem;
             }
+
             .boost-icon {
-                width: 3rem;
-                height: 3rem;
+                width: 2.5rem;
+                height: 2.5rem;
             }
+
             .boost-details-container {
                 display: flex;
                 flex-direction: column;
+
                 .boost-name-count {
                     align-items: center;
+
                     .boost-name {
                         font-family: 'graphik-medium';
                         font-size: 0.7rem;
                         color: #fff;
+                        margin-bottom: 5px;
                     }
                 }
             }
         }
+
         .buy-boost-text {
             font-size: .8rem;
             font-family: 'graphik-medium';
-            color: #EF2F55;
+            color: #FFF;
             text-align: center;
-            line-height: 2;
+            line-height: 1;
             text-decoration: underline;
+            margin: 0;
             cursor: pointer;
         }
     }

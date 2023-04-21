@@ -13,7 +13,7 @@
         color: #fff;
         text-align: center;
         line-height: 2;
-        margin: .5rem 0;
+        margin: 0;
     }
 
     .message-container {
@@ -28,24 +28,25 @@
             padding: 2rem 1.5rem;
             margin-bottom: 2rem;
             border: 1px solid #fff;
+
             .player-container {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-    
+
                 .avatar-container {
                     width: 60px;
                     height: 60px;
                     border-radius: 50%;
                     background-color: #fff;
-    
+
                     img {
                         width: 100%;
                         height: 100%;
                         border-radius: 50%;
                     }
                 }
-    
+
                 .player-name {
                     margin: 0;
                     margin-top: 0.8rem;
@@ -60,47 +61,72 @@
 
         }
     }
+
     .purchase-boost {
         display: flex;
         flex-direction: column;
+
         .boost-text {
             font-size: .8rem;
             font-family: 'graphik-medium';
             color: #fff;
             text-align: center;
             line-height: 1.2;
+            margin: 0;
         }
+
         .boost-container {
             display: flex;
             flex-direction: row;
-            align-items: center;
             justify-content: center;
+            align-items: flex-start;
+
             .boost-card-container {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                margin-top: 1rem;
+                margin: 1rem 0;
                 margin-left: 1rem;
                 margin-right: 1rem;
             }
+
             .boost-icon {
                 width: 2.5rem;
                 height: 2.5rem;
             }
+
             .boost-details-container {
                 display: flex;
                 flex-direction: column;
+                align-items: center;
+
+
                 .boost-name-count {
                     align-items: center;
+                    display: flex;
+                    flex-direction: column;
+
                     .boost-name {
                         font-family: 'graphik-medium';
                         font-size: 0.7rem;
                         color: #fff;
                     }
+
+                    .boost-description {
+                        font-family: 'graphik-medium';
+                        font-size: 0.7rem;
+                        color: #fff;
+                        text-align: center;
+                        width: 8rem;
+                        word-wrap: break-word;
+                        line-height: 1.5;
+                        margin: 0;
+                    }
                 }
             }
         }
     }
+
     .cancel-button {
         background-color: #EF2F55;
         border: none;

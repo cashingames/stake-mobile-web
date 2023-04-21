@@ -25,7 +25,7 @@ const ChallengeStakingScreen = () => {
     const [amount, setAmount] = useState(200);
     const [amountErr, setAmountError] = useState(false);
     const [openSheet, setOpenSheet] = useState(false);
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(false);
     const [alertMessage, setAlertMessage] = useState(false);
     const gameCategoryId = useSelector(state => state.game.gameCategory.id);
     const minimumChallengeStakeAmount = useSelector(state => state.common.minimumChallengeStakeAmount);
@@ -86,6 +86,7 @@ const ChallengeStakingScreen = () => {
         navigate('/select-category')
     }
 
+
     useEffect(() => {
 
         //if no gameType name, it means the user navigated to this page directly
@@ -98,9 +99,6 @@ const ChallengeStakingScreen = () => {
         <>
             <ScreenHeader title='Challenge Staking' styleProp='challenge-staking-header' onClick={handleNavigation} />
             <div style={{ backgroundImage: "url(/images/quiz-stage.jpg)" }} className='challenge-staking-container'>
-                <SelectedPlayers user={user} />
-                <InputStake user={user} onChangeStakeAmount={onChangeStakeAmount}
-                    amount={amount} amountErr={amountErr} loading={loading} stakeCash={stakeAmount} minimumChallengeStakeAmount={minimumChallengeStakeAmount} />
                 <div className='purchase-boost'>
                     <p className='boost-text'>Score higher with boosts</p>
                     <div className='boost-container'>
@@ -108,6 +106,9 @@ const ChallengeStakingScreen = () => {
                     </div>
                     <p className='buy-boost-text' onClick={goToStore}>Get boosts</p>
                 </div>
+                <SelectedPlayers user={user} />
+                <InputStake user={user} onChangeStakeAmount={onChangeStakeAmount}
+                    amount={amount} amountErr={amountErr} loading={loading} stakeCash={stakeAmount} minimumChallengeStakeAmount={minimumChallengeStakeAmount} />
             </div>
             <BottomSheet open={openSheet} closeBottomSheet={closeBS} BSContent={<LowWallet onClose={closeBS} />} />
             <Dialogue handleClose={closeAlert} open={alertMessage} dialogueMessage={alertMessage} />
@@ -120,7 +121,7 @@ const SelectedPlayers = ({ user }) => {
     return (
         <div style={{ backgroundImage: "url(/images/challenge-stage.png)" }} className="players-container">
             <SelectedPlayer playerName={user.username} playerAvatar={user.avatar ? `${backendUrl}/${user.avatar}` : "/images/user-icon.png"} />
-            <img src='/images/versus.png' alt='versus' />
+            <img src='/images/versus.png' alt='versus ' className="versus" />
             <SelectedPlayer playerName='....' playerAvatar="/images/question.png" />
         </div>
     )

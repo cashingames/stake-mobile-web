@@ -129,8 +129,8 @@ const ChallengeMatchingScreen = () => {
                     className='player'
                     style={
                         {
-                            height: '180px',
-                            width: '180px'
+                            height: '160px',
+                            width: '160px'
                         }
                     } />
             </div>
@@ -184,6 +184,7 @@ const BoostCardDetails = ({ boost }) => {
             <div className='boost-details-container'>
                 <div className='boost-name-count'>
                     <p className='boost-name'>{boost.name}</p>
+                    <p className='boost-description'>{boost.description}</p>
                 </div>
             </div>
         </div>

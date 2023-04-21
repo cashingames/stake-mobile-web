@@ -6,6 +6,7 @@ import { formatCurrency, formatNumber } from '../../../../utils/stringUtl';
 import { getUser } from "../../../Auth/AuthSlice";
 import { clearSession } from "../TriviaChallengeGameSlice";
 import './ChallengeEndGameScreen.scss';
+import BoostPopUp from "../../../../components/BoostPopUp/BoostPopUp";
 
 
 const backendUrl = process.env.REACT_APP_API_ROOT_URL;
@@ -18,6 +19,7 @@ const ChallengeEndGameScreen = () => {
     const user = useSelector(state => state.auth.user);
     const challengeDetails = useSelector(state => state.triviaChallenge.challengeDetails);
     const [loading, setLoading] = useState(false);
+    const [showModal, setShowModal] = useState(false);
 
 
     const goHome = () => {
@@ -39,7 +41,7 @@ const ChallengeEndGameScreen = () => {
 
     useEffect(() => {
         dispatch(getUser());
-      }, [dispatch])
+    }, [dispatch])
 
 
     useEffect(() => {
@@ -76,6 +78,12 @@ const ChallengeEndGameScreen = () => {
     }, [])
 
     useEffect(() => {
+        if ((challengeDetails.score < challengeDetails.opponent.score) || (challengeDetails.score === challengeDetails.opponent.score)) {
+            setShowModal(true)
+        }
+    }, [challengeDetails])
+
+    useEffect(() => {
         window.history.pushState(null, null, window.location.href);
         window.onpopstate = function () {
             window.history.go(1);
@@ -83,23 +91,26 @@ const ChallengeEndGameScreen = () => {
     })
 
     return (
-        <div className="end-game-container">
-            {Number.parseFloat(challengeDetails.score) > Number.parseFloat(challengeDetails.opponent.score) &&
-                <p className="head-text">Congrats {user.username}</p>
-            }
-            {Number.parseFloat(challengeDetails.score) < Number.parseFloat(challengeDetails.opponent.score) &&
-                <p className="head-text">Sorry {user.username}</p>
-            }
-            {Number.parseFloat(challengeDetails.score) === Number.parseFloat(challengeDetails.opponent.score) &&
-                <p className="head-text">Draw, you can try again</p>
-            }
-            <ChallengePlayers challengeDetails={challengeDetails} />
-            <WinningAmount challengeDetails={challengeDetails} />
-            <FinalScoreBoard challengeDetails={challengeDetails} />
-            <div className="game-buttons">
-                <GameButton onClick={goHome} buttonText='Return to home' />
-                <GameButton onClick={onPlayButtonClick} buttonText={loading ? 'loading...' : 'Play Again'} disabled={loading} />
+        <div >
+            <div className="end-game-container" style={{opacity: [showModal ? 0.6 : 1]}}>
+                {Number.parseFloat(challengeDetails.score) > Number.parseFloat(challengeDetails.opponent.score) &&
+                    <p className="head-text">Congrats {user.username}</p>
+                }
+                {Number.parseFloat(challengeDetails.score) < Number.parseFloat(challengeDetails.opponent.score) &&
+                    <p className="head-text">Sorry {user.username}</p>
+                }
+                {Number.parseFloat(challengeDetails.score) === Number.parseFloat(challengeDetails.opponent.score) &&
+                    <p className="head-text">Draw, you can try again</p>
+                }
+                <ChallengePlayers challengeDetails={challengeDetails} />
+                <WinningAmount challengeDetails={challengeDetails} />
+                <FinalScoreBoard challengeDetails={challengeDetails} />
+                <div className="game-buttons">
+                    <GameButton onClick={goHome} buttonText='Return to home' />
+                    <GameButton onClick={onPlayButtonClick} buttonText={loading ? 'loading...' : 'Play Again'} disabled={loading} />
+                </div>
             </div>
+            <BoostPopUp showModal={showModal} setShowModal={setShowModal} />
         </div>
     )
 }

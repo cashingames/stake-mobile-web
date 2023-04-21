@@ -66,7 +66,7 @@ function ChallengeProgressWidget({ onComplete, challengeDetails }) {
         // Change the state every second or the time given by User.
         const interval = setInterval(() => {
             setShowText((showText) => !showText);
-        }, 1000);
+        }, 2000);
         return () => clearInterval(interval);
     }, []);
 
@@ -111,23 +111,23 @@ const ChallengeStakingBoosts = ({ boosts, showText, boostsToDisplay, boostApplie
     return (
         <>
 
-        {boosts?.length > 0 ?
-            <div className='availableBoosts'>
-                <div className='boostInfo'>
-                    <p className='boostTitle'>BOOST</p>
-                </div>
-                {
-                    boostsToDisplay().map((boost, index) =>
-                        boost.count >= 1 &&
-                        <ChallengeStakingBoost boost={boost} key={index} onConsume={boostApplied} showText={showText} />
-                    )
-                }
+            {boosts?.length > 0 ?
+                <div className='availableBoosts'>
+                    <div className='boostInfo'>
+                        <p className='boostTitle'>BOOST</p>
+                    </div>
+                    {
+                        boostsToDisplay().map((boost, index) =>
+                            boost.count >= 1 &&
+                            <ChallengeStakingBoost boost={boost} key={index} onConsume={boostApplied} showText={showText} />
+                        )
+                    }
 
-            </div>
-            :
-            <></>
-        }
-    </>
+                </div>
+                :
+                <></>
+            }
+        </>
     )
 }
 
@@ -136,14 +136,14 @@ const ChallengeStakingBoost = ({ boost, showText, onConsume }) => {
     const isActive = activeBoost.id === boost.id;
     return (
         <div className='boostContainer' onClick={() => isActive ? {} : onConsume(boost)}>
-        <div className={`availableBoost ${isActive ? 'boostActive' : {}}`}>
-            <img
-                src={`${backendUrl}/${boost.icon}`}
-                alt='bomb' className={`boostIcon ${showText ? 'boostBlink' : 'boostNoBlink'}`} />
-            <p className='boostCount'>x{formatNumber(boost.count)}</p>
+            <div className={`availableBoost ${isActive ? 'boostActive' : {}}`}>
+                <img
+                    src={`${backendUrl}/${boost.icon}`}
+                    alt='bomb' className={`boostIcon ${showText ? 'boostBlink' : 'boostNoBlink'}`} />
+                <p className='boostCount'>x{formatNumber(boost.count)}</p>
+            </div>
+            <p className='boostName'>{boost.name}</p>
         </div>
-        <p className='boostName'>{boost.name}</p>
-    </div>
     )
 }
 
