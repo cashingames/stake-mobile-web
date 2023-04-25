@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { reduceBoostCount } from '../../features/Auth/AuthSlice';
 import { boostReleased, consumeBoost, pauseGame, skipQuestion } from '../../features/Games/TriviaChallengeStaking/TriviaChallengeGameSlice';
@@ -13,7 +13,7 @@ function ChallengeProgressWidget({ onComplete, challengeDetails }) {
 
     const dispatch = useDispatch();
     const boosts = useSelector(state => state.auth.user.boosts);
-    const [showText, setShowText] = useState(true);
+    // const [showText, setShowText] = useState(true);
     const gameMode = useSelector(state => state.game.gameMode);
     const documentId = useSelector(state => state.triviaChallenge.documentId);
 
@@ -62,18 +62,18 @@ function ChallengeProgressWidget({ onComplete, challengeDetails }) {
         return boosts;
     }
 
-    useEffect(() => {
-        // Change the state every second or the time given by User.
-        const interval = setInterval(() => {
-            setShowText((showText) => !showText);
-        }, 2000);
-        return () => clearInterval(interval);
-    }, []);
+    // useEffect(() => {
+    //     // Change the state every second or the time given by User.
+    //     const interval = setInterval(() => {
+    //         setShowText((showText) => !showText);
+    //     }, 2000);
+    //     return () => clearInterval(interval);
+    // }, []);
 
     return (
         <div className='gameProgressBoost'>
             <ChallengeGameWidget onComplete={onComplete} />
-            <ChallengeStakingBoosts boosts={boosts} showText={showText} boostsToDisplay={boostsToDisplay} boostApplied={boostApplied} />
+            <ChallengeStakingBoosts boosts={boosts}  boostsToDisplay={boostsToDisplay} boostApplied={boostApplied} />
             <PlayersInfo challengeDetails={challengeDetails} />
         </div>
     )
@@ -119,7 +119,7 @@ const ChallengeStakingBoosts = ({ boosts, showText, boostsToDisplay, boostApplie
                     {
                         boostsToDisplay().map((boost, index) =>
                             boost.count >= 1 &&
-                            <ChallengeStakingBoost boost={boost} key={index} onConsume={boostApplied} showText={showText} />
+                            <ChallengeStakingBoost boost={boost} key={index} onConsume={boostApplied}  />
                         )
                     }
 
@@ -139,7 +139,7 @@ const ChallengeStakingBoost = ({ boost, showText, onConsume }) => {
             <div className={`availableBoost ${isActive ? 'boostActive' : {}}`}>
                 <img
                     src={`${backendUrl}/${boost.icon}`}
-                    alt='bomb' className={`boostIcon ${showText ? 'boostBlink' : 'boostNoBlink'}`} />
+                    alt='bomb' className='boostIcon' />
                 <p className='boostCount'>x{formatNumber(boost.count)}</p>
             </div>
             <p className='boostName'>{boost.name}</p>
