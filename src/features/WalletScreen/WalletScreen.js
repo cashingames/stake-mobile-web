@@ -14,6 +14,7 @@ import { withdrawWinnings } from '../CommonSlice'
 import firebaseConfig from '../../firebaseConfig';
 import { useNavigate } from 'react-router-dom';
 import './WalletScreen.scss';
+import WalletDialog from '../../components/WalletDialog/WalletDialog';
 
 function WalletScreen() {
   const analytics = firebaseConfig();
@@ -23,7 +24,10 @@ function WalletScreen() {
   const [withdraw, setWithdraw] = useState(false);
   const [open, setOpen] = useState(false);
   const [openDialogue, setOpenDialogue] = useState(false);
+  const [openWalletDialogue, setOpenWalletDialogue] = useState(false);
   const [alertMessage, setAlert] = useState('');
+  const [withdrawAlert, setWithdrawAlert] = useState('');
+
 
   //Bottom sheet close function
   const closeBS = () => {
@@ -33,6 +37,16 @@ function WalletScreen() {
   const closeAlert = () => {
     setOpenDialogue(false)
   }
+
+  const closeWalletAlert = () => {
+    setOpenWalletDialogue(false)
+    withdrawBalance()
+  }
+
+  const withdrawValidation = () => {
+    setOpenWalletDialogue(true)
+    setWithdrawAlert('Fund kept in withdrawable balance for more than a month will be rendered invalid and non-withdrawable. Ensure you withdraw your winnings before the deadline.')
+}
 
   const withdrawBalance = () => {
     setWithdraw(true)
@@ -79,16 +93,18 @@ function WalletScreen() {
         <WalletBalance balance={user.walletBalance} />
         <Withdrawable withdrawableBalance={user.withdrawableBalance}
           bookBalance={user.bookBalance} withdraw={withdraw}
-          onPress={withdrawBalance}
+          onPress={withdrawValidation}
         />
         <TransactionLink />
       </div>
 
       {/* Bottom sheet component */}
-      <BottomSheet open={open} closeBottomSheet={closeBS}
+      <BottomSheet open={open} onClose={closeBS}
         BSContent={<WithdrawnBalance />}
       />
       <Dialogue open={openDialogue} handleClose={closeAlert} dialogueMessage={alertMessage} />
+      <WalletDialog open={openWalletDialogue} handleClose={closeWalletAlert} dialogueMessage={withdrawAlert} />
+
     </>
   )
 }
