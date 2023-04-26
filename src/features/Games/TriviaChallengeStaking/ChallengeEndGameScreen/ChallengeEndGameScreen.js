@@ -78,7 +78,7 @@ const ChallengeEndGameScreen = () => {
     }, [])
 
     useEffect(() => {
-        if ((challengeDetails.score < challengeDetails.opponent.score) || (challengeDetails.score === challengeDetails.opponent.score)) {
+        if ((Number.parseFloat(challengeDetails.score) < Number.parseFloat(challengeDetails.opponent.score)) || (Number.parseFloat(challengeDetails.score) === Number.parseFloat(challengeDetails.opponent.score))) {
             setShowModal(true)
         }
     }, [challengeDetails])
@@ -92,7 +92,7 @@ const ChallengeEndGameScreen = () => {
 
     return (
         <div >
-            <div className="end-game-container" style={{opacity: [showModal ? 0.6 : 1]}}>
+            <div className="end-game-container" style={{ opacity: [showModal ? 0.6 : 1] }}>
                 {Number.parseFloat(challengeDetails.score) > Number.parseFloat(challengeDetails.opponent.score) &&
                     <p className="head-text">Congrats {user.username}</p>
                 }
@@ -164,13 +164,13 @@ const WinningAmount = ({ challengeDetails }) => {
 
     return (
         <div className="winnings-container">
-            {formatNumber(challengeDetails.score) > formatNumber(challengeDetails.opponent.score) &&
+            {Number.parseFloat(challengeDetails.score) > Number.parseFloat(challengeDetails.opponent.score) &&
                 <p className="winning-text">You have won <p className="winning-amount"> &#8358;{formatCurrency(amount)}!</p></p>
             }
-            {formatNumber(challengeDetails.score) < formatNumber(challengeDetails.opponent.score) &&
+            {Number.parseFloat(challengeDetails.score) < Number.parseFloat(challengeDetails.opponent.score) &&
                 <p className="winning-text">You can try again</p>
             }
-            {formatNumber(challengeDetails.score) === formatNumber(challengeDetails.opponent.score) &&
+            {Number.parseFloat(challengeDetails.score) === Number.parseFloat(challengeDetails.opponent.score) &&
                 <p className="winning-text">You have been refunded</p>
             }
         </div>
