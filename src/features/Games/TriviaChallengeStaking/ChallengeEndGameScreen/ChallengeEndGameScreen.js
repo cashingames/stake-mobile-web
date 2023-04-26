@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import logToAnalytics from "../../../../utils/analytics";
-import { formatCurrency, formatNumber } from '../../../../utils/stringUtl';
+import { formatCurrency } from '../../../../utils/stringUtl';
 import { getUser } from "../../../Auth/AuthSlice";
 import { clearSession } from "../TriviaChallengeGameSlice";
 import './ChallengeEndGameScreen.scss';
