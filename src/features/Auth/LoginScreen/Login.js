@@ -37,6 +37,7 @@ const Login = () => {
             saveToken(response.data.data);
             dispatch(setToken(response.data.data));
             logToAnalytics('login_successful');
+            window.FB.AppEvents.logEvent('login successful');
         }, err => {
             if (!err || !err.response || err.response === undefined) {
                 setError("Your Network is Offline.");
