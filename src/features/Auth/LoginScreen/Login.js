@@ -132,10 +132,10 @@ const Login = () => {
             </div>
             <Link to='/help-contact' className='contact-us'>Need help ? Contact us</Link>
             <div className='stores-icon'>
-                <Link to="https://play.google.com/store/apps/details?id=com.cashingames.cashingames">
-                    <img width="100px" src="/images/googleplay_icon.png" alt="logo" height="50px" className="social-img" /></Link>
-                <Link to="https://apps.apple.com/ng/app/cashingames/id6443878628">
-                    <img width="100px" height="35px" src="/images/apple_store_icon.png" alt="logo" className="social-img" /></Link>
+                <a href="https://play.google.com/store/apps/details?id=com.cashingames.cashingames">
+                    <img width="100px" src="/images/googleplay_icon.png" alt="logo" height="50px" className="social-img" /></a>
+                <a href="https://apps.apple.com/ng/app/cashingames/id6443878628">
+                    <img width="100px" height="35px" src="/images/apple_store_icon.png" alt="logo" className="social-img" /></a>
             </div>
         </div>
     )
