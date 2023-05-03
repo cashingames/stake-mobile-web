@@ -15,14 +15,16 @@ const Signup = () => {
     let navigate = useNavigate();
     const style = { color: '#CDD4DF', fontSize: "1.2rem" }
     const styleI = { color: '#4299f5', fontSize: "1.2rem" }
-    const [email, setEmail] = useState('')
+    const [email, setEmail] = useState('');
+    const [username, setUsername] = useState('');
     const [phone, setPhone] = useState('')
     const [referrer, setReferrer] = useState('');
     const [countryCode, setCountryCode] = useState('+234')
     const [password, setPassword] = useState('')
     const [checked, setChecked] = useState(false)
     const [error, setError] = useState('')
-    const [emailError, setEmailError] = useState(false)
+    const [emailError, setEmailError] = useState(false);
+    const [usernameError, setUsernameError] = useState(false);
     const [phoneErr, setPhoneError] = useState(false);
     const [countryCodeErr, setCountryCodeError] = useState(false);
     const [passwordError, setPasswordError] = useState(false);
@@ -39,6 +41,13 @@ const Signup = () => {
         setEmail(email)
 
     };
+    const onChangeUsername = (e) => {
+        const username = e.currentTarget.value;
+        const usernameRule = /\s/;
+        const validUsername = usernameRule.test(username)
+        username.length > 0 && username.length < 4 || (validUsername) ? setUsernameError(true) : setUsernameError(false)
+        setUsername(username)
+    }
     const onChangePhone = (e) => {
         const phone = e.currentTarget.value;
         phone.length > 0 && phone.length < 10 ? setPhoneError(true) : setPhoneError(false)
@@ -62,10 +71,10 @@ const Signup = () => {
 
     useEffect(() => {
 
-        const invalid = emailError || email === '' || phone === '' || countryCode === '' || password === '' || phoneErr
+        const invalid = emailError || email === '' || username === '' || usernameError || phone === '' || countryCode === '' || password === '' || phoneErr
             || countryCodeErr || passwordError || checked === false;
         setCanSend(!invalid);
-    }, [emailError, phoneErr, countryCodeErr, passwordError, password, email, phone, countryCode, checked])
+    }, [emailError, usernameError, phoneErr, countryCodeErr, passwordError, password, email, username, phone, countryCode, checked])
 
     const onSend = () => {
         setLoading(true);
@@ -75,6 +84,7 @@ const Signup = () => {
             password_confirmation: password,
             phone_number: phone,
             country_code: countryCode,
+            username: username,
             referrer: referrer,
         }).then(response => {
             logToAnalytics('registration_unverified', {
@@ -138,6 +148,23 @@ const Signup = () => {
                         />
                         {emailError &&
                             <span className='inputError'>*invalid email address</span>
+                        }
+                    </div>
+                    <div className='inputContainer'>
+                        <label htmlFor='username' className='inputLabel'>Username</label>
+                        <input
+                            placeholder="Input a username"
+                            type='text'
+                            // pattern="/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/"
+                            id='username'
+                            value={username}
+                            className='inputBox'
+                            autoFocus={true}
+                            onChange={e => onChangeUsername(e)}
+                            required
+                        />
+                        {usernameError &&
+                            <span className='inputError'>*username must not be less than 4 characters and must not have spaces</span>
                         }
                     </div>
                     <div className='inputContainer'>
