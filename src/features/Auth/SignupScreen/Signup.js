@@ -45,6 +45,7 @@ const Signup = () => {
         const username = e.currentTarget.value;
         const usernameRule = /\s/;
         const validUsername = usernameRule.test(username)
+        // eslint-disable-next-line
         username.length > 0 && username.length < 4 || (validUsername) ? setUsernameError(true) : setUsernameError(false)
         setUsername(username)
     }

@@ -5,7 +5,6 @@ import ContactForm from '../../../components/ContactForm/ContactForm'
 import ScreenHeader from '../../../components/ScreenHeader/ScreenHeader'
 import { getUser } from '../../Auth/AuthSlice';
 import LoaderScreen from '../../LoaderScreen/LoaderScreen';
-import { FaWhatsapp } from 'react-icons/fa'
 import './ContactUs.scss'
 
 function ContactUs() {
