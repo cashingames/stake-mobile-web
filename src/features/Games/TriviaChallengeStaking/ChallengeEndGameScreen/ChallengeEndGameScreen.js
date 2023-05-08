@@ -45,6 +45,10 @@ const ChallengeEndGameScreen = () => {
 
 
     useEffect(() => {
+        logToAnalytics("trivia_challenge_stake_completed", {
+            'opponentName': challengeDetails.opponent.username,
+            'username': challengeDetails.username,
+        })
         if (Number.parseFloat(challengeDetails.score) > Number.parseFloat(challengeDetails.opponent.score)) {
             logToAnalytics("trivia_challenge_stake_won", {
                 'opponentName': challengeDetails.opponent.username,
