@@ -12,6 +12,18 @@
   font-family: 'graphik-regular';
   src: local('graphik-regular'), url(./assets/fonts/GraphikRegular.otf) format('opentype');
 }
+@font-face {
+  font-family: 'sansation-regular';
+  src: local('sansation-regular'), url(./assets/fonts/Sansation_Regular.ttf) format('opentype');
+}
+@font-face {
+  font-family: 'sansation-bold';
+  src: local('sansation-bold'), url(./assets/fonts/Sansation_Bold.ttf) format('opentype');
+}
+@font-face {
+  font-family: 'sansation-light';
+  src: local('sansation-light'), url(./assets/fonts/Sansation_Light.ttf) format('opentype');
+}
 
 html,
 body,

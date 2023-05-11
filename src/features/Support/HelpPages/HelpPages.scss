@@ -1,5 +1,6 @@
 .helpPage-container {
-    background-color: #fff;
+    background: #F2F5FF;
+    height: 100vh;
     padding: 0 1.5rem;
     display: flex;
     flex-direction: column;
@@ -10,13 +11,20 @@
     }
 
     .container-logout {
-        background-color: #fff;
+        // background-color: #fff;
         display: flex;
         justify-content: center;
         align-items: flex-end;
-        position: absolute;
-        bottom: 0;
-        right: 10rem;
+        // position: absolute;
+        // bottom: 0;
+        // right: 10rem;
+        .logout-text {
+            font-family: 'sansation-bold';
+            color: #EF2F55;
+            font-size: .9rem;
+            margin: 0;
+            margin-bottom: .5rem;
+        }
 
     }
 

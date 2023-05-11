@@ -1,54 +1,25 @@
 import * as React from 'react';
-import { IoWalletOutline, IoNotificationsOutline, IoHomeOutline, IoMenuSharp } from "react-icons/io5";
-import { useSelector } from 'react-redux';
+import { IoHome, IoGameController, IoHelpCircle } from "react-icons/io5";
 import { NavLink } from 'react-router-dom';
-import DrawerNavigation from '../DrawerNavigation';
 import './AppHeader.scss'
 
-const AppHeader = ({ heading }) => {
+const AppHeader = ({ backgroundColor }) => {
 
-  const [open, setOpen] = React.useState(false);
-
-  const handleOpenDrawer = () => {
-    setOpen(true)
-  }
-
-  const handleCloseDrawer = () => {
-    setOpen(false)
-  }
-
-  const user = useSelector(state => state.auth.user);
   return (
-    <>
-      <div className='appHeaderContainer'>
-        <div className='appHeaderTitle'>
-          <IoMenuSharp className='icon'
-            onClick={handleOpenDrawer} />
-          <p className='title'>
-            {heading}</p>
-        </div>
-        <div className='navlinks'>
-          <NavLink to='/dashboard' className='navlink'>
-            <IoHomeOutline className='icon' />
-            home
-          </NavLink>
-          <NavLink to='/wallet' className='navlink'>
-            <IoWalletOutline className='icon' />
-            wallet
-          </NavLink>
-          <NavLink to='/notifications' className='notification'>
-            <IoNotificationsOutline className='notifyIcon' /> {
-              user.unreadNotificationsCount !== 0 && <div className='notificationNumberCase'>
-                <p className='notificationNumber'>{
-                  user.unreadNotificationsCount
-                }</p>
-              </div>
-            } </NavLink>
-        </div>
-      </div>
-      <DrawerNavigation open={open}
-        closeDrawer={handleCloseDrawer} />
-    </>
+    <div className='appHeaderContainer' style={{backgroundColor:{backgroundColor}}}>
+      <NavLink to='/dashboard' className='navlink'>
+        <IoHome className='icon' color='#072169' />
+        Home
+      </NavLink>
+      <NavLink to='/games-list' className='navlink'>
+        <IoGameController className='icon' color='#072169' />
+        Games
+      </NavLink>
+      <NavLink to='/help' className='navlink'>
+        <IoHelpCircle className='icon' color='#072169' />
+        Help
+      </NavLink>
+    </div>
   )
 }
 

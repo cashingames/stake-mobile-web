@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router';
 import ScreenHeader from '../../../components/ScreenHeader/ScreenHeader';
 import { logoutUser } from '../../Auth/AuthSlice';
 import './HelpPages.scss'
+import AppHeader from '../../../components/AppHeader/AppHeader';
 
 function HelpPages() {
   const navigate = useNavigate();
@@ -20,7 +21,7 @@ function HelpPages() {
 
   return (
     <>
-      <ScreenHeader title='Support' styleProp='supportHeader' onClick={navigateHandler} />
+      <ScreenHeader title='Help' styleProp='supportHeader' onClick={navigateHandler} />
       <div className='helpPage-container'>
         <div className='profile-tabs'>
           <HelpTab tabName='Contact Us' onClick={() => navigate('/contact-us')} />
@@ -30,6 +31,8 @@ function HelpPages() {
           <p className="logout-text" onClick={onLogout}>Logout</p>
         </div>
       </div>
+      <AppHeader heading='Games' style={{ color: '#000000' }} />
+
     </>
   )
 }

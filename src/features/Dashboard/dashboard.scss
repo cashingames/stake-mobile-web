@@ -1,29 +1,83 @@
 .dashboard-screen {
+    display: flex;
     min-height: 100vh;
     height: 100vh;
     overflow: scroll;
-    min-width: 100%;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+    padding: 2rem 1.4rem 0 1.4rem;
+    background-color: #EFF2F6;
+    flex-direction: column;
 
-    .dashboard-content {
-        padding: 0.1rem 1.5rem;
-    }
-}
-
-.main-leaderBoards-container {
-    margin: 1.3rem 0;
-    padding: 0 1.5rem;
-
-    .leaderBoard-containers {
+    .profile-container {
         display: flex;
-        overflow: scroll;
-        align-items: baseline;
-        gap: 1rem;
-    }
-
-    .leaderBoard-containers::-webkit-scrollbar {
-        display: none;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        .profile-left {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            .user-avatar {
+                width: 55px;
+                height: 55px;
+                background-color: #FFF;
+                border: 1px solid rgba(0, 0, 0, 0.1);
+                border-radius: 100px;
+            }
+            .name-main-container {
+                display: flex;
+                flex-direction: column;
+                margin-left: 1rem;
+                .name-container {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    .welcome-text {
+                        font-family: 'sansation-regular';
+                        color: #072169;
+                        font-size: 1.1rem;
+                        margin: 0;
+                    }
+                    .username-text {
+                        font-family: 'sansation-bold';
+                        color: #072169;
+                        font-size: 1.1rem;
+                        margin: 0;
+                        margin-left: .3rem;
+                        cursor: pointer;
+                    }
+                    .icon {
+                        color: #072169;
+                        margin-top: .1rem;
+                    }
+                }
+                .greeting-text {
+                    font-family: 'sansation-regular';
+                    color: #072169;
+                    font-size: 1rem;
+                    margin: 0;
+                }
+            }
+        }
+        .notification-container {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            .number-container {
+                background-color: #FF3B81;
+                width: 1rem;
+                height: 1rem;
+                border-radius: 50px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: absolute;
+                top: 38px;
+                .number {
+                    font-size: .6rem;
+                    font-family: 'sansation-regular';
+                    color: #FFF;
+                }
+            }
+        }
     }
 }

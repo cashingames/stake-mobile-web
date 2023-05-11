@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { logEvent } from 'firebase/analytics';
-
-import AppHeader from '../../components/AppHeader/AppHeader'
 import BottomSheet from '../../components/BottomSheet/BottomSheet'
 import TransactionLink from '../../components/Wallet/TransactionLink/TransactionLink'
 import WalletBalance from '../../components/Wallet/WalletBalance/WalletBalance'
@@ -15,6 +13,7 @@ import firebaseConfig from '../../firebaseConfig';
 import { useNavigate } from 'react-router-dom';
 import './WalletScreen.scss';
 import WalletDialog from '../../components/WalletDialog/WalletDialog';
+import ScreenHeader from '../../components/ScreenHeader/ScreenHeader';
 
 function WalletScreen() {
   const analytics = firebaseConfig();
@@ -46,7 +45,7 @@ function WalletScreen() {
   const withdrawValidation = () => {
     setOpenWalletDialogue(true)
     setWithdrawAlert('Fund kept in withdrawable balance for more than a month will be rendered invalid and non-withdrawable. Ensure you withdraw your winnings before the deadline.')
-}
+  }
 
   const withdrawBalance = () => {
     setWithdraw(true)
@@ -86,9 +85,13 @@ function WalletScreen() {
       )
   }
 
+  const navigateHandler = () => {
+    navigate('/dashboard');
+}
+
   return (
     <>
-      <AppHeader heading='Wallet' />
+      <ScreenHeader title='Wallet' styleProp='wallet-screen-header' iconProp='games-back' onClick={navigateHandler} />
       <div className='walletScreen' style={{ backgroundImage: "url(/images/vector-coin-background.jpg)" }}>
         <WalletBalance balance={user.walletBalance} />
         <Withdrawable withdrawableBalance={user.withdrawableBalance}

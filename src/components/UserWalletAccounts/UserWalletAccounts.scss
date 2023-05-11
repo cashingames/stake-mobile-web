@@ -1,0 +1,227 @@
+.wallets-container {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+
+    .staking-wallet-container {
+        background-color: #6A5BE1;
+        display: flex;
+        flex-direction: column;
+        min-width: 295px;
+        padding: 18px 18px;
+        border-radius: 13px;
+        margin-right: 1rem;
+        cursor: pointer;
+
+        .wallet-header {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            .wallet-header-text {
+                font-size: 1rem;
+                font-family: 'sansation-bold';
+                color: #E3ECF2;
+                margin: 0;
+                margin-left: .5rem;
+
+            }
+        }
+
+        .amount-container {
+            flex-direction: row;
+            justify-content: space-between;
+            display: flex;
+            align-items: center;
+            margin-top: .8rem;
+
+            .currency-container {
+                flex-direction: row;
+                display: flex;
+                align-items: center;
+
+                .balance-digit {
+                    font-size: 1rem;
+                    font-family: 'sansation-regular';
+                    color: #E3ECF2;
+                    margin: 0;
+                }
+
+                .icon {
+                    margin-bottom: .1rem;
+                }
+            }
+
+            .add-container {
+                flex-direction: row;
+                display: flex;
+                align-items: center;
+                border-radius: 20px;
+                background-color: #E3ECF2;
+                padding: .15rem .6rem;
+
+                .add-text {
+                    font-size: .7rem;
+                    font-family: 'sansation-bold';
+                    color: #072169;
+                    margin: 0;
+                    margin-left: .3rem;
+                }
+            }
+        }
+    }
+
+    .earnings-wallet-container {
+        background-color: #072169;
+        display: flex;
+        flex-direction: column;
+        min-width: 295px;
+        padding: 18px 18px;
+        border-radius: 13px;
+        margin-right: 1rem;
+        cursor: pointer;
+
+        .wallet-header {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            .wallet-header-text {
+                font-size: 1rem;
+                font-family: 'sansation-bold';
+                color: #E3ECF2;
+                margin: 0;
+                margin-left: .5rem;
+
+            }
+        }
+
+        .amount-container {
+            flex-direction: row;
+            justify-content: space-between;
+            display: flex;
+            align-items: center;
+            margin-top: .8rem;
+
+            .currency-container {
+                flex-direction: row;
+                display: flex;
+                align-items: center;
+
+                .balance-digit {
+                    font-size: 1rem;
+                    font-family: 'sansation-regular';
+                    color: #E3ECF2;
+                    margin: 0;
+                }
+
+                .icon {
+                    margin-bottom: .1rem;
+                }
+            }
+
+            .add-container {
+                flex-direction: row;
+                display: flex;
+                align-items: center;
+                border-radius: 20px;
+                background-color: #E3ECF2;
+                padding: .15rem .6rem;
+
+                .add-text {
+                    font-size: .7rem;
+                    font-family: 'sansation-bold';
+                    color: #072169;
+                    margin: 0;
+                    margin-left: .3rem;
+                }
+            }
+        }
+    }
+
+    .boosts-container {
+        background-color: #701F88;
+        display: flex;
+        flex-direction: column;
+        min-width: 295px;
+        padding: 18px 18px;
+        border-radius: 13px;
+        cursor: pointer;
+
+        .boost-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-direction: row;
+
+            .boost-header-text {
+                font-size: 1rem;
+                font-family: 'sansation-bold';
+                color: #E3ECF2;
+                margin: 0;
+            }
+
+            .boost-sub {
+                display: flex;
+                align-items: center;
+                flex-direction: row;
+
+                .add-container {
+                    display: flex;
+                    align-items: center;
+                    flex-direction: row;
+                    background-color: #E3ECF2;
+                    border-radius: 20px;
+                    padding: .15rem .6rem;
+
+                    .add-text {
+                        font-size: .7rem;
+                        font-family: 'sansation-bold';
+                        color: #072169;
+                        margin: 0;
+                        margin-left: .3rem;
+                    }
+                }
+            }
+        }
+
+        .items-container {
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+            margin-top: 1rem;
+
+            .boost-container {
+                display: flex;
+                align-items: center;
+                flex-direction: row;
+                border: 1px solid #EFF2F6;
+                border-radius: 20px;
+                padding: .2rem .3rem;
+                margin-right: .5rem;
+                .boost-icon-container {
+                    background-color: #EFF2F6;
+                    padding: 0.15rem;
+                    border-radius: 100px;
+                    width: 0.7rem;
+                    height: 0.7rem;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    .boost-icon {
+                        width: .6rem;
+                        height: .6rem;
+                    }
+                }
+                .boost-amount {
+                    font-size: .6rem;
+                    font-family: 'sansation-regular';
+                    color: #E3ECF2;
+                    margin: 0;
+                    margin-left: .1rem;
+                }
+            }
+        }
+    }
+}

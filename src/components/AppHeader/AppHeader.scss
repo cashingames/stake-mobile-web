@@ -1,79 +1,52 @@
-
 .appHeaderContainer {
-display: flex;
+    display: flex;
     justify-content: space-between;
-    padding: 0.5rem 2rem 0.5rem 1rem;
+    padding: 0.7rem 1.4rem;
     align-items: center;
     position: sticky;
-    top: 0;
+    bottom: 0;
     z-index: 2;
-    background: #FAC502;
+    background: #EFF2F6;
+    border: 1px solid #ccc;
     font-family: "Graphik";
+
     .appHeaderTitle {
         display: flex;
         justify-content: space-between;
         align-items: center;
         gap: 1rem;
+
         .title {
-            font-family: 'graphik-medium';
-        }
+            font-family: 'sansation-bold';        }
+
         .icon {
             font-size: 1.2rem;
             font-family: 'graphik-regular';
             cursor: pointer;
         }
     }
-    .navlinks {
+
+    .navlink {
         display: flex;
-        gap: 1rem;
+        flex-direction: column;
+        justify-content: center;
         align-items: center;
-        .navlink {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-decoration: none;
-            margin-top: 0.2rem;
-            margin-bottom: 0;
-            font-size: 0.55rem;
-            color: #000;
-            font-family: 'graphik-medium';
-           opacity: 0.5;
-            text-transform:capitalize;
-            .icon {
-                font-size: 1.5rem;
-            }
-        }
-        .active{
-            opacity: 1;
-        }
-        .notification {
-            display: flex;
-            position: relative;
-            opacity: 0.5;
-            .notifyIcon {
-                font-size: 1.5rem;
-                color:#000
-            }
-            .notificationNumberCase {
-                position: absolute;
-                background-color: #518Ef8;
-                left: 22px;
-                top: 0;
-                border-radius: 50%;
-                width: 18px;
-                height: 18px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                border: 2px solid #fff;
-                opacity: 0.8;
-                .notificationNumber {
-                    font-size: 0.4rem;
-                    color: #fff;
-                    font-weight: 500;
-                }
-            }
+        text-decoration: none;
+        margin-top: 0.2rem;
+        margin-bottom: 0;
+        font-size: 0.55rem;
+        color: #000;
+        font-family: 'graphik-medium';
+        opacity: 0.5;
+        text-transform: capitalize;
+
+        .icon {
+            font-size: 1.5rem;
         }
     }
+
+    .active {
+        opacity: 1;
+    }
+
 }

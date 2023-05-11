@@ -5,6 +5,7 @@ import ScreenHeader from "../../../components/ScreenHeader/ScreenHeader";
 import logToAnalytics from "../../../utils/analytics";
 import { setGameMode, setGameType } from "../GameSlice";
 import './GamesListScreen.scss'
+import AppHeader from "../../../components/AppHeader/AppHeader";
 
 const backendUrl = process.env.REACT_APP_API_ROOT_URL;
 
@@ -26,6 +27,8 @@ const GamesListScreen = () => {
                     <TriviaStakingCard />
                 </div>
             </div>
+            <AppHeader heading='Games' style={{ color: '#000000' }} />
+
         </>
     )
 }
@@ -56,9 +59,9 @@ const TriviaStakingCard = () => {
     return (
         <div className="trivia-staking-container" onClick={selectTriviaMode}>
             <div className="avatar-container">
-                <img src="/images/quiz.png" alt="quiz-icon" className="avatar" />
+                <img src="/images/trivia-book.png" alt="quiz-icon" className="avatar" />
             </div>
-            <p className="title">Trivia Staking</p>
+            <p className="title">Trivia Bet</p>
             <button className="play-button" onClick={selectTriviaMode}>Play now</button>
         </div>
     )

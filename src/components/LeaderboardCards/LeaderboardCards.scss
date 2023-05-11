@@ -1,0 +1,136 @@
+.leaders-container {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+    .top-leaders-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+        background-color: #FEECE7;
+        border: 2px solid #FA5F4A;
+        border-radius: 13px;
+        min-width: 208px;
+        width: 208px;
+        min-height: 258px;
+        padding: 1rem 0;
+        margin-right: 1rem;
+        opacity: 0.6;
+        .top-leaders-header {
+            color: #072169;
+            font-size: 1.1rem;
+            margin: 0;
+            font-family: 'sansation-bold';
+        }
+        .avatar {
+            width: 4rem;
+            height: 4rem;
+        }
+        .top-leaders-text {
+            color: #072169;
+            font-size: 1rem;
+            margin: 0;
+            font-family: 'sansation-regular';
+            text-align: center;
+        }
+        .play-button {
+            background-color: #FA5F4A;
+            border-radius: 20px;
+            padding: .7rem 1.7rem;
+
+            .play-button-text {
+                color: #E3ECF2;
+                font-size: .95rem;
+                margin: 0;
+                font-family: 'sansation-bold';
+            }
+        }
+    }
+    .challenge-container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+        background-color: #EBFAED;
+        border: 2px solid #71DC7F;
+        border-radius: 13px;
+        min-width: 208px;
+        width: 208px;
+        min-height: 258px;
+        padding: 1rem 0;
+        opacity: 0.6;
+        .top-leaders-header {
+            color: #072169;
+            font-size: 1.1rem;
+            margin: 0;
+            font-family: 'sansation-bold';
+        }
+        .avatar {
+            width: 5rem;
+            height: 5rem;
+        }
+        .top-leaders-text {
+            color: #072169;
+            font-size: 1rem;
+            margin: 0;
+            font-family: 'sansation-regular';
+            text-align: center;
+        }
+        .challenge-button {
+            background-color: #71DC7F;
+            border-radius: 20px;
+            padding: .7rem 1.7rem;
+
+            .play-button-text {
+                color: #E3ECF2;
+                font-size: .95rem;
+                margin: 0;
+                font-family: 'sansation-bold';
+            }
+        }
+    }
+    .boosts-container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+        background-color: #F6F4FF;
+        border: 2px solid #917BFE;
+        border-radius: 13px;
+        min-width: 208px;
+        width: 208px;
+        min-height: 258px;
+        padding: 1rem 0;
+        margin-right: 1rem;
+        .top-leaders-header {
+            color: #072169;
+            font-size: 1.1rem;
+            margin: 0;
+            font-family: 'sansation-bold';
+        }
+        .avatar {
+            width: 4.5rem;
+            height: 4.5rem;
+        }
+        .top-leaders-text {
+            color: #072169;
+            font-size: 1rem;
+            margin: 0;
+            font-family: 'sansation-regular';
+            text-align: center;
+        }
+        .boost-button {
+            background-color: #917BFE;
+            border-radius: 20px;
+            padding: .7rem 1.7rem;
+
+            .play-button-text {
+                color: #E3ECF2;
+                font-size: .95rem;
+                margin: 0;
+                font-family: 'sansation-bold';
+            }
+        }
+    }
+}
