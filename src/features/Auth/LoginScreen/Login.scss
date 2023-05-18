@@ -1,167 +1,167 @@
-
 .login {
-    padding: 2rem 1rem;
+    padding: 2rem 1.3rem;
+    background-color: #F9FBFF;
+    min-height: 100vh;
 
-    .headerTitle {
-        margin-top: 5.5rem;
+    .header-title {
+        margin-top: 1.4rem;
     }
 
-    .inputsContainer {
-        margin-top: 5rem;
-        position: relative;
+    .inputs-container {
+        margin-top: 7rem;
 
-        .formContainer {
-            .inputError {
+        .form-container {
+            .input-error {
                 text-align: center;
                 margin: 1rem 0;
                 background-color: #F442741A;
                 border-radius: 7px;
                 color: #EF2F55;
                 font-size: 0.7rem;
-                font-family: 'graphik-regular';
+                font-family: 'gotham-light';
                 padding: .5rem 0;
                 display: flex;
                 justify-content: center;
-                
+
             }
-            .inputContainer {
+
+            .input-container {
                 display: flex;
                 flex-direction: column;
-                margin-bottom: 1rem;
+                margin-bottom: 2.3rem;
 
-                .inputLabel {
-                    margin-bottom: .45rem;
-                    font-size: 0.7rem;
-                    color: #000000B2;
-                    font-family: 'graphik-medium';
-                }
-
-                .inputBox {
-                    color: #00000080;
-                    font-size: 0.7rem;
-                    font-family: 'graphik-regular';
-                    border-radius: 7px;
-                    padding: 0.5rem .6rem;
-                    border: 1px solid #CDD4DF;
-                    outline: none;
-                }
-
-                .passInput {
+                .label-container {
                     display: flex;
                     flex-direction: row;
                     justify-content: space-between;
-                    border-radius: 7px;
-                    padding: 0.5rem 0.6rem;
-                    font-size: 0.7rem;
-                    border: 1px solid #CDD4DF;
-
-
-                    .passwordInput {
-                        border: none;
-                        outline: none;
-                        color: #00000080;
-                        font-size: 0.7rem;
-                        font-family: 'graphik-regular';
-                        width: 100%;
-                    }
+                    align-items: center;
+                    margin-bottom: .6rem;
 
                     .show {
-                        color: #00000080;
+                        color: #072169;
                     }
 
-                    ::placeholder {
-                        color: #00000080;
-                        // font-family: 'graphik-medium';
+                    .required-text {
+                        font-size: 0.95rem;
+                        color: #E15220;
+                        font-family: 'sansation-regular';
+                        margin: 0;
                     }
+
+                    .input-label {
+                        font-size: 1rem;
+                        color: #072169;
+                        font-family: 'gotham-medium';
+                        margin: 0;
+                    }
+                }
+
+                .input-label {
+                    font-size: 1rem;
+                    color: #072169;
+                    font-family: 'gotham-medium';
+                    margin-bottom: .6rem;
+                }
+
+
+                .input-box {
+                    height: 3.5rem;
+                    color: #072169;
+                    font-size: 0.95rem;
+                    font-family: 'sansation-regular';
+                    border-radius: 14px;
+                    padding: 0.5rem 1rem;
+                    border: 1px solid #D9D9D9;
+                    outline: none;
+                    background-color: #fff;
+                }
+
+                ::placeholder {
+                    color: #00000080;
+                    // font-family: 'graphik-medium';
                 }
             }
 
-            .forgotPasswordContainer {
+            .forgot-password-container {
                 display: flex;
                 justify-content: flex-end;
-                .forgotPasswordText {
+
+                .forgot-password-text {
                     margin: 0;
-                    margin-top: 1rem;
                     line-height: 0;
-                    color: #EF2F55;
-                    font-size: .85rem;
-                    font-family: 'graphik-medium';
+                    color: #072169;
+                    font-size: 1.1rem;
+                    font-family: 'gotham-medium';
                     text-decoration: none;
                 }
             }
 
-            .appButtonContainer {
-                .buttonContainer {
-                    margin-top: 2.3rem;
-                    background-color: #EF2F55;
+            .buttons-container {
+                margin-top: 4rem;
+
+                .button-container {
+                    background-color: #E15220;
                     justify-content: center;
+                    flex-direction: row;
                     display: flex;
                     align-items: center;
-                    padding: 0.75rem 0;
-                    border-radius: 7.5px;
+                    padding: 1.3rem 0;
+                    border-radius: 13px;
                     width: 100%;
                     border: none;
 
                     .buttonText {
                         color: white;
-                        font-size: 0.9rem;
-                        font-family: 'graphik-medium';
+                        font-size: 1.2rem;
+                        font-family: 'gotham-medium';
                     }
 
                 }
 
+                .button-containeri {
+                    background-color: #F9FBFF;
+                    justify-content: center;
+                    flex-direction: row;
+                    display: flex;
+                    align-items: center;
+                    padding: 1.3rem 0;
+                    border-radius: 13px;
+                    width: 100%;
+                    border: 2px solid #072169;
+
+                    .buttonText {
+                        color: #072169;
+                        font-size: 1.2rem;
+                        font-family: 'gotham-medium';
+                    }
+
+                }
+                .or-text {
+                    color: #072169;
+                    font-size: 1.2rem;
+                    font-family: 'sansation-bold';
+                    text-align: center;
+                }
+
                 button[disabled] {
                     border: none;
-                    background-color: #DFCBCF;
+                    background-color: #EA8663;
                     color: white;
                 }
             }
         }
     }
 
-    .socialContainer {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        margin-top: 1.5rem;
-
-        .socialLinkText, .socialLinkText2 {
-            color: #00000080;
-            font-size: 0.87rem;
-            line-height: 0;
-            font-family: 'graphik-medium';
-        }
-        .socialLinkText{
-            margin: 0;
-            margin-bottom: 0.3rem;
-        }
-        .socialLinkText2{
-            margin: 1rem 0;
-        }
-        .signup {
-            color: #EF2F55;
-            font-size: 0.87rem;
-            font-family: 'graphik-medium';
-            text-decoration: none;
-        }
-    }
     .contact-us {
         display: flex;
         text-align: center;
         font-size: 0.75rem;
-        color: #EF2F55;
+        color: #E15220;
         justify-content: center;
         text-decoration: none;
         cursor: pointer;
-        margin-top: 1rem;
-        font-family: 'graphik-medium';
+        margin-top: 1.5rem;
+        font-family: 'gotham-medium';
 
-    }
-    .stores-icon {
-        justify-content: center;
-display: flex;
-margin-top: 1rem;
-align-items: center;
     }
 }

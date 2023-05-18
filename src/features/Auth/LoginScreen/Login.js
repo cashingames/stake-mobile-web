@@ -3,12 +3,12 @@ import { useNavigate, Link } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 import { FaEye, FaEyeSlash } from 'react-icons/fa'
 
-import AuthBanner from '../../../components/AuthBanner/AuthBanner';
 import AuthTitle from '../../../components/AuthTitle/AuthTitle';
 import LoaderScreen from '../../LoaderScreen/LoaderScreen';
 import { loginUser, saveToken, setToken } from '../AuthSlice';
 import './Login.scss'
 import logToAnalytics from '../../../utils/analytics';
+import { IoChevronForwardOutline } from 'react-icons/io5';
 
 
 const Login = () => {
@@ -26,6 +26,10 @@ const Login = () => {
         const invalid = email.length < 4 || password.length < 8;
         setCanLogin(!invalid)
     }, [email, password]);
+
+    const createAccount = () => {
+        navigate('/sign-up')
+    }
 
     const onLogin = () => {
         setLoading(true);
@@ -79,63 +83,59 @@ const Login = () => {
 
     return (
         <div className='login'>
-            <AuthBanner />
-            <AuthTitle titleText="Sign In" styleProp='headerTitle' />
-            <div className='inputsContainer'>
-                <div className='formContainer'>
+            <AuthTitle titleText="Login to your account" styleProp='header-title' />
+            <div className='inputs-container'>
+                <div className='form-container'>
                     {error.length > 0 &&
-                        <span className='inputError'>{error}</span>
+                        <span className='input-error'>{error}</span>
                     }
-                    <div className='inputContainer'>
-                        <label htmlFor='email' className='inputLabel'>Email or username</label>
+                    <div className='input-container'>
+                        <label htmlFor='email' className='input-label'>Enter email or username</label>
                         <input
                             placeholder='johndoe or johndoe@example.com'
                             id='email'
                             type="email"
-                            className='inputBox'
+                            className='input-box'
                             value={email}
                             onChange={e => setEmail(e.target.value)}
                             required
                         />
                     </div>
 
-                    <div className='inputContainer'>
-                        <label htmlFor='password' className='inputLabel'>Password</label>
-                        <div className='passInput'>
-                            <input
-                                placeholder='Enter password'
-                                id='password'
-                                type={showPassword ? 'text' : 'password'}
-                                className='passwordInput'
-                                value={password}
-                                onChange={e => setPassword(e.target.value)}
-                                required
-                            />
+                    <div className='input-container'>
+                        <div className='label-container'>
+                            <label htmlFor='password' className='input-label'>Password</label>
                             {password.length > 0 && <span className='show'
                                 onClick={() => setShowPassword(!showPassword)}>{showPassword ? <FaEye /> : <FaEyeSlash />}</span>}
                         </div>
+                        <input
+                            placeholder='Enter password'
+                            id='password'
+                            type={showPassword ? 'text' : 'password'}
+                            className='input-box'
+                            value={password}
+                            onChange={e => setPassword(e.target.value)}
+                            required
+                        />
                     </div>
-                    <div className='forgotPasswordContainer'>
-                        <Link to='/forgot-password' className='forgotPasswordText'>Forgot Password?</Link>
+                    <div className='forgot-password-container'>
+                        <Link to='/forgot-password' className='forgot-password-text'>Forgot Password?</Link>
                     </div>
-                    <div className='appButtonContainer'>
-                        <button className='buttonContainer' disabled={!canLogin || loading} type='submit' onClick={onLogin}>
-                            <span className='buttonText'>{loading ? "Signing in" : "Sign In"}</span>
+                    <div className='buttons-container'>
+                        <button className='button-container' disabled={!canLogin || loading} type='submit' onClick={onLogin}>
+                            <span className='buttonText'>{loading ? "Signing in" : "Log me in"}</span>
+                            <IoChevronForwardOutline size={20} color='#E3ECF2' className='icon' />
+                        </button>
+                        <p className='or-text'>Or</p>
+                        <button className='button-containeri' onClick={createAccount}>
+                            <span className='buttonText'>Create Account</span>
+                            <IoChevronForwardOutline size={20} color='#072169' className='icon' />
                         </button>
                     </div>
                 </div>
 
             </div>
-            <div className='socialContainer'>
-                <p className='socialLinkText'>Don't have an account ?  <Link className='signup' to='/sign-up'>Create one</Link></p>
-            </div>
             <Link to='/help-contact' className='contact-us'>Need help ? Contact us</Link>
-            <div className='stores-icon'>
-                <a href="https://play.google.com/store/apps/details?id=com.cashingames.cashingames">
-                    <img width="100px" src="/images/googleplay_icon.png" alt="logo" height="50px" className="social-img" /></a>
-                <a href="https://apps.apple.com/ng/app/cashingames/id6443878628">
-                    <img width="100px" height="35px" src="/images/apple_store_icon.png" alt="logo" className="social-img" /></a>
-            </div>
         </div>
     )
 }

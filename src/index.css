@@ -24,6 +24,22 @@
   font-family: 'sansation-light';
   src: local('sansation-light'), url(./assets/fonts/Sansation_Light.ttf) format('opentype');
 }
+@font-face {
+  font-family: 'gotham-bold';
+  src: local('gotham-bold'), url(./assets/fonts/GothamRoundedBold_21016.ttf) format('opentype');
+}
+@font-face {
+  font-family: 'gotham-book';
+  src: local('gotham-book'), url(./assets/fonts/GothamRoundedBook_21018.ttf) format('opentype');
+}
+@font-face {
+  font-family: 'gotham-light';
+  src: local('gotham-light'), url(./assets/fonts/GothamRoundedLight_21020.ttf) format('opentype');
+}
+@font-face {
+  font-family: 'gotham-medium';
+  src: local('gotham-medium'), url(./assets/fonts/GothamRoundedMedium_21022.ttf) format('opentype');
+}
 
 html,
 body,
