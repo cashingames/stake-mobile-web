@@ -1,46 +1,29 @@
-.resendOtpText {
-    margin-top: 1rem;
-    width: 100%;
-    display: flex;
+.resend-timer-container {
+    background-color: #F9FBFF;
     justify-content: center;
+    flex-direction: row;
+    display: flex;
     align-items: center;
-    font-family: 'Graphik';
+    padding: 1.3rem 0;
+    border-radius: 13px;
+    width: 100%;
+    border: 2px solid #072169;
 
-    .resendTimerContainer {
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        .statusText {
-            line-height: 0;
-            margin: 0;
-            color: #000000;
-            font-size: .8rem;
-            font-family: 'graphik-medium';
-        }
-        .resendTimer {
-            line-height: 0;
-            margin: 0;
-            color: #EF2F55;
-            font-size: .8rem;
-            font-family: 'graphik-medium';
-        }
+    .status-text {
+        color: #072169;
+        font-size: 1.2rem;
+        font-family: 'gotham-medium';
     }
 
-    .resendOtpButton {
-        padding: .5rem;
-        margin-left: auto;
-        display: flex;
-        justify-content: center;
-        width: 100%;
-        border: none;
-        background-color: #FFFF;
-
-        .resendText {
-            line-height: 0;
-            margin: 0;
-            color: #EF2F55;
-            font-size: .8rem;
-            font-family: 'graphik-medium';
-        }
+    .resend-timer {
+        color: #072169;
+        font-size: 1.2rem;
+        font-family: 'gotham-medium';
     }
+}
+
+.disabled {
+    background-color: #ccc;
+    border: 1px solid #ccc;
+    opacity: 0.6;
 }

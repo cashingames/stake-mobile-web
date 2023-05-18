@@ -59,7 +59,7 @@ const ForgotPassword = () => {
     return (
         <>
             <div className='password-containers'>
-                <AnonymousRouteHeader title='Password reset' styleProp='password-header' />
+                <AnonymousRouteHeader title='Password reset' styleProp='password-header' noClose={true} />
                 <div> {
                     error.length > 0 && <span className="error-box">
                         {error}</span>

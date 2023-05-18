@@ -12,7 +12,7 @@ import { calculateTimeRemaining } from "../../../utils/utils";
 const VerifyOtp = () => {
     const dispatch = useDispatch();
     let navigate = useNavigate();
-    
+
     const [otpValues, setOtpValues] = useState(new Array(5).fill(''))
     const [canSubmit, setCanSubmit] = useState(false)
     const [counter, setCounter] = useState('');
@@ -24,7 +24,7 @@ const VerifyOtp = () => {
 
 
 
-    
+
 
     useEffect(() => {
         const onComplete = () => {
@@ -37,7 +37,7 @@ const VerifyOtp = () => {
         futureDateStamp.setMinutes(futureDateStamp.getMinutes() + nextResendMinutes)
 
         const futureDate = futureDateStamp.getTime()
-        
+
         const countDown = setInterval(() => {
 
             const timeString = calculateTimeRemaining(futureDate, onComplete);
@@ -48,7 +48,7 @@ const VerifyOtp = () => {
 
     }, [])
 
-    
+
 
     const changeValue = (e, index) => {
         setOtpValues([...otpValues.map((d, i) => {
@@ -97,18 +97,18 @@ const VerifyOtp = () => {
 
     return (
         <>
-            <AnonymousRouteHeader title='Verify Otp' />
-            <div className='passwordContainer'>
-                <p className='text'>Enter the One-time passcode we sent to the email you provided</p>
-                <form className='otpForm' onSubmit={handleSubmit}>
+            <div className='password-container'>
+                <AnonymousRouteHeader title='OTP Verification' isClose={true} styleProp='verify-header' />
+                <p className='text'>Enter Otp code</p>
+                <form className='otp-form' onSubmit={handleSubmit}>
                     {error.length > 0 &&
-                        <span className="errorBox">{error}</span>
+                        <span className="error-box">{error}</span>
                     }
                     <div>
                         {otpValues.map((data, index) => {
                             return (
                                 <input
-                                    className='otpInput'
+                                    className='otp-input'
                                     name='otpValues'
                                     key={index}
                                     value={data}
@@ -118,11 +118,16 @@ const VerifyOtp = () => {
                             )
                         })}
                     </div>
-                   <ResendOtp onPress={resendButton} counter={counter} isCountdownInProgress={isCountdownInProgress}/>
-                    <button className='btn' type='submit' disabled={!canSubmit}> Continue</button>
+                    <div className="expire-container">
+                        <p className="digit-text">Enter 5 digit OTP Code</p>
+                    </div>
+                    <button className='button-container' disabled={!canSubmit} type='submit'>
+                        <span className='buttonText'>Continue</span>
+                    </button>
                 </form>
+                <ResendOtp onPress={resendButton} counter={counter} isCountdownInProgress={isCountdownInProgress} />
             </div>
-           
+
         </>
     )
 }

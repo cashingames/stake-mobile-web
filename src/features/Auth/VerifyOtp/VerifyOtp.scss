@@ -1,7 +1,18 @@
-.passwordContainer {
-    height: 100vh;
-    padding: 0 2rem;
-    font-family: 'Graphik', sans-serif;
+.verify-header {
+    .icon {
+        color: #072169;
+    }
+
+    .title {
+        color: #072169;
+    }
+}
+
+.password-container {
+    // height: 100vh;
+    background-color: #F9FBFF;
+    min-height: 100vh;
+    padding: 2rem 1.2rem;
 
     h1 {
         text-align: start;
@@ -10,26 +21,36 @@
     }
 
     .text {
-        font-size: .9rem;
-        margin: 1rem 0;
-        color: #000000B2;
-        font-family: 'graphik-regular';
+        font-size: 1.3rem;
+        margin-top: 5rem;
+        color: #072169;
+        font-family: 'gotham-medium';
         line-height: 1.5;
     }
 
-    .otpForm {
+    .otp-form {
         display: flex;
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        margin-top: 3rem;
+        margin-top: 2rem;
 
         div {
             display: flex;
-            gap: 1rem;
+            justify-content: space-between;
+
+            .otp-input {
+                width: 60px;
+                height: 62px;
+                background: #FFFFFF;
+                border: 1px solid #D9D9D9;
+                border-radius: 13px;
+                text-align: center;
+                font-family: 'sansation-bold';
+                font-size: 1.2rem;
+                color: #072169;
+            }
         }
 
-        .errorBox {
+        .error-box {
             text-align: center;
             margin: 1rem 0;
             background-color: #F442741A;
@@ -39,39 +60,44 @@
             padding: .5rem 0;
             display: flex;
             justify-content: center;
+            font-family: 'sansation-regular';
         }
 
-        .otpInput {
-            width: 48px;
-            height: 48px;
-            background: #FFFFFF;
-            border: 1px solid rgba(0, 0, 0, 0.15);
-            border-radius: 8px;
-            text-align: center;
+        .expire-container {
+            margin-top: 2rem;
+
+            .digit-text {
+                margin: 0;
+                font-family: 'sansation-bold';
+                color: #072169;
+                font-size: 1rem;
+            }
         }
 
-        .btn {
-            position: absolute;
-            bottom: 0;
-            // right: 0;
-            // left: 0;
-            background-color: #EF2F55;
+        .button-container {
+            background-color: #E15220;
             justify-content: center;
+            flex-direction: row;
             display: flex;
             align-items: center;
-            padding: 0.6rem 0;
-            border-radius: 8px;
-            width: 90%;
+            padding: 1.3rem 0;
+            border-radius: 13px;
+            width: 100%;
             border: none;
-            color: white;
-            font-size: 0.9rem;
-            font-family: 'graphik-medium';
-            margin-top: 6rem;
+            margin-top: 2.5rem;
+            margin-bottom: 2rem;
+
+            .buttonText {
+                color: white;
+                font-size: 1.2rem;
+                font-family: 'gotham-medium';
+            }
+
         }
 
         button[disabled] {
             border: none;
-            background-color: #DFCBCF;
+            background-color: #EA8663;
             color: white;
         }
     }
