@@ -1,38 +1,19 @@
 .anonymousRouteHeader {
     display: flex;
-    padding: 0.6rem 1rem  0 0.8rem;
     flex-direction: column;
-    // align-items: center;
-    gap: 0.2rem;
-    position: sticky;
-    top: 0;
-    right: 0;
-    width: 100%;
-    z-index: 2;
-    height: 5.1rem;
-    background-color:#fff ;
-    .img{
-        height: 30px;
-        object-fit: cover;
-        width: 70px;
-    }
+    margin-top: 1rem;
     .headerTitle {
         display: flex;
         align-items: center;
-        margin-left: .5rem;
-        gap: 1rem;
-        margin-top: 0.5rem;
+        gap: 3.5rem;
     }
     .title {
-        font-weight: 500;
-        font-size: 1rem;
-        color: #000;
+        font-size: 25px;
         margin: 0;
+        font-family: 'gotham-medium';
     }
     .icon {
-        font-size: 1rem;
-        font-weight: 300;
-        color: #000;
+        color: #072169;
         cursor: pointer;
     }
 }

@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import AnonymousRouteHeader from "../../../components/AnonymousRouteHeader/AnonymousRouteHeader";
 import { verifyAccount } from "../AuthSlice";
 import './ForgotPassword.scss'
+import { IoChevronForwardOutline } from "react-icons/io5";
 
 const ForgotPassword = () => {
     const dispatch = useDispatch();
@@ -38,7 +39,7 @@ const ForgotPassword = () => {
         setCanSend(false);
         setError('');
 
-        dispatch(verifyAccount({ phone_number: phone , country_code: countryCode})).then(unwrapResult).then((originalPromiseResult) => {
+        dispatch(verifyAccount({ phone_number: phone, country_code: countryCode })).then(unwrapResult).then((originalPromiseResult) => {
             setLoading(false);
             setCanSend(true);
             navigate('/verify-otp', {
@@ -57,21 +58,20 @@ const ForgotPassword = () => {
 
     return (
         <>
-            <AnonymousRouteHeader title='Forgot Password' styleProp='passwordHeader' />
-            <div className='passwordContainers'>
-                <p className='text'>Enter your phone number below to enable us verify you are whom you say you are</p>
+            <div className='password-containers'>
+                <AnonymousRouteHeader title='Password reset' styleProp='password-header' />
                 <div> {
-                    error.length > 0 && <span className="errorBox">
+                    error.length > 0 && <span className="error-box">
                         {error}</span>
                 }
-                    <div className='inputContainer'>
-                        <label htmlFor='phone' className='inputLabel'>Phone number</label>
-                        <div className='phoneContainer'>
+                    <div className='input-container'>
+                        <label htmlFor='phone' className='input-label'>Phone number</label>
+                        <div className='phone-container'>
                             <input
                                 placeholder="+234"
                                 type='text'
                                 value={countryCode}
-                                className='countryCode'
+                                className='country-code'
                                 onChange={e => onChangeCountryCode(e)}
                                 required
                             />
@@ -80,29 +80,27 @@ const ForgotPassword = () => {
                                 type='tel'
                                 id='phone'
                                 value={phone}
-                                className='phoneInput'
+                                className='phone-input'
                                 onChange={e => onChangePhone(e)}
                                 maxLength={11}
                             />
                         </div>
 
                         {phoneErr &&
-                            <span className='inputError'>*please input a correct phone number</span>
+                            <span className='input-error'>*please input a correct phone number</span>
                         }
                         {countryCodeErr &&
-                            <span className='inputError'>*please input a valid country code</span>
+                            <span className='input-error'>*please input a valid country code</span>
                         }
                     </div>
-                    <button onClick={
+                    <p className='text'>An Otp code would be sent to your phone number.</p>
+
+                    <button className='button-container' disabled={!canSend || loading} type='submit' onClick={
                         () => onSend()
-                    }
-                        className='btn'
-                        disabled={
-                            !canSend
-                        }>
-                        {
-                            loading ? 'Sending...' : 'GET OTP'
-                        } </button>
+                    }>
+                        <span className='buttonText'>{loading ? "Sending..." : "Reset password"}</span>
+                        <IoChevronForwardOutline size={20} color='#FFF' className='icon' />
+                    </button>
                 </div>
             </div>
         </>

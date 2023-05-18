@@ -1,6 +1,6 @@
 import React from "react";
 
-import { IoArrowBack } from 'react-icons/io5'
+import { IoChevronBack } from 'react-icons/io5'
 import { useNavigate } from 'react-router-dom'
 import './AnonymousRouteHeader.scss'
 
@@ -8,11 +8,8 @@ function AnonymousRouteHeader({ title, styleProp }) {
     const navigate = useNavigate()
     return (
         <div className={`anonymousRouteHeader ${styleProp}`}>
-            <img src="/images/logo-small.png" alt="banner" className="img" onClick={
-                        () => navigate('/login')
-                    } />
             <div className="headerTitle">
-                <IoArrowBack className='icon'
+                <IoChevronBack size={24} className='icon'
                     onClick={
                         () => navigate(-1)
                     } />

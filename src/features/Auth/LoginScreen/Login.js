@@ -124,7 +124,7 @@ const Login = () => {
                     <div className='buttons-container'>
                         <button className='button-container' disabled={!canLogin || loading} type='submit' onClick={onLogin}>
                             <span className='buttonText'>{loading ? "Signing in" : "Log me in"}</span>
-                            <IoChevronForwardOutline size={20} color='#E3ECF2' className='icon' />
+                            <IoChevronForwardOutline size={20} color='#FFF' className='icon' />
                         </button>
                         <p className='or-text'>Or</p>
                         <button className='button-containeri' onClick={createAccount}>
