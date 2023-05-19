@@ -1,29 +1,62 @@
-.verification__phone-container{
-    padding: 2rem 1rem;
-    font-family: 'Graphik', sans-serif;
-    
+.verify-header {
+    .icon {
+        color: #072169;
+    }
+
+    .title {
+        color: #072169;
+    }
+}
+
+.verification-phone-container {
+    // height: 100vh;
+    background-color: #F9FBFF;
+    min-height: 100vh;
+    padding: 2rem 1.2rem;
+
+    .text {
+        font-size: 1.3rem;
+        margin-top: 5rem;
+        color: #072169;
+        font-family: 'gotham-medium';
+        line-height: 1.5;
+    }
+
+    .expire-container {
+        margin-top: 2rem;
+
+        .digit-text {
+            margin: 0;
+            font-family: 'sansation-bold';
+            color: #072169;
+            font-size: 1rem;
+        }
+    }
+
     .button-container {
-        margin-top: 2.3rem;
-        background-color: #EF2F55;
+        background-color: #E15220;
         justify-content: center;
+        flex-direction: row;
         display: flex;
         align-items: center;
-        padding: 0.75rem 0;
-        border-radius: 7.5px;
+        padding: 1.3rem 0;
+        border-radius: 13px;
         width: 100%;
         border: none;
+        margin-top: 2.5rem;
+        margin-bottom: 2rem;
 
-        .button-text {
+        .buttonText {
             color: white;
-            font-size: 0.9rem;
-            font-family: 'graphik-medium';
+            font-size: 1.2rem;
+            font-family: 'gotham-medium';
         }
 
     }
 
     button[disabled] {
         border: none;
-        background-color: #DFCBCF;
+        background-color: #EA8663;
         color: white;
     }
 

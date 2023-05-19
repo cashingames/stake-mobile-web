@@ -9,13 +9,13 @@ import ResendOtp from "../../../components/ResendOtp/ResendOtp";
 import firebaseConfig from "../../../firebaseConfig";
 import { logEvent } from "firebase/analytics";
 import InputOTP from "../../../components/InputOTP/InputOTP";
-import VerifyEmailText from "../../../components/VerifyEmailText/VerifyEmailText";
+import AnonymousRouteHeader from "../../../components/AnonymousRouteHeader/AnonymousRouteHeader";
 // import ReactGA from 'react-ga';
 
 
 const VerifyRegistrationOtp = () => {
     const analytics = firebaseConfig();
-    
+
     const dispatch = useDispatch();
     const location = useLocation();
     const [otpValues, setOtpValues] = useState(new Array(5).fill(''))
@@ -23,7 +23,6 @@ const VerifyRegistrationOtp = () => {
     const [isCountdownInProgress, setIsCountdownInProgress] = useState(true);
     const [canLogin, setCanLogin] = useState(true);
     const [loading, setLoading] = useState(false);
-    const otpScreenText = 'To verify your account, please input the One Time Password sent to your phone.';
 
 
     useEffect(() => {
@@ -104,13 +103,17 @@ const VerifyRegistrationOtp = () => {
 
 
     return (
-        <div className="verification__phone-container">
-            <VerifyEmailText text={otpScreenText}/>
+        <div className="verification-phone-container">
+            <AnonymousRouteHeader title='OTP Verification' isClose={true} styleProp='verify-header' />
+            <p className='text'>Enter Otp code</p>
             <InputOTP otpValues={otpValues} changeValue={changeValue} />
+            <div className="expire-container">
+                        <p className="digit-text">Enter 5 digit OTP Code</p>
+                    </div>
+                    <button className='button-container' disabled={!canLogin || loading} type='submit' onClick={verify}>
+                        <span className='buttonText'>{loading ? 'Verifying...' : 'Login'}</span>
+                    </button>
             <ResendOtp onPress={resendButton} counter={counter} isCountdownInProgress={isCountdownInProgress} />
-            <button className='button-container' disabled={!canLogin || loading} type='submit' onClick={verify}>
-                <span className='button-text'>{loading ? "Verifying..." : "Verify"}</span>
-            </button>
         </div>
     )
 }
