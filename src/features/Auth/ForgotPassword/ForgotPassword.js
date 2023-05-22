@@ -66,7 +66,7 @@ const ForgotPassword = () => {
                 }
                     <div className='input-container'>
                         <label htmlFor='phone' className='input-label'>Phone number</label>
-                        <div className='phone-container'>
+                        <div className={phoneErr || countryCodeErr ? 'phone-containeri' : 'phone-container'}>
                             <input
                                 placeholder="+234"
                                 type='text'

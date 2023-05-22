@@ -79,7 +79,7 @@ const ResetPassword = () => {
                                 type={showPassword ? 'text' : 'password'}
                                 value={password}
                                 onChange={e => onChangePassword(e)}
-                                className='password-input'
+                                className={passErr ? 'password-inputi' : 'password-input'}
                                 placeholder="Password must not be less than 8 digits"
                             />
                             {passErr &&
@@ -97,7 +97,7 @@ const ResetPassword = () => {
                                 type={showPassword ? 'text' : 'password'}
                                 value={confirmPassword}
                                 onChange={e => onChangeConfirmPassword(e)}
-                                className='password-input'
+                                className={confirmPassErr ? 'password-inputi' : 'password-input'}
                                 placeholder="Password must not be less than 8 digits"
                             />
                             {confirmPassErr &&
