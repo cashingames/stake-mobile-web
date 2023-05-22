@@ -63,7 +63,7 @@ const ResetPassword = () => {
     return (
         <>
             <div className='password-container' >
-                <AnonymousRouteHeader title='Update your password' styleProp='reset-header' />
+                <AnonymousRouteHeader title='Update your password' isClose={true}  styleProp='reset-header' />
                 <div>
                     {error.length > 0 &&
                         <span className="error-box">{error}</span>

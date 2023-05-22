@@ -21,8 +21,8 @@
                 background-color: #F442741A;
                 border-radius: 7px;
                 color: #EF2F55;
-                font-size: 0.7rem;
-                font-family: 'gotham-light';
+                font-size: 0.8rem;
+                font-family: 'gotham-medium';
                 padding: .5rem 0;
                 display: flex;
                 justify-content: center;
@@ -72,11 +72,60 @@
                     outline: none;
                     background-color: #fff;
                 }
+                .input-boxi {
+                    height: 3.5rem;
+                    color: #072169;
+                    font-size: 0.95rem;
+                    font-family: 'sansation-regular';
+                    border-radius: 14px;
+                    padding: 0.5rem 1rem;
+                    border: 1px solid #EF2F55;
+                    outline: none;
+                    background-color: #fff;
+                }
 
                 ::placeholder {
                     color: #00000080;
                     font-family: 'sansation-regular';
                 }
+
+                .phone-containeri {
+                    display: flex;
+                    align-items: center;
+                    height: 3.5rem;
+                    color: #072169;
+                    font-size: 0.95rem;
+                    font-family: 'sansation-regular';
+                    border-radius: 14px;
+                    padding: 0.5rem 1rem;
+                    border: 1px solid #EF2F55;
+                    outline: none;
+                    background-color: #fff;
+
+
+                    .country-code {
+                        border: none;
+                        border-right: 1px solid #CDD4DF;
+                        width: 3rem;
+                        margin-right: .5rem;
+                        font-size: 0.9rem;
+                        color: #072169;
+                        outline: none;
+                        font-family: 'sansation-regular';
+
+                    }
+
+                    .phone-input {
+                        border: none;
+                        outline: none;
+                        color: #072169;
+                        font-size: 0.9rem;
+                        font-family: 'sansation-regular';
+
+                    }
+
+                }
+
 
                 .phone-container {
                     display: flex;

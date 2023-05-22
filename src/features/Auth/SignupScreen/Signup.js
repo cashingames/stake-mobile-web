@@ -161,7 +161,7 @@ const Signup = () => {
                             <label htmlFor='phone' className='input-label'>Phone number</label>
                             <p className='required-text'>Required</p>
                         </div>
-                        <div className='phone-container'>
+                        <div className={phoneErr || countryCodeErr ? 'phone-containeri' : 'phone-container'}>
                             <input
                                 placeholder="+234"
                                 type='text'
@@ -194,11 +194,11 @@ const Signup = () => {
                             <p className='required-text'>Required</p>
                         </div>
                         <input
-                            placeholder="Enter first name as it appears on your bank account"
+                            placeholder="First name as it appears on your bank account"
                             type='text'
                             id='firstname'
                             value={firstname}
-                            className='input-box'
+                            className={fNameErr ? 'input-boxi' : 'input-box'}
                             autoFocus={true}
                             onChange={e => onChangeFirstname(e)}
                             required
@@ -213,11 +213,11 @@ const Signup = () => {
                             <p className='required-text'>Required</p>
                         </div>
                         <input
-                            placeholder="Enter last name as it appears on your bank account"
+                            placeholder="Last name as it appears on your bank account"
                             type='text'
                             id='lastname'
                             value={lastname}
-                            className='input-box'
+                            className={lNameErr ? 'input-boxi' : 'input-box'}
                             autoFocus={true}
                             onChange={e => onChangeLastname(e)}
                             required
@@ -237,7 +237,7 @@ const Signup = () => {
                             // pattern="/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/"
                             id='email'
                             value={email}
-                            className='input-box'
+                            className={emailError ? 'input-boxi' : 'input-box'}
                             autoFocus={true}
                             onChange={e => onChangeEmail(e)}
                             required
@@ -257,7 +257,7 @@ const Signup = () => {
                             // pattern="/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/"
                             id='username'
                             value={username}
-                            className='input-box'
+                            className={usernameError ? 'input-boxi' : 'input-box'}
                             autoFocus={true}
                             onChange={e => onChangeUsername(e)}
                             required
@@ -277,7 +277,7 @@ const Signup = () => {
                             type={showPassword ? 'text' : 'password'}
                             id='password'
                             value={password}
-                            className='input-box'
+                            className={passwordError ? 'input-boxi' : 'input-box'}
                             onChange={e => onChangePassword(e)}
                             minLength={8}
                             required
@@ -297,7 +297,7 @@ const Signup = () => {
                             type={showPassword ? 'text' : 'password'}
                             id='confirmPassword'
                             value={confirmPassword}
-                            className='input-box'
+                            className={confirmPassErr ? 'input-boxi' : 'input-box'}
                             onChange={e => onChangeConfirmPassword(e)}
                             minLength={8}
                             required
@@ -338,7 +338,7 @@ const Signup = () => {
 
                     <div className='buttons-container'>
                         <button className='button-container' disabled={!canSend || loading} type='submit' onClick={onSend}>
-                            <span className='buttonText'>{loading ? "Processing" : "Create Account"}</span>
+                            <span className='buttonText'>{loading ? "Creating" : "Create Account"}</span>
                             <IoChevronForwardOutline size={20} color='#FFF' className='icon' />
                         </button>
                         <p className='or-text'>Or</p>
