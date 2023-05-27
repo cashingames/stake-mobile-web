@@ -17,7 +17,7 @@ const DepositSuccessful = () => {
                 <p className='success-text'>Deposit successful</p>
             </div>
             <button className='button-container' onClick={returnToWallet}>
-                <span className='buttonText'>Login to account</span>
+                <span className='buttonText'>Okay, got it</span>
             </button>
         </ div>
     )
