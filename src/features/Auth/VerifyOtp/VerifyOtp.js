@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate, useLocation } from "react-router-dom";
 import AnonymousRouteHeader from "../../../components/AnonymousRouteHeader/AnonymousRouteHeader";
-import { setUserPhone, verifyAccount } from '../AuthSlice';
+import { resendPasswordOtp, setUserPhone } from '../AuthSlice';
 import ResendOtp from "../../../components/ResendOtp/ResendOtp";
 import { setUserPasswordResetToken, verifyOtp } from "../AuthSlice";
 import './VerifyOtp.scss'
@@ -17,6 +17,7 @@ const VerifyOtp = () => {
     const [canSubmit, setCanSubmit] = useState(false)
     const [counter, setCounter] = useState('');
     const [isCountdownInProgress, setIsCountdownInProgress] = useState(true);
+    const [countdowvnDone, setCountdowvnDone] = (useState(false));
     const [error, setError] = useState('');
 
     const location = useLocation()
@@ -31,7 +32,7 @@ const VerifyOtp = () => {
             clearInterval(countDown);
             setIsCountdownInProgress(false)
         }
-        let nextResendMinutes = 2;
+        let nextResendMinutes = 5;
 
         const futureDateStamp = new Date()
         futureDateStamp.setMinutes(futureDateStamp.getMinutes() + nextResendMinutes)
@@ -79,10 +80,10 @@ const VerifyOtp = () => {
     }
 
     const resendButton = () => {
-        dispatch(verifyAccount({
+        dispatch(resendPasswordOtp({
             phone_number: location.state.phone
         }))
-        setIsCountdownInProgress(true)
+        setCountdowvnDone(true)
     }
 
     useEffect(() => {
@@ -120,12 +121,15 @@ const VerifyOtp = () => {
                     </div>
                     <div className="expire-container">
                         <p className="digit-text">Enter 5 digit OTP Code</p>
+                        {isCountdownInProgress &&
+                            <p className='digit-text'>Expires in {counter}</p>
+                        }
                     </div>
                     <button className='button-container' disabled={!canSubmit} type='submit'>
                         <span className='buttonText'>Continue</span>
                     </button>
                 </form>
-                <ResendOtp onPress={resendButton} counter={counter} isCountdownInProgress={isCountdownInProgress} />
+                <ResendOtp onPress={resendButton} countdowvnDone={countdowvnDone} isCountdownInProgress={isCountdownInProgress} />
             </div>
 
         </>

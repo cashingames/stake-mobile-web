@@ -24,11 +24,18 @@ export const registerUser = async (data) => {
 export const loginUser = async (data) => {
     return axios.post(`auth/login`, data);
 }
-export const ResendPhoneOtp = createAsyncThunk(
-    'auth/ResendPhoneOtp',
+export const resendPhoneOtp = createAsyncThunk(
+    'auth/resendPhoneOtp',
     async (data, thunkAPI) => {
-        //make a network request to the server
-        const response = await axios.post(`auth/register/token/resend`, data);
+        const response = await axios.post('auth/register/token/resend', data);
+        return response.data;
+    }
+)
+
+export const resendPasswordOtp = createAsyncThunk(
+    'auth/resendPasswordOtp',
+    async (data, thunkAPI) => {
+        const response = await axios.post('auth/password/token/resend', data);
         return response.data;
     }
 )

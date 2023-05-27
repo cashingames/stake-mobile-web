@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useLocation } from "react-router-dom";
-import { ResendPhoneOtp, verifyPhoneOtp, setToken, saveToken } from '../AuthSlice';
+import { verifyPhoneOtp, setToken, saveToken, resendPhoneOtp } from '../AuthSlice';
 import { calculateTimeRemaining } from "../../../utils/utils";
 import './VerifyRegistrationOtp.scss'
 import { unwrapResult } from "@reduxjs/toolkit";
@@ -20,6 +20,7 @@ const VerifyRegistrationOtp = () => {
     const location = useLocation();
     const [otpValues, setOtpValues] = useState(new Array(5).fill(''))
     const [counter, setCounter] = useState('');
+    const [countdowvnDone, setCountdowvnDone] = (useState(false));
     const [isCountdownInProgress, setIsCountdownInProgress] = useState(true);
     const [canLogin, setCanLogin] = useState(true);
     const [loading, setLoading] = useState(false);
@@ -65,10 +66,10 @@ const VerifyRegistrationOtp = () => {
     }, [otpToken])
 
     const resendButton = () => {
-        dispatch(ResendPhoneOtp({
+        dispatch(resendPhoneOtp({
             username: location.state.username
         }))
-        setIsCountdownInProgress(true)
+        setCountdowvnDone(true)
     }
 
     const verify = () => {
@@ -108,12 +109,15 @@ const VerifyRegistrationOtp = () => {
             <p className='text'>Enter Otp code</p>
             <InputOTP otpValues={otpValues} changeValue={changeValue} />
             <div className="expire-container">
-                        <p className="digit-text">Enter 5 digit OTP Code</p>
-                    </div>
-                    <button className='button-container' disabled={!canLogin || loading} type='submit' onClick={verify}>
-                        <span className='buttonText'>{loading ? 'Verifying...' : 'Login'}</span>
-                    </button>
-            <ResendOtp onPress={resendButton} counter={counter} isCountdownInProgress={isCountdownInProgress} />
+                <p className="digit-text">Enter 5 digit OTP Code</p>
+                {isCountdownInProgress &&
+                    <p className='digit-text'>Expires in {counter}</p>
+                }
+            </div>
+            <button className='button-container' disabled={!canLogin || loading} type='submit' onClick={verify}>
+                <span className='buttonText'>{loading ? 'Verifying...' : 'Login'}</span>
+            </button>
+            <ResendOtp onPress={resendButton} countdowvnDone={countdowvnDone} isCountdownInProgress={isCountdownInProgress} />
         </div>
     )
 }

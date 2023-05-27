@@ -101,9 +101,9 @@ const Signup = () => {
     }, [emailError, usernameError, phoneErr, countryCodeErr, passwordError, password, email, username, phone,
         countryCode, checked, confirmPassErr, confirmPassword, fNameErr, firstname, lNameErr, lastname])
 
-        const logMeIn = () => {
-            navigate('/login')
-        }
+    const logMeIn = () => {
+        navigate('/login')
+    }
 
     const onSend = () => {
         setLoading(true);
@@ -121,12 +121,14 @@ const Signup = () => {
         }).then(response => {
             logToAnalytics('registration_unverified', {
                 'email': email,
-                'phone_number': phone
+                'phone_number': phone,
+                'username': username
             });
             navigate('/verify-phone-number', {
                 state: {
                     phone_number: phone,
-                    next_resend_minutes: response.data.data.next_resend_minutes
+                    next_resend_minutes: response.data.data.next_resend_minutes,
+                    username: username,
                 }
             })
 
