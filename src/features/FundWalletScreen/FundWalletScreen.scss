@@ -11,27 +11,27 @@
     margin-bottom: 3rem;
 
     .actionBtnContainer {
-        display: flex;
+        background-color: #E15220;
         justify-content: center;
-        border-radius: 12px;
-        cursor: pointer;
-        background-color: #ef2f55;
-        border: none;
+        flex-direction: row;
+        display: flex;
+        align-items: center;
+        // padding: 1.3rem 0;
+        border-radius: 13px;
         width: 100%;
+        border: none;
 
         .text {
-            line-height: 1;
-            letter-spacing: 0.25;
-            color: #fff;
-            font-size: 0.9rem;
-            font-weight: 500;
+            color: white;
+            font-size: 1.2rem;
+            font-family: 'gotham-medium';
         }
 
     }
 
     button[disabled] {
         border: none;
-        background-color: #DFCBCF;
+        background-color: #EA8663;
         color: white;
     }
 }

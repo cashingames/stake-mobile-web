@@ -7,6 +7,7 @@ import ChallengeGameBoardScreen from './features/Games/TriviaChallengeStaking/Ch
 import ChallengeMatchingScreen from './features/Games/TriviaChallengeStaking/ChallengeMatchingScreen/ChallengeMatchingScreen';
 import ChallengeStakingScreen from './features/Games/TriviaChallengeStaking/ChallengeStakingScreen/ChallengeStakingScreen';
 import ChallengeWaitingScreen from './features/Games/TriviaChallengeStaking/ChallengeWaitingScreen/ChallengeWaitingScreen';
+import DepositSuccessful from './features/DepositSuccessful/DepositSuccessful';
 
 const DashBoardScreen = lazy(() => import('./features/Dashboard/DashBoardScreen'));
 
@@ -74,6 +75,9 @@ const AppRouter = () => {
             <Route
                 path="/notifications"
                 element={<AuthRoute redirectTo="/"><NotificationScreen /></AuthRoute>} />
+            <Route
+                path="/deposit-successful"
+                element={<AuthRoute redirectTo="/"><DepositSuccessful /></AuthRoute>} />
             <Route
                 path="/fund-wallet"
                 element={<AuthRoute redirectTo="/"><FundWalletScreen /></AuthRoute>} />

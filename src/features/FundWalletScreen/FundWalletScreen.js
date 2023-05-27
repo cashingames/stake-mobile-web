@@ -49,7 +49,7 @@ function FundWalletScreen() {
         });
         dispatch(getUser());
         setShowPayment(false);
-        navigate('/wallet');
+        navigate('/deposit-successful');
     }
 
     useEffect(() => {
