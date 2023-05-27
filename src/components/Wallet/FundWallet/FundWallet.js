@@ -7,6 +7,7 @@ import { usePaystackPayment } from 'react-paystack';
 import { logEvent } from 'firebase/analytics';
 import firebaseConfig from '../../../firebaseConfig';
 import './FundWallet.scss'
+import { IoCheckmarkCircle, IoEllipseOutline } from 'react-icons/io5';
 
 function FundWallet() {
     const analytics = firebaseConfig();
@@ -18,6 +19,8 @@ function FundWallet() {
     const user = useSelector((state) => state.auth.user);
     const [showPayment, setShowPayment] = useState(false);
     const minimumWalletFundableAmount = useSelector(state => state.common.minimumWalletFundableAmount);
+    const [paystackChecked, setPaystackChecked] = useState(false);
+    const [flutterChecked, setFlutterChecked] = useState(false);
     // console.log(minimumWalletFundableAmount)
 
     const config = {
@@ -56,44 +59,84 @@ function FundWallet() {
         setAmount(amount)``
     }
 
+
+    const initializePayment = usePaystackPayment(config);
+
+
+    const startPayment = () => {
+        // if (paystackChecked) {
+        //     setShowPayment(true);
+        // } else alert('This payment gateway is not available now');
+        initializePayment()
+    }
+
+    const togglePaystack = () => {
+        setFlutterChecked(false);
+        setPaystackChecked(true);
+    }
+
+    const toggleFlutter = () => {
+        setPaystackChecked(false);
+        setFlutterChecked(true);
+    }
+
     useEffect(() => {
         const invalid = amountErr || amount === 0;
         setCanSend(!invalid);
     }, [amount, amountErr])
 
-    const initializePayment = usePaystackPayment(config);
+
     return (
         <>
             {!showPayment &&
-                <>
+                <div className='fund-main-Container'>
 
-                    <div className='fundWalletContainer'>
-                        <div className='balance'>
-                            <p className='availableAmount'>
-                                Bal: &#8358;{
-                                    formatCurrency(user.walletBalance)
-                                } </p>
-                            <p className='walletTitle'>How much do you want to deposit ? (&#8358;)</p>
-                            <input value={amount}
-                                autoFocus={true}
-                                placeholder='500'
-                                type='number'
-                                onChange={e => onChangeAmount(e)}
-                                className='fundAmount' />
-                            <div className='flag'>
-                                <img src='/images/naija_flag.png' alt='nigeria flag' />
-                                <p className='flagText'>NGN</p>
+                    <div className='fund-Container'>
+                        <div className='input-container'>
+                            <div className='label-container'>
+                                <label htmlFor='amount' className='input-label'>Enter amount</label>
+                                <p className='required-text'>Required</p>
                             </div>
+                            <input
+                                placeholder={`Minimum of NGN ${minimumWalletFundableAmount}`}
+                                type='number'
+                                id='amount'
+                                value={amount}
+                                className={amountErr ? 'input-boxi' : 'input-box'}
+                                autoFocus={true}
+                                onChange={e => onChangeAmount(e)}
+                                required
+                            />
                             {amountErr &&
-                                <span className='inputError'>*Amount cannot be less than {minimumWalletFundableAmount} naira</span>
+                                <span className='input-error'>*Minimum fundable amount is NGN {minimumWalletFundableAmount}</span>
                             }
                         </div>
+                        <div className='gateways-container'>
+                            <div className='label-container'>
+                                <p className='gateway-header-text'>Choose gateway</p>
+                                <p className='required-text'>Required</p>
+                            </div>
+                            <p className='gateway-sub-header'>Select a preferred gateway to fund wallet</p>
+                            <div className='main-gateway-container'>
+                                <div onClick={togglePaystack} className='gateway-container'>
+                                    <span onClick={() => setPaystackChecked(!paystackChecked)}>{paystackChecked ? <IoCheckmarkCircle size={26} color='#00FFA3' /> : <IoEllipseOutline size={26} color='#D9D9D9'
+                                    />}</span>
+                                    <img src='/images/paystack-icon.png' alt='paystack' className='gateway-icon' />
+
+                                </div>
+                                <div onClick={toggleFlutter} className='gateway-container'>
+                                    <span onClick={() => setFlutterChecked(!flutterChecked)}>{flutterChecked ? <IoCheckmarkCircle size={26} color='#00FFA3' /> : <IoEllipseOutline size={26} color='#D9D9D9'
+                                    />}</span>
+                                    <img src='/images/flutter-icon.png' alt='flutterwave' className='gateway-icon' />
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div className='fundButtonContainer'>
+                    <div className='fund-button-container'>
                         <button className='actionBtnContainer'
                             disabled={!canSend}
                             onClick={() => {
-                                initializePayment(onSuccess, onClose)
+                                startPayment(onSuccess, onClose)
                             }}
                         >
                             <p className='text'>Fund Wallet</p>
@@ -104,7 +147,7 @@ function FundWallet() {
                             <Dialogue open={open} handleClose={handleClose} />
                         </div>
                     } */}
-                </>
+                </div>
             }
         </>
     )
