@@ -8,6 +8,8 @@ import ChallengeMatchingScreen from './features/Games/TriviaChallengeStaking/Cha
 import ChallengeStakingScreen from './features/Games/TriviaChallengeStaking/ChallengeStakingScreen/ChallengeStakingScreen';
 import ChallengeWaitingScreen from './features/Games/TriviaChallengeStaking/ChallengeWaitingScreen/ChallengeWaitingScreen';
 import DepositSuccessful from './features/DepositSuccessful/DepositSuccessful';
+import WithdrawFunds from './features/WithdrawFunds/WithdrawFunds';
+import WithdrawalSuccessful from './features/WithdrawalSuccessful/WithdrawalSuccessful';
 
 const DashBoardScreen = lazy(() => import('./features/Dashboard/DashBoardScreen'));
 
@@ -73,17 +75,23 @@ const AppRouter = () => {
                 path="/wallet"
                 element={<AuthRoute redirectTo="/"><WalletScreen /></AuthRoute>} />
             <Route
-                path="/notifications"
-                element={<AuthRoute redirectTo="/"><NotificationScreen /></AuthRoute>} />
-            <Route
-                path="/deposit-successful"
-                element={<AuthRoute redirectTo="/"><DepositSuccessful /></AuthRoute>} />
+                path="/withdraw-funds"
+                element={<AuthRoute redirectTo="/"><WithdrawFunds /></AuthRoute>} />
+                  <Route
+                path="/withdraw-successful"
+                element={<AuthRoute redirectTo="/"><WithdrawalSuccessful /></AuthRoute>} />
             <Route
                 path="/fund-wallet"
                 element={<AuthRoute redirectTo="/"><FundWalletScreen /></AuthRoute>} />
             <Route
+                path="/deposit-successful"
+                element={<AuthRoute redirectTo="/"><DepositSuccessful /></AuthRoute>} />
+            <Route
                 path="/transactions"
                 element={<AuthRoute redirectTo="/"><TransactionScreen /></AuthRoute>} />
+            <Route
+                path="/notifications"
+                element={<AuthRoute redirectTo="/"><NotificationScreen /></AuthRoute>} />
             <Route
                 path="/games-list"
                 element={<AuthRoute redirectTo="/"><GamesListScreen /></AuthRoute>} />
