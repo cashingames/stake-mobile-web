@@ -230,6 +230,7 @@ const EditProfileDetails = () => {
                             onChange={changeFirstName}
                             value={firstName}
                             required
+                            readOnly
                         />
                     </div>
                     <div className='inputCase'>
@@ -243,7 +244,9 @@ const EditProfileDetails = () => {
                         <input
                             className='inputBox2'
                             onChange={changeLastName}
-                            value={lastName} />
+                            value={lastName} 
+                            readOnly
+                            />
                     </div>
                     <div className='inputCase'>
                         <label htmlFor='lastName' className='inputLabel'>Date of Birth</label>
