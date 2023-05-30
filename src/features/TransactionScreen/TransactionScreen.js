@@ -10,48 +10,20 @@ import './TransactionScreen.scss'
 function TransactionScreen() {
     const dispatch = useDispatch();
     const [loading, setLoading] = useState(true);
-    // const [loadingMore, setLoadingMore] = useState(false);
     const transactions = useSelector(state => state.common.userTransactions);
-    // const [pageNumber, setPageNumber] = useState();
-
-    // const loadMoreTransactions = useSelector(state => state.common.loadMoreTransactions);
-    // const getPageNo = () => parseInt(transactions.length / 10) + 1;
-
-
-    //   useEffect(() => {
-    //     setPageNumber(getPageNo());
-    // }, [])
 
     const navigate = useNavigate()
 
     useEffect(() => {
-        // if (!pageNumber) {
-        //     return;
-        // }
-        // if (!loadMoreTransactions) {
-        //     setLoadingMore(false)
-        //     setLoading(false)
-        //     return;
-        // }
-
-        // setLoadingMore(true)
         dispatch(fetchUserTransactions())
             .then(() => {
                 setLoading(false);
-                // setLoadingMore(false)
             })
     }, [dispatch]);
 
     const navigateHandler = () => {
         navigate('/wallet')
     }
-
-    // const loadMoreItems = () => {
-    //   if (!loadMoreTransactions)
-    //       return;
-    //   //check if length of transactions has changed
-    //   setPageNumber(getPageNo())
-    // }
     if (loading) {
         return <LoaderScreen />
     }
@@ -59,10 +31,15 @@ function TransactionScreen() {
     return (
         <>
             <ScreenHeader title='Transactions' styleProp='transaction' onClick={navigateHandler} />
-            {transactions.length > 0 ?
+            {transactions.mainTransactions.length > 0 || transactions.bonusTransactions.length > 0 ?
                 <>
                     {
-                        transactions.map((item, i) => <Transaction key={i} item={item}
+                        transactions.mainTransactions.map((item, i) => <Transaction key={i} item={item}
+
+                        />)
+                    }
+                     {
+                        transactions.bonusTransactions.map((item, i) => <Transaction key={i} item={item}
 
                         />)
                     }

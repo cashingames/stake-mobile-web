@@ -170,7 +170,7 @@ const initialState = {
     },
     userNotifications: [],
     userTransactions: [],
-    loadMoreTransactions: true,
+    // loadMoreTransactions: true,
     maximumExhibitionStakeAmount: 0,
     minimumExhibitionStakeAmount: 0,
     maximumChallengeStakeAmount: 0,
@@ -246,8 +246,7 @@ export const CommonSlice = createSlice({
                 state.userNotifications = action.payload.data.data;
             })
             .addCase(fetchUserTransactions.fulfilled, (state, action) => {
-                state.loadMoreTransactions = !(action.payload.length < 10);
-                state.userTransactions = state.userTransactions.concat(action.payload);
+                state.userTransactions = action.payload;
             })
             .addCase(fetchFaqAndAnswers.fulfilled, (state, action) => {
                 state.faqAndAnswers = action.payload
