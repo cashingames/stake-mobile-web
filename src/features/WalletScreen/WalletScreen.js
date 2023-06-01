@@ -130,7 +130,7 @@ const WalletBalanceDetails = ({ balance, bonusWalletActive, mainWalletActive, bo
             </div>
             <div className='funding-button' onClick={() => navigate('/withdraw-funds')}>
               <img src='/images/cost-benefit.png' alt='cash' className='avatari' />
-              <p className='funding-texti'>Cash withdrawal</p>
+              <p className='funding-texti'>Withdrawal</p>
             </div>
           </div>
         </div>
@@ -379,9 +379,9 @@ const FundTransactions = ({ transaction }) => {
       </div>
       <div className='amountDetails'>
         {transaction.type === "DEBIT" ?
-          <IoRemove size={26} color='072169' />
+          <IoRemove size={20} color='072169' />
           :
-          <IoAdd size={26} color='072169' />
+          <IoAdd size={20} color='072169' />
 
         }
         <p className='transactionAmount'>&#8358;{formatCurrency(transaction.amount)}</p>
