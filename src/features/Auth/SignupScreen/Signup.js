@@ -117,7 +117,7 @@ const Signup = () => {
             first_name: firstname,
             last_name: lastname,
             // referrer: referrer,
-            // bonus_checked: bonusChecked,
+            bonus_checked: bonusChecked,
         }).then(response => {
             logToAnalytics('registration_unverified', {
                 'email': email,
