@@ -19,9 +19,8 @@ const GameStaking = () => {
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const maximumExhibitionStakeAmount = useSelector(state => Number.parseFloat(state.common.maximumExhibitionStakeAmount ?? 0));
-    const [amount, setAmount] = useState(maximumExhibitionStakeAmount);
-    const [stake, setStake] = useState(maximumExhibitionStakeAmount);
+    const [amount, setAmount] = useState('');
+    const [stake, setStake] = useState('');
     const gameType = useSelector(state => state.game.gameType);
     const gameCategoryId = useSelector(state => state.game.gameCategory.id);
     const gameTypeId = useSelector(state => state.game.gameType.id);
