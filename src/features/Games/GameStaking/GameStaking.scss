@@ -1,9 +1,13 @@
 .staking {
-    background-color: #fff;
+    color: #072169;
+
+    .backIcon {
+        color: #072169;
+    }
 }
 
 .staking-container {
-    // padding: 0 1.5rem;
+    padding: 1rem 1.5rem;
     background-color: #F8F9FD;
     font-family: 'Graphik', sans-serif;
     display: flex;

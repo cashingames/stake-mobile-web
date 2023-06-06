@@ -1,22 +1,25 @@
 .games-header {
-    background-color: #FFF;
-    color: #000000;
+    background-color: #ffff;
+    color: #072169;
 
     .games-back {
-        color: #000000;
+        color: #072169;
     }
 }
 
 .games-list-container {
-    background: #F2F5FF;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
+    padding-left: 1.2rem;
+    // align-items: center;
 
     .games-container {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
 
         .trivia-staking-container {
             display: flex;

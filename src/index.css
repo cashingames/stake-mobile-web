@@ -40,6 +40,14 @@
   font-family: 'gotham-medium';
   src: local('gotham-medium'), url(./assets/fonts/GothamRoundedMedium_21022.ttf) format('opentype');
 }
+@font-face {
+  font-family: 'bubble-regular';
+  src: local('bubble-regular'), url(./assets/fonts/bubbleboddyneue-regular.ttf) format('opentype');
+}
+@font-face {
+  font-family: 'bubble-bold';
+  src: local('bubble-bold'), url(./assets/fonts/BubbleboddyNeue-Bold.ttf) format('opentype');
+}
 
 html,
 body,

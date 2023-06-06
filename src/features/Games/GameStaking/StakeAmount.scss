@@ -1,78 +1,212 @@
     .amountContainer {
-        background-color: #fff;
-        border-top: 1px solid #E0E0E0;
-        padding-top: 1rem;
+        margin-top: 1.5rem;
 
         .walletContainer {
-            background-color: #F3F3F3;
-            text-align: center;
-            padding: .6rem 0;
-            border-radius: 64px;
-            margin: 0 1.5rem;
+            background-color: #fff;
+            // margin: 0 18px;
+            border-radius: 13px;
+            border: 1px solid #E5E5E5;
+            padding: 1.1rem 1.3rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0px 2px 10px -5px rgba(0, 0, 0, 0.25);
 
-            .wallet {
-                font-size: 0.7rem;
-                font-weight: 500;
-                margin: 0;
-                color: #01A7DB;
-            }
-        }
-
-        .inputContainer {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            margin-top: 2rem;
-            border-bottom: 1px solid #E0E0E0;
-            padding-bottom: 2.5rem;
-
-            .stakeInput {
-                border: none;
-                width: 100%;
-                text-align: center;
-                font-size: 1.65rem;
-                font-weight: 550;
-                color: #333333;
-                opacity: 0.6;
-                outline-style: none;
-            }
-
-            ::placeholder {
-                opacity: 0.4;
-                font-weight: 550;
-            }
-        }
-
-        .buttonContainer {
-            padding: 0 1.5rem;
-
-            .start-button {
-                width: 100%;
-                margin: 2rem 0;
-                background-color: #EF2F55;
-                border: none;
-                border-radius: 8px;
+            .total-header {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
                 align-items: center;
-                padding: .7rem 0;
 
-                .start-text {
-                    font-size: 0.8rem;
-                    font-family: 'graphik-medium';
-                    color: #ffff;
-                    margin: 0;
+                .total-title-container {
                     display: flex;
+                    flex-direction: row;
                     align-items: center;
-                    justify-content: center;
+
+                    .total-title-text {
+                        color: #072169;
+                        margin: 0;
+                        font-family: 'gotham-medium';
+                        font-size: 1rem;
+                    }
+
+                    .avatar {
+                        width: 1.4rem;
+                        height: 1.4rem;
+                        margin-right: .5rem;
+
+                    }
                 }
             }
 
-            button[disabled] {
-                border: none;
-                background-color: #DFCBCF;
-                color: white;
+            .currency-bottom {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                margin-top: 1rem;
+
+                .currency-header {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    // margin-left: 1.2rem;
+
+                    .currency-text {
+                        color: #072169;
+                        margin: 0;
+                        font-family: 'gotham-bold';
+                        font-size: 1.1rem;
+                        margin-right: .5rem;
+                    }
+
+                    .currency-amount {
+                        color: #072169;
+                        margin: 0;
+                        font-family: 'sansation-regular';
+                        font-size: 1.1rem;
+                    }
+                }
+
+                .funding-button {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+
+                    .funding-text {
+                        color: #072169;
+                        margin: 0;
+                        font-family: 'gotham-medium';
+                        font-size: 1rem;
+                    }
+                }
             }
         }
 
+        .input-container {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 1.2rem;
+            margin-top: 2.5rem;
+
+            .label-container {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: .6rem;
+
+                .input-label {
+                    font-size: 1.1rem;
+                    color: #072169;
+                    font-family: 'gotham-medium';
+                    margin: 0;
+                }
+
+                .required-text {
+                    font-size: 1rem;
+                    color: #E15220;
+                    font-family: 'sansation-regular';
+                    margin: 0;
+                }
+
+                .show {
+                    color: #072169;
+                }
+
+            }
+
+
+            .input-box {
+                height: 3.5rem;
+                color: #072169;
+                font-size: 0.95rem;
+                font-family: 'sansation-regular';
+                border-radius: 14px;
+                padding: 0 1rem;
+                border: 1px solid #D9D9D9;
+                outline: none;
+                background-color: #fff;
+            }
+
+            .input-boxi {
+                height: 3.5rem;
+                color: #072169;
+                font-size: 0.95rem;
+                font-family: 'sansation-regular';
+                border-radius: 14px;
+                padding: 0.5rem 1rem;
+                border: 1px solid #EF2F55;
+                outline: none;
+                background-color: #fff;
+            }
+
+            ::placeholder {
+                color: #00000080;
+                font-family: 'sansation-regular';
+            }
+
+
+            .input-error {
+                color: #EF2F55;
+                font-size: 0.8rem;
+                margin-top: .5rem;
+                font-family: 'sansation-regular';
+            }
+
+            .input-error-container {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                margin-top: .5rem;
+
+
+                .input-error {
+                    color: #EF2F55;
+                    font-size: 0.8rem;
+                    font-family: 'sansation-regular';
+                }
+
+                .fund-container {
+                    border: 1.8px solid #072169;
+                    border-radius: 13px;
+                    padding: .2rem .8rem;
+
+                    .fund {
+                        color: #072169;
+                        font-size: 0.7rem;
+                        margin-top: .5rem;
+                        font-family: 'sansation-regular';
+                    }
+                }
+            }
+
+        }
+
+        .button-container {
+            background-color: #E15220;
+            justify-content: center;
+            flex-direction: row;
+            display: flex;
+            align-items: center;
+            padding: .95rem 0;
+            border-radius: 13px;
+            width: 100%;
+            border: none;
+            margin-bottom: 1.5rem;
+
+            .buttonText {
+                color: white;
+                font-size: 1.1rem;
+                font-family: 'gotham-medium';
+                margin: 0;
+            }
+        
+
+        }
+        button[disabled] {
+            border: none;
+            background-color: #EA8663;
+            color: white;
+        }
 
     }

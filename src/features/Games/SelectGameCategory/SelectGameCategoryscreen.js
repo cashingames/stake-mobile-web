@@ -1,7 +1,5 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { Player } from "@lottiefiles/react-lottie-player";
-import SelectGame from '../../../assets/select-game.json'
 import ScreenHeader from "../../../components/ScreenHeader/ScreenHeader";
 import GamePicker from "../GamePicker/GamePicker";
 import './SelectGameCategoryScreen.scss'
@@ -26,16 +24,10 @@ const SelectGameCategoryScreen = () => {
 
     return (
         <>
-            <ScreenHeader title='Select Topic' styleProp='header' iconProp='backIcon' onClick={navigateHandler} />
-            <div className="selectGameContainer">
-                <Player src={SelectGame}
-                    alt='wallet'
-                    autoplay
-                    loop
-                    className='player'
-                    style={
-                        { height: '150px' }
-                    } />
+            <ScreenHeader title='Select Category' styleProp='header' iconProp='backIcon' onClick={navigateHandler} />
+            <div className="select-game-container" style={
+                { backgroundImage: "url(/images/game-play-background.png)" }
+            }>
                 <GamePicker />
             </div>
         </>

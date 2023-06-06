@@ -28,7 +28,7 @@ const TopLeaderboards = () => {
                 </div>
                 <div className="leaders-header-container">
                     <p className="top-leaders-header">Leaderboard</p>
-                    <p className="top-leaders-headeri">Top gamersfor the week/month</p>
+                    <p className="top-leaders-headeri">Top gamers for the week/month</p>
                 </div>
             </div>
             <IoChevronForwardOutline size={18} className='icon' />

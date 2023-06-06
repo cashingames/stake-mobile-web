@@ -6,8 +6,6 @@ import { IoCheckmarkCircleOutline, IoTimeOutline } from "react-icons/io5";
 import LoaderScreen from '../../LoaderScreen/LoaderScreen';
 import { getGameStakes } from '../GameSlice';
 
-import { formatCurrency } from "../../../utils/stringUtl";
-
 import './StakingPredictionsTable.scss'
 
 export default function StakingPredictionsTable({ stake, usePreviousOdds }) {
@@ -38,34 +36,33 @@ export default function StakingPredictionsTable({ stake, usePreviousOdds }) {
         return <LoaderScreen backgroundColor="store-background-color" />
 
     return (
-        <table className="staking-predictions-table">
-            <caption>How to win</caption>
-            <thead>
-                <tr>
-                    <th>Outcome</th>
-                    <th>Odds</th>
-                    <th>Payout</th>
-                </tr>
-            </thead>
-            <tbody>
+        <div className="staking-predictions-table">
+            <p>How to win</p>
+            <div className='odds-header'>
+                <p>Outcome</p>
+                <p className='odd-header'>Odds</p>
+                <p>Payout</p>
+            </div>
+            <div className='odds'>
                 {odds.map((odd) => <StakingPredictionsRow
                     key={odd.id}
                     stake={stake}
                     odd={odd}
-                    styleProp={highlightCorrect(odd.score)}  />)
+                    styleProp={highlightCorrect(odd.score)} />)
                 }
-            </tbody>
-        </table>
+            </div>
+        </div>
+
     )
 }
 
 const StakingPredictionsRow = ({ stake, odd, styleProp }) => {
-    const textStyleProp = styleProp ? 'winner-text': null;
+    const textStyleProp = styleProp ? 'winner-text' : null;
     return (
-        <tr className={styleProp}>
-            <td className={textStyleProp}><IoCheckmarkCircleOutline size={15} /><span>{odd.score}</span></td>
-            <td className={textStyleProp}><IoTimeOutline size={15} color='#FF932F' /><span className="odds">x{odd.odd}</span></td>
-            <td className={textStyleProp}>&#8358;{formatCurrency(stake * odd.odd)}</td>
-        </tr>
+        <div className={styleProp}>
+            <p className={textStyleProp}><IoCheckmarkCircleOutline size={15} /><span>{odd.score}</span></p>
+            <p className={textStyleProp}><IoTimeOutline size={15} color='#FF932F' /><span className="odds">x{odd.odd}</span></p>
+            <p className={textStyleProp}>NGN {stake * odd.odd}</p>
+        </div>
     )
 }

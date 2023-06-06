@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { setGameCategory } from '../../features/Games/GameSlice';
 
 import './GameSubCategoryCard.scss'
+import { IoChevronForwardOutline } from "react-icons/io5";
 
 const backendUrl = process.env.REACT_APP_API_ROOT_URL;
 
@@ -26,11 +27,15 @@ const GameSubCategoryCard = ({ subcategory }) => {
 
     return (
         <div className='card' onClick={clicked}>
-            <img
-                src={`${backendUrl}/${subcategory.icon}`}
-                className="cardIconBigger" alt={subcategory.name}
-            />
-            <p className='cardTitle' >{subcategory.name}</p>
+            <div className="cardLeft" >
+                <img
+                    src={`${backendUrl}/${subcategory.icon}`}
+                    className="cardIconBigger" alt={subcategory.name}
+                />
+                <p className='cardTitle' >{subcategory.name}</p>
+            </div>
+            <IoChevronForwardOutline size={18} className='icon' color='#072169' />
+
         </div >
 
     )

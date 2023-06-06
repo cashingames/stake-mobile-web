@@ -1,75 +1,123 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { formatCurrency } from '../../../utils/stringUtl'
 
 import './StakeAmount.scss'
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+import { IoChevronForwardOutline } from "react-icons/io5";
 
-function StakeAmount({ onSubmit, onChange, amount, setAmount, readOnly, disabled,setOpenDialogue, setAlert,setShowLowWallet}) {
+function StakeAmount({ onSubmit, onChange, amount, setAmount, readOnly, disabled, setOpenDialogue, setAlert, setShowLowWallet }) {
 
     const user = useSelector((state) => state.auth.user);
     const maximumExhibitionStakeAmount = useSelector(state => Number.parseFloat(state.common.maximumExhibitionStakeAmount ?? 0));
     const minimumExhibitionStakeAmount = useSelector(state => Number.parseFloat(state.common.minimumExhibitionStakeAmount ?? 0));
+    const [amountErr, setAmountError] = useState(false);
+    const [withdraw, setWithdraw] = useState(false);
 
-    const validate = () => {
 
-        const lowAmount = amount < minimumExhibitionStakeAmount;
-        if (lowAmount) {
-            setOpenDialogue(true)
-            setAlert(`Minimum amount that can be staked is ${minimumExhibitionStakeAmount}`);
-            return false;
-        }
+    let navigate = useNavigate();
 
-        const highAmount = amount > maximumExhibitionStakeAmount;
-        if (highAmount) {
-            setOpenDialogue(true)
-            setAlert(`Maximum amount that can be staked is ${maximumExhibitionStakeAmount}`);
-            return false;
-        }
-
-        const insufficientFunds = amount > Number.parseFloat(user.walletBalance);
-        if (insufficientFunds) {
-            setShowLowWallet(true)
-            return false;
-        }
-
-        return true;
+    const [hidden, setHidden] = useState(false);
+    const onChangeAmount = (e) => {
+        const amount = e.currentTarget.value;
+        const amountEntered = amount.trim().length === 0 ? 0 : Number.parseFloat(amount)
+        if (amountEntered < minimumExhibitionStakeAmount || amount > Number.parseFloat(user.withdrawableBalance)) {
+            setAmountError(true)
+        } else setAmountError(false)
+        setAmount(amount)``
     }
+
+    // const validate = () => {
+
+    //     const lowAmount = amount < minimumExhibitionStakeAmount;
+    //     if (lowAmount) {
+    //         setOpenDialogue(true)
+    //         setAlert(`Minimum amount that can be staked is ${minimumExhibitionStakeAmount}`);
+    //         return false;
+    //     }
+
+    //     const highAmount = amount > maximumExhibitionStakeAmount;
+    //     if (highAmount) {
+    //         setOpenDialogue(true)
+    //         setAlert(`Maximum amount that can be staked is ${maximumExhibitionStakeAmount}`);
+    //         return false;
+    //     }
+
+    //     const insufficientFunds = amount > Number.parseFloat(user.walletBalance);
+    //     if (insufficientFunds) {
+    //         setShowLowWallet(true)
+    //         return false;
+    //     }
+
+    //     return true;
+    // }
 
     const submit = () => {
-        if (validate())
-            onSubmit(amount);
+        onSubmit(amount);
     }
 
-    const amountChanged = (e) => {
-        const value = e.currentTarget.value;
-        setAmount(value);
-        onChange(value);
-    }
+    useEffect(() => {
+        const invalid = amountErr || amount === ''
+        setWithdraw(!invalid);
+    }, [amount, amountErr])
 
     return (
         <div className="amountContainer">
-
             <div className="walletContainer">
-                <p className="wallet">Wallet Balance : &#8358;{formatCurrency(user.walletBalance)}</p>
+                <div className='total-header'>
+                    <div className='total-title-container'>
+                        <img src='/images/wallet-with-cash.png' alt='wallet' className='avatar' />
+                        <p className='total-title-text'>Total balance</p>
+                    </div>
+                    <span onClick={() => setHidden(!hidden)}>{hidden ? <FaEyeSlash color='#072169' /> : <FaEye color='#072169' />}</span>
+                </div>
+                <div className='currency-bottom'>
+                    <div className='currency-header'>
+                        <span className='currency-text'>NGN</span>
+                        {hidden ?
+                            <span className='currency-amount'>***</span> :
+                            <span className='currency-amount'>{formatCurrency(user.walletBalance)}</span>
+                        }
+                    </div>
+                    <div className='funding-button' onClick={() => navigate('/fund-wallet')}>
+                        <p className='funding-text'>Deposit</p>
+                        <IoChevronForwardOutline size={18} className='icon' color='#072169' />
+                    </div>
+                </div>
             </div>
 
-            <div className="inputContainer">
+            <div className="input-container">
+                <div className='label-container'>
+                    <label htmlFor='amount' className='input-label'>Enter amount</label>
+                    <p className='required-text'>Required</p>
+                </div>
                 <input
-                    placeholder="Enter Stake Amount"
+                    placeholder={`Minimum stake amount must be NGN ${minimumExhibitionStakeAmount}`}
                     type='number'
+                    id='amount'
                     value={amount}
-                    className='stakeInput'
-                    onChange={amountChanged}
-                    readOnly={readOnly}
+                    className={amountErr ? 'input-boxi' : 'input-box'}
+                    autoFocus={true}
+                    onChange={e => onChangeAmount(e)}
                     required
                 />
+                {amountErr && amount < minimumExhibitionStakeAmount &&
+                    <span className='input-error'>Minimum staking amount is NGN {minimumExhibitionStakeAmount}</span>
+                }
+                {amountErr && amount > Number.parseFloat(user.walletBalance) &&
+                    <div className='input-error-container'>
+                        <span className='input-error'>Insufficient wallet balance</span>
+                        <div className='fund-container' onClick={() => navigate('/fund-wallet')}>
+                            <span className='fund'>Fund wallet</span>
+                        </div>
+                    </div>
+                }
             </div>
 
-            <div className="buttonContainer">
-                <button onClick={submit} className='start-button' disabled={disabled}>
-                    <p className="start-text">Start Game</p>
-                </button>
-            </div>
+            <button onClick={submit} className='button-container' disabled={disabled || !withdraw}>
+                <p className="buttonText">Start Game</p>
+            </button>
 
         </div>
     )

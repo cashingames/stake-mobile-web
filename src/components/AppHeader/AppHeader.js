@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { IoHome, IoGameController, IoHelpCircle } from "react-icons/io5";
+import { IoHome, IoGameController, IoHelpCircle, IoMail } from "react-icons/io5";
 import { NavLink } from 'react-router-dom';
 import './AppHeader.scss'
 
@@ -18,6 +18,10 @@ const AppHeader = ({ backgroundColor }) => {
       <NavLink to='/help' className='navlink'>
         <IoHelpCircle className='icon' color='#072169' />
         Help
+      </NavLink>
+      <NavLink to='/notifications' className='navlink'>
+        <IoMail className='icon' color='#072169' />
+        Notifications
       </NavLink>
     </div>
   )
