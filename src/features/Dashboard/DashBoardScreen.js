@@ -36,9 +36,6 @@ const UserProfile = ({ user }) => {
     navigate('/profile')
   }
 
-  // const goToNotification = () => {
-  //   navigate('/notifications')
-  // }
   const goToWallet = () => {
     logToAnalytics('wallet_amount_clicked', {
       'username': user.username,
@@ -62,21 +59,8 @@ const UserProfile = ({ user }) => {
             <p className='username-text' onClick={goToProfile}> {user.username}</p>
             <IoChevronForwardOutline size={18} className='icon' />
           </div>
-          {/* <p className='greeting-text'>Welcome 🙌🏻</p> */}
         </div>
       </div>
-      {/* <div className='notification-container' onClick={goToNotification}>
-        {user.unreadNotificationsCount !== 0 ?
-          <IoMailUnread size={33} color='#072169' className='icon' />
-          :
-          <IoMail size={33} color='#072169' className='icon' />
-        }
-        {user.unreadNotificationsCount !== 0 &&
-          <div className='number-container'>
-            <p className='number'>{user.unreadNotificationsCount}</p>
-          </div>
-        }
-      </div> */}
       <div className='balance-container' onClick={goToWallet}>
         <span className='balance-currency'>NGN</span>
         <span className='balance-digit'>{formatCurrency(user.walletBalance ?? 0)}</span>
