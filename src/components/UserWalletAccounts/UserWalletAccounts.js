@@ -2,9 +2,9 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import logToAnalytics from "../../utils/analytics";
-import { IoAdd, IoCardOutline, IoChevronForwardOutline, IoWalletOutline } from "react-icons/io5";
+import { IoChevronForwardOutline } from "react-icons/io5";
 import './UserWalletAccounts.scss'
-import { formatCurrency, formatNumber } from "../../utils/stringUtl";
+import { formatNumber } from "../../utils/stringUtl";
 const backendUrl = process.env.REACT_APP_API_ROOT_URL;
 
 
@@ -12,79 +12,79 @@ const backendUrl = process.env.REACT_APP_API_ROOT_URL;
 const UserWalletAccounts = ({ user }) => {
     return (
         <div className="wallets-container">
-            <StakingWallet user={user} />
-            <EarningsWallet user={user} />
+            {/* <StakingWallet user={user} /> */}
+            {/* <EarningsWallet user={user} /> */}
             <UserBoosts user={user} />
 
         </div>
     )
 }
 
-const StakingWallet = ({ user }) => {
-    let navigate = useNavigate();
+// const StakingWallet = ({ user }) => {
+//     let navigate = useNavigate();
 
-    const viewWallet = async () => {
-        logToAnalytics("add_fund_button_clicked", {
-            'id': user.username,
-            'phone_number': user.phoneNumber,
-            'email': user.email
-        })
-        navigate('/wallet')
+//     const viewWallet = async () => {
+//         logToAnalytics("add_fund_button_clicked", {
+//             'id': user.username,
+//             'phone_number': user.phoneNumber,
+//             'email': user.email
+//         })
+//         navigate('/wallet')
 
-    }
+//     }
 
-    return (
-        <div onClick={viewWallet} className="staking-wallet-container">
-            <div className="wallet-header">
-                <IoWalletOutline size={23} color='#E3ECF2' className='icon' />
-                <p className="wallet-header-text">Staking Balance</p>
-            </div>
-            <div className="amount-container">
-                <div className="currency-container">
-                    <p className="balance-digit">NGN {formatCurrency(user.walletBalance ?? 0)}</p>
-                    <IoChevronForwardOutline size={19} color='#E3ECF2' className='icon' />
-                </div>
-                <div className="add-container">
-                    <IoAdd size={18} color='#072169' className='icon' />
-                    <p className="add-text">Add funds</p>
-                </div>
-            </div>
-        </div>
-    )
-}
+//     return (
+//         <div onClick={viewWallet} className="staking-wallet-container">
+//             <div className="wallet-header">
+//                 <IoWalletOutline size={23} color='#E3ECF2' className='icon' />
+//                 <p className="wallet-header-text">Staking Balance</p>
+//             </div>
+//             <div className="amount-container">
+//                 <div className="currency-container">
+//                     <p className="balance-digit">NGN {formatCurrency(user.walletBalance ?? 0)}</p>
+//                     <IoChevronForwardOutline size={19} color='#E3ECF2' className='icon' />
+//                 </div>
+//                 <div className="add-container">
+//                     <IoAdd size={18} color='#072169' className='icon' />
+//                     <p className="add-text">Add funds</p>
+//                 </div>
+//             </div>
+//         </div>
+//     )
+// }
 
-const EarningsWallet = ({ user }) => {
-    let navigate = useNavigate();
+// const EarningsWallet = ({ user }) => {
+//     let navigate = useNavigate();
 
-    const viewWallet = async () => {
-        logToAnalytics("earnings_button_clicked", {
-            'id': user.username,
-            'phone_number': user.phoneNumber,
-            'email': user.email
-        })
-        navigate('/wallet')
+//     const viewWallet = async () => {
+//         logToAnalytics("earnings_button_clicked", {
+//             'id': user.username,
+//             'phone_number': user.phoneNumber,
+//             'email': user.email
+//         })
+//         navigate('/wallet')
 
-    }
+//     }
 
-    return (
-        <div onClick={viewWallet} className="earnings-wallet-container">
-            <div className="wallet-header">
-                <IoWalletOutline size={23} color='#E3ECF2' className='icon' />
-                <p className="wallet-header-text">Earnings</p>
-            </div>
-            <div className="amount-container">
-                <div className="currency-container">
-                    <p className="balance-digit">NGN {formatCurrency(user.withdrawableBalance ?? 0)}</p>
-                    <IoChevronForwardOutline size={19} color='#E3ECF2' className='icon' />
-                </div>
-                <div className="add-container">
-                    <IoCardOutline size={18} color='#072169' className='icon' />
-                    <p className="add-text">Withdraw</p>
-                </div>
-            </div>
-        </div>
-    )
-}
+//     return (
+//         <div onClick={viewWallet} className="earnings-wallet-container">
+//             <div className="wallet-header">
+//                 <IoWalletOutline size={23} color='#E3ECF2' className='icon' />
+//                 <p className="wallet-header-text">Earnings</p>
+//             </div>
+//             <div className="amount-container">
+//                 <div className="currency-container">
+//                     <p className="balance-digit">NGN {formatCurrency(user.withdrawableBalance ?? 0)}</p>
+//                     <IoChevronForwardOutline size={19} color='#E3ECF2' className='icon' />
+//                 </div>
+//                 <div className="add-container">
+//                     <IoCardOutline size={18} color='#072169' className='icon' />
+//                     <p className="add-text">Withdraw</p>
+//                 </div>
+//             </div>
+//         </div>
+//     )
+// }
 
 const UserBoosts = ({ user }) => {
     let navigate = useNavigate();
@@ -103,8 +103,8 @@ const UserBoosts = ({ user }) => {
                 <p className="boost-header-text">{user.username} you have</p>
                 <div className="boost-sub">
                     <div className="add-container">
-                        <IoWalletOutline size={18} color='#072169' className='icon' />
-                        <p className="add-text">Buy Boost</p>
+                        <p className="add-text">Purchase boost</p>
+                        <IoChevronForwardOutline size={14} className='icon' color='#072169' />
                     </div>
                 </div>
             </div>
@@ -146,7 +146,7 @@ const UserBoost = ({ boost }) => {
                     className="boost-icon" alt={boost.name}
                 />
             </div>
-            <p className="boost-amount"> x{formatNumber(boost.count)} </p>
+            <p className="boost-amount"> {formatNumber(boost.count)} </p>
             <p className="boost-amount">{boost.name}</p>
         </div>
     )

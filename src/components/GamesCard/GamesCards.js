@@ -36,14 +36,26 @@ const TriviaBetCard = () => {
 
     return (
         <div className="trivia-bet-container" onClick={selectTriviaMode}>
-            <p className="trivia-bet-header">Trivia Bet</p>
             <img
-                src="/images/trivia-book.png"
+                src="/images/trivia-banner.png"
                 alt='trivia'
                 className='trivia-avatar'
             />
-            <div className="play-button">
-                <p className="play-button-text">Play Now!</p>
+            <div className="trivia-actions">
+                <div className="sub-trivia-actions">
+                    <img
+                        src="/images/trivia-book.png"
+                        alt='trivia'
+                        className='book-avatar'
+                    />
+                    <div className="trivia-actions-texts">
+                        <p className="trivia-bet-headerI">Discover</p>
+                        <p className="trivia-bet-header">Trivia Bet</p>
+                    </div>
+                </div>
+                <div className="play-button">
+                    <p className="play-button-text">Play Now</p>
+                </div>
             </div>
         </div>
     )
@@ -69,15 +81,27 @@ const TriviaChallengeCard = () => {
     };
 
     return (
-        <div className="trivia-challenge-container" onClick={selectChallengeMode}>
-            <p className="trivia-bet-header">Challenge a player</p>
+        <div className="trivia-bet-container" onClick={selectChallengeMode}>
             <img
-                src="/images/challenge-sword.png"
+                src="/images/challenge-banner.png"
                 alt='trivia'
                 className='trivia-avatar'
             />
-            <div className="challenge-play-button">
-                <p className="play-button-text">Play Now!</p>
+            <div className="trivia-actions">
+                <div className="sub-trivia-actions">
+                    <img
+                        src="/images/challenge-sword.png"
+                        alt='trivia'
+                        className='book-avatar'
+                    />
+                    <div className="trivia-actions-texts">
+                        <p className="trivia-bet-headerI">Challenge</p>
+                        <p className="trivia-bet-header">A player</p>
+                    </div>
+                </div>
+                <div className="play-button">
+                    <p className="play-button-text">Play Now</p>
+                </div>
             </div>
         </div>
     )
@@ -86,8 +110,29 @@ const TriviaChallengeCard = () => {
 const TriviaRoomsCard = () => {
 
     return (
-        <div className="trivia-room-container">
-            <p className="trivia-bet-header">Trivia Rooms</p>
+        <div className="trivia-bet-container">
+            <img
+                src="/images/rooms-banner.png"
+                alt='trivia'
+                className='trivia-avatar'
+            />
+            <div className="trivia-actions">
+                <div className="sub-trivia-actions">
+                    <img
+                        src="/images/rooms-hat.png"
+                        alt='trivia'
+                        className='book-avatar'
+                    />
+                    <div className="trivia-actions-texts">
+                        <p className="trivia-bet-headerI">Discover</p>
+                        <p className="trivia-bet-header">Trivia Rooms</p>
+                    </div>
+                </div>
+                <div className="play-buttoni">
+                    <p className="play-button-text">Coming soon</p>
+                </div>
+            </div>
+            {/* <p className="trivia-bet-header">Trivia Rooms</p>
             <img
                 src="/images/rooms-hat.png"
                 alt='trivia'
@@ -95,7 +140,7 @@ const TriviaRoomsCard = () => {
             />
             <div className="room-play-button">
                 <p className="play-button-text">Coming Soon!!</p>
-            </div>
+            </div> */}
         </div>
     )
 }

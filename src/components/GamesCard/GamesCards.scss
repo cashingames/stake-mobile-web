@@ -3,31 +3,100 @@
     display: flex;
     flex-direction: row;
     overflow-x: scroll;
+    overflow-y: hidden;
+    min-height: 311px;
+
 
     .trivia-bet-container {
         display: flex;
-        justify-content: space-between;
-        align-items: center;
         flex-direction: column;
-        background-color: #ECF7FF;
-        border: 2px solid #4FAAFD;
-        border-radius: 13px;
-        min-width: 208px;
-        min-height: 160px;
-        padding: 1rem 0;
+        width: 330px;
+        min-width: 330px;
         margin-right: 1rem;
 
-        .trivia-bet-header {
-            color: #072169;
-            font-size: 1.1rem;
-            margin: 0;
-            font-family: 'sansation-bold';
+        .trivia-avatar {
+            width: 330px;
+            height: 230px;
+            border-top-left-radius: 13px;
+            border-top-right-radius: 13px;
         }
 
-        .trivia-avatar {
-            width: 7rem;
-            height: 7rem;
+        .trivia-actions {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #FFF;
+            border-bottom-left-radius: 13px;
+            border-bottom-right-radius: 13px;
+            padding: .5rem 0;
+            padding-right: .8rem;
+
+            .sub-trivia-actions {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+
+                .book-avatar {
+                    width: 4rem;
+                    height: 4rem;
+                }
+
+                .trivia-actions-texts {
+                    .trivia-bet-headerI {
+                        margin: 0;
+                        color: #FF3B81;
+                        font-size: .9rem;
+                        font-family: 'gotham-medium';
+
+                    }
+
+                    .trivia-bet-header {
+                        margin: 0;
+                        color: #072169;
+                        font-size: 1rem;
+                        font-family: 'sansation-bold';
+
+                    }
+                }
+            }
+
+
+            .play-button {
+                background-color: #E15220;
+                border-radius: 20px;
+                padding: .5rem .9rem;
+
+                .play-button-text {
+                    color: #E3ECF2;
+                    font-size: .8rem;
+                    margin: 0;
+                    font-family: 'sansation-bold';
+                }
+            }
+            .play-buttoni {
+                background-color: #F9FBFF;
+                border-radius: 20px;
+                padding: .5rem .9rem;
+                opacity: 0.6;
+
+                .play-button-text {
+                    color: #072169;
+                    font-size: .8rem;
+                    margin: 0;
+                    font-family: 'sansation-bold';
+                }
+            }
         }
+
+        // .trivia-bet-header {
+        //     color: #072169;
+        //     font-size: 1.1rem;
+        //     margin: 0;
+        //     font-family: 'sansation-bold';
+        // }
+
+
 
         .play-button {
             background-color: #4FAAFD;

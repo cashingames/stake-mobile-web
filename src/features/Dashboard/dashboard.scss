@@ -34,13 +34,13 @@
                     .welcome-text {
                         font-family: 'sansation-regular';
                         color: #072169;
-                        font-size: 1.1rem;
+                        font-size: 1rem;
                         margin: 0;
                     }
                     .username-text {
                         font-family: 'sansation-bold';
                         color: #072169;
-                        font-size: 1.1rem;
+                        font-size: 1rem;
                         margin: 0;
                         margin-left: .3rem;
                         cursor: pointer;
@@ -77,6 +77,25 @@
                     font-family: 'sansation-regular';
                     color: #FFF;
                 }
+            }
+        }
+        .balance-container {
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+            cursor: pointer;
+            .balance-currency {
+                font-size: .9rem;
+                font-family: 'gotham-medium';
+                color: #072169;
+                margin: 0;
+            }
+            .balance-digit {
+                font-size: .9rem;
+                font-family: 'sansation-regular';
+                color: #072169;
+                margin: 0;
+                margin-left: .2rem;
             }
         }
     }
