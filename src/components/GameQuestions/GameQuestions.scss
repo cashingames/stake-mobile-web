@@ -1,28 +1,93 @@
-@mixin devices ($breakpoint){
-    @if $breakpoint == sm {
-        @media only screen and (max-width:374px){
+@mixin devices ($breakpoint) {
+    @if $breakpoint ==sm {
+        @media only screen and (max-width:374px) {
             @content
         }
     }
 }
 
-.gameQuestionsCase{
-    margin: 0 1rem;
-    margin-bottom: 1.2rem;
-    .gameQuestions{
+.questions-container {
+    display: flex;
+    background-color: #fff;
+    border: 1px solid #E5E5E5;
+    box-shadow: 0px 2px 10px -5px rgba(0, 0, 0, 0.25);
+    border-radius: 13px;
+    padding: 1rem 1.3rem;
+    margin-bottom: 3rem;
+
+
+    .question-background {
         display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0;
-        color:#fff;
-        font-size: 0.9rem;
-        font-family: 'graphik-medium';
-        line-height: 1.6;
-        text-align: center;
-        @include devices(sm){
-            line-height: 1.4;
-            font-size: 0.8rem;
+        flex: 1;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        flex-direction: column;
+
+        .timer-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+
+            .question-count {
+                font-family: 'gotham-bold';
+                font-size: 0.9rem;
+                color: #072169;
+            }
         }
+
+        .game-questions {
+            margin: 20px 0;
+
+            .game-question {
+                font-family: 'sansation-regular';
+                font-size: 1.1rem;
+                color: #072169;
+                text-align: justify;
+                margin: 0;
+            }
+        }
+
+        .pick-text {
+            font-family: 'gotham-bold';
+            font-size: 1.1rem;
+            color: #072169;
+            margin-bottom: .8rem;
+        }
+
+        .next-button-case {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+
+            .nextButton {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: #E15220;
+                border-radius: 8px;
+                margin-top: 4rem;
+                border: none;
+
+                @include devices(sm) {
+                    margin-top: 3rem;
+                }
+
+                .btnText {
+                    color: #fff;
+                    font-family: 'gotham-medium';
+                }
+            }
+
+            button[disabled] {
+                border: none;
+                background-color: #EA8663;
+                color: white;
+            }
+        }
+
     }
 
 }

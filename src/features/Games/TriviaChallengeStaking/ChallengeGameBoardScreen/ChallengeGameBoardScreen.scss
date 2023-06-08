@@ -15,8 +15,8 @@
     min-height: 100vh;
 
     .game-questions {
-        margin: 0 1rem;
-        margin-bottom: 1.2rem;
+        margin: 20px 0;
+
 
         .game-question {
             display: flex;
@@ -52,11 +52,10 @@
         }
     }
     .answer {
-        background-color: #fff;
-        margin-bottom: .5rem;
-        padding: .8rem ;
-        border-radius: 16px;
-        border-bottom: 7px solid #C97AE0;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: 1.8rem;
 
         .option-text{
             margin: 0;

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { reduceBoostCount } from '../../features/Auth/AuthSlice';
 import { bombOptions, boostReleased, consumeBoost, pauseGame, skipQuestion } from '../../features/Games/GameSlice';
@@ -15,7 +15,7 @@ function AvailableBoostSession() {
     const gameMode = useSelector(state => state.game.gameMode);
     const displayedOptions = useSelector(state => state.game.displayedOptions);
     const boosts = useSelector(state => state.auth.user.boosts);
-    const [showText, setShowText] = useState(true);
+    // const [setShowText] = useState(true);
     const user = useSelector((state) => state.auth.user);
 
 
@@ -30,13 +30,13 @@ function AvailableBoostSession() {
         return boosts;
     }
 
-    useEffect(() => {
-        // Change the state every second or the time given by User.
-        const interval = setInterval(() => {
-            setShowText((showText) => !showText);
-        }, 1000);
-        return () => clearInterval(interval);
-    }, []);
+    // useEffect(() => {
+    //     // Change the state every second or the time given by User.
+    //     const interval = setInterval(() => {
+    //         setShowText((showText) => !showText);
+    //     }, 1000);
+    //     return () => clearInterval(interval);
+    // }, []);
 
     const boostApplied = (data) => {
         dispatch(consumeBoost(data));
@@ -68,13 +68,10 @@ function AvailableBoostSession() {
 
             {boosts?.length > 0 ?
                 <div className='availableBoosts'>
-                    <div className='boostInfo'>
-                        <p className='boostTitle'>BOOST</p>
-                    </div>
                     {
                         boostsToDisplay().map((boost, index) =>
                             boost.count >= 1 &&
-                            <AvailableBoost boost={boost} key={index} onConsume={boostApplied} showText={showText} />
+                            <AvailableBoost boost={boost} key={index} onConsume={boostApplied}  />
                         )
                     }
 
@@ -100,7 +97,7 @@ const AvailableBoost = ({ boost, onConsume, showText }) => {
                         alt='bomb' className={`boostIcon ${showText ? 'boostBlink' : 'boostNoBlink'}`} />
                     <p className='boostCount'>x{formatNumber(boost.count)}</p>
                 </div>
-                <p className='boostName'>{boost.name}</p>
+                {/* <p className='boostName'>{boost.name}</p> */}
             </div>
         </>
     )

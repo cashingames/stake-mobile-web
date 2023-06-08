@@ -1,22 +1,14 @@
 import React from 'react'
-import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
+import ProgressBar from "@ramonak/react-progress-bar";
 import { useSelector } from 'react-redux';
 
 function AnsweredGameProgress() {
     const index = useSelector(state => state.game.currentQuestionPosition);
     const total = useSelector(state => state.game.totalQuestionCount);
     return (
-        <div style={{ width: 60, height: 60 }}>
-            <CircularProgressbar
-            strokeWidth={8}
-            value={index + 1} 
-            text={`${index + 1} / ${total}`} 
-            styles={buildStyles({
-                textColor:'#fff',
-            })}
-            />
-        </div>
+        <ProgressBar completed={((index + 1) / total) * 100} maxCompleted={100}
+            isLabelVisible={false} baseBgColor='#F2C8BC' bgColor='#E15220' height='12px' width='130px' />
     )
 }
 

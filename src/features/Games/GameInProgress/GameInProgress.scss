@@ -1,6 +1,6 @@
-@mixin devices ($breakpoint){
-    @if $breakpoint == sm {
-        @media only screen and (max-width:374px){
+@mixin devices ($breakpoint) {
+    @if $breakpoint ==sm {
+        @media only screen and (max-width:374px) {
             @content
         }
     }
@@ -10,39 +10,42 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    font-family: 'Graphik';
     padding: 1.5rem 1rem;
     padding-bottom: 2rem;
     min-height: 100vh;
-}
 
-
-.nextButtonCase {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    .nextButton {
-        width: 100%;
+    .stake-container {
         display: flex;
+        flex-direction: row;
+        justify-content: space-between;
         align-items: center;
-        justify-content: center;
-        background-color: #EF2F55;
-        border-radius: 8px;
-        margin-top:4rem;
-        border: none;
-        @include devices(sm){
-            margin-top: 3rem;
-        }
+        margin-top: 2rem;
 
-        .btnText {
-            color: #fff;
-            font-family: 'graphik-medium';
+        .stake-sub-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin-left: .5rem;
+
+            .avatar {
+                width: 1.4rem;
+                height: 1.4rem;
+            }
+
+            .stake-items {
+                display: flex;
+                flex-direction: column;
+                .stake-header {
+                    font-family: 'gotham-medium';
+                    font-size: 0.95rem;
+                    color: #072169;
+                }
+                .stake-amount {
+                    font-family: 'sansation-regular';
+                    font-size: 0.95rem;
+                    color: #072169;
+                }
+            }
         }
-    }
-    button[disabled] {
-        border: none;
-        background-color: #DFCBCF;
-        color: white;
     }
 }
-

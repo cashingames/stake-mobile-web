@@ -7,10 +7,9 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { IoChevronForwardOutline } from "react-icons/io5";
 
-function StakeAmount({ onSubmit, onChange, amount, setAmount, readOnly, disabled, setOpenDialogue, setAlert, setShowLowWallet }) {
+function StakeAmount({ onSubmit, amount, setAmount, disabled }) {
 
     const user = useSelector((state) => state.auth.user);
-    const maximumExhibitionStakeAmount = useSelector(state => Number.parseFloat(state.common.maximumExhibitionStakeAmount ?? 0));
     const minimumExhibitionStakeAmount = useSelector(state => Number.parseFloat(state.common.minimumExhibitionStakeAmount ?? 0));
     const [amountErr, setAmountError] = useState(false);
     const [withdraw, setWithdraw] = useState(false);

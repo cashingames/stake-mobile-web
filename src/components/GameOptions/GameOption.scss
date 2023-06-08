@@ -1,28 +1,13 @@
 .answer{
-    background-color: #fff;
-    margin-bottom: .5rem;
-    padding: .7rem;
-    border-radius: 16px;
-    border-bottom: 7px solid #C97AE0;
-    .answeredOption{
+ display: flex;
+ flex-direction: row;
+ align-items: center;
+ margin-bottom: 1.8rem;
+    .answer-text{
         margin: 0;
-        color: #151C2F;
-        text-align: center;
-        font-size: 0.75rem;
-        font-family: 'graphik-medium';
-    }
-}
-.isSelected{
-    background-color: #F5D2FF;
-    margin-bottom: .5rem;
-    padding: .7rem;
-    border-radius: 16px;
-    border-bottom: 7px solid #C97AE0;
-    .answeredOption{
-        margin: 0;
-        color: #151C2F;
-        text-align: center;
-        font-size: 0.75rem;
-        font-family: 'graphik-medium';
+        color: #072169;
+        font-size: 0.95rem;
+        font-family: 'sansation-regular';
+        margin-left: .7rem;
     }
 }

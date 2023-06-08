@@ -169,10 +169,11 @@ let initialState = {
     gameDuration: 60,
     challengeDetails: {},
     stakeOdds: [],
+    gameStakes: [],
     previousStakeOdds: [],
     withStaking: false,
     correctCount: 0,
-    wrongCount:0,
+    wrongCount: 0,
 }
 
 
@@ -296,7 +297,7 @@ export const GameSlice = createSlice({
                 state.gameSessionToken = action.payload.data.game.token
                 state.isEnded = false
                 state.pointsGained = 0;
-                state.startingGame = false;
+                // state.startingGame = true;
             })
             // .addCase(startGame.rejected, (state, action) => {
             //     console.log("action result rejected", action);
@@ -346,7 +347,7 @@ export const GameSlice = createSlice({
                 resetState(state)
             })
             .addCase(getGameStakes.fulfilled, (state, action) => {
-                state.stakeOdds = action.payload.data;
+                state.gameStakes = action.payload.data;
             })
             .addCase(canStake.rejected, (state, payload) => {
             })
@@ -358,7 +359,7 @@ export const {
     setGameType,
     setGameMode,
     setGameCategory, setHasPlayedTrivia, questionAnswered, nextQuestion, consumeBoost, incrementCountdownResetIndex,
-    pauseGame, skipQuestion, boostReleased, bombOptions, setGameDuration, setQuestionsCount, setCorrectCount,setWrongCount,
+    pauseGame, skipQuestion, boostReleased, bombOptions, setGameDuration, setQuestionsCount, setCorrectCount, setWrongCount,
     setPointsGained, setAmountWon, setAmountStaked, setSelectedFriend,
     unselectFriend, setWithStaking, setStartingGame
 } = GameSlice.actions

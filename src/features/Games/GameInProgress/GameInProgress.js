@@ -10,7 +10,7 @@ import GameInProgressAndBoost from '../../../components/GameInProgressAndBoost/G
 import GameQuestions from '../../../components/GameQuestions/GameQuestions'
 import UserAvailableBoost from '../../../components/UserAvailableBoost/UserAvailableBoost'
 import firebaseConfig from '../../../firebaseConfig'
-import { endGame, nextQuestion } from '../GameSlice'
+import { endGame } from '../GameSlice'
 import './GameInProgress.scss'
 
 function GameInProgress() {
@@ -121,11 +121,11 @@ function GameInProgress() {
 
   return (
     <div className='gameInProgress'
-      style={{ backgroundImage: 'url(/images/game_mode.png)' }}>
+      style={{ backgroundImage: 'url(/images/game-play-background.png)' }}>
       <GameAppHeader onPress={showExitConfirmation} openBoost={openBottomSheet} />
+      <StakeDetails />
       <GameInProgressAndBoost onComplete={() => onEndGame()} />
-      <GameQuestions />
-      <NextButton onClick={() => onEndGame()} ending={ending} />
+      <GameQuestions onPress={() => onEndGame()} ending={ending} onComplete={() => onEndGame()} />
       <BottomSheet
         open={open} closeBottomSheet={closeBottomSheet}
         BSContent={<UserAvailableBoosts onClose={closeBottomSheet}
@@ -136,20 +136,29 @@ function GameInProgress() {
   )
 }
 
-const NextButton = ({ onClick, ending }) => {
-  const dispatch = useDispatch()
-  const isLastQuestion = useSelector(state => state.game.isLastQuestion);
-  const pressNext = () => {
-    dispatch(isLastQuestion ? onClick : nextQuestion())
-  }
+const StakeDetails = () => {
+  const amountStaked = useSelector(state => state.game.amountStaked);
+
   return (
-    <div className='nextButtonCase'>
-      <button onClick={pressNext} className='nextButton' disabled={ending}>
-        <p className='btnText'>{isLastQuestion ? 'Finish' : 'Next'}</p>
-      </button>
+    <div className='stake-container'>
+      <div className='stake-sub-container'>
+        <img src='/images/wallet-with-cash.png' alt='wallet' className='avatar' />
+        <div className='stake-items'>
+          <span className='stake-header'>Stake</span>
+          <span className='stake-amount'>NGN {amountStaked}</span>
+        </div>
+      </div>
+      <div className='stake-sub-container'>
+        <img src='/images/wallet-with-cash.png' alt='wallet' className='avatar' />
+        <div className='stake-items'>
+          <span className='stake-header'>Pot. winnings</span>
+          <span className='stake-amount'>NGN {amountStaked * 10}</span>
+        </div>
+      </div>
     </div>
   )
 }
+
 
 const UserAvailableBoosts = ({ onClose }) => {
   // let navigate = useNavigate();
