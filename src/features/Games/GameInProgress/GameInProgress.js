@@ -3,12 +3,10 @@ import { logEvent } from 'firebase/analytics'
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import BottomSheet from '../../../components/BottomSheet/BottomSheet'
 import ButtonDialog from '../../../components/DoubleButtonDialog/ButtonDialog'
 import GameAppHeader from '../../../components/GameAppHeader/GameAppHeader'
 import GameInProgressAndBoost from '../../../components/GameInProgressAndBoost/GameInProgressAndBoost'
 import GameQuestions from '../../../components/GameQuestions/GameQuestions'
-import UserAvailableBoost from '../../../components/UserAvailableBoost/UserAvailableBoost'
 import firebaseConfig from '../../../firebaseConfig'
 import { endGame } from '../GameSlice'
 import './GameInProgress.scss'
@@ -23,7 +21,6 @@ function GameInProgress() {
   const user = useSelector(state => state.auth.user);
   const isEnded = useSelector(state => state.game.isEnded);
   const [ending, setEnding] = useState(false);
-  const [open, setOpen] = useState(false);
   const [alertMessage, setAlertMessage] = useState('')
   const [openAlert, setOpenAlert] = useState(false)
   const analytics = firebaseConfig();
@@ -84,13 +81,6 @@ function GameInProgress() {
     onEndGame()
   }
 
-  const openBottomSheet = async () => {
-    setOpen(true)
-  }
-
-  const closeBottomSheet = async () => {
-    setOpen(false)
-  }
 
   useEffect(() => {
     window.addEventListener('beforeunload', alertUserBeforeClosinigGame)
@@ -122,15 +112,10 @@ function GameInProgress() {
   return (
     <div className='gameInProgress'
       style={{ backgroundImage: 'url(/images/game-play-background.png)' }}>
-      <GameAppHeader onPress={showExitConfirmation} openBoost={openBottomSheet} />
+      <GameAppHeader onPress={showExitConfirmation} />
       <StakeDetails />
       <GameInProgressAndBoost onComplete={() => onEndGame()} />
       <GameQuestions onPress={() => onEndGame()} ending={ending} onComplete={() => onEndGame()} />
-      <BottomSheet
-        open={open} closeBottomSheet={closeBottomSheet}
-        BSContent={<UserAvailableBoosts onClose={closeBottomSheet}
-        />}
-      />
       <ButtonDialog dialogueMessage={alertMessage} open={openAlert} handleClose={closeAlert} onClick={submitGame} />
     </div>
   )
@@ -159,32 +144,6 @@ const StakeDetails = () => {
   )
 }
 
-
-const UserAvailableBoosts = ({ onClose }) => {
-  // let navigate = useNavigate();
-  const boosts = useSelector(state => state.auth.user.boosts);
-  const gameMode = useSelector(state => state.game.gameMode);
-
-  const boostsToDisplay = () => {
-    if (gameMode.name === "CHALLENGE") {
-      return boosts.filter(x => x.name.toUpperCase() !== "SKIP");
-    }
-    return boosts;
-  }
-  return (
-    <div className="boosts-container">
-      <p className="boosts-header">Available boosts</p>
-      {boosts?.length > 0 ?
-        <div className="boosts">
-          {boostsToDisplay().map((boost, i) => <UserAvailableBoost boost={boost} key={i} onClose={onClose} />
-          )}
-        </div>
-        :
-        <p className="noBoosts">No boost available</p>
-      }
-    </div>
-  )
-}
 export default GameInProgress
 
 

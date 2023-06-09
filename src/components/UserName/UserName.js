@@ -4,7 +4,7 @@ import './UserName.scss'
 function UserName({userName}) {
   return (
     <div className='nameCase'>
-        <p className='name'>{userName}</p>
+        <span className='name'>Hello {userName}</span>
     </div>
   )
 }

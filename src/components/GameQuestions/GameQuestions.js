@@ -26,7 +26,7 @@ function GameQuestions({ onComplete, onPress, ending }) {
       <div style={{ backgroundImage: 'url(/images/coins-background.png)' }} className='question-background' >
         <div className='timer-container'>
           <span className='question-count'>Q{index + 1}</span>
-          <div className='countdownCase'>
+          <div className='countdown-case'>
             {!isEnded &&
               <CountdownCircleTimer isPlaying
                 duration={gameDuration}
@@ -46,7 +46,7 @@ function GameQuestions({ onComplete, onPress, ending }) {
                 onComplete={onComplete}
                 key={countdownKey}>
                 {({ remainingTime }) => (
-                  <p className='timerCount'>{remainingTime}</p>
+                  <p className='timer-count'>{remainingTime}</p>
                 )}
               </CountdownCircleTimer>
             }

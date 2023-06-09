@@ -2,11 +2,26 @@ import React from 'react'
 // import { formatCurrency } from '../../utils/stringUtl'
 import './FinalScore.scss'
 
-function FinalScore({ correctCount, amountWon, amountStaked,wrongCount,onPress,pointsGained }) {
+function FinalScore({ totalCount, correctCount, wrongCount, pointsGained }) {
   return (
     <div className='final-score-case'>
-      <p className='point-text'>Points earned</p>
-      <p className='point-number'>{pointsGained} pts</p>
+      <span className='point-text-header'>Game play statistics</span>
+      <div className='scoreContainer'>
+        <span className='point-text'>Questions answered</span>
+        <span className='point-number'>{totalCount}</span>
+      </div>
+      <div className='scoreContainer'>
+        <span className='point-text'>Answered correctly</span>
+        <span className='point-number'>{correctCount}</span>
+      </div>
+      <div className='scoreContainer'>
+        <span className='point-text'>Answered wrongly</span>
+        <span className='point-number'>{wrongCount}</span>
+      </div>
+      <div className='scoreContainer'>
+        <span className='point-text'>Points earned</span>
+        <span className='point-number'>{pointsGained}pts</span>
+      </div>
       {/* <div className='sub-containers'>
         <p className='finalScoreText'>Amount won:</p>
         <p className='score'>&#8358;{

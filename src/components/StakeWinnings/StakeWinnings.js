@@ -5,8 +5,8 @@ import './StakeWinnings.scss';
 function StakeWinnings({amountWon}) {
   return (
     <div className='stkWinningsCase'>
-        <p className='winningsText'>You have won</p>
-        <p className='cash'> &#8358;{formatCurrency(amountWon)}! </p>
+        <p className='winningsText'>Winnings</p>
+        <p className='cash'>NGN {formatCurrency(amountWon)}</p>
     </div>
   )
 }

@@ -1,17 +1,22 @@
 .gameEndedCase{
-    background-color: #9C3DB8;
     min-height: 100vh;
     padding: 1rem 2rem;
     display: flex;
-    font-family: 'Graphik', sans-serif;
     flex-direction: column;
     justify-content: center;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     .game-tag-container {
         display: flex;
         align-items: center;
         justify-content: center;
-        .game-tag {
-            width: 20rem;
+        .userAvater {
+            width: 5rem;
+            height: 5rem;
+            border-radius: 50px;
+            border: 1px solid #072169;
+            background-color: #FFF;
         }
     }
     .correct-container {

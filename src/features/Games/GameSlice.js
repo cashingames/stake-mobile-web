@@ -166,13 +166,14 @@ let initialState = {
     triviaMode: '',
     triviaId: '',
     hasPlayedTrivia: false,
-    gameDuration: 60,
+    gameDuration: 600,
     challengeDetails: {},
     stakeOdds: [],
     gameStakes: [],
     previousStakeOdds: [],
     withStaking: false,
     correctCount: 0,
+    totalCount:0,
     wrongCount: 0,
 }
 
@@ -311,6 +312,7 @@ export const GameSlice = createSlice({
                 state.withStaking = action.payload.data.with_staking;
                 state.amountStaked = action.payload.data.amount_staked;
                 state.correctCount = action.payload.data.correct_count;
+                state.totalCount = action.payload.data.total_count;
                 state.wrongCount = action.payload.data.wrong_count;
                 state.previousStakeOdds = [...state.stakeOdds];
                 resetState(state)
@@ -397,7 +399,7 @@ function resetState(state) {
     state.triviaMode = '';
     state.triviaId = '';
     state.hasPlayedTrivia = false;
-    state.gameDuration = 60;
+    state.gameDuration = 600;
     state.challengeDetails = {};
     state.userChallenges = [];
     state.challengeScores = {};

@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import './GameEnded.scss'
-// import AnimatedClock from '../../../components/AnimatedClock/AnimatedClock';
 import UserName from '../../../components/UserName/UserName';
 import Winnings from '../../../components/Winnings/Winnings';
 import FinalScore from '../../../components/FinalScore/FinalScore';
@@ -11,6 +10,9 @@ import { getUser } from '../../Auth/AuthSlice';
 import firebaseConfig from '../../../firebaseConfig';
 import { logEvent } from 'firebase/analytics';
 
+const backendUrl = process.env.REACT_APP_API_ROOT_URL;
+
+
 function GameEnded() {
   let navigate = useNavigate();
   const dispatch = useDispatch();
@@ -19,9 +21,9 @@ function GameEnded() {
   const pointsGained = useSelector(state => state.game.pointsGained);
   const amountWon = useSelector(state => state.game.amountWon);
   const isGameEnded = useSelector(state => state.game.isEnded);
-  // const amountStaked = useSelector(state => state.game.amountStaked);
   const correctCount = useSelector(state => state.game.correctCount);
-  // const wrongCount = useSelector(state => state.game.wrongCount);
+  const totalCount = useSelector(state => state.game.totalCount);
+  const wrongCount = useSelector(state => state.game.wrongCount);
 
 
 
@@ -63,24 +65,19 @@ function GameEnded() {
   }
 
   return (
-    <div className='gameEndedCase'>
-      {/* <AnimatedClock /> */}
+    <div className='gameEndedCase' style={{ backgroundImage: "url(/images/success-background.png)" }}>
       <div className='game-tag-container'>
-      <img src='images/point-trophy.png' alt='trophy' className='trophy' />
+        <img
+          src={user.avatar ? `${backendUrl}/${user.avatar}` : "/images/user-icon.png"}
+          alt='user'
+          className='userAvater'
+          onError={(e) => e.target.style.display = 'none'} />
       </div>
       <UserName userName={user.firstName} />
       <Winnings amountWon={amountWon} onPress={reviewStaking} />
-      <div className='correct-container'>
-        <p className='correct-count'>{correctCount}</p>
-        <p className='correct-count'>Correct answers</p>
-      </div>
       <FinalScore
         pointsGained={pointsGained}
-        // amountWon={amountWon}
-        // amountStaked={amountStaked}
-        // correctCount={correctCount}
-        // wrongCount={wrongCount}
-        // onPress={reviewStaking}
+        correctCount={correctCount} wrongCount={wrongCount} totalCount={totalCount}
       />
       <GameButton goHome={goHome} playAgain={playAgain} />
       {/* <BoostPopUp setShowModal={setShowModal} showModal={showModal} /> */}

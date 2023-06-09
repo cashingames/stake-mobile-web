@@ -2,40 +2,41 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 3rem;
+    margin-top: .5rem;
+    flex-direction: column;
+    padding: 0 2rem;
 
     .gameBtn {
-        background-color: #EF2F55;
+        background-color: #E05C28;
         border: none;
         border-radius: 8px;
-        width: 35%;
-        height: 3rem;
+        width: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
-        border-radius: 8px;
+        border-radius: 13px;
 
         .gameText {
             color: #fff;
-            font-size: 0.72rem;
-            font-family: 'graphik-medium';
+            font-size: 1rem;
+            font-family: 'gotham-medium';
         }
     }
     .homeBtn {
         border: 1px solid #FFFF;
         background: transparent;
-        border-radius: 8px;
-        width: 35%;
-        height: 3rem;
+        border: 1.8px solid #072169;
+        border-radius: 13px;        
+        width: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
-        border-radius: 8px;
+        margin-top: 1rem;
 
         .gameText {
-            color: #FFFF;
-            font-size: 0.72rem;
-            font-family: 'graphik-medium';
+            color: #072169;
+            font-size: 1rem;
+            font-family: 'gotham-medium';
         }
     }
 }
