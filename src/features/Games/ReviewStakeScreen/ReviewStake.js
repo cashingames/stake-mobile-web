@@ -8,7 +8,6 @@ import './ReviewStake.scss'
 
 function ReviewStake() {
     const navigate = useNavigate()
-
     const amountStaked = useSelector(state => state.game.amountStaked);
 
     const navigateHandler = () => {
@@ -17,10 +16,10 @@ function ReviewStake() {
 
     return (
         <>
-            <ScreenHeader title='Review Stake' onClick={navigateHandler} styleProp='review-header' />
+            <ScreenHeader title='Review Stake' onClick={navigateHandler} iconProp='backIcon' styleProp='review-header' />
             <div className="reviewStaking-container">
                 <StakeAmount amount={amountStaked} readOnly={true} disabled={true} />
-                <StakingPredictionsTable stake={amountStaked} usePreviousOdds={true} />
+                <StakingPredictionsTable stake={amountStaked}  />
             </div>
         </>
     )

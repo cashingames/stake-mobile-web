@@ -11,7 +11,8 @@ import './StakingPredictionsTable.scss'
 export default function StakingPredictionsTable({ stake, usePreviousOdds }) {
 
     const dispatch = useDispatch();
-    const odds = useSelector(state => usePreviousOdds ? state.game.previousStakeOdds : state.game.stakeOdds);
+    const gameStakes = useSelector(state => state.game.gameStakes);
+
     const correctCount = useSelector(state => state.game.correctCount);
     const [loading, setLoading] = useState(false);
 
@@ -25,13 +26,6 @@ export default function StakingPredictionsTable({ stake, usePreviousOdds }) {
     }, [dispatch, usePreviousOdds])
 
 
-    const highlightCorrect = (score) => {
-
-        if (correctCount === Number(score) && usePreviousOdds) {
-            return 'amountWon'
-        }
-    }
-
     if (loading)
         return <LoaderScreen backgroundColor="store-background-color" />
 
@@ -44,25 +38,28 @@ export default function StakingPredictionsTable({ stake, usePreviousOdds }) {
                 <p>Payout</p>
             </div>
             <div className='odds'>
-                {odds.map((odd) => <StakingPredictionsRow
-                    key={odd.id}
-                    stake={stake}
-                    odd={odd}
-                    styleProp={highlightCorrect(odd.score)} />)
-                }
+                {gameStakes.map((gameStake, i) => <StakingPredictionsRow key={i} gameStake={gameStake} position={i + 1}
+                // eslint-disable-next-line
+                    stake={stake} styleProp={correctCount == (gameStake.score) ? 'winnerStyle' : ''} />)}
             </div>
         </div>
 
     )
 }
 
-const StakingPredictionsRow = ({ stake, odd, styleProp }) => {
-    const textStyleProp = styleProp ? 'winner-text' : null;
+const StakingPredictionsRow = ({ stake, gameStake, styleProp }) => {
     return (
-        <div className={styleProp}>
-            <p className={textStyleProp}><IoCheckmarkCircleOutline size={15} /><span>{odd.score}</span></p>
-            <p className={textStyleProp}><IoTimeOutline size={15} color='#FF932F' /><span className="odds">x{odd.odd}</span></p>
-            <p className={textStyleProp}>NGN {stake * odd.odd}</p>
+        <div className={`stake-sub ${styleProp}`}>
+            
+            <div className="stake-score-container">
+                <IoCheckmarkCircleOutline size={15} />
+                <span className="stake-score-digit">{gameStake.score}</span>
+            </div>
+            <div className="stake-number">
+                <IoTimeOutline size={15} color='#FF932F' />
+                <span className="stake-odd-digit">x{gameStake.odd}</span>
+            </div>
+            <p className="stake-winnings">NGN {stake * gameStake.odd}</p>
         </div>
     )
 }
