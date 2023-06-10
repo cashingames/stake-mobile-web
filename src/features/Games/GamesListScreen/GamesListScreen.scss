@@ -11,113 +11,123 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
-    padding-left: 1.2rem;
-    // align-items: center;
+    overflow-y: scroll;
+    padding-top: 2rem;
 
-    .games-container {
+    .main-games-container {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
+        overflow-y: scroll;
+        margin-bottom: 1rem;
 
-        .trivia-staking-container {
+        .trivia-bet-container {
             display: flex;
-            background-color: #ECF7FF;
-            padding: 2rem 1rem;
-            align-items: center;
-            border-radius: 13px;
-            justify-content: flex-end;
-            margin-bottom: 1rem;
-            width: 10rem;
-            border: 2px solid #4FAAFD;
             flex-direction: column;
-            height: 150px;
-            min-height: 150px;
-
-
-            .avatar-container {
-                .avatar {
-                    width: 5rem;
-                    height: 5rem;
-                }
-            }
-
-            .title {
-                font-size: 1.1rem;
-                color: #072169;
-                font-family: 'sansation-bold';
-                margin: 20px 0;
-                text-align: center;
-            }
-
-            .play-button {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                padding: .4rem 1rem;
-                border-radius: 20px;
-                background-color: #4FAAFD;
-                border: none;
-                color: #fff;
-                font-size: .95rem;
-                font-family: 'sansation-bold';
-            }
-        }
-
-        .card-container {
-            display: flex;
-            background-color: #FDCCD4;
-            border: 2px solid #EF2F55;
-            padding: 2rem 1rem;
-            align-items: center;
-            border-radius: 13px;
-            justify-content: flex-end;
+            width: 330px;
+            min-width: 330px;
             margin-bottom: 1rem;
-            width: 10rem;
-            flex-direction: column;
-            height: 150px;
-            min-height: 150px;
 
-            .avatar-container {
+            .trivia-avatar {
+                width: 330px;
+                height: 230px;
+                border-top-left-radius: 13px;
+                border-top-right-radius: 13px;
+            }
+
+            .trivia-actions {
                 display: flex;
                 flex-direction: row;
                 align-items: center;
                 justify-content: space-between;
+                background-color: #FFF;
+                border-bottom-left-radius: 13px;
+                border-bottom-right-radius: 13px;
+                padding: .5rem 0;
+                padding-right: .8rem;
+                box-shadow: 0px 2px 10px -5px rgba(0, 0, 0, 0.25);
 
-                .avatar {
-                    width: 3rem;
-                    height: 3rem;
-                    border: 2px solid #fff;
-                    border-radius: 50px;
+
+                .sub-trivia-actions {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+
+                    .book-avatar {
+                        width: 4rem;
+                        height: 4rem;
+                    }
+
+                    .trivia-actions-texts {
+                        .trivia-bet-headerI {
+                            margin: 0;
+                            color: #FF3B81;
+                            font-size: .9rem;
+                            font-family: 'gotham-medium';
+
+                        }
+
+                        .trivia-bet-header {
+                            margin: 0;
+                            color: #072169;
+                            font-size: 1rem;
+                            font-family: 'sansation-bold';
+
+                        }
+                    }
                 }
 
-                .versus {
-                    width: 2rem;
-                    height: 3rem;
-                    margin: 0 .7rem;
+
+                .play-button {
+                    background-color: #E15220;
+                    border-radius: 20px;
+                    padding: .5rem .9rem;
+
+                    .play-button-text {
+                        color: #E3ECF2;
+                        font-size: .8rem;
+                        margin: 0;
+                        font-family: 'sansation-bold';
+                    }
+                }
+
+                .play-buttoni {
+                    background-color: #F9FBFF;
+                    border-radius: 20px;
+                    padding: .5rem .9rem;
+                    opacity: 0.6;
+
+                    .play-button-text {
+                        color: #072169;
+                        font-size: .8rem;
+                        margin: 0;
+                        font-family: 'sansation-bold';
+                    }
                 }
             }
 
-            .title {
-                font-size: 1.1rem;
-                color: #fff;
-                font-family: 'sansation-bold';
-                margin: 20px 0;
-                text-align: center;
-            }
+            // .trivia-bet-header {
+            //     color: #072169;
+            //     font-size: 1.1rem;
+            //     margin: 0;
+            //     font-family: 'sansation-bold';
+            // }
+
+
 
             .play-button {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                padding: .4rem 1rem;
+                background-color: #4FAAFD;
                 border-radius: 20px;
-                background-color: #EF2F55;
-                border: none;
-                color: #fff;
-                font-size: .95rem;
-                font-family: 'sansation-bold';
+                padding: .7rem 1.7rem;
+
+                .play-button-text {
+                    color: #E3ECF2;
+                    font-size: .95rem;
+                    margin: 0;
+                    font-family: 'sansation-bold';
+                }
             }
         }
     }

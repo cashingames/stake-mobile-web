@@ -123,6 +123,7 @@ function GameInProgress() {
 
 const StakeDetails = () => {
   const amountStaked = useSelector(state => state.game.amountStaked);
+  const gameStakes = useSelector(state => state.game.gameStakes[0]);
 
   return (
     <div className='stake-container'>
@@ -137,7 +138,7 @@ const StakeDetails = () => {
         <img src='/images/wallet-with-cash.png' alt='wallet' className='avatar' />
         <div className='stake-items'>
           <span className='stake-header'>Pot. winnings</span>
-          <span className='stake-amount'>NGN {amountStaked * 10}</span>
+          <span className='stake-amount'>NGN {amountStaked * (gameStakes.odd)}</span>
         </div>
       </div>
     </div>

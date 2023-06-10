@@ -7,7 +7,7 @@ function GameTopicProgress({ onComplete }) {
     const gameCategory = useSelector(state => state.game.gameCategory.name);
     const index = useSelector(state => state.game.currentQuestionPosition);
     const total = useSelector(state => state.game.totalQuestionCount);
-    const highestOdd = 10
+    // const highestOdd = 10
 
 
     return (
@@ -20,10 +20,10 @@ function GameTopicProgress({ onComplete }) {
                     </div>
                     <span className='questions-answered'>{`${index + 1}/${total}`}</span>
                 </div>
-                <div className='odd-container'>
+                {/* <div className='odd-container'>
                     <span className='odd-title'>Odds</span>
                     <span className='odd-text'>{highestOdd}</span>
-                </div>
+                </div> */}
             </div>
         </div>
     )

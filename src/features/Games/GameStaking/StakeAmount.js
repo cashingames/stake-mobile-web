@@ -21,36 +21,11 @@ function StakeAmount({ onSubmit, amount, setAmount, disabled }) {
     const onChangeAmount = (e) => {
         const amount = e.currentTarget.value;
         const amountEntered = amount.trim().length === 0 ? 0 : Number.parseFloat(amount)
-        if (amountEntered < minimumExhibitionStakeAmount || amount > Number.parseFloat(user.withdrawableBalance)) {
+        if (amountEntered < minimumExhibitionStakeAmount || amount > Number.parseFloat(user.walletBalance)) {
             setAmountError(true)
         } else setAmountError(false)
-        setAmount(amount)``
+        setAmount(amount)
     }
-
-    // const validate = () => {
-
-    //     const lowAmount = amount < minimumExhibitionStakeAmount;
-    //     if (lowAmount) {
-    //         setOpenDialogue(true)
-    //         setAlert(`Minimum amount that can be staked is ${minimumExhibitionStakeAmount}`);
-    //         return false;
-    //     }
-
-    //     const highAmount = amount > maximumExhibitionStakeAmount;
-    //     if (highAmount) {
-    //         setOpenDialogue(true)
-    //         setAlert(`Maximum amount that can be staked is ${maximumExhibitionStakeAmount}`);
-    //         return false;
-    //     }
-
-    //     const insufficientFunds = amount > Number.parseFloat(user.walletBalance);
-    //     if (insufficientFunds) {
-    //         setShowLowWallet(true)
-    //         return false;
-    //     }
-
-    //     return true;
-    // }
 
     const submit = () => {
         onSubmit(amount);
@@ -92,7 +67,7 @@ function StakeAmount({ onSubmit, amount, setAmount, disabled }) {
                     <p className='required-text'>Required</p>
                 </div>
                 <input
-                    placeholder={`Minimum stake amount must be NGN ${minimumExhibitionStakeAmount}`}
+                    placeholder={`Minimum amount is NGN ${minimumExhibitionStakeAmount}`}
                     type='number'
                     id='amount'
                     value={amount}
