@@ -1,7 +1,9 @@
 .game-waiting-container {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     display: flex;
     justify-content: center;
-    background-color: #9C3DB8;
     padding: 2rem;
     flex-direction: column;
     min-height: 100vh;
@@ -13,16 +15,15 @@
     }
 
     .players-container {
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        border-radius: 20px;
+        border-radius: 13px;
         padding: 2rem 1.5rem;
         margin-bottom: 2rem;
-        border: 1px solid #fff;
+        border: 1px solid #E5E5E5;
+        box-shadow: 0px 2px 10px -5px rgba(0, 0, 0, 0.25);
+        background-color: #fff;
 
         .player-container {
             display: flex;
@@ -30,10 +31,10 @@
             align-items: center;
 
             .avatar-container {
-                width: 60px;
-                height: 60px;
+                width: 65px;
+                height: 65px;
                 border-radius: 50%;
-                background-color: #fff;
+                background-color: #F6F4FF;
 
                 img {
                     width: 100%;
@@ -45,12 +46,12 @@
             .player-name {
                 margin: 0;
                 margin-top: 0.8rem;
-                font-size: 0.75rem;
-                font-family: 'graphik-regular';
-                color: #fff;
-                width: 5rem;
-                word-wrap: break-word;
+                font-size: 0.95rem;
+                font-family: 'gotham-bold';
+                color: #072169;
                 text-align: center;
+                word-wrap: break-word;
+                word-break: break-all;
             }
         }
 
@@ -59,16 +60,17 @@
     .message {
         margin: 4px 0;
         font-size: 1rem;
-        font-family: 'graphik-medium';
-        color: #fff;
+        font-family: 'gotham-medium';
+        color: #072169;
         text-align: center;
         line-height: 2;
     }
+
     .matching-text {
         margin: 4px 0;
         font-size: 1rem;
-        font-family: 'graphik-italic';
-        color: #fff;
+        font-family: 'gotham-medium';
+        color: #072169;
         text-align: center;
         line-height: 2;
     }

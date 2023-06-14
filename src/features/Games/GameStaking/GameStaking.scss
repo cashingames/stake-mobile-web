@@ -13,6 +13,12 @@
     display: flex;
     flex-direction: column;
     flex: auto 1;
+    .note {
+        font-family: 'gotham-medium';
+        font-size: .85rem;
+        color: #DF5921;
+        margin-top: 1rem;
+    }
 
     .stake-container {
         background-color: #fff;

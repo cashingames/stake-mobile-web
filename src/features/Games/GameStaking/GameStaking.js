@@ -26,8 +26,7 @@ const GameStaking = () => {
     const [openDialogue, setOpenDialogue] = useState(false);
     const [alertMessage, setAlert] = useState('');
     const [loading, setLoading] = useState(false);
-
-
+    const user = useSelector((state) => state.auth.user);
 
 
     useEffect(() => {
@@ -95,6 +94,8 @@ const GameStaking = () => {
 
             <StakeAmount onSubmit={proceed} amount={amount} setAmount={setAmount}
                 readOnly={false} disabled={loading ? true : false} />
+                   {user.hasBonus === true &&
+                <p className='note'>Note that the predictions table below does not apply on bonus stakes</p>}
             <StakingPredictionsTable amount={amount} />
             <Dialogue open={openDialogue} handleClose={closeAlert} dialogueMessage={alertMessage} />
         </div>

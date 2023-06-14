@@ -17,7 +17,7 @@ const Signup = () => {
     const [phone, setPhone] = useState('');
     const [firstname, setFirstname] = useState('');
     const [lastname, setLastname] = useState('');
-    // const [referrer, setReferrer] = useState('');
+    const [referrer, setReferrer] = useState('');
     const [countryCode, setCountryCode] = useState('+234');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
@@ -82,10 +82,10 @@ const Signup = () => {
         confirmPassword.length > 0 && confirmPassword.length < 8 ? setConfirmPassError(true) : setConfirmPassError(false);
         setConfirmPassword(confirmPassword)
     }
-    // const onChangeReferrer = (e) => {
-    //     const referrer = e.currentTarget.value;
-    //     setReferrer(referrer)
-    // }
+    const onChangeReferrer = (e) => {
+        const referrer = e.currentTarget.value;
+        setReferrer(referrer)
+    }
 
 
     useEffect(() => {
@@ -116,7 +116,7 @@ const Signup = () => {
             username: username,
             first_name: firstname,
             last_name: lastname,
-            // referrer: referrer,
+            referrer: referrer,
             bonus_checked: bonusChecked,
         }).then(response => {
             logToAnalytics('registration_unverified', {
@@ -308,18 +308,18 @@ const Signup = () => {
                             <span className='input-error'>*password must not be less than eight(8) characters</span>
                         }
                     </div>
-                    {/* <div className='inputContainer'>
-                        <label htmlFor='referrer' className='inputLabel'>Referral Code</label>
+                    <div className='input-container'>
+                        <label htmlFor='referrer' className='input-label'>Referral Code (optional)</label>
                         <input
-                            placeholder="optional"
+                            placeholder="Enter referral code"
                             type='text'
                             id='referrer'
                             value={referrer}
-                            className='inputBox'
+                            className='input-box'
                             onChange={e => onChangeReferrer(e)}
                             required
                         />
-                    </div> */}
+                    </div>
                     <div className='agreements-container'>
                         <span onClick={() => setChecked(!checked)}>{checked ? <IoCheckmarkCircle size={26} color='#00FFA3' /> : <IoEllipseOutline size={26} color='#D9D9D9'
                         />}</span>

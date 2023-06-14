@@ -46,7 +46,7 @@ const ChallengeWaitingScreen = () => {
     }, [documentId])
 
     return (
-        <div className="game-waiting-container">
+        <div className="game-waiting-container" style={{ backgroundImage: "url(/images/coins-background.png)" }}>
             <p className="message">Great, you finished first</p>
             <div className="animation-container">
                 <Player src={HourGlass}
@@ -70,7 +70,7 @@ const ChallengeWaitingScreen = () => {
 
 const SelectedPlayers = ({ challengeDetails }) => {
     return (
-        <div style={{ backgroundImage: "url(/images/challenge-stage.png)" }} className="players-container">
+        <div className="players-container">
             <SelectedPlayer playerName={challengeDetails.username} playerAvatar={challengeDetails.avatar ? `${backendUrl}/${challengeDetails.avatar}` : "/images/user-icon.png"} />
             <img src='/images/versus.png' alt='versus' />
             <SelectedPlayer playerName={challengeDetails.opponent.username} playerAvatar={challengeDetails.opponent.avatar ? `${backendUrl}/${challengeDetails.opponent.avatar}` : "/images/user-icon.png"} />

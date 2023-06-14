@@ -1,15 +1,19 @@
-import { unwrapResult } from '@reduxjs/toolkit'
-import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
-import GameAppHeader from '../../../../components/GameAppHeader/GameAppHeader'
-import './ChallengeGameBoardScreen.scss'
+import { unwrapResult } from '@reduxjs/toolkit';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import GameAppHeader from '../../../../components/GameAppHeader/GameAppHeader';
+import './ChallengeGameBoardScreen.scss';
 import { getNextQuestion, selectedOption, setChallengeDetails, setIsEnded, submitGameSession } from '../TriviaChallengeGameSlice';
 import { doc, getDoc } from "firebase/firestore";
-import { initializeFirestore } from '../../../../firebaseConfig'
-import DoubleDialog from '../../../../components/DoubleButtonDialog/DoubleDialogButton'
-import ChallengeProgressWidget from '../../../../components/ChallengeProgressWidget/ChallengeProgressWidget'
-import logToAnalytics from '../../../../utils/analytics'
+import { initializeFirestore } from '../../../../firebaseConfig';
+import DoubleDialog from '../../../../components/DoubleButtonDialog/DoubleDialogButton';
+import ChallengeProgressWidget from '../../../../components/ChallengeProgressWidget/ChallengeProgressWidget';
+import logToAnalytics from '../../../../utils/analytics';
+import { CountdownCircleTimer } from 'react-countdown-circle-timer';
+import { IoCheckmarkCircle, IoEllipseOutline } from 'react-icons/io5';
+
+const backendUrl = process.env.REACT_APP_API_ROOT_URL;
 
 const db = initializeFirestore();
 
@@ -20,6 +24,7 @@ function ChallengeGameBoardScreen() {
     const navigate = useNavigate();
     const documentId = useSelector(state => state.triviaChallenge.documentId);
     const challengeDetails = useSelector(state => state.triviaChallenge.challengeDetails);
+    const user = useSelector(state => state.auth.user);
     const isEnded = useSelector(state => state.triviaChallenge.isEnded);
     const gameType = useSelector(state => state.game.gameType);
     const [submitting, setSubmitting] = useState(false);
@@ -78,12 +83,12 @@ function ChallengeGameBoardScreen() {
 
     const handleGameBoardTabClosing = () => {
         gameEnded();
-      }
-    
-      const alertUserBeforeClosinigGame = (event) => {
+    }
+
+    const alertUserBeforeClosinigGame = (event) => {
         event.preventDefault();
         event.returnValue = '';
-      }
+    }
     useEffect(() => {
         window.addEventListener('beforeunload', alertUserBeforeClosinigGame)
         window.addEventListener('unload', handleGameBoardTabClosing)
@@ -99,7 +104,7 @@ function ChallengeGameBoardScreen() {
             'opponentName': challengeDetails.opponent.username,
             'username': challengeDetails.username,
         })
-          // eslint-disable-next-line 
+        // eslint-disable-next-line 
     }, [])
 
     useEffect(() => {
@@ -123,44 +128,100 @@ function ChallengeGameBoardScreen() {
 
     return (
         <div className='gameInProgress'
-            style={{ backgroundImage: 'url(/images/game_mode.png)' }}>
-            <GameAppHeader onPress={showExitConfirmation} />
-            <ChallengeProgressWidget onComplete={gameEnded} challengeDetails={challengeDetails} />
-            <GameQuestions />
-            <NextButton onEnd={gameEnded} submitting={submitting} />
+            style={{ backgroundImage: 'url(/images/game-play-background.png)' }}>
+            <GameAppHeader onPress={showExitConfirmation} gameTitle='Challenge Player' />
+            <ChallengeProgressWidget challengeDetails={challengeDetails} />
+            <SelectedPlayers user={user} challengeDetails={challengeDetails} />
+            <GameQuestions submitting={submitting} onEnd={gameEnded} />
             <DoubleDialog handleClose={closeAlert} open={openAlert} dialogueMessage={alertMessage} onClick={endChallenge} />
         </div>
     )
 }
 
-function GameQuestions() {
+const SelectedPlayers = ({ user, challengeDetails }) => {
+    return (
+        <div className="players-container">
+            <SelectedPlayer playerName={user.username} playerAvatar={user.avatar ? `${backendUrl}/${user.avatar}` : "/images/user-icon.png"} />
+            <img src='/images/versus.png' alt='versus' />
+            <SelectedPlayer playerName={challengeDetails.opponent.username} playerAvatar={challengeDetails.opponent.avatar ? `${backendUrl}/${challengeDetails.opponent.avatar}` : "/images/user-icon.png"} />
+        </div>
+    )
+}
+
+const SelectedPlayer = ({ playerName, playerAvatar }) => {
+    return (
+        <div className='player-container'>
+            <div className='avatar-container'>
+                <img src={playerAvatar} alt='user' onError={(e) => e.target.style.display = 'none'} />
+            </div>
+            <p className='player-name'>@{playerName}</p>
+        </div>
+    )
+}
+
+function GameQuestions({ onComplete, onEnd, submitting }) {
 
     const dispatch = useDispatch();
     const currentQuestion = useSelector(state => state.triviaChallenge.currentQuestion || []);
     const options = currentQuestion.options;
+    const countdownKey = useSelector(state => state.triviaChallenge.countdownKey);
+    const isGamePaused = useSelector(state => state.triviaChallenge.countdownFrozen);
+    const gameDuration = useSelector(state => state.triviaChallenge.gameDuration);
+    const currentQuestionIndex = useSelector(state => state.triviaChallenge.currentQuestionIndex);
 
     const optionSelected = (option) => {
         dispatch(selectedOption(option));
     }
 
     return (
-        <>
-            <div className='game-questions'>
-                <p className='game-question'>{currentQuestion.label}</p>
+        <div className='questions-container'>
+            <div style={{ backgroundImage: 'url(/images/coins-background.png)' }} className='question-background' >
+                <div className='timer-container'>
+                    <span className='question-count'>Q{currentQuestionIndex + 1}</span>
+                    <div className='countdown-case'>
+                        <CountdownCircleTimer
+                            isPlaying={!isGamePaused}
+                            duration={gameDuration}
+                            colors={
+                                ['#F2C8BC', '#E15220', '#E15220']
+                            }
+                            colorsTime={
+                                [
+                                    gameDuration / 2,
+                                    gameDuration / 4,
+                                    0
+                                ]
+                            }
+                            trailColor="#E15220"
+                            size={45}
+                            strokeWidth={5}
+                            onComplete={onComplete}
+                            key={countdownKey}>
+                            {({ remainingTime }) => (
+                                <p className='timer-count'>{remainingTime}</p>
+                            )}
+                        </CountdownCircleTimer>
+                    </div>
+                </div>
+                <div className='game-questions'>
+                    <p className='game-question'>{currentQuestion.label}</p>
+                </div>
+                <div>
+                    {options.map((option, i) => <RenderOption option={option} key={i} onSelect={optionSelected} />)}
+                </div>
+                <NextButton onEnd={onEnd} submitting={submitting} />
             </div>
-            <div>
-                {options.map((option, i) => <RenderOption option={option} key={i} onSelect={optionSelected} />)}
-            </div>
-        </>
+        </div>
     )
 }
 
 const RenderOption = ({ option, onSelect }) => {
     return (
         <div
-            className={`${option.active ? 'is-selected' : 'answer'}`}
+            className='answer'
             onClick={() => onSelect(option)} >
-            <p className='option-text'>{option.title}</p>
+            {option.active ? <IoCheckmarkCircle size={26} color='#00FFA3' /> : <IoEllipseOutline size={26} color='#D9D9D9' />}
+            <p className='answer-text'>{option.title}</p>
         </div>
     )
 }
@@ -181,7 +242,7 @@ const NextButton = ({ onEnd, submitting }) => {
 
     }
     return (
-        <div className='nextButtonCase'>
+        <div className='next-button-case'>
             <button onClick={onPress} className='nextButton' disabled={submitting}>
                 <p className='btnText'>{isLastQuestion ? 'Finish' : 'Next'}</p>
             </button>
@@ -189,31 +250,5 @@ const NextButton = ({ onEnd, submitting }) => {
     )
 }
 
-// const UserAvailableBoosts = ({ onClose }) => {
-//     // let navigate = useNavigate();
-//     const boosts = useSelector(state => state.auth.user.boosts);
-//     const gameMode = useSelector(state => state.game.gameMode);
-
-//     const boostsToDisplay = () => {
-//         if (gameMode.name === "CHALLENGE") {
-//             return boosts.filter(x => x.name.toUpperCase() !== "SKIP");
-//         }
-//         return boosts;
-//     }
-//     return (
-//         <div className="boosts-container">
-//             <p className="boosts-header">Available boosts</p>
-//             {boosts?.length > 0 ?
-//                 <div className="boosts">
-//                     {boostsToDisplay().map((boost, i) => <UserAvailableBoost boost={boost} key={i} onClose={onClose} />
-//                     )}
-//                 </div>
-//                 :
-//                 <p className="noBoosts">No boost available</p>
-//             }
-
-//         </div>
-//     )
-// }
 export default ChallengeGameBoardScreen;
 

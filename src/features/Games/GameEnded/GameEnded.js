@@ -74,7 +74,7 @@ function GameEnded() {
           onError={(e) => e.target.style.display = 'none'} />
       </div>
       <UserName userName={user.firstName} />
-      <Winnings amountWon={amountWon} onPress={reviewStaking} />
+      <Winnings amountWon={amountWon} onPress={reviewStaking} user={user} />
       <FinalScore
         pointsGained={pointsGained}
         correctCount={correctCount} wrongCount={wrongCount} totalCount={totalCount}

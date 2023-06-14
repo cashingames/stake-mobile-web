@@ -1,10 +1,11 @@
 .gameProgressBoost {
     display: flex;
     flex-direction: column;
-    background-color: rgba(57, 15, 15, 0.4);
+    background-color: #AAD880;
     box-shadow: inset 0px 4px 0px rgba(0, 0, 0, 0.05);
     border-radius: 16px;
     margin: 1rem 0;
+    padding: 1rem 0;
 
     .players-container {
         display: flex;
@@ -52,10 +53,8 @@
 
     .availableBoosts {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         align-items: center;
-        // padding: 18px 1.3rem;
-        // border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 
         .boostInfo {
             display: flex;
@@ -64,50 +63,60 @@
             .boostTitle {
                 margin: 0;
                 font-size: 0.9rem;
-                font-family: 'graphik-medium`';
-                color: #fff;
+                font-family: 'gotham-bold';
+                color: #072169;
             }
         }
 
-        .boostContainer {
+        .available-boosts-icons {
             display: flex;
-            flex-direction: column;
-            align-items: center;
+            flex-direction: row;
+            margin-top: .2rem;
 
-            .availableBoost {
-                padding: .7rem 0;
+            .boostContainer {
                 display: flex;
-                flex-direction: row;
+                flex-direction: column;
+                align-items: center;
+                margin: 0 1rem;
 
-                .boostIcon {
-                    width: 40px;
-                    height: 40px;
+                .availableBoost {
+                    padding: .7rem 0;
+                    display: flex;
+                    flex-direction: row;
+
+                    .boostIcon {
+                        width: 45px;
+                        height: 45px;
+                    }
+
+                    .boostCount {
+                        margin: 0;
+                        font-size: 0.85rem;
+                        color: #fff;
+                        padding: 0;
+                        font-family: 'gotham-bold';
+                    }
                 }
 
-                .boostCount {
+                .boostBlink {
+                    display: none;
+                }
+
+                .boostActive {
+                    border: 1px solid rgba(255, 255, 255, 0.2);
+                    border-radius: 5px;
+                    padding: 7px;
+                }
+
+                .boostName {
+                    // width: 4rem;
                     margin: 0;
-                    font-size: 0.75rem;
-                    color: #121212;
-                    padding: 0;
-                    font-family: 'gotham-bold';
+                    font-size: 0.65rem;
+                    color: #fff;
                 }
-            }
-            .boostBlink {
-                display: none;
-            }
-
-            .boostActive {
-                border: 1px solid rgba(255, 255, 255, 0.2);
-                border-radius: 5px;
-                padding: 7px;
-            }
-
-            .boostName {
-                // width: 4rem;
-                margin: 0;
-                font-size: 0.65rem;
-                color: #fff;
             }
         }
+
+
     }
 }

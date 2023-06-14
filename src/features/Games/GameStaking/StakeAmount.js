@@ -21,7 +21,7 @@ function StakeAmount({ onSubmit, amount, setAmount, disabled }) {
     const onChangeAmount = (e) => {
         const amount = e.currentTarget.value;
         const amountEntered = amount.trim().length === 0 ? 0 : Number.parseFloat(amount)
-        if (amountEntered < minimumExhibitionStakeAmount || amount > Number.parseFloat(user.walletBalance)) {
+        if (amountEntered < Number.parseFloat(minimumExhibitionStakeAmount) || amount > Number.parseFloat(user.walletBalance)) {
             setAmountError(true)
         } else setAmountError(false)
         setAmount(amount)
@@ -76,7 +76,7 @@ function StakeAmount({ onSubmit, amount, setAmount, disabled }) {
                     onChange={e => onChangeAmount(e)}
                     required
                 />
-                {amountErr && amount < minimumExhibitionStakeAmount &&
+                {amountErr && amount < Number.parseFloat(minimumExhibitionStakeAmount) &&
                     <span className='input-error'>Minimum staking amount is NGN {minimumExhibitionStakeAmount}</span>
                 }
                 {amountErr && amount > Number.parseFloat(user.walletBalance) &&

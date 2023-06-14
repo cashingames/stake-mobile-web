@@ -1,33 +1,51 @@
 .challenge-matching-container {
-    background-color: #301934;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     min-height: 100vh;
     overflow: scroll;
-    padding: 1rem 2rem;
+    padding: 0 2rem;
     justify-content: center;
     display: flex;
     flex-direction: column;
+    .finding-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .message {
+            font-size: 1rem;
+            font-family: 'gotham-bold';
+            color: #072169;
+            text-align: center;
+            line-height: 2;
+            margin: 4px 0;
+        }
+    }
 
     .message {
         font-size: 1rem;
-        font-family: 'graphik-medium';
-        color: #fff;
+        font-family: 'gotham-bold';
+        color: #072169;
         text-align: center;
         line-height: 2;
-        margin: 0;
+        margin: 4px 0;
     }
+
+
 
     .message-container {
         .players-container {
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: cover;
             display: flex;
             justify-content: space-between;
+            flex-direction: row;
             align-items: center;
-            border-radius: 20px;
-            padding: 2rem 1.5rem;
-            margin-bottom: 2rem;
-            border: 1px solid #fff;
+            background-color: #fff;
+            border-radius: 13px;
+            padding: 15px 20px;
+            margin-bottom: 1rem;
+            border: 1px solid #E5E5E5;
+            box-shadow: 0px 2px 10px -5px rgba(0, 0, 0, 0.25);
 
             .player-container {
                 display: flex;
@@ -35,10 +53,10 @@
                 align-items: center;
 
                 .avatar-container {
-                    width: 60px;
-                    height: 60px;
+                    width: 65px;
+                    height: 65px;
                     border-radius: 50%;
-                    background-color: #fff;
+                    background-color: #F6F4FF;
 
                     img {
                         width: 100%;
@@ -50,12 +68,12 @@
                 .player-name {
                     margin: 0;
                     margin-top: 0.8rem;
-                    font-size: 0.75rem;
-                    font-family: 'graphik-regular';
-                    color: #fff;
-                    width: 5rem;
+                    font-size: 0.95rem;
+                    font-family: 'gotham-bold';
+                    color: #072169;
                     text-align: center;
                     word-wrap: break-word;
+                    word-break: break-all;
                 }
             }
 
@@ -65,11 +83,17 @@
     .purchase-boost {
         display: flex;
         flex-direction: column;
+        background-color: #fff;
+        border-radius: 13px;
+        padding: 15px;
+        margin: 1rem 0;
+        border: 1px solid #E5E5E5;
+        box-shadow: 0px 2px 10px -5px rgba(0, 0, 0, 0.25);
 
         .boost-text {
-            font-size: .8rem;
-            font-family: 'graphik-medium';
-            color: #fff;
+            font-size: .9rem;
+            font-family: 'gotham-bold';
+            color: #072169;
             text-align: center;
             line-height: 1.2;
             margin: 0;
@@ -78,27 +102,26 @@
         .boost-container {
             display: flex;
             flex-direction: row;
-            justify-content: center;
-            align-items: flex-start;
+            // justify-content: center;
+            // align-items: flex-start;
 
             .boost-card-container {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                margin: 1rem 0;
-                margin-left: 1rem;
-                margin-right: 1rem;
+                margin: 1rem 1rem 0 1rem;
             }
 
             .boost-icon {
-                width: 2.5rem;
-                height: 2.5rem;
+                width: 2.8rem;
+                height: 2.8rem;
             }
 
             .boost-details-container {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
+                margin-top: .3rem;
 
 
                 .boost-name-count {
@@ -107,19 +130,18 @@
                     flex-direction: column;
 
                     .boost-name {
-                        font-family: 'graphik-medium';
+                        font-family: 'gotham-medium';
                         font-size: 0.7rem;
-                        color: #fff;
+                        color: #072169;
                     }
 
                     .boost-description {
-                        font-family: 'graphik-medium';
-                        font-size: 0.7rem;
-                        color: #fff;
+                        font-family: 'gotham-medium';
+                        font-size: 0.75rem;
+                        color: #072169;
                         text-align: center;
-                        width: 8rem;
                         word-wrap: break-word;
-                        line-height: 1.5;
+                        line-height: 1.2;
                         margin: 0;
                     }
                 }
@@ -128,16 +150,18 @@
     }
 
     .cancel-button {
-        background-color: #EF2F55;
-        border: none;
-        border-radius: 8px;
-        // width: 35%;
-        height: 3rem;
-        display: flex;
+        background-color: #E15220;
         justify-content: center;
+        flex-direction: row;
+        display: flex;
         align-items: center;
-        border-radius: 8px;
+        padding: .95rem 0;
+        border-radius: 13px;
+        width: 100%;
+        border: none;
         color: #fff;
-        font-family: 'graphik-medium';
+        font-size: 1rem;
+        font-family: 'gotham-medium';
+        // margin-bottom: 1.5rem;
     }
 }

@@ -70,8 +70,7 @@ const Heading = () => {
 const Instruction = () => {
     return (
         <>
-            <p className='instructions'>Refer your friends to us and get 2 bonus games for each friend referred, and has played at least 1 game,
-                and also stand a chance of winning exciting prizes.</p>
+            <p className='instructions'>Share the fun! Refer your friends to us so they can participate in our exciting games..</p>
         </>
     )
 }

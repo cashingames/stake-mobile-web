@@ -13,6 +13,10 @@ function ProfileLink() {
             <p className='profileLinkLabel'>Change Password</p>
             <IoChevronForwardOutline  className='icon'/>
         </Link>
+         <Link to='/invite-friends' className='profileLink'>
+            <p className='profileLinkLabel'>Invite Friends</p>
+            <IoChevronForwardOutline  className='icon'/>
+        </Link>
         {/* <Link to='/stat' className='profileLink'>
             <p className='profileLinkLabel'>Stats</p>
             <IoChevronForwardOutline  className='icon'/>

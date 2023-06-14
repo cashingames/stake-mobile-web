@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import logToAnalytics from "../../../../utils/analytics";
-import { formatCurrency } from '../../../../utils/stringUtl';
 import { getUser } from "../../../Auth/AuthSlice";
 import { clearSession } from "../TriviaChallengeGameSlice";
 import './ChallengeEndGameScreen.scss';
-import BoostPopUp from "../../../../components/BoostPopUp/BoostPopUp";
+import GameButton from "../../../../components/GameButton/GameButton";
+// import BoostPopUp from "../../../../components/BoostPopUp/BoostPopUp";
 
 
 const backendUrl = process.env.REACT_APP_API_ROOT_URL;
@@ -19,7 +19,7 @@ const ChallengeEndGameScreen = () => {
     const user = useSelector(state => state.auth.user);
     const challengeDetails = useSelector(state => state.triviaChallenge.challengeDetails);
     const [loading, setLoading] = useState(false);
-    const [showModal, setShowModal] = useState(false);
+    // const [showModal, setShowModal] = useState(false);
 
 
     const goHome = () => {
@@ -81,11 +81,11 @@ const ChallengeEndGameScreen = () => {
         // eslint-disable-next-line 
     }, [])
 
-    useEffect(() => {
-        if ((Number.parseFloat(challengeDetails.score) < Number.parseFloat(challengeDetails.opponent.score)) || (Number.parseFloat(challengeDetails.score) === Number.parseFloat(challengeDetails.opponent.score))) {
-            setShowModal(true)
-        }
-    }, [challengeDetails])
+    // useEffect(() => {
+    //     if ((Number.parseFloat(challengeDetails.score) < Number.parseFloat(challengeDetails.opponent.score)) || (Number.parseFloat(challengeDetails.score) === Number.parseFloat(challengeDetails.opponent.score))) {
+    //         setShowModal(true)
+    //     }
+    // }, [challengeDetails])
 
     useEffect(() => {
         window.history.pushState(null, null, window.location.href);
@@ -96,109 +96,90 @@ const ChallengeEndGameScreen = () => {
 
     return (
         <div >
-            <div className="end-game-container" style={{ opacity: [showModal ? 0.6 : 1] }}>
+            <div className="end-game-container" style={{ backgroundImage: "url(/images/success-background.png)" }} >
+                {/* <div className="end-game-container" style={{ opacity: [showModal ? 0.6 : 1] }}> */}
+                <SelectedPlayers challengeDetails={challengeDetails} />
                 {Number.parseFloat(challengeDetails.score) > Number.parseFloat(challengeDetails.opponent.score) &&
-                    <p className="head-text">Congrats {user.username}</p>
+                    <p className="head-text">You won the challenge</p>
                 }
                 {Number.parseFloat(challengeDetails.score) < Number.parseFloat(challengeDetails.opponent.score) &&
-                    <p className="head-text">Sorry {user.username}</p>
+                    <p className="head-text">You lost the challenge</p>
                 }
                 {Number.parseFloat(challengeDetails.score) === Number.parseFloat(challengeDetails.opponent.score) &&
                     <p className="head-text">Draw, you can try again</p>
                 }
-                <ChallengePlayers challengeDetails={challengeDetails} />
                 <WinningAmount challengeDetails={challengeDetails} />
                 <FinalScoreBoard challengeDetails={challengeDetails} />
-                <div className="game-buttons">
-                    <GameButton onClick={goHome} buttonText='Return to home' />
-                    <GameButton onClick={onPlayButtonClick} buttonText={loading ? 'loading...' : 'Play Again'} disabled={loading} />
-                </div>
+                <GameButton goHome={goHome} playAgain={onPlayButtonClick} disabled={loading} />
+
             </div>
-            <BoostPopUp showModal={showModal} setShowModal={setShowModal} />
+            {/* <BoostPopUp showModal={showModal} setShowModal={setShowModal} /> */}
         </div>
     )
 }
 
-const ChallengePlayers = ({ challengeDetails }) => {
+const SelectedPlayers = ({  challengeDetails }) => {
     return (
         <div className="players-container">
-            {Number.parseFloat(challengeDetails.score) > Number.parseFloat(challengeDetails.opponent.score) && <>
-                <ChallengeWinner playerName={challengeDetails.username} playerAvatar={challengeDetails.avatar ? `${backendUrl}/${challengeDetails.avatar}` : "/images/user-icon.png"} />
-                <ChallengeLoser playerName={challengeDetails.opponent.username} playerAvatar={challengeDetails.opponent.avatar ? `${backendUrl}/${challengeDetails.opponent.avatar}` : "/images/user-icon.png"} />
-            </>
-            }
-            {Number.parseFloat(challengeDetails.score) < Number.parseFloat(challengeDetails.opponent.score) && <>
-                <ChallengeLoser playerName={challengeDetails.username} playerAvatar={challengeDetails.avatar ? `${backendUrl}/${challengeDetails.avatar}` : "/images/user-icon.png"} />
-                <ChallengeWinner playerName={challengeDetails.opponent.username} playerAvatar={challengeDetails.opponent.avatar ? `${backendUrl}/${challengeDetails.opponent.avatar}` : "/images/user-icon.png"} />
-            </>
-            }
-            {Number.parseFloat(challengeDetails.score) === Number.parseFloat(challengeDetails.opponent.score) &&
-                <>
-                    <ChallengeWinner playerName={challengeDetails.username} playerAvatar={challengeDetails.avatar ? `${backendUrl}/${challengeDetails.avatar}` : "/images/user-icon.png"} />
-                    <ChallengeLoser playerName={challengeDetails.opponent.username} playerAvatar={challengeDetails.opponent.avatar ? `${backendUrl}/${challengeDetails.opponent.avatar}` : "/images/user-icon.png"} />
-                </>
-            }
+            <SelectedPlayer playerName={challengeDetails.username} playerAvatar={challengeDetails.avatar ? `${backendUrl}/${challengeDetails.avatar}` : "/images/user-icon.png"} />
+            <img src='/images/versus.png' alt='versus' />
+                <SelectedPlayer playerName={challengeDetails.opponent.username} playerAvatar={challengeDetails.opponent.avatar ? `${backendUrl}/${challengeDetails.opponent.avatar}` : "/images/user-icon.png"} />
         </div>
-
     )
 }
 
-const ChallengeWinner = ({ playerName, playerAvatar }) => {
+const SelectedPlayer = ({ playerName, playerAvatar }) => {
     return (
-        <div className="player-info-container">
-            <p className="username">{playerName}</p>
-            <div className="avatar-container">
-                <img src={playerAvatar} alt='user' onError={(e) => e.target.style.display = 'none'} className="winner-avatar" />
+        <div className='player-container'>
+            <div className='avatar-container'>
+                <img src={playerAvatar} alt='user' onError={(e) => e.target.style.display = 'none'} />
             </div>
+            <p className='player-name'>@{playerName}</p>
         </div>
     )
 }
 
-const ChallengeLoser = ({ playerName, playerAvatar }) => {
-    return (
-        <div className="player-info-container">
-            <p className="username">{playerName}</p>
-            <img src={playerAvatar} alt='user' onError={(e) => e.target.style.display = 'none'} className="loser-avatar" />
-        </div>
-    )
-}
 
 const WinningAmount = ({ challengeDetails }) => {
-    const amount = useSelector(state => state.triviaChallenge.challengeDetails.amount_won);
+    // const amount = useSelector(state => state.triviaChallenge.challengeDetails.amount_won);
 
     return (
         <div className="winnings-container">
-            {Number.parseFloat(challengeDetails.score) > Number.parseFloat(challengeDetails.opponent.score) &&
-                <p className="winning-text">You have won <p className="winning-amount"> &#8358;{formatCurrency(amount)}!</p></p>
-            }
-            {Number.parseFloat(challengeDetails.score) < Number.parseFloat(challengeDetails.opponent.score) &&
-                <p className="winning-text">You can try again</p>
-            }
-            {Number.parseFloat(challengeDetails.score) === Number.parseFloat(challengeDetails.opponent.score) &&
-                <p className="winning-text">You have been refunded</p>
-            }
+            <span className="winnings-header">Scores</span>
+            <div className="score-count-container">
+                <div className="user-count-container">
+                    <span className="count-name">You</span>
+                    <span className="score-count">{challengeDetails.score}</span>
+                </div>
+                <div className="user-count-container">
+                    <span className="count-name">{challengeDetails.opponent.username}</span>
+                    <span className="score-count">{challengeDetails.opponent.score}</span>
+                </div>
+            </div>
         </div>
     )
 }
 
 const FinalScoreBoard = ({ challengeDetails }) => {
     return (
-        <div className="score-container">
-            <p className="score-text">Final score</p>
-            <div className="score-count-container">
-                <p className="winner-count">{challengeDetails.score}</p>
-                <p className="colon">:</p>
-                <p className="loser-count">{challengeDetails.opponent.score}</p>
+        <div className='final-score-case'>
+            <span className='point-text-header'>Game play statistics</span>
+            <div className='scoreContainer'>
+                <span className='point-text'>Questions answered</span>
+                <span className='point-number'>{challengeDetails.questions?.length / 2}</span>
+            </div>
+            <div className='scoreContainer'>
+                <span className='point-text'>Answered correctly</span>
+                <span className='point-number'>{challengeDetails.score}</span>
+            </div>
+            <div className='scoreContainer'>
+                <span className='point-text'>Points earned</span>
+                <span className='point-number'>{challengeDetails.score}pts</span>
             </div>
         </div>
     )
 }
 
-const GameButton = ({ buttonText, disabled, onClick }) => {
-    return (
-        <button className={`${disabled ? 'is-disabled' : 'game-button'}`} onClick={onClick}>{buttonText}</button>
-    )
-}
 
 
 export default ChallengeEndGameScreen;

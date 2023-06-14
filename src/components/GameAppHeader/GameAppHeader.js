@@ -4,7 +4,7 @@ import React from 'react'
 import './GameAppHeader.scss'
 import AnonymousRouteHeader from '../AnonymousRouteHeader/AnonymousRouteHeader'
 
-function GameAppHeader({ onPress }) {
+function GameAppHeader({ onPress, gameTitle }) {
     return (
         <div className='gameInHeader'>
             <div></div>
@@ -19,7 +19,7 @@ function GameAppHeader({ onPress }) {
                         {height: '40px', width:'40px'}
                     }/>
             </div> */}
-            <AnonymousRouteHeader title='Wallet' styleProp='password-header' />
+            <AnonymousRouteHeader title={gameTitle} styleProp='password-header' />
             <button onClick={onPress} className='exitGame'>Exit</button>
         </div>
     )

@@ -112,7 +112,7 @@ function GameInProgress() {
   return (
     <div className='gameInProgress'
       style={{ backgroundImage: 'url(/images/game-play-background.png)' }}>
-      <GameAppHeader onPress={showExitConfirmation} />
+      <GameAppHeader onPress={showExitConfirmation} gameTitle='Trivia game' />
       <StakeDetails />
       <GameInProgressAndBoost onComplete={() => onEndGame()} />
       <GameQuestions onPress={() => onEndGame()} ending={ending} onComplete={() => onEndGame()} />
@@ -123,7 +123,7 @@ function GameInProgress() {
 
 const StakeDetails = () => {
   const amountStaked = useSelector(state => state.game.amountStaked);
-  const gameStakes = useSelector(state => state.game.gameStakes[0]);
+  // const gameStakes = useSelector(state => state.game.gameStakes[0]);
 
   return (
     <div className='stake-container'>
@@ -134,13 +134,13 @@ const StakeDetails = () => {
           <span className='stake-amount'>NGN {amountStaked}</span>
         </div>
       </div>
-      <div className='stake-sub-container'>
+      {/* <div className='stake-sub-container'>
         <img src='/images/wallet-with-cash.png' alt='wallet' className='avatar' />
         <div className='stake-items'>
           <span className='stake-header'>Pot. winnings</span>
           <span className='stake-amount'>NGN {amountStaked * (gameStakes.odd)}</span>
         </div>
-      </div>
+      </div> */}
     </div>
   )
 }

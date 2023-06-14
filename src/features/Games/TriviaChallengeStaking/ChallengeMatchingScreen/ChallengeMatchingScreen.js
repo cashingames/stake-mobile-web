@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { doc, onSnapshot } from "firebase/firestore";
-import { Player } from '@lottiefiles/react-lottie-player';
-import HourGlass from '../../../../assets/hour-glass.json';
 import './ChallengeMatchingScreen.scss';
 import { useDispatch, useSelector } from "react-redux";
 import { initializeFirestore } from "../../../../firebaseConfig";
@@ -111,38 +109,30 @@ const ChallengeMatchingScreen = () => {
 
 
     return (
-        <div className="challenge-matching-container">
+        <div style={{ backgroundImage: "url(/images/game-play-background.png)" }} className="challenge-matching-container">
             {!dataUpdated ?
-                <p className="message">
-                    Finding an opponent...
-                </p>
+                <div className="finding-container">
+                    <p className="message">
+                        Finding a player...
+                    </p>
+                    <img src='/images/finding-bar.png' alt='versus' />
+                </div>
+
                 :
                 <p className="message">
                     Nice, you have been matched
                 </p>
             }
-            <div className="animation-container">
-                <Player src={HourGlass}
-                    alt='Game Board'
-                    autoplay
-                    loop
-                    className='player'
-                    style={
-                        {
-                            height: '160px',
-                            width: '160px'
-                        }
-                    } />
-            </div>
-            <div className="message-container">
-                <SelectedPlayers user={user} dataUpdated={dataUpdated} challengeDetails={challengeInfo} />
-            </div>
             <div className='purchase-boost'>
-                <p className='boost-text'>Score higher with boosts</p>
+                <p className='boost-text'>Score high points using boosts</p>
                 <div className='boost-container'>
                     {boosts.map((boost, i) => <BoostCardDetails key={i} boost={boost} />)}
                 </div>
             </div>
+            <div className="message-container">
+                <SelectedPlayers user={user} dataUpdated={dataUpdated} challengeDetails={challengeInfo} />
+            </div>
+
             {!dataUpdated &&
                 <button className="cancel-button" onClick={cancelConfirmation}>Cancel</button>
             }
@@ -154,7 +144,7 @@ const ChallengeMatchingScreen = () => {
 
 const SelectedPlayers = ({ user, dataUpdated, challengeDetails }) => {
     return (
-        <div style={{ backgroundImage: "url(/images/challenge-stage.png)" }} className="players-container">
+        <div className="players-container">
             <SelectedPlayer playerName={user.username} playerAvatar={user.avatar ? `${backendUrl}/${user.avatar}` : "/images/user-icon.png"} />
             <img src='/images/versus.png' alt='versus' />
             {dataUpdated ?
@@ -183,7 +173,7 @@ const BoostCardDetails = ({ boost }) => {
             <img src={`${backendUrl}/${boost.icon}`} className="boost-icon" alt='boost' />
             <div className='boost-details-container'>
                 <div className='boost-name-count'>
-                    <p className='boost-name'>{boost.name}</p>
+                    {/* <p className='boost-name'>{boost.name}</p> */}
                     <p className='boost-description'>{boost.description}</p>
                 </div>
             </div>

@@ -67,7 +67,7 @@ function AvailableBoostSession() {
         <>
 
             {boosts?.length > 0 ?
-                <div className='availableBoosts'>
+                <div className='available-boosts'>
                     {
                         boostsToDisplay().map((boost, index) =>
                             boost.count >= 1 &&

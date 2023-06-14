@@ -4,16 +4,14 @@ import { reduceBoostCount } from '../../features/Auth/AuthSlice';
 import { boostReleased, consumeBoost, pauseGame, skipQuestion } from '../../features/Games/TriviaChallengeStaking/TriviaChallengeGameSlice';
 import logToAnalytics from '../../utils/analytics';
 import { formatNumber } from '../../utils/stringUtl';
-import ChallengeGameWidget from '../ChallengeGameWidget/ChallengeGameWidget';
 import './ChallengeProgressWidget.scss'
 const backendUrl = process.env.REACT_APP_API_ROOT_URL;
 
 
-function ChallengeProgressWidget({ onComplete, challengeDetails }) {
+function ChallengeProgressWidget({ challengeDetails }) {
 
     const dispatch = useDispatch();
     const boosts = useSelector(state => state.auth.user.boosts);
-    // const [showText, setShowText] = useState(true);
     const gameMode = useSelector(state => state.game.gameMode);
     const documentId = useSelector(state => state.triviaChallenge.documentId);
 
@@ -62,66 +60,34 @@ function ChallengeProgressWidget({ onComplete, challengeDetails }) {
         return boosts;
     }
 
-    // useEffect(() => {
-    //     // Change the state every second or the time given by User.
-    //     const interval = setInterval(() => {
-    //         setShowText((showText) => !showText);
-    //     }, 2000);
-    //     return () => clearInterval(interval);
-    // }, []);
 
     return (
         <div className='gameProgressBoost'>
-            <ChallengeGameWidget onComplete={onComplete} />
-            <ChallengeStakingBoosts boosts={boosts}  boostsToDisplay={boostsToDisplay} boostApplied={boostApplied} />
-            <PlayersInfo challengeDetails={challengeDetails} />
+            <ChallengeStakingBoosts boosts={boosts} boostsToDisplay={boostsToDisplay} boostApplied={boostApplied} />
         </div>
     )
 }
 
-const PlayersInfo = ({ challengeDetails }) => {
-    return (
-        <div className='players-container'>
-            <UserInfo playerName={challengeDetails.username} playerAvatar={challengeDetails.avatar ? `${backendUrl}/${challengeDetails.avatar}` : "/images/user-icon.png"} />
-            <p className='versus'>vs</p>
-            <OpponentInfo playerName={challengeDetails.opponent.username} playerAvatar={challengeDetails.opponent.avatar ? `${backendUrl}/${challengeDetails.opponent.avatar}` : "/images/user-icon.png"} />
-        </div>
-    )
-}
 
-const UserInfo = ({ playerAvatar, playerName }) => {
-    return (
-        <div className='player-container'>
-            <p className='user-name'>@{playerName}</p>
-            <img src={playerAvatar} alt='user' onError={(e) => e.target.style.display = 'none'} className='player-avatar' />
-        </div>
-    )
-}
+const ChallengeStakingBoosts = ({ boosts, boostsToDisplay, boostApplied }) => {
+    const user = useSelector(state => state.auth.user);
 
-const OpponentInfo = ({ playerAvatar, playerName }) => {
-    return (
-        <div className='player-container'>
-            <img src={playerAvatar} alt='user' onError={(e) => e.target.style.display = 'none'} className='player-avatar' />
-            <p className='player-name'>@{playerName}</p>
-        </div>
-    )
-}
-
-const ChallengeStakingBoosts = ({ boosts, showText, boostsToDisplay, boostApplied }) => {
     return (
         <>
 
             {boosts?.length > 0 ?
                 <div className='availableBoosts'>
                     <div className='boostInfo'>
-                        <p className='boostTitle'>BOOST</p>
+                        <p className='boostTitle'>{user.username}, score higher with boost</p>
                     </div>
-                    {
-                        boostsToDisplay().map((boost, index) =>
-                            boost.count >= 1 &&
-                            <ChallengeStakingBoost boost={boost} key={index} onConsume={boostApplied}  />
-                        )
-                    }
+                    <div className='available-boosts-icons'>
+                        {
+                            boostsToDisplay().map((boost, index) =>
+                                boost.count >= 1 &&
+                                <ChallengeStakingBoost boost={boost} key={index} onConsume={boostApplied} />
+                            )
+                        }
+                    </div>
 
                 </div>
                 :
@@ -142,7 +108,7 @@ const ChallengeStakingBoost = ({ boost, showText, onConsume }) => {
                     alt='bomb' className='boostIcon' />
                 <p className='boostCount'>x{formatNumber(boost.count)}</p>
             </div>
-            <p className='boostName'>{boost.name}</p>
+            {/* <p className='boostName'>{boost.name}</p> */}
         </div>
     )
 }
