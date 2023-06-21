@@ -1,23 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import './LeaderboardCards.scss';
 import { IoChevronForwardOutline } from "react-icons/io5";
-// import logToAnalytics from "../../utils/analytics";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import logToAnalytics from "../../utils/analytics";
+import { useSelector } from "react-redux";
 
 const LeaderboardCards = () => {
+
+    const user = useSelector(state => state.auth.user);
+
+
+
+    const [isNewPromotion] = useState(true);
+    const [isLeaderboard] = useState(false);
     return (
         <div className="leaders-container">
             {/* <BoostsCard /> */}
-            <TopLeaderboards />
-            <PromotionsBoard />
+            <TopLeaderboards isLeaderboard={isLeaderboard} />
+            <PromotionsBoard isNewPromotion={isNewPromotion} user={user} />
             {/* <ChallengeLeaderboard /> */}
         </div>
     )
 }
 
-const TopLeaderboards = () => {
+const TopLeaderboards = ({isLeaderboard}) => {
     return (
-        <div className="top-leaders-container">
+        <div className="top-leaders-container" style={{opacity: isLeaderboard ? 1 : 0.4}}>
             <div className="top-leaders-sub-container">
                 <div className="image-avatar">
                     <img
@@ -36,9 +44,20 @@ const TopLeaderboards = () => {
     )
 }
 
-const PromotionsBoard = () => {
+const PromotionsBoard = ({isNewPromotion, user}) => {
+    let navigate = useNavigate();
+
+    const checkAvailablePromotions = () => {
+        logToAnalytics('wallet_amount_clicked', {
+            'username': user.username,
+            'phone_number': user.phone_number,
+            'email': user.email
+        });
+        navigate('/promotions')
+    }
+
     return (
-        <div className="top-leaders-container">
+        <div className="top-leaders-container" style={{opacity: isNewPromotion ? 1 : 0.4}} onClick={checkAvailablePromotions}>
             <div className="top-leaders-sub-container">
                 <div className="image-avatari">
                     <img
@@ -49,7 +68,7 @@ const PromotionsBoard = () => {
                 </div>
                 <div className="leaders-header-container">
                     <p className="top-leaders-header">Promotions</p>
-                    <p className="top-leaders-headeri">Daily and weekly promottions</p>
+                    <p className="top-leaders-headeri">Daily and weekly promotions</p>
                 </div>
             </div>
             <IoChevronForwardOutline size={18} className='icon' />

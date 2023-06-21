@@ -10,6 +10,8 @@ import ChallengeWaitingScreen from './features/Games/TriviaChallengeStaking/Chal
 import DepositSuccessful from './features/DepositSuccessful/DepositSuccessful';
 import WithdrawFunds from './features/WithdrawFunds/WithdrawFunds';
 import WithdrawalSuccessful from './features/WithdrawalSuccessful/WithdrawalSuccessful';
+import PromotionsScreen from './components/Promotions/PromotionsScreen';
+import PromotionScreen from './components/Promotions/PromotionScreen';
 
 const DashBoardScreen = lazy(() => import('./features/Dashboard/DashBoardScreen'));
 
@@ -77,7 +79,7 @@ const AppRouter = () => {
             <Route
                 path="/withdraw-funds"
                 element={<AuthRoute redirectTo="/"><WithdrawFunds /></AuthRoute>} />
-                  <Route
+            <Route
                 path="/withdraw-successful"
                 element={<AuthRoute redirectTo="/"><WithdrawalSuccessful /></AuthRoute>} />
             <Route
@@ -92,6 +94,12 @@ const AppRouter = () => {
             <Route
                 path="/notifications"
                 element={<AuthRoute redirectTo="/"><NotificationScreen /></AuthRoute>} />
+            <Route
+                path="/promotions"
+                element={<AuthRoute redirectTo="/"><PromotionsScreen /></AuthRoute>} />
+                <Route
+                path="/promotion"
+                element={<AuthRoute redirectTo="/"><PromotionScreen /></AuthRoute>} />
             <Route
                 path="/games-list"
                 element={<AuthRoute redirectTo="/"><GamesListScreen /></AuthRoute>} />
