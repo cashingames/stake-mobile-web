@@ -38,14 +38,14 @@ function AuthContactForm() {
         setLastName(event.target.value)
     }
 
-        const onChangeEmail = (event) => {
-            const email = event.currentTarget.value;
-            //  eslint-disable-next-line
-            const rule = /^([a-zA-Z0-9_/\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/; 
-            setEmailError(!rule.test(email))
-            setEmail(email)
-        }
-    
+    const onChangeEmail = (event) => {
+        const email = event.currentTarget.value;
+        //  eslint-disable-next-line
+        const rule = /^([a-zA-Z0-9_/\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+        setEmailError(!rule.test(email))
+        setEmail(email)
+    }
+
 
     const onChangeMessage = (event) => {
         message_body.length > 0 && message_body.length < 3 ? setMessageError(true) : setMessageError(false);
@@ -64,25 +64,25 @@ function AuthContactForm() {
             email,
             message_body,
         }))
-        .then(unwrapResult)
-        .then( async result => {
-            setOpenAlert(true)
-            setMessage('')
-            setFirstName('')
-            setLastName('')
-            setEmail('')
-            setAlertMessage('Thanks for your feedback. You would be responded to shortly')
-            setSaving(false)
-        })
-        .catch((rejectedValueOrSerializedError) => {
-            setOpenAlert(true)
-            setMessage('')
-            setFirstName('')
-            setLastName('')
-            setEmail('')
-            setSaving(false)
-            setAlertMessage(rejectedValueOrSerializedError.message)
-        });
+            .then(unwrapResult)
+            .then(async result => {
+                setOpenAlert(true)
+                setMessage('')
+                setFirstName('')
+                setLastName('')
+                setEmail('')
+                setAlertMessage('Thanks for your feedback. You would be responded to shortly')
+                setSaving(false)
+            })
+            .catch((rejectedValueOrSerializedError) => {
+                setOpenAlert(true)
+                setMessage('')
+                setFirstName('')
+                setLastName('')
+                setEmail('')
+                setSaving(false)
+                setAlertMessage(rejectedValueOrSerializedError.message)
+            });
     }
 
     useEffect(() => {
@@ -144,6 +144,12 @@ function AuthContactForm() {
                 {messageError && <span className='inputError'>Please input your message</span>}
             </div>
             <button className='send-btn' disabled={!canSave || saving} onClick={sendFeedback}>Send</button>
+            <div className='whatsapp-chat'>
+                <p className='whatsapp-text'>Live chat with support agent on Whatsapp</p>
+                <a href='https://wa.me/2348025116306' className='icon'>
+                    <img width="40px" height="40px" src="/images/whatsapp-icon.png" alt="logo" className="social-img" />
+                </a>
+            </div>
             <p className='go-btn' onClick={goBack}>Go Back</p>
             <Dialogue open={openAlert} handleClose={closeAlert} dialogueMessage={alertMessage} />
         </div>

@@ -86,4 +86,14 @@
         justify-content: center;
         cursor: pointer;
     }
+    .whatsapp-chat {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .whatsapp-text {
+            font-size: 0.95rem;
+            font-family: 'graphik-medium';
+            text-align: center; 
+        }
+    }
 }
