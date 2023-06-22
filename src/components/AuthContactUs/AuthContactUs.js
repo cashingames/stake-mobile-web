@@ -14,10 +14,12 @@ function AuthContactForm() {
     const [first_name, setFirstName] = useState('');
     const [last_name, setLastName] = useState('');
     const [email, setEmail] = useState('');
+    const [phone, setPhone] = useState('');
     const [message_body, setMessage] = useState('');
     const [firstNameErr, setFirstNameError] = useState(false);
     const [lastNameErr, setLastNameError] = useState(false);
-    const [emailError, setEmailError] = useState(false)
+    const [emailError, setEmailError] = useState(false);
+    const [phoneErr, setPhoneError] = useState(false);
     const [messageError, setMessageError] = useState(false);
     const [canSave, setCanSave] = useState(false);
     const [alertMessage, setAlertMessage] = useState('');
@@ -45,6 +47,11 @@ function AuthContactForm() {
         setEmailError(!rule.test(email))
         setEmail(email)
     }
+    const onChangePhone = (e) => {
+        const phone = e.currentTarget.value;
+        phone.length > 0 && phone.length < 11 ? setPhoneError(true) : setPhoneError(false)
+        setPhone(phone)
+    }
 
 
     const onChangeMessage = (event) => {
@@ -63,6 +70,7 @@ function AuthContactForm() {
             last_name,
             email,
             message_body,
+            phone_number:phone
         }))
             .then(unwrapResult)
             .then(async result => {
@@ -71,6 +79,7 @@ function AuthContactForm() {
                 setFirstName('')
                 setLastName('')
                 setEmail('')
+                setPhone('')
                 setAlertMessage('Thanks for your feedback. You would be responded to shortly')
                 setSaving(false)
             })
@@ -80,6 +89,7 @@ function AuthContactForm() {
                 setFirstName('')
                 setLastName('')
                 setEmail('')
+                setPhone('')
                 setSaving(false)
                 setAlertMessage(rejectedValueOrSerializedError.message)
             });
@@ -87,9 +97,9 @@ function AuthContactForm() {
 
     useEffect(() => {
         const invalid = messageError || message_body === '' || firstNameErr || first_name === '' ||
-            lastNameErr || last_name === '' || emailError || email === ''
+            lastNameErr || last_name === '' || emailError || email === '' || phoneErr || phone === ''
         setCanSave(!invalid);
-    }, [messageError, message_body, firstNameErr, first_name, lastNameErr, last_name, emailError, email])
+    }, [messageError, message_body, firstNameErr, first_name, lastNameErr, last_name, emailError, email, phoneErr, phone])
 
     return (
         <div className='form-container'>
@@ -129,6 +139,19 @@ function AuthContactForm() {
                     required
                 />
                 {emailError && <span className='inputError'>*please input a valid email</span>}
+            </div>
+            <div className='inputContainer'>
+                <label htmlFor='phone' className='inputLabel'>Phone number</label>
+                <input
+                    id='phone'
+                    type="tel"
+                    className='inputBox'
+                    value={phone}
+                    onChange={onChangePhone}
+                    required
+                    maxLength={11}
+                />
+                {phoneErr && <span className='inputError'>*please input a valid phone number</span>}
             </div>
             <div className='inputContainer'>
                 <textarea
