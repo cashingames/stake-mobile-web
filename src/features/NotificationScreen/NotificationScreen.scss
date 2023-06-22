@@ -1,8 +1,13 @@
 .notification-background-color {
-    background-color: #ffe900;
+    background-color: #FFF;
 }
 .notificationHeader {    
-    background-color: #ffe900;
+    background-color: #FFF;
+    color: #072169;
+
+    .backIcon {
+        color: #072169;
+    }
 }
 
 .notificationContainer{
@@ -19,7 +24,7 @@
         .markBtn{
             display: flex;
             align-items: center;
-            background-color: #ffe900;
+            background-color: #072169;
             border: none;
             border-radius: 30px;
             padding: .4rem 0.5rem;
@@ -28,10 +33,11 @@
             .markText{
                 margin: 0;
                 font-size: .65rem;
-                font-family: 'graphik-medium';
+                font-family: 'gotham-medium';
+                color: #FFF;
             }
             .icon{
-                color: #072169;
+                color: #FFF;
                 cursor: pointer;
             }
         }
@@ -42,13 +48,57 @@
     display: none;
 }
 .noNotificationContainer{
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    // overflow: scroll;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    .noSubNotificationContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .avatar {
+        width: 120px;
+        height: 120px;
+    }
+    .noNotification{
+        font-size: 1.4rem;
+        color: #072169;
+        text-align: center;
+        font-family: 'gotham-medium';
+    }
+}
+
+.button-container {
+    background-color: #E15220;
+    justify-content: center;
+    flex-direction: row;
     display: flex;
     align-items: center;
-    justify-content: center;
-    .noNotification{
-        font-weight: 600;
-        font-size: 1rem;
-        color: #fff;
-        text-align: center;
+    padding: 1.3rem 0;
+    border-radius: 13px;
+    // width: 100%;
+    border: none;
+    margin: 0 1rem;
+    margin-bottom: 1.5rem;
+
+
+    .buttonText {
+        color: white;
+        font-size: 1.2rem;
+        font-family: 'gotham-medium';
     }
+
+}
+button[disabled] {
+    border: none;
+    background-color: #EA8663;
+    color: white;
 }

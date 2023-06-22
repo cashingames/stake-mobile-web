@@ -1,11 +1,8 @@
-import { Player } from '@lottiefiles/react-lottie-player'
 import React, { useEffect, useState } from 'react'
-import { IoCheckmarkCircle } from 'react-icons/io5'
 import { useDispatch, useSelector } from 'react-redux'
 import Notification from '../../components/Notification/Notification'
 import { getUser } from '../Auth/AuthSlice'
 import { getUserNotifications, markNotificationRead } from '../CommonSlice'
-import Bell from '../../assets/bell.json'
 import './NotificationScreen.scss'
 import { Spinner } from "react-activity";
 import "react-activity/dist/library.css";
@@ -54,32 +51,15 @@ function NotificationScreen() {
 
     return (
         <>
-            <ScreenHeader title='Notifications' styleProp='notificationHeader' onClick={navigateHandler} />
+            <ScreenHeader title='Notifications' styleProp='notificationHeader' iconProp='backIcon' onClick={navigateHandler} />
 
             <div style={
-                { backgroundImage: "url(/images/studio-illustration.jpg)" }
+                { backgroundImage: "url(/images/game-play-background.png)" }
             }
-                className='notificationContainer'>
+                className={notifications.length > 0 ? "notificationContainer" : 'noNotificationContainer'}>
                 {
                     notifications.length > 0 ?
                         <div>
-                            <div className='markAsRead'
-                                onClick={markAll}>
-                                <div className='markBtn'>
-                                    <p className='markText'>Mark all as read</p>
-                                    {clicking ?
-                                        <Spinner size={10} /> :
-                                        <IoCheckmarkCircle className='icon' />}
-                                </div>
-                            </div>
-                            <Player src={Bell}
-                                alt='wallet'
-                                autoplay
-                                loop
-                                className='player'
-                                style={
-                                    { height: '150px' }
-                                } />
                             {notifications.map((notification, i) => <Notification key={i} notification={notification}
                                 // index={i + 1}
                                 moment={moment}
@@ -87,11 +67,21 @@ function NotificationScreen() {
                             />)}
                         </div>
                         :
-                        <div className='noNotificationContainer'>
-                            <p className='noNotification'>No Notification</p>
+                        <div className='noSubNotificationContainer'>
+                            <img
+                                src="/images/bell-dynamic-color.png"
+                                alt='banner'
+                                className='avatar'
+                            />
+                            <p className='noNotification'>Nothing yet, check back later</p>
                         </div>
 
+
+
                 } </div>
+            <button className='button-container' onClick={markAll} disabled={clicking}>
+                <span className='buttonText'>{clicking ? <Spinner size={20} /> : 'Mark all as read'}</span>
+            </button>
         </>
     )
 }
