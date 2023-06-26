@@ -52,7 +52,7 @@ function UserProfileScreen() {
             const data = new FormData();
             data.append('avatar', _image);
             // eslint-disable-next-line
-            const response = await axios.post('v2/profile/me/picture', data)
+            const response = await axios.post('v3/profile/me/picture', data)
             dispatch(getUser()).then(x => {
                 setLoading(false)
                 setOpen(true)

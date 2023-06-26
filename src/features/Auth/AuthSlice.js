@@ -73,13 +73,13 @@ export const verifyOtp = createAsyncThunk(
 export const changePassword = createAsyncThunk(
     'auth/user/changePassword',
     async (data, thunkAPI) => {
-        const response = await axios.post('v2/profile/me/password/change', data)
+        const response = await axios.post('v3/profile/me/password/change', data)
         return response.data
     }
 )
 
 export const editPersonalDetails = async (data) => {
-    return axios.post(`v2/profile/me/edit-personal`, data);
+    return axios.post(`v3/profile/me/edit-personal`, data);
 }
 
 export const editProfileAvatar = createAsyncThunk(
@@ -90,7 +90,7 @@ export const editProfileAvatar = createAsyncThunk(
                 'content-type': 'multipart/form-data'
             }
         }
-        const response = await axios.post('v2/profile/me/picture', data, config).catch(e => {
+        const response = await axios.post('v3/profile/me/picture', data, config).catch(e => {
         });
         return response.data
     }
@@ -98,7 +98,7 @@ export const editProfileAvatar = createAsyncThunk(
 export const editBankDetails = createAsyncThunk(
     'auth/user/editBankDetails',
     async (data, thunkAPI) => {
-        const response = await axios.post('v2/profile/me/edit-bank', data)
+        const response = await axios.post('v3/profile/me/edit-bank', data)
         return response.data
     }
 )

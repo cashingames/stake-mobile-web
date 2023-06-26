@@ -15,7 +15,7 @@ export const startGame = createAsyncThunk(
     'games/staking/exhibition/start',
     async (data, thunkAPI) => {
         try {
-            const response = await axios.post('v2/game/start/single-player', data);
+            const response = await axios.post('v3/game/start/single-player', data);
             console.log(data.staking_amount, 'stake amount');
             return response.data;
         } catch (err) {
@@ -34,7 +34,7 @@ export const startGame = createAsyncThunk(
 //             mode: state.gameMode.id,
 //             staking_amount: state.amountStaked
 //         };
-//         const response = await axios.post('v2/game/start/single-player', data)
+//         const response = await axios.post('v3/game/start/single-player', data)
 //         return response.data
 //     }
 // )
@@ -65,7 +65,7 @@ export const endGame = createAsyncThunk(
         });
 
         //make a network request to the server
-        const response = await axios.post('v2/game/end/single-player', data)
+        const response = await axios.post('v3/game/end/single-player', data)
         console.log(response)
         return response.data;
     }
