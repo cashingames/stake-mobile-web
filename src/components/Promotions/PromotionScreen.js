@@ -16,30 +16,26 @@ const PromotionScreen = () => {
             <ScreenHeader title={location.state.promotion_title} styleProp='header' iconProp='backIcon' onClick={navigateHandler} />
             <div style={{ backgroundImage: "url(/images/game-play-background.png)" }} className="promotion-container">
                 <img
-                    src="/images/trivia-banner.png"
+                    src={location.state.inner_banner}
                     alt='banner'
                     className='avatar'
                 />
                 <div className="details-main-container">
                     <div className="details-container">
-                        <span className="details-header">About</span>
-                        <span className="details-text">
-                            The Company has the right to cancel the bets, wins, bonuses, Jackpots, or any
-                            other prizes displayed or provided to the Player due to
-                            any technical, mechanical, or software bug or error.
-                        </span>
+                        <span className="details-header">Description</span>
+                        <span className="details-text">{location.state.promotion_description}</span>
                     </div>
-                    <div className="details-container">
+                    {/* <div className="details-container">
                         <span className="details-header">How to participate</span>
                         <span className="details-text">
                             The Company has the right to cancel the bets, wins, bonuses, Jackpots, or any
                             other prizes displayed or provided to the Player due to
                             any technical, mechanical, or software bug or error.
                         </span>
-                    </div>
-                    <button className='button-container' type='submit'>
+                    </div> */}
+                    {/* <button className='button-container' type='submit'>
                         <span className='buttonText'>Activate offer</span>
-                    </button>
+                    </button> */}
                 </div>
             </div>
         </>

@@ -16,8 +16,8 @@ const LeaderboardCards = () => {
     return (
         <div className="leaders-container">
             {/* <BoostsCard /> */}
-            <TopLeaderboards isLeaderboard={isLeaderboard} />
             <PromotionsBoard isNewPromotion={isNewPromotion} user={user} />
+            <TopLeaderboards isLeaderboard={isLeaderboard} />
             {/* <ChallengeLeaderboard /> */}
         </div>
     )
