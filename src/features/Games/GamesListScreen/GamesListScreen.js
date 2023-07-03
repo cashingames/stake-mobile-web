@@ -22,7 +22,7 @@ const GamesListScreen = () => {
                 { backgroundImage: "url(/images/game-play-background.png)" }
             }
                 className='games-list-container'>
-                <GamesCards  />
+                <GamesCards />
             </div>
             <AppHeader heading='Games' style={{ color: '#000000' }} />
 
@@ -33,8 +33,8 @@ const GamesListScreen = () => {
 const GamesCards = () => {
     return (
         <div className="main-games-container">
-            <TriviaBetCard />
             <TriviaChallengeCard />
+            <TriviaBetCard />
             <TriviaRoomsCard />
         </div>
     )

@@ -100,7 +100,7 @@ const UserBoosts = ({ user }) => {
     return (
         <div onClick={goToStore} className="boosts-container">
             <div className="boost-header">
-                <p className="boost-header-text">{user.username} you have</p>
+                <p className="boost-header-text">You have</p>
                 <div className="boost-sub">
                     <div className="add-container">
                         <p className="add-text">Purchase boost</p>

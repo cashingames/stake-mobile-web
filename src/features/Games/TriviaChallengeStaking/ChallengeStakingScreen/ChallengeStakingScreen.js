@@ -7,7 +7,7 @@ import ScreenHeader from '../../../../components/ScreenHeader/ScreenHeader';
 import { startChallengeRequest } from '../TriviaChallengeGameSlice';
 import { unwrapResult } from '@reduxjs/toolkit';
 import logToAnalytics from '../../../../utils/analytics';
-import { FaEye, FaEyeSlash } from 'react-icons/fa';
+// import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { IoChevronForwardOutline } from 'react-icons/io5';
 import { Spinner } from 'react-activity';
 
@@ -132,7 +132,7 @@ const SelectedPlayers = ({ user }) => {
 const WalletDetails = ({ balance }) => {
     let navigate = useNavigate();
 
-    const [hidden, setHidden] = useState(false);
+    // const [hidden, setHidden] = useState(false);
 
     return (
         <div className='wallet-container'>
@@ -141,16 +141,17 @@ const WalletDetails = ({ balance }) => {
                     <img src='/images/wallet-with-cash.png' alt='wallet' className='avatar' />
                     <p className='total-title-text'>Total balance</p>
                 </div>
-                <span onClick={() => setHidden(!hidden)}>{hidden ? <FaEyeSlash color='#072169' /> : <FaEye color='#072169' />}</span>
+                {/* <span onClick={() => setHidden(!hidden)}>{hidden ? <FaEyeSlash color='#072169' /> : <FaEye color='#072169' />}</span> */}
             </div>
 
             <div className='funding-container'>
                 <div className='currency-header'>
                     <span className='currency-text'>NGN</span>
-                    {hidden ?
+                    <span className='currency-amount'>{formatCurrency(balance)}</span>
+                    {/* {hidden ?
                         <span className='currency-amount'>***</span> :
                         <span className='currency-amount'>{formatCurrency(balance)}</span>
-                    }
+                    } */}
                 </div>
                 <div className='funding-button' onClick={() => navigate('/fund-wallet')}>
                     <p className='funding-text'>Deposit</p>

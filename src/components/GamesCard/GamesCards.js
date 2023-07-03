@@ -8,8 +8,8 @@ import './GamesCards.scss'
 const GamesCards = () => {
     return (
         <div className="games-container">
-            <TriviaBetCard />
             <TriviaChallengeCard />
+            <TriviaBetCard />
             <TriviaRoomsCard />
         </div>
     )

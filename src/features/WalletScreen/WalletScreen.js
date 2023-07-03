@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import './WalletScreen.scss';
 import AnonymousRouteHeader from '../../components/AnonymousRouteHeader/AnonymousRouteHeader';
-import { FaEye, FaEyeSlash } from 'react-icons/fa';
+// import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { formatCurrency } from '../../utils/stringUtl';
 import { Spinner } from 'react-activity';
 import { IoChevronForwardOutline, IoEllipse } from 'react-icons/io5';
@@ -103,7 +103,7 @@ const WalletsButtton = ({ toggleMainWallet, toggleBonusWallet, mainWalletActive,
 const WalletBalanceDetails = ({ balance, bonusWalletActive, mainWalletActive, bonusBalance }) => {
   let navigate = useNavigate();
 
-  const [hidden, setHidden] = useState(false);
+  // const [hidden, setHidden] = useState(false);
 
   return (
     <div className='details-container'>
@@ -114,14 +114,16 @@ const WalletBalanceDetails = ({ balance, bonusWalletActive, mainWalletActive, bo
               <img src='/images/wallet-with-cash.png' alt='wallet' className='avatar' />
               <p className='total-title-text'>Total balance</p>
             </div>
-            <span onClick={() => setHidden(!hidden)}>{hidden ? <FaEyeSlash color='#072169' /> : <FaEye color='#072169' />}</span>
+            {/* <span onClick={() => setHidden(!hidden)}>{hidden ? <FaEyeSlash color='#072169' /> : <FaEye color='#072169' />}</span> */}
           </div>
           <div className='currency-header'>
             <span className='currency-text'>NGN</span>
-            {hidden ?
+            <span className='currency-amount'>{formatCurrency(balance)}</span>
+
+            {/* {hidden ?
               <span className='currency-amount'>***</span> :
               <span className='currency-amount'>{formatCurrency(balance)}</span>
-            }
+            } */}
           </div>
           <div className='funding-container'>
             <div className='funding-button' onClick={() => navigate('/fund-wallet')}>
@@ -142,14 +144,16 @@ const WalletBalanceDetails = ({ balance, bonusWalletActive, mainWalletActive, bo
               <img src='/images/sale.png' alt='wallet' className='avatar' />
               <p className='total-title-text'>Bonus balance</p>
             </div>
-            <span onClick={() => setHidden(!hidden)}>{hidden ? <FaEyeSlash color='#072169' /> : <FaEye color='#072169' />}</span>
+            {/* <span onClick={() => setHidden(!hidden)}>{hidden ? <FaEyeSlash color='#072169' /> : <FaEye color='#072169' />}</span> */}
           </div>
           <div className='currency-header'>
             <span className='currency-text'>NGN</span>
-            {hidden ?
+            <span className='currency-amount'>{formatCurrency(bonusBalance)}</span>
+
+            {/* {hidden ?
               <span className='currency-amount'>***</span> :
               <span className='currency-amount'>{formatCurrency(bonusBalance)}</span>
-            }
+            } */}
           </div>
         </div>
       }
