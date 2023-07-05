@@ -52,6 +52,10 @@ function FundWalletScreen() {
         navigate('/deposit-successful');
     }
 
+    const navigateHandler = () => {
+        navigate('/wallet');
+      }
+
     useEffect(() => {
         const invalid = amountErr || amount === 0;
         setCanSend(!invalid);
@@ -59,7 +63,7 @@ function FundWalletScreen() {
     return (
         <div className='main-fund'>
             <div className='fund-wallet-screen'>
-                <AnonymousRouteHeader title='Deposit' styleProp='password-header' noClose={true} />
+                <AnonymousRouteHeader title='Deposit' styleProp='password-header' noClose={true} onClick={navigateHandler} />
                 <FundWallet setAmount={setAmount} amount={amount} showPayment={showPayment}
                     setAmountError={setAmountError} amountErr={amountErr} paystackChecked={paystackChecked}
                     setPaystackChecked={setPaystackChecked} flutterChecked={flutterChecked} setFlutterChecked={setFlutterChecked} />

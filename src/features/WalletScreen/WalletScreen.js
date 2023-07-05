@@ -13,6 +13,7 @@ import { getUser } from '../Auth/AuthSlice';
 import { fetchUserTransactions } from '../CommonSlice';
 
 function WalletScreen() {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const user = useSelector(state => state.auth.user);
   const [loading, setLoading] = useState(true)
@@ -62,6 +63,11 @@ function WalletScreen() {
     setMainWalletActive(false);
     setBonusWalletActive(true);
   }
+
+  const navigateHandler = () => {
+    navigate('/dashboard');
+  }
+
   useEffect(() => {
     dispatch(getUser());
     dispatch(fetchUserTransactions()).then(() => setLoading(false));
@@ -69,7 +75,7 @@ function WalletScreen() {
 
   return (
     <div className='wallet-screen-container'>
-      <AnonymousRouteHeader title='Wallet' styleProp='password-header' noClose={true} />
+      <AnonymousRouteHeader title='Wallet' styleProp='password-header' noClose={true} onClick={navigateHandler} />
       <WalletsButtton toggleBonusWallet={toggleBonusWallet} toggleMainWallet={toggleMainWallet}
         mainWalletActive={mainWalletActive} bonusWalletActive={bonusWalletActive} />
       <WalletBalanceDetails balance={user.walletBalance} bonusBalance={user.bonusBalance} bonusWalletActive={bonusWalletActive}
@@ -236,8 +242,8 @@ const TransactionsContainer = ({ transactions, loading, mainWalletActive, bonusW
         :
         <>
           <div style={
-                { backgroundImage: "url(/images/coins-background.png)" }
-            } className='transactions-background'>
+            { backgroundImage: "url(/images/coins-background.png)" }
+          } className='transactions-background'>
             {mainWalletActive && allTransactions &&
               <>
                 {

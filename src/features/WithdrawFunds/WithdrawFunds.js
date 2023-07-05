@@ -93,6 +93,9 @@ const WithdrawFunds = () => {
             )
     }
 
+    const navigateHandler = () => {
+        navigate('/wallet');
+      }
 
     useEffect(() => {
         const invalid = accountNumberErr || amountErr || amount === '' || accountNumber === ''
@@ -107,7 +110,7 @@ const WithdrawFunds = () => {
 
     return (
         <div className="withdraw-funds-container">
-            <AnonymousRouteHeader title='Withdrawal' styleProp='password-header' isClose={true} />
+            <AnonymousRouteHeader title='Withdrawal' styleProp='password-header' isClose={true} onClick={navigateHandler} />
             <div className='inputs-container'>
                 <div className='input-container'>
                     <div className='label-container'>

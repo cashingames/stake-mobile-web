@@ -8,17 +8,6 @@ function GameAppHeader({ onPress, gameTitle }) {
     return (
         <div className='gameInHeader'>
             <div></div>
-            {/* <div className='boostContainer' onClick={openBoost}>
-                <p className='gameInText'>Power Ups</p>
-                <Player src={Boost}
-                    alt='boost'
-                    autoplay
-                    loop
-                    className='player'
-                    style={
-                        {height: '40px', width:'40px'}
-                    }/>
-            </div> */}
             <AnonymousRouteHeader title={gameTitle} styleProp='password-header' />
             <button onClick={onPress} className='exitGame'>Exit</button>
         </div>

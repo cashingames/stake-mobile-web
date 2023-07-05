@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import StakeAmount from "./StakeAmount";
-// import StakingPredictionsTable from "./StakingPredictionsTable";
 import { getGameStakes, setAmountStaked, startGame } from "../GameSlice";
 import Dialogue from '../../../components/Dialogue/Dialogue'
 
@@ -83,6 +82,10 @@ const GameStaking = () => {
         setAlert(firstError);
     }
 
+    const navigateHandler = () => {
+        navigate('/dashboard');
+    }
+
     useEffect(() => {
         dispatch(getGameStakes())
         dispatch(getUser())
@@ -90,11 +93,11 @@ const GameStaking = () => {
 
     return (
         <div className="staking-container">
-            <AnonymousRouteHeader title='Game Staking' styleProp='staking' isClose={true} />
+            <AnonymousRouteHeader title='Game Staking' styleProp='staking' isClose={true} onClick={navigateHandler} />
 
             <StakeAmount onSubmit={proceed} amount={amount} setAmount={setAmount}
                 readOnly={false} disabled={loading ? true : false} />
-                   {user.hasBonus === true &&
+            {user.hasBonus === true &&
                 <p className='note'>Note that the predictions table below does not apply on bonus stakes</p>}
             <StakingPredictionsTable amount={amount} />
             <Dialogue open={openDialogue} handleClose={closeAlert} dialogueMessage={alertMessage} />

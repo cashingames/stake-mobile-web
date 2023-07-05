@@ -58,12 +58,15 @@ const ResetPassword = () => {
             })
     }
 
+    const navigateHandler = () => {
+        navigate('/login');
+      }
 
 
     return (
         <>
             <div className='password-container' >
-                <AnonymousRouteHeader title='Update your password' isClose={true}  styleProp='reset-header' />
+                <AnonymousRouteHeader title='Update your password' isClose={true}  styleProp='reset-header' onClick={navigateHandler} />
                 <div>
                     {error.length > 0 &&
                         <span className="error-box">{error}</span>

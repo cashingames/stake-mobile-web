@@ -1,150 +1,10 @@
 .wallets-container {
     margin-top: 2rem;
-    // display: flex;
-    // flex-direction: row;
-    // overflow-x: scroll;
-
-    .staking-wallet-container {
-        background-color: #6A5BE1;
-        display: flex;
-        flex-direction: column;
-        min-width: 295px;
-        padding: 18px 18px;
-        border-radius: 13px;
-        margin-right: 1rem;
-        cursor: pointer;
-
-        .wallet-header {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-
-            .wallet-header-text {
-                font-size: 1rem;
-                font-family: 'sansation-bold';
-                color: #E3ECF2;
-                margin: 0;
-                margin-left: .5rem;
-
-            }
-        }
-
-        .amount-container {
-            flex-direction: row;
-            justify-content: space-between;
-            display: flex;
-            align-items: center;
-            margin-top: .8rem;
-
-            .currency-container {
-                flex-direction: row;
-                display: flex;
-                align-items: center;
-
-                .balance-digit {
-                    font-size: 1rem;
-                    font-family: 'sansation-regular';
-                    color: #E3ECF2;
-                    margin: 0;
-                }
-
-                .icon {
-                    margin-bottom: .1rem;
-                }
-            }
-
-            .add-container {
-                flex-direction: row;
-                display: flex;
-                align-items: center;
-                border-radius: 20px;
-                background-color: #E3ECF2;
-                padding: .15rem .6rem;
-
-                .add-text {
-                    font-size: .7rem;
-                    font-family: 'sansation-bold';
-                    color: #072169;
-                    margin: 0;
-                    margin-left: .3rem;
-                }
-            }
-        }
-    }
-
-    .earnings-wallet-container {
-        background-color: #072169;
-        display: flex;
-        flex-direction: column;
-        min-width: 295px;
-        padding: 18px 18px;
-        border-radius: 13px;
-        margin-right: 1rem;
-        cursor: pointer;
-
-        .wallet-header {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-
-            .wallet-header-text {
-                font-size: 1rem;
-                font-family: 'sansation-bold';
-                color: #E3ECF2;
-                margin: 0;
-                margin-left: .5rem;
-
-            }
-        }
-
-        .amount-container {
-            flex-direction: row;
-            justify-content: space-between;
-            display: flex;
-            align-items: center;
-            margin-top: .8rem;
-
-            .currency-container {
-                flex-direction: row;
-                display: flex;
-                align-items: center;
-
-                .balance-digit {
-                    font-size: 1rem;
-                    font-family: 'sansation-regular';
-                    color: #E3ECF2;
-                    margin: 0;
-                }
-
-                .icon {
-                    margin-bottom: .1rem;
-                }
-            }
-
-            .add-container {
-                flex-direction: row;
-                display: flex;
-                align-items: center;
-                border-radius: 20px;
-                background-color: #E3ECF2;
-                padding: .15rem .6rem;
-
-                .add-text {
-                    font-size: .7rem;
-                    font-family: 'sansation-bold';
-                    color: #072169;
-                    margin: 0;
-                    margin-left: .3rem;
-                }
-            }
-        }
-    }
 
     .boosts-container {
         background-color: #FFF;
         display: flex;
         flex-direction: column;
-        // min-width: 295px;
         padding: 18px 18px;
         border-radius: 13px;
         cursor: pointer;
@@ -204,11 +64,6 @@
                 margin-right: 1rem;
 
                 .boost-icon-container {
-                    // background-color: #EFF2F6;
-                    // padding: 0.15rem;
-                    // border-radius: 100px;
-                    // width: 0.7rem;
-                    // height: 0.7rem;
                     display: flex;
                     align-items: center;
                     justify-content: center;
@@ -226,6 +81,13 @@
                     margin: 0;
                     margin-left: .2rem;
                 }
+            }
+        }
+        .no-container {
+            .no-boost-text {
+                font-size: .75rem;
+                font-family: 'sansation-bold';
+                color: #072169;
             }
         }
     }

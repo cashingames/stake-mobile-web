@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { verifyPhoneOtp, setToken, saveToken, resendPhoneOtp } from '../AuthSlice';
 import { calculateTimeRemaining } from "../../../utils/utils";
 import './VerifyRegistrationOtp.scss'
@@ -15,7 +15,7 @@ import AnonymousRouteHeader from "../../../components/AnonymousRouteHeader/Anony
 
 const VerifyRegistrationOtp = () => {
     const analytics = firebaseConfig();
-
+    const navigate = useNavigate();
     const dispatch = useDispatch();
     const location = useLocation();
     const [otpValues, setOtpValues] = useState(new Array(5).fill(''))
@@ -102,10 +102,14 @@ const VerifyRegistrationOtp = () => {
             })
     }
 
+    const navigateHandler = () => {
+        navigate('/login');
+      }
+
 
     return (
         <div className="verification-phone-container">
-            <AnonymousRouteHeader title='OTP Verification' isClose={true} styleProp='verify-header' />
+            <AnonymousRouteHeader title='OTP Verification' isClose={true} styleProp='verify-header' onClick={navigateHandler} />
             <p className='text'>Enter Otp code</p>
             <InputOTP otpValues={otpValues} changeValue={changeValue} />
             <div className="expire-container">

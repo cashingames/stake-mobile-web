@@ -1,12 +1,9 @@
 .anonymousRouteHeader {
     display: flex;
-    flex-direction: column;
-    margin-top: 1rem;
-    .headerTitle {
-        display: flex;
-        align-items: center;
-        gap: 3.5rem;
-    }
+    flex-direction: row;
+    margin-top: .5rem;
+    align-items: center;
+    justify-content: space-between;
     .title {
         font-size: 21px;
         margin: 0;

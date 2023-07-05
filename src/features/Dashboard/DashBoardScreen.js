@@ -10,17 +10,17 @@ import AppHeader from '../../components/AppHeader/AppHeader';
 import { formatCurrency } from '../../utils/stringUtl';
 import logToAnalytics from '../../utils/analytics';
 
-const backendUrl = process.env.REACT_APP_API_ROOT_URL;
 
 
 function DashBoardScreen() {
   const user = useSelector(state => state.auth.user);
+  const username = user.username?.charAt(0)
 
 
   return (
     <>
       <div className='dashboard-screen'>
-        <UserProfile user={user} />
+        <UserProfile user={user} username={username} />
         <UserWalletAccounts user={user} />
         <GamesCards />
         <LeaderboardCards />
@@ -30,7 +30,7 @@ function DashBoardScreen() {
   )
 }
 
-const UserProfile = ({ user }) => {
+const UserProfile = ({ user, username }) => {
   let navigate = useNavigate();
   const goToProfile = () => {
     navigate('/profile')
@@ -48,11 +48,9 @@ const UserProfile = ({ user }) => {
   return (
     <div className='profile-container'>
       <div className='profile-left'>
-        <img
-          src={user.avatar ? `${backendUrl}/${user.avatar}` : "/images/user-icon.png"}
-          alt='user'
-          className='user-avatar'
-          onError={(e) => e.target.style.display = 'none'} />
+          <div className='user-avatar'>
+            <span className='avatar-text'>{username}</span>
+          </div>
         <div className='name-main-container'>
           <div className='name-container'>
             <p className='welcome-text'>Hello, </p>

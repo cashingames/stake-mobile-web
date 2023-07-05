@@ -95,11 +95,13 @@ const VerifyOtp = () => {
 
     }, [token])
 
-
+    const navigateHandler = () => {
+        navigate('/login');
+    }
     return (
         <>
             <div className='password-container'>
-                <AnonymousRouteHeader title='OTP Verification' isClose={true} styleProp='verify-header' />
+                <AnonymousRouteHeader title='OTP Verification' isClose={true} styleProp='verify-header' onClick={navigateHandler} />
                 <p className='text'>Enter Otp code</p>
                 <form className='otp-form' onSubmit={handleSubmit}>
                     {error.length > 0 &&

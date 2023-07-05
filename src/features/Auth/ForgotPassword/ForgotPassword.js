@@ -54,12 +54,15 @@ const ForgotPassword = () => {
         })
 
     }
+    const navigateHandler = () => {
+        navigate('/login');
+    }
 
 
     return (
         <>
             <div className='password-containers'>
-                <AnonymousRouteHeader title='Password reset' styleProp='password-header' noClose={true} />
+                <AnonymousRouteHeader title='Password reset' styleProp='password-header' noClose={true} onClick={navigateHandler} />
                 <div> {
                     error.length > 0 && <span className="error-box">
                         {error}</span>

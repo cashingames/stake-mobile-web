@@ -19,9 +19,17 @@
             .user-avatar {
                 width: 55px;
                 height: 55px;
-                background-color: #FFF;
+                background-color: #FDCCD4;
                 border: 1px solid rgba(0, 0, 0, 0.1);
                 border-radius: 100px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                .avatar-text {
+                    font-family: 'gotham-medium';
+                    text-transform: capitalize;
+                    font-size: 1.5rem;
+                }
             }
             .name-main-container {
                 display: flex;
