@@ -9,7 +9,6 @@ const SelectGameMode = ({ playTriviaForFree, playTriviaForCash,playChallengeForF
     const [practice, setPractice] = useState(false);
     const gameMode = useSelector(state => state.game.gameMode);
     const gameModeName = gameMode?.name
-    console.log(gameModeName)
 
     const toggleFreeMode = () => {
         setEarn(false);
