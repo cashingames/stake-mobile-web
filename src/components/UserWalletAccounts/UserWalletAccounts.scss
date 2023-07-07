@@ -2,10 +2,10 @@
     margin-top: 2rem;
 
     .boosts-container {
-        background-color: #FFF;
+        background-color: #E5E5E5;
         display: flex;
         flex-direction: column;
-        padding: 18px 18px;
+        padding: 14px 18px;
         border-radius: 13px;
         cursor: pointer;
         border: 1px solid #E5E5E5;
@@ -19,8 +19,8 @@
 
             .boost-header-text {
                 font-size: .9rem;
-                font-family: 'sansation-bold';
-                color: #072169;
+                font-family: 'gotham-medium';
+                color: #1C453B;
                 margin: 0;
             }
 
@@ -33,14 +33,14 @@
                     display: flex;
                     align-items: center;
                     flex-direction: row;
-                    // background-color: #E3ECF2;
-                    border-radius: 20px;
-                    padding: .15rem .6rem;
+                    background-color: #FA5F4A;                    ;
+                    border-radius: 30px;
+                    padding: .4rem .6rem;
 
                     .add-text {
-                        font-size: .9rem;
+                        font-size: .7rem;
                         font-family: 'sansation-bold';
-                        color: #072169;
+                        color: #fff;
                         margin: 0;
                         margin-left: .3rem;
                     }
@@ -52,34 +52,34 @@
             display: flex;
             align-items: center;
             flex-direction: row;
-            margin-top: 1rem;
 
             .boost-container {
                 display: flex;
                 align-items: center;
                 flex-direction: row;
-                border: 1px solid #FF2A98;
                 border-radius: 20px;
-                padding: .4rem .5rem;
                 margin-right: 1rem;
 
                 .boost-icon-container {
                     display: flex;
                     align-items: center;
                     justify-content: center;
-
+                    position: relative;
                     .boost-icon {
-                        width: 1.2rem;
-                        height: 1.2rem;
+                        width: 49px;
+                        height: 49px;
                     }
                 }
 
                 .boost-amount {
-                    font-size: .75rem;
+                    font-size: .8rem;
                     font-family: 'sansation-bold';
-                    color: #072169;
-                    margin: 0;
-                    margin-left: .2rem;
+                    color: #fff;
+                    margin-top: 1px;
+                    position: absolute;
+                    top:10px;
+                    right:5px;
+                    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
                 }
             }
         }

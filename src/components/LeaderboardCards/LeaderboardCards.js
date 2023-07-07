@@ -12,34 +12,34 @@ const LeaderboardCards = () => {
 
 
     const [isNewPromotion] = useState(true);
-    const [isLeaderboard] = useState(false);
+    // const [isLeaderboard] = useState(false);
     return (
         <div className="leaders-container">
             {/* <BoostsCard /> */}
+            <CashDrop />
             <PromotionsBoard isNewPromotion={isNewPromotion} user={user} />
-            <TopLeaderboards isLeaderboard={isLeaderboard} />
             {/* <ChallengeLeaderboard /> */}
         </div>
     )
 }
 
-const TopLeaderboards = ({isLeaderboard}) => {
+const CashDrop = () => {
     return (
-        <div className="top-leaders-container" style={{opacity: isLeaderboard ? 1 : 0.4}}>
+        <div className="top-leaders-container">
             <div className="top-leaders-sub-container">
                 <div className="image-avatar">
                     <img
-                        src="/images/leader-coin.png"
+                        src="/images/locker-dynamic-color.png"
                         alt='crown'
                         className='avatar'
                     />
                 </div>
                 <div className="leaders-header-container">
-                    <p className="top-leaders-header">Leaderboard</p>
-                    <p className="top-leaders-headeri">Top gamers for the week/month</p>
+                    <p className="top-leaders-header">Cash drop</p>
+                    <p className="top-leaders-headeri">Lucky winners win the pools</p>
                 </div>
             </div>
-            <IoChevronForwardOutline size={18} className='icon' />
+            <IoChevronForwardOutline size={22} className='icon' />
         </div>
     )
 }
@@ -61,7 +61,7 @@ const PromotionsBoard = ({isNewPromotion, user}) => {
             <div className="top-leaders-sub-container">
                 <div className="image-avatari">
                     <img
-                        src="/images/promotion-gift.png"
+                        src="/images/gift-dynamic.png"
                         alt='crown'
                         className='avatar'
                     />
@@ -71,7 +71,7 @@ const PromotionsBoard = ({isNewPromotion, user}) => {
                     <p className="top-leaders-headeri">Daily and weekly promotions</p>
                 </div>
             </div>
-            <IoChevronForwardOutline size={18} className='icon' />
+            <IoChevronForwardOutline size={22} className='icon' />
         </div>
     )
 }

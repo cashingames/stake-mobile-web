@@ -7,7 +7,6 @@ import { useNavigate } from 'react-router-dom';
 import GamesCards from '../../components/GamesCard/GamesCards';
 import LeaderboardCards from '../../components/LeaderboardCards/LeaderboardCards';
 import AppHeader from '../../components/AppHeader/AppHeader';
-import { formatCurrency } from '../../utils/stringUtl';
 import logToAnalytics from '../../utils/analytics';
 
 
@@ -60,8 +59,7 @@ const UserProfile = ({ user, username }) => {
         </div>
       </div>
       <div className='balance-container' onClick={goToWallet}>
-        <span className='balance-currency'>NGN</span>
-        <span className='balance-digit'>{formatCurrency(user.walletBalance ?? 0)}</span>
+        <span className='balance-currency'>My Wallet</span>
         <IoChevronForwardOutline size={18} className='icon' color='#072169' />
       </div>
     </div>

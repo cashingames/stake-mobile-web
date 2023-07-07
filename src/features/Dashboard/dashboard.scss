@@ -1,10 +1,11 @@
 .dashboard-screen {
     display: flex;
-    min-height: 100vh;
-    // height: 100vh;
+    // min-height: 100vh;
+    height: 100vh;
     overflow: scroll;
     padding: 2rem 1.4rem 0 1.4rem;
-    background-color: #EFF2F6;
+    // background-color: #EFF2F6;
+    background-color: #fff;
     flex-direction: column;
 
     .profile-container {
@@ -40,7 +41,7 @@
                     flex-direction: row;
                     align-items: center;
                     .welcome-text {
-                        font-family: 'sansation-regular';
+                        font-family: 'sansation-bold';
                         color: #072169;
                         font-size: 1rem;
                         margin: 0;
