@@ -8,8 +8,8 @@ import './GamesCards.scss'
 const GamesCards = () => {
     return (
         <div className="games-container">
-            <TriviaChallengeCard />
             <TriviaBetCard />
+            <TriviaChallengeCard />
             <TriviaRoomsCard />
         </div>
     )
@@ -43,14 +43,16 @@ const TriviaBetCard = () => {
             />
             <div className="trivia-actions">
                 <div className="sub-trivia-actions">
-                    <img
-                        src="/images/trivia-book.png"
-                        alt='trivia'
-                        className='book-avatar'
-                    />
+                    <div className="book-avatar-container">
+                        <img
+                            src="/images/chess-dynamic-color.png"
+                            alt='trivia'
+                            className='book-avatar'
+                        />
+                    </div>
                     <div className="trivia-actions-texts">
-                        <p className="trivia-bet-headerI">Discover</p>
-                        <p className="trivia-bet-header">Trivia Bet</p>
+                        <p className="trivia-bet-headerI">Games</p>
+                        <p className="trivia-bet-header">Stake on games</p>
                     </div>
                 </div>
                 <div className="play-button">
@@ -83,24 +85,26 @@ const TriviaChallengeCard = () => {
     return (
         <div className="trivia-bet-container" onClick={selectChallengeMode}>
             <img
-                src="/images/challenge-banner.png"
+                src="/images/fund-banner.png"
                 alt='trivia'
                 className='trivia-avatar'
             />
             <div className="trivia-actions">
                 <div className="sub-trivia-actions">
-                    <img
-                        src="/images/challenge-sword.png"
-                        alt='trivia'
-                        className='book-avatar'
-                    />
+                    <div className="book-avatar-container">
+                        <img
+                            src="/images/megaphone-dynamic-color.png"
+                            alt='trivia'
+                            className='book-avatar'
+                        />
+                    </div>
                     <div className="trivia-actions-texts">
-                        <p className="trivia-bet-headerI">Challenge</p>
-                        <p className="trivia-bet-header">A player</p>
+                        <p className="trivia-bet-headerI">Let's cash out</p>
+                        <p className="trivia-bet-header">Play and win big</p>
                     </div>
                 </div>
                 <div className="play-button">
-                    <p className="play-button-text">Play Now</p>
+                    <p className="play-button-text">Fund Now</p>
                 </div>
             </div>
         </div>
@@ -118,18 +122,20 @@ const TriviaRoomsCard = () => {
             />
             <div className="trivia-actions">
                 <div className="sub-trivia-actions">
-                    <img
-                        src="/images/rooms-hat.png"
-                        alt='trivia'
-                        className='book-avatar'
-                    />
+                    <div className="book-avatar-container">
+                        <img
+                            src="/images/megaphone-dynamic-color.png"
+                            alt='trivia'
+                            className='book-avatar'
+                        />
+                    </div>
                     <div className="trivia-actions-texts">
-                        <p className="trivia-bet-headerI">Discover</p>
-                        <p className="trivia-bet-header">Trivia Rooms</p>
+                        <p className="trivia-bet-headerI">Everyday cash</p>
+                        <p className="trivia-bet-header">Play and win big</p>
                     </div>
                 </div>
-                <div className="play-buttoni">
-                    <p className="play-button-text">Coming soon</p>
+                <div className="play-button">
+                    <p className="play-button-text">Play & Earn</p>
                 </div>
             </div>
             {/* <p className="trivia-bet-header">Trivia Rooms</p>

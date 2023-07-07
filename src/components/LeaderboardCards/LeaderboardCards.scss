@@ -2,6 +2,7 @@
     margin-top: 1rem;
     display: flex;
     flex-direction: column;
+
     // overflow-x: scroll;
     .top-leaders-container {
         display: flex;
@@ -13,37 +14,53 @@
         border-radius: 13px;
         padding: .5rem .8rem;
         margin-bottom: .7rem;
+
         // opacity: 0.4;
         .top-leaders-sub-container {
             display: flex;
             align-items: center;
             flex-direction: row;
+
             .image-avatar {
-                background-color: #FEECE7;
-                border-radius: 50px;
-                padding: .7rem;
+                width: 51px;
+                height: 51px;
+                background: #B2E5E37D;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
                 .avatar {
-                    width: 30px;
-                    height: 30px;
+                    width: 35px;
+                    height: 35px;
                 }
             }
+
             .image-avatari {
-                background-color: #EBFAED;
-                border-radius: 50px;
-                padding: .7rem;
+                width: 51px;
+                height: 51px;
+                background: #B2E5E37D;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
                 .avatar {
-                    width: 30px;
-                    height: 30px;
+                    width: 35px;
+                    height: 35px;
                 }
             }
+
             .leaders-header-container {
                 margin-left: .6rem;
+
                 .top-leaders-header {
                     color: #072169;
                     font-size: 1rem;
                     margin: 0;
                     font-family: 'sansation-bold';
                 }
+
                 .top-leaders-headeri {
                     color: #072169;
                     font-size: .85rem;
@@ -52,16 +69,19 @@
                 }
             }
         }
+
         .top-leaders-header {
             color: #072169;
             font-size: 1.1rem;
             margin: 0;
             font-family: 'sansation-bold';
         }
+
         .avatar {
             width: 4rem;
             height: 4rem;
         }
+
         .top-leaders-text {
             color: #072169;
             font-size: 1rem;
@@ -69,6 +89,7 @@
             font-family: 'sansation-regular';
             text-align: center;
         }
+
         .play-button {
             background-color: #FA5F4A;
             border-radius: 20px;
@@ -82,7 +103,8 @@
             }
         }
     }
-    .challenge-container{
+
+    .challenge-container {
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -95,16 +117,19 @@
         min-height: 258px;
         padding: 1rem 0;
         opacity: 0.6;
+
         .top-leaders-header {
             color: #072169;
             font-size: 1.1rem;
             margin: 0;
             font-family: 'sansation-bold';
         }
+
         .avatar {
             width: 5rem;
             height: 5rem;
         }
+
         .top-leaders-text {
             color: #072169;
             font-size: 1rem;
@@ -112,6 +137,7 @@
             font-family: 'sansation-regular';
             text-align: center;
         }
+
         .challenge-button {
             background-color: #71DC7F;
             border-radius: 20px;
@@ -125,7 +151,8 @@
             }
         }
     }
-    .boosts-container{
+
+    .boosts-container {
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -138,16 +165,19 @@
         min-height: 258px;
         padding: 1rem 0;
         margin-right: 1rem;
+
         .top-leaders-header {
             color: #072169;
             font-size: 1.1rem;
             margin: 0;
             font-family: 'sansation-bold';
         }
+
         .avatar {
             width: 4.5rem;
             height: 4.5rem;
         }
+
         .top-leaders-text {
             color: #072169;
             font-size: 1rem;
@@ -155,6 +185,7 @@
             font-family: 'sansation-regular';
             text-align: center;
         }
+
         .boost-button {
             background-color: #917BFE;
             border-radius: 20px;

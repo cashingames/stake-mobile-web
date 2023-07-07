@@ -39,7 +39,7 @@ const UserBoosts = ({ user }) => {
                 <div className="boost-sub">
                     <div className="add-container">
                         <p className="add-text">Get boost</p>
-                        <IoChevronForwardOutline size={14} className='icon' color='#072169' />
+                        <IoChevronForwardOutline size={12} className='icon' color='#fff' />
                     </div>
                 </div>
             </div>
@@ -76,9 +76,10 @@ const UserBoost = ({ boost }) => {
                     src={`${backendUrl}/${boost.icon}`}
                     className="boost-icon" alt={boost.name}
                 />
+                <p className="boost-amount">x{formatNumber(boost.count)} </p>
             </div>
-            <p className="boost-amount"> {formatNumber(boost.count)} </p>
-            <p className="boost-amount">{boost.name}</p>
+            {/* <p className="boost-amount"> {formatNumber(boost.count)} </p> */}
+            {/* <p className="boost-amount">{boost.name}</p> */}
         </div>
     )
 }
