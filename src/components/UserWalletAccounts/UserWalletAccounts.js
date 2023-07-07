@@ -52,8 +52,23 @@ const UserBoosts = ({ user }) => {
                     }
                 </div>
                 :
-                <div className="no-container">
-                    <p className="no-boost-text">No boost</p>
+                <div className="items-container" onClick={goToStore}>
+                      <div className="boost-container" onClick={goToStore}>
+                    <div className="boost-icon-container">
+                        <img
+                            src="/images/timefreeze-boost.png"
+                            className="boost-icon" alt='time freeze boost' />
+                        <p className="boost-amount">x0</p>
+                    </div>
+                    </div>
+                    <div className="boost-container" onClick={goToStore}>
+                    <div className="boost-icon-container">
+                        <img
+                            src='/images/skip-boost.png'
+                            className="boost-icon" alt='Skip boost' />
+                        <p className="boost-amount">x0</p>
+                    </div>
+                    </div>
                 </div>
             }
         </div>
