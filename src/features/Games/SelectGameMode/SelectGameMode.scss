@@ -1,0 +1,67 @@
+.select-mode-container {
+    padding: 1rem;
+
+    .game-mode-title {
+        font-family: gotham-bold;
+        font-size: 1.2rem;
+        line-height: 25px;
+        letter-spacing: 0em;
+        text-align: center;
+        color: #072169;
+        text-transform: capitalize;
+    }
+
+    .game-mode {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 0.7rem 0;
+        border-bottom: 1px solid #EEEEEE;
+
+        .game-mode-text {
+            font-family: gotham-bold;
+            font-size: 1rem;
+            line-height: 25px;
+            text-align: center;
+            color: #072169;
+        }
+    }
+
+    .instruction-btn {
+        margin-top: 0.7rem;
+        width: 100%;
+        height: 67px;
+        border-radius: 13px;
+        border: 1px solid #E5E5E5;
+        background-color: #fff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
+        .btn-text{
+            font-family: gotham-bold;
+            font-size: 0.9rem;
+            line-height: 25px;
+            text-align: center;
+            color: #072169;
+        }
+    }
+    .game-btn{
+        margin-top: 5rem;
+        width: 100%;
+        height: 67px;
+        border-radius: 13px;
+        border: none;
+        background-color: #DF5921;
+      justify-content: center;
+        align-items: center;
+        
+        .btn-text{
+            font-family: gotham-medium;
+            font-size: 1.3rem;
+            line-height: 25px;
+            text-align: center;
+            color: #fff;
+        }
+    }
+}

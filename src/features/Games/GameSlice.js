@@ -175,6 +175,8 @@ let initialState = {
     correctCount: 0,
     totalCount:0,
     wrongCount: 0,
+    practiceMode: false,
+    cashMode: false
 }
 
 
@@ -197,6 +199,12 @@ export const GameSlice = createSlice({
         },
         unselectFriend: (state) => {
             state.selectedFriend = null;
+        },
+        setPracticeMode: (state, action) => {
+            state.practiceMode = action.payload;
+        },
+        setCashMode: (state, action) => {
+            state.cashMode = action.payload;
         },
         setGameDuration: (state, action) => {
             state.gameDuration = action.payload;
@@ -363,7 +371,7 @@ export const {
     setGameCategory, setHasPlayedTrivia, questionAnswered, nextQuestion, consumeBoost, incrementCountdownResetIndex,
     pauseGame, skipQuestion, boostReleased, bombOptions, setGameDuration, setQuestionsCount, setCorrectCount, setWrongCount,
     setPointsGained, setAmountWon, setAmountStaked, setSelectedFriend,
-    unselectFriend, setWithStaking, setStartingGame
+    unselectFriend, setWithStaking, setStartingGame, setCashMode, setPracticeMode
 } = GameSlice.actions
 
 
