@@ -1,14 +1,29 @@
 .select-mode-container {
     padding: 1rem;
 
-    .game-mode-title {
-        font-family: gotham-bold;
-        font-size: 1.2rem;
-        line-height: 25px;
-        letter-spacing: 0em;
-        text-align: center;
-        color: #072169;
-        text-transform: capitalize;
+    .title-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .game-mode-title {
+            font-family: gotham-bold;
+            font-size: 1.2rem;
+            line-height: 25px;
+            letter-spacing: 0em;
+            // text-align: center;
+            color: #072169;
+            text-transform: capitalize;
+        }
+        .close-btn{
+            background: none;
+            outline: none;
+            border: none;
+            font-family: gotham-bold;
+            font-size: 1.2rem;
+            align-self: flex-end;
+            color: #072169;
+            cursor: pointer;
+        }
     }
 
     .game-mode {
@@ -16,6 +31,29 @@
         align-items: center;
         gap: 1rem;
         padding: 0.7rem 0;
+        border: none;
+        background: none;
+        width: 100%;
+        border-bottom: 1px solid #EEEEEE;
+
+        .game-mode-text {
+            font-family: gotham-bold;
+            font-size: 1rem;
+            line-height: 25px;
+            text-align: center;
+            color: #072169;
+        }
+    }
+
+    .game-mode-disabled {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        opacity: 0.4;
+        padding: 0.7rem 0;
+        border: none;
+        background: none;
+        width: 100%;
         border-bottom: 1px solid #EEEEEE;
 
         .game-mode-text {
@@ -70,10 +108,5 @@
             border-radius: 0px 13px 13px 13px;
             transition: 0.3s ease-in-out;
         }
-    }
-    button[disabled] {
-        border: none;
-        background-color: #EA8663;
-        color: white;
     }
 }

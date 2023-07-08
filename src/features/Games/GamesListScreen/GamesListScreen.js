@@ -90,6 +90,7 @@ const GamesListScreen = () => {
             <AppHeader heading='Games' style={{ color: '#000000' }} />
             <BottomSheet open={open} closeBottomSheet={closeBottomSheet}
                 BSContent={<SelectGameMode  
+                    closeBottomSheet={closeBottomSheet}
                     playTriviaForCash={playTriviaForCash}
                     playTriviaForFree={playTriviaForFree}
                     playChallengeForCash={playChallengeForCash}
@@ -131,7 +132,7 @@ const TriviaBetCard = ({openBottomSheet}) => {
 
     return (
         <div className="trivia-bet-container">
-            <div className="image-container">
+            <div className="image-container" style={{backgroundColor: '#FEECE7'}}>
                 <img className="game-icon" src='/images/single-player.png' alt='challenge mode' />
             </div>
             <p className="game-mode-desc">Single player</p>
@@ -177,7 +178,7 @@ const JackpotBetCard = () => {
 
     return (
         <div className="trivia-bet-container">
-            <div className="image-container">
+            <div className="image-container" style={{backgroundColor: '#FEECE7'}}>
                 <img className="game-icon" src='/images/money-dynamic-color.png' alt="Jackpot bet" />
             </div>
             <p className="game-mode-desc">Jackpot Card</p>
