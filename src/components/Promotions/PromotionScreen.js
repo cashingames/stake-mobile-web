@@ -20,22 +20,23 @@ const PromotionScreen = () => {
                     alt='banner'
                     className='avatar'
                 />
+
                 <div className="details-main-container">
                     <div className="details-container">
-                        <span className="details-header">Description</span>
-                        <span className="details-text">{location.state.promotion_description}</span>
-                    </div>
-                    {/* <div className="details-container">
-                        <span className="details-header">How to participate</span>
+                        <span className="details-header">About</span>
                         <span className="details-text">
                             The Company has the right to cancel the bets, wins, bonuses, Jackpots, or any
                             other prizes displayed or provided to the Player due to
                             any technical, mechanical, or software bug or error.
                         </span>
-                    </div> */}
-                    {/* <button className='button-container' type='submit'>
-                        <span className='buttonText'>Activate offer</span>
-                    </button> */}
+                    </div>
+                    <div className="details-container">
+                        <span className="details-header">How to participate</span>
+                        <span className="details-text">{location.state.promotion_description}</span>
+                    </div>
+                    <button className='button-container' type='submit'>
+                        <span className='buttonText'>Get Now</span>
+                    </button>
                 </div>
             </div>
         </>

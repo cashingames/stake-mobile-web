@@ -31,7 +31,7 @@ const TriviaBetCard = () => {
             'email': user.email,
             'gamemode': gameMode.displayName,
         });
-        navigate('/select-category')
+        navigate('/games-list')
     };
 
     return (

@@ -26,9 +26,9 @@ const PromotionsScreen = () => {
         },
         {
             "id": 2,
-            "bannerImage": "/images/cashback-banner1.png",
-            "innerBanner": "/images/cashback-banner2.png",
-            "name": 'Saturday 10% Cashback',
+            "bannerImage": "/images/cashback-bonus-banner1.png",
+            "innerBanner": "/images/cashback-bonus-banner2.png",
+            "name": 'Up for grabs',
             "description" : "Get 10% cashback on your losses by the end of every week! We've got you covered. The higher your stakes, the bigger your bonus! Bonus expires in 3 Days. Terms and conditions apply."
         },
     ]
