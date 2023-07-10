@@ -5,23 +5,25 @@ import './BottomSheet.scss'
 
 export default function BottomSheet({ open, onClose, BSContent }) {
 
+  const [state, setState] = React.useState({
+    bottom: false,
+    right: false,
+  });
+
+  const toggleDrawer = (anchor, open) => (event) => {
+    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+      return;
+    }
+
+    setState({ ...state, [anchor]: open });
+  };
+
   return (
     <div>
       <Drawer
-        // sx={{
-        //   width: '100%',
-        //   height: 250,
-        //   flexShrink: 0,
-        //   '& .MuiDrawer-paper': {
-        //     width: "100%",
-        //     height: height ?? 350,
-        //     boxSizing: 'border-box',
-        //   },
-        // }}
         variant='temporary'
         anchor='bottom'
-        onClose={onClose}
-        // onOpen={onOpen}
+        onClose={toggleDrawer('bottom', false)}
         open={open}
       >
         <div className='bottomSheetContainer'>

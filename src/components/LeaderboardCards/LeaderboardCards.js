@@ -12,20 +12,20 @@ const LeaderboardCards = () => {
 
 
     const [isNewPromotion] = useState(true);
-    // const [isLeaderboard] = useState(false);
+    const [isLeaderboard] = useState(false);
     return (
         <div className="leaders-container">
             {/* <BoostsCard /> */}
-            <CashDrop />
             <PromotionsBoard isNewPromotion={isNewPromotion} user={user} />
+            <CashDrop isLeaderboard={isLeaderboard}/>
             {/* <ChallengeLeaderboard /> */}
         </div>
     )
 }
 
-const CashDrop = () => {
+const CashDrop = ({isLeaderboard}) => {
     return (
-        <div className="top-leaders-container">
+        <div className="top-leaders-container" style={{opacity: !isLeaderboard ? 0.4 : 1}}>
             <div className="top-leaders-sub-container">
                 <div className="image-avatar">
                     <img

@@ -8,18 +8,20 @@ import GamesCards from '../../components/GamesCard/GamesCards';
 import LeaderboardCards from '../../components/LeaderboardCards/LeaderboardCards';
 import AppHeader from '../../components/AppHeader/AppHeader';
 import logToAnalytics from '../../utils/analytics';
+import { formatCurrency } from '../../utils/stringUtl';
 
 
 
 function DashBoardScreen() {
   const user = useSelector(state => state.auth.user);
-  const username = user.username?.charAt(0)
+  const username = user.firstName === '' ? user.username?.charAt(0) : (user.firstName?.charAt(0) + user.lastName?.charAt(0))
+  const firstname = user.firstName === '' ? user?.username : user?.firstName
 
 
   return (
     <>
       <div className='dashboard-screen'>
-        <UserProfile user={user} username={username} />
+        <UserProfile user={user} username={username} firstname={firstname} />
         <UserWalletAccounts user={user} />
         <GamesCards />
         <LeaderboardCards />
@@ -29,8 +31,9 @@ function DashBoardScreen() {
   )
 }
 
-const UserProfile = ({ user, username }) => {
+const UserProfile = ({ user, username, firstname }) => {
   let navigate = useNavigate();
+  const totalWalletBalance = Number.parseFloat(user.walletBalance) + Number.parseFloat(user.bonusBalance)
   const goToProfile = () => {
     navigate('/profile')
   }
@@ -43,6 +46,7 @@ const UserProfile = ({ user, username }) => {
   });
     navigate('/wallet')
   }
+  // <Text style={styles.usernameText} numberOfLines={1}>{firstname}</Text>
 
   return (
     <div className='profile-container'>
@@ -52,14 +56,14 @@ const UserProfile = ({ user, username }) => {
           </div>
         <div className='name-main-container'>
           <div className='name-container'>
-            <p className='welcome-text'>Hello, </p>
-            <p className='username-text' onClick={goToProfile}> {user.username}</p>
+            <p className='welcome-text'>Hello </p>
+            <p className='username-text' onClick={goToProfile}> {firstname}</p>
             <IoChevronForwardOutline size={18} className='icon' />
           </div>
         </div>
       </div>
       <div className='balance-container' onClick={goToWallet}>
-        <span className='balance-currency'>My Wallet</span>
+        <span className='balance-currency'>NGN {formatCurrency(totalWalletBalance)}</span>
         <IoChevronForwardOutline size={18} className='icon' color='#072169' />
       </div>
     </div>

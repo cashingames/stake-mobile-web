@@ -38,8 +38,7 @@
                 align-items: center;
 
                 .game-icon {
-                    width: 57px;
-                    height: 57px;
+                    height: 3.9rem;
                     border-top-left-radius: 13px;
                     border-top-right-radius: 13px;
                 }
@@ -53,23 +52,23 @@
                 font-family: 'sansation-bold';
             }
 
-        .play-btn {
-            background-color: #E15220;
-            border: none;
-            border-radius: 20px;
-            padding: .4rem 1rem;
+            .play-btn {
+                background-color: #E15220;
+                border: none;
+                border-radius: 20px;
+                padding: .4rem 1rem;
 
-            .play-button-text {
-                color: #E3ECF2;
-                font-size: .7rem;
-                margin: 0;
-                font-family: 'sansation-bold';
+                .play-button-text {
+                    color: #E3ECF2;
+                    font-size: .7rem;
+                    margin: 0;
+                    font-family: 'sansation-bold';
+                }
             }
         }
-    }
 
-    .main-games-container::-webkit-scrollbar {
-        display: none;
-      }
-}
+        .main-games-container::-webkit-scrollbar {
+            display: none;
+        }
+    }
 }

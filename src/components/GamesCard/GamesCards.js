@@ -79,7 +79,7 @@ const TriviaChallengeCard = () => {
             'email': user.email,
             'gamemode': gameMode.displayName,
         });
-        navigate('/select-category')
+        navigate('/fund-wallet')
     };
 
     return (
@@ -112,9 +112,26 @@ const TriviaChallengeCard = () => {
 }
 
 const TriviaRoomsCard = () => {
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const gameMode = useSelector(state => state.common.gameModes[0]);
+    const gameType = useSelector(state => state.common.gameTypes[0]);
+    const user = useSelector(state => state.auth.user);
+
+    const selectTriviaMode = () => {
+        dispatch(setGameMode(gameMode));
+        dispatch(setGameType(gameType));
+        logToAnalytics("trivia_staking_selected", {
+            'id': user.username,
+            'phone_number': user.phoneNumber,
+            'email': user.email,
+            'gamemode': gameMode.displayName,
+        });
+        navigate('/games-list')
+    };
 
     return (
-        <div className="trivia-bet-container">
+        <div className="trivia-bet-container" onClick={selectTriviaMode}>
             <img
                 src="/images/rooms-banner.png"
                 alt='trivia'
