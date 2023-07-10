@@ -18,7 +18,10 @@ function WalletScreen() {
   const user = useSelector(state => state.auth.user);
   const [loading, setLoading] = useState(true)
   const [mainWalletActive, setMainWalletActive] = useState(true);
+  const [winningsWalletActive, setWinningsWalletActive] = useState(false);
+  const [bonusWalletActive, setBonusWalletActive] = useState(false);
   const transactions = useSelector(state => state.common.userTransactions);
+  const depositBalance = Number.parseFloat(user.walletBalance) - Number.parseFloat(user.withdrawableBalance)
   // console.log(transactions)
   // const transactions = {
   //   bonusTransactions: [
@@ -51,16 +54,24 @@ function WalletScreen() {
   //     }
   //   ]
   // }
-  const [bonusWalletActive, setBonusWalletActive] = useState(false);
 
 
   const toggleMainWallet = () => {
     setBonusWalletActive(false);
+    setWinningsWalletActive(false);
     setMainWalletActive(true);
+  }
+
+
+  const toggleWinningsWallet = () => {
+    setBonusWalletActive(false);
+    setMainWalletActive(false);
+    setWinningsWalletActive(true);
   }
 
   const toggleBonusWallet = () => {
     setMainWalletActive(false);
+    setWinningsWalletActive(false);
     setBonusWalletActive(true);
   }
 
@@ -77,89 +88,97 @@ function WalletScreen() {
     <div className='wallet-screen-container'>
       <AnonymousRouteHeader title='Wallet' styleProp='password-header' noClose={true} onClick={navigateHandler} />
       <WalletsButtton toggleBonusWallet={toggleBonusWallet} toggleMainWallet={toggleMainWallet}
-        mainWalletActive={mainWalletActive} bonusWalletActive={bonusWalletActive} />
-      <WalletBalanceDetails balance={user.walletBalance} bonusBalance={user.bonusBalance} bonusWalletActive={bonusWalletActive}
-        mainWalletActive={mainWalletActive} />
+        mainWalletActive={mainWalletActive} bonusWalletActive={bonusWalletActive}
+        toggleWinningsWallet={toggleWinningsWallet} winningsWalletActive={winningsWalletActive}
+      />
+      <WalletBalanceDetails balance={depositBalance} bonusBalance={user.bonusBalance} bonusWalletActive={bonusWalletActive}
+        mainWalletActive={mainWalletActive} winningsWalletActive={winningsWalletActive} winningsBalance={user.withdrawableBalance} />
       <TransactionsContainer
         loading={loading}
         transactions={transactions}
         mainWalletActive={mainWalletActive}
         bonusWalletActive={bonusWalletActive}
+        winningsWalletActive={winningsWalletActive}
 
       />
     </div>
   )
 }
 
-const WalletsButtton = ({ toggleMainWallet, toggleBonusWallet, mainWalletActive, bonusWalletActive }) => {
+const WalletsButtton = ({ toggleMainWallet, toggleBonusWallet, mainWalletActive, bonusWalletActive, winningsWalletActive, toggleWinningsWallet }) => {
   return (
     <div className='wallets-buttton'>
       <div className='wallets'>
         <div className={mainWalletActive ? 'wallet-button' : 'inactive-wallet-button'} onClick={toggleMainWallet}>
-          <p className={mainWalletActive ? 'wallet-text' : 'inactive-wallet-text'}>Main wallet</p>
+          <p className={mainWalletActive ? 'wallet-text' : 'inactive-wallet-text'}>Deposits</p>
         </div>
-        <div className={bonusWalletActive ? 'wallet-button' : 'inactive-bonus-wallet-text'} onClick={toggleBonusWallet}>
-          <p className={bonusWalletActive ? 'wallet-text' : 'inactive-wallet-text'}>Bonus wallet</p>
+        <div className={winningsWalletActive ? 'wallet-button' : 'inactive-bonus-wallet-text'} onClick={toggleWinningsWallet}>
+          <p className={winningsWalletActive ? 'wallet-text' : 'inactive-wallet-text'}>Winnings</p>
+        </div>
+        <div className={bonusWalletActive ? 'bonuswallet-button' : 'inactive-bonus-wallet-text'} onClick={toggleBonusWallet}>
+          <p className={bonusWalletActive ? 'wallet-text' : 'inactive-wallet-text'}>Bonus</p>
         </div>
       </div>
     </div>
   )
 }
 
-const WalletBalanceDetails = ({ balance, bonusWalletActive, mainWalletActive, bonusBalance }) => {
+const WalletBalanceDetails = ({ balance, bonusWalletActive, mainWalletActive, bonusBalance, winningsWalletActive, winningsBalance }) => {
   let navigate = useNavigate();
 
-  // const [hidden, setHidden] = useState(false);
 
   return (
     <div className='details-container'>
       {mainWalletActive &&
-        <div>
-          <div className='total-header'>
-            <div className='total-title-container'>
-              <img src='/images/wallet-with-cash.png' alt='wallet' className='avatar' />
-              <p className='total-title-text'>Total balance</p>
+        <div className='funding-container'>
+          <div>
+            <div className='total-header'>
+              <div className='total-title-container'>
+                <p className='total-title-text'>Balance</p>
+              </div>
             </div>
-            {/* <span onClick={() => setHidden(!hidden)}>{hidden ? <FaEyeSlash color='#072169' /> : <FaEye color='#072169' />}</span> */}
-          </div>
-          <div className='currency-header'>
-            <span className='currency-text'>NGN</span>
-            <span className='currency-amount'>{formatCurrency(balance)}</span>
-
-            {/* {hidden ?
-              <span className='currency-amount'>***</span> :
+            <div className='currency-header'>
+              <span className='currency-text'>NGN</span>
               <span className='currency-amount'>{formatCurrency(balance)}</span>
-            } */}
+            </div>
           </div>
-          <div className='funding-container'>
-            <div className='funding-button' onClick={() => navigate('/fund-wallet')}>
-              <img src='/images/cash.png' alt='cash' className='avatari' />
-              <p className='funding-text'>Deposit</p>
+          <div className='funding-button' onClick={() => navigate('/fund-wallet')}>
+            <p className='funding-text'>Deposit</p>
+            <IoChevronForwardOutline size={16} color='#fff' />
+          </div>
+        </div>
+      }
+      {winningsWalletActive &&
+        <div className='funding-container'>
+          <div>
+            <div className='total-header'>
+              <div className='total-title-container'>
+                <p className='total-title-text'>Earned</p>
+              </div>
             </div>
-            <div className='funding-button' onClick={() => navigate('/withdraw-funds')}>
-              <img src='/images/cost-benefit.png' alt='cash' className='avatari' />
-              <p className='funding-texti'>Withdrawal</p>
+            <div className='currency-header'>
+              <span className='currency-text'>NGN</span>
+              <span className='currency-amount'>{formatCurrency(winningsBalance)}</span>
             </div>
+          </div>
+          <div className='funding-button' onClick={() => navigate('/withdraw-funds')}>
+            <p className='funding-text'>Withdraw</p>
+            <IoChevronForwardOutline size={16} color='#fff' />
           </div>
         </div>
       }
       {bonusWalletActive &&
-        <div>
-          <div className='total-header'>
-            <div className='total-title-container'>
-              <img src='/images/sale.png' alt='wallet' className='avatar' />
-              <p className='total-title-text'>Bonus balance</p>
+        <div className='funding-container'>
+          <div>
+            <div className='total-header'>
+              <div className='total-title-container'>
+                <p className='total-title-text'>Bonus</p>
+              </div>
             </div>
-            {/* <span onClick={() => setHidden(!hidden)}>{hidden ? <FaEyeSlash color='#072169' /> : <FaEye color='#072169' />}</span> */}
-          </div>
-          <div className='currency-header'>
-            <span className='currency-text'>NGN</span>
-            <span className='currency-amount'>{formatCurrency(bonusBalance)}</span>
-
-            {/* {hidden ?
-              <span className='currency-amount'>***</span> :
+            <div className='currency-header'>
+              <span className='currency-text'>NGN</span>
               <span className='currency-amount'>{formatCurrency(bonusBalance)}</span>
-            } */}
+            </div>
           </div>
         </div>
       }
@@ -167,7 +186,7 @@ const WalletBalanceDetails = ({ balance, bonusWalletActive, mainWalletActive, bo
   )
 }
 
-const TransactionsContainer = ({ transactions, loading, mainWalletActive, bonusWalletActive }) => {
+const TransactionsContainer = ({ transactions, loading, mainWalletActive, bonusWalletActive, winningsWalletActive }) => {
   let navigate = useNavigate();
   const [allTransactions, setAllTransactions] = useState(true);
   const [creditTransactions, setCreditTransactions] = useState(false);
@@ -204,6 +223,18 @@ const TransactionsContainer = ({ transactions, loading, mainWalletActive, bonusW
       return transactions.mainTransactions.filter(x => x.type.toUpperCase() !== "CREDIT");
     }
     return transactions.mainTransactions;
+  }
+  const winningsCreditTransactions = () => {
+    if (winningsWalletActive) {
+      return transactions.withdrawalsTransactions.filter(x => x.type.toUpperCase() !== "DEBIT");
+    }
+    return transactions.withdrawalsTransactions;
+  }
+  const winningsDebitTransactions = () => {
+    if (winningsWalletActive) {
+      return transactions.withdrawalsTransactions.filter(x => x.type.toUpperCase() !== "CREDIT");
+    }
+    return transactions.withdrawalsTransactions;
   }
   const bonusCreditTransactions = () => {
     if (bonusWalletActive) {
@@ -293,6 +324,69 @@ const TransactionsContainer = ({ transactions, loading, mainWalletActive, bonusW
                     <div className='transactionsSubContainer'>
                       {
                         mainDebitTransactions().map((transaction, i) => <FundTransactions key={i} transaction={transaction}
+                        />)
+                      }
+                      <button className='button-container' onClick={() => navigate('/transactions')}>
+                        <span className='buttonText'>View more</span>
+                        <IoChevronForwardOutline size={20} color='#fff' className='icon' />
+                      </button>
+                    </div>
+                    :
+                    <div className='noTransactionContainer'>
+                      <p className='noTransaction'>No transaction records</p>
+                    </div>
+                }
+              </>
+            }
+            {winningsWalletActive && allTransactions &&
+              <>
+                {
+                  transactions.withdrawalsTransactions.length > 0 ?
+                    <div className='transactionsSubContainer'>
+                      {
+                        transactions.withdrawalsTransactions.map((transaction, i) => <FundTransactions key={i} transaction={transaction}
+                        />)
+                      }
+                      <button className='button-container' onClick={() => navigate('/transactions')}>
+                        <span className='buttonText'>View more</span>
+                        <IoChevronForwardOutline size={20} color='#fff' className='icon' />
+                      </button>
+                    </div>
+                    :
+                    <div className='noTransactionContainer'>
+                      <p className='noTransaction'>No transaction records</p>
+                    </div>
+                }
+              </>
+            }
+            {winningsWalletActive && creditTransactions &&
+              <>
+                {
+                  winningsCreditTransactions().length > 0 ?
+                    <div className='transactionsSubContainer'>
+                      {
+                        winningsCreditTransactions().map((transaction, i) => <FundTransactions key={i} transaction={transaction}
+                        />)
+                      }
+                      <button className='button-container' onClick={() => navigate('/transactions')}>
+                        <span className='buttonText'>View more</span>
+                        <IoChevronForwardOutline size={20} color='#fff' className='icon' />
+                      </button>
+                    </div>
+                    :
+                    <div className='noTransactionContainer'>
+                      <p className='noTransaction'>No transaction records</p>
+                    </div>
+                }
+              </>
+            }
+            {winningsWalletActive && debitTransactions &&
+              <>
+                {
+                  winningsDebitTransactions().length > 0 ?
+                    <div className='transactionsSubContainer'>
+                      {
+                        winningsDebitTransactions().map((transaction, i) => <FundTransactions key={i} transaction={transaction}
                         />)
                       }
                       <button className='button-container' onClick={() => navigate('/transactions')}>

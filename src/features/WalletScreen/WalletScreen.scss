@@ -52,6 +52,29 @@
                 }
             }
 
+            .bonuswallet-button {
+                background-color: #E15220;
+                border-radius: 35px;
+                padding: .3rem .4rem;
+                margin-left: .5rem;
+
+                .wallet-text {
+                    margin: 0;
+                    font-family: 'gotham-medium';
+                    color: #fff;
+                    font-size: .9rem;
+                }
+
+                .inactive-wallet-text {
+                    color: #535761;
+                    margin: 0;
+                    font-family: 'gotham-medium';
+                    opacity: 0.5;
+                    font-size: .9rem;
+                    margin-right: .5rem;
+                }
+            }
+
             .inactive-wallet-button {
                 .inactive-wallet-text {
                     color: #535761;
@@ -85,99 +108,86 @@
         margin-bottom: 1.5rem;
         box-shadow: 0px 2px 10px -5px rgba(0, 0, 0, 0.25);
 
-        div {
-            .total-header {
-                display: flex;
-                flex-direction: row;
-                justify-content: space-between;
-                align-items: center;
+        .funding-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1rem;
 
-                .total-title-container {
+
+            div {
+                .total-header {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    .total-title-container {
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+
+                        .total-title-text {
+                            color: #072169;
+                            margin: 0;
+                            font-family: 'gotham-medium';
+                            font-size: 1rem;
+                        }
+
+                        .avatar {
+                            width: 1.3rem;
+                            height: 1.3rem;
+                            margin-right: .5rem;
+
+                        }
+                    }
+                }
+
+                .currency-header {
                     display: flex;
                     flex-direction: row;
                     align-items: center;
+                    margin-top: .5rem;
+                    // margin-left: 1.2rem;
 
-                    .total-title-text {
+                    .currency-text {
                         color: #072169;
                         margin: 0;
-                        font-family: 'gotham-medium';
-                        font-size: 1rem;
-                    }
-
-                    .avatar {
-                        width: 1.3rem;
-                        height: 1.3rem;
+                        font-family: 'gotham-bold';
+                        font-size: 1.2rem;
                         margin-right: .5rem;
+                    }
 
+                    .currency-amount {
+                        color: #072169;
+                        margin: 0;
+                        font-family: 'sansation-regular';
+                        font-size: 1.2rem;
                     }
                 }
+
+
             }
 
-            .currency-header {
+            .funding-button {
                 display: flex;
                 flex-direction: row;
                 align-items: center;
-                margin-top: .5rem;
-                // margin-left: 1.2rem;
+                border-radius: 20px;
+                padding: .4rem .8rem;
+                background-color: #E15220;
+                cursor: pointer;
 
-                .currency-text {
-                    color: #072169;
+                .funding-text {
+                    color: #fff;
                     margin: 0;
-                    font-family: 'gotham-bold';
-                    font-size: 1.2rem;
-                    margin-right: .5rem;
-                }
-
-                .currency-amount {
-                    color: #072169;
-                    margin: 0;
-                    font-family: 'sansation-regular';
-                    font-size: 1.2rem;
-                }
-            }
-
-            .funding-container {
-                display: flex;
-                flex-direction: row;
-                justify-content: space-between;
-                align-items: center;
-                margin-top: 1rem;
-                // margin-left: 1.2rem;
-
-                .funding-button {
-                    display: flex;
-                    flex-direction: row;
-                    align-items: center;
-                    border-radius: 13px;
-                    border: 2px solid #072169;
-                    padding: .5rem .7rem;
-                    // width: 7rem;
-
-                    .avatari {
-                        width: 1.2rem;
-                        height: 1.2rem;
-                        margin-right: .4rem;
-                    }
-
-                    .funding-texti {
-                        color: #072169;
-                        margin: 0;
-                        font-family: 'gotham-medium';
-                        font-size: .9rem;
-                        // width: 8rem;
-                        word-wrap: break-word;
-                    }
-
-                    .funding-text {
-                        color: #072169;
-                        margin: 0;
-                        font-family: 'gotham-medium';
-                        font-size: .9rem;
-                        // word-wrap: break-word;
-                    }
+                    font-family: 'gotham-medium';
+                    font-size: .85rem;
                 }
             }
         }
+
     }
 
     .transactions-container {
