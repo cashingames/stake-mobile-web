@@ -46,7 +46,6 @@ const UserProfile = ({ user, username, firstname }) => {
   });
     navigate('/wallet')
   }
-  // <Text style={styles.usernameText} numberOfLines={1}>{firstname}</Text>
 
   return (
     <div className='profile-container'>
@@ -54,10 +53,10 @@ const UserProfile = ({ user, username, firstname }) => {
           <div className='user-avatar'>
             <span className='avatar-text'>{username}</span>
           </div>
-        <div className='name-main-container'>
+        <div className='name-main-container' onClick={goToProfile}>
           <div className='name-container'>
             <p className='welcome-text'>Hello </p>
-            <p className='username-text' onClick={goToProfile}> {firstname}</p>
+            <p className='username-text'> {firstname}</p>
             <IoChevronForwardOutline size={18} className='icon' />
           </div>
         </div>

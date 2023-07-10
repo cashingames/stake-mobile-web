@@ -25,18 +25,16 @@ const PromotionScreen = () => {
                     <div className="details-container">
                         <span className="details-header">About</span>
                         <span className="details-text">
-                            The Company has the right to cancel the bets, wins, bonuses, Jackpots, or any
-                            other prizes displayed or provided to the Player due to
-                            any technical, mechanical, or software bug or error.
+                        {location.state.promotion_description}
                         </span>
                     </div>
-                    <div className="details-container">
+                    {/* <div className="details-container">
                         <span className="details-header">How to participate</span>
                         <span className="details-text">{location.state.promotion_description}</span>
                     </div>
                     <button className='button-container' type='submit'>
                         <span className='buttonText'>Get Now</span>
-                    </button>
+                    </button> */}
                 </div>
             </div>
         </>
