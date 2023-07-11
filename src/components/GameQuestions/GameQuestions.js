@@ -59,13 +59,13 @@ function GameQuestions({ onComplete, onPress, ending }) {
         <div className='options'>
           {displayedOptions.map((option, i) => <GameOption option={option} key={i} onSelected={() => optionSelected(option)} />)}
         </div>
-        <NextButton onClick={onPress} ending={ending} />
+        <NextButton onClick={onPress} ending={ending} index={index} />
       </div>
     </div>
   )
 }
 
-const NextButton = ({ onClick, ending }) => {
+const NextButton = ({ onClick, ending , index}) => {
   const dispatch = useDispatch()
   const isLastQuestion = useSelector(state => state.game.isLastQuestion);
   const pressNext = () => {
@@ -74,7 +74,7 @@ const NextButton = ({ onClick, ending }) => {
   return (
     <div className='next-button-case'>
       <button onClick={pressNext} className='nextButton' disabled={ending}>
-        <p className='btnText'>{isLastQuestion ? 'Finish' : 'Next'}</p>
+        <p className='btnText'>{isLastQuestion ? 'Finish' : `Next Q${index + 2}`}</p>
       </button>
     </div>
   )

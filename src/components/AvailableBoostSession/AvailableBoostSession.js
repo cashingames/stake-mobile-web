@@ -15,7 +15,6 @@ function AvailableBoostSession() {
     const gameMode = useSelector(state => state.game.gameMode);
     const displayedOptions = useSelector(state => state.game.displayedOptions);
     const boosts = useSelector(state => state.auth.user.boosts);
-    // const [setShowText] = useState(true);
     const user = useSelector((state) => state.auth.user);
 
 
@@ -29,15 +28,6 @@ function AvailableBoostSession() {
         }
         return boosts;
     }
-
-    // useEffect(() => {
-    //     // Change the state every second or the time given by User.
-    //     const interval = setInterval(() => {
-    //         setShowText((showText) => !showText);
-    //     }, 1000);
-    //     return () => clearInterval(interval);
-    // }, []);
-
     const boostApplied = (data) => {
         dispatch(consumeBoost(data));
         dispatch(reduceBoostCount(data.id))

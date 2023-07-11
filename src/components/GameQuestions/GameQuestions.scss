@@ -75,8 +75,9 @@
                 align-items: center;
                 justify-content: center;
                 background-color: #E15220;
-                border-radius: 8px;
+                border-radius: 13px;
                 margin-top: 1rem;
+                padding: 1rem 0;
                 border: none;
 
                 @include devices(sm) {
@@ -85,7 +86,9 @@
 
                 .btnText {
                     color: #fff;
+                    font-size: 1.2rem;
                     font-family: 'gotham-medium';
+                    margin: 0;
                 }
             }
 

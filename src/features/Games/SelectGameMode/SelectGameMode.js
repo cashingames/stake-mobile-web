@@ -4,7 +4,7 @@ import { IoCheckmarkCircle, IoEllipseOutline } from "react-icons/io5";
 import './SelectGameMode.scss'
 
 
-const SelectGameMode = ({ playTriviaForFree, playTriviaForCash,playChallengeForFree, playChallengeForCash, closeBottomSheet}) => {
+const SelectGameMode = ({ playTriviaForFree, playTriviaForCash, playChallengeForFree, playChallengeForCash, closeBottomSheet }) => {
     const [earn, setEarn] = useState(true);
     const [practice, setPractice] = useState(false);
     const gameMode = useSelector(state => state.game.gameMode);
@@ -38,23 +38,24 @@ const SelectGameMode = ({ playTriviaForFree, playTriviaForCash,playChallengeForF
     return (
         <div className='select-mode-container'>
             <div className='title-section'>
-            <button className='close-btn' onClick={closeBottomSheet}>X</button>
-            {gameModeName === 'EXHIBITION' &&
-                <p className='game-mode-title'>Single player trivia bet</p>
-            }
-            {gameModeName === 'CHALLENGE' &&
-                <p className='game-mode-title'>Challenge a player</p>
-            }
+                <button className='close-btn' onClick={closeBottomSheet}>X</button>
+                {gameModeName === 'EXHIBITION' &&
+                    <p className='game-mode-title'>Single player trivia bet</p>
+                }
+                {gameModeName === 'CHALLENGE' &&
+                    <p className='game-mode-title'>Challenge a player</p>
+                }
             </div>
             <div>
-                <button className='game-mode-disabled' onClick={toggleFreeMode} disabled>
-                    {practice ? <IoCheckmarkCircle className='icon' color={practice ? '#00FFA3' : '#D9D9D9'} size={22}/> : <IoEllipseOutline size={22} color={practice ? '#00FFA3' : '#D9D9D9'}  />}
-                    <p className='game-mode-text'>Practice for free (Coming soon)</p>
-                </button>
                 <button className='game-mode' onClick={toggleEarn}>
                     {earn ? <IoCheckmarkCircle className='icon' color={earn ? '#00FFA3' : '#D9D9D9'} size={22} /> : <IoEllipseOutline size={22} color={earn ? '#00FFA3' : '#D9D9D9'} />}
                     <p className='game-mode-text'>Play to earn</p>
                 </button>
+                <button className='game-mode' onClick={toggleFreeMode}>
+                    {practice ? <IoCheckmarkCircle className='icon' color={practice ? '#00FFA3' : '#D9D9D9'} size={22} /> : <IoEllipseOutline size={22} color={practice ? '#00FFA3' : '#D9D9D9'} />}
+                    <p className='game-mode-text'>Practice for free</p>
+                </button>
+
             </div>
             {/* <button className='instruction-btn'>
                 <p className='btn-text'>Game instructions</p>

@@ -8,7 +8,7 @@ import GameAppHeader from '../../../components/GameAppHeader/GameAppHeader'
 import GameInProgressAndBoost from '../../../components/GameInProgressAndBoost/GameInProgressAndBoost'
 import GameQuestions from '../../../components/GameQuestions/GameQuestions'
 import firebaseConfig from '../../../firebaseConfig'
-import { endGame } from '../GameSlice'
+import { endGame, endPracticeGame } from '../GameSlice'
 import './GameInProgress.scss'
 
 function GameInProgress() {
@@ -24,6 +24,8 @@ function GameInProgress() {
   const [alertMessage, setAlertMessage] = useState('')
   const [openAlert, setOpenAlert] = useState(false)
   const analytics = firebaseConfig();
+  const cashMode = useSelector(state => state.game.cashMode);
+  const practiceMode = useSelector(state => state.game.practiceMode);
 
   const onEndGame = (confirm = false) => {
 
@@ -38,29 +40,55 @@ function GameInProgress() {
       return;
     }
 
-    dispatch(endGame({
-      token: gameSessionToken,
-      chosenOptions,
-      consumedBoosts
-    }))
-      .then(unwrapResult)
-      .then(() => {
-        logEvent(analytics, 'exhibition_staking_game_ended', {
-          'id': user.username,
-          'phone_number': user.phoneNumber,
-          'email': user.email
+    if (cashMode) {
+      dispatch(endGame({
+        token: gameSessionToken,
+        chosenOptions,
+        consumedBoosts
+      }))
+        .then(unwrapResult)
+        .then(() => {
+          logEvent(analytics, 'exhibition_staking_game_ended', {
+            'id': user.username,
+            'phone_number': user.phoneNumber,
+            'email': user.email
+          });
+          navigate('/game-result');
+        })
+        .catch((_rejectedValueOrSerializedError) => {
+          logEvent(analytics, 'exhibition_staking_game_error', {
+            'id': user.username,
+            'phone_number': user.phoneNumber,
+            'email': user.email
+          });
+          setEnding(false);
+          alert('failed to end game')
         });
-        navigate('/game-result');
-      })
-      .catch((_rejectedValueOrSerializedError) => {
-        logEvent(analytics, 'exhibition_staking_game_error', {
-          'id': user.username,
-          'phone_number': user.phoneNumber,
-          'email': user.email
+    }
+
+    if (practiceMode) {
+      dispatch(endPracticeGame({
+        chosenOptions,
+      }))
+        .then(unwrapResult)
+        .then(() => {
+          logEvent(analytics, 'practice_stake_game_completed', {
+            'id': user.username,
+            'phone_number': user.phoneNumber,
+            'email': user.email
+          });
+          navigate('/game-result');
+        })
+        .catch((_rejectedValueOrSerializedError) => {
+          logEvent(analytics, 'practice_stake_game_error', {
+            'id': user.username,
+            'phone_number': user.phoneNumber,
+            'email': user.email
+          });
+          setEnding(false);
+          alert('failed to end game')
         });
-        setEnding(false);
-        alert('failed to end game')
-      });
+    }
   }
 
   const handleGameBoardTabClosing = () => {
@@ -113,7 +141,6 @@ function GameInProgress() {
     <div className='gameInProgress'
       style={{ backgroundImage: 'url(/images/game-play-background.png)' }}>
       <GameAppHeader onPress={showExitConfirmation} gameTitle='Trivia game' />
-      <StakeDetails />
       <GameInProgressAndBoost onComplete={() => onEndGame()} />
       <GameQuestions onPress={() => onEndGame()} ending={ending} onComplete={() => onEndGame()} />
       <ButtonDialog dialogueMessage={alertMessage} open={openAlert} handleClose={closeAlert} onClick={submitGame} />
@@ -121,29 +148,6 @@ function GameInProgress() {
   )
 }
 
-const StakeDetails = () => {
-  const amountStaked = useSelector(state => state.game.amountStaked);
-  // const gameStakes = useSelector(state => state.game.gameStakes[0]);
-
-  return (
-    <div className='stake-container'>
-      <div className='stake-sub-container'>
-        <img src='/images/wallet-with-cash.png' alt='wallet' className='avatar' />
-        <div className='stake-items'>
-          <span className='stake-header'>Stake</span>
-          <span className='stake-amount'>NGN {amountStaked}</span>
-        </div>
-      </div>
-      {/* <div className='stake-sub-container'>
-        <img src='/images/wallet-with-cash.png' alt='wallet' className='avatar' />
-        <div className='stake-items'>
-          <span className='stake-header'>Pot. winnings</span>
-          <span className='stake-amount'>NGN {amountStaked * (gameStakes.odd)}</span>
-        </div>
-      </div> */}
-    </div>
-  )
-}
 
 export default GameInProgress
 

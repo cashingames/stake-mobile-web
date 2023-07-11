@@ -1,24 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { formatCurrency } from '../../../utils/stringUtl'
-
 import './StakeAmount.scss'
-// import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import { IoChevronForwardOutline } from "react-icons/io5";
 
 function StakeAmount({ onSubmit, amount, setAmount, disabled }) {
-
+    const navigate = useNavigate();
     const user = useSelector((state) => state.auth.user);
     const minimumExhibitionStakeAmount = useSelector(state => Number.parseFloat(state.common.minimumExhibitionStakeAmount ?? 0));
     const totalBalance = user.hasBonus === true && (Number.parseFloat(user.bonusBalance) >= Number.parseFloat(minimumExhibitionStakeAmount)) ? Number.parseFloat(user.bonusBalance) ?? 0 : Number.parseFloat(user.walletBalance) ?? 0
     const [amountErr, setAmountError] = useState(false);
     const [withdraw, setWithdraw] = useState(false);
 
-
-    let navigate = useNavigate();
-
-    // const [hidden, setHidden] = useState(false);
     const onChangeAmount = (e) => {
         const amount = e.currentTarget.value;
         const amountEntered = amount.trim().length === 0 ? 0 : Number.parseFloat(amount)
@@ -39,31 +31,6 @@ function StakeAmount({ onSubmit, amount, setAmount, disabled }) {
 
     return (
         <div className="amountContainer">
-            <div className="walletContainer">
-                <div className='total-header'>
-                    <div className='total-title-container'>
-                        <img src='/images/wallet-with-cash.png' alt='wallet' className='avatar' />
-                        <p className='total-title-text'>Total balance</p>
-                    </div>
-                    {/* <span onClick={() => setHidden(!hidden)}>{hidden ? <FaEyeSlash color='#072169' /> : <FaEye color='#072169' />}</span> */}
-                </div>
-                <div className='currency-bottom'>
-                    <div className='currency-header'>
-                        <span className='currency-text'>NGN</span>
-                        <span className='currency-amount'>{formatCurrency(totalBalance)}</span>
-
-                        {/* {hidden ?
-                            <span className='currency-amount'>***</span> :
-                            <span className='currency-amount'>{formatCurrency(user.walletBalance)}</span>
-                        } */}
-                    </div>
-                    <div className='funding-button' onClick={() => navigate('/fund-wallet')}>
-                        <p className='funding-text'>Deposit</p>
-                        <IoChevronForwardOutline size={18} className='icon' color='#072169' />
-                    </div>
-                </div>
-            </div>
-
             <div className="input-container">
                 <div className='label-container'>
                     <label htmlFor='amount' className='input-label'>Enter amount</label>
@@ -78,6 +45,7 @@ function StakeAmount({ onSubmit, amount, setAmount, disabled }) {
                     autoFocus={true}
                     onChange={e => onChangeAmount(e)}
                     required
+                    disabled
                 />
                 {amountErr && amount < Number.parseFloat(minimumExhibitionStakeAmount) &&
                     <span className='input-error'>Minimum staking amount is NGN {minimumExhibitionStakeAmount}</span>

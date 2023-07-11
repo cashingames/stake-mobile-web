@@ -20,11 +20,14 @@
         margin: 0;
     }
     .exitGame{
-        font-size: 0.95rem;
+        font-size: 1.5rem;
         color: #072169;
         margin: 0;
         font-family: 'gotham-medium';
         border: none;
-        background: none;
+        background-color: #EEEEEE;
+        border-radius: 50px;
+        width: 2.5rem;
+        height: 2.5rem;
     }
 }

@@ -16,7 +16,6 @@ export const startGame = createAsyncThunk(
     async (data, thunkAPI) => {
         try {
             const response = await axios.post('v3/game/start/single-player', data);
-            console.log(data.staking_amount, 'stake amount');
             return response.data;
         } catch (err) {
             return thunkAPI.rejectWithValue(err.response.data);
@@ -24,20 +23,17 @@ export const startGame = createAsyncThunk(
     }
 )
 
-// export const startGame = createAsyncThunk(
-//     'games/staking/exhibition/start',
-//     async (_data, { getState }) => {
-//         const state = getState().game;
-//         const data = {
-//             category: state.gameCategory.id,
-//             type: state.gameType.id,
-//             mode: state.gameMode.id,
-//             staking_amount: state.amountStaked
-//         };
-//         const response = await axios.post('v3/game/start/single-player', data)
-//         return response.data
-//     }
-// )
+export const startPracticeGame = createAsyncThunk(
+    'game/startPracticeGame',
+    async (data, thunkAPI) => {
+        try {
+            const response = await axios.post('v3/single-player/practice/start', data);
+            return response.data;
+        } catch (err) {
+            return thunkAPI.rejectWithValue(err.response.data);
+        }
+    }
+)
 
 
 export const startChallengeGame = createAsyncThunk(
@@ -66,7 +62,16 @@ export const endGame = createAsyncThunk(
 
         //make a network request to the server
         const response = await axios.post('v3/game/end/single-player', data)
-        console.log(response)
+        return response.data;
+    }
+)
+export const endPracticeGame = createAsyncThunk(
+    'game/endPracticeGame',
+    async (data, thunkAPI) => {
+        data.chosenOptions.forEach(x => {
+        });
+
+        const response = await axios.post('v3/single-player/practice/end', data)
         return response.data;
     }
 )
@@ -152,7 +157,7 @@ let initialState = {
     activeBoost: [],
     pointsGained: 0,
     amountWon: 0,
-    amountStaked: 0,
+    amountStaked: null,
     isEnded: true,
     displayedOptions: [],
     displayedQuestion: {},
@@ -166,17 +171,18 @@ let initialState = {
     triviaMode: '',
     triviaId: '',
     hasPlayedTrivia: false,
-    gameDuration: 60,
+    gameDuration: 60000,
     challengeDetails: {},
     stakeOdds: [],
     gameStakes: [],
     previousStakeOdds: [],
     withStaking: false,
     correctCount: 0,
-    totalCount:0,
+    totalCount: 0,
     wrongCount: 0,
     practiceMode: false,
-    cashMode: false
+    cashMode: false,
+    walletSource:''
 }
 
 
@@ -206,6 +212,10 @@ export const GameSlice = createSlice({
         setCashMode: (state, action) => {
             state.cashMode = action.payload;
         },
+        setWalletSource: (state, action) => {
+            // console.log("here")
+            state.walletSource = action.payload;
+        },
         setGameDuration: (state, action) => {
             state.gameDuration = action.payload;
         },
@@ -220,6 +230,7 @@ export const GameSlice = createSlice({
         },
         setAmountStaked: (state, action) => {
             state.amountStaked = action.payload;
+            console.log(action.payload)
         },
         setWithStaking: (state, action) => {
             state.withStaking = action.payload;
@@ -308,6 +319,14 @@ export const GameSlice = createSlice({
                 state.pointsGained = 0;
                 // state.startingGame = true;
             })
+            .addCase(startPracticeGame.fulfilled, (state, action) => {
+                state.questions = action.payload.data.questions;
+                state.displayedQuestion = state.questions[state.currentQuestionPosition]
+                state.displayedOptions = state.displayedQuestion.options
+                state.gameSessionToken = action.payload.data.game.token
+                state.isEnded = false
+                state.pointsGained = 0;
+            })
             // .addCase(startGame.rejected, (state, action) => {
             //     console.log("action result rejected", action);
             // })
@@ -323,6 +342,15 @@ export const GameSlice = createSlice({
                 state.totalCount = action.payload.data.total_count;
                 state.wrongCount = action.payload.data.wrong_count;
                 state.previousStakeOdds = [...state.stakeOdds];
+                resetState(state)
+            })
+            .addCase(endPracticeGame.fulfilled, (state, action) => {
+                state.isEnded = true;
+                state.pointsGained = action.payload.data.points_gained;
+                state.amountWon = action.payload.data.amount_won;
+                state.correctCount = action.payload.data.correct_count;
+                state.totalCount = action.payload.data.total_count;
+                state.wrongCount = action.payload.data.wrong_count;
                 resetState(state)
             })
             .addCase(getLiveTriviaLeaders.fulfilled, (state, action) => {
@@ -371,7 +399,7 @@ export const {
     setGameCategory, setHasPlayedTrivia, questionAnswered, nextQuestion, consumeBoost, incrementCountdownResetIndex,
     pauseGame, skipQuestion, boostReleased, bombOptions, setGameDuration, setQuestionsCount, setCorrectCount, setWrongCount,
     setPointsGained, setAmountWon, setAmountStaked, setSelectedFriend,
-    unselectFriend, setWithStaking, setStartingGame, setCashMode, setPracticeMode
+    unselectFriend, setWithStaking, setStartingGame, setCashMode, setPracticeMode, setWalletSource
 } = GameSlice.actions
 
 
@@ -407,7 +435,7 @@ function resetState(state) {
     state.triviaMode = '';
     state.triviaId = '';
     state.hasPlayedTrivia = false;
-    state.gameDuration = 60;
+    state.gameDuration = 60000;
     state.challengeDetails = {};
     state.userChallenges = [];
     state.challengeScores = {};

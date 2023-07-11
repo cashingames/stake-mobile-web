@@ -24,6 +24,10 @@ function GameEnded() {
   const correctCount = useSelector(state => state.game.correctCount);
   const totalCount = useSelector(state => state.game.totalCount);
   const wrongCount = useSelector(state => state.game.wrongCount);
+  const withStaking = useSelector(state => state.game.withStaking);
+  const cashMode = useSelector(state => state.game.cashMode);
+  const walletSource = useSelector(state => state.game.walletSource);
+
 
 
 
@@ -74,7 +78,9 @@ function GameEnded() {
           onError={(e) => e.target.style.display = 'none'} />
       </div>
       <UserName userName={user.firstName} />
-      <Winnings amountWon={amountWon} onPress={reviewStaking} user={user} />
+      {withStaking && cashMode &&
+        <Winnings amountWon={amountWon} onPress={reviewStaking} walletSource={walletSource} />
+      }
       <FinalScore
         pointsGained={pointsGained}
         correctCount={correctCount} wrongCount={wrongCount} totalCount={totalCount}

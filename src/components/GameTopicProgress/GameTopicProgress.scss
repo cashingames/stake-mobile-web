@@ -1,44 +1,52 @@
-.topic-progress{
-    // border-bottom: 1px solid #93939336;
-    // padding: 18px 1.3rem;
-    .topic-container {
+.topic-progress {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #93939336;
+    padding: 1rem 1rem;
+
+    .category-container {
         display: flex;
-        // flex-direction: row;
-        // justify-content: space-between;
-        // align-items: flex-start;
-        .category-container {
-            display: flex;
-            flex-direction: column;
-            .category-name {
-                font-size: 1rem;
-                color: #072169;
-                font-family: 'gotham-bold';
-            }
-            .questions-answered {
-                font-size: .85rem;
-                color: #072169;
-                font-family: 'gotham-bold';
-            }
-            .questions-answered-container {
-                margin: 12px 0;
-            }
-        }
-        .odd-container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        .stake-container {
             display: flex;
             flex-direction: row;
             align-items: center;
-            .odd-title {
-                font-size: .85rem;
-                color: #072169;
-                font-family: 'gotham-bold';
+            background-color: #FA5F4A;
+            border-radius: 30px;
+            padding: .3rem .8rem;
+
+            .stake-header {
+                font-family: 'gotham-medium';
+                font-size: 0.7rem;
+                color: #FFF;
             }
-            .odd-text{
-                font-size: .85rem;
-                color: #072169;
-                font-family: 'sansation-regular';
-                margin-left: .3rem;
+
+            .stake-amount {
+                font-family: 'gotham-medium';
+                font-size: 0.7rem;
+                color: #FFF;
             }
+
+        }
+
+        .category-name {
+            font-size: 1rem;
+            color: #072169;
+            font-family: 'gotham-bold';
         }
     }
-   
+
+    .questions-answered {
+        font-size: .85rem;
+        color: #072169;
+        font-family: 'gotham-bold';
+    }
+
+    .questions-answered-container {
+        margin: 12px 0;
+    }
+
 }

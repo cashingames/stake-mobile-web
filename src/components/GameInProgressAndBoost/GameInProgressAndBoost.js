@@ -6,7 +6,7 @@ import AvailableBoostSession from '../AvailableBoostSession/AvailableBoostSessio
 function GameProgressAndBoost({onComplete}) {
 
     return (
-        <div className='gameProgressBoost'>
+        <div className='game-progress-boost'>
             <GameTopicProgress onComplete={onComplete} />
             <AvailableBoostSession />
         </div>

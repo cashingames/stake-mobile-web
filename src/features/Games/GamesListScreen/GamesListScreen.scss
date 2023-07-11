@@ -12,7 +12,7 @@
     background-position: center;
     background-size: cover;
     height: 100vh;
-    padding: 2rem;
+    padding: 2rem 1rem;
 
     .main-games-container {
         display: flex;
@@ -26,6 +26,7 @@
             width: 50%;
             align-items: center;
             margin-bottom: 1.5rem;
+            cursor: pointer;
 
             .image-container {
                 width: 106px;
@@ -60,7 +61,7 @@
 
                 .play-button-text {
                     color: #E3ECF2;
-                    font-size: .7rem;
+                    font-size: .8rem;
                     margin: 0;
                     font-family: 'sansation-bold';
                 }

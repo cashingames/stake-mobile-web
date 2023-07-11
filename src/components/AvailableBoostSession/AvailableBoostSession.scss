@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    padding: .3rem 1rem;
 
     .boostInfo {
         display: flex;
@@ -20,21 +21,28 @@
         flex-direction: column;
         align-items: center;
         margin-right: 1.5rem;
+        position: relative;
+
+
         .availableBoost {
             padding: .7rem 0;
             display: flex;
             flex-direction: row;
+
             .boostIcon {
-                width: 35px;
-                height: 35px;
+                width: 51px;
+                height: 51px;
             }
 
             .boostCount {
-                margin: 0;
-                font-size: 0.75rem;
-                color: #121212;
-                padding: 0;
-                font-family: 'gotham-bold';
+                font-size: .9rem;
+                font-family: 'sansation-bold';
+                color: #fff;
+                margin-top: 1px;
+                position: absolute;
+                top: 15px;
+                right: 5px;
+                text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
             }
         }
 

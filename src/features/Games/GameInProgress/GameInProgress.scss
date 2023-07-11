@@ -14,38 +14,5 @@
     padding-bottom: .8rem;
     min-height: 100vh;
 
-    .stake-container {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        margin-top: 2rem;
-
-        .stake-sub-container {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            margin-left: .5rem;
-
-            .avatar {
-                width: 1.4rem;
-                height: 1.4rem;
-            }
-
-            .stake-items {
-                display: flex;
-                flex-direction: column;
-                .stake-header {
-                    font-family: 'gotham-medium';
-                    font-size: 0.95rem;
-                    color: #072169;
-                }
-                .stake-amount {
-                    font-family: 'sansation-regular';
-                    font-size: 0.95rem;
-                    color: #072169;
-                }
-            }
-        }
-    }
+   
 }

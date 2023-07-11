@@ -17,6 +17,7 @@ const GamesListScreen = () => {
     const user = useSelector(state => state.auth.user);
     const [open, setOpen] = useState(false);
     const [openAlert, setOpenAlert] = useState(false);
+    // eslint-disable-next-line 
     const [alertMessage, setAlertMessage] = useState('');
 
     const navigateHandler = () => {
@@ -72,9 +73,15 @@ const GamesListScreen = () => {
     }
 
     const playTriviaForFree = () => {
+        dispatch(setCashMode(false));
+        dispatch(setPracticeMode(true));
+        logToAnalytics("trivia_play_for_free_selected", {
+            'id': user.username,
+            'phone_number': user.phoneNumber,
+            'email': user.email,
+        })
         closeBottomSheet()
-        setOpenAlert(true)
-        setAlertMessage('This mode is unavailable')
+        navigate('/select-category')
     }
 
 
@@ -126,17 +133,16 @@ const TriviaBetCard = ({openBottomSheet}) => {
             'id': user.username,
             'phone_number': user.phoneNumber,
             'email': user.email,
-            'gamemode': gameMode.displayName,
         });
     };
 
     return (
-        <div className="trivia-bet-container">
-            <div className="image-container" style={{backgroundColor: '#FEECE7'}}>
+        <div className="trivia-bet-container" onClick={selectTriviaMode}>
+            <div className="image-container" style={{backgroundColor: '#EBFAED'}}>
                 <img className="game-icon" src='/images/single-player.png' alt='challenge mode' />
             </div>
-            <p className="game-mode-desc">Single player</p>
-            <button className="play-btn" onClick={selectTriviaMode}>
+            <p className="game-mode-desc">Single Player</p>
+            <button className="play-btn">
                 <p className="play-button-text">Play now</p>
             </button>
         </div>
@@ -163,10 +169,10 @@ const TriviaChallengeCard = ({openBottomSheet}) => {
 
     return (
         <div className="trivia-bet-container">
-            <div className="image-container">
-                <img className="game-icon" src='/images/challenge-player.png' alt="sigle player mode" />
+            <div className="image-container" style={{backgroundColor: '#F6F4FF'}}>
+                <img className="game-icon" src='/images/challenge-player.png' alt="challenge mode" />
             </div>
-            <p className="game-mode-desc">Challenge a Player</p>
+            <p className="game-mode-desc">Challenge a player</p>
             <button className="play-btn" onClick={selectChallengeMode}>
                 <p className="play-button-text">Play now</p>
             </button>
@@ -181,7 +187,7 @@ const JackpotBetCard = () => {
             <div className="image-container" style={{backgroundColor: '#FEECE7'}}>
                 <img className="game-icon" src='/images/money-dynamic-color.png' alt="Jackpot bet" />
             </div>
-            <p className="game-mode-desc">Jackpot Card</p>
+            <p className="game-mode-desc">Jackpot Bet</p>
             <button className="play-btn" style={{ backgroundColor: '#EA8663' }}>
                 <p className="play-button-text">Coming soon</p>
             </button>
@@ -195,10 +201,10 @@ const TriviaRoomsCard = () => {
 
     return (
         <div className="trivia-bet-container">
-            <div className="image-container">
+            <div className="image-container" style={{backgroundColor: '#ECF7FF'}}>
                 <img className="game-icon" src='/images/notify-heart-dynamic-color.png' alt="trivia room" />
             </div>
-            <p className="game-mode-desc">Trivia rooms</p>
+            <p className="game-mode-desc">Trivia Rooms</p>
             <button className="play-btn" style={{ backgroundColor: '#EA8663' }}>
                 <p className="play-button-text">Coming soon</p>
             </button>
