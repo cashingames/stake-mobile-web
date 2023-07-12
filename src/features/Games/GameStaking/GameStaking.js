@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { getGameStakes, setAmountStaked, setWalletSource, startGame, startPracticeGame } from "../GameSlice";
+import { geBonusStakes, getGameStakes, setAmountStaked, setWalletSource, startGame, startPracticeGame } from "../GameSlice";
 import Dialogue from '../../../components/Dialogue/Dialogue'
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import './GameStaking.scss'
@@ -17,7 +17,6 @@ const GameStaking = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const [amount, setAmount] = useState('');
-    console.log(amount)
     const [error, setError] = useState(false);
     const gameType = useSelector(state => state.game.gameType);
     const gameCategoryId = useSelector(state => state.game.gameCategory.id);
@@ -145,6 +144,12 @@ const GameStaking = () => {
         if (balanceName === `Bonus (NGN ${formatCurrency(user.bonusBalance)})`) {
             setWalletType('bonus_balance')
         }
+        if (balanceName === `Deposit (NGN ${formatCurrency(100000)})`) {
+            setWalletType('demo_deposit_balance')
+        }
+        if (balanceName === `Bonus (NGN ${formatCurrency(100000)})`) {
+            setWalletType('demo_bonus_balance')
+        }
     }, [balanceName, depositBalance, user.bonusBalance])
 
     useEffect(() => {
@@ -154,6 +159,7 @@ const GameStaking = () => {
 
     useEffect(() => {
         dispatch(getGameStakes())
+        dispatch(geBonusStakes())
         dispatch(getUser())
     }, [dispatch])
 
@@ -221,20 +227,14 @@ const GameStaking = () => {
                     />
                 </div>
             }
-            {cashMode &&
-                <>
-                    {user.hasBonus === true &&
-                        <p className='note'>Note that the predictions table below does not apply on bonus stakes</p>}
-                </>
-            }
-            <StakingPredictionsTable amount={amount} />
+            <StakingPredictionsTable amount={amount} walletType={walletType} />
             {cashMode &&
                 <button onClick={() => proceed()} className='button-container' disabled={loading || !canSend}>
                     <p className="buttonText">Start Game</p>
                 </button>
             }
             {practiceMode &&
-                <button onClick={proceed} className='button-container' disabled={loading || amount === ''|| balanceName === ''}>
+                <button onClick={proceed} className='button-container' disabled={loading || amount === '' || balanceName === ''}>
                     <p className="buttonText">Start Game</p>
                 </button>
             }
@@ -243,8 +243,9 @@ const GameStaking = () => {
     )
 }
 
-const StakingPredictionsTable = ({ amount }) => {
+const StakingPredictionsTable = ({ amount, walletType }) => {
     const gameStakes = useSelector(state => state.game.gameStakes);
+    const bonusStakes = useSelector(state => state.game.bonusStakes);
     return (
         <div className="stake-container">
             <p className="stake-heading">How to win</p>
@@ -253,8 +254,41 @@ const StakingPredictionsTable = ({ amount }) => {
                 <p className="stake-head">ODDS</p>
                 <p className="stake-pay">PAYOUT</p>
             </div>
-            {gameStakes.map((gameStake, i) => <StakingPredictionsRow key={i} gameStake={gameStake} position={i + 1}
-                amount={amount} />)}
+            {walletType === 'deposit_balance' &&
+                <>
+                    {gameStakes.map((gameStake, i) => <StakingPredictionsRow key={i} gameStake={gameStake} position={i + 1}
+                        amount={amount} />)
+                    }
+                </>
+            }
+            {walletType === 'demo_deposit_balance' &&
+                <>
+                    {gameStakes.map((gameStake, i) => <StakingPredictionsRow key={i} gameStake={gameStake} position={i + 1}
+                        amount={amount} />)
+                    }
+                </>
+            }
+            {walletType === '' &&
+                <>
+                    {gameStakes.map((gameStake, i) => <StakingPredictionsRow key={i} gameStake={gameStake} position={i + 1}
+                        amount={amount} />)
+                    }
+                </>
+            }
+            {walletType === 'bonus_balance' &&
+                <>
+                    {bonusStakes.map((gameStake, i) => <StakingPredictionsRow key={i} gameStake={gameStake} position={i + 1}
+                        amount={amount} />)
+                    }
+                </>
+            }
+            {walletType === 'demo_bonus_balance' &&
+                <>
+                    {bonusStakes.map((gameStake, i) => <StakingPredictionsRow key={i} gameStake={gameStake} position={i + 1}
+                        amount={amount} />)
+                    }
+                </>
+            }
         </div>
     )
 }

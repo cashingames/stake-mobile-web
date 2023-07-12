@@ -127,6 +127,15 @@ export const getGameStakes = createAsyncThunk(
         return response.data;
     }
 )
+export const geBonusStakes = createAsyncThunk(
+    'game/geBonusStakes',
+    async (data, thunkAPI) => {
+        //make a network request to the server
+        const response = await axios.get('v3/odds/bonus', data)
+        // console.log(response.data)
+        return response.data;
+    }
+)
 
 export const canStake = createAsyncThunk(
     'game/canStake',
@@ -175,6 +184,7 @@ let initialState = {
     challengeDetails: {},
     stakeOdds: [],
     gameStakes: [],
+    bonusStakes:[],
     previousStakeOdds: [],
     withStaking: false,
     correctCount: 0,
@@ -386,6 +396,9 @@ export const GameSlice = createSlice({
             })
             .addCase(getGameStakes.fulfilled, (state, action) => {
                 state.gameStakes = action.payload.data;
+            })
+            .addCase(geBonusStakes.fulfilled, (state, action) => {
+                state.bonusStakes = action.payload.data;
             })
             .addCase(canStake.rejected, (state, payload) => {
             })

@@ -47,7 +47,7 @@ const GamesListScreen = () => {
         closeBottomSheet()
         navigate('/select-category')
     }
-    
+
     const playChallengeForCash = () => {
         dispatch(setPracticeMode(false));
         dispatch(setCashMode(true));
@@ -57,7 +57,7 @@ const GamesListScreen = () => {
             'email': user.email,
         })
         closeBottomSheet()
-       navigate('/select-category')
+        navigate('/select-category')
     }
 
     const playChallengeForFree = () => {
@@ -92,34 +92,34 @@ const GamesListScreen = () => {
                 { backgroundImage: "url(/images/game-play-background.png)" }
             }
                 className='games-list-container'>
-                <GamesCards openBottomSheet={openBottomSheet}/>
+                <GamesCards openBottomSheet={openBottomSheet} />
             </div>
             <AppHeader heading='Games' style={{ color: '#000000' }} />
             <BottomSheet open={open} closeBottomSheet={closeBottomSheet}
-                BSContent={<SelectGameMode  
+                BSContent={<SelectGameMode
                     closeBottomSheet={closeBottomSheet}
                     playTriviaForCash={playTriviaForCash}
                     playTriviaForFree={playTriviaForFree}
                     playChallengeForCash={playChallengeForCash}
-                    playChallengeForFree={playChallengeForFree}/>}
+                    playChallengeForFree={playChallengeForFree} />}
             />
-             <Dialogue open={openAlert} handleClose={closeAlert} dialogueMessage={alertMessage} />
+            <Dialogue open={openAlert} handleClose={closeAlert} dialogueMessage={alertMessage} />
         </>
     )
 }
 
-const GamesCards = ({openBottomSheet}) => {
+const GamesCards = ({ openBottomSheet }) => {
     return (
         <div className="main-games-container">
-             <TriviaBetCard openBottomSheet={openBottomSheet}/>
-            <TriviaChallengeCard openBottomSheet={openBottomSheet}/>
+            <TriviaChallengeCard openBottomSheet={openBottomSheet} />
+            <TriviaBetCard openBottomSheet={openBottomSheet} />
             <JackpotBetCard />
             <TriviaRoomsCard />
         </div>
     )
 }
 
-const TriviaBetCard = ({openBottomSheet}) => {
+const TriviaBetCard = ({ openBottomSheet }) => {
     const dispatch = useDispatch();
     const gameMode = useSelector(state => state.common.gameModes[0]);
     const gameType = useSelector(state => state.common.gameTypes[0]);
@@ -138,7 +138,7 @@ const TriviaBetCard = ({openBottomSheet}) => {
 
     return (
         <div className="trivia-bet-container" onClick={selectTriviaMode}>
-            <div className="image-container" style={{backgroundColor: '#EBFAED'}}>
+            <div className="image-container" style={{ backgroundColor: '#EBFAED' }}>
                 <img className="game-icon" src='/images/single-player.png' alt='challenge mode' />
             </div>
             <p className="game-mode-desc">Single Player</p>
@@ -149,7 +149,7 @@ const TriviaBetCard = ({openBottomSheet}) => {
     )
 }
 
-const TriviaChallengeCard = ({openBottomSheet}) => {
+const TriviaChallengeCard = ({ openBottomSheet }) => {
     const dispatch = useDispatch();
     const gameMode = useSelector(state => state.common.gameModes[1]);
     const gameType = useSelector(state => state.common.gameTypes[0]);
@@ -168,12 +168,12 @@ const TriviaChallengeCard = ({openBottomSheet}) => {
     };
 
     return (
-        <div className="trivia-bet-container">
-            <div className="image-container" style={{backgroundColor: '#F6F4FF'}}>
+        <div className="trivia-bet-container" onClick={selectChallengeMode}>
+            <div className="image-container" style={{ backgroundColor: '#F6F4FF' }}>
                 <img className="game-icon" src='/images/challenge-player.png' alt="challenge mode" />
             </div>
             <p className="game-mode-desc">Challenge a player</p>
-            <button className="play-btn" onClick={selectChallengeMode}>
+            <button className="play-btn">
                 <p className="play-button-text">Play now</p>
             </button>
         </div>
@@ -184,7 +184,7 @@ const JackpotBetCard = () => {
 
     return (
         <div className="trivia-bet-container">
-            <div className="image-container" style={{backgroundColor: '#FEECE7'}}>
+            <div className="image-container" style={{ backgroundColor: '#FEECE7' }}>
                 <img className="game-icon" src='/images/money-dynamic-color.png' alt="Jackpot bet" />
             </div>
             <p className="game-mode-desc">Jackpot Bet</p>
@@ -201,7 +201,7 @@ const TriviaRoomsCard = () => {
 
     return (
         <div className="trivia-bet-container">
-            <div className="image-container" style={{backgroundColor: '#ECF7FF'}}>
+            <div className="image-container" style={{ backgroundColor: '#ECF7FF' }}>
                 <img className="game-icon" src='/images/notify-heart-dynamic-color.png' alt="trivia room" />
             </div>
             <p className="game-mode-desc">Trivia Rooms</p>
