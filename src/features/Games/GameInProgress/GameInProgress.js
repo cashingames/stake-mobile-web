@@ -68,7 +68,9 @@ function GameInProgress() {
 
     if (practiceMode) {
       dispatch(endPracticeGame({
+        token: gameSessionToken,
         chosenOptions,
+        consumedBoosts
       }))
         .then(unwrapResult)
         .then(() => {
