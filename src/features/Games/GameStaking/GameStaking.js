@@ -86,6 +86,8 @@ const GameStaking = () => {
             dispatch(startPracticeGame(
                 {
                     category: gameCategoryId,
+                    type: gameTypeId,
+                    mode: gameMode.id,
                     amount: amount,
                     wallet_type: walletType
                 }
@@ -227,7 +229,6 @@ const GameStaking = () => {
                     />
                 </div>
             }
-            <StakingPredictionsTable amount={amount} walletType={walletType} />
             {cashMode &&
                 <button onClick={() => proceed()} className='button-container' disabled={loading || !canSend}>
                     <p className="buttonText">Start Game</p>
@@ -238,6 +239,8 @@ const GameStaking = () => {
                     <p className="buttonText">Start Game</p>
                 </button>
             }
+            <StakingPredictionsTable amount={amount} walletType={walletType} />
+
             <Dialogue open={openDialogue} handleClose={closeAlert} dialogueMessage={alertMessage} />
         </div>
     )

@@ -28,6 +28,10 @@ const ChallengeStakingScreen = () => {
     const minimumChallengeStakeAmount = useSelector(state => state.common.minimumChallengeStakeAmount);
     const maximumChallengeStakeAmount = useSelector(state => state.common.maximumChallengeStakeAmount);
     const gameType = useSelector(state => state.game.gameType);
+    const cashMode = useSelector(state => state.game.cashMode);
+    const practiceMode = useSelector(state => state.game.practiceMode);
+    const depositBalance = Number.parseFloat(user.walletBalance) - Number.parseFloat(user.withdrawableBalance)
+
 
 
     const onChangeStakeAmount = (e) => {
@@ -93,17 +97,25 @@ const ChallengeStakingScreen = () => {
             <div style={{ backgroundImage: "url(/images/game-play-background.png)" }} className='challenge-staking-container'>
                 <div className='purchase-boost'>
                     <p className='boost-text'>{user.username}, score higher with boosts</p>
-                    {boosts?.length > 0 ?
-                        <div className='boost-container'>
-                            {boosts.map((boost, i) => <BoostCardDetails key={i} boost={boost} />)}
-                        </div>
-                        :
-                        <span className='no-boost'>You dont have any available boost</span>
+                    {cashMode &&
+                        <>
+                            {boosts?.length > 0 ?
+                                <div className='boost-container'>
+                                    {boosts.map((boost, i) => <BoostCardDetails key={i} boost={boost} />)}
+                                </div>
+                                :
+                                <span className='no-boost'>You dont have any available boost</span>
+                            }
+                            <p className='buy-boost-text' onClick={goToStore}>Get boosts</p>
+                        </>
                     }
-                    <p className='buy-boost-text' onClick={goToStore}>Get boosts</p>
+                    {practiceMode &&
+                        <DemoBoostCardDetails />
+                    }
                 </div>
+
                 <SelectedPlayers user={user} />
-                <WalletDetails balance={user.walletBalance} />
+                <WalletDetails balance={depositBalance} practiceMode={practiceMode} cashMode={cashMode} />
                 <InputStake user={user} onChangeStakeAmount={onChangeStakeAmount}
                     amount={amount} amountErr={amountErr}
                     minimumChallengeStakeAmount={minimumChallengeStakeAmount} maximumChallengeStakeAmount={maximumChallengeStakeAmount} />
@@ -129,35 +141,40 @@ const SelectedPlayers = ({ user }) => {
     )
 }
 
-const WalletDetails = ({ balance }) => {
+const WalletDetails = ({ balance, cashMode, practiceMode }) => {
     let navigate = useNavigate();
-
-    // const [hidden, setHidden] = useState(false);
 
     return (
         <div className='wallet-container'>
             <div className='total-header'>
                 <div className='total-title-container'>
                     <img src='/images/wallet-with-cash.png' alt='wallet' className='avatar' />
-                    <p className='total-title-text'>Total balance</p>
+                    {cashMode &&
+                        <p className='total-title-text'>Deposit balance</p>
+                    }
+                    {practiceMode &&
+                        <p className='total-title-text'>Demo balance</p>
+                    }
                 </div>
-                {/* <span onClick={() => setHidden(!hidden)}>{hidden ? <FaEyeSlash color='#072169' /> : <FaEye color='#072169' />}</span> */}
             </div>
 
             <div className='funding-container'>
                 <div className='currency-header'>
                     <span className='currency-text'>NGN</span>
-                    <span className='currency-amount'>{formatCurrency(balance)}</span>
-                    {/* {hidden ?
-                        <span className='currency-amount'>***</span> :
+                    {cashMode &&
                         <span className='currency-amount'>{formatCurrency(balance)}</span>
-                    } */}
+                    }
+                    {practiceMode &&
+                        <span className='currency-amount'>{formatCurrency(100000)}</span>
+                    }
                 </div>
-                <div className='funding-button' onClick={() => navigate('/fund-wallet')}>
-                    <p className='funding-text'>Deposit</p>
-                    <IoChevronForwardOutline size={20} color='#072169' className='icon' />
+                {cashMode &&
+                    <div className='funding-button' onClick={() => navigate('/fund-wallet')}>
+                        <p className='funding-text'>Deposit</p>
+                        <IoChevronForwardOutline size={20} color='#072169' className='icon' />
 
-                </div>
+                    </div>
+                }
             </div>
         </div>
     )
@@ -219,6 +236,21 @@ const BoostCardDetails = ({ boost }) => {
         <div className='boost-card-container'>
             <img src={`${backendUrl}/${boost.icon}`} className="boost-icon" alt='boost' />
             <p className='boost-name'>x{formatNumber(boost.count)}</p>
+        </div>
+    )
+}
+
+const DemoBoostCardDetails = () => {
+    return (
+        <div className='boost-container'>
+            <div className='boost-card-container'>
+                <img src='/images/timefreeze-boost.png' className="boost-icon" alt='boost' />
+                <p className='boost-name'>x{formatNumber(20)}</p>
+            </div>
+            <div className='boost-card-container'>
+                <img src='/images/timefreeze-boost.png' className="boost-icon" alt='boost' />
+                <p className='boost-name'>x{formatNumber(20)}</p>
+            </div>
         </div>
     )
 }

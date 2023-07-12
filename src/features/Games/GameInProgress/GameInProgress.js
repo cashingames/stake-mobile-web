@@ -62,7 +62,8 @@ function GameInProgress() {
             'email': user.email
           });
           setEnding(false);
-          alert('failed to end game')
+          alert('failed to end game');
+          navigate('/dashboard');
         });
     }
 
@@ -88,7 +89,8 @@ function GameInProgress() {
             'email': user.email
           });
           setEnding(false);
-          alert('failed to end game')
+          alert('failed to end game');
+          navigate('/dashboard');
         });
     }
   }

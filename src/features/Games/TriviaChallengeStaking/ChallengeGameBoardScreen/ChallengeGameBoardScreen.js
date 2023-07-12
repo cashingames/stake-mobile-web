@@ -6,12 +6,13 @@ import GameAppHeader from '../../../../components/GameAppHeader/GameAppHeader';
 import './ChallengeGameBoardScreen.scss';
 import { getNextQuestion, selectedOption, setChallengeDetails, setIsEnded, submitGameSession } from '../TriviaChallengeGameSlice';
 import { doc, getDoc } from "firebase/firestore";
-import { initializeFirestore } from '../../../../firebaseConfig';
+import firebaseConfig, { initializeFirestore } from '../../../../firebaseConfig';
 import DoubleDialog from '../../../../components/DoubleButtonDialog/DoubleDialogButton';
 import ChallengeProgressWidget from '../../../../components/ChallengeProgressWidget/ChallengeProgressWidget';
 import logToAnalytics from '../../../../utils/analytics';
 import { CountdownCircleTimer } from 'react-countdown-circle-timer';
 import { IoCheckmarkCircle, IoEllipseOutline } from 'react-icons/io5';
+import { logEvent } from 'firebase/analytics';
 
 const backendUrl = process.env.REACT_APP_API_ROOT_URL;
 
@@ -22,6 +23,7 @@ function ChallengeGameBoardScreen() {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const analytics = firebaseConfig();
     const documentId = useSelector(state => state.triviaChallenge.documentId);
     const challengeDetails = useSelector(state => state.triviaChallenge.challengeDetails);
     const user = useSelector(state => state.auth.user);
@@ -64,6 +66,16 @@ function ChallengeGameBoardScreen() {
                     status === 'MATCHED' ?
                         '/challenge-waiting' : '/challenge-ended'
                 );
+            })
+            .catch((_rejectedValueOrSerializedError) => {
+                logEvent(analytics, 'challenge_game_error', {
+                    'id': user.username,
+                    'phone_number': user.phoneNumber,
+                    'email': user.email
+                });
+                setSubmitting(false);
+                alert('failed to end challenge game');
+                navigate('/dashboard');
             });
     }
 

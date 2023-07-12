@@ -74,7 +74,7 @@ const NextButton = ({ onClick, ending , index}) => {
   return (
     <div className='next-button-case'>
       <button onClick={pressNext} className='nextButton' disabled={ending}>
-        <p className='btnText'>{isLastQuestion ? 'Finish' : `Next Q${index + 2}`}</p>
+        <p className='btnText'>{isLastQuestion ? 'Finish' : 'Next'}</p>
       </button>
     </div>
   )
