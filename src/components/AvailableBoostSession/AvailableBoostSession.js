@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { reduceBoostCount } from '../../features/Auth/AuthSlice';
 import { bombOptions, boostReleased, consumeBoost, pauseGame, skipQuestion } from '../../features/Games/GameSlice';
@@ -16,6 +16,10 @@ function AvailableBoostSession() {
     const displayedOptions = useSelector(state => state.game.displayedOptions);
     const boosts = useSelector(state => state.auth.user.boosts);
     const user = useSelector((state) => state.auth.user);
+    const cashMode = useSelector(state => state.game.cashMode);
+    const practiceMode = useSelector(state => state.game.practiceMode);
+    const [updatepracticeFreezeCount, setUpdatePracticeFreezeCount] = useState(20);
+    const [updatepracticeSkipCount, setUpdatePracticeSkipCount] = useState(20);
 
 
     const boostsToDisplay = () => {
@@ -53,21 +57,63 @@ function AvailableBoostSession() {
         }
     }
 
+    const practiceBoosts = [
+        {
+            "id": 1,
+            "icon": '/images/timefreeze-boost.png',
+            "count": updatepracticeFreezeCount,
+            "boostName": 'TIME FREEZE'
+        },
+        {
+            "id": 2,
+            "icon": '/images/skip-boost.png',
+            "count": updatepracticeSkipCount,
+            "boostName": 'SKIP'
+        }
+    ]
+
+    const practiceBoostApplied = (data) => {
+        const boostName = data.boostName.toUpperCase();
+        if (boostName === 'TIME FREEZE') {
+            // setClicked(true)
+            setUpdatePracticeFreezeCount(data.count - 1)
+            dispatch(pauseGame(true));
+            setTimeout(() => {
+                dispatch(pauseGame(false))
+                dispatch(boostReleased())
+                // setClicked(false)
+
+            }, 10000);
+        }
+        if (boostName === 'SKIP') {
+            setUpdatePracticeSkipCount(data.count - 1)
+            dispatch(skipQuestion());
+            dispatch(boostReleased());
+        }
+    }
+
     return (
         <>
+            {cashMode &&
+                <>
 
-            {boosts?.length > 0 ?
-                <div className='available-boosts'>
-                    {
-                        boostsToDisplay().map((boost, index) =>
-                            boost.count >= 1 &&
-                            <AvailableBoost boost={boost} key={index} onConsume={boostApplied}  />
-                        )
+                    {boosts?.length > 0 ?
+                        <div className='available-boosts'>
+                            {
+                                boostsToDisplay().map((boost, index) =>
+                                    boost.count >= 1 &&
+                                    <AvailableBoost boost={boost} key={index} onConsume={boostApplied} />
+                                )
+                            }
+
+                        </div>
+                        :
+                        <></>
                     }
-
-                </div>
-                :
-                <></>
+                </>
+            }
+             {practiceMode &&
+                <GamePracticeBoosts practiceBoosts={practiceBoosts} boostApplied={practiceBoostApplied} />
             }
         </>
     )
@@ -87,7 +133,33 @@ const AvailableBoost = ({ boost, onConsume, showText }) => {
                         alt='bomb' className={`boostIcon ${showText ? 'boostBlink' : 'boostNoBlink'}`} />
                     <p className='boostCount'>x{formatNumber(boost.count)}</p>
                 </div>
-                {/* <p className='boostName'>{boost.name}</p> */}
+            </div>
+        </>
+    )
+}
+
+const GamePracticeBoosts = ({ practiceBoosts, boostApplied }) => {
+    return (
+        <div className='available-boosts'>
+            {
+                practiceBoosts.map((practiceBoost, index) =>
+                    <GamePracticeBoost practiceBoost={practiceBoost} key={index} onConsume={boostApplied} />
+                )
+            }
+        </div>
+    )
+}
+
+const GamePracticeBoost = ({ practiceBoost, onConsume }) => {
+    return (
+        <>
+            <div className='boostContainer' onClick={() => onConsume(practiceBoost)}>
+                <div className='availableBoost'>
+                    <img
+                        src={practiceBoost.icon}
+                        alt='boost' className='boostIcon' />
+                    <p className='boostCount'>x{formatNumber(practiceBoost.count)}</p>
+                </div>
             </div>
         </>
     )

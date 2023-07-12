@@ -7,14 +7,20 @@ function GameTopicProgress({ onComplete }) {
     const gameCategory = useSelector(state => state.game.gameCategory.name);
     const index = useSelector(state => state.game.currentQuestionPosition);
     const total = useSelector(state => state.game.totalQuestionCount);
-    // const highestOdd = 10
+    const cashMode = useSelector(state => state.game.cashMode);
+    const practiceMode = useSelector(state => state.game.practiceMode);
 
 
     return (
         <div className='topic-progress'>
             <div className='category-container'>
                 <span className='category-name'>{gameCategory}</span>
-                <StakeDetails />
+                {practiceMode &&
+                    <DemoDetails />
+                }
+                {cashMode &&
+                    <StakeDetails />
+                }
             </div>
             <div className='questions-answered-container'>
                 <AnsweredGameProgress />
@@ -33,6 +39,17 @@ const StakeDetails = () => {
             <span className='stake-amount'>NGN {amountStaked}</span>
         </div>
     )
+}
+
+const DemoDetails = () => {
+
+    return (
+        <div className='stake-container'>
+            <img src='/images/star.png' alt='start' className='star' />
+            <span className='stake-amount'>Demo Game</span>
+        </div>
+    )
+
 }
 
 export default GameTopicProgress

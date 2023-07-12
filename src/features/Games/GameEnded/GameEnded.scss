@@ -19,6 +19,24 @@
             background-color: #FFF;
         }
     }
+    .name-tag-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+            .user-initials {
+                width: 5rem;
+                height: 5rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: #FDCCD4;
+                border-radius: 50px;
+                font-family: 'gotham-medium';
+                font-size: 1.8rem;
+                color: #072169;
+
+            }
+    }
     .correct-container {
         display: flex;
         justify-content: center;

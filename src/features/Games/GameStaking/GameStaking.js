@@ -82,10 +82,13 @@ const GameStaking = () => {
                 });
         }
         if (practiceMode) {
+            console.log('started practice')
+            dispatch(setWalletSource(walletType))
             dispatch(startPracticeGame(
                 {
                     category: gameCategoryId,
-                    amount: amount
+                    amount: amount,
+                    wallet_type: walletType
                 }
             )).then(unwrapResult)
                 .then(result => {
@@ -136,10 +139,10 @@ const GameStaking = () => {
     }
 
     useEffect(() => {
-        if(balanceName === `Deposit (NGN ${formatCurrency(depositBalance)})`) {
+        if (balanceName === `Deposit (NGN ${formatCurrency(depositBalance)})`) {
             setWalletType('deposit_balance')
         }
-        if(balanceName === `Bonus (NGN ${formatCurrency(user.bonusBalance)})`) {
+        if (balanceName === `Bonus (NGN ${formatCurrency(user.bonusBalance)})`) {
             setWalletType('bonus_balance')
         }
     }, [balanceName, depositBalance, user.bonusBalance])
@@ -160,6 +163,10 @@ const GameStaking = () => {
             {cashMode &&
                 <StakingBalances depositBalance={depositBalance} user={user}
                     minimumExhibitionStakeAmount={minimumExhibitionStakeAmount} setBalanceName={setBalanceName} balanceName={balanceName} />
+            }
+            {practiceMode &&
+                <PracticeStakingBalances
+                    setBalanceName={setBalanceName} balanceName={balanceName} />
             }
             {cashMode &&
                 <div className="input-container">
@@ -227,7 +234,7 @@ const GameStaking = () => {
                 </button>
             }
             {practiceMode &&
-                <button onClick={proceed} className='button-container' disabled={loading || amount === ''}>
+                <button onClick={proceed} className='button-container' disabled={loading || amount === ''|| balanceName === ''}>
                     <p className="buttonText">Start Game</p>
                 </button>
             }
@@ -281,6 +288,57 @@ const StakingBalances = ({ depositBalance, minimumExhibitionStakeAmount, user, b
             key: '2',
             value: `Bonus (NGN ${formatCurrency(user.bonusBalance)})`,
             disabled: user.bonusBalance < minimumExhibitionStakeAmount,
+        }
+    ]
+
+    return (
+        <div className="balances-container">
+            <div className="label-container">
+                <span className="balance-label">Where are you staking from?</span>
+                <span className="required-text">Required</span>
+            </div>
+            <FormControl fullWidth>
+                <InputLabel id="demo-simple-select-label" style={{ fontFamily: 'sansation-regular', color: '#072169', fontSize: '0.92rem', }}>Select Wallet</InputLabel>
+                <Select
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    value={balanceName}
+                    label="Select Wallet"
+                    onChange={(e) => setBalanceName(e.target.value)}
+                    sx={{
+                        height: ' 3.5rem',
+                        borderRadius: '14px',
+                        fontSize: '0.95rem',
+                        background: '#FFF',
+                        border: '0.1px solid #D9D9D9',
+                        outline: 0,
+                        fontFamily: 'sansation-regular',
+                        color: '#072169',
+                    }}
+                >
+                    {balanceAccounts && balanceAccounts.map((balanceAccount, i) => {
+                        return (
+                            <MenuItem key={i} value={balanceAccount.value} disabled={balanceAccount.disabled}
+                                style={{ color: '#072169', fontFamily: 'sansation-regular' }}>{balanceAccount.value}</MenuItem>
+                        )
+                    }
+                    )}
+                </Select>
+            </FormControl>
+        </div>
+    )
+}
+
+const PracticeStakingBalances = ({ balanceName, setBalanceName }) => {
+
+    const balanceAccounts = [
+        {
+            key: '1',
+            value: `Deposit (NGN ${formatCurrency(100000)})`,
+        },
+        {
+            key: '2',
+            value: `Bonus (NGN ${formatCurrency(100000)})`,
         }
     ]
 

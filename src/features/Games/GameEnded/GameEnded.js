@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import { getUser } from '../../Auth/AuthSlice';
 import firebaseConfig from '../../../firebaseConfig';
 import { logEvent } from 'firebase/analytics';
+import StakeWinnings from '../../../components/StakeWinnings/StakeWinnings';
 
 const backendUrl = process.env.REACT_APP_API_ROOT_URL;
 
@@ -18,6 +19,7 @@ function GameEnded() {
   const dispatch = useDispatch();
   const analytics = firebaseConfig();
   const user = useSelector(state => state.auth.user);
+  const username = user.firstName === '' ? user.username?.charAt(0) : (user.firstName?.charAt(0) + user.lastName?.charAt(0))
   const pointsGained = useSelector(state => state.game.pointsGained);
   const amountWon = useSelector(state => state.game.amountWon);
   const isGameEnded = useSelector(state => state.game.isEnded);
@@ -26,9 +28,8 @@ function GameEnded() {
   const wrongCount = useSelector(state => state.game.wrongCount);
   const withStaking = useSelector(state => state.game.withStaking);
   const cashMode = useSelector(state => state.game.cashMode);
+  const practiceMode = useSelector(state => state.game.practiceMode);
   const walletSource = useSelector(state => state.game.walletSource);
-
-
 
 
   const goHome = () => {
@@ -38,7 +39,7 @@ function GameEnded() {
 
   const playAgain = () => {
     logEvent(analytics, 'staking_exhibition_play_again_clicked');
-    navigate('/select-category')
+    navigate('/games-list')
   }
 
   useEffect(() => {
@@ -70,14 +71,23 @@ function GameEnded() {
 
   return (
     <div className='gameEndedCase' style={{ backgroundImage: "url(/images/success-background.png)" }}>
-      <div className='game-tag-container'>
-        <img
-          src={user.avatar ? `${backendUrl}/${user.avatar}` : "/images/user-icon.png"}
-          alt='user'
-          className='userAvater'
-          onError={(e) => e.target.style.display = 'none'} />
-      </div>
+      {user.avatar ?
+        <div className='game-tag-container'>
+          <img
+            src={user.avatar ? `${backendUrl}/${user.avatar}` : "/images/user-icon.png"}
+            alt='user'
+            className='userAvater'
+            onError={(e) => e.target.style.display = 'none'} />
+        </div>
+        :
+        <div className='name-tag-container'>
+          <span className='user-initials'>{username}</span>
+        </div>
+      }
       <UserName userName={user.firstName} />
+      {practiceMode &&
+        <DemoWinnings amountWon={amountWon} />
+      }
       {withStaking && cashMode &&
         <Winnings amountWon={amountWon} onPress={reviewStaking} walletSource={walletSource} />
       }
@@ -87,6 +97,15 @@ function GameEnded() {
       />
       <GameButton goHome={goHome} playAgain={playAgain} />
       {/* <BoostPopUp setShowModal={setShowModal} showModal={showModal} /> */}
+    </div>
+  )
+}
+
+function DemoWinnings({ amountWon }) {
+  return (
+    <div className='winningCase'>
+      <StakeWinnings amountWon={amountWon} />
+
     </div>
   )
 }

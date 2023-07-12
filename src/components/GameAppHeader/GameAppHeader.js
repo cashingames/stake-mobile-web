@@ -7,7 +7,7 @@ import AnonymousRouteHeader from '../AnonymousRouteHeader/AnonymousRouteHeader'
 function GameAppHeader({ onPress, gameTitle }) {
     return (
         <div className='gameInHeader'>
-            <button onClick={onPress} className='exitGame'>X</button>
+            <button onClick={onPress} className='exit-game'>X</button>
             <AnonymousRouteHeader title={gameTitle} styleProp='password-header' />
             <div></div>
         </div>
