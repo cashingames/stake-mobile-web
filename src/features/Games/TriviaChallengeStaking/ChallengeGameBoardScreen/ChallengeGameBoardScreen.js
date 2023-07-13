@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import GameAppHeader from '../../../../components/GameAppHeader/GameAppHeader';
 import './ChallengeGameBoardScreen.scss';
-import { getNextQuestion, selectedOption, setChallengeDetails, setIsEnded, submitGameSession } from '../TriviaChallengeGameSlice';
+import { getNextQuestion, selectedOption, setChallengeDetails, setIsEnded, submitGameSession, submitPracticeGameSession } from '../TriviaChallengeGameSlice';
 import { doc, getDoc } from "firebase/firestore";
 import firebaseConfig, { initializeFirestore } from '../../../../firebaseConfig';
 import DoubleDialog from '../../../../components/DoubleButtonDialog/DoubleDialogButton';
@@ -32,6 +32,8 @@ function ChallengeGameBoardScreen() {
     const [submitting, setSubmitting] = useState(false);
     const [alertMessage, setAlertMessage] = useState('');
     const [openAlert, setOpenAlert] = useState(false);
+    const cashMode = useSelector(state => state.game.cashMode);
+    const practiceMode = useSelector(state => state.game.practiceMode);
 
     const getOpponentStatus = async () => {
         const docRef = doc(db, documentId);
@@ -57,26 +59,53 @@ function ChallengeGameBoardScreen() {
 
         setSubmitting(true);
         dispatch(setIsEnded(true));
-        dispatch(submitGameSession())
-            .then(unwrapResult)
-            .then(async () => {
-                const status = await getOpponentStatus();
-                setSubmitting(false);
-                navigate(
-                    status === 'MATCHED' ?
-                        '/challenge-waiting' : '/challenge-ended'
-                );
-            })
-            .catch((_rejectedValueOrSerializedError) => {
-                logEvent(analytics, 'challenge_game_error', {
-                    'id': user.username,
-                    'phone_number': user.phoneNumber,
-                    'email': user.email
+        if (cashMode) {
+            dispatch(submitGameSession())
+                .then(unwrapResult)
+                .then(async () => {
+                    const status = await getOpponentStatus();
+                    setSubmitting(false);
+                    navigate(
+                        status === 'MATCHED' ?
+                            '/challenge-waiting' : '/challenge-ended'
+                    );
+                })
+                .catch((_rejectedValueOrSerializedError) => {
+                    logEvent(analytics, 'challenge_game_error', {
+                        'id': user.username,
+                        'phone_number': user.phoneNumber,
+                        'email': user.email
+                    });
+                    setSubmitting(false);
+                    alert('failed to end challenge game');
+                    navigate('/dashboard');
                 });
-                setSubmitting(false);
-                alert('failed to end challenge game');
-                navigate('/dashboard');
-            });
+        }
+
+
+        if (practiceMode) {
+            dispatch(submitPracticeGameSession())
+                .then(unwrapResult)
+                .then(async () => {
+                    const status = await getOpponentStatus();
+                    setSubmitting(false);
+                    navigate(
+                        status === 'MATCHED' ?
+                            '/challenge-waiting' : '/challenge-ended'
+                    );
+                })
+                .catch((_rejectedValueOrSerializedError) => {
+                    logEvent(analytics, 'challenge_game_error', {
+                        'id': user.username,
+                        'phone_number': user.phoneNumber,
+                        'email': user.email
+                    });
+                    setSubmitting(false);
+                    alert('failed to end challenge practice game');
+                    navigate('/dashboard');
+                });
+
+        }
     }
 
     const closeAlert = () => {
@@ -154,7 +183,7 @@ const SelectedPlayers = ({ user, challengeDetails }) => {
     return (
         <div className="players-container">
             <SelectedPlayer playerName={user.username} playerAvatar={user.avatar ? `${backendUrl}/${user.avatar}` : "/images/user-icon.png"} />
-            <img src='/images/versus.png' alt='versus' />
+            <img src='/images/versus.png' alt='versus' className='versus' />
             <SelectedPlayer playerName={challengeDetails.opponent.username} playerAvatar={challengeDetails.opponent.avatar ? `${backendUrl}/${challengeDetails.opponent.avatar}` : "/images/user-icon.png"} />
         </div>
     )

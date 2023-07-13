@@ -6,6 +6,7 @@ import { getUser } from "../../../Auth/AuthSlice";
 import { clearSession } from "../TriviaChallengeGameSlice";
 import './ChallengeEndGameScreen.scss';
 import GameButton from "../../../../components/GameButton/GameButton";
+import { formatCurrency } from "../../../../utils/stringUtl";
 // import BoostPopUp from "../../../../components/BoostPopUp/BoostPopUp";
 
 
@@ -15,10 +16,11 @@ const backendUrl = process.env.REACT_APP_API_ROOT_URL;
 const ChallengeEndGameScreen = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
-
     const user = useSelector(state => state.auth.user);
     const challengeDetails = useSelector(state => state.triviaChallenge.challengeDetails);
     const [loading, setLoading] = useState(false);
+    const cashMode = useSelector(state => state.game.cashMode);
+    const practiceMode = useSelector(state => state.game.practiceMode);
     // const [showModal, setShowModal] = useState(false);
 
 
@@ -34,7 +36,7 @@ const ChallengeEndGameScreen = () => {
             'id': user.username,
         });
         dispatch(clearSession());
-        navigate("/select-category")
+        navigate("/games-list")
         setLoading(false);
 
     }
@@ -97,7 +99,6 @@ const ChallengeEndGameScreen = () => {
     return (
         <div >
             <div className="end-game-container" style={{ backgroundImage: "url(/images/success-background.png)" }} >
-                {/* <div className="end-game-container" style={{ opacity: [showModal ? 0.6 : 1] }}> */}
                 <SelectedPlayers challengeDetails={challengeDetails} />
                 {Number.parseFloat(challengeDetails.score) > Number.parseFloat(challengeDetails.opponent.score) &&
                     <p className="head-text">You won the challenge</p>
@@ -108,8 +109,9 @@ const ChallengeEndGameScreen = () => {
                 {Number.parseFloat(challengeDetails.score) === Number.parseFloat(challengeDetails.opponent.score) &&
                     <p className="head-text">Draw, you can try again</p>
                 }
-                <WinningAmount challengeDetails={challengeDetails} />
-                <FinalScoreBoard challengeDetails={challengeDetails} />
+                <WinningAmount practiceMode={practiceMode} cashMode={cashMode} />
+                <WinningScore challengeDetails={challengeDetails} practiceMode={practiceMode} cashMode={cashMode} />
+                <FinalScoreBoard challengeDetails={challengeDetails} cashMode={cashMode} practiceMode={practiceMode} />
                 <GameButton goHome={goHome} playAgain={onPlayButtonClick} disabled={loading} />
 
             </div>
@@ -118,12 +120,12 @@ const ChallengeEndGameScreen = () => {
     )
 }
 
-const SelectedPlayers = ({  challengeDetails }) => {
+const SelectedPlayers = ({ challengeDetails }) => {
     return (
         <div className="players-container">
             <SelectedPlayer playerName={challengeDetails.username} playerAvatar={challengeDetails.avatar ? `${backendUrl}/${challengeDetails.avatar}` : "/images/user-icon.png"} />
-            <img src='/images/versus.png' alt='versus' />
-                <SelectedPlayer playerName={challengeDetails.opponent.username} playerAvatar={challengeDetails.opponent.avatar ? `${backendUrl}/${challengeDetails.opponent.avatar}` : "/images/user-icon.png"} />
+            <img src='/images/versus.png' alt='versus' className="versus" />
+            <SelectedPlayer playerName={challengeDetails.opponent.username} playerAvatar={challengeDetails.opponent.avatar ? `${backendUrl}/${challengeDetails.opponent.avatar}` : "/images/user-icon.png"} />
         </div>
     )
 }
@@ -140,13 +142,16 @@ const SelectedPlayer = ({ playerName, playerAvatar }) => {
 }
 
 
-const WinningAmount = ({ challengeDetails }) => {
-    // const amount = useSelector(state => state.triviaChallenge.challengeDetails.amount_won);
+const WinningScore = ({ challengeDetails, cashMode, practiceMode }) => {
 
     return (
         <div className="winnings-container">
-            <span className="winnings-header">Scores</span>
-            <div className="score-count-container">
+            {cashMode &&
+                <span className="winnings-header">Scores</span>
+            }
+            {practiceMode &&
+                <span className="winnings-header">Demo Scores</span>
+            }            <div className="score-count-container">
                 <div className="user-count-container">
                     <span className="count-name">You</span>
                     <span className="score-count">{challengeDetails.score}</span>
@@ -160,10 +165,31 @@ const WinningAmount = ({ challengeDetails }) => {
     )
 }
 
-const FinalScoreBoard = ({ challengeDetails }) => {
+const WinningAmount = ({ cashMode, practiceMode }) => {
+    const amount = useSelector(state => state.triviaChallenge.challengeDetails.amount_won);
+
+    return (
+        <div className="amount-container">
+            {cashMode &&
+                <span className="winnings-header">Winnings</span>
+            }
+            {practiceMode &&
+                <span className="winnings-header">Demo Winnings</span>
+            }
+            <span className="amount">NGN {formatCurrency(amount)}</span>
+        </div >
+    )
+}
+
+const FinalScoreBoard = ({ challengeDetails, cashMode, practiceMode }) => {
     return (
         <div className='final-score-case'>
-            <span className='point-text-header'>Game play statistics</span>
+            {cashMode &&
+                <span className="winnings-header">Game play statistics</span>
+            }
+            {practiceMode &&
+                <span className='point-text-header'>Demo game statistics</span>
+            }
             <div className='scoreContainer'>
                 <span className='point-text'>Questions answered</span>
                 <span className='point-number'>{challengeDetails.questions?.length / 2}</span>

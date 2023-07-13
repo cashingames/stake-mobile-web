@@ -4,7 +4,7 @@ import './ChallengeStakingScreen.scss';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import ScreenHeader from '../../../../components/ScreenHeader/ScreenHeader';
-import { startChallengeRequest } from '../TriviaChallengeGameSlice';
+import { startChallengeRequest, startPracticeChallengeRequest } from '../TriviaChallengeGameSlice';
 import { unwrapResult } from '@reduxjs/toolkit';
 import logToAnalytics from '../../../../utils/analytics';
 // import { FaEye, FaEyeSlash } from 'react-icons/fa';
@@ -56,6 +56,26 @@ const ChallengeStakingScreen = () => {
             .then(async result => {
                 setLoading(false)
                 logToAnalytics("trivia_challenge_stake_now_clicked", {
+                    'amount': amount,
+                });
+                navigate('/challenge-matching')
+            })
+            .catch((rejectedValueOrSerializedError) => {
+                alert("Something went wrong. Please try again or contact support")
+                setLoading(false)
+            });
+    }
+
+    const stakePracticeAmount = async () => {
+        setLoading(true);
+
+        dispatch(startPracticeChallengeRequest({
+            category: gameCategoryId,
+            amount: amount
+        })).then(unwrapResult)
+            .then(async result => {
+                setLoading(false)
+                logToAnalytics("practice_challenge_stake_now_clicked", {
                     'amount': amount,
                 });
                 navigate('/challenge-matching')
@@ -119,11 +139,20 @@ const ChallengeStakingScreen = () => {
                 <InputStake user={user} onChangeStakeAmount={onChangeStakeAmount}
                     amount={amount} amountErr={amountErr}
                     minimumChallengeStakeAmount={minimumChallengeStakeAmount} maximumChallengeStakeAmount={maximumChallengeStakeAmount} />
-                <button className='button-container' onClick={stakeAmount} disabled={loading || !canSend}>
-                    <p className="button-text">{loading ? <Spinner
-                        color='#ffff'
-                        size={10} /> : "Stake Amount"}</p>
-                </button>
+                {cashMode &&
+                    <button className='button-container' onClick={stakeAmount} disabled={loading || !canSend}>
+                        <p className="button-text">{loading ? <Spinner
+                            color='#ffff'
+                            size={10} /> : "Stake Amount"}</p>
+                    </button>
+                }
+                {practiceMode &&
+                    <button className='button-container' onClick={stakePracticeAmount} disabled={loading || amount === ''}>
+                        <p className="button-text">{loading ? <Spinner
+                            color='#ffff'
+                            size={10} /> : "Stake Amount"}</p>
+                    </button>
+                }
             </div>
 
 
