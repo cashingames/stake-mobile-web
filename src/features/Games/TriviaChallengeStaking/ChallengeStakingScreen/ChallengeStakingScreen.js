@@ -140,14 +140,14 @@ const ChallengeStakingScreen = () => {
                     amount={amount} amountErr={amountErr}
                     minimumChallengeStakeAmount={minimumChallengeStakeAmount} maximumChallengeStakeAmount={maximumChallengeStakeAmount} />
                 {cashMode &&
-                    <button className='button-container' onClick={stakeAmount} disabled={loading || !canSend}>
+                    <button className='button-containeri' onClick={stakeAmount} disabled={loading || !canSend}>
                         <p className="button-text">{loading ? <Spinner
                             color='#ffff'
                             size={10} /> : "Stake Amount"}</p>
                     </button>
                 }
                 {practiceMode &&
-                    <button className='button-container' onClick={stakePracticeAmount} disabled={loading || amount === ''}>
+                    <button className='button-containeri' onClick={stakePracticeAmount} disabled={loading || amount === ''}>
                         <p className="button-text">{loading ? <Spinner
                             color='#ffff'
                             size={10} /> : "Stake Amount"}</p>

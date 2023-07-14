@@ -185,7 +185,7 @@ const FinalScoreBoard = ({ challengeDetails, cashMode, practiceMode }) => {
     return (
         <div className='final-score-case'>
             {cashMode &&
-                <span className="winnings-header">Game play statistics</span>
+                <span className="point-text-header">Game play statistics</span>
             }
             {practiceMode &&
                 <span className='point-text-header'>Demo game statistics</span>

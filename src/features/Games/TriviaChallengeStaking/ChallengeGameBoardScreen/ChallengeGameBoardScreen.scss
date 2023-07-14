@@ -178,6 +178,7 @@
         flex-direction: row;
         align-items: center;
         margin-bottom: 1rem;
+        cursor: pointer;
            .answer-text{
                margin: 0;
                color: #072169;
@@ -205,6 +206,7 @@
         border-radius: 8px;
         margin-top: 1rem;
         border: none;
+        cursor: pointer;
 
         @include devices(sm) {
             margin-top: 3rem;

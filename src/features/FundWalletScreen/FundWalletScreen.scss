@@ -20,6 +20,7 @@
         border-radius: 13px;
         width: 100%;
         border: none;
+        cursor: pointer;
 
         .text {
             color: white;
@@ -125,6 +126,7 @@
 
         .gateways-container {
             margin-top: 2rem;
+            cursor: pointer;
 
             .label-container {
                 display: flex;

@@ -310,7 +310,7 @@
             cursor: pointer;
         }
     }
-    .button-container {
+    .button-containeri {
         background-color: #E15220;
         justify-content: center;
         flex-direction: row;
@@ -321,6 +321,7 @@
         width: 100%;
         border: none;
         margin-bottom: 1.5rem;
+        cursor: pointer;
 
         .button-text {
             color: white;

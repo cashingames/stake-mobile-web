@@ -184,7 +184,8 @@ const initialState = {
     periodBeforeChallengeStakingExpiry: '',
     stakeWinners:[],
     featureFlags: [],
-    minimumBoostScore:0
+    minimumBoostScore:0,
+    minimumWithdrawableAmount: 0,
 
 }
 
@@ -211,12 +212,14 @@ export const CommonSlice = createSlice({
                 state.minVersionForce = data.minVersionForce;
                 state.maximumExhibitionStakeAmount = data.maximumExhibitionStakeAmount;
                 state.minimumExhibitionStakeAmount = data.minimumExhibitionStakeAmount;
+                state.minimumWithdrawableAmount = data.minimumWithdrawableAmount;
                 state.maximumChallengeStakeAmount = data.maximumChallengeStakeAmount;
                 state.minimumChallengeStakeAmount = data.minimumChallengeStakeAmount;
                 state.minimumWalletFundableAmount = data.minimumWalletFundableAmount;
                 state.totalWithdrawalAmountLimit = data.totalWithdrawalAmountLimit;
                 state.periodBeforeChallengeStakingExpiry = data.periodBeforeChallengeStakingExpiry
                 state.minimumBoostScore = data.minimumBoostScore
+                
             })
             .addCase(fetchRecentLiveTrivia.fulfilled, (state, action) => {
                 state.trivias = action.payload;

@@ -34,6 +34,7 @@
                 background-color: #E15220;
                 border-radius: 35px;
                 padding: .3rem .4rem;
+                cursor: pointer;
 
                 .wallet-text {
                     margin: 0;
@@ -57,6 +58,7 @@
                 border-radius: 35px;
                 padding: .3rem .4rem;
                 margin-left: .5rem;
+                cursor: pointer;
 
                 .wallet-text {
                     margin: 0;
@@ -76,6 +78,7 @@
             }
 
             .inactive-wallet-button {
+                cursor: pointer;
                 .inactive-wallet-text {
                     color: #535761;
                     margin: 0;
@@ -87,6 +90,7 @@
             }
 
             .inactive-bonus-wallet-text {
+                cursor: pointer;
                 .inactive-wallet-text {
                     color: #535761;
                     margin: 0;
@@ -221,6 +225,7 @@
                     background-color: #E15220;
                     border-radius: 35px;
                     padding: .3rem .4rem;
+                    cursor: pointer;
 
                     .wallet-text {
                         margin: 0;
@@ -240,6 +245,7 @@
                 }
 
                 .inactive-wallet-button {
+                    cursor: pointer;
                     .inactive-wallet-texta {
                         color: #535761;
                         margin: 0;
@@ -350,6 +356,7 @@
                 width: 100%;
                 border: none;
                 margin-top: 4rem;
+                cursor: pointer;
 
                 .buttonText {
                     color: white;

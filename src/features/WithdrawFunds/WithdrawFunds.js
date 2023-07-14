@@ -22,7 +22,7 @@ const WithdrawFunds = () => {
     const [amount, setAmount] = useState('');
     const user = useSelector(state => state.auth.user);
     const [amountErr, setAmountError] = useState(false);
-    const minimumWithdrawableAmount = Number.parseFloat(1000);
+    const minimumWithdrawableAmount = useSelector(state => state.common.minimumWithdrawableAmount);
     const banks = useSelector(state => state.common.banks);
     const [bankName, setBankName] = useState('');
     const [accountNumber, setAccountNumber] = useState('');
