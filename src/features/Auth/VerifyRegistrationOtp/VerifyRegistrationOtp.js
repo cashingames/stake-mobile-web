@@ -77,7 +77,7 @@ const VerifyRegistrationOtp = () => {
             username: location.state.username
         }))
         setCountdownDone(true)
-        setOtpValues(new Array(5).fill(''))
+        setOtpValues(new Array(5).fill(''));
         setOpen(true)
         setAlertMessage('Otp resent successfully')
     }
@@ -103,7 +103,8 @@ const VerifyRegistrationOtp = () => {
                 dispatch(setToken(response.data))
             })
             .catch((rejectedValueOrSerializedError) => {
-                alert("Failed to log in, please input the correct code");
+                setOtpValues(new Array(5).fill(''));
+                setAlertMessage("Your passcode is not correct");
                 logEvent(analytics, "verified_user_error", {
                     'id': location.state.username,
                     'phone_number': location.state.phone_number
