@@ -25,7 +25,6 @@ const VerifyOtp = () => {
     const location = useLocation()
     const token = otpValues.join('');
     const [open, setOpen] = useState(false)
-    const [alertMessage, setAlertMessage] = useState('');
 
     const closeAlert = () => {
         setOpen(false)
@@ -79,6 +78,7 @@ const VerifyOtp = () => {
             })
             .catch((rejectedValueOrSerializedError) => {
                 setCanSubmit(true);
+                setOpen(true)
                 setError("Invalid authentication code provided");
                 setOtpValues(new Array(5).fill(''));
             })
@@ -90,7 +90,9 @@ const VerifyOtp = () => {
         }))
         setCountdownDone(true)
         setOtpValues(new Array(5).fill(''))
-        setAlertMessage('Otp resent successfully')    }
+        setOpen(true)
+        setError('Otp resent successfully')    
+    }
 
     useEffect(() => {
         if (token.length < 5) {
@@ -148,7 +150,7 @@ const VerifyOtp = () => {
                         <span className='whatsapp-title'>Live chat with support on Whatsapp</span>
                     </div>
                 </a>
-                <Dialogue open={open} handleClose={closeAlert} dialogueMessage={alertMessage} />
+                <Dialogue open={open} handleClose={closeAlert} dialogueMessage={error} />
 
             </div>
 

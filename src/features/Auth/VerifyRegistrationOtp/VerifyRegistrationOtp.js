@@ -104,6 +104,7 @@ const VerifyRegistrationOtp = () => {
             })
             .catch((rejectedValueOrSerializedError) => {
                 setOtpValues(new Array(5).fill(''));
+                setOpen(true)
                 setAlertMessage("Invalid authentication code provided");
                 logEvent(analytics, "verified_user_error", {
                     'id': location.state.username,
