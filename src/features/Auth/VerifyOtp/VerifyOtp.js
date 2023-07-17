@@ -79,7 +79,7 @@ const VerifyOtp = () => {
             })
             .catch((rejectedValueOrSerializedError) => {
                 setCanSubmit(true);
-                setError("Your passcode is not correct");
+                setError("Invalid authentication code provided");
                 setOtpValues(new Array(5).fill(''));
             })
     }
