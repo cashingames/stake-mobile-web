@@ -1,10 +1,10 @@
 import './ResendOtp.scss'
 
-const ResendOtp = ({ onPress, isCountdownInProgress, countdowvnDone}) => {
+const ResendOtp = ({ onPress, isCountdownInProgress, countdownDone, noPress}) => {
     return (
-        <div className={`resend-timer-container ${isCountdownInProgress || countdowvnDone ? 'disabled' : ''}`} onClick={onPress} disabled={isCountdownInProgress || countdowvnDone}>
+        <div className={`resend-timer-container ${isCountdownInProgress || countdownDone ? 'disabled' : ''}`} onClick={isCountdownInProgress || countdownDone ? noPress : onPress} disabled={isCountdownInProgress || countdownDone} >
             
-            <span className={`status-text ${isCountdownInProgress || countdowvnDone ? 'disabled-text' : ''}`}>Resend Otp code</span>
+            <span className={`status-text ${isCountdownInProgress || countdownDone ? 'disabled-text' : ''}`}>Resend Otp code</span>
         </div>
     )
 }

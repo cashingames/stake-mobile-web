@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 import { FaEye, FaEyeSlash } from 'react-icons/fa'
-
+import Dialogue from '../../../components/Dialogue/Dialogue';
 import AuthTitle from '../../../components/AuthTitle/AuthTitle';
 import LoaderScreen from '../../LoaderScreen/LoaderScreen';
 import { loginUser, saveToken, setToken } from '../AuthSlice';
@@ -20,7 +20,11 @@ const Login = () => {
     const [canLogin, setCanLogin] = useState(true)
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
+    const [open, setOpen] = useState(false);
 
+    const closeAlert = () => {
+        setOpen(false)
+    }
 
     useEffect(() => {
         const invalid = email.length < 4 || password.length < 8;
@@ -34,7 +38,6 @@ const Login = () => {
     const onLogin = () => {
         setLoading(true);
         setCanLogin(false);
-        setError("");
         loginUser({
             email, password
         }).then(response => {
@@ -43,9 +46,11 @@ const Login = () => {
             logToAnalytics('login_successful');
         }, err => {
             if (!err || !err.response || err.response === undefined) {
+                setOpen(true)
                 setError("Your Network is Offline.");
             }
             else if (err.response.status === 500) {
+                setOpen(true)
                 setError("Service not currently available. Please contact support");
             }
             else {
@@ -71,6 +76,7 @@ const Login = () => {
                 }
 
                 const firstError = Array.isArray(errors) ? Object.values(errors, {})[0][0] : errors;
+                setOpen(true)
                 setError(firstError)
             }
             setLoading(false);
@@ -86,9 +92,9 @@ const Login = () => {
             <AuthTitle titleText="Login to your account" styleProp='header-title' />
             <div className='inputs-container'>
                 <div className='form-container'>
-                    {error.length > 0 &&
+                    {/* {error.length > 0 &&
                         <span className='input-error'>{error}</span>
-                    }
+                    } */}
                     <div className='input-container'>
                         <label htmlFor='email' className='input-label'>Enter email or username</label>
                         <input
@@ -136,6 +142,7 @@ const Login = () => {
 
             </div>
             <Link to='/help-contact' className='contact-us'>Need help ? Contact us</Link>
+            <Dialogue open={open} handleClose={closeAlert} dialogueMessage={error} />
         </div>
     )
 }

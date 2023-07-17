@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { IoChevronForwardOutline } from 'react-icons/io5';
+import { IoChevronForward, IoChevronForwardOutline } from 'react-icons/io5';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import ScreenHeader from '../../../components/ScreenHeader/ScreenHeader';
@@ -26,7 +26,7 @@ function SupportQuestions() {
   }
   return (
     <>
-      <ScreenHeader title='Help' styleProp='supportHeader' onClick={navigateHandler} />
+      <ScreenHeader title='Help' styleProp='supportHeader' onClick={navigateHandler} iconProp='contact-back' />
       <div className='supportContainer'>
         <p className='supportTitle'>Need some help ?</p>
         <p className='supportTitle'>Go through our FAQs</p>
@@ -38,6 +38,16 @@ function SupportQuestions() {
               answer={faq.answer} />
           )}
         </div>
+        <a href='https://wa.me/2348025116306' className='whatsapp-chat'>
+          <img width="50px" height="50px" src="/images/whatsapp-icon.png" alt="logo" className="social-img" />
+          <div className='text-container'>
+            <div className='header-container'>
+              <span className='header'>Contact Support</span>
+              <IoChevronForward color='#072169' />
+            </div>
+            <span className='whatsapp-title'>Live chat with support on Whatsapp</span>
+          </div>
+        </a>
       </div>
     </>
   )

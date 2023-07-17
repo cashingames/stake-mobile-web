@@ -6,6 +6,8 @@ import { useNavigate } from 'react-router-dom';
 import { sendUserFeedback } from '../../features/CommonSlice';
 import Dialogue from '../Dialogue/Dialogue'
 import './AuthContactUs.scss'
+import { IoChevronForward } from 'react-icons/io5';
+import AnonymousRouteHeader from '../AnonymousRouteHeader/AnonymousRouteHeader';
 
 function AuthContactForm() {
     let navigate = useNavigate();
@@ -24,10 +26,6 @@ function AuthContactForm() {
     const [canSave, setCanSave] = useState(false);
     const [alertMessage, setAlertMessage] = useState('');
     const [openAlert, setOpenAlert] = useState(false);
-
-    const goBack = () => {
-        navigate(-1)
-    }
 
 
     const onChangeFirstName = (event) => {
@@ -70,7 +68,7 @@ function AuthContactForm() {
             last_name,
             email,
             message_body,
-            phone_number:phone
+            phone_number: phone
         }))
             .then(unwrapResult)
             .then(async result => {
@@ -101,81 +99,91 @@ function AuthContactForm() {
         setCanSave(!invalid);
     }, [messageError, message_body, firstNameErr, first_name, lastNameErr, last_name, emailError, email, phoneErr, phone])
 
+    const navigateHandler = () => {
+        navigate('/');
+    }
+
     return (
-        <div className='form-container'>
-            <h1 className='form-title'>Need help ? Fill the form and we would respond to you</h1>
-            <div className='inputContainer'>
-                <label htmlFor='email' className='inputLabel'>First Name</label>
-                <input
-                    id='first_name'
-                    type="text"
-                    className='inputBox'
-                    value={first_name}
-                    onChange={onChangeFirstName}
-                    required
-                />
-                {firstNameErr && <span className='inputError'>*first name must not be empty</span>}
-            </div>
-            <div className='inputContainer'>
-                <label htmlFor='email' className='inputLabel'>Last Name</label>
-                <input
-                    id='last_name'
-                    type="text"
-                    className='inputBox'
-                    value={last_name}
-                    onChange={onChangeLastName}
-                    required
-                />
-                {lastNameErr && <span className='inputError'>*last name must not be empty</span>}
-            </div>
-            <div className='inputContainer'>
-                <label htmlFor='email' className='inputLabel'>Email</label>
-                <input
-                    id='email'
-                    type="text"
-                    className='inputBox'
-                    value={email}
-                    onChange={onChangeEmail}
-                    required
-                />
-                {emailError && <span className='inputError'>*please input a valid email</span>}
-            </div>
-            <div className='inputContainer'>
-                <label htmlFor='phone' className='inputLabel'>Phone number</label>
-                <input
-                    id='phone'
-                    type="tel"
-                    className='inputBox'
-                    value={phone}
-                    onChange={onChangePhone}
-                    required
-                    maxLength={11}
-                />
-                {phoneErr && <span className='inputError'>*please input a valid phone number</span>}
-            </div>
-            <div className='inputContainer'>
-                <textarea
-                    placeholder='Your message'
-                    id='last_name'
-                    type="text"
-                    className='textArea'
-                    value={message_body}
-                    onChange={onChangeMessage}
-                    rows={15}
-                    required
-                />
-                {messageError && <span className='inputError'>Please input your message</span>}
-            </div>
-            <button className='send-btn' disabled={!canSave || saving} onClick={sendFeedback}>Send</button>
-            <div className='whatsapp-chat'>
-                <p className='whatsapp-text'>Live chat with support agent on Whatsapp</p>
-                <a href='https://wa.me/2348025116306' className='icon'>
-                    <img width="40px" height="40px" src="/images/whatsapp-icon.png" alt="logo" className="social-img" />
+
+            <div className='form-container'>
+            <AnonymousRouteHeader title='Support' styleProp='agreement' noClose={true} onClick={navigateHandler} />
+
+                <h1 className='form-title'>Do you have any question?</h1>
+                <a href='https://wa.me/2348025116306' className='whatsapp-chat'>
+                    <img width="50px" height="50px" src="/images/whatsapp-icon.png" alt="logo" className="social-img" />
+                    <div className='text-container'>
+                        <div className='header-container'>
+                            <span className='header'>Contact Support</span>
+                            <IoChevronForward color='#072169' />
+                        </div>
+                        <span className='whatsapp-title'>Live chat with support on Whatsapp</span>
+                    </div>
                 </a>
+                <div className='inputContainer'>
+                    <label htmlFor='email' className='inputLabel'>First Name</label>
+                    <input
+                        id='first_name'
+                        type="text"
+                        className='inputBox'
+                        value={first_name}
+                        onChange={onChangeFirstName}
+                        required
+                    />
+                    {firstNameErr && <span className='inputError'>*first name must not be empty</span>}
+                </div>
+                <div className='inputContainer'>
+                    <label htmlFor='email' className='inputLabel'>Last Name</label>
+                    <input
+                        id='last_name'
+                        type="text"
+                        className='inputBox'
+                        value={last_name}
+                        onChange={onChangeLastName}
+                        required
+                    />
+                    {lastNameErr && <span className='inputError'>*last name must not be empty</span>}
+                </div>
+                <div className='inputContainer'>
+                    <label htmlFor='email' className='inputLabel'>Email</label>
+                    <input
+                        id='email'
+                        type="text"
+                        className='inputBox'
+                        value={email}
+                        onChange={onChangeEmail}
+                        required
+                    />
+                    {emailError && <span className='inputError'>*please input a valid email</span>}
+                </div>
+                <div className='inputContainer'>
+                    <label htmlFor='phone' className='inputLabel'>Phone number</label>
+                    <input
+                        id='phone'
+                        type="tel"
+                        className='inputBox'
+                        value={phone}
+                        onChange={onChangePhone}
+                        required
+                        maxLength={11}
+                    />
+                    {phoneErr && <span className='inputError'>*please input a valid phone number</span>}
+                </div>
+                <div className='inputContainer'>
+                    <textarea
+                        placeholder='Your message'
+                        id='last_name'
+                        type="text"
+                        className='textArea'
+                        value={message_body}
+                        onChange={onChangeMessage}
+                        rows={10}
+                        required
+                    />
+                    {messageError && <span className='inputError'>Please input your message</span>}
+                </div>
+                <button className='send-btn' disabled={!canSave || saving} onClick={sendFeedback}>Send</button>
+                <Dialogue open={openAlert} handleClose={closeAlert} dialogueMessage={alertMessage} />
             </div>
-            <p className='go-btn' onClick={goBack}>Go Back</p>
-            <Dialogue open={openAlert} handleClose={closeAlert} dialogueMessage={alertMessage} />
-        </div>
     )
 }
 

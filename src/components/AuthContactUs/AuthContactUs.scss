@@ -1,11 +1,53 @@
+
 .form-container {
     padding: 1rem 1.5rem;
+    background-color: #F9FBFF;
+    .agreement {
+        color: #072169;
+    
+        .backIcon {
+            color: #072169;
+        }
+        margin-bottom: 2rem;
+    }
     .form-title {
-        margin-bottom: 4rem;
+        margin-bottom: 1rem;
         font-size: 1.2rem;
-        color: #000000B2;
-        font-family: 'graphik-medium';
+        color: #072169;
+        font-family: 'gotham-medium';
         line-height: 1.5;
+    }
+
+    .whatsapp-chat {
+        text-decoration: none;
+        display: flex;
+        flex-direction: row;
+        background-color: #FFF;
+        border-radius: 13px;
+        border: 1px solid #E5E5E5;
+        padding: .7rem .5rem;
+        align-items: center;
+        margin-bottom: 2rem;
+
+        .text-container {
+            margin-left: 5px;
+            .header-container {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                .header {
+                    font-size: 1rem;
+                    font-family: 'gotham-bold';
+                    color: #072169;
+                }
+            }
+            .whatsapp-title {
+                font-size: 0.9rem;
+                font-family: 'sansation-regular';
+                color: #072169;
+                margin-top: 5px;
+            }
+        }
     }
 
     .inputContainer {
@@ -15,25 +57,25 @@
 
         .inputLabel {
             margin-bottom: .45rem;
-            font-size: 0.7rem;
-            color: #000000B2;
-            font-family: 'graphik-medium';
+            font-size: 0.95rem;
+            color: #072169;
+            font-family: 'gotham-medium';
         }
 
         .inputBox {
-            color: #00000080;
-            font-size: 0.7rem;
-            font-family: 'graphik-regular';
+            color: #072169;
+            font-size: 0.85rem;
+            font-family: 'sansation-regular';
             border-radius: 7px;
-            padding: 0.5rem .6rem;
+            padding: 0.9rem .6rem;
             border: 1px solid #CDD4DF;
             outline: none;
         }
 
         .textArea {
-            color: #00000080;
-            font-size: 0.7rem;
-            font-family: 'graphik-regular';
+            color: #072169;
+            font-size: 0.85rem;
+            font-family: 'sansation-regular';
             border-radius: 7px;
             padding: 0.5rem .6rem;
             border: 1px solid #CDD4DF;
@@ -61,7 +103,7 @@
 
     .send-btn {
         margin-top: 2.3rem;
-        background-color: #EF2F55;
+        background-color: #E05C28;
         justify-content: center;
         display: flex;
         align-items: center;
@@ -70,30 +112,20 @@
         width: 100%;
         border: none;
         color: white;
-        font-size: 0.9rem;
-        font-family: 'graphik-medium';
+        font-size: 1rem;
+        font-family: 'gotham-medium';
     }
     button[disabled] {
         border: none;
-        background-color: #DFCBCF;
+        background-color: #EA8663;
         color: white;
     }
     .go-btn {
         display: flex;
-        color: #EF2F55;
+        color: #E05C28;
         font-size: 0.75rem;
         font-family: 'graphik-medium';
         justify-content: center;
         cursor: pointer;
-    }
-    .whatsapp-chat {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        .whatsapp-text {
-            font-size: 0.95rem;
-            font-family: 'graphik-medium';
-            text-align: center; 
-        }
     }
 }

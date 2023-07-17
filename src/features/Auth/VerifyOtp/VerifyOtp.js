@@ -8,6 +8,9 @@ import ResendOtp from "../../../components/ResendOtp/ResendOtp";
 import { setUserPasswordResetToken, verifyOtp } from "../AuthSlice";
 import './VerifyOtp.scss'
 import { calculateTimeRemaining } from "../../../utils/utils";
+import { IoChevronForward } from "react-icons/io5";
+import Dialogue from '../../../components/Dialogue/Dialogue';
+
 
 const VerifyOtp = () => {
     const dispatch = useDispatch();
@@ -17,15 +20,16 @@ const VerifyOtp = () => {
     const [canSubmit, setCanSubmit] = useState(false)
     const [counter, setCounter] = useState('');
     const [isCountdownInProgress, setIsCountdownInProgress] = useState(true);
-    const [countdowvnDone, setCountdowvnDone] = (useState(false));
+    const [countdownDone, setCountdownDone] = (useState(false));
     const [error, setError] = useState('');
-
     const location = useLocation()
-    const token = otpValues.join('')
+    const token = otpValues.join('');
+    const [open, setOpen] = useState(false)
+    const [alertMessage, setAlertMessage] = useState('');
 
-
-
-
+    const closeAlert = () => {
+        setOpen(false)
+    }
 
     useEffect(() => {
         const onComplete = () => {
@@ -43,7 +47,7 @@ const VerifyOtp = () => {
 
             const timeString = calculateTimeRemaining(futureDate, onComplete);
             setCounter(timeString);
-        }, 1000);
+        }, 5000);
 
         return () => clearInterval(countDown);
 
@@ -83,8 +87,9 @@ const VerifyOtp = () => {
         dispatch(resendPasswordOtp({
             phone_number: location.state.phone
         }))
-        setCountdowvnDone(true)
-    }
+        setCountdownDone(true)
+        setOtpValues(new Array(5).fill(''))
+        setAlertMessage('Otp resent successfully')    }
 
     useEffect(() => {
         if (token.length < 5) {
@@ -131,7 +136,19 @@ const VerifyOtp = () => {
                         <span className='buttonText'>Continue</span>
                     </button>
                 </form>
-                <ResendOtp onPress={resendButton} countdowvnDone={countdowvnDone} isCountdownInProgress={isCountdownInProgress} />
+                <ResendOtp onPress={resendButton} countdowvnDone={countdownDone} isCountdownInProgress={isCountdownInProgress} />
+                <a href='https://wa.me/2348025116306' className='whatsapp-chat'>
+                    <img width="50px" height="50px" src="/images/whatsapp-icon.png" alt="logo" className="social-img" />
+                    <div className='text-container'>
+                        <div className='header-container'>
+                            <span className='header'>Contact Support</span>
+                            <IoChevronForward color='#072169' />
+                        </div>
+                        <span className='whatsapp-title'>Live chat with support on Whatsapp</span>
+                    </div>
+                </a>
+                <Dialogue open={open} handleClose={closeAlert} dialogueMessage={alertMessage} />
+
             </div>
 
         </>

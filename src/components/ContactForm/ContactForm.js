@@ -9,28 +9,14 @@ import './ContactForm.scss'
 function ContactForm({ user }) {
     const dispatch = useDispatch();
     const [saving, setSaving] = useState(false);
-    // const [first_name, setFirstName] = useState('');
-    // const [last_name, setLastName] = useState('');
     const [email] = useState(user.email);
     const [message_body, setMessage] = useState('');
-    // const [firstNameErr, setFirstNameError] = useState(false);
-    // const [lastNameErr, setLastNameError] = useState(false);
     const [messageError, setMessageError] = useState(false);
     const [canSave, setCanSave] = useState(false);
     const [alertMessage, setAlertMessage] = useState('');
     const [openAlert, setOpenAlert] = useState(false);
     const first_name = user.firstName;
     const last_name = user.lastName;
-
-    // const onChangeFirstName = (event) => {
-    //     first_name.length > 0 && first_name.length < 3 ? setFirstNameError(true) : setFirstNameError(false);
-    //     setFirstName(event.target.value)
-    // }
-
-    // const onChangeLastName = (event) => {
-    //     last_name.length > 0 && last_name.length < 3 ? setLastNameError(true) : setLastNameError(false);
-    //     setLastName(event.target.value)
-    // }
 
     const onChangeMessage = (event) => {
         message_body.length > 0 && message_body.length < 3 ? setMessageError(true) : setMessageError(false);
@@ -71,30 +57,6 @@ function ContactForm({ user }) {
 
     return (
         <div className='container-form'>
-            {/* <div className='inputContainer'>
-                <label htmlFor='email' className='inputLabel'>First Name</label>
-                <input
-                    id='first_name'
-                    type="text"
-                    className='inputBox'
-                    value={first_name}
-                    onChange={onChangeFirstName}
-                    required
-                />
-                {firstNameErr && <span className='inputError'>*first name must not be empty</span>}
-            </div> */}
-            {/* <div className='inputContainer'>
-                <label htmlFor='email' className='inputLabel'>Last Name</label>
-                <input
-                    id='last_name'
-                    type="text"
-                    className='inputBox'
-                    value={last_name}
-                    onChange={onChangeLastName}
-                    required
-                />
-                {lastNameErr && <span className='inputError'>*last name must not be empty</span>}
-            </div> */}
             <div className='inputContainer'>
                 <label htmlFor='email' className='inputLabel'>Email</label>
                 <p className='email'>{email}</p>
@@ -107,7 +69,7 @@ function ContactForm({ user }) {
                     className='textArea'
                     value={message_body}
                     onChange={onChangeMessage}
-                    rows={15}
+                    rows={10}
                     required
                 />
                 {messageError && <span className='inputError'>Please input your message</span>}

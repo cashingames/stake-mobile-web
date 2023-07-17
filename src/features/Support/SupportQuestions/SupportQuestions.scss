@@ -1,26 +1,68 @@
-.support-background-color {
+
+
+.supportHeader {
     background-color: #fff;
-}
-.supportHeader{
-    background-color: #fff;
+    color: #072169;
+    .contact-back {
+        color: #072169;
+    }
 }
 
-.supportContainer{
+.supportContainer {
     background-color: #fff;
-    padding: 1.5rem;
+    padding: 1.5rem 1.5rem 3rem 1.5rem;
     min-height: 100vh;
-    .supportTitle{
+
+    .supportTitle {
         margin: 0;
         font-size: 0.95rem;
-        font-family: 'graphik-medium';
+        font-family: 'gotham-medium';
         margin-top: .9rem;
+        color: #072169;
+
     }
-    .profileTabs{
+
+    .profileTabs {
         padding: 1.5rem 0;
+    }
+
+    .whatsapp-chat {
+        text-decoration: none;
+        display: flex;
+        flex-direction: row;
+        background-color: #FFF;
+        border-radius: 13px;
+        border: 1px solid #E5E5E5;
+        padding: .7rem .5rem;
+        align-items: center;
+        margin-bottom: 2.5rem;
+
+        .text-container {
+            margin-left: 5px;
+
+            .header-container {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+
+                .header {
+                    font-size: 1rem;
+                    font-family: 'gotham-bold';
+                    color: #072169;
+                }
+            }
+
+            .whatsapp-title {
+                font-size: 0.9rem;
+                font-family: 'sansation-regular';
+                color: #072169;
+                margin-top: 5px;
+            }
+        }
     }
 }
 
-.tabsContainer{
+.tabsContainer {
     width: 100%;
     display: flex;
     align-items: center;
@@ -28,10 +70,11 @@
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     padding: 0.1rem 0;
     cursor: pointer;
-    .tabText{
-        font-size: 0.85rem;
-        font-family: 'graphik-regular';
-        color: #151C2F;
+
+    .tabText {
+        font-size: 0.95rem;
+        font-family: 'gotham-medium';
+        color: #072169;
         line-height: 2;
         width: 17.5rem;
     }

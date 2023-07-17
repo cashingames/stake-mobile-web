@@ -1,3 +1,10 @@
+.supportHeader {
+    background-color: #fff;
+    color: #072169;
+    .help-back {
+        color: #072169;
+    }
+}
 .helpPage-container {
     background: #F2F5FF;
     height: 100vh;
@@ -11,21 +18,50 @@
     }
 
     .container-logout {
-        // background-color: #fff;
         display: flex;
+        flex-direction: column;
         justify-content: center;
-        align-items: flex-end;
-        // position: absolute;
-        // bottom: 0;
-        // right: 10rem;
+        // align-items: center;
         .logout-text {
             font-family: 'sansation-bold';
             color: #EF2F55;
             font-size: .9rem;
             margin: 0;
             margin-bottom: .5rem;
+            text-align: center;
+            margin-top: 1rem;
+            cursor: pointer;
         }
 
+    }
+    .whatsapp-chat {
+        text-decoration: none;
+        display: flex;
+        flex-direction: row;
+        background-color: #FFF;
+        border-radius: 13px;
+        border: 1px solid #E5E5E5;
+        padding: .7rem .5rem;
+        align-items: center;
+        .text-container {
+            margin-left: 5px;
+            .header-container {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                .header {
+                    font-size: 1rem;
+                    font-family: 'gotham-bold';
+                    color: #072169;
+                }
+            }
+            .whatsapp-title {
+                font-size: 0.9rem;
+                font-family: 'sansation-regular';
+                color: #072169;
+                margin-top: 5px;
+            }
+        }
     }
 
 }
@@ -42,8 +78,8 @@
 
     .tabText {
         font-size: 0.93rem;
-        font-family: 'graphik-regular';
-        color: #151C2F;
+        font-family: 'gotham-medium';
+        color: #072169;
         line-height: 2;
         width: 17.5rem;
     }

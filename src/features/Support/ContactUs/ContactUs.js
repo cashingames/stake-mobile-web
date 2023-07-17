@@ -6,6 +6,7 @@ import ScreenHeader from '../../../components/ScreenHeader/ScreenHeader'
 import { getUser } from '../../Auth/AuthSlice';
 import LoaderScreen from '../../LoaderScreen/LoaderScreen';
 import './ContactUs.scss'
+import { IoChevronForward } from 'react-icons/io5';
 
 function ContactUs() {
   const [screenLoader, setScreenLoader] = useState(true)
@@ -28,16 +29,20 @@ function ContactUs() {
   }
   return (
     <>
-      <ScreenHeader title='Contact Us' styleProp='contactUs-header' onClick={navigationHandler} />
+      <ScreenHeader title='Contact Us' styleProp='contactUs-header' iconProp='contact-back' onClick={navigationHandler} />
       <div className='contactUs-container'>
         <p className='title'>Do you have any question?</p>
         <ContactForm user={user} />
-        <div className='whatsapp-chat'>
-          <p className='whatsapp-text'>Live chat with support agent on Whatsapp</p>
-          <a href='https://wa.me/2348025116306' className='icon'>
-            <img width="40px" height="40px" src="/images/whatsapp-icon.png" alt="logo" className="social-img" />
-          </a>
-        </div>
+        <a href='https://wa.me/2348025116306' className='whatsapp-chat'>
+          <img width="50px" height="50px" src="/images/whatsapp-icon.png" alt="logo" className="social-img" />
+          <div className='text-container'>
+            <div className='header-container'>
+              <span className='header'>Contact Support</span>
+              <IoChevronForward color='#072169' />
+            </div>
+            <span className='whatsapp-title'>Live chat with support on Whatsapp</span>
+          </div>
+        </a>
       </div>
     </>
   )

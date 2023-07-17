@@ -28,6 +28,37 @@
         line-height: 1.5;
     }
 
+    .whatsapp-chat {
+        text-decoration: none;
+        display: flex;
+        flex-direction: row;
+        background-color: #FFF;
+        border-radius: 13px;
+        border: 1px solid #E5E5E5;
+        padding: .7rem .5rem;
+        align-items: center;
+        margin-top: 2.5rem;
+        .text-container {
+            margin-left: 5px;
+            .header-container {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                .header {
+                    font-size: 1rem;
+                    font-family: 'gotham-bold';
+                    color: #072169;
+                }
+            }
+            .whatsapp-title {
+                font-size: 0.9rem;
+                font-family: 'sansation-regular';
+                color: #072169;
+                margin-top: 5px;
+            }
+        }
+    }
+
     .otp-form {
         display: flex;
         flex-direction: column;
