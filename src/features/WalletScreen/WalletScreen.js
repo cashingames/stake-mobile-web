@@ -20,7 +20,7 @@ function WalletScreen() {
   const [mainWalletActive, setMainWalletActive] = useState(true);
   const [winningsWalletActive, setWinningsWalletActive] = useState(false);
   const [bonusWalletActive, setBonusWalletActive] = useState(false);
-  const transactions = useSelector(state => state.common.userTransactions);
+  // console.log(transactions)
   const depositBalance = Number.parseFloat(user.walletBalance) - Number.parseFloat(user.withdrawableBalance)
   // console.log(transactions)
   // const transactions = {
@@ -80,8 +80,7 @@ function WalletScreen() {
   }
 
   useEffect(() => {
-    dispatch(getUser());
-    dispatch(fetchUserTransactions()).then(() => setLoading(false));
+    dispatch(getUser()).then(() => setLoading(false));
   }, [dispatch]);
 
   return (
@@ -95,7 +94,6 @@ function WalletScreen() {
         mainWalletActive={mainWalletActive} winningsWalletActive={winningsWalletActive} winningsBalance={user.withdrawableBalance} />
       <TransactionsContainer
         loading={loading}
-        transactions={transactions}
         mainWalletActive={mainWalletActive}
         bonusWalletActive={bonusWalletActive}
         winningsWalletActive={winningsWalletActive}
@@ -186,11 +184,28 @@ const WalletBalanceDetails = ({ balance, bonusWalletActive, mainWalletActive, bo
   )
 }
 
-const TransactionsContainer = ({ transactions, loading, mainWalletActive, bonusWalletActive, winningsWalletActive }) => {
+const TransactionsContainer = ({loading, mainWalletActive, bonusWalletActive, winningsWalletActive }) => {
   let navigate = useNavigate();
+  const dispatch = useDispatch();
+  const transactions = useSelector(state => state.common.userTransactions);
+  const [pageNumber, setPageNumber] = useState(1);
+
+  const fetchMoreTransactions = () => {
+    setPageNumber((prev) => prev + 1);
+    console.log(pageNumber)
+    console.log('clicked')
+}
+
   const [allTransactions, setAllTransactions] = useState(true);
   const [creditTransactions, setCreditTransactions] = useState(false);
   const [debitTransactions, setDebitTransactions] = useState(false);
+
+  useEffect(() => {
+    if (mainWalletActive) { dispatch(fetchUserTransactions({wallet_type:'CREDIT_BALANCE', pageNo: pageNumber}))}
+    else if (bonusWalletActive) { dispatch(fetchUserTransactions({wallet_type:'BONUS_BALANCE', pageNo: pageNumber})) }
+    else if (winningsWalletActive) {dispatch(fetchUserTransactions({wallet_type:'WINNINGS_BALANCE', pageNo: pageNumber}))}
+  }, [mainWalletActive,bonusWalletActive, winningsWalletActive, dispatch, pageNumber]);
+
 
   const toggleAllTransactions = () => {
     setCreditTransactions(false);
@@ -213,40 +228,40 @@ const TransactionsContainer = ({ transactions, loading, mainWalletActive, bonusW
 
   const mainCreditTransactions = () => {
     if (mainWalletActive) {
-      return transactions.mainTransactions.filter(x => x.type.toUpperCase() !== "DEBIT");
+      return transactions.filter(x => x.type.toUpperCase() === "CREDIT");
     }
-    return transactions.mainTransactions;
+    return transactions;
   }
 
   const mainDebitTransactions = () => {
     if (mainWalletActive) {
-      return transactions.mainTransactions.filter(x => x.type.toUpperCase() !== "CREDIT");
+      return transactions.filter(x => x.type.toUpperCase() === "DEBIT");
     }
-    return transactions.mainTransactions;
+    return transactions;
   }
   const winningsCreditTransactions = () => {
     if (winningsWalletActive) {
-      return transactions.withdrawalsTransactions.filter(x => x.type.toUpperCase() !== "DEBIT");
+      return transactions.filter(x => x.type.toUpperCase() === "CREDIT");
     }
-    return transactions.withdrawalsTransactions;
+    return transactions;
   }
   const winningsDebitTransactions = () => {
     if (winningsWalletActive) {
-      return transactions.withdrawalsTransactions.filter(x => x.type.toUpperCase() !== "CREDIT");
+      return transactions.filter(x => x.type.toUpperCase() === "DEBIT");
     }
-    return transactions.withdrawalsTransactions;
+    return transactions;
   }
   const bonusCreditTransactions = () => {
     if (bonusWalletActive) {
-      return transactions.bonusTransactions.filter(x => x.type.toUpperCase() !== "DEBIT");
+      return transactions.filter(x => x.type.toUpperCase() === "CREDIT");
     }
-    return transactions.bonusTransactions;
+    return transactions;
   }
   const bonusDebitTransactions = () => {
     if (bonusWalletActive) {
-      return transactions.bonusTransactions.filter(x => x.type.toUpperCase() !== "CREDIT");
+      return transactions.filter(x => x.type.toUpperCase() === "DEBIT");
     }
-    return transactions.bonusTransactions;
+    return transactions;
   }
 
   return (
@@ -278,13 +293,13 @@ const TransactionsContainer = ({ transactions, loading, mainWalletActive, bonusW
             {mainWalletActive && allTransactions &&
               <>
                 {
-                  transactions.mainTransactions.length > 0 ?
+                  transactions.length > 0 ?
                     <div className='transactionsSubContainer'>
                       {
-                        transactions.mainTransactions.map((transaction, i) => <FundTransactions key={i} transaction={transaction}
+                        transactions.map((transaction, i) => <FundTransactions key={i} transaction={transaction}
                         />)
                       }
-                      <button className='button-container' onClick={() => navigate('/transactions')}>
+                      <button className='button-container' onClick={fetchMoreTransactions} >
                         <span className='buttonText'>View more</span>
                         <IoChevronForwardOutline size={20} color='#fff' className='icon' />
                       </button>
@@ -341,10 +356,10 @@ const TransactionsContainer = ({ transactions, loading, mainWalletActive, bonusW
             {winningsWalletActive && allTransactions &&
               <>
                 {
-                  transactions.withdrawalsTransactions.length > 0 ?
+                  transactions.length > 0 ?
                     <div className='transactionsSubContainer'>
                       {
-                        transactions.withdrawalsTransactions.map((transaction, i) => <FundTransactions key={i} transaction={transaction}
+                        transactions.map((transaction, i) => <FundTransactions key={i} transaction={transaction}
                         />)
                       }
                       <button className='button-container' onClick={() => navigate('/transactions')}>
@@ -404,10 +419,10 @@ const TransactionsContainer = ({ transactions, loading, mainWalletActive, bonusW
             {bonusWalletActive && allTransactions &&
               <>
                 {
-                  transactions.bonusTransactions.length > 0 ?
+                  transactions.length > 0 ?
                     <div className='transactionsSubContainer'>
                       {
-                        transactions.bonusTransactions.map((transaction, i) => <FundTransactions key={i} transaction={transaction}
+                        transactions.map((transaction, i) => <FundTransactions key={i} transaction={transaction}
                         />)
                       }
                       <button className='button-container' onClick={() => navigate('/transactions')}>

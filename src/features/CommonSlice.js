@@ -78,7 +78,7 @@ export const markNotificationRead = createAsyncThunk(
 export const fetchUserTransactions = createAsyncThunk(
     'common/fetchUserTransactions',
     async (data, thunkAPI) => {
-        const response = await axios.get(`v3/wallet/me/transactions?page=${data}`)
+        const response = await axios.get(`v3/wallet/transactions/${data.wallet_type}?page=${data.pageNo}`)
         return response.data;
     }
 )
