@@ -20,9 +20,7 @@ function WalletScreen() {
   const [mainWalletActive, setMainWalletActive] = useState(true);
   const [winningsWalletActive, setWinningsWalletActive] = useState(false);
   const [bonusWalletActive, setBonusWalletActive] = useState(false);
-  // console.log(transactions)
   const depositBalance = Number.parseFloat(user.walletBalance) - Number.parseFloat(user.withdrawableBalance)
-  // console.log(transactions)
   // const transactions = {
   //   bonusTransactions: [
   //     {
@@ -192,8 +190,6 @@ const TransactionsContainer = ({loading, mainWalletActive, bonusWalletActive, wi
 
   const fetchMoreTransactions = () => {
     setPageNumber((prev) => prev + 1);
-    console.log(pageNumber)
-    console.log('clicked')
 }
 
   const [allTransactions, setAllTransactions] = useState(true);

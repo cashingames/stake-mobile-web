@@ -15,7 +15,6 @@ export default function GameLoading() {
     const navigate = useNavigate();
     const boosts = useSelector(state => state.common.boosts);
     const loading = useSelector(state => state.game.startingGame);
-    console.log(loading)
 
     useEffect(() => {
         if (!loading) {

@@ -26,12 +26,10 @@ const ChallengeMatchingScreen = () => {
     const documentId = useSelector(state => state.triviaChallenge.documentId);
 
 
-    console.log("this is the document we are working with", documentId)
 
     useEffect(() => {
         const unsub = onSnapshot(doc(db, documentId), (doc) => {
             const data = doc.data()
-            console.log("Current data: ", data);
 
             if (data.status === "MATCHED" && data.opponent.status !== "COMPLETED") {
                 logToAnalytics("trivia_challenge_stake_matched", {
@@ -48,13 +46,11 @@ const ChallengeMatchingScreen = () => {
                 setChallengeInfo(data);
                 setDataUpdated(true);
                 setTimeout(() => {
-                    console.log("game loading", "navigating after 5 seconds")
                     navigate('/challenge-game');
                 }, 5000);
             }
 
         }, error => {
-            console.log('listening and got updated: ', "error", error);
         });
         return () => unsub();
         // eslint-disable-next-line 

@@ -1,13 +1,25 @@
 .mainContainer {
-    background-color: #fff;
-    padding: 2rem 1rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 1.2rem;
 
     .boostPurchaseContainer {
-        margin-bottom: 7rem;
-        padding: 0.6rem;
 
         .boostImg {
-            margin: 1rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .boost-icon {
+                width: 8rem;
+                height: 8rem;
+            }
         }
 
         p {
@@ -15,43 +27,36 @@
         }
 
         .paymentHeader {
-            font-family: 'graphik-medium';
+            font-family: 'gotham-bold';
             text-align: center;
-            font-size: 1rem;
-            color: #151C2F;
+            font-size: 1.6rem;
+            color: #072169;
+            margin: 0;
         }
 
         .message {
-            font-family: 'graphik-regular';
+            font-family: 'gotham-medium';
             text-align: center;
             line-height: 2;
-            color: #535761;
-            margin-top: 3rem;
-            font-size: 0.9rem;
+            color: #072169;
+            margin-top: 1rem;
+            font-size: 1.2rem;
         }
     }
 
-    .congratsBtn {
-        display: flex;
-        justify-content: space-around;
-        margin-top: 7rem;
 
-        .actionBtn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            width: 9rem;
-            border: none;
-            font-family: 'graphik-medium';
-            color: #fff;
-            background-color: #EF2F55;
-            padding: 1rem;
-            font-size: 0.9rem;
-            border-radius: 11px;
-            text-align: center;
-            letter-spacing: 1px;
-            box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-        }
+    .actionBtn {
+        margin-top: 2rem;
+        text-decoration: none;
+        width: 100%;
+        border: none;
+        font-family: 'gotham-medium';
+        color: #fff;
+        background-color: #E15220;
+        padding: 1rem;
+        font-size: 1.2rem;
+        border-radius: 11px;
+        text-align: center;
+        letter-spacing: 1px;
     }
 }

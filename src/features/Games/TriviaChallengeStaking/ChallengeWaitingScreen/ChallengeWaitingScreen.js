@@ -33,7 +33,6 @@ const ChallengeWaitingScreen = () => {
 
         const unsub = onSnapshot(doc(db, documentId), (doc) => {
             const data = doc.data()
-            console.log("Current data: ", data);
 
             if (data.opponent.status === "COMPLETED") {
                 dispatch(setChallengeDetails(data));

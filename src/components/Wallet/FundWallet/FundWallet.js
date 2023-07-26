@@ -21,7 +21,6 @@ function FundWallet() {
     const minimumWalletFundableAmount = useSelector(state => state.common.minimumWalletFundableAmount);
     const [paystackChecked, setPaystackChecked] = useState(false);
     const [flutterChecked, setFlutterChecked] = useState(false);
-    // console.log(minimumWalletFundableAmount)
 
     const config = {
         email: user.email,

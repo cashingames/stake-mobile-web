@@ -41,19 +41,16 @@ function ChallengeGameBoardScreen() {
 
         if (docSnap.exists()) {
             const data = docSnap.data()
-            console.log("Document data:", data);
             dispatch(setChallengeDetails(data));
             return data.opponent.status;
         } else {
             // docSnap.data() will be undefined in this case
-            console.log("No such document!");
         }
     }
 
 
     const gameEnded = () => {
         if (isEnded) {
-            console.log("game already ended", "timer bug is trying to submit again");
             return;
         };
 

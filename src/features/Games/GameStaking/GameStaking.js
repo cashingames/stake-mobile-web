@@ -33,8 +33,8 @@ const GameStaking = () => {
     const [walletType, setWalletType] = useState('');
     const minimumExhibitionStakeAmount = useSelector(state => state.common.minimumExhibitionStakeAmount);
     const depositBalance = Number.parseFloat(user.walletBalance) - Number.parseFloat(user.withdrawableBalance);
-    const depositBalanceSelected = balanceName === `Deposit (NGN ${formatCurrency(depositBalance)})` && Number.parseFloat(depositBalance) >= amount && amount >= Number.parseFloat(minimumExhibitionStakeAmount)
-    const bonusSelected = balanceName === `Bonus (NGN ${formatCurrency(user.bonusBalance)})` && Number.parseFloat(user.bonusBalance) >= amount && amount >= Number.parseFloat(minimumExhibitionStakeAmount)
+    const depositBalanceSelected = balanceName === 1 && Number.parseFloat(depositBalance) >= amount && amount >= Number.parseFloat(minimumExhibitionStakeAmount)
+    const bonusSelected = balanceName === 2 && Number.parseFloat(user.bonusBalance) >= amount && amount >= Number.parseFloat(minimumExhibitionStakeAmount)
 
 
 
@@ -52,7 +52,6 @@ const GameStaking = () => {
 
     const proceed = () => {
         setLoading(true);
-        console.log('submitted')
         dispatch(setAmountStaked(amount))
         onStartGame()
     }
@@ -81,7 +80,6 @@ const GameStaking = () => {
                 });
         }
         if (practiceMode) {
-            console.log('started practice')
             dispatch(setWalletSource(walletType))
             dispatch(startPracticeGame(
                 {
@@ -140,19 +138,19 @@ const GameStaking = () => {
     }
 
     useEffect(() => {
-        if (balanceName === `Deposit (NGN ${formatCurrency(depositBalance)})`) {
+        if (cashMode && balanceName === 1) {
             setWalletType('deposit_balance')
         }
-        if (balanceName === `Bonus (NGN ${formatCurrency(user.bonusBalance)})`) {
+        else if (cashMode && balanceName === 2) {
             setWalletType('bonus_balance')
         }
-        if (balanceName === `Deposit (NGN ${formatCurrency(100000)})`) {
+        else if (practiceMode && balanceName === 1) {
             setWalletType('demo_deposit_balance')
         }
-        if (balanceName === `Bonus (NGN ${formatCurrency(100000)})`) {
+        else if (practiceMode && balanceName === 2) {
             setWalletType('demo_bonus_balance')
         }
-    }, [balanceName, depositBalance, user.bonusBalance])
+    }, [balanceName, depositBalance, user.bonusBalance, cashMode, practiceMode])
 
     useEffect(() => {
         const canSend = balanceName !== '' && (depositBalanceSelected === true || bonusSelected === true) && amount !== ''
@@ -195,7 +193,7 @@ const GameStaking = () => {
                     {error && amount < Number.parseFloat(minimumExhibitionStakeAmount) &&
                         <span className='input-error'>Minimum staking amount is NGN {minimumExhibitionStakeAmount}</span>
                     }
-                    {error && balanceName === `Deposit (NGN ${formatCurrency(depositBalance)})` && amount > Number.parseFloat(depositBalance) &&
+                    {error && balanceName === 1 && amount > Number.parseFloat(depositBalance) &&
                         <div className='input-error-container'>
                             <span className='input-error'>Insufficient wallet balance</span>
                             <div className='fund-container' onClick={() => navigate('/fund-wallet')}>
@@ -204,7 +202,7 @@ const GameStaking = () => {
                         </div>
                     }
 
-                    {error && balanceName === `Bonus (NGN ${formatCurrency(user.bonusBalance)})` && amount > Number.parseFloat(user.bonusBalance) &&
+                    {error && balanceName === 2 && amount > Number.parseFloat(user.bonusBalance) &&
                         <div className='input-error-container'>
                             <span className='input-error'>Insufficient bonus balance, stake from another balance</span>
                         </div>
@@ -317,12 +315,12 @@ const StakingBalances = ({ depositBalance, minimumExhibitionStakeAmount, user, b
 
     const balanceAccounts = [
         {
-            key: '1',
+            key: 1,
             value: `Deposit (NGN ${formatCurrency(depositBalance)})`,
             disabled: depositBalance < minimumExhibitionStakeAmount,
         },
         {
-            key: '2',
+            key: 2,
             value: `Bonus (NGN ${formatCurrency(user.bonusBalance)})`,
             disabled: user.bonusBalance < minimumExhibitionStakeAmount,
         }
@@ -355,7 +353,7 @@ const StakingBalances = ({ depositBalance, minimumExhibitionStakeAmount, user, b
                 >
                     {balanceAccounts && balanceAccounts.map((balanceAccount, i) => {
                         return (
-                            <MenuItem key={i} value={balanceAccount.value} disabled={balanceAccount.disabled}
+                            <MenuItem key={balanceAccount.key} value={balanceAccount.key} disabled={balanceAccount.disabled}
                                 style={{ color: '#072169', fontFamily: 'sansation-regular' }}>{balanceAccount.value}</MenuItem>
                         )
                     }
@@ -370,11 +368,11 @@ const PracticeStakingBalances = ({ balanceName, setBalanceName }) => {
 
     const balanceAccounts = [
         {
-            key: '1',
+            key: 1,
             value: `Deposit (NGN ${formatCurrency(100000)})`,
         },
         {
-            key: '2',
+            key: 2,
             value: `Bonus (NGN ${formatCurrency(100000)})`,
         }
     ]
@@ -406,7 +404,7 @@ const PracticeStakingBalances = ({ balanceName, setBalanceName }) => {
                 >
                     {balanceAccounts && balanceAccounts.map((balanceAccount, i) => {
                         return (
-                            <MenuItem key={i} value={balanceAccount.value} disabled={balanceAccount.disabled}
+                            <MenuItem key={balanceAccount.key} value={balanceAccount.key} disabled={balanceAccount.disabled}
                                 style={{ color: '#072169', fontFamily: 'sansation-regular' }}>{balanceAccount.value}</MenuItem>
                         )
                     }

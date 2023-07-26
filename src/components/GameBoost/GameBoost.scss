@@ -1,16 +1,19 @@
+
 .storeItem {
     display: flex;
     flex-direction: column;
     margin-top: 1.5rem;
+
     .boost-container {
         display: flex;
         justify-content: center;
+
         .boost-img {
             width: 12rem;
             // height: 10rem;
         }
     }
-   
+
 
     .storeTitle {
         font-family: 'graphik-bold';
@@ -36,23 +39,6 @@
     }
 }
 
-
-//GamePlan Card
-.storeItemContainer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #fff;
-    margin-bottom: 1rem;
-    border: 1px solid #E0E0E0;
-    border-radius: 11px;
-    padding: 0.6rem 1rem;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-
-}
-
-
-
 //BoostCard Details
 .boost-icon {
     width: 40px;
@@ -61,51 +47,82 @@
 
 .boostDetailsContainer {
     display: flex;
-    flex-direction: column;
-    margin-right: 1rem;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    margin-bottom: 1rem;
+    // border: 1px solid #E0E0E0;
+    border-radius: 11px;
+    padding: 0.6rem 1rem;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 
-    .boostNameCount {
+    .boost-icon-container {
         display: flex;
         align-items: center;
+        justify-content: center;
+        position: relative;
 
-        .storeItemName {
-            margin: 0;
-            margin-top: .5rem;
-            font-family: 'graphik-medium';
-            font-size: 0.78rem;
+        .boost-icon {
+            width: 52px;
+            height: 52px;
         }
 
-        .boostCount {
-            margin: 0;
-            font-family: 'graphik-bold';
-            font-size: 0.6rem;
-            color: #FF932F;
-            margin-left: .5rem;
-            margin-top: .5rem;
+        .boost-count {
+            font-size: .85rem;
+            font-family: 'sansation-bold';
+            color: #fff;
+            margin-top: 1px;
+            position: absolute;
+            top: 10px;
+            right: 5px;
+            text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
         }
     }
 
-    .boostDescription {
+    .boost-name-count {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        .store-item-name {
+            margin: 0;
+            margin-top: .5rem;
+            font-family: 'gotham-bold';
+            color: #072169;
+            font-size: 0.95rem;
+        }
+
+        .boost-description {
+            margin: 0;
+            font-family: 'gotham-medium';
+            font-size: 0.75rem;
+            color: #072169;
+            line-height: 1.5;
+            width: 9rem;
+        }
+
+    }
+
+    .cash-price {
         margin: 0;
         font-family: 'graphik-medium';
-        font-size: 0.73rem;
-        color: #828282;
-        line-height: 2.3;
-        width: 9rem;
+        font-size: 0.7rem;
+        color: #F9FBFF;
+        background-color: #FA5F4A;
+        padding: .2rem .5rem;
+        border-radius: 30px;
     }
+
 }
 
-.cashPrice {
-    margin: 0;
-    font-family: 'graphik-bold', sans-serif;
-    font-weight: 650;
-    font-size: 0.69rem;
-}
+
 
 
 //Buy Boost
 .buyBoost {
     padding: 1rem;
+    background-color: #F9FBFF;
 
     .buyItemHeader {
         display: flex;
@@ -113,9 +130,9 @@
         align-items: center;
 
         .buyItemTitle {
-            font-family: 'graphik-medium';
-            font-size: 1rem;
-            color: '#151C2F';
+            font-family: 'gotham-bold';
+            font-size: 1.2rem;
+            color: #072169;
             margin-bottom: 0.9rem;
         }
     }
@@ -138,20 +155,20 @@
         justify-content: center;
         padding: 1rem;
         color: white;
-        font-size: 0.9rem;
-        font-family: 'graphik-medium';
+        font-size: 1.1rem;
+        font-family: 'gotham-medium';
         border: none;
         outline: none;
         border-radius: 11px;
-        margin-top: 2.3rem;
-        background-color: #EF2F55;
+        margin-top: 5rem;
+        background-color: #E15220;
         box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 
     }
 
     button[disabled] {
         border: none;
-        background-color: #DFCBCF;
+        background-color: #EA8663;
         color: white;
     }
 }

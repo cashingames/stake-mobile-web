@@ -194,7 +194,6 @@ const AvailableBoosts = ({ onClose,
 
     const boosts = useSelector(state => state.auth.user.boosts);
     const gameCategoryId = useSelector(state => state.game.gameCategory.id);
-    // console.log(gameCategoryId)
     const gameTypeId = useSelector(state => state.game.gameType.id);
     const gameModeId = useSelector(state => state.game.gameMode.id);
     const gameMode = useSelector(state => state.game.gameMode);

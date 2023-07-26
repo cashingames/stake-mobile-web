@@ -20,7 +20,6 @@ function ChallengeProgressWidget({ challengeDetails }) {
     const [updatepracticeSkipCount, setUpdatePracticeSkipCount] = useState(20);
 
     const boostApplied = (data) => {
-        console.log(data)
         dispatch(consumeBoost(data))
         dispatch(reduceBoostCount(data.id))
         const name = data.name.toUpperCase();

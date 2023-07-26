@@ -102,7 +102,6 @@ const InviteLink = () => {
                 title: 'Share Referral Code',
                 text: referralMsg
             })
-                .then(() => console.log('Successful share'))
                 .then(() => logEvent(analytics, "share_referral", {
                     'id': user.username,
                 }))

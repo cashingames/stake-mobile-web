@@ -1,11 +1,15 @@
-.store-background-color {
-    background-color: #FFFF;
-}
-.storeHeader{
-    background-color: #fff;
+.store-header {
+    background-color: #ffff;
+    color: #072169;
+
+    .back {
+        color: #072169;
+    }
 }
 .storeContainer{
-    background-color: #F2F5FF;
-    padding: 1rem;
-    min-height: 100vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    padding: 1.5rem 1rem;
 }

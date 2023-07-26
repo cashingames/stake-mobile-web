@@ -1,22 +1,19 @@
-import { Player } from '@lottiefiles/react-lottie-player'
-import React, { useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
-import TransactionSuccess from '../../../assets/transaction-successful.json'
-import './GameBoostPurchaseSuccess.scss'
+import React, { useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import './GameBoostPurchaseSuccess.scss';
+const backendUrl = process.env.REACT_APP_API_ROOT_URL;
+
 
 function GameBoostPurchaseSuccess() {
     const navigate = useNavigate()
+    const location = useLocation();
 
     const home = () => {
         navigate('/dashboard')
     }
 
-    const store = () => {
-        navigate('/store')
-    }
-
-      //disable browser back button
-      useEffect(() => {
+    //disable browser back button
+    useEffect(() => {
         window.history.pushState(null, null, window.location.href);
         window.onpopstate = function () {
             window.history.go(1);
@@ -24,27 +21,19 @@ function GameBoostPurchaseSuccess() {
     })
 
     return (
-        <div className='mainContainer'>
+        <div className='mainContainer' style={
+            { backgroundImage: "url(/images/success-background.png)" }
+          }>
             <div className='boostPurchaseContainer'>
+                <p className='paymentHeader'>Payment Successful...</p>
                 <div className='boostImg'>
-                <Player src={TransactionSuccess}
-                    alt='Transaction Success'
-                    autoplay
-                    loop
-                    className='player'
-                    style={
-                        { height: '100px' }
-                    } />
-                    </div>
-                    <p className='paymentHeader'>Payment Successful</p>
-                    <p className='message'>You successfully purchased a boost to continue playing games, climb up the leaderboard and win great prizes</p>
+                    <img src={`${backendUrl}/${location.state.boost_image}`} className="boost-icon" alt='boost' />
+                </div>
+                <p className='message'>{location.state.boost_name} was purchased successfully for NGN {location.state.boost_price}</p>
             </div>
-            <div className='congratsBtn'>
-                <button className='actionBtn' onClick={home}>Play a Game</button>
-                <button className='actionBtn' onClick={store}>Store</button>
-            </div>
+                <button className='actionBtn' onClick={home}>Okay, got it</button>
         </div>
-  )
+    )
 }
 
 export default GameBoostPurchaseSuccess

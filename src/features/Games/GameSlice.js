@@ -132,7 +132,6 @@ export const geBonusStakes = createAsyncThunk(
     async (data, thunkAPI) => {
         //make a network request to the server
         const response = await axios.get('v3/odds/bonus', data)
-        // console.log(response.data)
         return response.data;
     }
 )
@@ -223,7 +222,6 @@ export const GameSlice = createSlice({
             state.cashMode = action.payload;
         },
         setWalletSource: (state, action) => {
-            // console.log("here")
             state.walletSource = action.payload;
         },
         setGameDuration: (state, action) => {
@@ -240,7 +238,6 @@ export const GameSlice = createSlice({
         },
         setAmountStaked: (state, action) => {
             state.amountStaked = action.payload;
-            console.log(action.payload)
         },
         setWithStaking: (state, action) => {
             state.withStaking = action.payload;
@@ -337,9 +334,7 @@ export const GameSlice = createSlice({
                 state.isEnded = false
                 state.pointsGained = 0;
             })
-            // .addCase(startGame.rejected, (state, action) => {
-            //     console.log("action result rejected", action);
-            // })
+           
             .addCase(endGame.fulfilled, (state, action) => {
                 // const token = state.gameSessionToken;
                 state.isEnded = true;

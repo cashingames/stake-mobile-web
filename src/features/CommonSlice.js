@@ -127,7 +127,6 @@ export const searchUserFriends = createAsyncThunk(
 export const sendUserFeedback = createAsyncThunk(
     'common/sendUserFeedback',
     async (data, thunkAPI) => {
-        // console.log(data)
         const response = await axios.post('v3/client/feedback', data)
         return response.data;
     }
@@ -143,7 +142,6 @@ export const getStakeWinners = createAsyncThunk(
     'common/getStakeWinners',
     async (data, thunkAPI) => {
         const response = await axios.get(`v3/stakers/sessions/recent`)
-        // console.log(response)
         return response.data;
     }
 )

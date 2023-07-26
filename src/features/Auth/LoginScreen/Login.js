@@ -65,7 +65,6 @@ const Login = () => {
                         'phone_number': errors.phone_number,
                         'email': errors.email
                     });
-                    console.log('failed')
                     navigate('/verify-phone-number', {
                         state: {
                             phone_number: err.response.data.errors.phoneNumber,

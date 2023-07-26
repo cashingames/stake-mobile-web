@@ -18,8 +18,10 @@ function Store() {
 
   return (
     <>
-      <ScreenHeader title='Get Boosts' onClick={navigateHandler} styleProp='storeHeader' />
-      <div className='storeContainer'>
+      <ScreenHeader title='Store' onClick={navigateHandler} styleProp='store-header' iconProp='back' />
+      <div className='storeContainer' style={
+        { backgroundImage: "url(/images/game-play-background.png)" }
+      }>
         <GameBoost boosts={boosts} user={user} />
       </div>
     </>
