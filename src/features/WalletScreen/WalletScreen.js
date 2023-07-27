@@ -182,25 +182,25 @@ const WalletBalanceDetails = ({ balance, bonusWalletActive, mainWalletActive, bo
   )
 }
 
-const TransactionsContainer = ({loading, mainWalletActive, bonusWalletActive, winningsWalletActive }) => {
-  let navigate = useNavigate();
+const TransactionsContainer = ({ loading, mainWalletActive, bonusWalletActive, winningsWalletActive }) => {
+  // let navigate = useNavigate();
   const dispatch = useDispatch();
   const transactions = useSelector(state => state.common.userTransactions);
-  const [pageNumber, setPageNumber] = useState(1);
+  const [pageNumber] = useState(1);
 
-  const fetchMoreTransactions = () => {
-    setPageNumber((prev) => prev + 1);
-}
+  // const fetchMoreTransactions = () => {
+  //   setPageNumber((prev) => prev + 1);
+  // }
 
   const [allTransactions, setAllTransactions] = useState(true);
   const [creditTransactions, setCreditTransactions] = useState(false);
   const [debitTransactions, setDebitTransactions] = useState(false);
 
   useEffect(() => {
-    if (mainWalletActive) { dispatch(fetchUserTransactions({wallet_type:'CREDIT_BALANCE', pageNo: pageNumber}))}
-    else if (bonusWalletActive) { dispatch(fetchUserTransactions({wallet_type:'BONUS_BALANCE', pageNo: pageNumber})) }
-    else if (winningsWalletActive) {dispatch(fetchUserTransactions({wallet_type:'WINNINGS_BALANCE', pageNo: pageNumber}))}
-  }, [mainWalletActive,bonusWalletActive, winningsWalletActive, dispatch, pageNumber]);
+    if (mainWalletActive) { dispatch(fetchUserTransactions({ wallet_type: 'CREDIT_BALANCE', pageNo: pageNumber })) }
+    else if (bonusWalletActive) { dispatch(fetchUserTransactions({ wallet_type: 'BONUS_BALANCE', pageNo: pageNumber })) }
+    else if (winningsWalletActive) { dispatch(fetchUserTransactions({ wallet_type: 'WINNINGS_BALANCE', pageNo: pageNumber })) }
+  }, [mainWalletActive, bonusWalletActive, winningsWalletActive, dispatch, pageNumber]);
 
 
   const toggleAllTransactions = () => {
@@ -295,10 +295,10 @@ const TransactionsContainer = ({loading, mainWalletActive, bonusWalletActive, wi
                         transactions.map((transaction, i) => <FundTransactions key={i} transaction={transaction}
                         />)
                       }
-                      <button className='button-container' onClick={fetchMoreTransactions} >
+                      {/* <button className='button-container' onClick={fetchMoreTransactions} >
                         <span className='buttonText'>View more</span>
                         <IoChevronForwardOutline size={20} color='#fff' className='icon' />
-                      </button>
+                      </button> */}
                     </div>
                     :
                     <div className='noTransactionContainer'>
@@ -316,10 +316,10 @@ const TransactionsContainer = ({loading, mainWalletActive, bonusWalletActive, wi
                         mainCreditTransactions().map((transaction, i) => <FundTransactions key={i} transaction={transaction}
                         />)
                       }
-                      <button className='button-container' onClick={() => navigate('/transactions')}>
+                      {/* <button className='button-container' onClick={() => navigate('/transactions')}>
                         <span className='buttonText'>View more</span>
                         <IoChevronForwardOutline size={20} color='#fff' className='icon' />
-                      </button>
+                      </button> */}
                     </div>
                     :
                     <div className='noTransactionContainer'>
@@ -337,10 +337,10 @@ const TransactionsContainer = ({loading, mainWalletActive, bonusWalletActive, wi
                         mainDebitTransactions().map((transaction, i) => <FundTransactions key={i} transaction={transaction}
                         />)
                       }
-                      <button className='button-container' onClick={() => navigate('/transactions')}>
+                      {/* <button className='button-container' onClick={() => navigate('/transactions')}>
                         <span className='buttonText'>View more</span>
                         <IoChevronForwardOutline size={20} color='#fff' className='icon' />
-                      </button>
+                      </button> */}
                     </div>
                     :
                     <div className='noTransactionContainer'>
@@ -358,10 +358,10 @@ const TransactionsContainer = ({loading, mainWalletActive, bonusWalletActive, wi
                         transactions.map((transaction, i) => <FundTransactions key={i} transaction={transaction}
                         />)
                       }
-                      <button className='button-container' onClick={() => navigate('/transactions')}>
+                      {/* <button className='button-container' onClick={() => navigate('/transactions')}>
                         <span className='buttonText'>View more</span>
                         <IoChevronForwardOutline size={20} color='#fff' className='icon' />
-                      </button>
+                      </button> */}
                     </div>
                     :
                     <div className='noTransactionContainer'>
@@ -379,10 +379,10 @@ const TransactionsContainer = ({loading, mainWalletActive, bonusWalletActive, wi
                         winningsCreditTransactions().map((transaction, i) => <FundTransactions key={i} transaction={transaction}
                         />)
                       }
-                      <button className='button-container' onClick={() => navigate('/transactions')}>
+                      {/* <button className='button-container' onClick={() => navigate('/transactions')}>
                         <span className='buttonText'>View more</span>
                         <IoChevronForwardOutline size={20} color='#fff' className='icon' />
-                      </button>
+                      </button> */}
                     </div>
                     :
                     <div className='noTransactionContainer'>
@@ -400,10 +400,10 @@ const TransactionsContainer = ({loading, mainWalletActive, bonusWalletActive, wi
                         winningsDebitTransactions().map((transaction, i) => <FundTransactions key={i} transaction={transaction}
                         />)
                       }
-                      <button className='button-container' onClick={() => navigate('/transactions')}>
+                      {/* <button className='button-container' onClick={() => navigate('/transactions')}>
                         <span className='buttonText'>View more</span>
                         <IoChevronForwardOutline size={20} color='#fff' className='icon' />
-                      </button>
+                      </button> */}
                     </div>
                     :
                     <div className='noTransactionContainer'>
@@ -421,10 +421,10 @@ const TransactionsContainer = ({loading, mainWalletActive, bonusWalletActive, wi
                         transactions.map((transaction, i) => <FundTransactions key={i} transaction={transaction}
                         />)
                       }
-                      <button className='button-container' onClick={() => navigate('/transactions')}>
+                      {/* <button className='button-container' onClick={() => navigate('/transactions')}>
                         <span className='buttonText'>View more</span>
                         <IoChevronForwardOutline size={20} color='#fff' className='icon' />
-                      </button>
+                      </button> */}
                     </div>
                     :
                     <div className='noTransactionContainer'>
@@ -442,10 +442,10 @@ const TransactionsContainer = ({loading, mainWalletActive, bonusWalletActive, wi
                         bonusCreditTransactions().map((transaction, i) => <FundTransactions key={i} transaction={transaction}
                         />)
                       }
-                      <button className='button-container' onClick={() => navigate('/transactions')}>
+                      {/* <button className='button-container' onClick={() => navigate('/transactions')}>
                         <span className='buttonText'>View more</span>
                         <IoChevronForwardOutline size={20} color='#fff' className='icon' />
-                      </button>
+                      </button> */}
                     </div>
                     :
                     <div className='noTransactionContainer'>
@@ -463,10 +463,10 @@ const TransactionsContainer = ({loading, mainWalletActive, bonusWalletActive, wi
                         bonusDebitTransactions().map((transaction, i) => <FundTransactions key={i} transaction={transaction}
                         />)
                       }
-                      <button className='button-container' onClick={() => navigate('/transactions')}>
+                      {/* <button className='button-container' onClick={() => navigate('/transactions')}>
                         <span className='buttonText'>View more</span>
                         <IoChevronForwardOutline size={20} color='#fff' className='icon' />
-                      </button>
+                      </button> */}
                     </div>
                     :
                     <div className='noTransactionContainer'>
