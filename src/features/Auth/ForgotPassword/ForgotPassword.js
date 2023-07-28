@@ -63,10 +63,15 @@ const ForgotPassword = () => {
         <>
             <div className='password-containers'>
                 <AnonymousRouteHeader title='Password reset' styleProp='password-header' noClose={true} onClick={navigateHandler} />
-                <div> {
-                    error.length > 0 && <span className="error-box">
-                        {error}</span>
-                }
+                <div>
+                    {
+                        error.length > 0 &&
+                        <div className='error-container'>
+                            <span className="error-box">
+                                {error}
+                            </span>
+                        </div>
+                    }
                     <div className='input-container'>
                         <label htmlFor='phone' className='input-label'>Phone number</label>
                         <div className={phoneErr || countryCodeErr ? 'phone-containeri' : 'phone-container'}>

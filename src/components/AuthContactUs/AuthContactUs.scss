@@ -3,18 +3,18 @@
     padding: 1rem 1.5rem;
     background-color: #F9FBFF;
     .agreement {
-        color: #072169;
+        color: #1C453B;
     
         .backIcon {
-            color: #072169;
+            color: #1C453B;
         }
         margin-bottom: 2rem;
     }
     .form-title {
         margin-bottom: 1rem;
-        font-size: 1.2rem;
-        color: #072169;
-        font-family: 'gotham-medium';
+        font-size: .9rem;
+        color: #1C453B;
+        font-family: 'gotham-bold';
         line-height: 1.5;
     }
 
@@ -38,13 +38,13 @@
                 .header {
                     font-size: 1rem;
                     font-family: 'gotham-bold';
-                    color: #072169;
+                    color: #1C453B;
                 }
             }
             .whatsapp-title {
                 font-size: 0.9rem;
                 font-family: 'sansation-regular';
-                color: #072169;
+                color: #1C453B;
                 margin-top: 5px;
             }
         }
@@ -58,12 +58,12 @@
         .inputLabel {
             margin-bottom: .45rem;
             font-size: 0.95rem;
-            color: #072169;
+            color: #1C453B;
             font-family: 'gotham-medium';
         }
 
         .inputBox {
-            color: #072169;
+            color: #1C453B;
             font-size: 0.85rem;
             font-family: 'sansation-regular';
             border-radius: 7px;
@@ -73,7 +73,7 @@
         }
 
         .textArea {
-            color: #072169;
+            color: #1C453B;
             font-size: 0.85rem;
             font-family: 'sansation-regular';
             border-radius: 7px;
@@ -83,9 +83,9 @@
         }
 
         .email {
-            color: #00000080;
+            color: #1C453B;
             font-size: 0.7rem;
-            font-family: 'graphik-regular';
+            font-family: 'sansation-regular';
             padding: 0.5rem 0;
             outline: none;
             margin: 0;
@@ -95,8 +95,8 @@
             margin: 0;
             border-radius: 7px;
             color: #EF2F55;
-            font-size: 0.7rem;
-            font-family: 'graphik-regular';
+            font-size: 0.85rem;
+            font-family: 'gotham-medium';
             padding: .5rem 0;
         }
     }

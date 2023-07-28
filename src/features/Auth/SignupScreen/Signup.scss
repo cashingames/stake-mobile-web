@@ -14,18 +14,22 @@
         .inputs-container {
             display: flex;
             flex-direction: column;
-
-            .inputs-error {
-                text-align: center;
-                margin: 1rem 0;
-                background-color: #F442741A;
-                border-radius: 7px;
-                color: #EF2F55;
-                font-size: 0.8rem;
-                font-family: 'gotham-medium';
-                padding: .5rem 0;
+            .error-container {
+                background-color: #FF0032;
+                border-radius: 38px;
+                margin: 0 2rem;
+                margin-bottom: 1rem;
                 display: flex;
                 justify-content: center;
+
+                .input-error {
+                    text-align: center;
+                    color: #FFF;
+                    font-size: 0.9rem;
+                    font-family: 'sansation-bold';
+                    padding: .7rem 0;
+                  
+                }
             }
 
             .input-container {
@@ -42,7 +46,7 @@
 
                     .input-label {
                         font-size: 1.1rem;
-                        color: #072169;
+                        color: #1C453B;
                         font-family: 'gotham-medium';
                         margin: 0;
                     }
@@ -55,13 +59,13 @@
                     }
 
                     .show {
-                        color: #072169;
+                        color: #1C453B;
                     }
 
                 }
                 .input-label {
                     font-size: 1.1rem;
-                    color: #072169;
+                    color: #1C453B;
                     font-family: 'gotham-medium';
                     margin: 0;
                     margin-bottom: .6rem;
@@ -70,7 +74,7 @@
 
                 .input-box {
                     height: 3.5rem;
-                    color: #072169;
+                    color: #1C453B;
                     font-size: 0.95rem;
                     font-family: 'sansation-regular';
                     border-radius: 14px;
@@ -81,7 +85,7 @@
                 }
                 .input-boxi {
                     height: 3.5rem;
-                    color: #072169;
+                    color: #1C453B;
                     font-size: 0.95rem;
                     font-family: 'sansation-regular';
                     border-radius: 14px;
@@ -100,7 +104,7 @@
                     display: flex;
                     align-items: center;
                     height: 3.5rem;
-                    color: #072169;
+                    color: #1C453B;
                     font-size: 0.95rem;
                     font-family: 'sansation-regular';
                     border-radius: 14px;
@@ -116,7 +120,7 @@
                         width: 3rem;
                         margin-right: .5rem;
                         font-size: 0.9rem;
-                        color: #072169;
+                        color: #1C453B;
                         outline: none;
                         font-family: 'sansation-regular';
 
@@ -125,7 +129,7 @@
                     .phone-input {
                         border: none;
                         outline: none;
-                        color: #072169;
+                        color: #1C453B;
                         font-size: 0.9rem;
                         font-family: 'sansation-regular';
 
@@ -138,7 +142,7 @@
                     display: flex;
                     align-items: center;
                     height: 3.5rem;
-                    color: #072169;
+                    color: #1C453B;
                     font-size: 0.95rem;
                     font-family: 'sansation-regular';
                     border-radius: 14px;
@@ -154,7 +158,7 @@
                         width: 3rem;
                         margin-right: .5rem;
                         font-size: 0.9rem;
-                        color: #072169;
+                        color: #1C453B;
                         outline: none;
                         font-family: 'sansation-regular';
 
@@ -163,7 +167,7 @@
                     .phone-input {
                         border: none;
                         outline: none;
-                        color: #072169;
+                        color: #1C453B;
                         font-size: 0.9rem;
                         font-family: 'sansation-regular';
 
@@ -190,14 +194,14 @@
                     .passwordInput {
                         border: none;
                         outline: none;
-                        color: #00000080;
+                        color: #1C453B;
                         font-size: 0.75rem;
                         font-family: 'graphik-regular';
 
                     }
 
                     .show {
-                        color: #00000080;
+                        color: #1C453B;
                     }
 
                     ::placeholder {
@@ -216,13 +220,13 @@
                     margin-left: .7rem;
 
                     .agreements-text {
-                        color: #072169;
+                        color: #1C453B;
                         font-family: 'sansation-regular';
                         font-size: 1rem;
                     }
 
                     .agreements-link {
-                        color: #072169;
+                        color: #1C453B;
                         font-family: 'sansation-regular';
                         font-size: 1rem;
                         text-decoration: underline;
@@ -236,7 +240,7 @@
                 margin-top: .7rem;
 
                 .agreements-text {
-                    color: #072169;
+                    color: #1C453B;
                     font-family: 'sansation-regular';
                     font-size: 1rem;
                     margin-left: .7rem;
@@ -274,10 +278,10 @@
                     padding: 1.3rem 0;
                     border-radius: 13px;
                     width: 100%;
-                    border: 2px solid #072169;
+                    border: 2px solid #1C453B;
 
                     .buttonText {
-                        color: #072169;
+                        color: #1C453B;
                         font-size: 1.2rem;
                         font-family: 'gotham-medium';
                     }
@@ -285,7 +289,7 @@
                 }
 
                 .or-text {
-                    color: #072169;
+                    color: #1C453B;
                     font-size: 1.2rem;
                     font-family: 'sansation-bold';
                     text-align: center;

@@ -9,7 +9,6 @@ import { setUserPasswordResetToken, verifyOtp } from "../AuthSlice";
 import './VerifyOtp.scss'
 import { calculateTimeRemaining } from "../../../utils/utils";
 import { IoChevronForward } from "react-icons/io5";
-import Dialogue from '../../../components/Dialogue/Dialogue';
 
 
 const VerifyOtp = () => {
@@ -24,11 +23,7 @@ const VerifyOtp = () => {
     const [error, setError] = useState('');
     const location = useLocation()
     const token = otpValues.join('');
-    const [open, setOpen] = useState(false)
-
-    const closeAlert = () => {
-        setOpen(false)
-    }
+    const [alertMessage, setAlertMessage] = useState('');
 
     useEffect(() => {
         const onComplete = () => {
@@ -46,7 +41,7 @@ const VerifyOtp = () => {
 
             const timeString = calculateTimeRemaining(futureDate, onComplete);
             setCounter(timeString);
-        }, 5000);
+        }, 1000);
 
         return () => clearInterval(countDown);
 
@@ -78,7 +73,7 @@ const VerifyOtp = () => {
             })
             .catch((rejectedValueOrSerializedError) => {
                 setCanSubmit(true);
-                setOpen(true)
+                setAlertMessage('')
                 setError("Invalid authentication code provided");
                 setOtpValues(new Array(5).fill(''));
             })
@@ -88,10 +83,10 @@ const VerifyOtp = () => {
         dispatch(resendPasswordOtp({
             phone_number: location.state.phone
         }))
-        setCountdownDone(true)
-        setOtpValues(new Array(5).fill(''))
-        setOpen(true)
-        setError('Otp resent successfully')    
+        setCountdownDone(true);
+        setOtpValues(new Array(5).fill(''));
+        setError('');
+        setAlertMessage('Otp resent successfully');
     }
 
     useEffect(() => {
@@ -110,11 +105,18 @@ const VerifyOtp = () => {
         <>
             <div className='password-container'>
                 <AnonymousRouteHeader title='OTP Verification' isClose={true} styleProp='verify-header' onClick={navigateHandler} />
+                {error.length > 0 &&
+                    <div className='error-container'>
+                        <span className='input-error'>{error}</span>
+                    </div>
+                }
+                {alertMessage.length > 0 &&
+                    <div className='alert-container'>
+                        <span className='input-error'>{alertMessage}</span>
+                    </div>
+                }
                 <p className='text'>Enter Otp code</p>
                 <form className='otp-form' onSubmit={handleSubmit}>
-                    {error.length > 0 &&
-                        <span className="error-box">{error}</span>
-                    }
                     <div>
                         {otpValues.map((data, index) => {
                             return (
@@ -136,7 +138,7 @@ const VerifyOtp = () => {
                         }
                     </div>
                     <button className='button-container' disabled={!canSubmit} type='submit'>
-                        <span className='buttonText'>Continue</span>
+                        <span className='buttonText'>Verify Otp</span>
                     </button>
                 </form>
                 <ResendOtp onPress={resendButton} countdowvnDone={countdownDone} isCountdownInProgress={isCountdownInProgress} />
@@ -144,14 +146,12 @@ const VerifyOtp = () => {
                     <img width="50px" height="50px" src="/images/whatsapp-icon.png" alt="logo" className="social-img" />
                     <div className='text-container'>
                         <div className='header-container'>
-                            <span className='header'>Contact Support</span>
-                            <IoChevronForward color='#072169' />
+                            <span className='header'>OTP Verification Help</span>
+                            <IoChevronForward color='#1C453B' />
                         </div>
                         <span className='whatsapp-title'>Live chat with support on Whatsapp</span>
                     </div>
                 </a>
-                <Dialogue open={open} handleClose={closeAlert} dialogueMessage={error} />
-
             </div>
 
         </>

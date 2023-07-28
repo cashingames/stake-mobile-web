@@ -100,20 +100,20 @@ function AuthContactForm() {
     }, [messageError, message_body, firstNameErr, first_name, lastNameErr, last_name, emailError, email, phoneErr, phone])
 
     const navigateHandler = () => {
-        navigate('/');
+        navigate('/login');
     }
 
     return (
 
             <div className='form-container'>
-            <AnonymousRouteHeader title='Support' styleProp='agreement' noClose={true} onClick={navigateHandler} />
+            <AnonymousRouteHeader title='Contact Us' styleProp='agreement' noClose={true} onClick={navigateHandler} />
 
-                <h1 className='form-title'>Do you have any question?</h1>
+                <h1 className='form-title'>Do you have any question? Write to us</h1>
                 <a href='https://wa.me/2348025116306' className='whatsapp-chat'>
                     <img width="50px" height="50px" src="/images/whatsapp-icon.png" alt="logo" className="social-img" />
                     <div className='text-container'>
                         <div className='header-container'>
-                            <span className='header'>Contact Support</span>
+                            <span className='header'>Need live help</span>
                             <IoChevronForward color='#072169' />
                         </div>
                         <span className='whatsapp-title'>Live chat with support on Whatsapp</span>

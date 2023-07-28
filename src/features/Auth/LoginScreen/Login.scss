@@ -2,6 +2,7 @@
     padding: 2rem 1.3rem;
     background-color: #F9FBFF;
     min-height: 100vh;
+    overflow: scroll;
 
     .header-title {
         margin-top: 1.4rem;
@@ -11,20 +12,23 @@
         margin-top: 7rem;
 
         .form-container {
-            .input-error {
-                text-align: center;
-                margin: 1rem 0;
-                background-color: #F442741A;
-                border-radius: 7px;
-                color: #EF2F55;
-                font-size: 0.7rem;
-                font-family: 'gotham-light';
-                padding: .5rem 0;
+            .error-container {
+                background-color: #FF0032;
+                border-radius: 38px;
+                margin: 0 2rem;
+                margin-bottom: 1rem;
                 display: flex;
                 justify-content: center;
 
+                .input-error {
+                    text-align: center;
+                    color: #FFF;
+                    font-size: 0.9rem;
+                    font-family: 'sansation-bold';
+                    padding: .7rem 0;
+                  
+                }
             }
-
             .input-container {
                 display: flex;
                 flex-direction: column;
@@ -38,7 +42,7 @@
                     margin-bottom: .6rem;
 
                     .show {
-                        color: #072169;
+                        color: #1C453B;
                     }
 
                     .required-text {
@@ -50,7 +54,7 @@
 
                     .input-label {
                         font-size: 1rem;
-                        color: #072169;
+                        color: #1C453B;
                         font-family: 'gotham-medium';
                         margin: 0;
                     }
@@ -58,7 +62,7 @@
 
                 .input-label {
                     font-size: 1rem;
-                    color: #072169;
+                    color: #1C453B;
                     font-family: 'gotham-medium';
                     margin-bottom: .6rem;
                 }
@@ -66,11 +70,11 @@
 
                 .input-box {
                     height: 3.5rem;
-                    color: #072169;
+                    color: #1C453B;
                     font-size: 0.95rem;
                     font-family: 'sansation-regular';
                     border-radius: 14px;
-                    padding: 0.5rem 1rem;
+                    padding: 0.25rem 1rem;
                     border: 1px solid #D9D9D9;
                     outline: none;
                     background-color: #fff;
@@ -89,7 +93,7 @@
                 .forgot-password-text {
                     margin: 0;
                     line-height: 0;
-                    color: #072169;
+                    color: #1C453B;
                     font-size: 1.1rem;
                     font-family: 'gotham-medium';
                     text-decoration: none;
@@ -127,10 +131,10 @@
                     padding: 1.3rem 0;
                     border-radius: 13px;
                     width: 100%;
-                    border: 2px solid #072169;
+                    border: 2px solid #1C453B;
 
                     .buttonText {
-                        color: #072169;
+                        color: #1C453B;
                         font-size: 1.2rem;
                         font-family: 'gotham-medium';
                     }
@@ -138,7 +142,7 @@
                 }
 
                 .or-text {
-                    color: #072169;
+                    color: #1C453B;
                     font-size: 1.2rem;
                     font-family: 'sansation-bold';
                     text-align: center;
