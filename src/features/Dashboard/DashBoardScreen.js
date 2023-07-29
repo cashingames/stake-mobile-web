@@ -5,10 +5,9 @@ import { useSelector } from 'react-redux';
 import UserWalletAccounts from '../../components/UserWalletAccounts/UserWalletAccounts';
 import { useNavigate } from 'react-router-dom';
 import GamesCards from '../../components/GamesCard/GamesCards';
-import LeaderboardCards from '../../components/LeaderboardCards/LeaderboardCards';
+import PromotionsCards from '../../components/PromotionsCards/PromotionsCards';
 import AppHeader from '../../components/AppHeader/AppHeader';
 import logToAnalytics from '../../utils/analytics';
-import { formatCurrency } from '../../utils/stringUtl';
 
 
 
@@ -24,7 +23,7 @@ function DashBoardScreen() {
         <UserProfile user={user} username={username} firstname={firstname} />
         <UserWalletAccounts user={user} />
         <GamesCards />
-        <LeaderboardCards />
+        <PromotionsCards />
       </div>
       <AppHeader heading='Home' style={{ color: '#000000' }} />
     </>
@@ -62,7 +61,7 @@ const UserProfile = ({ user, username, firstname }) => {
         </div>
       </div>
       <div className='balance-container' onClick={goToWallet}>
-        <span className='balance-currency'>NGN {formatCurrency(totalWalletBalance)}</span>
+        <span className='balance-currency'>NGN {totalWalletBalance}</span>
         <IoChevronForwardOutline size={18} className='icon' color='#072169' />
       </div>
     </div>

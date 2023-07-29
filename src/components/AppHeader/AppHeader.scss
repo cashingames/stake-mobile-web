@@ -8,23 +8,6 @@
     z-index: 2;
     background: #EFF2F6;
     border: 1px solid #ccc;
-    font-family: "Graphik";
-
-    .appHeaderTitle {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 1rem;
-
-        .title {
-            font-family: 'sansation-bold';        }
-
-        .icon {
-            font-size: 1.2rem;
-            font-family: 'graphik-regular';
-            cursor: pointer;
-        }
-    }
 
     .navlink {
         display: flex;
@@ -34,14 +17,14 @@
         text-decoration: none;
         margin-top: 0.2rem;
         margin-bottom: 0;
-        font-size: 0.55rem;
-        color: #000;
-        font-family: 'graphik-medium';
+        font-size: 0.65rem;
+        color: #1C453B;
+        font-family: 'gotham-medium';
         opacity: 0.5;
         text-transform: capitalize;
 
         .icon {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
         }
     }
 

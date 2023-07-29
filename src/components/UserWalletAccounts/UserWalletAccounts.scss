@@ -1,8 +1,8 @@
 .wallets-container {
-    margin-top: 2rem;
+    margin-top: 1.5rem;
 
     .boosts-container {
-        background-color: #fff;
+        background-color: #FAF0E8;
         display: flex;
         flex-direction: column;
         padding: 14px 18px;
@@ -18,9 +18,9 @@
             flex-direction: row;
 
             .boost-header-text {
-                font-size: .9rem;
+                font-size: .85rem;
                 font-family: 'gotham-bold';
-                color: #072169;
+                color: #1C453B;
                 margin: 0;
             }
 
@@ -39,8 +39,8 @@
                     padding: .4rem .6rem;
 
                     .add-text {
-                        font-size: .7rem;
-                        font-family: 'sansation-bold';
+                        font-size: .75rem;
+                        font-family: 'gotham-medium';
                         color: #fff;
                         margin: 0;
                         margin-left: .3rem;
@@ -59,7 +59,7 @@
                 align-items: center;
                 flex-direction: row;
                 border-radius: 20px;
-                margin-right: 1rem;
+                margin-right: 2rem;
 
                 .boost-icon-container {
                     display: flex;
@@ -68,13 +68,13 @@
                     position: relative;
 
                     .boost-icon {
-                        width: 51px;
-                        height: 51px;
+                        width: 52px;
+                        height: 52px;
                     }
                 }
 
                 .boost-amount {
-                    font-size: .8rem;
+                    font-size: .85rem;
                     font-family: 'sansation-bold';
                     color: #fff;
                     margin-top: 1px;

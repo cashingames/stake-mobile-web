@@ -137,7 +137,7 @@ const WelcomeBonusCard = () => {
                     </div>
                     <div className="trivia-actions-texts">
                         <p className="trivia-bet-headerI">Let's cashout</p>
-                        <p className="trivia-bet-header">Fund & win</p>
+                        <p className="trivia-bet-header">Fund & stake</p>
                     </div>
                 </div>
                 <div className="play-button">
@@ -189,15 +189,6 @@ const PlayEarnCard = () => {
                     <p className="play-button-text">Play & Earn</p>
                 </div>
             </div>
-            {/* <p className="trivia-bet-header">Trivia Rooms</p>
-            <img
-                src="/images/rooms-hat.png"
-                alt='trivia'
-                className='trivia-avatar'
-            />
-            <div className="room-play-button">
-                <p className="play-button-text">Coming Soon!!</p>
-            </div> */}
         </div>
     )
 }
