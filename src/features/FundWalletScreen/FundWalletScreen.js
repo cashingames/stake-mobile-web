@@ -137,7 +137,7 @@ const FundWallet = ({ amount, setAmount, showPayment, setAmountError, amountErr,
                     </div>
                     <div className='gateways-container'>
                         <div className='label-container'>
-                            <p className='gateway-header-text'>Choose gateway</p>
+                            <p className='gateway-header-text'>Choose Gateway</p>
                             <p className='required-text'>Required</p>
                         </div>
                         <p className='gateway-sub-header'>Select a preferred gateway to fund wallet</p>

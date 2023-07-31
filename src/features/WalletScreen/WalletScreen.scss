@@ -1,10 +1,10 @@
 .password-header {
     .icon {
-        color: #072169;
+        color: #1C453B;
     }
 
     .title {
-        color: #072169;
+        color: #1C453B;
     }
 }
 
@@ -28,12 +28,12 @@
             align-items: center;
             background-color: #EFF2F6;
             border-radius: 35px;
-            padding: .4rem .5rem;
+            padding: .4rem .7rem;
 
             .wallet-button {
                 background-color: #E15220;
                 border-radius: 35px;
-                padding: .3rem .4rem;
+                padding: .3rem .9rem;
                 cursor: pointer;
 
                 .wallet-text {
@@ -133,7 +133,7 @@
                         align-items: center;
 
                         .total-title-text {
-                            color: #072169;
+                            color: #1C453B;
                             margin: 0;
                             font-family: 'gotham-medium';
                             font-size: 1rem;
@@ -156,7 +156,7 @@
                     // margin-left: 1.2rem;
 
                     .currency-text {
-                        color: #072169;
+                        color: #1C453B;
                         margin: 0;
                         font-family: 'gotham-bold';
                         font-size: 1.2rem;
@@ -164,7 +164,7 @@
                     }
 
                     .currency-amount {
-                        color: #072169;
+                        color: #1C453B;
                         margin: 0;
                         font-family: 'sansation-regular';
                         font-size: 1.2rem;
@@ -199,9 +199,9 @@
         margin-bottom: 3rem;
 
         .transactions-header {
-            color: #072169;
-            font-family: 'gotham-medium';
-            font-size: .9rem;
+            color: #1C453B;
+            font-family: 'gotham-bold';
+            font-size: 1.1rem;
             text-align: center;
             margin-bottom: 1rem;
         }
@@ -224,7 +224,7 @@
                 .wallet-button {
                     background-color: #E15220;
                     border-radius: 35px;
-                    padding: .3rem .4rem;
+                    padding: .3rem .7rem;
                     cursor: pointer;
 
                     .wallet-text {
@@ -311,7 +311,7 @@
                         margin-left: .5rem;
 
                         .transactionType {
-                            color: #072169;
+                            color: #1C453B;
                             margin: 0;
                             font-family: 'gotham-medium';
                             font-size: .9rem;
@@ -320,7 +320,7 @@
                         }
 
                         .transactionDate {
-                            color: #072169;
+                            color: #1C453B;
                             margin: 0;
                             font-family: 'sansation-regular';
                             font-size: .7rem;
@@ -336,7 +336,7 @@
                     align-items: center;
 
                     .transactionAmount {
-                        color: #072169;
+                        color: #1C453B;
                         margin: 0;
                         font-family: 'sansation-regular';
                         font-size: .9rem;
@@ -369,7 +369,7 @@
 
         .noTransactionContainer {
             .noTransaction {
-                color: #072169;
+                color: #1C453B;
                 margin: 0;
                 font-family: 'sansation-regular';
                 font-size: 1.5rem;

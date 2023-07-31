@@ -7,7 +7,7 @@ const DepositSuccessful = () => {
     const navigate = useNavigate();
 
     const returnToWallet = () => {
-        navigate('/wallet');
+        navigate('/dashboard');
 
     }
     return (

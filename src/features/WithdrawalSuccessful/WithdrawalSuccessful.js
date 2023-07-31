@@ -7,7 +7,7 @@ const WithdrawalSuccessful = () => {
     const navigate = useNavigate();
 
     const returnToWallet = () => {
-        navigate('/wallet');
+        navigate('/dashboard');
 
     }
     return (

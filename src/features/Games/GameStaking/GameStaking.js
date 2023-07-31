@@ -317,12 +317,14 @@ const StakingBalances = ({ depositBalance, minimumExhibitionStakeAmount, user, b
         {
             key: 1,
             value: `Deposit (NGN ${formatCurrency(depositBalance)})`,
-            disabled: depositBalance < minimumExhibitionStakeAmount,
+            // eslint-disable-next-line
+            disabled: depositBalance == 0,
         },
         {
             key: 2,
             value: `Bonus (NGN ${formatCurrency(user.bonusBalance)})`,
-            disabled: user.bonusBalance < minimumExhibitionStakeAmount,
+            // eslint-disable-next-line
+            disabled: user.bonusBalance == 0,
         }
     ]
 

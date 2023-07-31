@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import './WalletScreen.scss';
 import AnonymousRouteHeader from '../../components/AnonymousRouteHeader/AnonymousRouteHeader';
-// import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { formatCurrency } from '../../utils/stringUtl';
 import { Spinner } from 'react-activity';
 import { IoChevronForwardOutline, IoEllipse } from 'react-icons/io5';
@@ -183,7 +182,6 @@ const WalletBalanceDetails = ({ balance, bonusWalletActive, mainWalletActive, bo
 }
 
 const TransactionsContainer = ({ loading, mainWalletActive, bonusWalletActive, winningsWalletActive }) => {
-  // let navigate = useNavigate();
   const dispatch = useDispatch();
   const transactions = useSelector(state => state.common.userTransactions);
   const [pageNumber] = useState(1);
@@ -260,6 +258,10 @@ const TransactionsContainer = ({ loading, mainWalletActive, bonusWalletActive, w
     return transactions;
   }
 
+  useEffect(() => {
+    dispatch(getUser());
+  },[dispatch]);
+
   return (
     <div className='transactions-container'>
       <p className='transactions-header'>Transaction History</p>
@@ -283,9 +285,7 @@ const TransactionsContainer = ({ loading, mainWalletActive, bonusWalletActive, w
         />
         :
         <>
-          <div style={
-            { backgroundImage: "url(/images/coins-background.png)" }
-          } className='transactions-background'>
+          <div className='transactions-background'>
             {mainWalletActive && allTransactions &&
               <>
                 {

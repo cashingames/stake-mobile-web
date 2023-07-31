@@ -3,7 +3,7 @@ import AnonymousRouteHeader from "../../components/AnonymousRouteHeader/Anonymou
 import './WithdrawFunds.scss';
 import { useDispatch, useSelector } from "react-redux";
 import { formatCurrency } from "../../utils/stringUtl";
-import { MenuItem, Select } from "@mui/material";
+import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { getUser } from "../Auth/AuthSlice";
 import { fetchUserTransactions, getBankData, withdrawWinnings } from "../CommonSlice";
@@ -95,7 +95,7 @@ const WithdrawFunds = () => {
 
     const navigateHandler = () => {
         navigate('/wallet');
-      }
+    }
 
     useEffect(() => {
         const invalid = accountNumberErr || amountErr || amount === '' || accountNumber === ''
@@ -141,28 +141,32 @@ const WithdrawFunds = () => {
                         <label htmlFor='bankName' className='input-label'>Choose bank</label>
                         <p className='required-text'>Required</p>
                     </div>
-                    <Select
-                        value={bankName}
-                        onChange={(e) => setBankName(e.target.value)}
-                        sx={{
-                            height: ' 3.5rem',
-                            borderRadius: '14px',
-                            fontSize: '0.95rem',
-                            background: '#FFF',
-                            border: '0.1px solid #D9D9D9',
-                            outline: 0,
-                            fontFamily: 'sansation-regular',
-                            color: '#072169'
-                        }}>
-                        {banks && banks.map((bank, i) => {
-                            return (
-                                <MenuItem key={i} value={bank.name}>{bank.name}</MenuItem>
-                            )
-                        }
+                    <FormControl fullWidth>
+                        <InputLabel id="demo-simple-select-label" style={{ fontFamily: 'sansation-regular', color: '#1C453B', fontSize: '0.92rem', }}>Select Bank</InputLabel>
+                        <Select
+                            value={bankName}
+                            onChange={(e) => setBankName(e.target.value)}
+                            label="Select Bank"
+                            sx={{
+                                height: ' 3.5rem',
+                                borderRadius: '14px',
+                                fontSize: '0.95rem',
+                                background: '#FFF',
+                                border: '0.1px solid #D9D9D9',
+                                outline: 0,
+                                fontFamily: 'sansation-regular',
+                                color: '#1C453B'
+                            }}>
+                            {banks && banks.map((bank, i) => {
+                                return (
+                                    <MenuItem style={{ color: '#1C453B', fontFamily: 'sansation-regular' }} key={i} value={bank.name}>{bank.name}</MenuItem>
+                                )
+                            }
 
 
-                        )}
-                    </Select>
+                            )}
+                        </Select>
+                    </FormControl>
                 </div>
                 <div className='input-container'>
                     <div className='label-container'>

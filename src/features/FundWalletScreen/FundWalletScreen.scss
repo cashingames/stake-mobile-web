@@ -41,11 +41,11 @@
 
     .password-header {
         .icon {
-            color: #072169;
+            color: #1C453B;
         }
 
         .title {
-            color: #072169;
+            color: #1C453B;
         }
     }
 
@@ -66,8 +66,8 @@
                 margin-bottom: .6rem;
 
                 .input-label {
-                    font-size: 1.1rem;
-                    color: #072169;
+                    font-size: 1.03rem;
+                    color: #1C453B;
                     font-family: 'gotham-medium';
                     margin: 0;
                 }
@@ -80,7 +80,7 @@
                 }
 
                 .show {
-                    color: #072169;
+                    color: #1C453B;
                 }
 
             }
@@ -94,8 +94,8 @@
 
 
             .input-box {
-                height: 3.5rem;
-                color: #072169;
+                height: 2.7rem;
+                color: #1C453B;
                 font-size: 0.95rem;
                 font-family: 'sansation-regular';
                 border-radius: 14px;
@@ -106,8 +106,8 @@
             }
 
             .input-boxi {
-                height: 3.5rem;
-                color: #072169;
+                height: 2.7rem;
+                color: #1C453B;
                 font-size: 0.95rem;
                 font-family: 'sansation-regular';
                 border-radius: 14px;
@@ -118,14 +118,15 @@
             }
 
             ::placeholder {
-                color: #00000080;
+                color: #1C453B;
+                opacity: 0.6;
                 font-family: 'sansation-regular';
             }
 
         }
 
         .gateways-container {
-            margin-top: 2rem;
+            margin-top: 3rem;
             cursor: pointer;
 
             .label-container {
@@ -137,7 +138,7 @@
 
                 .gateway-header-text {
                     font-size: 1.1rem;
-                    color: #072169;
+                    color: #1C453B;
                     font-family: 'gotham-medium';
                     margin: 0;
                 }
@@ -151,8 +152,8 @@
             }
 
             .gateway-sub-header {
-                font-size: 1rem;
-                color: #072169;
+                font-size: 1.02rem;
+                color: #1C453B;
                 font-family: 'sansation-regular';
                 margin-top: 1rem;
                 opacity: 0.5;

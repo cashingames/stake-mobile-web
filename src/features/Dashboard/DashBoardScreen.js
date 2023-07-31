@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { IoChevronForwardOutline } from 'react-icons/io5'
 import './dashboard.scss'
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import UserWalletAccounts from '../../components/UserWalletAccounts/UserWalletAccounts';
 import { useNavigate } from 'react-router-dom';
 import GamesCards from '../../components/GamesCard/GamesCards';
@@ -9,6 +9,7 @@ import PromotionsCards from '../../components/PromotionsCards/PromotionsCards';
 import AppHeader from '../../components/AppHeader/AppHeader';
 import logToAnalytics from '../../utils/analytics';
 import { formatCurrency } from '../../utils/stringUtl';
+import { getUser } from '../Auth/AuthSlice';
 
 
 
@@ -32,6 +33,7 @@ function DashBoardScreen() {
 }
 
 const UserProfile = ({ user, username, firstname }) => {
+  const dispatch = useDispatch();
   let navigate = useNavigate();
   const totalWalletBalance = Number.parseFloat(user.walletBalance) + Number.parseFloat(user.bonusBalance)
   const goToProfile = () => {
@@ -46,6 +48,10 @@ const UserProfile = ({ user, username, firstname }) => {
   });
     navigate('/wallet')
   }
+
+  useEffect(() => {
+    dispatch(getUser());
+  },[dispatch]);
 
   return (
     <div className='profile-container'>

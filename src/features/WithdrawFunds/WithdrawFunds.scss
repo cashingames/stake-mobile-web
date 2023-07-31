@@ -13,6 +13,7 @@
     background-color: #F9FBFF;
     min-height: 100vh;
     padding: 2rem 1.2rem;
+    overflow: scroll;
 
     .inputs-container {
         display: flex;
@@ -45,8 +46,8 @@
                 margin-bottom: .6rem;
 
                 .input-label {
-                    font-size: 1.1rem;
-                    color: #072169;
+                    font-size: 1rem;
+                    color: #1C453B;
                     font-family: 'gotham-medium';
                     margin: 0;
                 }
@@ -59,15 +60,15 @@
                 }
 
                 .show {
-                    color: #072169;
+                    color: #1C453B;
                 }
 
             }
 
 
             .input-box {
-                height: 3.5rem;
-                color: #072169;
+                height: 3.3rem;
+                color: #1C453B;
                 font-size: 0.95rem;
                 font-family: 'sansation-regular';
                 border-radius: 14px;
@@ -78,8 +79,8 @@
             }
 
             .input-boxi {
-                height: 3.5rem;
-                color: #072169;
+                height: 2.7rem;
+                color: #1C453B;
                 font-size: 0.95rem;
                 font-family: 'sansation-regular';
                 border-radius: 14px;
@@ -90,7 +91,8 @@
             }
 
             ::placeholder {
-                color: #00000080;
+                color: #1C453B;
+                opacity: 0.6;
                 font-family: 'sansation-regular';
             }
 
@@ -98,7 +100,7 @@
                 display: flex;
                 align-items: center;
                 height: 3.5rem;
-                color: #072169;
+                color: #1C453B;
                 font-size: 0.95rem;
                 font-family: 'sansation-regular';
                 border-radius: 14px;
@@ -114,7 +116,7 @@
                     width: 3rem;
                     margin-right: .5rem;
                     font-size: 0.9rem;
-                    color: #072169;
+                    color: #1C453B;
                     outline: none;
                     font-family: 'sansation-regular';
 
@@ -123,7 +125,7 @@
                 .phone-input {
                     border: none;
                     outline: none;
-                    color: #072169;
+                    color: #1C453B;
                     font-size: 0.9rem;
                     font-family: 'sansation-regular';
 
@@ -136,7 +138,7 @@
                 display: flex;
                 align-items: center;
                 height: 3.5rem;
-                color: #072169;
+                color: #1C453B;
                 font-size: 0.95rem;
                 font-family: 'sansation-regular';
                 border-radius: 14px;
@@ -152,7 +154,7 @@
                     width: 3rem;
                     margin-right: .5rem;
                     font-size: 0.9rem;
-                    color: #072169;
+                    color: #1C453B;
                     outline: none;
                     font-family: 'sansation-regular';
 
@@ -161,7 +163,7 @@
                 .phone-input {
                     border: none;
                     outline: none;
-                    color: #072169;
+                    color: #1C453B;
                     font-size: 0.9rem;
                     font-family: 'sansation-regular';
 
@@ -176,7 +178,7 @@
                 font-family: 'sansation-regular';
             }
             .available-bal {
-                color: #072169;
+                color: #1C453B;
                 font-size: 0.8rem;
                 margin-top: .5rem;
                 font-family: 'sansation-regular';
@@ -220,13 +222,13 @@
                 margin-left: .7rem;
 
                 .agreements-text {
-                    color: #072169;
+                    color: #1C453B;
                     font-family: 'sansation-regular';
                     font-size: 1rem;
                 }
 
                 .agreements-link {
-                    color: #072169;
+                    color: #1C453B;
                     font-family: 'sansation-regular';
                     font-size: 1rem;
                     text-decoration: underline;
@@ -240,7 +242,7 @@
             margin-top: .7rem;
 
             .agreements-text {
-                color: #072169;
+                color: #1C453B;
                 font-family: 'sansation-regular';
                 font-size: 1rem;
                 margin-left: .7rem;
@@ -279,12 +281,12 @@
                 padding: 1.3rem 0;
                 border-radius: 13px;
                 width: 100%;
-                border: 2px solid #072169;
+                border: 2px solid #1C453B;
                 cursor: pointer;
 
 
                 .buttonText {
-                    color: #072169;
+                    color: #1C453B;
                     font-size: 1.2rem;
                     font-family: 'gotham-medium';
                 }
@@ -292,7 +294,7 @@
             }
 
             .or-text {
-                color: #072169;
+                color: #1C453B;
                 font-size: 1.2rem;
                 font-family: 'sansation-bold';
                 text-align: center;
