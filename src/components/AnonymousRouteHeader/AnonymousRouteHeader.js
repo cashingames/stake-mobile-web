@@ -6,16 +6,18 @@ import './AnonymousRouteHeader.scss'
 function AnonymousRouteHeader({ title, styleProp, isClose, noClose, onClick }) {
     return (
         <div className={`anonymousRouteHeader ${styleProp}`}>
-                {noClose &&
-                    <IoChevronBack size={24} className='icon'
+            {noClose &&
+                <IoChevronBack size={26} className='icon'
                     onClick={onClick} />
-                }
-                {isClose &&
-                    <IoClose size={24} className='icon'
-                    onClick={onClick} />
-                }
-                <h1 className='title'>{title}</h1>
-                <div></div>
+            }
+            {isClose &&
+                <div className="exit-container">
+                    <IoClose size={26} className='icon'
+                        onClick={onClick} />
+                </div>
+            }
+            <h1 className='title'>{title}</h1>
+            <div></div>
         </div>
     )
 }

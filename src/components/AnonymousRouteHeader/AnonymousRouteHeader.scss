@@ -4,13 +4,24 @@
     margin-top: .5rem;
     align-items: center;
     justify-content: space-between;
+
+    .exit-container {
+        background-color: #EEEEEE;
+        border-radius: 50px;
+        width: 35px;
+        height: 35px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .icon {
+            color: #1C453B;
+            cursor: pointer;
+        }
+    }
+
     .title {
         font-size: 21px;
         margin: 0;
         font-family: 'gotham-medium';
-    }
-    .icon {
-        color: #1C453B;
-        cursor: pointer;
     }
 }
