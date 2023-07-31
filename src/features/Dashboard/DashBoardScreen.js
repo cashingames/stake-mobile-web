@@ -8,6 +8,7 @@ import GamesCards from '../../components/GamesCard/GamesCards';
 import PromotionsCards from '../../components/PromotionsCards/PromotionsCards';
 import AppHeader from '../../components/AppHeader/AppHeader';
 import logToAnalytics from '../../utils/analytics';
+import { formatCurrency } from '../../utils/stringUtl';
 
 
 
@@ -61,7 +62,7 @@ const UserProfile = ({ user, username, firstname }) => {
         </div>
       </div>
       <div className='balance-container' onClick={goToWallet}>
-        <span className='balance-currency'>NGN {totalWalletBalance}</span>
+        <span className='balance-currency'>NGN {formatCurrency(totalWalletBalance)}</span>
         <IoChevronForwardOutline size={18} className='icon' color='#1c453b' />
       </div>
     </div>

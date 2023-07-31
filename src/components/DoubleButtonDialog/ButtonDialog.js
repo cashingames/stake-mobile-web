@@ -7,10 +7,10 @@ import DialogContentText from '@mui/material/DialogContentText';
 import Slide from '@mui/material/Slide';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
-  return <Slide direction="up" ref={ref} {...props} />;
+  return <Slide direction="up" ref={ref} {...props}  />;
 });
 
-export default function ButtonDialog({open, onClick, handleClose, dialogueMessage}) {
+export default function ButtonDialog({ open, onClick, handleClose, dialogueMessage }) {
   return (
     <div>
       <Dialog
@@ -22,28 +22,33 @@ export default function ButtonDialog({open, onClick, handleClose, dialogueMessag
       >
         <DialogContent>
           <DialogContentText id="alert-dialog-description"
-          sx={{
-            fontFamily:'graphik-medium',
-            color:'#000'
+            sx={{
+              fontFamily: 'gotham-bold',
+              color: '#1C453B'
 
-          }}>
-          {dialogueMessage}
+            }}>
+            {dialogueMessage}
           </DialogContentText>
         </DialogContent>
         <DialogActions>
           <Button onClick={onClick} autoFocus sx={{
-            color:'black',
-            fontFamily:'graphik-medium',
+            color: '#FFF',
+            fontFamily: 'gotham-medium',
+            fontSize: '1rem',
+            backgroundColor:'#E15220',
+            textTransform:'capitalize'
           }}>
-            Yes
+            Yes, cancel
           </Button>
         </DialogActions>
         <DialogActions>
           <Button onClick={handleClose} autoFocus sx={{
-            color:'black',
-            fontFamily:'graphik-medium',
+            color: '#1C453B',
+            fontFamily: 'gotham-medium',
+            fontSize: '1rem',
+            textTransform:'capitalize',
           }}>
-            Cancel
+            Continue game
           </Button>
         </DialogActions>
       </Dialog>

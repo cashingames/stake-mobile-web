@@ -9,7 +9,9 @@ import GameInProgressAndBoost from '../../../components/GameInProgressAndBoost/G
 import GameQuestions from '../../../components/GameQuestions/GameQuestions'
 import firebaseConfig from '../../../firebaseConfig'
 import { endGame, endPracticeGame } from '../GameSlice'
-import './GameInProgress.scss'
+import './GameInProgress.scss';
+import Dialogue from '../../../components/Dialogue/Dialogue'
+
 
 function GameInProgress() {
 
@@ -26,9 +28,11 @@ function GameInProgress() {
   const analytics = firebaseConfig();
   const cashMode = useSelector(state => state.game.cashMode);
   const practiceMode = useSelector(state => state.game.practiceMode);
+  const [exitClicked, setExitClicked] = useState(false);
+
 
   const onEndGame = (confirm = false) => {
-
+    setExitClicked(false)
     if (ending) {
       //do not delete
       return;
@@ -62,8 +66,8 @@ function GameInProgress() {
             'email': user.email
           });
           setEnding(false);
-          alert('failed to end game');
-          navigate('/dashboard');
+          setOpenAlert(true);
+          setAlertMessage('failed to end game');
         });
     }
 
@@ -89,8 +93,8 @@ function GameInProgress() {
             'email': user.email
           });
           setEnding(false);
-          alert('failed to end game');
-          navigate('/dashboard');
+          setOpenAlert(true);
+          setAlertMessage('failed to end game');
         });
     }
   }
@@ -124,8 +128,19 @@ function GameInProgress() {
   })
 
   const showExitConfirmation = () => {
-    setOpenAlert(true)
-    setAlertMessage('You have an ongoing game, do you want to submit this game?')
+    setExitClicked(true)
+    setOpenAlert(true);
+    if (practiceMode) {
+      setAlertMessage("Are you sure you want to cancel demo game?");
+  }
+  else if (cashMode) {
+      setAlertMessage("Are you sure you want to end staked game?");
+  }
+  }
+
+  const goHome = () => {
+    setOpenAlert(false)
+    navigate('/dashboard');
   }
 
   //disable browser back button
@@ -147,7 +162,11 @@ function GameInProgress() {
       <GameAppHeader onPress={showExitConfirmation} gameTitle='Trivia game' />
       <GameInProgressAndBoost onComplete={() => onEndGame()} />
       <GameQuestions onPress={() => onEndGame()} ending={ending} onComplete={() => onEndGame()} />
+      {exitClicked ?
       <ButtonDialog dialogueMessage={alertMessage} open={openAlert} handleClose={closeAlert} onClick={submitGame} />
+      :
+      <Dialogue dialogueMessage={alertMessage} open={openAlert} handleClose={goHome} />
+}
     </div>
   )
 }
