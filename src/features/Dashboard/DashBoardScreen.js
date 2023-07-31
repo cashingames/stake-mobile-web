@@ -62,7 +62,7 @@ const UserProfile = ({ user, username, firstname }) => {
       </div>
       <div className='balance-container' onClick={goToWallet}>
         <span className='balance-currency'>NGN {totalWalletBalance}</span>
-        <IoChevronForwardOutline size={18} className='icon' color='#072169' />
+        <IoChevronForwardOutline size={18} className='icon' color='#1c453b' />
       </div>
     </div>
   )

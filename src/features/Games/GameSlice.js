@@ -179,7 +179,7 @@ let initialState = {
     triviaMode: '',
     triviaId: '',
     hasPlayedTrivia: false,
-    gameDuration: 600,
+    gameDuration: 60,
     challengeDetails: {},
     stakeOdds: [],
     gameStakes: [],
@@ -443,7 +443,7 @@ function resetState(state) {
     state.triviaMode = '';
     state.triviaId = '';
     state.hasPlayedTrivia = false;
-    state.gameDuration = 600;
+    state.gameDuration = 60;
     state.challengeDetails = {};
     state.userChallenges = [];
     state.challengeScores = {};
