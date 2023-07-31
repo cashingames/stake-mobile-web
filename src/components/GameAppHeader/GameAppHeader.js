@@ -1,14 +1,13 @@
 import React from 'react'
-// import {Player} from '@lottiefiles/react-lottie-player'
-// import Boost from '../../assets/boost.json'
 import './GameAppHeader.scss'
-import AnonymousRouteHeader from '../AnonymousRouteHeader/AnonymousRouteHeader'
 
-function GameAppHeader({ onPress, gameTitle }) {
+function GameAppHeader({ onPress, gameTitle, styleProp }) {
     return (
-        <div className='gameInHeader'>
-            <button onClick={onPress} className='exit-game'>X</button>
-            <AnonymousRouteHeader title={gameTitle} styleProp='password-header' />
+        <div className={`gameInHeader ${styleProp}`}>
+            <div onClick={onPress} className='exit-game'>
+                <span className='exit-text'>Exit Game</span>
+            </div>
+            <h1 className='title'>{gameTitle}</h1>
             <div></div>
         </div>
     )
