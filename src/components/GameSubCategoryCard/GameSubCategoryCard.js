@@ -34,7 +34,7 @@ const GameSubCategoryCard = ({ subcategory }) => {
                 />
                 <p className='cardTitle' >{subcategory.name}</p>
             </div>
-            <IoChevronForwardOutline size={18} className='icon' color='#072169' />
+            <IoChevronForwardOutline size={18} className='icon' color='#1C453B' />
 
         </div >
 

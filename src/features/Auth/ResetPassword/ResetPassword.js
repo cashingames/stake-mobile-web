@@ -20,6 +20,8 @@ const ResetPassword = () => {
     const [confirmPassErr, setConfirmPassError] = useState(false);
     const phone = useSelector(state => state.auth.passwordReset.userPhone);
     const code = useSelector(state => state.auth.passwordReset.userCode);
+    const [alertMessage, setAlertMessage] = useState('');
+
 
     const onChangePassword = (e) => {
         const password = e.currentTarget.value;
@@ -48,10 +50,12 @@ const ResetPassword = () => {
             .then((originalPromiseResult) => {
                 setLoading(false);
                 setCanSubmit(true);
-                alert('Password reset successful')
+                setError('');
+                setAlertMessage('Password reset successful')
                 navigate('/login');
             })
             .catch((rejectedValueOrSerializedError) => {
+                setAlertMessage('')
                 setError("Password reset failed, try again");
                 setLoading(false);
             })
@@ -59,16 +63,23 @@ const ResetPassword = () => {
 
     const navigateHandler = () => {
         navigate('/login');
-      }
+    }
 
 
     return (
         <>
             <div className='password-container' >
-                <AnonymousRouteHeader title='Update your password' isClose={true}  styleProp='reset-header' onClick={navigateHandler} />
+                <AnonymousRouteHeader title='Update your password' isClose={true} styleProp='reset-header' onClick={navigateHandler} />
                 <div>
                     {error.length > 0 &&
-                        <span className="error-box">{error}</span>
+                        <div className='error-container'>
+                            <span className='input-error'>{error}</span>
+                        </div>
+                    }
+                    {alertMessage.length > 0 &&
+                        <div className='alert-container'>
+                            <span className='input-error'>{alertMessage}</span>
+                        </div>
                     }
                     <div className='inputs-container'>
                         <div className='input-container'>

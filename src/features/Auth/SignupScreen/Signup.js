@@ -4,7 +4,6 @@ import { IoEllipseOutline, IoCheckmarkCircle, IoChevronForwardOutline } from 're
 import { registerUser } from '../AuthSlice';
 import { useNavigate, Link } from 'react-router-dom';
 import AuthTitle from '../../../components/AuthTitle/AuthTitle';
-import Dialogue from '../../../components/Dialogue/Dialogue';
 import './Signup.scss'
 import logToAnalytics from '../../../utils/analytics';
 
@@ -24,7 +23,6 @@ const Signup = () => {
     const [checked, setChecked] = useState(false);
     const [bonusChecked, setBonusChecked] = useState(false);
     const [error, setError] = useState('');
-    const [open, setOpen] = useState(false);
     const [emailError, setEmailError] = useState(false);
     const [fNameErr, setFnameErr] = useState(false);
     const [lNameErr, setLnameErr] = useState(false);
@@ -106,10 +104,6 @@ const Signup = () => {
         navigate('/login')
     }
 
-    const closeAlert = () => {
-        setOpen(false)
-    }
-
     const onSend = () => {
         setLoading(true);
         //dispatch(saveCreatedUserCredentials({ email, password, password_confirmation: password, phone_number: phone, country_code: countryCode }))
@@ -139,18 +133,15 @@ const Signup = () => {
 
         }, err => {
             if (!err || !err.response || err.response === undefined) {
-                setOpen(true)
                 setError("Your Network is Offline.");
             }
             else if (err.response.status === 500) {
-                setOpen(true)
                 setError("Service not currently available. Please contact support");
             }
             else {
                 const errors =
                     err.response && err.response.data && err.response.data.errors;
                 const firstError = Object.values(errors, {})[0];
-                setOpen(true)
                 setError(firstError[0])
             }
             setLoading(false);
@@ -163,9 +154,11 @@ const Signup = () => {
             <AuthTitle titleText="Create Account" styleProp='header-title' />
             <div className='form-container'>
                 <div className='inputs-container'>
-                    {/* {error.length > 0 &&
-                        <span className='inputs-error'>{error}</span>
-                    } */}
+                    {error.length > 0 &&
+                        <div className='error-container'>
+                            <span className='input-error'>{error}</span>
+                        </div>
+                    }
                     <div className='input-container'>
                         <div className='label-container'>
                             <label htmlFor='phone' className='input-label'>Phone number</label>
@@ -354,13 +347,12 @@ const Signup = () => {
                         <p className='or-text'>Or</p>
                         <button className='button-containeri' onClick={logMeIn}>
                             <span className='buttonText'>Login to account</span>
-                            <IoChevronForwardOutline size={20} color='#072169' className='icon' />
+                            <IoChevronForwardOutline size={20} color='#1C453B' className='icon' />
                         </button>
                     </div>
                     <Link to='/help-contact' className='contact-us'>Need help ? Contact us</Link>
                 </div>
             </div>
-            <Dialogue open={open} handleClose={closeAlert} dialogueMessage={error} />
 
         </div>
     )

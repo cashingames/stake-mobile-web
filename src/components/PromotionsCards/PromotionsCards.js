@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import './LeaderboardCards.scss';
+import './PromotionsCards.scss';
 import { IoChevronForwardOutline } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
 import logToAnalytics from "../../utils/analytics";
 import { useSelector } from "react-redux";
 
-const LeaderboardCards = () => {
+const PromotionsCards = () => {
 
     const user = useSelector(state => state.auth.user);
 
@@ -39,7 +39,7 @@ const CashDrop = ({isLeaderboard}) => {
                     <p className="top-leaders-headeri">Lucky winners win the pools</p>
                 </div>
             </div>
-            <IoChevronForwardOutline size={22} className='icon' />
+            <IoChevronForwardOutline size={22} className='icon'color="#1C453B"  />
         </div>
     )
 }
@@ -68,53 +68,12 @@ const PromotionsBoard = ({isNewPromotion, user}) => {
                 </div>
                 <div className="leaders-header-container">
                     <p className="top-leaders-header">Promotions</p>
-                    <p className="top-leaders-headeri">Daily and weekly promotions</p>
+                    <p className="top-leaders-headeri">Daily and weekly cashbag</p>
                 </div>
             </div>
-            <IoChevronForwardOutline size={22} className='icon' />
+            <IoChevronForwardOutline size={22} className='icon' color="#1C453B" />
         </div>
     )
 }
 
-// const ChallengeLeaderboard = () => {
-//     return (
-//         <div className="challenge-container">
-//             <p className="top-leaders-header">Challenges</p>
-//             <img
-//                 src="/images/challenge-coin.png"
-//                 alt='crown'
-//                 className='avatar'
-//             />
-//             <p className="top-leaders-text">Daily & weekly challenges</p>
-//             <div className="challenge-button">
-//                 <p className="play-button-text">Coming Soon!!</p>
-//             </div>
-//         </div>
-//     )
-// }
-
-// const BoostsCard = () => {
-//     const navigate = useNavigate();
-
-//     const goToStore = () => {
-//         logToAnalytics("boost_card_clicked");
-//         navigate('/store')
-//     };
-
-//     return (
-//         <div className="boosts-container" onClick={goToStore}>
-//             <p className="top-leaders-header">Boost</p>
-//             <img
-//                 src="/images/boost-chest.png"
-//                 alt='crown'
-//                 className='avatar'
-//             />
-//             <p className="top-leaders-text">Bonuses, Time freeze & Skips</p>
-//             <div className="boost-button">
-//                 <p className="play-button-text">Learn More</p>
-//             </div>
-//         </div>
-//     )
-// }
-
-export default LeaderboardCards;
+export default PromotionsCards;

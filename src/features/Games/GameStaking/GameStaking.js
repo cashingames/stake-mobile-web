@@ -165,7 +165,7 @@ const GameStaking = () => {
 
     return (
         <div className="staking-container">
-            <AnonymousRouteHeader title='Game Staking' styleProp='staking' isClose={true} onClick={navigateHandler} />
+            <AnonymousRouteHeader title='Enter Stake' styleProp='staking' isClose={true} onClick={navigateHandler} />
             {cashMode &&
                 <StakingBalances depositBalance={depositBalance} user={user}
                     minimumExhibitionStakeAmount={minimumExhibitionStakeAmount} setBalanceName={setBalanceName} balanceName={balanceName} />
@@ -178,7 +178,7 @@ const GameStaking = () => {
                 <div className="input-container">
                     <div className='label-container'>
                         <label htmlFor='amount' className='input-label'>Enter amount</label>
-                        <p className='required-text'>Required</p>
+                        {/* <p className='required-text'>Required</p> */}
                     </div>
                     <input
                         placeholder={`Minimum amount is NGN ${minimumExhibitionStakeAmount}`}
@@ -249,7 +249,7 @@ const StakingPredictionsTable = ({ amount, walletType }) => {
     const bonusStakes = useSelector(state => state.game.bonusStakes);
     return (
         <div className="stake-container">
-            <p className="stake-heading">How to win</p>
+            <p className="stake-heading">Winning Odds</p>
             <div className="stake-headers">
                 <p className="stake-score">OUTCOME</p>
                 <p className="stake-head">ODDS</p>
@@ -333,7 +333,7 @@ const StakingBalances = ({ depositBalance, minimumExhibitionStakeAmount, user, b
                 <span className="required-text">Required</span>
             </div>
             <FormControl fullWidth>
-                <InputLabel id="demo-simple-select-label" style={{ fontFamily: 'sansation-regular', color: '#072169', fontSize: '0.92rem', }}>Select Wallet</InputLabel>
+                <InputLabel id="demo-simple-select-label" style={{ fontFamily: 'sansation-regular', color: '#1C453B', fontSize: '0.92rem', }}>Select Wallet</InputLabel>
                 <Select
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
@@ -348,13 +348,13 @@ const StakingBalances = ({ depositBalance, minimumExhibitionStakeAmount, user, b
                         border: '0.1px solid #D9D9D9',
                         outline: 0,
                         fontFamily: 'sansation-regular',
-                        color: '#072169',
+                        color: '#1C453B',
                     }}
                 >
                     {balanceAccounts && balanceAccounts.map((balanceAccount, i) => {
                         return (
                             <MenuItem key={balanceAccount.key} value={balanceAccount.key} disabled={balanceAccount.disabled}
-                                style={{ color: '#072169', fontFamily: 'sansation-regular' }}>{balanceAccount.value}</MenuItem>
+                                style={{ color: '#1C453B', fontFamily: 'sansation-regular' }}>{balanceAccount.value}</MenuItem>
                         )
                     }
                     )}
@@ -384,7 +384,7 @@ const PracticeStakingBalances = ({ balanceName, setBalanceName }) => {
                 <span className="required-text">Required</span>
             </div>
             <FormControl fullWidth>
-                <InputLabel id="demo-simple-select-label" style={{ fontFamily: 'sansation-regular', color: '#072169', fontSize: '0.92rem', }}>Select Wallet</InputLabel>
+                <InputLabel id="demo-simple-select-label" style={{ fontFamily: 'sansation-regular', color: '#1C453B', fontSize: '0.92rem', }}>Select Wallet</InputLabel>
                 <Select
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
@@ -399,13 +399,13 @@ const PracticeStakingBalances = ({ balanceName, setBalanceName }) => {
                         border: '0.1px solid #D9D9D9',
                         outline: 0,
                         fontFamily: 'sansation-regular',
-                        color: '#072169',
+                        color: '#1C453B',
                     }}
                 >
                     {balanceAccounts && balanceAccounts.map((balanceAccount, i) => {
                         return (
                             <MenuItem key={balanceAccount.key} value={balanceAccount.key} disabled={balanceAccount.disabled}
-                                style={{ color: '#072169', fontFamily: 'sansation-regular' }}>{balanceAccount.value}</MenuItem>
+                                style={{ color: '#1C453B', fontFamily: 'sansation-regular' }}>{balanceAccount.value}</MenuItem>
                         )
                     }
                     )}

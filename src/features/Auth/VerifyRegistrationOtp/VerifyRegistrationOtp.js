@@ -11,8 +11,6 @@ import { logEvent } from "firebase/analytics";
 import InputOTP from "../../../components/InputOTP/InputOTP";
 import AnonymousRouteHeader from "../../../components/AnonymousRouteHeader/AnonymousRouteHeader";
 import { IoChevronForward } from "react-icons/io5";
-import Dialogue from '../../../components/Dialogue/Dialogue'
-// import ReactGA from 'react-ga';
 
 
 const VerifyRegistrationOtp = () => {
@@ -26,7 +24,7 @@ const VerifyRegistrationOtp = () => {
     const [isCountdownInProgress, setIsCountdownInProgress] = useState(true);
     const [canLogin, setCanLogin] = useState(true);
     const [loading, setLoading] = useState(false);
-    const [open, setOpen] = useState(false)
+    const [error, setError] = useState('');
     const [alertMessage, setAlertMessage] = useState('');
 
 
@@ -60,9 +58,6 @@ const VerifyRegistrationOtp = () => {
             e.nextSibling.focus()
         }
     }
-    const closeAlert = () => {
-        setOpen(false)
-    }
 
     useEffect(() => {
         if (otpToken.length < 5) {
@@ -78,8 +73,8 @@ const VerifyRegistrationOtp = () => {
         }))
         setCountdownDone(true)
         setOtpValues(new Array(5).fill(''));
-        setOpen(true)
-        setAlertMessage('Otp resent successfully')
+        setError('');
+        setAlertMessage('Otp resent successfully');
     }
 
     const verify = () => {
@@ -104,8 +99,8 @@ const VerifyRegistrationOtp = () => {
             })
             .catch((rejectedValueOrSerializedError) => {
                 setOtpValues(new Array(5).fill(''));
-                setOpen(true)
-                setAlertMessage("Invalid authentication code provided");
+                setAlertMessage('');
+                setError("Invalid authentication code provided");
                 logEvent(analytics, "verified_user_error", {
                     'id': location.state.username,
                     'phone_number': location.state.phone_number
@@ -122,6 +117,16 @@ const VerifyRegistrationOtp = () => {
     return (
         <div className="verification-phone-container">
             <AnonymousRouteHeader title='OTP Verification' isClose={true} styleProp='verify-header' onClick={navigateHandler} />
+            {error.length > 0 &&
+                <div className='error-container'>
+                    <span className='input-error'>{error}</span>
+                </div>
+            }
+            {alertMessage.length > 0 &&
+                <div className='alert-container'>
+                    <span className='input-error'>{alertMessage}</span>
+                </div>
+            }
             <p className='text'>Enter Otp code</p>
             <InputOTP otpValues={otpValues} changeValue={changeValue} />
             <div className="expire-container">
@@ -130,7 +135,7 @@ const VerifyRegistrationOtp = () => {
                     <p className='digit-text'>Expires in {counter}</p>
                 }
             </div>
-         
+
             <button className='button-container' disabled={!canLogin || loading} type='submit' onClick={verify}>
                 <span className='buttonText'>{loading ? 'Verifying...' : 'Login'}</span>
             </button>
@@ -139,14 +144,12 @@ const VerifyRegistrationOtp = () => {
                 <img width="50px" height="50px" src="/images/whatsapp-icon.png" alt="logo" className="social-img" />
                 <div className='text-container'>
                     <div className='header-container'>
-                        <span className='header'>Contact Support</span>
+                        <span className='header'>OTP Verification Help</span>
                         <IoChevronForward color='#072169' />
                     </div>
                     <span className='whatsapp-title'>Live chat with support on Whatsapp</span>
                 </div>
             </a>
-            <Dialogue open={open} handleClose={closeAlert} dialogueMessage={alertMessage} />
-
         </div>
     )
 }

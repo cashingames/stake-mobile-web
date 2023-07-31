@@ -112,10 +112,11 @@ const GamesListScreen = () => {
 const GamesCards = ({ openBottomSheet }) => {
     return (
         <div className="main-games-container">
-            <TriviaChallengeCard openBottomSheet={openBottomSheet} />
             <TriviaBetCard openBottomSheet={openBottomSheet} />
-            <JackpotBetCard />
+            <TriviaChallengeCard openBottomSheet={openBottomSheet} />
             <TriviaRoomsCard />
+            {/* <JackpotBetCard /> */}
+
         </div>
     )
 }
@@ -139,13 +140,27 @@ const TriviaBetCard = ({ openBottomSheet }) => {
 
     return (
         <div className="trivia-bet-container" onClick={selectTriviaMode}>
-            <div className="image-container" style={{ backgroundColor: '#EBFAED' }}>
-                <img className="game-icon" src='/images/single-player.png' alt='challenge mode' />
+            <img
+                src="/images/single-player-banner.png"
+                alt='trivia'
+                className='trivia-avatar'
+            />
+            <div className="trivia-actions">
+                <div className="sub-trivia-actions">
+                    <img
+                        src="/images/single-player.png"
+                        alt='trivia'
+                        className='book-avatar'
+                    />
+                    <div className="trivia-actions-texts">
+                        <p className="trivia-bet-headerI">Single Player</p>
+                        <p className="trivia-bet-header">Trivia Bet</p>
+                    </div>
+                </div>
+                <div className="play-button">
+                    <p className="play-button-text">Play Now</p>
+                </div>
             </div>
-            <p className="game-mode-desc">Single Player</p>
-            <button className="play-btn">
-                <p className="play-button-text">Play now</p>
-            </button>
         </div>
     )
 }
@@ -170,49 +185,76 @@ const TriviaChallengeCard = ({ openBottomSheet }) => {
 
     return (
         <div className="trivia-bet-container" onClick={selectChallengeMode}>
-            <div className="image-container" style={{ backgroundColor: '#F6F4FF' }}>
-                <img className="game-icon" src='/images/challenge-player.png' alt="challenge mode" />
+            <img
+                src="/images/challenge-banner.png"
+                alt='trivia'
+                className='trivia-avatar'
+            />
+            <div className="trivia-actions">
+                <div className="sub-trivia-actions">
+                    <img
+                        src="/images/challenge-player.png"
+                        alt='trivia'
+                        className='challenge-avatar'
+                    />
+                    <div className="trivia-actions-texts">
+                        <p className="trivia-bet-headerI">Challenge</p>
+                        <p className="trivia-bet-header">A Player</p>
+                    </div>
+                </div>
+                <div className="play-button">
+                    <p className="play-button-text">Play Now</p>
+                </div>
             </div>
-            <p className="game-mode-desc">Challenge a player</p>
-            <button className="play-btn">
-                <p className="play-button-text">Play now</p>
-            </button>
         </div>
     )
 }
-
-const JackpotBetCard = () => {
-
-    return (
-        <div className="trivia-bet-container">
-            <div className="image-container" style={{ backgroundColor: '#FEECE7' }}>
-                <img className="game-icon" src='/images/money-dynamic-color.png' alt="Jackpot bet" />
-            </div>
-            <p className="game-mode-desc">Jackpot Bet</p>
-            <button className="play-btn" style={{ backgroundColor: '#EA8663' }}>
-                <p className="play-button-text">Coming soon</p>
-            </button>
-        </div>
-
-    )
-}
-
 
 const TriviaRoomsCard = () => {
 
     return (
         <div className="trivia-bet-container">
-            <div className="image-container" style={{ backgroundColor: '#ECF7FF' }}>
-                <img className="game-icon" src='/images/notify-heart-dynamic-color.png' alt="trivia room" />
+            <img
+                src="/images/room-banner.png"
+                alt='trivia'
+                className='trivia-avatar'
+            />
+            <div className="trivia-actions">
+                <div className="sub-trivia-actions">
+                    <img
+                        src="/images/notify-heart-dynamic-color.png"
+                        alt='trivia'
+                        className='challenge-avatar'
+                    />
+                    <div className="trivia-actions-texts">
+                        <p className="trivia-bet-headerI">Trivia Rooms</p>
+                        <p className="trivia-bet-header">Win More</p>
+                    </div>
+                </div>
+                <div className="play-btn">
+                    <p className="play-button-text">Coming soon</p>
+                </div>
             </div>
-            <p className="game-mode-desc">Trivia Rooms</p>
-            <button className="play-btn" style={{ backgroundColor: '#EA8663' }}>
-                <p className="play-button-text">Coming soon</p>
-            </button>
         </div>
-
     )
 }
+
+
+// const JackpotBetCard  = () => {
+
+//     return (
+//         <div className="trivia-bet-container">
+//             <div className="image-container" style={{ backgroundColor: '#ECF7FF' }}>
+//                 <img className="game-icon" src='/images/money-dynamic-color.png' alt="trivia room" />
+//             </div>
+//             <p className="game-mode-desc">Trivia Rooms</p>
+//             <button className="play-btn" style={{ backgroundColor: '#EA8663' }}>
+//                 <p className="play-button-text">Coming soon</p>
+//             </button>
+//         </div>
+
+//     )
+// }
 
 
 

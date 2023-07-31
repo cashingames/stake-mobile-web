@@ -1,10 +1,10 @@
 .verify-header {
     .icon {
-        color: #072169;
+        color: #1C453B;
     }
 
     .title {
-        color: #072169;
+        color: #1C453B;
     }
 }
 
@@ -13,6 +13,7 @@
     background-color: #F9FBFF;
     min-height: 100vh;
     padding: 2rem 1.2rem;
+    overflow: scroll;
 
     h1 {
         text-align: start;
@@ -23,7 +24,7 @@
     .text {
         font-size: 1.3rem;
         margin-top: 5rem;
-        color: #072169;
+        color: #1C453B;
         font-family: 'gotham-medium';
         line-height: 1.5;
     }
@@ -47,15 +48,49 @@
                 .header {
                     font-size: 1rem;
                     font-family: 'gotham-bold';
-                    color: #072169;
+                    color: #1C453B;
                 }
             }
             .whatsapp-title {
                 font-size: 0.9rem;
                 font-family: 'sansation-regular';
-                color: #072169;
+                color: #1C453B;
                 margin-top: 5px;
             }
+        }
+    }
+    .error-container {
+        background-color: #FF0032;
+        border-radius: 38px;
+        margin: 0 2rem;
+        margin-top: 1rem;
+        display: flex;
+        justify-content: center;
+
+        .input-error {
+            text-align: center;
+            color: #FFF;
+            font-size: 0.9rem;
+            font-family: 'sansation-bold';
+            padding: .7rem 0;
+          
+        }
+    }
+    .alert-container {
+        background-color: #048C5B;
+        border-radius: 38px;
+        margin: 0 2rem;
+        margin-top: 1rem;
+        display: flex;
+        justify-content: center;
+
+        .input-error {
+            text-align: center;
+            color: #FFF;
+            font-size: 0.9rem;
+            font-family: 'sansation-bold';
+            padding: .7rem 0;
+          
         }
     }
 
@@ -77,22 +112,10 @@
                 text-align: center;
                 font-family: 'sansation-bold';
                 font-size: 1.2rem;
-                color: #072169;
+                color: #1C453B;
             }
         }
 
-        .error-box {
-            text-align: center;
-            margin: 1rem 0;
-            background-color: #F442741A;
-            border-radius: 7px;
-            color: #EF2F55;
-            font-size: 0.7rem;
-            padding: .5rem 0;
-            display: flex;
-            justify-content: center;
-            font-family: 'sansation-regular';
-        }
 
         .expire-container {
             margin-top: 2rem;
@@ -100,7 +123,7 @@
             .digit-text {
                 margin: 0;
                 font-family: 'sansation-bold';
-                color: #072169;
+                color: #1C453B;
                 font-size: 1rem;
             }
         }
