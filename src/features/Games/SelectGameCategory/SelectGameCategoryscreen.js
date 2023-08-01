@@ -24,10 +24,10 @@ const SelectGameCategoryScreen = () => {
 
     return (
         <>
-            <ScreenHeader title='Trivia Game Category' styleProp='header' iconProp='backIcon' onClick={navigateHandler} />
             <div className="select-game-container" style={
                 { backgroundImage: "url(/images/game-play-background.png)" }
             }>
+                <ScreenHeader title='Trivia Game Category' styleProp='header' iconProp='backIcon' onClick={navigateHandler} />
                 <GamePicker />
             </div>
         </>

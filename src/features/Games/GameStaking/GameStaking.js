@@ -121,8 +121,8 @@ const GameStaking = () => {
 
     const onChangeAmount = (e) => {
         const amount = e.currentTarget.value;
-        if ((balanceName === `Deposit (NGN ${formatCurrency(depositBalance)})` && (Number.parseFloat(depositBalance) < amount || amount < Number.parseFloat(minimumExhibitionStakeAmount))) ||
-            (balanceName === `Bonus (NGN ${formatCurrency(user.bonusBalance)})` && (Number.parseFloat(user.bonusBalance) < amount || amount < Number.parseFloat(minimumExhibitionStakeAmount)))) {
+        if ((balanceName === 1 && (Number.parseFloat(depositBalance) < amount || amount < Number.parseFloat(minimumExhibitionStakeAmount))) ||
+            (balanceName === 2 && (Number.parseFloat(user.bonusBalance) < amount || amount < Number.parseFloat(minimumExhibitionStakeAmount)))) {
             setError(true)
         }
         else setError(false)
@@ -168,7 +168,7 @@ const GameStaking = () => {
             <AnonymousRouteHeader title='Enter Stake' styleProp='staking' isClose={true} onClick={navigateHandler} />
             {cashMode &&
                 <StakingBalances depositBalance={depositBalance} user={user}
-                    minimumExhibitionStakeAmount={minimumExhibitionStakeAmount} setBalanceName={setBalanceName} balanceName={balanceName} />
+                    setBalanceName={setBalanceName} balanceName={balanceName} />
             }
             {practiceMode &&
                 <PracticeStakingBalances
@@ -311,7 +311,7 @@ const StakingPredictionsRow = ({ gameStake, amount }) => {
     )
 }
 
-const StakingBalances = ({ depositBalance, minimumExhibitionStakeAmount, user, balanceName, setBalanceName }) => {
+const StakingBalances = ({ depositBalance, user, balanceName, setBalanceName }) => {
 
     const balanceAccounts = [
         {

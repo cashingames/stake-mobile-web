@@ -5,7 +5,7 @@ import './ScreenHeader.scss'
 function ScreenHeader({ title, styleProp, iconProp, onClick }) {
   return (
     <div className={`screenHeader ${styleProp}`}>
-      <IoChevronBack className={`icon ${iconProp}`}
+      <IoChevronBack size={27} className={`icon ${iconProp}`}
         onClick={onClick} />
       <p className='title'>{title}</p>
       <div></div>
