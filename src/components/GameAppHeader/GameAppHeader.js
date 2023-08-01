@@ -7,7 +7,7 @@ function GameAppHeader({ onPress, gameTitle, styleProp }) {
             <div onClick={onPress} className='exit-game'>
                 <span className='exit-text'>Exit Game</span>
             </div>
-            <h1 className='title'>{gameTitle}</h1>
+            <p className='title'>{gameTitle}</p>
             <div></div>
         </div>
     )

@@ -11,7 +11,7 @@ function GameButton({ goHome, playAgain, disabled }) {
       </button>
       <button className='homeBtn' onClick={goHome}>
         <p className='gameText'>
-          Return to Home
+          Return to home
         </p>
       </button>
 

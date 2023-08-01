@@ -19,25 +19,25 @@
 
         .gameText {
             color: #fff;
-            font-size: 1rem;
+            font-size: 1.3rem;
             font-family: 'gotham-medium';
         }
     }
     .homeBtn {
         border: 1px solid #FFFF;
         background: transparent;
-        border: 1.8px solid #072169;
+        border: 1.8px solid #1C453B;
         border-radius: 13px;        
         width: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-top: 1rem;
+        margin-top: 1.3rem;
         cursor: pointer;
 
         .gameText {
-            color: #072169;
-            font-size: 1rem;
+            color: #1C453B;
+            font-size: 1.3rem;
             font-family: 'gotham-medium';
         }
     }

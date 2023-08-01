@@ -6,31 +6,31 @@
     box-shadow: 0px 2px 10px -5px rgba(0, 0, 0, 0.25);
     border-radius: 13px;
     margin-bottom: 1.8rem;
-    margin-top: .5rem;
-    padding: 0.8rem 1.5rem;
+    margin-top: .2rem;
+    padding: 1rem 1.5rem;
     justify-content: center;
     align-items: center;
 
     .point-text-header {
         font-size: 1.3rem;
         font-family: 'gotham-bold';
-        color: #072169;
+        color: #1C453B;
         margin-bottom: .7rem;
     }
 
     .scoreContainer {
-        margin: 1rem 0;
+        margin: .5rem 0;
         .point-text {
             font-size: 1.1rem;
             font-family: 'gotham-medium';
-            color: #072169;
+            color: #1C453B;
             margin: 0;
         }
 
         .point-number {
             font-size: 1.1rem;
             font-family: 'sansation-regular';
-            color: #072169;
+            color: #1C453B;
             margin: 0;
             margin-left: .7rem;
         }

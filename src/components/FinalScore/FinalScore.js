@@ -4,7 +4,7 @@ import './FinalScore.scss'
 function FinalScore({ totalCount, correctCount, wrongCount, pointsGained }) {
   return (
     <div className='final-score-case'>
-      <span className='point-text-header'>Game play statistics</span>
+      <span className='point-text-header'>Game statistics</span>
       <div className='scoreContainer'>
         <span className='point-text'>Questions answered</span>
         <span className='point-number'>{totalCount}</span>

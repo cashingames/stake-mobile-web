@@ -11,8 +11,6 @@ import firebaseConfig from '../../../firebaseConfig';
 import { logEvent } from 'firebase/analytics';
 import StakeWinnings from '../../../components/StakeWinnings/StakeWinnings';
 
-const backendUrl = process.env.REACT_APP_API_ROOT_URL;
-
 
 function GameEnded() {
   let navigate = useNavigate();
@@ -71,19 +69,9 @@ function GameEnded() {
 
   return (
     <div className='gameEndedCase' style={{ backgroundImage: "url(/images/success-background.png)" }}>
-      {user.avatar ?
-        <div className='game-tag-container'>
-          <img
-            src={user.avatar ? `${backendUrl}/${user.avatar}` : "/images/user-icon.png"}
-            alt='user'
-            className='userAvater'
-            onError={(e) => e.target.style.display = 'none'} />
-        </div>
-        :
-        <div className='name-tag-container'>
-          <span className='user-initials'>{username}</span>
-        </div>
-      }
+      <div className='name-tag-container'>
+        <span className='user-initials'>{username}</span>
+      </div>
       <UserName userName={user.firstName} />
       {practiceMode &&
         <DemoWinnings amountWon={amountWon} />

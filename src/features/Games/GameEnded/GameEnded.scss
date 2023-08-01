@@ -1,48 +1,58 @@
-.gameEndedCase{
+.gameEndedCase {
     min-height: 100vh;
-    padding: 1rem 2rem;
+    height: 100vh;
+    overflow: scroll;
+    padding: 0 1rem;
+    padding-top: 3rem;
+    padding-bottom: 2rem;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    // justify-content: center;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+
     .game-tag-container {
         display: flex;
         align-items: center;
         justify-content: center;
+
         .userAvater {
             width: 5rem;
             height: 5rem;
             border-radius: 50px;
-            border: 1px solid #072169;
+            border: 1px solid #1C453B;
             background-color: #FFF;
         }
     }
+
     .name-tag-container {
         display: flex;
         align-items: center;
         justify-content: center;
-            .user-initials {
-                width: 5rem;
-                height: 5rem;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                background: #FDCCD4;
-                border-radius: 50px;
-                font-family: 'gotham-medium';
-                font-size: 1.8rem;
-                color: #072169;
 
-            }
+        .user-initials {
+            width: 6rem;
+            height: 6rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #ccded48c;
+            border-radius: 100px;
+            font-family: 'gotham-medium';
+            font-size: 1.8rem;
+            color: #1C453B;
+
+        }
     }
+
     .correct-container {
         display: flex;
         justify-content: center;
         flex-direction: column;
         align-items: center;
         margin: 1.8rem;
+
         .correct-count {
             color: #FFF;
             font-family: 'graphik-medium';
@@ -51,5 +61,5 @@
             // line-height: 2;
         }
     }
-   
+
 }
