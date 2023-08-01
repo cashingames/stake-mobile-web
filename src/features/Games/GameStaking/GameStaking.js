@@ -225,6 +225,9 @@ const GameStaking = () => {
                         onChange={e => onChangePracticeAmount(e)}
                         required
                     />
+                    {amount < Number.parseFloat(minimumExhibitionStakeAmount) &&
+                        <span className='input-error'>Minimum staking amount is NGN {minimumExhibitionStakeAmount}</span>
+                    }
                 </div>
             }
             {cashMode &&

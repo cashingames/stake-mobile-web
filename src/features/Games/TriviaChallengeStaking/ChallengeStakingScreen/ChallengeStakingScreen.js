@@ -203,6 +203,16 @@ const SelectedPlayers = ({ user }) => {
     )
 }
 
+const SelectedPlayer = ({ playerName, playerAvatar, backgroundColor }) => {
+    return (
+        <div className='player-container'>
+            <div className='user-avatar' style={{ backgroundColor: backgroundColor }}>
+                <span className='avatar-text'>{playerAvatar}</span>
+            </div>
+            <p className='player-name'>@{playerName}</p>
+        </div>
+    )
+}
 const WalletDetails = ({ balance, cashMode, practiceMode }) => {
 
     return (
@@ -229,17 +239,6 @@ const WalletDetails = ({ balance, cashMode, practiceMode }) => {
                     }
                 </div>
             </div>
-        </div>
-    )
-}
-
-const SelectedPlayer = ({ playerName, playerAvatar, backgroundColor }) => {
-    return (
-        <div className='player-container'>
-            <div className='user-avatar' style={{ backgroundColor: backgroundColor }}>
-                <span className='avatar-text'>{playerAvatar}</span>
-            </div>
-            <p className='player-name'>@{playerName}</p>
         </div>
     )
 }
@@ -386,8 +385,8 @@ const InputStake = ({ user, onChangeStakeAmount, amountErr, amount, minimumChall
             {amountErr && Number.parseFloat(amount) < Number.parseFloat(minimumChallengeStakeAmount) &&
                 <span className='input-error'>Minimum staking amount is NGN {minimumChallengeStakeAmount}</span>
             }
-            {amountErr && Number.parseFloat(amount) > Number.parseFloat(maximumChallengeStakeAmount) &&
-                <span className='input-error'>Maximum staking amount is NGN {maximumChallengeStakeAmount}</span>
+            {Number.parseFloat(amount) < Number.parseFloat(minimumChallengeStakeAmount) &&
+                <span className='input-error'>Minimum staking amount is NGN {minimumChallengeStakeAmount}</span>
             }
         </div>
 
