@@ -159,7 +159,7 @@ function GameInProgress() {
   return (
     <div className='gameInProgress'
       style={{ backgroundImage: 'url(/images/game-play-background.png)' }}>
-      <GameAppHeader onPress={showExitConfirmation} gameTitle='Trivia game' />
+      <GameAppHeader onPress={showExitConfirmation} gameTitle='Trivia Game' />
       <GameInProgressAndBoost onComplete={() => onEndGame()} />
       <GameQuestions onPress={() => onEndGame()} ending={ending} onComplete={() => onEndGame()} />
       {exitClicked ?

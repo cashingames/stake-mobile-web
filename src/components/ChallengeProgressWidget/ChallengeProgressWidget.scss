@@ -1,123 +1,144 @@
-.gameProgressBoost {
+.challenge-progress-boost {
     display: flex;
     flex-direction: column;
-    background-color: #AAD880;
-    box-shadow: inset 0px 4px 0px rgba(0, 0, 0, 0.05);
-    border-radius: 16px;
+    background-color: #FFF;
+    box-shadow: 0px 2px 10px -5px rgba(0, 0, 0, 0.25);
+    justify-content: space-between;
+    border-radius: 13px;
+    border: 1px solid #E5E5E5;
     margin: 1rem 0;
-    padding: 1rem 0;
 
-    .players-container {
+    .challenge-topic-progress {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        border-bottom: 1px solid #93939336;
         padding: 1rem 1rem;
-        align-items: center;
 
-        .versus {
-            font-size: 'graphik-medium';
-            font-size: 0.75rem;
-            color: white;
-        }
-
-        .player-container {
-            display: flex;
-            flex-direction: row;
-            display: flex;
-            align-items: center;
-
-            .player-avatar {
-                width: 2.5rem;
-                height: 2.5rem;
-                border-radius: 50px;
-                background-color: #fff;
-            }
-
-            .player-name {
-                font-size: 'graphik-medium';
-                font-size: 0.75rem;
-                color: white;
-                margin-left: 2rem;
-                // width: 4rem;
-            }
-
-            .user-name {
-                font-size: 'graphik-medium';
-                font-size: 0.75rem;
-                color: white;
-                margin-right: 2rem;
-                // width: 4rem;
-            }
-        }
-    }
-
-    .availableBoosts {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-        .boostInfo {
-            display: flex;
-            justify-content: center;
-
-            .boostTitle {
-                margin: 0;
-                font-size: 0.9rem;
-                font-family: 'gotham-bold';
-                color: #072169;
-            }
-        }
-
-        .available-boosts-icons {
-            display: flex;
-            flex-direction: row;
-            margin-top: .2rem;
-
-            .boostContainer {
+        .staking-container {
+            .stake-container {
                 display: flex;
-                flex-direction: column;
+                flex-direction: row;
                 align-items: center;
-                margin: 0 1rem;
-                cursor: pointer;
+                background-color: #FA5F4A;
+                border-radius: 30px;
+                padding: .3rem .8rem;
 
-                .availableBoost {
-                    padding: .7rem 0;
+                .stake-header {
+                    font-family: 'gotham-medium';
+                    font-size: 0.7rem;
+                    color: #FFF;
+                }
+
+                .stake-amount {
+                    font-family: 'gotham-medium';
+                    font-size: 0.7rem;
+                    color: #FFF;
+                }
+
+            }
+
+            .players-details {
+                display: flex;
+                flex-direction: row;
+                margin-top: 1rem;
+
+                .player-container {
+                    background-color: #ccded48c;
+                    border-radius: 100px;
+                    width: 2.2rem;
+                    height: 2.2rem;
                     display: flex;
-                    flex-direction: row;
-
-                    .boostIcon {
-                        width: 45px;
-                        height: 45px;
+                    justify-content: center;
+                    align-items: center;
+                    .avatar-text {
+                        color: #1C453B;
+                        font-family: 'gotham-medium';
+                        font-size: .95rem;
+                        text-transform: uppercase;
                     }
-
-                    .boostCount {
-                        margin: 0;
-                        font-size: 0.85rem;
-                        color: #fff;
-                        padding: 0;
-                        font-family: 'gotham-bold';
-                    }
-                }
-
-                .boostBlink {
-                    display: none;
-                }
-
-                .boostActive {
-                    border: 1px solid rgba(255, 255, 255, 0.2);
-                    border-radius: 5px;
-                    padding: 7px;
-                }
-
-                .boostName {
-                    // width: 4rem;
-                    margin: 0;
-                    font-size: 0.65rem;
-                    color: #fff;
                 }
             }
         }
 
+        .category-container {
+            display: flex;
+            flex-direction: column;
+
+            .category-name {
+                font-size: 1rem;
+                color: #1C453B;
+                font-family: 'gotham-bold';
+            }
+
+            .questions-answered-container {
+                margin-top: .7rem;
+                .question-answered {
+                    font-size: .85rem;
+                    color: #1C453B;
+                    font-family: 'gotham-bold';
+                    margin: 0;
+                    margin-top: 1rem;
+                }
+            }
+
+        }
+
+
+
 
     }
+
+    .available-boosts-icons {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: .3rem 1rem;
+
+        .boostContainer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-right: 1.5rem;
+            position: relative;
+            cursor: pointer;
+
+
+            .availableBoost {
+                padding: .7rem 0;
+                display: flex;
+                flex-direction: row;
+
+                .boostIcon {
+                    width: 51px;
+                    height: 51px;
+                }
+
+                .boostCount {
+                    font-size: .9rem;
+                    font-family: 'sansation-bold';
+                    color: #fff;
+                    margin-top: 1px;
+                    position: absolute;
+                    top: 15px;
+                    right: 5px;
+                    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+                }
+            }
+
+            .boostActive {
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                border-radius: 5px;
+                padding: 7px;
+            }
+
+            .boostName {
+                // width: 4rem;
+                margin: 0;
+                font-size: 0.65rem;
+                color: #fff;
+            }
+        }
+    }
+
 }

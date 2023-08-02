@@ -4,7 +4,7 @@ import './ChallengeStakingScreen.scss';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import ScreenHeader from '../../../../components/ScreenHeader/ScreenHeader';
-import { startChallengeRequest, startPracticeChallengeRequest } from '../TriviaChallengeGameSlice';
+import { setChallengeAmountStaked, startChallengeRequest, startPracticeChallengeRequest } from '../TriviaChallengeGameSlice';
 import { unwrapResult } from '@reduxjs/toolkit';
 import logToAnalytics from '../../../../utils/analytics';
 import { Spinner } from 'react-activity';
@@ -50,7 +50,7 @@ const ChallengeStakingScreen = () => {
 
     const stakeAmount = async () => {
         setLoading(true);
-
+        dispatch(setChallengeAmountStaked(amount))
         dispatch(startChallengeRequest({
             category: gameCategoryId,
             amount: amount,

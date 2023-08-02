@@ -14,8 +14,6 @@ import { CountdownCircleTimer } from 'react-countdown-circle-timer';
 import { IoCheckmarkCircle, IoEllipseOutline } from 'react-icons/io5';
 import { logEvent } from 'firebase/analytics';
 
-const backendUrl = process.env.REACT_APP_API_ROOT_URL;
-
 const db = initializeFirestore();
 
 
@@ -167,35 +165,14 @@ function ChallengeGameBoardScreen() {
     return (
         <div className='gameInProgress'
             style={{ backgroundImage: 'url(/images/game-play-background.png)' }}>
-            <GameAppHeader onPress={showExitConfirmation} gameTitle='Challenge Player' />
+            <GameAppHeader onPress={showExitConfirmation} gameTitle='Trivia Game' />
             <ChallengeProgressWidget challengeDetails={challengeDetails} />
-            <SelectedPlayers user={user} challengeDetails={challengeDetails} />
             <GameQuestions submitting={submitting} onEnd={gameEnded} />
             <DoubleDialog handleClose={closeAlert} open={openAlert} dialogueMessage={alertMessage} onClick={endChallenge} />
         </div>
     )
 }
 
-const SelectedPlayers = ({ user, challengeDetails }) => {
-    return (
-        <div className="players-container">
-            <SelectedPlayer playerName={user.username} playerAvatar={user.avatar ? `${backendUrl}/${user.avatar}` : "/images/user-icon.png"} />
-            <img src='/images/versus.png' alt='versus' className='versus' />
-            <SelectedPlayer playerName={challengeDetails.opponent.username} playerAvatar={challengeDetails.opponent.avatar ? `${backendUrl}/${challengeDetails.opponent.avatar}` : "/images/user-icon.png"} />
-        </div>
-    )
-}
-
-const SelectedPlayer = ({ playerName, playerAvatar }) => {
-    return (
-        <div className='player-container'>
-            <div className='avatar-container'>
-                <img src={playerAvatar} alt='user' onError={(e) => e.target.style.display = 'none'} />
-            </div>
-            <p className='player-name'>@{playerName}</p>
-        </div>
-    )
-}
 
 function GameQuestions({ onComplete, onEnd, submitting }) {
 
@@ -241,6 +218,7 @@ function GameQuestions({ onComplete, onEnd, submitting }) {
                         </CountdownCircleTimer>
                     </div>
                 </div>
+                <span className='answer-header'>Pick correct answer</span>
                 <div className='game-questions'>
                     <p className='game-question'>{currentQuestion.label}</p>
                 </div>
