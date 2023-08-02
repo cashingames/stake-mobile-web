@@ -7,6 +7,7 @@ import DoubleDialog from "../../../../components/DoubleButtonDialog/DoubleDialog
 import { useNavigate } from "react-router-dom";
 import { setChallengeDetails } from "../TriviaChallengeGameSlice";
 import logToAnalytics from "../../../../utils/analytics";
+import { formatNumber } from "../../../../utils/stringUtl";
 
 const backendUrl = process.env.REACT_APP_API_ROOT_URL;
 const db = initializeFirestore();
@@ -21,9 +22,11 @@ const ChallengeMatchingScreen = () => {
     const [alertMessage, setAlertMessage] = useState('');
     const [openAlert, setOpenAlert] = useState(false);
     const user = useSelector(state => state.auth.user);
-    const boosts = useSelector(state => state.common.boosts);
+    const boosts = useSelector(state => state.auth.user.boosts);
     const gameType = useSelector(state => state.game.gameType);
     const documentId = useSelector(state => state.triviaChallenge.documentId);
+    const cashMode = useSelector(state => state.game.cashMode);
+    const practiceMode = useSelector(state => state.game.practiceMode);
 
 
 
@@ -105,58 +108,98 @@ const ChallengeMatchingScreen = () => {
 
 
     return (
-        <div style={{ backgroundImage: "url(/images/game-play-background.png)" }} className="challenge-matching-container">
-            {!dataUpdated ?
-                <div className="finding-container">
-                    <p className="message">
-                        Finding a player...
-                    </p>
-                    <img src='/images/finding-bar.png' alt='versus' />
+        <div style={{ backgroundImage: "url(/images/match-background.png)", justifyContent: 'space-between' }} className="challenge-matching-container">
+            <div>
+            <ScreenHeader title='Challenge Player' styleProp='challenge-staking-header' />
+
+                <div className='purchase-boost'>
+                    <p className='boost-text'>Score high using boosts</p>
+                    {cashMode &&
+                        <>
+                            {boosts?.length > 0 ?
+                                <div className='boost-container'>
+                                    {boosts.map((boost, i) => <BoostCardDetails key={i} boost={boost} />)}
+                                </div>
+                                :
+                                <div className='boost-container'>
+                                    <div className='boost-card-container'>
+                                        <img
+                                            src="/images/timefreeze-boost.png"
+                                            className="boost-icon" alt='time freeze boost' />
+                                        <p className="boost-name">x0</p>
+                                    </div>
+                                    <div className='boost-card-container'>
+                                        <img
+                                            src='/images/skip-boost.png'
+                                            className="boost-icon" alt='Skip boost' />
+                                        <p className="boost-name">x0</p>
+                                    </div>
+                                </div>
+                            }
+                        </>
+                    }
+                    {practiceMode &&
+                        <DemoBoostCardDetails />
+                    }
                 </div>
 
-                :
-                <p className="message">
-                    Nice, you have been matched
-                </p>
-            }
-            <div className='purchase-boost'>
-                <p className='boost-text'>Score high points using boosts</p>
-                <div className='boost-container'>
-                    {boosts.map((boost, i) => <BoostCardDetails key={i} boost={boost} />)}
+                <div className="message-container">
+                    <SelectedPlayers user={user} dataUpdated={dataUpdated} challengeDetails={challengeInfo} />
                 </div>
-            </div>
-            <div className="message-container">
-                <SelectedPlayers user={user} dataUpdated={dataUpdated} challengeDetails={challengeInfo} />
-            </div>
+                {!dataUpdated ?
+                    <div className="finding-container">
+                        <img src='/images/finding-bar.png' alt='versus' />
 
-            {!dataUpdated &&
-                <button className="cancel-button" onClick={cancelConfirmation}>Cancel</button>
-            }
-            <DoubleDialog handleClose={closeAlert} open={openAlert} dialogueMessage={alertMessage} onClick={endChallenge} />
+                        <p className="message">
+                            Finding a player...
+                        </p>
+                    </div>
+
+                    :
+                    <div className="finding-container">
+                        <img src='/images/matched-bar.png' alt='versus' />
+
+                        <p className="message">
+                            You have been matched
+                        </p>
+                    </div>
+                }
+            </div>
+            <div>
+                {!dataUpdated &&
+                    <button className="cancel-button" onClick={cancelConfirmation}>Cancel</button>
+                }
+                {dataUpdated &&
+                    <button className="cancel-button">Starting Game</button>
+                }
+                <DoubleDialog handleClose={closeAlert} open={openAlert} dialogueMessage={alertMessage} onClick={endChallenge} />
+            </div>
 
         </div>
     )
 }
 
 const SelectedPlayers = ({ user, dataUpdated, challengeDetails }) => {
+    const username = user.username?.charAt(0) + user.username?.charAt(1)
+    const opponentName = challengeDetails.opponent?.username?.charAt(0) + challengeDetails.opponent?.username?.charAt(1)
     return (
         <div className="players-container">
-            <SelectedPlayer playerName={user.username} playerAvatar={user.avatar ? `${backendUrl}/${user.avatar}` : "/images/user-icon.png"} />
+            <SelectedPlayer playerName={user.username} playerAvatar={username} />
             <img src='/images/versus.png' alt='versus' />
             {dataUpdated ?
-                <SelectedPlayer playerName={challengeDetails.opponent.username} playerAvatar={challengeDetails.opponent.avatar ? `${backendUrl}/${challengeDetails.opponent.avatar}` : "/images/user-icon.png"} />
+                <SelectedPlayer playerName={challengeDetails.opponent.username} playerAvatar={opponentName} backgroundColor='#FEECE7' />
                 :
-                <SelectedPlayer playerName='....' playerAvatar="/images/question.png" />
+                <SelectedPlayer playerName='....' playerAvatar="?" backgroundColor='#FEECE7' />
             }
         </div>
     )
 }
 
-const SelectedPlayer = ({ playerName, playerAvatar }) => {
+const SelectedPlayer = ({ playerName, playerAvatar, backgroundColor }) => {
     return (
         <div className='player-container'>
-            <div className='avatar-container'>
-                <img src={playerAvatar} alt='user' onError={(e) => e.target.style.display = 'none'} />
+            <div className='user-avatar' style={{ backgroundColor: backgroundColor }}>
+                <span className='avatar-text'>{playerAvatar}</span>
             </div>
             <p className='player-name'>@{playerName}</p>
         </div>
@@ -167,14 +210,33 @@ const BoostCardDetails = ({ boost }) => {
     return (
         <div className='boost-card-container'>
             <img src={`${backendUrl}/${boost.icon}`} className="boost-icon" alt='boost' />
-            <div className='boost-details-container'>
-                <div className='boost-name-count'>
-                    {/* <p className='boost-name'>{boost.name}</p> */}
-                    <p className='boost-description'>{boost.description}</p>
-                </div>
+            <p className='boost-name'>x{formatNumber(boost.count)}</p>
+        </div>
+    )
+}
+const DemoBoostCardDetails = () => {
+    return (
+        <div className='boost-container'>
+            <div className='boost-card-container'>
+                <img src='/images/timefreeze-boost.png' className="boost-icon" alt='boost' />
+                <p className='boost-name'>x{formatNumber(20)}</p>
+            </div>
+            <div className='boost-card-container'>
+                <img src='/images/skip-boost.png' className="boost-icon" alt='boost' />
+                <p className='boost-name'>x{formatNumber(20)}</p>
             </div>
         </div>
     )
 }
+
+function ScreenHeader({ title, styleProp}) {
+    return (
+      <div className={`screenHeader ${styleProp}`}>
+        <div></div>
+        <p className='title'>{title}</p>
+        <div></div>
+      </div>
+    )
+  }
 
 export default ChallengeMatchingScreen;

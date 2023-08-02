@@ -4,32 +4,101 @@
     background-size: cover;
     min-height: 100vh;
     overflow: scroll;
-    padding: 0 2rem;
-    justify-content: center;
+    padding: 1rem 1rem;
     display: flex;
     flex-direction: column;
+    .purchase-boost {
+        background-color: #FAF0E8;
+        margin: 1rem 0;
+        padding: 0 1.5rem;
+        padding-top: 1rem;
+        border-radius: 15px;
+        border: 1px solid #E5E5E5;
+        display: flex;
+        flex-direction: column;
+
+        .boost-text {
+            font-size: 1.05rem;
+            font-family: 'gotham-bold';
+            color: #1C453B;
+            line-height: 1.2;
+            margin: 0;
+        }
+
+        .no-boost {
+            font-size: .8rem;
+            font-family: 'gotham-medium';
+            color: #1C453B;
+            text-align: center;
+            line-height: 2;
+            margin: 0;
+        }
+
+        .boost-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin: .6rem 0;
+
+            .boost-card-container {
+                display: flex;
+                flex-direction: row;
+                align-items: flex-start;
+                position: relative;
+                margin-right: 2rem;
+
+                .boost-icon {
+                    width: 55px;
+                    height: 55px;
+                }
+
+                .boost-name {
+                    font-size: .85rem;
+                    font-family: 'sansation-bold';
+                    color: #fff;
+                    margin-top: 1px;
+                    position: absolute;
+                    top: 10px;
+                    right: 3px;
+                    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+                }
+            }
+        }
+
+        .buy-boost-text {
+            font-size: .8rem;
+            font-family: 'gotham-medium';
+            color: #E15220;
+            text-align: center;
+            line-height: 1;
+            text-decoration: underline;
+            margin: 0;
+            cursor: pointer;
+        }
+    }
     .finding-container {
         display: flex;
         flex-direction: column;
         align-items: center;
+        margin-top: 1rem;
 
         .message {
             font-size: 1rem;
             font-family: 'gotham-bold';
-            color: #072169;
+            color: #1C453B;
             text-align: center;
             line-height: 2;
-            margin: 4px 0;
+            margin: 1.5rem 0;
         }
     }
 
     .message {
         font-size: 1rem;
         font-family: 'gotham-bold';
-        color: #072169;
+        color: #1C453B;
         text-align: center;
         line-height: 2;
-        margin: 4px 0;
+        margin: 1.5rem 0;
     }
 
 
@@ -38,112 +107,52 @@
         .players-container {
             display: flex;
             justify-content: space-between;
-            flex-direction: row;
             align-items: center;
-            background-color: #fff;
             border-radius: 13px;
-            padding: 15px 20px;
+            padding: 0 20px;
             margin-bottom: 1rem;
+            background-color: #FFF;
             border: 1px solid #E5E5E5;
             box-shadow: 0px 2px 10px -5px rgba(0, 0, 0, 0.25);
-
+    
+            .versus {
+                width: 108px;
+                height: 132px;
+            }
+    
             .player-container {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-
-                .avatar-container {
-                    width: 65px;
-                    height: 65px;
-                    border-radius: 50%;
-                    background-color: #F6F4FF;
-
-                    img {
-                        width: 100%;
-                        height: 100%;
-                        border-radius: 50%;
+                margin: 15px 0;
+    
+                .user-avatar {
+                    width: 75px;
+                    height: 75px;
+                    background-color: #ccded48c;
+                    border-radius: 100px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+    
+                    .avatar-text {
+                        font-family: 'gotham-medium';
+                        text-transform: uppercase;
+                        font-size: 1.75rem;
+                        color: #1C453B;
                     }
                 }
-
+    
                 .player-name {
                     margin: 0;
                     margin-top: 0.8rem;
-                    font-size: 0.95rem;
+                    font-size: 0.85rem;
                     font-family: 'gotham-bold';
-                    color: #072169;
+                    color: #1C453B;
+                    // width: 7rem;
                     text-align: center;
-                    word-wrap: break-word;
                     word-break: break-all;
-                }
-            }
-
-        }
-    }
-
-    .purchase-boost {
-        display: flex;
-        flex-direction: column;
-        background-color: #fff;
-        border-radius: 13px;
-        padding: 15px;
-        margin: 1rem 0;
-        border: 1px solid #E5E5E5;
-        box-shadow: 0px 2px 10px -5px rgba(0, 0, 0, 0.25);
-
-        .boost-text {
-            font-size: .9rem;
-            font-family: 'gotham-bold';
-            color: #072169;
-            text-align: center;
-            line-height: 1.2;
-            margin: 0;
-        }
-
-        .boost-container {
-            display: flex;
-            flex-direction: row;
-            // justify-content: center;
-            // align-items: flex-start;
-
-            .boost-card-container {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                margin: 1rem 1rem 0 1rem;
-            }
-
-            .boost-icon {
-                width: 2.8rem;
-                height: 2.8rem;
-            }
-
-            .boost-details-container {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                margin-top: .3rem;
-
-
-                .boost-name-count {
-                    align-items: center;
-                    display: flex;
-                    flex-direction: column;
-
-                    .boost-name {
-                        font-family: 'gotham-medium';
-                        font-size: 0.7rem;
-                        color: #072169;
-                    }
-
-                    .boost-description {
-                        font-family: 'gotham-medium';
-                        font-size: 0.75rem;
-                        color: #072169;
-                        text-align: center;
-                        word-wrap: break-word;
-                        line-height: 1.2;
-                        margin: 0;
-                    }
+                    word-wrap: break-word;
                 }
             }
         }
@@ -160,7 +169,7 @@
         width: 100%;
         border: none;
         color: #fff;
-        font-size: 1rem;
+        font-size: 1.3rem;
         font-family: 'gotham-medium';
         cursor: pointer;
         // margin-bottom: 1.5rem;

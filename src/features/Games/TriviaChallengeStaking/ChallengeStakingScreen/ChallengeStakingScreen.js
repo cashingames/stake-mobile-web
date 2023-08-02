@@ -125,7 +125,7 @@ const ChallengeStakingScreen = () => {
 
     return (
         <>
-            <div style={{ backgroundImage: "url(/images/game-play-background.png)" }} className='challenge-staking-container'>
+            <div style={{ backgroundImage: "url(/images/match-background.png)" }} className='challenge-staking-container'>
                 <ScreenHeader title='Challenge Player' styleProp='challenge-staking-header' iconProp='backIcon' onClick={handleNavigation} />
                 <div className='purchase-boost'>
                     <p className='boost-text'>Score high using boosts</p>
