@@ -10,7 +10,6 @@ import { formatCurrency } from "../../../../utils/stringUtl";
 // import BoostPopUp from "../../../../components/BoostPopUp/BoostPopUp";
 
 
-const backendUrl = process.env.REACT_APP_API_ROOT_URL;
 
 
 const ChallengeEndGameScreen = () => {
@@ -99,7 +98,7 @@ const ChallengeEndGameScreen = () => {
     return (
         <div >
             <div className="end-game-container" style={{ backgroundImage: "url(/images/success-background.png)" }} >
-                <SelectedPlayers challengeDetails={challengeDetails} />
+                <SelectedPlayers challengeDetails={challengeDetails} user={user} />
                 {Number.parseFloat(challengeDetails.score) > Number.parseFloat(challengeDetails.opponent.score) &&
                     <p className="head-text">You won the challenge</p>
                 }
@@ -120,23 +119,25 @@ const ChallengeEndGameScreen = () => {
     )
 }
 
-const SelectedPlayers = ({ challengeDetails }) => {
+const SelectedPlayers = ({ challengeDetails, user }) => {
+    const username = user.username?.charAt(0) + user.username?.charAt(1)
+    const opponentName = challengeDetails.opponent?.username?.charAt(0) + challengeDetails.opponent?.username?.charAt(1)
     return (
         <div className="players-container">
-            <SelectedPlayer playerName={challengeDetails.username} playerAvatar={challengeDetails.avatar ? `${backendUrl}/${challengeDetails.avatar}` : "/images/user-icon.png"} />
+            <SelectedPlayer playerName={user.username} playerAvatar={username} />
             <img src='/images/versus.png' alt='versus' className="versus" />
-            <SelectedPlayer playerName={challengeDetails.opponent.username} playerAvatar={challengeDetails.opponent.avatar ? `${backendUrl}/${challengeDetails.opponent.avatar}` : "/images/user-icon.png"} />
+            <SelectedPlayer playerName={challengeDetails.opponent.username} playerAvatar={opponentName} backgroundColor='#FEECE7' />
         </div>
     )
 }
 
-const SelectedPlayer = ({ playerName, playerAvatar }) => {
+const SelectedPlayer = ({ playerName, playerAvatar, backgroundColor }) => {
     return (
         <div className='player-container'>
-            <div className='avatar-container'>
-                <img src={playerAvatar} alt='user' onError={(e) => e.target.style.display = 'none'} />
+            <div className='user-avatar' style={{ backgroundColor: backgroundColor }}>
+                <span className='avatar-text'>{playerAvatar}</span>
             </div>
-            <p className='player-name'>@{playerName}</p>
+            <p className='player-name'>{playerName}</p>
         </div>
     )
 }
@@ -146,16 +147,17 @@ const WinningScore = ({ challengeDetails, cashMode, practiceMode }) => {
 
     return (
         <div className="winnings-container">
-            {cashMode &&
-                <span className="winnings-header">Scores</span>
-            }
-            {practiceMode &&
-                <span className="winnings-header">Demo Scores</span>
-            }            <div className="score-count-container">
+            <div className="score-count-container">
                 <div className="user-count-container">
                     <span className="count-name">You</span>
                     <span className="score-count">{challengeDetails.score}</span>
                 </div>
+                {cashMode &&
+                    <span className="winnings-header">Scores</span>
+                }
+                {practiceMode &&
+                    <span className="winnings-header">Demo Scores</span>
+                }
                 <div className="user-count-container">
                     <span className="count-name">{challengeDetails.opponent.username}</span>
                     <span className="score-count">{challengeDetails.opponent.score}</span>

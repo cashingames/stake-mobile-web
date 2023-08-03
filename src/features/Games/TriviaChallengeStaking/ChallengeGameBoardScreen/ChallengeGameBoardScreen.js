@@ -167,7 +167,7 @@ function ChallengeGameBoardScreen() {
             style={{ backgroundImage: 'url(/images/game-play-background.png)' }}>
             <GameAppHeader onPress={showExitConfirmation} gameTitle='Trivia Game' />
             <ChallengeProgressWidget challengeDetails={challengeDetails} />
-            <GameQuestions submitting={submitting} onEnd={gameEnded} />
+            <GameQuestions submitting={submitting} onEnd={gameEnded} onComplete={gameEnded} />
             <DoubleDialog handleClose={closeAlert} open={openAlert} dialogueMessage={alertMessage} onClick={endChallenge} />
         </div>
     )
@@ -218,10 +218,10 @@ function GameQuestions({ onComplete, onEnd, submitting }) {
                         </CountdownCircleTimer>
                     </div>
                 </div>
-                <span className='answer-header'>Pick correct answer</span>
                 <div className='game-questions'>
                     <p className='game-question'>{currentQuestion.label}</p>
                 </div>
+                <span className='answer-header'>Pick correct answer</span>
                 <div>
                     {options.map((option, i) => <RenderOption option={option} key={i} onSelect={optionSelected} />)}
                 </div>

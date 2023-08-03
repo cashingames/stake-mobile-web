@@ -11,7 +11,7 @@
     .head-text {
         font-size: 1.2rem;
         font-family: 'gotham-bold';
-        color: #072169;
+        color: #1C453B;
         text-align: center;
         line-height: 2;
     }
@@ -28,34 +28,39 @@
             width: 6rem;
             height: 6rem;
         }
-
         .player-container {
             display: flex;
             flex-direction: column;
             align-items: center;
+            margin: 15px 0;
 
-            .avatar-container {
-                width: 65px;
-                height: 65px;
-                border-radius: 50%;
-                background-color: #F6F4FF;
+            .user-avatar {
+                width: 75px;
+                height: 75px;
+                background-color: #ccded48c;
+                border-radius: 100px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
 
-                img {
-                    width: 100%;
-                    height: 100%;
-                    border-radius: 50%;
+                .avatar-text {
+                    font-family: 'gotham-medium';
+                    text-transform: uppercase;
+                    font-size: 1.75rem;
+                    color: #1C453B;
                 }
             }
 
             .player-name {
                 margin: 0;
                 margin-top: 0.8rem;
-                font-size: 0.95rem;
+                font-size: 0.85rem;
                 font-family: 'gotham-bold';
-                color: #072169;
+                color: #1C453B;
+                // width: 7rem;
                 text-align: center;
-                word-wrap: break-word;
                 word-break: break-all;
+                word-wrap: break-word;
             }
         }
 
@@ -72,18 +77,20 @@
         margin: .5rem 0;
         border-radius: 10px;
 
-        .winnings-header {
-            font-size: 1rem;
-            font-family: 'gotham-bold';
-            color: #072169;
-            text-align: center;
-        }
+       
 
         .score-count-container {
             display: flex;
             flex-direction: row;
             justify-content: space-between;
-            margin-top: 1rem;
+            align-items: center;
+            // margin-top: 1rem;
+            .winnings-header {
+                font-size: 1.2rem;
+                font-family: 'gotham-bold';
+                color: #1C453B;
+                text-align: center;
+            }
 
             .user-count-container {
                 display: flex;
@@ -93,14 +100,14 @@
                 .count-name {
                     font-size: .95rem;
                     font-family: 'sansation-regular';
-                    color: #072169;
+                    color: #1C453B;
                     text-align: center;
                 }
 
                 .score-count {
                     font-size: 2rem;
                     font-family: 'gotham-bold';
-                    color: #072169;
+                    color: #1C453B;
                     text-align: center;
                 }
             }
@@ -118,15 +125,15 @@
         margin: .5rem 0;
         border-radius: 10px;
         .winnings-header {
-            font-size: 1.1rem;
+            font-size: 1.3rem;
             font-family: 'gotham-bold';
-            color: #072169;
+            color: #1C453B;
             text-align: center;
         }
         .amount {
             font-size: 1rem;
             font-family: 'gotham-bold';
-            color: #072169;
+            color: #1C453B;
             text-align: center;
             margin-top: .6rem;
         }
@@ -148,24 +155,24 @@
         .point-text-header {
             font-size: 1.3rem;
             font-family: 'gotham-bold';
-            color: #072169;
+            color: #1C453B;
             margin-bottom: .7rem;
         }
 
         .scoreContainer {
-            margin: 1rem 0;
+            margin: .55rem 0;
 
             .point-text {
                 font-size: 1.1rem;
                 font-family: 'gotham-medium';
-                color: #072169;
+                color: #1C453B;
                 margin: 0;
             }
 
             .point-number {
                 font-size: 1.1rem;
                 font-family: 'sansation-regular';
-                color: #072169;
+                color: #1C453B;
                 margin: 0;
                 margin-left: .7rem;
             }
