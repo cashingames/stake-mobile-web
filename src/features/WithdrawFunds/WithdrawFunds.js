@@ -10,6 +10,8 @@ import { fetchUserTransactions, getBankData, withdrawWinnings } from "../CommonS
 import { logEvent } from "firebase/analytics";
 import firebaseConfig from "../../firebaseConfig";
 import Dialogue from '../../components/Dialogue/Dialogue'
+import BottomSheet from "../../components/BottomSheet/BottomSheet";
+import { IoChevronForward } from "react-icons/io5";
 
 
 
@@ -31,6 +33,8 @@ const WithdrawFunds = () => {
     const [withdraw, setWithdraw] = useState(false);
     const [openDialogue, setOpenDialogue] = useState(false);
     const [alertMessage, setAlert] = useState('');
+    const [open, setOpen] = useState(false);
+
 
     const closeAlert = () => {
         setOpenDialogue(false)
@@ -84,13 +88,18 @@ const WithdrawFunds = () => {
                     else if (err.response.status === 400) {
                         setLoading(false)
                         setWithdraw(false)
-                        setOpenDialogue(true)
+                        // setOpenDialogue(true)
+                        setOpen(true)
                         setAlert(err.response.data.message);
 
                     }
                 }
 
             )
+    }
+
+    const closeBottomSheet = () => {
+        setOpen(false)
     }
 
     const navigateHandler = () => {
@@ -215,6 +224,41 @@ const WithdrawFunds = () => {
                 <span className='buttonText'>Request withdrawal</span>
             </button>
             <Dialogue open={openDialogue} handleClose={closeAlert} dialogueMessage={alertMessage} />
+            <BottomSheet open={open} closeBottomSheet={closeBottomSheet}
+                BSContent={<WithdrawalError alertMessage={alertMessage} closeBottomSheet={closeBottomSheet} />}
+            />
+        </div>
+    )
+}
+const WithdrawalError = ({ alertMessage, closeBottomSheet }) => {
+    let navigate = useNavigate();
+
+    const returnHome = () => {
+        navigate('/dashboard');
+    }
+    return (
+        <div className="withdrawal-error-container">
+            <div className="header-container">
+                <div></div>
+                <p className="header">Account Verification</p>
+                <button className='close-btn' onClick={closeBottomSheet}>X</button>
+            </div>
+            <p className="error-head">{alertMessage}</p>
+            <p className="error-text">We could not process your withdrawal request because your account in not verified yet.
+                kindly contact support to verify your account.</p>
+            <a href='https://wa.me/2348025116306' className='whatsapp-chat'>
+                <img width="50px" height="50px" src="/images/whatsapp-icon.png" alt="logo" className="social-img" />
+                <div className='text-container'>
+                    <div className='title-container'>
+                        <span className='title'>Account Verification</span>
+                        <IoChevronForward color='#1C453B' />
+                    </div>
+                    <span className='whatsapp-title'>Live chat with support on Whatsapp</span>
+                </div>
+            </a>
+            <button className='button-container' onClick={returnHome}>
+                <span className='buttonText'>Cancel request</span>
+            </button>
         </div>
     )
 }
