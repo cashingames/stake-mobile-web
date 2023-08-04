@@ -27,6 +27,9 @@ function NotificationScreen() {
             setReadAll(true)
         });
     }
+    const goHome = () => {
+        navigate('/dashboard');
+    }
 
     //disable browser back button
     useEffect(() => {
@@ -79,9 +82,15 @@ function NotificationScreen() {
 
 
                 } </div>
-            <button className='button-container' onClick={markAll} disabled={clicking}>
-                <span className='buttonText'>{clicking ? <Spinner size={20} /> : 'Mark all as read'}</span>
-            </button>
+            {notifications?.length > 0 ?
+                <button className='button-container' onClick={markAll} disabled={clicking}>
+                    <span className='buttonText'>{clicking ? <Spinner size={20} /> : 'Mark all as read'}</span>
+                </button>
+                :
+                <button className='button-container' onClick={goHome}>
+                    <span className='buttonText'>Okay, got it</span>
+                </button>
+            }
         </>
     )
 }
