@@ -1,20 +1,20 @@
 .contactUs-header {
-    background-color: #fff;
-    color: #072169;
+    // background-color: #fff;
+    color: #1C453B;
     .contact-back {
-        color: #072169;
+        color: #1C453B;
     }
 }
 
 .contactUs-container {
     padding: 1.5rem;
 
-    .title {
+    .title-question {
         margin: 0;
         font-size: 0.95rem;
         font-family: 'gotham-medium';
         margin-top: 0.7rem;
-        color: #072169;
+        color: #1C453B;
     }
 
     .whatsapp-chat {
@@ -36,13 +36,13 @@
                 .header {
                     font-size: 1rem;
                     font-family: 'gotham-bold';
-                    color: #072169;
+                    color: #1C453B;
                 }
             }
             .whatsapp-title {
                 font-size: 0.9rem;
                 font-family: 'sansation-regular';
-                color: #072169;
+                color: #1C453B;
                 margin-top: 5px;
             }
         }

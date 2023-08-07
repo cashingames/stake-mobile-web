@@ -18,7 +18,7 @@ function SupportQuestions() {
   }, [dispatch])
 
   const navigateHandler = () => {
-    navigate('/help')
+    navigate('/profile')
   }
 
   if (loading) {
@@ -26,10 +26,10 @@ function SupportQuestions() {
   }
   return (
     <>
-      <ScreenHeader title='Help' styleProp='supportHeader' onClick={navigateHandler} iconProp='contact-back' />
       <div className='supportContainer'>
-        <p className='supportTitle'>Need some help ?</p>
-        <p className='supportTitle'>Go through our FAQs</p>
+      <ScreenHeader title='Help' styleProp='supportHeader' onClick={navigateHandler} iconProp='contact-back' />
+        {/* <p className='supportTitle'>Need some help ?</p>
+        <p className='supportTitle'>Go through our FAQs</p> */}
         <div className='profileTabs'>
           {faqs?.map((faq, index) =>
             <QuestionTab

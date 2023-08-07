@@ -1,5 +1,5 @@
 .games-header {
-    background-color: #ffff;
+    // background-color: #ffff;
     color: #1C453B;
 
     .games-back {
@@ -12,16 +12,17 @@
     background-position: center;
     background-size: cover;
     height: 100vh;
-    min-height: 100vh;
+    // min-height: 100vh;
     padding-top: 1rem;
     display: flex;
     justify-content: center;
-    align-items: center;
     flex-direction: column;
+    overflow: hidden;
 
     .main-games-container {
         display: flex;
         flex-direction: column;
+        align-items: center;
         overflow-y: scroll;
 
         .trivia-bet-container {

@@ -111,8 +111,8 @@ function ChangePassword() {
 
     return (
         <>
-            <ScreenHeader title='Change Password' onClick={navigateHandler} styleProp='changeNavBar'/>
             <div className='changePasswordContainer'>
+            <ScreenHeader title='Change Password' onClick={navigateHandler} styleProp='changeNavBar'/>
                 <form>
                     <PasswordInput value={password}
                         setValue={setPassword}
@@ -138,7 +138,7 @@ function ChangePassword() {
                         setValue={setConfirmPassword}
                         showPassword={showPassword3}
                         setShowPassword={setShowPassword3}
-                        placeholder='Enter Password'
+                        placeholder='Confirm Password'
                         label='Confirm new password'
                         errorText={
                             new_password_confirmation !== new_password && '*password confirmation must match password'

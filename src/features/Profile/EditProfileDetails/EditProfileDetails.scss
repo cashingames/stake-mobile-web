@@ -1,74 +1,39 @@
-.editNavBar {
-    background-color: #fff;
-    edit-background-color: #fff;
-}
+
 
 .formCase {
     // display: flex;
-    padding: 1rem;
+    padding: 1.5rem 1rem;
+    background-color: #F9FBFF;
 
     .inputsCase {
         .inputCase {
             display: flex;
             flex-direction: column;
             width: 100%;
-
-            .email-input {
-                display: flex;
-                flex-direction: row;
-                justify-content: space-between;
-                border: 1px solid #CDD4DF;
-                padding: 0.5rem 0.6rem;
-                align-items: center;
-                border-radius: 7px;
-                margin-bottom: .5rem;
-
-                .input-email {
-                    color: rgba(0, 0, 0, 0.5019607843);
-                    font-size: 0.7rem;
-                    border: none;
-                    outline: none;
-                    font-family: "graphik-regular";
-                    width: 70%;
-                }
-
-                .verified-text {
-                    line-height: 0;
-                    margin: 0;
-                    text-align: center;
-                    background-color: rgba(244, 66, 116, 0.1019607843);
-                    border-radius: 7px;
-                    color: #EF2F55;
-                    font-size: 0.7rem;
-                    font-family: "graphik-regular";
-                    padding: 0.6rem 0.5rem;
-                }
-
-
-            }
+            margin-bottom: 1rem;
 
             .inputLabel {
                 margin-bottom: .45rem;
-                font-size: 0.7rem;
-                color: #000000B2;
-                font-family: 'graphik-medium';
+                font-size: 0.85rem;
+                color: #1C453B;
+                font-family: 'gotham-medium';
             }
 
             .inputBox,
             .inputBox2 {
-                color: #00000080;
-                font-size: 0.7rem;
-                border-radius: 7px;
+                color: #1C453B;
+                font-size: 0.8rem;
+                border-radius: 13px;
                 padding: 0.5rem 0;
                 border: none;
                 outline: none;
                 margin-bottom: .5rem;
-                font-family: 'graphik-regular';
+                font-family: 'sansation-regular';
             }
 
             .inputBox2 {
                 border: 1px solid #CDD4DF;
-                padding: 0.5rem .6rem;
+                padding: 1.1rem .9rem;
             }
 
             .phoneContainer {
@@ -83,24 +48,24 @@
                     border-right: 1px solid #CDD4DF;
                     width: 2rem;
                     margin-right: .5rem;
-                    font-size: 0.7rem;
-                    color: #00000080;
+                    font-size: 0.8rem;
+                    color: #1C453B;
                     outline: none;
-                    font-family: 'graphik-regular';
+                    font-family: 'sansation-regular';
                 }
 
                 .phoneInput {
                     border: none;
                     outline: none;
-                    color: #00000080;
-                    font-size: 0.7rem;
-                    font-family: 'graphik-regular';
+                    color: #1C453B;
+                    font-size: 0.8rem;
+                    font-family: 'sansation-regular';
                 }
 
             }
 
             .selectBox {
-                color: #00000080;
+                color: #1C453B;
                 font-size: 0.7rem;
                 padding: 0.5rem 0;
                 border: 1px solid #CDD4DF;
@@ -125,25 +90,29 @@
             }
         }
 
-        .submitBtn {
-            margin-top: 4rem;
-            background-color: #EF2F55;
+
+        .save-button-container {
+            background-color: #E15220;
             justify-content: center;
+            flex-direction: row;
             display: flex;
             align-items: center;
-            padding: 0.75rem 0;
-            border-radius: 7.5px;
+            padding: 1.3rem 0;
+            border-radius: 13px;
             width: 100%;
             border: none;
-            color: white;
-            font-size: 0.75rem;
-            font-family: 'graphik-medium';
-            letter-spacing: 1px;
+
+            .buttonText {
+                color: white;
+                font-size: 1.2rem;
+                font-family: 'gotham-medium';
+            }
+
         }
 
         button[disabled] {
             border: none;
-            background-color: #DFCBCF;
+            background-color: #EA8663;
             color: white;
         }
     }

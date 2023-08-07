@@ -15,7 +15,7 @@ const AppHeader = ({ backgroundColor }) => {
         <IoGameController className='icon' color='#1C453B' />
         Games
       </NavLink>
-      <NavLink to='/help' className='navlink'>
+      <NavLink to='/contact-us' className='navlink'>
         <IoHelpCircle className='icon' color='#1C453B' />
         Contact
       </NavLink>

@@ -2,20 +2,21 @@ import React, { useState, useEffect } from 'react';
 import ScreenHeader from '../../../components/ScreenHeader/ScreenHeader';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
-import { getUser, editPersonalDetails, sendEmailOTP } from '../../Auth/AuthSlice';
+import { getUser, editPersonalDetails } from '../../Auth/AuthSlice';
 import Dialogue from '../../../components/Dialogue/Dialogue';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import LoaderScreen from '../../LoaderScreen/LoaderScreen';
 import { subYears } from 'date-fns';
 import './EditProfileDetails.scss';
+import { FormControl } from '@mui/material';
 
 
 const EditProfileDetails = () => {
     const dispatch = useDispatch();
     let navigate = useNavigate();
     const user = useSelector(state => state.auth.user);
-    const isEmailVerified = user.isEmailVerified;
+    // const isEmailVerified = user.isEmailVerified;
 
     const [email, setEmail] = useState(user.email);
     const [username, setUsername] = useState(user.username);
@@ -36,10 +37,10 @@ const EditProfileDetails = () => {
     const [onloading, setOnLoading] = useState(true);
     const calenderAge = subYears(new Date(), 18).toISOString().slice(0, 10);
 
-    const goToVerifyEmailScreen = () => {
-        dispatch(sendEmailOTP())
-        navigate('/email-verification')
-    }
+    // const goToVerifyEmailScreen = () => {
+    //     dispatch(sendEmailOTP())
+    //     navigate('/email-verification')
+    // }
 
 
     useEffect(() => {
@@ -156,11 +157,12 @@ const EditProfileDetails = () => {
 
     return (
         <>
-            <ScreenHeader title='Edit Details' onClick={navigateHandler} styleProp='editNavBar' />
             <div className='formCase'>
+                <ScreenHeader title='Bio Data' onClick={navigateHandler} styleProp='editNavBar' />
+
                 <div className='inputsCase'>
                     <div className='inputCase'>
-                        <label htmlFor='phone' className='inputLabel'>Phone number</label>
+                        <label htmlFor='phone' className='inputLabel' style={{ opacity: 0.6 }}>Phone number</label>
                         <div className='phoneContainer'>
                             <input
                                 readOnly
@@ -168,6 +170,7 @@ const EditProfileDetails = () => {
                                 type='text'
                                 value={countryCode}
                                 className='countryCode'
+                                style={{ opacity: 0.6 }}
                             />
                             <input
                                 readOnly
@@ -176,6 +179,7 @@ const EditProfileDetails = () => {
                                 id='phone'
                                 value={phone}
                                 className='phoneInput'
+                                style={{ opacity: 0.6 }}
                             />
                         </div>
                     </div>
@@ -194,31 +198,30 @@ const EditProfileDetails = () => {
                     </div>
 
                     <div className='inputCase'>
-                        <label htmlFor='Email' className='inputLabel'>Email</label>
+                        <label htmlFor='Email' className='inputLabel' style={{ opacity: 0.6 }}>Email</label>
                         {email === '' &&
                             <span className='input-error'>*required field</span>
                         }
                         {emailError &&
                             <span className='input-error'>*invalid email address</span>
                         }
-                        {!isEmailVerified &&
+                        {/* {!isEmailVerified &&
                             <p className='warning-text' onClick={goToVerifyEmailScreen}>Your email is not verified. Please, CLICK to verify your email!</p>
-                        }
-                        <div className='email-input'>
-                            <input
-                                className='input-email'
-                                onChange={changeEmail}
-                                value={email}
-                                readOnly={!isEmailVerified ? false : true}
-                            />
-                            {!isEmailVerified &&
+                        } */}
+                        <input
+                            className='inputBox2'
+                            onChange={changeEmail}
+                            style={{ opacity: 0.6 }}
+                            value={email}
+                            readOnly={true}
+                        />
+                        {/* {!isEmailVerified &&
                                 <p className='verified-text'>unverified</p>
-                            }
-                        </div>
+                            } */}
                     </div>
 
                     <div className='inputCase'>
-                        <label htmlFor='firstName' className='inputLabel'>First Name</label>
+                        <label htmlFor='firstName' className='inputLabel' style={{ opacity: 0.6 }}>First Name</label>
                         {firstName === '' &&
                             <span className='input-error'>*required field</span>
                         }
@@ -229,12 +232,13 @@ const EditProfileDetails = () => {
                             className='inputBox2'
                             onChange={changeFirstName}
                             value={firstName}
+                            style={{ opacity: 0.6 }}
                             required
                             readOnly
                         />
                     </div>
                     <div className='inputCase'>
-                        <label htmlFor='lastName' className='inputLabel'>Last Name</label>
+                        <label htmlFor='lastName' className='inputLabel' style={{ opacity: 0.6 }}>Last Name</label>
                         {lastName === '' &&
                             <span className='input-error'>*required field</span>
                         }
@@ -244,9 +248,10 @@ const EditProfileDetails = () => {
                         <input
                             className='inputBox2'
                             onChange={changeLastName}
-                            value={lastName} 
+                            value={lastName}
+                            style={{ opacity: 0.6 }}
                             readOnly
-                            />
+                        />
                     </div>
                     <div className='inputCase'>
                         <label htmlFor='lastName' className='inputLabel'>Date of Birth</label>
@@ -263,32 +268,31 @@ const EditProfileDetails = () => {
                     </div>
                     <div className='inputCase'>
                         <label htmlFor='lastName' className='inputLabel'>Select Gender</label>
-                        <Select
-                            value={selectGender}
-                            onChange={(e) => setSelectGender(e.target.value)}
-                            sx={{
-                                height: '30px',
-                                borderRadius: 0,
-                                fontSize: '0.75rem',
-                                background: '#ebeff5',
-                                border: 0,
-                                outline: 0,
-                                fontFamily: 'Graphik'
-                            }}>
-                            <MenuItem value='male'
+                        <FormControl fullWidth>
+                            {/* <InputLabel id="demo-simple-select-label" style={{ fontFamily: 'sansation-regular', color: '#1C453B', fontSize: '0.92rem', }}>Select Gender</InputLabel> */}
+                            <Select
+                                value={selectGender}
+                                onChange={(e) => setSelectGender(e.target.value)}
                                 sx={{
-                                    fontSize: '0.7rem',
-                                }}>Male</MenuItem>
-                            <MenuItem value='female'
-                                sx={{
-                                    fontSize: '0.7rem'
-                                }}
-                            >Female</MenuItem>
-                        </Select>
+                                    height: ' 3.5rem',
+                                    borderRadius: '14px',
+                                    fontSize: '0.8rem',
+                                    background: '#FFF',
+                                    border: '0.1px solid #D9D9D9',
+                                    outline: 0,
+                                    fontFamily: 'sansation-regular',
+                                    color: '#1C453B'
+                                }}>
+                                <MenuItem style={{ color: '#1C453B', fontFamily: 'sansation-regular' }} value='male'>Male</MenuItem>
+                                <MenuItem value='female'
+                                >Female</MenuItem>
+                            </Select>
+                        </FormControl>
                     </div>
-                    <button type='submit' disabled={!canSave || loading} className='submitBtn'
+                    <button type='submit' disabled={!canSave || loading} className='save-button-container'
                         onClick={SavePersonalDetails}
-                    >{loading ? 'Saving' : 'Save Changes'}</button>
+                    >
+                        <span className='buttonText'>{loading ? 'Saving' : 'Save Changes'}</span></button>
                 </div>
             </div>
             <Dialogue open={open} handleClose={closeAlert} dialogueMessage={alertMessage} />

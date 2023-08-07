@@ -25,9 +25,9 @@ export default function SupportAnswer() {
 
     return (
         <>
-            <ScreenHeader title='Details' onClick={navigateHandler} styleProp='detailHeader' />
             <div className='detailsContainer'>
-                <p  className='dQuestion'>{question}</p>
+                <ScreenHeader title='Details' onClick={navigateHandler} styleProp='detailHeader' />
+                <p className='dQuestion'>{question}</p>
                 <p className='dAnswer'>{answer}</p>
             </div>
         </>

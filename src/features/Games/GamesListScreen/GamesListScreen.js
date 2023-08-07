@@ -88,11 +88,11 @@ const GamesListScreen = () => {
 
     return (
         <>
-            <ScreenHeader title='All Games' styleProp='games-header' iconProp='games-back' onClick={navigateHandler} />
             <div style={
                 { backgroundImage: "url(/images/game-play-background.png)" }
             }
                 className='games-list-container'>
+                <ScreenHeader title='All Games' styleProp='games-header' iconProp='games-back' onClick={navigateHandler} />
                 <GamesCards openBottomSheet={openBottomSheet} />
             </div>
             <AppHeader heading='Games' style={{ color: '#000000' }} />

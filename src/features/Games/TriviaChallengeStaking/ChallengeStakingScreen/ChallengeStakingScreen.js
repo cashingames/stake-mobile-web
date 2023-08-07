@@ -382,9 +382,9 @@ const InputStake = ({ user, onChangeStakeAmount, amountErr, amount, minimumChall
                     <span className='input-error'>Insufficient bonus balance, stake from another balance</span>
                 </div>
             }
-            {amountErr && Number.parseFloat(amount) < Number.parseFloat(minimumChallengeStakeAmount) &&
+            {/* {amountErr && Number.parseFloat(amount) < Number.parseFloat(minimumChallengeStakeAmount) &&
                 <span className='input-error'>Minimum staking amount is NGN {minimumChallengeStakeAmount}</span>
-            }
+            } */}
             {Number.parseFloat(amount) < Number.parseFloat(minimumChallengeStakeAmount) &&
                 <span className='input-error'>Minimum staking amount is NGN {minimumChallengeStakeAmount}</span>
             }

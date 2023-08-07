@@ -15,7 +15,7 @@ function ContactUs() {
   const navigate = useNavigate()
   const user = useSelector(state => state.auth.user);
   const navigationHandler = () => {
-    navigate('/help')
+    navigate('/dashboard')
   }
 
 
@@ -29,9 +29,9 @@ function ContactUs() {
   }
   return (
     <>
-      <ScreenHeader title='Contact Us' styleProp='contactUs-header' iconProp='contact-back' onClick={navigationHandler} />
       <div className='contactUs-container'>
-        <p className='title'>Do you have any question?</p>
+      <ScreenHeader title='Contact Us' styleProp='contactUs-header' iconProp='contact-back' onClick={navigationHandler} />
+        <p className='title-question'>Do you have any question?</p>
         <ContactForm user={user} />
         <a href='https://wa.me/2348025116306' className='whatsapp-chat'>
           <img width="50px" height="50px" src="/images/whatsapp-icon.png" alt="logo" className="social-img" />

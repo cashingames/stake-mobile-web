@@ -54,12 +54,13 @@ function NotificationScreen() {
 
     return (
         <>
-            <ScreenHeader title='Notifications' styleProp='notificationHeader' iconProp='backIcon' onClick={navigateHandler} />
 
             <div style={
                 { backgroundImage: "url(/images/game-play-background.png)" }
             }
                 className={notifications.length > 0 ? "notificationContainer" : 'noNotificationContainer'}>
+                <ScreenHeader title='Notifications' styleProp='notificationHeader' iconProp='backIcon' onClick={navigateHandler} />
+
                 {
                     notifications.length > 0 ?
                         <div>
