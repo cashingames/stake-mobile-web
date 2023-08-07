@@ -13,8 +13,8 @@ const PromotionScreen = () => {
     }
     return (
         <>
-            <ScreenHeader title={location.state.promotion_title} styleProp='header' iconProp='backIcon' onClick={navigateHandler} />
             <div style={{ backgroundImage: "url(/images/game-play-background.png)" }} className="promotion-container">
+                <ScreenHeader title={location.state.promotion_title} styleProp='header' iconProp='backIcon' onClick={navigateHandler} />
                 <img
                     src={location.state.inner_banner}
                     alt='banner'
@@ -25,7 +25,7 @@ const PromotionScreen = () => {
                     <div className="details-container">
                         <span className="details-header">About</span>
                         <span className="details-text">
-                        {location.state.promotion_description}
+                            {location.state.promotion_description}
                         </span>
                     </div>
                     {/* <div className="details-container">

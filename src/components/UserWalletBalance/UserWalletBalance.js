@@ -22,7 +22,7 @@ function UserWalletBalance({ user, boost, balanceName, setBalanceName, depositBa
     <div className="balances-container">
       <span className="balance-label">Purchase boost from</span>
       <FormControl fullWidth>
-        <InputLabel id="demo-simple-select-label" style={{ fontFamily: 'sansation-regular', color: '#072169', fontSize: '0.92rem', }}>Select Wallet</InputLabel>
+        <InputLabel id="demo-simple-select-label" style={{ fontFamily: 'sansation-regular', color: '#1C453B', fontSize: '0.92rem', }}>Select Wallet</InputLabel>
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
@@ -37,13 +37,13 @@ function UserWalletBalance({ user, boost, balanceName, setBalanceName, depositBa
             border: '0.1px solid #D9D9D9',
             outline: 0,
             fontFamily: 'sansation-regular',
-            color: '#072169',
+            color: '#1C453B',
           }}
         >
           {balanceAccounts && balanceAccounts.map((balanceAccount, i) => {
             return (
               <MenuItem key={balanceAccount.key} value={balanceAccount.key} disabled={balanceAccount.disabled}
-                style={{ color: '#072169', fontFamily: 'sansation-regular' }}>{balanceAccount.value}</MenuItem>
+                style={{ color: '#1C453B', fontFamily: 'sansation-regular' }}>{balanceAccount.value}</MenuItem>
             )
           }
           )}

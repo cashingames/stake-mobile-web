@@ -220,7 +220,7 @@ const WithdrawFunds = () => {
                     <p className='available-bal'>Bank account name must tally with your cashingames first and last name</p>
                 </div>
             </div>
-            <button className='button-container' onClick={withdrawBalance} disabled={!withdraw || loading}>
+            <button className='withdraw-button' onClick={withdrawBalance} disabled={!withdraw || loading}>
                 <span className='buttonText'>Request withdrawal</span>
             </button>
             <Dialogue open={openDialogue} handleClose={closeAlert} dialogueMessage={alertMessage} />

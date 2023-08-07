@@ -17,14 +17,12 @@ function Store() {
   }
 
   return (
-    <>
+    <div className='storeContainer' style={
+      { backgroundImage: "url(/images/game-play-background.png)" }
+    }>
       <ScreenHeader title='Store' onClick={navigateHandler} styleProp='store-header' iconProp='back' />
-      <div className='storeContainer' style={
-        { backgroundImage: "url(/images/game-play-background.png)" }
-      }>
-        <GameBoost boosts={boosts} user={user} />
-      </div>
-    </>
+      <GameBoost boosts={boosts} user={user} />
+    </div>
   )
 }
 

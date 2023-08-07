@@ -22,44 +22,43 @@ const PromotionsScreen = () => {
             "bannerImage": "/images/bonus-banner1.png",
             "innerBanner": "/images/bonus-banner2.png",
             "name": 'Welcome Bonus',
-            "description" : 'Get an instant 100% Cashback bonus on your first deposit to a limit of N10,000! You can use your bonus amount to stake and earn cash. Bonus expires in 7 days. Terms and conditions apply.'
+            "description": 'Get an instant 100% Cashback bonus on your first deposit to a limit of N10,000! You can use your bonus amount to stake and earn cash. Bonus expires in 7 days. Terms and conditions apply.'
         },
         {
             "id": 2,
             "bannerImage": "/images/cashback-bonus-banner1.png",
             "innerBanner": "/images/cashback-bonus-banner2.png",
             "name": 'Up for grabs',
-            "description" : "Get 10% cashback on your losses daily! We've got you covered. The higher your stakes, the bigger your bonus! Bonus expires in 3 Days. Terms and conditions apply."
+            "description": "Get 10% cashback on your losses daily! We've got you covered. The higher your stakes, the bigger your bonus! Bonus expires in 3 Days. Terms and conditions apply."
         },
     ]
 
 
     return (
-        <>
+        <div style={{ backgroundImage: "url(/images/game-play-background.png)" }} className={isNewPromotion ? "promotions-container" : 'no-promotions-container'}>
             <ScreenHeader title='Promotions' styleProp='header' iconProp='backIcon' onClick={navigateHandler} />
-            <div style={{ backgroundImage: "url(/images/game-play-background.png)" }} className={isNewPromotion ? "promotions-container" : 'no-promotions-container'}>
-                {!isNewPromotion ?
-                    <div className="image-container">
-                        <div className="image-avatar">
-                            <img
-                                src="/images/gift-dynamic.png"
-                                alt='gift'
-                                className='avatar'
-                            />
-                        </div>
-                        <span className="no-promotions-text">No promotions yet, check back later</span>
-                    </div>
-                    :
-                    <div className="banners-container">
-                        {
-                            promotions.map((promotion, i) => <PromotionBanner key={i} promotion={promotion} user={user}
-                            />)
-                        }
-                    </div>
 
-                }
-            </div>
-        </>
+            {!isNewPromotion ?
+                <div className="image-container">
+                    <div className="image-avatar">
+                        <img
+                            src="/images/gift-dynamic.png"
+                            alt='gift'
+                            className='avatar'
+                        />
+                    </div>
+                    <span className="no-promotions-text">No promotions yet, check back later</span>
+                </div>
+                :
+                <div className="banners-container">
+                    {
+                        promotions.map((promotion, i) => <PromotionBanner key={i} promotion={promotion} user={user}
+                        />)
+                    }
+                </div>
+
+            }
+        </div>
     )
 }
 

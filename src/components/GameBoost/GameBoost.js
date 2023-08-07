@@ -143,7 +143,7 @@ const BuyBoost = ({ onClick, boost, loading, buyBoost, balanceName, setBalanceNa
             <div className='buyItemHeader'>
                 <div></div>
                 <p className='buyItemTitle'>Purchase {boost.name}</p>
-                <IoCloseOutline size={20} color='#072169' onClick={onClick} style={{ cursor: 'pointer' }} />
+                <IoCloseOutline size={20} color='#1C453B' onClick={onClick} style={{ cursor: 'pointer' }} />
             </div>
             <BoostCardDetails boost={boost} />
             <UserWalletBalance boost={boost} balanceName={balanceName} setBalanceName={setBalanceName} user={user} depositBalance={depositBalance} />

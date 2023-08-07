@@ -231,12 +231,12 @@ const GameStaking = () => {
                 </div>
             }
             {cashMode &&
-                <button onClick={() => proceed()} className='button-container' disabled={loading || !canSend}>
+                <button onClick={() => proceed()} className='stake-button-container' disabled={loading || !canSend}>
                     <p className="buttonText">Start Game</p>
                 </button>
             }
             {practiceMode &&
-                <button onClick={proceed} className='button-container' disabled={loading || amount === '' || balanceName === ''}>
+                <button onClick={proceed} className='stake-button-container' disabled={loading || amount === '' || balanceName === ''}>
                     <p className="buttonText">Start Game</p>
                 </button>
             }
