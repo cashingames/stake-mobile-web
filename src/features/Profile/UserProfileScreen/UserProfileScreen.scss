@@ -3,8 +3,11 @@
 }
 
 .userProfileContainer {
-    margin-top: 2rem;
-    padding: 0 1rem;
+    // margin-top: 2rem;
+    padding: 1.5rem 1rem;
+    background-color: #F9FBFF;
+    min-height: 100vh;
+    overflow: scroll;
 
     .warning-text{
         font-size: 0.7rem;
@@ -18,13 +21,14 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        position: relative;
 
         .avatar-case {
             height: 90px;
             width: 90px;
             object-fit: cover;
             border-radius: 50%;
-            border: 1px solid rgba($color: #000000, $alpha: 0.1);
+            border: 1px solid rgba($color: #F5870F, $alpha: 0.3);
 
             .userAvater {
                 height: 100%;
@@ -33,21 +37,28 @@
                 border-radius: 50%;
             }
         }
+        .user-name {
+            font-family: 'sansation-bold';
+            color:#1C453B ;
+            font-size: 1.2rem;
+        }
 
         .cameraCase {
             height: 30px;
             width: 30px;
             border-radius: 50%;
-            background-color: #EF2F55;
+            background-color: #F5870F;
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-top: 0.5rem;
+            // margin-top: 0.5rem;
             cursor: pointer;
+            position: absolute;
+            top: 4.5rem;
 
             .icon {
                 color: #fff;
-                font-size: 1.4rem;
+                font-size: 1.1rem;
             }
         }
     }

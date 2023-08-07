@@ -1,20 +1,125 @@
 .profileLinkContainer{
-    padding: 2rem 0;
-    font-family: 'Graphik';
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    // flex-wrap: wrap;
     .profileLink{
         display: flex;
-        justify-content: space-between;
         align-items: center;
         text-decoration: none;
-        padding: 1.1rem 0;
-        border-bottom: 1px solid rgba(0,0,0,0.1);
+        flex-direction: column;
+        .profile-link-icon {
+            width: 4.5rem;
+            height: 4.5rem;
+            border-radius: 100px;
+            border: 2px solid #F5870F;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .bio-icon {
+                width: 3rem;
+                height: 3rem;
+            }
+        }
         .profileLinkLabel{
             font-size: 0.9rem;
-            color: #000;
+            color: #1C453B;
+            font-family: 'sansation-bold';
             margin: 0;
+            margin-top: .7rem;
         }
         .icon{
             color: #000;
         }
     }
+
+    .profileLinkI{
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        flex-direction: column;
+        margin-top: 2.5rem;
+        .profile-link-icon {
+            width: 4.5rem;
+            height: 4.5rem;
+            border-radius: 100px;
+            border: 2px solid #F5870F;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .bio-icon {
+                width: 3rem;
+                height: 3rem;
+            }
+        }
+        .profileLinkLabel{
+            font-size: 0.9rem;
+            color: #1C453B;
+            font-family: 'sansation-bold';
+            margin: 0;
+            margin-top: .7rem;
+        }
+        .icon{
+            color: #000;
+        }
+    }
+}
+.profileLinkContainerI{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    // flex-wrap: wrap;
+    .profileLink{
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        flex-direction: column;
+        margin-top: 2.5rem;
+        .profile-link-icon {
+            width: 4.5rem;
+            height: 4.5rem;
+            border-radius: 100px;
+            border: 2px solid #F5870F;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .bio-icon {
+                width: 3rem;
+                height: 3rem;
+            }
+        }
+        .profileLinkLabel{
+            font-size: 0.9rem;
+            font-family: 'sansation-bold';
+            color: #1C453B;
+            margin: 0;
+            margin-top: 1rem;
+
+        }
+        .icon{
+            color: #000;
+        }
+    }
+
+
+   
+}
+.out-container {
+    background-color: #E15220;
+    justify-content: center;
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+    padding: 1.1rem 0;
+    border-radius: 13px;
+    width: 100%;
+    border: none;
+    margin-top: 2rem;
+
+    .buttonText {
+        color: white;
+        font-size: 1.2rem;
+        font-family: 'gotham-medium';
+    }
+
 }

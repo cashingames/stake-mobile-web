@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import ProfileLink from '../ProfileLinks/ProfileLink';
 import { Spinner } from 'react-activity'
 import { IoCameraSharp } from 'react-icons/io5';
-import { getUser} from '../../Auth/AuthSlice';
+import { getUser } from '../../Auth/AuthSlice';
 import ScreensHeader from '../../../components/ScreenHeader/ScreenHeader';
 import Dialogue from '../../../components/Dialogue/Dialogue'
 import axios from 'axios';
@@ -14,13 +14,14 @@ import LoaderScreen from '../../LoaderScreen/LoaderScreen';
 const backendUrl = process.env.REACT_APP_API_ROOT_URL;
 
 function UserProfileScreen() {
-    const user = useSelector(state => state.auth.user)
+    const user = useSelector(state => state.auth.user);
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const [loading, setLoading] = useState(false);
-    const [open, setOpen] = useState(false)
-    const [alertMessage, setAlertMessage] = useState('')
-    const [screenLoader, setScreenLoader] = useState(true)
+    const [open, setOpen] = useState(false);
+    const [alertMessage, setAlertMessage] = useState('');
+    const [screenLoader, setScreenLoader] = useState(true);
+    const username = user.firstName === '' ? user.username : (user.firstName + ' ' + user.lastName)
     const navigateHandler = () => {
         navigate('/dashboard')
     }
@@ -84,8 +85,9 @@ function UserProfileScreen() {
 
     return (
         <>
-            <ScreensHeader title='Profile' onClick={navigateHandler} />
             <div className='userProfileContainer'>
+                <ScreensHeader title='My Profile' onClick={navigateHandler} />
+
                 <form className='userImgContainer'>
                     <div className='avatar-case'>
                         <img
@@ -113,8 +115,9 @@ function UserProfileScreen() {
                         </div>
 
                     }
+                    <p className='user-name'>{username}</p>
 
-                </form>                   
+                </form>
                 <ProfileLink />
             </div>
             <Dialogue open={open} handleClose={closeAlert} dialogueMessage={alertMessage} />
