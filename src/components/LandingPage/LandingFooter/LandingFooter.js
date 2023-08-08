@@ -12,7 +12,7 @@ function LandingFooter() {
             </div>
             <div className='footerLinksContainer'>
                 <Link to='/terms' className='footerLink'>Terms and Conditions</Link>
-                <Link to='/' className='footerLink'>FAQ</Link>
+                {/* <Link to='/support' className='footerLink'>FAQ</Link> */}
                 <Link to='/privacy' className='footerLink'>Privacy Policy</Link>
             </div>
             <div className='stores-icon'>
