@@ -12,6 +12,8 @@ import WithdrawFunds from './features/WithdrawFunds/WithdrawFunds';
 import WithdrawalSuccessful from './features/WithdrawalSuccessful/WithdrawalSuccessful';
 import PromotionsScreen from './components/Promotions/PromotionsScreen';
 import PromotionScreen from './components/Promotions/PromotionScreen';
+import CashDropScreen from './components/Promotions/CashDropScreen';
+import DropWinnerScreen from './components/Promotions/DropWinnerScreen';
 
 const DashBoardScreen = lazy(() => import('./features/Dashboard/DashBoardScreen'));
 
@@ -97,9 +99,15 @@ const AppRouter = () => {
             <Route
                 path="/promotions"
                 element={<AuthRoute redirectTo="/"><PromotionsScreen /></AuthRoute>} />
-                <Route
+            <Route
                 path="/promotion"
                 element={<AuthRoute redirectTo="/"><PromotionScreen /></AuthRoute>} />
+            <Route
+                path="/cash-drop"
+                element={<AuthRoute redirectTo="/"><CashDropScreen /></AuthRoute>} />
+                <Route
+                path="/drop-winner"
+                element={<AuthRoute redirectTo="/"><DropWinnerScreen /></AuthRoute>} />
             <Route
                 path="/games-list"
                 element={<AuthRoute redirectTo="/"><GamesListScreen /></AuthRoute>} />

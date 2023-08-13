@@ -14,6 +14,21 @@
         margin-bottom: .7rem;
         cursor: pointer;
 
+        .live-container {
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+            background-color: #FA5F4A;
+            border-radius: 30px;
+            padding: .2rem .4rem;
+            .live-text {
+                color: #F9FBFF;
+                font-family: 'gotham-medium';
+                font-size: 10px;
+                margin-left: .1rem;
+            }
+        }
+
         .top-leaders-sub-container {
             display: flex;
             align-items: center;
@@ -64,6 +79,13 @@
                     font-size: .92rem;
                     margin: 0;
                     font-family: 'sansation-regular';
+                }
+
+                .top-leaders-headerii {
+                    color: #1C453B;
+                    font-size: .92rem;
+                    margin: 0;
+                    font-family: 'sansation-bold';
                 }
             }
         }

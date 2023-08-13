@@ -4,6 +4,7 @@ import { IoChevronForwardOutline } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
 import logToAnalytics from "../../utils/analytics";
 import { useSelector } from "react-redux";
+import { formatCurrency } from "../../utils/stringUtl";
 
 const PromotionsCards = () => {
 
@@ -12,20 +13,35 @@ const PromotionsCards = () => {
 
 
     const [isNewPromotion] = useState(true);
-    const [isLeaderboard] = useState(false);
+    const [isCashDrop] = useState(true);
     return (
         <div className="leaders-container">
             {/* <BoostsCard /> */}
             <PromotionsBoard isNewPromotion={isNewPromotion} user={user} />
-            <CashDrop isLeaderboard={isLeaderboard}/>
+            <CashDrop isCashDrop={isCashDrop} user={user} />
             {/* <ChallengeLeaderboard /> */}
         </div>
     )
 }
 
-const CashDrop = ({isLeaderboard}) => {
+const CashDrop = ({ isCashDrop, user }) => {
+    let navigate = useNavigate();
+
+    const checkAvailableCashDrop = () => {
+        logToAnalytics('cashdrop_tab_clicked', {
+            'username': user.username,
+            'phone_number': user.phone_number,
+            'email': user.email
+        });
+        navigate('/cash-drop')
+    }
+
+    const doNothing = () => {
+
+    }
+
     return (
-        <div className="top-leaders-container" style={{opacity: !isLeaderboard ? 0.4 : 1}}>
+        <div className="top-leaders-container" style={{ opacity: !isCashDrop ? 0.4 : 1 }} onClick={isCashDrop? checkAvailableCashDrop : doNothing}>
             <div className="top-leaders-sub-container">
                 <div className="image-avatar">
                     <img
@@ -36,19 +52,31 @@ const CashDrop = ({isLeaderboard}) => {
                 </div>
                 <div className="leaders-header-container">
                     <p className="top-leaders-header">Cash drop</p>
-                    <p className="top-leaders-headeri">Lucky winners win the pools</p>
+                    {isCashDrop ?
+                        <p className="top-leaders-headerii">NGN {formatCurrency(348000)}</p>
+                        :
+                        <p className="top-leaders-headeri">Lucky winners win the pools</p>
+                    }
                 </div>
             </div>
-            <IoChevronForwardOutline size={22} className='icon'color="#1C453B"  />
+            {isCashDrop ?
+                <div className="live-container">
+                    <img src='/images/star.png' alt='start' className='star' />
+                    <span className="live-text">Live Now</span>
+                </div>
+                :
+                <IoChevronForwardOutline size={22} className='icon' color="#1C453B" />
+            }
+
         </div>
     )
 }
 
-const PromotionsBoard = ({isNewPromotion, user}) => {
+const PromotionsBoard = ({ isNewPromotion, user }) => {
     let navigate = useNavigate();
 
     const checkAvailablePromotions = () => {
-        logToAnalytics('wallet_amount_clicked', {
+        logToAnalytics('promotions_tab_clicked', {
             'username': user.username,
             'phone_number': user.phone_number,
             'email': user.email
@@ -57,7 +85,7 @@ const PromotionsBoard = ({isNewPromotion, user}) => {
     }
 
     return (
-        <div className="top-leaders-container" style={{opacity: isNewPromotion ? 1 : 0.4}} onClick={checkAvailablePromotions}>
+        <div className="top-leaders-container" style={{ opacity: isNewPromotion ? 1 : 0.4 }} onClick={checkAvailablePromotions}>
             <div className="top-leaders-sub-container">
                 <div className="image-avatari">
                     <img
