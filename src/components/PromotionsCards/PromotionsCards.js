@@ -13,7 +13,7 @@ const PromotionsCards = () => {
 
 
     const [isNewPromotion] = useState(true);
-    const [isCashDrop] = useState(true);
+    const [isCashDrop] = useState(false);
     return (
         <div className="leaders-container">
             {/* <BoostsCard /> */}
