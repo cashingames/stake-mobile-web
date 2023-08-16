@@ -11,7 +11,7 @@ const PromotionsCards = () => {
     const user = useSelector(state => state.auth.user);
 
     const [isNewPromotion] = useState(true);
-    const [isCashDrop] = useState(true);
+    const [isCashDrop] = useState(false);
     return (
         <div className="leaders-container">
             {/* <BoostsCard /> */}

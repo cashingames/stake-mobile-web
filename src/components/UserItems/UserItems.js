@@ -35,7 +35,7 @@ function UserItems() {
             boostResult += `${formatNumber(boost.count)} ${boost.name}${i === boosts.length - 1 ? '' : ','} `
         });
 
-        setBboostsString(boostResult?.length > 0 ? boostResult : "You have no boosts");
+        setBboostsString(boostResult?.length > 0 ? boostResult : "Boost Up for Epic Wins!");
 
     }, [boosts, plans]);
 
