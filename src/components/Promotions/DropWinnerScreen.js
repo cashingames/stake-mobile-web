@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setCashMode, setGameMode, setGameType } from "../../features/Games/GameSlice";
 
 
+const backendUrl = process.env.REACT_APP_API_ROOT_URL;
 const DropWinnerScreen = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -39,12 +40,12 @@ const DropWinnerScreen = () => {
                 <ScreenHeader title={location.state.winner_rank} styleProp='winner-header' iconProp='backIcon' onClick={navigateHandler} />
                 <div className="winner-details-container">
                     <img
-                        src={location.state.winner_avatar}
+                        src={location.state.winner_avatar ? `${backendUrl}/${location.state.winner_avatar}` : "/images/user-icon.png"}
                         alt='avatar'
                         className='winner-avatar'
                     />
                     <img
-                        src={location.state.winner_badge}
+                        src={`${backendUrl}/${location.state.winner_badge}`}
                         alt='badge'
                         className='badge-avatar'
                     />
@@ -55,7 +56,7 @@ const DropWinnerScreen = () => {
                 <div className="drop-container" style={{ backgroundColor: location.state.drop_background }}>
                     <div className="badge-container">
                         <img
-                            src={location.state.winner_badge}
+                            src={`${backendUrl}/${location.state.winner_badge}`}
                             alt='banner'
                             className='badge-avatar'
                         />

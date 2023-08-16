@@ -146,6 +146,15 @@ export const getStakeWinners = createAsyncThunk(
     }
 )
 
+export const getRunningCashdrops = createAsyncThunk(
+    'common/getRunningCashdrops',
+    async (data, thunkAPI) => {
+        const response = await axios.get(`v3/cashdrops`)
+        return response.data;
+
+    }
+)
+
 export const isFeatureEnabled = async (feature, features = {}) => {
 
     return features.hasOwnProperty(feature) && features[feature].enabled === true
@@ -184,7 +193,7 @@ const initialState = {
     featureFlags: [],
     minimumBoostScore:0,
     minimumWithdrawableAmount: 0,
-
+    cashdrops:[]
 }
 
 export const CommonSlice = createSlice({
@@ -267,6 +276,9 @@ export const CommonSlice = createSlice({
             })
             .addCase(fetchFeatureFlags.fulfilled, (state, action) => {
                 state.featureFlags = action.payload.data
+            })
+            .addCase(getRunningCashdrops.fulfilled, (state, action) => {
+                state.cashdrops = action.payload
             })
     }
 })

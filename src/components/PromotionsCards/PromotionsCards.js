@@ -10,10 +10,8 @@ const PromotionsCards = () => {
 
     const user = useSelector(state => state.auth.user);
 
-
-
     const [isNewPromotion] = useState(true);
-    const [isCashDrop] = useState(false);
+    const [isCashDrop] = useState(true);
     return (
         <div className="leaders-container">
             {/* <BoostsCard /> */}
@@ -26,7 +24,13 @@ const PromotionsCards = () => {
 
 const CashDrop = ({ isCashDrop, user }) => {
     let navigate = useNavigate();
+    const cashdrops = useSelector(state => state.common.cashdrops.cashdropRounds ?? []);
+    let totalCashdropAmount = 0;
 
+    cashdrops.forEach(drop=> {
+        totalCashdropAmount += Number(drop.pooledAmount);
+    });
+  
     const checkAvailableCashDrop = () => {
         logToAnalytics('cashdrop_tab_clicked', {
             'username': user.username,
@@ -53,7 +57,7 @@ const CashDrop = ({ isCashDrop, user }) => {
                 <div className="leaders-header-container">
                     <p className="top-leaders-header">Cash drop</p>
                     {isCashDrop ?
-                        <p className="top-leaders-headerii">NGN {formatCurrency(348000)}</p>
+                        <p className="top-leaders-headerii">NGN {formatCurrency(totalCashdropAmount)}</p>
                         :
                         <p className="top-leaders-headeri">Lucky winners win the pools</p>
                     }

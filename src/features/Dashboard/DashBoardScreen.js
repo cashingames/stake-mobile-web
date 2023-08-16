@@ -10,14 +10,19 @@ import AppHeader from '../../components/AppHeader/AppHeader';
 import logToAnalytics from '../../utils/analytics';
 import { formatCurrency } from '../../utils/stringUtl';
 import { getUser } from '../Auth/AuthSlice';
+import { getRunningCashdrops } from "../../features/CommonSlice";
 
 
 
 function DashBoardScreen() {
+  const dispatch = useDispatch();
   const user = useSelector(state => state.auth.user);
   const username = user.firstName === '' ? user.username?.charAt(0) : (user.firstName?.charAt(0) + user.lastName?.charAt(0))
   const firstname = user.firstName === '' ? user?.username : user?.firstName
 
+  useEffect(() => {
+    dispatch(getRunningCashdrops());
+}, [dispatch]);
 
   return (
     <>

@@ -8,108 +8,18 @@ import { formatCurrency } from "../../utils/stringUtl";
 import { setCashMode, setGameMode, setGameType } from "../../features/Games/GameSlice";
 
 
+const backendUrl = process.env.REACT_APP_API_ROOT_URL;
 
 const CashDropScreen = () => {
     const navigate = useNavigate();
+  
     const user = useSelector(state => state.auth.user);
+    const drops = useSelector(state => state.common.cashdrops.cashdropRounds ?? []);
+    const winners =  useSelector(state => state.common.cashdrops.cashdropWinners ?? []);
 
     const navigateHandler = () => {
         navigate('/dashboard');
     }
-
-    const winners = [
-        {
-            "id": 1,
-            "badgeImage": "/images/gold-badge.png",
-            "firstName": 'Ugo',
-            "lastName": 'Ada',
-            "avatar": "/images/user-icon.png",
-            "badgeRank": "Gold winner",
-            "dropName": 'Gold Cash Drop',
-            "dropAmount" : 200000,
-            "backgroundColor": '#F3E9C7'
-        },
-        {
-            "id": 2,
-            "badgeImage": "/images/silver-badge.png",
-            "firstName": 'Ugo',
-            "lastName": 'Ada',
-            "avatar": "/images/user-icon.png",
-            "badgeRank": "Silver winner",
-            "dropName": 'Silver Cash Drop',
-            "dropAmount" : 123000,
-            "backgroundColor": '#EAEAEA'
-        },
-        {
-            "id": 3,
-            "badgeImage": "/images/bronze-badge.png",
-            "firstName": 'Ugo',
-            "lastName": 'Ada',
-            "avatar": "/images/user-icon.png",
-            "badgeRank": "Bronze winner",
-            "dropAmount" : 25000,
-            "backgroundColor": '#EECCAB'
-        },
-        {
-            "id": 4,
-            "badgeImage": "/images/silver-badge.png",
-            "firstName": 'Ugo',
-            "lastName": 'Ada',
-            "avatar": "/images/user-icon.png",
-            "badgeRank": "Silver winner",
-            "dropName": 'Silver Cash Drop',
-            "dropAmount" : 123000,
-            "backgroundColor": '#EAEAEA'
-        },
-        {
-            "id": 5,
-            "badgeImage": "/images/gold-badge.png",
-            "firstName": 'Ugo',
-            "lastName": 'Ada',
-            "avatar": "/images/user-icon.png",
-            "badgeRank": "Gold winner",
-            "dropName": 'Gold Cash Drop',
-            "dropAmount" : 200000,
-            "backgroundColor": '#F3E9C7'
-        },
-        {
-            "id": 6,
-            "badgeImage": "/images/bronze-badge.png",
-            "firstName": 'Ugo',
-            "lastName": 'Ada',
-            "avatar": "/images/user-icon.png",
-            "badgeRank": "Bronze winner",
-            "dropName": 'Bronze Cash Drop',
-            "dropAmount" : 25000,
-            "backgroundColor": '#EECCAB'
-        },
-    ]
-    const drops = [
-        {
-            "id": 1,
-            "bannerImage": "/images/gold-badge.png",
-            "name": 'Gold Cash Drop',
-            "amount": 200000,
-            "backgroundColor": '#F3E9C7'
-        },
-        {
-            "id": 2,
-            "bannerImage": "/images/silver-badge.png",
-            "name": 'Silver Cash Drop',
-            "amount": 123000,
-            "backgroundColor": '#EAEAEA'
-        },
-        {
-            "id": 3,
-            "bannerImage": "/images/bronze-badge.png",
-            "name": 'Bronze Cash Drop',
-            "amount": 25000,
-            "backgroundColor": '#EECCAB'
-
-        },
-
-    ]
-
 
     return (
         <div className='cashdrop-container'>
@@ -155,15 +65,15 @@ const DropBanner = ({ drop, user }) => {
         <div className="drop-container" style={{ backgroundColor: drop.backgroundColor }}>
             <div className="badge-container">
                 <img
-                    src={drop.bannerImage}
+                    src={`${backendUrl}/${drop.cashdropIcon}`}
                     alt='banner'
                     className='badge-avatar'
                 />
             </div>
             <div className="drop-details">
-                <span className="drop-name">{drop.name}</span>
+                <span className="drop-name">{drop.cashdropName} Cash Drop</span>
                 <div className="amount-container">
-                    <span className="amount-digit">{formatCurrency(drop.amount)}</span>
+                    <span className="amount-digit">{formatCurrency(drop.pooledAmount)}</span>
                     <span className="amount-currency">NGN</span>
                 </div>
             </div>
@@ -184,16 +94,16 @@ const RecentWinner = ({ winner, user }) => {
             'email': user.email,
             'drop_winner': winner.firstName,
         })
-        navigate('/drop-winner' , {
+        navigate('/drop-winner', {
             state: {
-                winner_rank: winner.badgeRank,
-                winner_avatar: winner.avatar,
-                winner_badge:winner.badgeImage,
-                winner_firstname: winner.firstName,
-                winner_lastname: winner.lastName,
-                won_drop: winner.dropName,
-                drop_amount: winner.dropAmount,
-                drop_background:winner.backgroundColor
+                winner_rank: winner.cashdropsName +' winner',
+                winner_avatar: winner.avatar ,
+                winner_badge: winner.icon,
+                winner_firstname: winner.first_name,
+                winner_lastname: winner.last_name,
+                won_drop: winner.cashdropsName,
+                drop_amount: winner.pooledAmount,
+                drop_background: winner.backgroundColor
             }
         })
     }
@@ -201,17 +111,17 @@ const RecentWinner = ({ winner, user }) => {
     return (
         <div className="winner-container" onClick={viewWinner}>
             <img
-                src={winner.avatar}
+                src={winner.avatar ? `${backendUrl}/${winner.avatar}` : "/images/user-icon.png"}
                 alt='avatar'
                 className='winner-avatar'
             />
             <img
-                src={winner.badgeImage}
+                src={ `${backendUrl}/${winner.icon}`}
                 alt='badge'
                 className='badge-avatar'
             />
             <div className="winner-names">
-                <span className="winner-fullname">{winner.firstName} {winner.lastName}</span>
+                <span className="winner-fullname">{winner.first_name} {winner.last_name}</span>
             </div>
         </div>
     )
