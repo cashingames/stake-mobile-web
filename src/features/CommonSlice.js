@@ -193,7 +193,8 @@ const initialState = {
     featureFlags: [],
     minimumBoostScore:0,
     minimumWithdrawableAmount: 0,
-    cashdrops:[]
+    cashdrops:[],
+    cashdropsDocumentId: "cashdrops-updates/02cfQCIkgSVwwgmUIePk"
 }
 
 export const CommonSlice = createSlice({
@@ -202,6 +203,15 @@ export const CommonSlice = createSlice({
     reducers: {
         initialLoadingComplete: (state) => {
             state.initialLoading = false;
+        },
+        updateCashdropPoolAmount: (state, action) => {
+            state.cashdrops.cashdropRounds.map(x =>{
+                if(Number(x.cashdropId) === action.payload.cashdrop_id){
+                    x.pooledAmount = action.payload.cashdrop_amount;
+                    console.log( x.pooledAmount, action.payload.cashdrop_amount);
+                }
+                return x;
+            });
         }
     },
     extraReducers: (builder) => {
@@ -282,5 +292,5 @@ export const CommonSlice = createSlice({
             })
     }
 })
-export const { initialLoadingComplete } = CommonSlice.actions
+export const { initialLoadingComplete, updateCashdropPoolAmount } = CommonSlice.actions
 export default CommonSlice.reducer

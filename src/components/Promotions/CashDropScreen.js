@@ -1,22 +1,36 @@
-import React from "react";
+import React, { useEffect}  from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { doc, onSnapshot } from "firebase/firestore";
 import ScreenHeader from "../ScreenHeader/ScreenHeader";
 import { useNavigate } from "react-router-dom";
 import './CashDropScreen.scss'
 import logToAnalytics from "../../utils/analytics";
 import { formatCurrency } from "../../utils/stringUtl";
 import { setCashMode, setGameMode, setGameType } from "../../features/Games/GameSlice";
-
+import { initializeFirestore } from "../../firebaseConfig";
+import { updateCashdropPoolAmount } from "../../features/CommonSlice";
 
 const backendUrl = process.env.REACT_APP_API_ROOT_URL;
+const db = initializeFirestore();
 
 const CashDropScreen = () => {
     const navigate = useNavigate();
-  
+    const dispatch = useDispatch();
     const user = useSelector(state => state.auth.user);
     const drops = useSelector(state => state.common.cashdrops.cashdropRounds ?? []);
     const winners =  useSelector(state => state.common.cashdrops.cashdropWinners ?? []);
+    const documentId = useSelector(state => state.common.cashdropsDocumentId);
 
+    useEffect(() => {
+        const unsub = onSnapshot(doc(db, documentId), (doc) => {
+            const data = doc.data()
+            dispatch(updateCashdropPoolAmount(data))
+        }, error => {
+        });
+        return () => unsub();
+        // eslint-disable-next-line 
+    }, [documentId])
+   
     const navigateHandler = () => {
         navigate('/dashboard');
     }
@@ -47,6 +61,7 @@ const DropBanner = ({ drop, user }) => {
     const navigate = useNavigate();
     const gameMode = useSelector(state => state.common.gameModes[0]);
     const gameType = useSelector(state => state.common.gameTypes[0]);
+   
 
     const stakeNow = () => {
         dispatch(setGameMode(gameMode));
