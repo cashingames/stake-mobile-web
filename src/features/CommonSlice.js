@@ -193,7 +193,9 @@ const initialState = {
     featureFlags: [],
     minimumBoostScore:0,
     minimumWithdrawableAmount: 0,
-    cashdrops:[]
+    cashdrops:[],
+    cashdropsDocumentId: "cashdrops-updates/cyVAUm4bbSKrRZV6vv6a",
+    cashdropsPoolAmount:[]
 }
 
 export const CommonSlice = createSlice({
@@ -202,6 +204,9 @@ export const CommonSlice = createSlice({
     reducers: {
         initialLoadingComplete: (state) => {
             state.initialLoading = false;
+        },
+        updateCashdropPoolAmount: (state, action) => {
+            state.cashdropsPoolAmount = action.payload
         }
     },
     extraReducers: (builder) => {
@@ -282,5 +287,5 @@ export const CommonSlice = createSlice({
             })
     }
 })
-export const { initialLoadingComplete } = CommonSlice.actions
+export const { initialLoadingComplete, updateCashdropPoolAmount } = CommonSlice.actions
 export default CommonSlice.reducer

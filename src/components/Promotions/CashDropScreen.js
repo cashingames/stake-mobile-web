@@ -1,21 +1,37 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { doc, onSnapshot } from "firebase/firestore";
 import ScreenHeader from "../ScreenHeader/ScreenHeader";
 import { useNavigate } from "react-router-dom";
 import './CashDropScreen.scss'
 import logToAnalytics from "../../utils/analytics";
 import { formatCurrency } from "../../utils/stringUtl";
 import { setCashMode, setGameMode, setGameType } from "../../features/Games/GameSlice";
-
+import { initializeFirestore } from "../../firebaseConfig";
+import { updateCashdropPoolAmount } from "../../features/CommonSlice";
 
 const backendUrl = process.env.REACT_APP_API_ROOT_URL;
+const db = initializeFirestore();
 
 const CashDropScreen = () => {
     const navigate = useNavigate();
-  
+    const dispatch = useDispatch();
     const user = useSelector(state => state.auth.user);
     const drops = useSelector(state => state.common.cashdrops.cashdropRounds ?? []);
-    const winners =  useSelector(state => state.common.cashdrops.cashdropWinners ?? []);
+    const dropsPoolAmounts = useSelector(state => state.common.cashdropsPoolAmount ?? []);
+    const winners = useSelector(state => state.common.cashdrops.cashdropWinners ?? []);
+    const documentId = useSelector(state => state.common.cashdropsDocumentId);
+
+    useEffect(() => {
+        const unsub = onSnapshot(doc(db, documentId), (doc) => {
+            const data = doc.data()
+
+            dispatch(updateCashdropPoolAmount(Object.values(data)))
+        }, error => {
+        });
+        return () => unsub();
+        // eslint-disable-next-line 
+    }, [documentId])
 
     const navigateHandler = () => {
         navigate('/dashboard');
@@ -27,7 +43,7 @@ const CashDropScreen = () => {
             <p className="drop-info-text">Three lucky winners win the pools every week! Will it be you?</p>
             <div className="drops-container">
                 {
-                    drops.map((drop, i) => <DropBanner key={i} drop={drop} user={user}
+                    drops.map((drop, i) => <DropBanner key={i} drop={drop} user={user} dropsPoolAmounts={dropsPoolAmounts}
                     />)
                 }
             </div>
@@ -42,7 +58,7 @@ const CashDropScreen = () => {
     )
 }
 
-const DropBanner = ({ drop, user }) => {
+const DropBanner = ({ drop, user, dropsPoolAmounts }) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const gameMode = useSelector(state => state.common.gameModes[0]);
@@ -72,10 +88,10 @@ const DropBanner = ({ drop, user }) => {
             </div>
             <div className="drop-details">
                 <span className="drop-name">{drop.cashdropName} Cash Drop</span>
-                <div className="amount-container">
-                    <span className="amount-digit">{formatCurrency(drop.pooledAmount)}</span>
-                    <span className="amount-currency">NGN</span>
-                </div>
+                {
+                    dropsPoolAmounts.map((pooledAmount, i) => <PooledAmount key={i} pooledAmount={pooledAmount} drop={drop}
+                    />)
+                }
             </div>
             <div onClick={stakeNow} className="stake-container">
                 <span className="stake-text">Stake now</span>
@@ -84,6 +100,22 @@ const DropBanner = ({ drop, user }) => {
     )
 }
 
+const PooledAmount = ({ pooledAmount, drop }) => {
+    return (
+
+        <div className="amount-container">
+            {
+                Number(drop.cashdropId) === Number(pooledAmount.cashdrop_id) &&
+                <div>
+                    <span className="amount-digit">{formatCurrency(pooledAmount.cashdrop_amount)}</span>
+                    <span className="amount-currency">NGN</span>
+                </div>
+            }
+
+        </div>
+
+    )
+}
 const RecentWinner = ({ winner, user }) => {
     const navigate = useNavigate();
 
@@ -96,8 +128,8 @@ const RecentWinner = ({ winner, user }) => {
         })
         navigate('/drop-winner', {
             state: {
-                winner_rank: winner.cashdropsName +' winner',
-                winner_avatar: winner.avatar ,
+                winner_rank: winner.cashdropsName + ' winner',
+                winner_avatar: winner.avatar,
                 winner_badge: winner.icon,
                 winner_firstname: winner.first_name,
                 winner_lastname: winner.last_name,
@@ -116,7 +148,7 @@ const RecentWinner = ({ winner, user }) => {
                 className='winner-avatar'
             />
             <img
-                src={ `${backendUrl}/${winner.icon}`}
+                src={`${backendUrl}/${winner.icon}`}
                 alt='badge'
                 className='badge-avatar'
             />
