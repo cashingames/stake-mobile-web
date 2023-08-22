@@ -91,11 +91,16 @@
                 padding: .2rem .4rem;
                 display: flex;
                 align-items: center;
-
+                .hot-icon{
+                    width: .75rem;
+                    height: .75rem;
+                    margin-right: .1rem;
+                }
                 .stake-text {
                     color: #F9FBFF;
                     font-family: 'gotham-medium';
                     font-size: .6rem;
+                    display: flex;
                 }
             }
         }
