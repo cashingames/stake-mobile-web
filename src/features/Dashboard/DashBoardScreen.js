@@ -21,8 +21,13 @@ function DashBoardScreen() {
   const firstname = user.firstName === '' ? user?.username : user?.firstName
 
   useEffect(() => {
-    dispatch(getRunningCashdrops());
-}, [dispatch]);
+    const activeCashdrops = setInterval(() => {
+      dispatch(getRunningCashdrops());
+      console.log('called');
+    }, 60000);
+
+    return () => clearInterval(activeCashdrops);
+  }, [dispatch]);
 
   return (
     <>
@@ -50,20 +55,20 @@ const UserProfile = ({ user, username, firstname }) => {
       'username': user.username,
       'phone_number': user.phone_number,
       'email': user.email
-  });
+    });
     navigate('/wallet')
   }
 
   useEffect(() => {
     dispatch(getUser());
-  },[dispatch]);
+  }, [dispatch]);
 
   return (
     <div className='profile-container'>
       <div className='profile-left'>
-          <div className='user-avatar'>
-            <span className='avatar-text'>{username}</span>
-          </div>
+        <div className='user-avatar'>
+          <span className='avatar-text'>{username}</span>
+        </div>
         <div className='name-main-container' onClick={goToProfile}>
           <div className='name-container'>
             <p className='welcome-text'>Hello </p>
