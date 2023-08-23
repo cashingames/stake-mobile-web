@@ -63,9 +63,8 @@ const DropBanner = ({ drop, user, dropsPoolAmounts }) => {
     const navigate = useNavigate();
     const gameMode = useSelector(state => state.common.gameModes[0]);
     const gameType = useSelector(state => state.common.gameTypes[0]);
-    const toDropNext = 2;
+    const toDropNext = useSelector(state => state.common.cashdrops.nextToDrop);
 
-    console.log(toDropNext);
     const stakeNow = () => {
         dispatch(setGameMode(gameMode));
         dispatch(setGameType(gameType));
@@ -96,7 +95,7 @@ const DropBanner = ({ drop, user, dropsPoolAmounts }) => {
                 }
             </div>
             <div onClick={stakeNow} className="stake-container">
-                {toDropNext === Number(drop.cashdropId) ?
+                {Number(toDropNext) === Number(drop.cashdropId) ?
                     <span className="stake-text">
                         <img
                             src="/images/fire-icon.png"
