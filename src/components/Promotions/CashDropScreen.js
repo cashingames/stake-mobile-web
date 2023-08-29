@@ -88,6 +88,15 @@ const DropBanner = ({ drop, user, dropsPoolAmounts }) => {
                 />
             </div>
             <div className="drop-details">
+                <span>
+                 {Number(toDropNext) === Number(drop.cashdropId) &&
+                    <span className="hot-text">
+                        <img
+                            src="/images/fire-icon.png"
+                            alt='banner'className='hot-icon'/>Hot Now</span>
+                   }
+                </span>
+               
                 <span className="drop-name">{drop.cashdropName} Cash Drop</span>
                 {
                     dropsPoolAmounts.map((pooledAmount, i) => <PooledAmount key={i} pooledAmount={pooledAmount} drop={drop}
@@ -95,15 +104,7 @@ const DropBanner = ({ drop, user, dropsPoolAmounts }) => {
                 }
             </div>
             <div onClick={stakeNow} className="stake-container">
-                {Number(toDropNext) === Number(drop.cashdropId) ?
-                    <span className="stake-text">
-                        <img
-                            src="/images/fire-icon.png"
-                            alt='banner'className='hot-icon'/>Hot Now</span>
-                    :
-                    <span className="stake-text">Stake Now</span>
-
-                }
+                    <span className="stake-text">Stake now</span>
             </div>
         </div>
     )
