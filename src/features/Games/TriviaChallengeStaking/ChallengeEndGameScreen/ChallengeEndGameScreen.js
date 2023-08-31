@@ -144,7 +144,10 @@ const SelectedPlayer = ({ playerName, playerAvatar, backgroundColor }) => {
 
 
 const WinningScore = ({ challengeDetails, cashMode, practiceMode }) => {
-
+    let opponentUsername = challengeDetails.opponent.username;
+    if (opponentUsername.length > 9) {
+        opponentUsername = opponentUsername.slice(0, 5)+'...';
+    }
     return (
         <div className="winnings-container">
             <div className="score-count-container">
@@ -159,7 +162,7 @@ const WinningScore = ({ challengeDetails, cashMode, practiceMode }) => {
                     <span className="winnings-header">Demo Scores</span>
                 }
                 <div className="user-count-container">
-                    <span className="count-name">{challengeDetails.opponent.username}</span>
+                    <span className="count-name">{opponentUsername}</span>
                     <span className="score-count">{challengeDetails.opponent.score}</span>
                 </div>
             </div>
