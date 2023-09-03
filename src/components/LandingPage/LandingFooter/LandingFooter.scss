@@ -1,86 +1,98 @@
-.LandingFooter {
-    background-color: #141B2E;
-    color: #fff;
-    align-items: center;
-    padding: 2rem 0;
-
-    .footerLogo {
+.footer__container{
+    .footer__link-container{
         display: flex;
-        justify-content: space-evenly;
-        margin: 2rem;
-
-        .logo {
-            width: 116px;
-            height: 60px;
-            object-fit: cover;
-        }
-    }
-
-    .footerLinksContainer {
-        display: flex;
-        justify-content: space-evenly;
-        width: 100%;
-        margin-bottom: 2rem;
-
-        .footerLink {
-            text-decoration: none;
-            color: #fff;
-            margin: 1rem 0;
-            font-size: 0.9rem;
-            font-family: 'graphik-regular';
-
-        }
-    }
-
-    .stores-icon {
-        display: flex;
-        justify-content: center;
-
-        img {
-            margin-left: 1rem;
-        }
-    }
-
-    .socialMediaLinks {
-        display: flex;
-        justify-content: space-evenly;
+        padding: 02rem;
         align-items: center;
-        width: 100%;
-        border-top: 1px solid #989BA31A;
-        padding-top: 2rem;
-
-        .copyrightsText {
+        gap: 1rem;
+        justify-content: space-between;
+        .link-container{
+            background-color: #E25C2E;
+            outline: none;
+            border: none;
+            border-radius: 10px;
+            padding: 0.5rem;
             display: flex;
-            align-items: flex-start;
-            flex-direction: column;
-            font-size: 0.9rem;
-            color: #B5B1B1;
-
-
-            p {
-                margin: .5rem 0;
-                font-family: 'graphik-regular';
-                padding: 0;
+            justify-content: center;
+            .link{
+                color: #fff;
+                font-size: .5rem;
+                font-family: 'gotham-medium';
+                text-decoration: none;
             }
         }
+        .footer__container-text{
 
-        .footerSocialIcons {
-            display: flex;
-            justify-content: space-between;
-            gap: 1rem;
-
-            .icon {
-                text-decoration: none;
-                color: #fff;
+            .footer__text-title{
+                color: #035D8C;
+                font-size: .8rem;
+                text-align: center;
+                font-family: 'gotham-medium';
+            }
+            .footer__text{
+                color: #035D8C;
+                font-size: .6rem;
+                text-align: center;
+                font-family: 'gotham-light';
             }
         }
     }
-
-    .contact-us {
-        display: flex;
-        text-align: center;
-        font-size: 0.9rem;
-        color: #E05C28;
-        justify-content: center;
+    .footer__container2{
+        padding: 4rem 2rem;
+        @media screen and (min-width: 1025px) {
+           display: flex;
+           align-items: center;
+        }
+        .footer__container-img{
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            .footer2__image{
+                object-fit: contain;
+                width:60px;
+                height: 60px;
+            }
+        }
+        .footer__newsletter{
+            display: flex;
+            gap: 0.3rem;
+            align-items: center;
+            justify-content: space-around;
+            margin-bottom: 1rem;
+            .newsletter_text{
+                color: #fff;
+                font-size: .8rem;
+                text-align: center;
+                font-family: 'gotham-medium';
+            }
+            .newsletter__form{
+                input{
+                    outline: none;
+                    border: none;
+                    background-color: #fff;
+                    border-radius: 5px;
+                    padding: 0.1rem;
+                }
+            }
+            button{
+                outline: none;
+                border: none;
+                background-color: #0086CD;
+                border-radius: 5px;
+                color: #fff;
+                font-size: .6rem;
+                text-align: center;
+                font-family: 'gotham-medium';
+                padding:0.3rem 0.5rem;
+                margin-left: 0.02rem;
+            }
+            .terms{
+                .terms__text{
+                color: #fff;
+                font-size: .6rem;
+                text-align: center;
+                font-family: 'gotham-medium';
+                }
+            }
+        }
     }
 }
