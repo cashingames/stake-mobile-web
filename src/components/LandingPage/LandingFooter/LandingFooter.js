@@ -29,7 +29,7 @@ function LandingFooter() {
                     <button>Sign Up</button>
                 </div>
                 <hr />
-                <div className='terms'>
+                <div className='terms' style={{color: "#fff", fontSize: '.6rem', textAlign:'center', fontFamily:'gotham-medium'}}>
                     <p className='terms__text'>© Copyright 2023 | Cashingames</p>
                 </div>
             </div>
