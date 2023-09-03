@@ -1,151 +1,62 @@
 .landingBanner {
-    width: 100vw;
-    overflow-x: hidden;
-    padding-top: 3rem;
-    background-color: #fff;
-
-    .bannerTextContainer {
-        text-align: center;
-        width: 100%;
-        position: relative;
-
-        .bannerText {
-            margin: 0;
-            font-size: 1.4rem;
-            line-height: 1.5;
-            font-family: 'graphik-medium';
-
-            .red {
-                color: #E05C28;
-            }
+    padding: 0 2rem;
+    position: relative;
+    .banner__container-img{
+        display: flex;
+        justify-content: center;
+        .banner__image{
+            width:100%
         }
-
-        .stores-icon {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-top: .8rem;
-
-            img {
-                margin-left: .5rem;
-            }
+    }
+    .banner__container-question{
+        border: 1px solid #E25C2E;
+        border-radius: 10px;
+        padding: 0.5rem 1rem;
+        .banner__text-title{
+            color: #0086CD;
+            font-family: 'gotham-medium';
+            font-size: 0.8rem; 
+            text-align: center;
         }
-
-        .appImgCase {
+        .banner__container-answer{
             display: flex;
-            // flex-direction: column;
             justify-content: space-around;
             align-items: center;
-            margin-bottom: 1rem;
-            width: 100%;
-            gap: 1rem;
-
-            .appImg {
-                width: 8rem;
-                height: 40px;
-                object-fit: cover;
-                border-radius: 5px;
-            }
-        }
-
-        .bannerText2 {
-            color: rgba(0, 0, 0, 0.6);
-            font-size: 1rem;
-            margin-top: 3rem;
-            line-height: 1.5;
-            font-family: 'graphik-medium';
-        }
-
-        .bubble2 {
-            position: absolute;
-            width: 90px;
-            height: 90px;
-            right: -27px;
-            top: 40%;
-            border-radius: 50%;
-            background: linear-gradient(160.12deg, #E05C28 31.98%, #CD3664 81.96%);
-        }
-
-        .bubble3 {
-            position: absolute;
-            width: 60px;
-            height: 60px;
-            right: -5px;
-            bottom: -35%;
-            border-radius: 50%;
-            background: linear-gradient(180deg, #6C15C9 0%, #B26CFE 100%);
-        }
-
-        .bubble4 {
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            right: 5px;
-            bottom: -45%;
-            border-radius: 50%;
-            background: linear-gradient(160.12deg, #E05C28 31.98%, #CD3664 81.96%);
-        }
-
-        .clipContainer {
-            display: flex;
-            justify-content: space-between;
-            padding: 0;
-            align-items: center;
-
-            .bubble {
-                position: relative;
-                width: 108px;
-                height: 108px;
-                left: -27px;
-                top: 0;
-                border-radius: 50%;
-                background: linear-gradient(180deg, #6C15C9 0%, #B26CFE 100%);
-            }
-
-            .clickMe {
-                background: #151C2F;
+            .banner__answer{
                 display: flex;
-                flex: 1;
-                margin-right: -2rem;
-                height: 56px;
-                border-radius: 30px;
-                margin-top: 2rem;
-
-                .linkUp {
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-evenly;
-                    text-decoration: none;
-                    width: 100%;
-
-                    .clickText {
-                        color: #fff;
-                        flex: 1;
-                        font-size: .8rem;
-                        padding-right: 4rem;
-                        letter-spacing: 2px;
-                        font-family: 'graphik-medium';
-                    }
-
-                    .play {
-                        background-color: #E05C28;
-                        margin-left: .5rem;
-                        height: 40px;
-                        width: 40px;
-                        border-radius: 50%;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                    }
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding: 0 1rem;
+                .banner__icon{
+                    width: 40px;
+                    height: 40px;
+                    object-fit: contain;
+                }
+                .banner__text{
+                    font-size: 0.4rem;
+                    font-family: 'gotham-bold';
+                    text-align: center;
+                }
+                .banner__text-small{
+                    font-size: 0.4rem;
+                    font-family: 'gotham-light';
+                    text-align: center;
                 }
             }
         }
     }
+    // .banner__image-bg {
+    //     position: absolute;
+    //     top: 0;
+    //     left: 0;
+    //     object-fit: contain;
+    //     width: 70%;
+    //     opacity: 0.3;
+    // }
 
-    .landingBannerImage {
-        object-fit: cover;
-        // height: 100%;
-        width: 100%;
-        margin-top: 2rem;
-    }
+}
+
+p{
+    margin: 0;
 }
