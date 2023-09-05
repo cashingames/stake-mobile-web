@@ -112,8 +112,8 @@ const GamesListScreen = () => {
 const GamesCards = ({ openBottomSheet }) => {
     return (
         <div className="main-games-container">
-            <TriviaBetCard openBottomSheet={openBottomSheet} />
             <TriviaChallengeCard openBottomSheet={openBottomSheet} />
+            <TriviaBetCard openBottomSheet={openBottomSheet} />
             <TriviaRoomsCard />
             {/* <JackpotBetCard /> */}
 
