@@ -6,6 +6,7 @@ function LandingBanner() {
     <div className='landingBanner'>
       <div className='banner__container-img'>
         <img src='/images/banner-img.png' alt='banner' className='banner__image' />
+        {/* <img src='/images/mobile-banner-image.png' alt='banner' className='mobile_banner_image' /> */}
       </div>
       <div className="banner__container-question">
         <p className='banner__text-title'>Why Play Games on Cashingames</p>
