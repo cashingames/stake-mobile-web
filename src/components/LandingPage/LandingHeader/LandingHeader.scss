@@ -86,8 +86,8 @@
         width: 100%;
 
         @media screen and (max-width: 768px) {
-            min-height: 110svh;
-            min-width: 53svh;
+            min-height: 120svh;
+            min-width: 49.8svh;
         }
     }
 
@@ -135,9 +135,12 @@
             @media screen and (min-width: 280px) and (max-width: 600px) {
                 display: flex;
                 align-self: center;
-                width: 15rem;
-                height: 20rem;
+                width: 20rem;
+                height: 35rem;
                 position: absolute;
+                padding-bottom: 9rem;
+            
+             
             }
         }
         .header__welcome-text {
