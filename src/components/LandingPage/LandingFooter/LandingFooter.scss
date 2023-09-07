@@ -1,11 +1,16 @@
-.footer__container{
-    .footer__link-container{
+.footer__container {
+    @media screen and (min-width: 280px) and (max-width: 600px) {
+        display: none;
+    }
+
+    .footer__link-container {
         display: flex;
         padding: 02rem;
         align-items: center;
         gap: 1rem;
         justify-content: space-between;
-        .link-container{
+
+        .link-container {
             background-color: #E25C2E;
             outline: none;
             border: none;
@@ -13,22 +18,25 @@
             padding: 0.5rem;
             display: flex;
             justify-content: center;
-            .link{
+
+            .link {
                 color: #fff;
                 font-size: .5rem;
                 font-family: 'gotham-medium';
                 text-decoration: none;
             }
         }
-        .footer__container-text{
 
-            .footer__text-title{
+        .footer__container-text {
+
+            .footer__text-title {
                 color: #035D8C;
                 font-size: .8rem;
                 text-align: center;
                 font-family: 'gotham-medium';
             }
-            .footer__text{
+
+            .footer__text {
                 color: #035D8C;
                 font-size: .6rem;
                 text-align: center;
@@ -36,36 +44,43 @@
             }
         }
     }
-    .footer__container2{
+
+    .footer__container2 {
         padding: 4rem 2rem;
+
         @media screen and (min-width: 1025px) {
-           display: flex;
-           align-items: center;
+            display: flex;
+            align-items: center;
         }
-        .footer__container-img{
+
+        .footer__container-img {
             display: flex;
             align-items: center;
             justify-content: space-around;
-            .footer2__image{
+
+            .footer2__image {
                 object-fit: contain;
-                width:60px;
+                width: 60px;
                 height: 60px;
             }
         }
-        .footer__newsletter{
+
+        .footer__newsletter {
             display: flex;
             gap: 0.3rem;
             align-items: center;
             justify-content: space-around;
             margin-bottom: 1rem;
-            .newsletter_text{
+
+            .newsletter_text {
                 color: #fff;
                 font-size: .8rem;
                 text-align: center;
                 font-family: 'gotham-medium';
             }
-            .newsletter__form{
-                input{
+
+            .newsletter__form {
+                input {
                     outline: none;
                     border: none;
                     background-color: #fff;
@@ -73,7 +88,8 @@
                     padding: 0.1rem;
                 }
             }
-            button{
+
+            button {
                 outline: none;
                 border: none;
                 background-color: #0086CD;
@@ -82,16 +98,111 @@
                 font-size: .6rem;
                 text-align: center;
                 font-family: 'gotham-medium';
-                padding:0.3rem 0.5rem;
+                padding: 0.3rem 0.5rem;
                 margin-left: 0.02rem;
             }
-            .terms{
-                .terms__text{
-                color: #fff;
-                font-size: .6rem;
-                text-align: center;
-                font-family: 'gotham-medium';
+
+            .terms {
+                .terms__text {
+                    color: #fff;
+                    font-size: .6rem;
+                    text-align: center;
+                    font-family: 'gotham-medium';
                 }
+            }
+        }
+    }
+}
+
+.mobile_landing_cta {
+    display: none;
+
+    @media screen and (min-width: 280px) and (max-width: 600px) {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+
+        .cta_question {
+            color: #035D8C;
+            font-family: 'gotham-bold';
+            font-size: 1.5rem;
+            text-align: center;
+        }
+
+        .cta_action {
+            color: #035D8C;
+            font-family: 'gotham-light';
+            font-size: 1.1rem;
+            text-align: center;
+            margin-top: .2rem;
+        }
+
+        .link {
+            width: 20rem;
+            align-self: center;
+            background-color: #E25C2E;
+            border-radius: 10px;
+            color: white;
+            text-align: center;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            margin-top: 10rem;
+            font-family: 'gotham-bold';
+            text-decoration: none;
+        }
+
+        .footer_logo {
+            width: 10rem;
+            align-self: center;
+            margin-top: 5rem;
+        }
+
+        .download_and_news {
+            display: flex;
+
+            .footer_shape {
+                height: 35rem;
+                width: 23rem;
+                position: absolute;
+
+            }
+
+            .footer_icons {
+                z-index: 10;
+                margin-top: 15rem;
+                text-align: center;
+
+                .icons {
+                    width: 15rem;
+                    text-align: center;
+                }
+            }
+        }
+
+        .newsletter {
+            z-index: 10;
+            text-align: center;
+            .news_letter_form {
+                input {
+                    outline: none;
+                    border: none;
+                    background-color: #fff;
+                    border-radius: 5px;
+                    padding: 0.1rem;
+                    height: 3rem;
+                }
+            }
+            .f_link{
+                width: 50rem;
+                background-color: #0086CD;
+                border-radius: 10px;
+                color: white;
+                // text-align: center;
+                // padding-top: 1rem;
+                // padding-bottom: 1rem;
+                // margin-top: 20rem;
+                font-family: 'gotham-bold';
+                text-decoration: none;
             }
         }
     }
