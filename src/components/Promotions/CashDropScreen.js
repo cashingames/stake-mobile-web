@@ -143,6 +143,7 @@ const RecentWinner = ({ winner, user }) => {
                 winner_badge: winner.icon,
                 winner_firstname: winner.first_name,
                 winner_lastname: winner.last_name,
+                winner_username: winner.username,
                 won_drop: winner.cashdropsName,
                 drop_amount: winner.pooledAmount,
                 drop_background: winner.backgroundColor
@@ -163,7 +164,7 @@ const RecentWinner = ({ winner, user }) => {
                 className='badge-avatar'
             />
             <div className="winner-names">
-                <span className="winner-fullname">{winner.first_name} {winner.last_name}</span>
+                <span className="winner-fullname">{winner.username}</span>
             </div>
         </div>
     )

@@ -50,7 +50,7 @@ const DropWinnerScreen = () => {
                         className='badge-avatar'
                     />
                     <div className="winner-names">
-                        <span className="winner-fullname">{location.state.winner_firstname} {location.state.winner_lastname}</span>
+                        <span className="winner-fullname">{location.state.winner_username}</span>
                     </div>
                 </div>
                 <div className="drop-container" style={{ backgroundColor: location.state.drop_background }}>
