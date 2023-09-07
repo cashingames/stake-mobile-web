@@ -37,7 +37,7 @@ const ChallengeStakingScreen = () => {
 
 
     const onChangeStakeAmount = (e) => {
-        const amount = e.currentTarget.value;
+        const amount = e.target.value;
 
         if ((balanceName === 1 && (Number.parseFloat(depositBalance) < amount || amount < Number.parseFloat(minimumChallengeStakeAmount))) ||
             (balanceName === 2 && (Number.parseFloat(user.bonusBalance) < amount || amount < Number.parseFloat(minimumChallengeStakeAmount)))) {
@@ -348,26 +348,48 @@ const PracticeStakingBalances = ({ balanceName, setBalanceName }) => {
     )
 }
 
-const InputStake = ({ user, onChangeStakeAmount, amountErr, amount, minimumChallengeStakeAmount, maximumChallengeStakeAmount, balanceName, depositBalance }) => {
+const InputStake = ({ user, onChangeStakeAmount, amountErr, amount, minimumChallengeStakeAmount, maximumChallengeStakeAmount, balanceName, depositBalance, setAmount }) => {
+    const selectedAmount = [100, 250, 500, 1000, 5000];
+
+    console.log(amountErr)
     let navigate = useNavigate();
 
     return (
 
         <div className="input-container">
             <div className='label-container'>
-                <label htmlFor='amount' className='input-label'>Enter amount</label>
+                <label htmlFor='amount' className='input-label'>Select an amount</label>
                 <p className='required-text'>Required</p>
             </div>
-            <input
-                placeholder={`Minimum amount is NGN ${minimumChallengeStakeAmount}`}
-                type='number'
-                id='amount'
-                value={amount}
-                className={amountErr ? 'input-boxi' : 'input-box'}
-                autoFocus={true}
-                onChange={e => onChangeStakeAmount(e)}
-                required
-            />
+            <FormControl fullWidth>
+                <InputLabel id="demo-simple-select-label" style={{ fontFamily: 'sansation-regular', color: '#1C453B', fontSize: '0.92rem', }}>Pick an option</InputLabel>
+                <Select
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    value={amount}
+                    label="Pick an option"
+                    onChange={e => onChangeStakeAmount(e)}
+                    sx={{
+                        height: ' 3.5rem',
+                        borderRadius: '14px',
+                        fontSize: '0.95rem',
+                        background: '#FFF',
+                        border: '0.1px solid #D9D9D9',
+                        outline: 0,
+                        fontFamily: 'sansation-regular',
+                        color: '#1C453B',
+                    }}
+                >
+                    {selectedAmount.map((amount, i) => {
+                        console.log()
+                        return (
+                            <MenuItem key={amount.id} value={amount}
+                                style={{ color: '#1C453B', fontFamily: 'sansation-regular' }}>{`NGN ${formatCurrency(amount)}`}</MenuItem>
+                        )
+                    }
+                    )}
+                </Select>
+            </FormControl>
             {amountErr && balanceName === 1 && (amount > Number.parseFloat(depositBalance)) &&
                 <div className='input-error-container'>
                     <span className='input-error'>Insufficient wallet balance</span>
