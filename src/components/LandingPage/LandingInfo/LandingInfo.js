@@ -22,12 +22,12 @@ function LandingInfo() {
             title='Bet On Your Knowledge, Win Big!'
             body='In Football Trivia Showdown, every answer you get right is a step closer to victory and big winnings. Place your bets and back your insights as you answer questions ranging from historical moments to current players and stats. The more you know, the more you win!' />
 
-          <Card img='images/info-icon3.png'
+          {/* <Card img='images/info-icon3.png'
             title='Join the Cashingames Community'
             body='Excitement Guaranteed: Immerse yourself in an electrifying gaming experience that combines football passion with the thrill of betting.' />
             <div className='info__img-carosel'>
               <img src='/images/mobile.png' alt='logo'/>
-          </div>
+          </div> */}
         </Carousel>
       </div>
 

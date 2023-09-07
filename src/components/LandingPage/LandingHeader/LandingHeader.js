@@ -20,11 +20,23 @@ function LandingHeader() {
         </div>
         <img src='/images/header-bg.png' alt='logo' className='landing-header_bg' />
       </div>
-      <div className='header__container-welcome-text'>
-        <h2 className='header__welcome-text'>Welcome to Cashingames</h2>
-        <p className='header__content-text'>Where Football Knowledge Turns into Fortune!</p>
-        <p className='header__content-text2'>Compete in Nigeria's most exciting football trivia games and win cash rewards.</p>
+      <div className='header__container-welcome-details'>
+        <div className='header__container-welcome-text'>
+        <img className='half_phone_image' src='/images/half_mobile.png' alt='half_phone_image' />
+          <p className='header__welcome-text'>Welcome to Cashingames</p>
+          <p className='header__content-text'>Where Football Knowledge </p>
+          <p className='header__content-text'>Turns into Fortune! </p>
+          <p className='header__content-text2' >Compete in Nigeria's most exciting football </p>
+          <p className='header__content-text2' >trivia games and win cash rewards.</p>
+        
+        </div>
+        <div className='header__container-welcome-image'>
+        
+          <img className='phone_image' src='/images/mobile.png' alt='phone_image' />
+
+        </div>
       </div>
+
     </>
   )
 }
