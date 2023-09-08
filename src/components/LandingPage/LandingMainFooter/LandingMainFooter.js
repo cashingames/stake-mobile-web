@@ -1,24 +1,20 @@
 
 import React from 'react'
-import { Link } from 'react-router-dom'
-import logToAnalytics from '../../../utils/analytics'
-import AuthTitle from '../../AuthTitle/AuthTitle'
 import './LandingMainFooter.scss'
 
 function LandingMainFooter() {
-    const registerHere = () => {
-        logToAnalytics('register_here_clicked');
-    }
     return (
-        <div className='mainFooter'>
-            <img src='/images/bonus.png' alt='bonus'/>
-            <AuthTitle titleText='Welcome Bonus' styleProp='authHeader'/>
-            <p className='mainFooterText'>Join our community and</p>
-            <p className='mainFooterText'>win amazing prizes</p>
-            <Link to='/sign-up'>
-                <button className='singupLink' onClick={registerHere}>
-                 Register here</button>
-            </Link>
+        <div>
+            <div className='mainFooter' >
+                <div className='mainfooter__container'>
+                    <img className='desktop_testimonials' src='/images/desktop_testimonials.png' alt='testimonials' />
+                </div>
+            </div>
+            <div className='mainMobileFooter'>
+                <img className='testimonial' src='/images/mobile_testimonials.png' alt='testimonial' />
+                <img className='spherical_dots' src='/images/spherical_dots.png' alt='dots' />
+
+            </div>
         </div>
     )
 }

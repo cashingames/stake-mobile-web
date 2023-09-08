@@ -1,86 +1,250 @@
-.LandingFooter {
-    background-color: #141B2E;
-    color: #fff;
-    align-items: center;
-    padding: 2rem 0;
-
-    .footerLogo {
-        display: flex;
-        justify-content: space-evenly;
-        margin: 2rem;
-
-        .logo {
-            width: 116px;
-            height: 60px;
-            object-fit: cover;
-        }
+.footer__container {
+    @media screen and (min-width: 280px) and (max-width: 600px) {
+        display: none;
     }
 
-    .footerLinksContainer {
+    .footer__link-container {
         display: flex;
-        justify-content: space-evenly;
-        width: 100%;
-        margin-bottom: 2rem;
-
-        .footerLink {
-            text-decoration: none;
-            color: #fff;
-            margin: 1rem 0;
-            font-size: 0.9rem;
-            font-family: 'graphik-regular';
-
-        }
-    }
-
-    .stores-icon {
-        display: flex;
-        justify-content: center;
-
-        img {
-            margin-left: 1rem;
-        }
-    }
-
-    .socialMediaLinks {
-        display: flex;
-        justify-content: space-evenly;
+        padding: 02rem;
         align-items: center;
-        width: 100%;
-        border-top: 1px solid #989BA31A;
-        padding-top: 2rem;
+        gap: 1rem;
+        justify-content: space-around;
 
-        .copyrightsText {
+        .link-container {
+            background-color: #E25C2E;
+            outline: none;
+            border: none;
+            border-radius: 10px;
+            padding: 1.2rem;
+            width: 11rem;
             display: flex;
-            align-items: flex-start;
-            flex-direction: column;
-            font-size: 0.9rem;
-            color: #B5B1B1;
-
-
-            p {
-                margin: .5rem 0;
-                font-family: 'graphik-regular';
-                padding: 0;
+            justify-content: center;
+            margin-left: 4.8rem;
+            .link {
+                color: #fff;
+                font-size: .8rem;
+                font-family: 'gotham-medium';
+                text-decoration: none;
             }
         }
 
-        .footerSocialIcons {
-            display: flex;
-            justify-content: space-between;
-            gap: 1rem;
+        .footer__container-text {
+            margin-right: 3rem;
+            .footer__text-title {
+                color: #035D8C;
+                font-size: .9rem;
+                text-align: left;
+                font-family: 'clab-personal-use-bold';
+            }
 
-            .icon {
-                text-decoration: none;
-                color: #fff;
+            .footer__text {
+                color: #035D8C;
+                font-size: .6rem;
+                text-align: left;
+                font-family: 'gotham-light';
+            }
+        }
+        .footer__dots{
+            .desktop_spherical_dots{
+                width: 4rem;
+                height: 4rem;
             }
         }
     }
 
-    .contact-us {
+    .footer__container2 {
+        padding: 4rem 2rem;
+
+        @media screen and (min-width: 1025px) {
+            display: flex;
+            align-items: center;
+        }
+
+        .footer__container-img {
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+
+            .footer2__image {
+                object-fit: contain;
+                width: 60px;
+                height: 60px;
+                margin-left: 1.5rem;
+            }
+            .store_icon{
+                width: 7rem;
+            }
+        }
+
+        .footer__newsletter {
+            display: flex;
+            gap: 0.3rem;
+            align-items: center;
+            justify-content: space-around;
+            margin-bottom: 1rem;
+
+            .newsletter_text {
+                color: #fff;
+                font-size: .6rem;
+                text-align: center;
+                font-family: 'gotham-medium';
+            }
+
+            .newsletter__form {
+                input {
+                    outline: none;
+                    border: none;
+                    background-color: #fff;
+                    border-radius: 5px;
+                    padding: 0.5rem;
+                }
+            }
+
+            button {
+                outline: none;
+                border: none;
+                background-color: #0086CD;
+                border-radius: 5px;
+                color: #fff;
+                font-size: .6rem;
+                text-align: center;
+                font-family: 'gotham-medium';
+                padding: 0.6rem;
+                margin-left: 0.02rem;
+                width: 7rem;
+            }
+        }
+        .terms {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            .terms__text {
+                color: #fff;
+                font-size: .5rem;
+                text-align: center;
+                font-family: 'gotham-light';
+                margin-right: 1rem;
+                text-decoration: none;
+            }
+            .faq_terms_policy{
+                display: flex;
+                flex-direction: row;
+            }
+        }
+    }
+}
+
+.mobile_landing_cta {
+    display: none;
+
+    @media screen and (min-width: 280px) and (max-width: 600px) {
         display: flex;
-        text-align: center;
-        font-size: 0.9rem;
-        color: #E05C28;
         justify-content: center;
+        flex-direction: column;
+
+        .cta_question {
+            color: #035D8C;
+            font-family: 'gotham-bold';
+            font-size: 1.5rem;
+            text-align: center;
+        }
+
+        .cta_action {
+            color: #035D8C;
+            font-family: 'gotham-light';
+            font-size: 1.1rem;
+            text-align: center;
+            margin-top: .2rem;
+        }
+
+        .link {
+            width: 20rem;
+            align-self: center;
+            background-color: #E25C2E;
+            border-radius: 10px;
+            color: white;
+            text-align: center;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            margin-top: 10rem;
+            font-family: 'gotham-bold';
+            text-decoration: none;
+        }
+
+        .footer_logo {
+            width: 15rem;
+            height:10rem;
+            align-self: center;
+            margin-top: 5rem;
+            margin-bottom: 0;
+        }
+
+        .download_and_news {
+            display: flex;
+
+            .footer_shape {
+                height: 60rem;
+                width: 23rem;
+                position: absolute;
+
+            }
+
+            .footer_icons {
+                z-index: 10;
+                margin-top: 25rem;
+                text-align: center;
+
+                .icons {
+                    width: 15rem;
+                    text-align: center;
+                }
+            }
+        }
+
+        .newsletter {
+            z-index: 10;
+            text-align: center;
+            .newsletter_text{
+                color: #fff;
+                font-family: 'gotham-bold';
+                font-size: 20px;
+               
+            }
+            .news_letter_form {
+                input {
+                    outline: none;
+                    border: none;
+                    background-color: #fff;
+                    border-radius: 5px;
+                    padding: 0.1rem;
+                    height: 3rem;
+                    margin-top: 3rem;
+                    margin-bottom: 3rem;
+                    width: 20rem;
+                }
+            }
+            .f_link{
+                width: 50rem;
+                background-color: #0086CD;
+                border-radius: 10px;
+                color: white;
+                padding: 1.2rem 4rem 1.2rem 4rem;
+                font-family: 'gotham-bold';
+                text-decoration: none;
+            }
+        }
+        .copyright_faq_privacy{
+            z-index: 10;
+            text-align: center;
+            margin-top: 2rem;
+          
+            .copyright_terms_text{
+                color: #fff;
+                margin-left: 1.8rem;
+                font-family: 'gotham-light';
+                font-weight: lighter;
+                line-height: 1.8;
+            }
+        }
     }
 }

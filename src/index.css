@@ -48,7 +48,22 @@
   font-family: 'bubble-bold';
   src: local('bubble-bold'), url(./assets/fonts/BubbleboddyNeue-Bold.ttf) format('opentype');
 }
-
+@font-face {
+  font-family: 'clab-personal-use-bold';
+  src: local('clab-personal-use-bold'), url(./assets/fonts/ClabPersonalUse-Bold.otf) format('opentype');
+}
+@font-face {
+  font-family: 'clab-personal-use-bold-italic';
+  src: local('clab-personal-use-bold-italic'), url(./assets/fonts/ClabPersonalUse-BoldItalic.otf) format('opentype');
+}
+@font-face {
+  font-family: 'clab-personal-use-italic';
+  src: local('clab-personal-use-italic'), url(./assets/fonts/ClabPersonalUse-Italic.otf) format('opentype');
+}
+@font-face {
+  font-family: 'clab-personal-use-regular';
+  src: local('clab-personal-use-regular'), url(./assets/fonts/ClabPersonalUse-Regular.otf) format('opentype');
+}
 html,
 body,
 #root {
@@ -67,4 +82,7 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+p{
+  margin: 0;
 }

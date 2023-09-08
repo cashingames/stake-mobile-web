@@ -1,36 +1,120 @@
-
-.mainFooter{
-    font-family: 'Graphik', sans-serif;
+.mainFooter {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    padding: 2.5rem;
-    background-color: #E05C28;
+    padding: 1.5rem 0;
     width: 100%;
-    .authHeader{
-        color: #fff;
-        font-family: 'graphik-medium';
-        font-size: 1.5rem;
-        margin: 2rem 0;
-        letter-spacing: 2px;
+    position: relative;
+
+    @media screen and (min-width: 280px) and (max-width: 600px) {
+        display: none;
     }
-    .mainFooterText{
-        margin: .2rem;
-        color: #fff;
-        font-family: 'graphik-regular';
-        font-size: .9rem;
-        letter-spacing: 2px;
+
+    .mainfooter__bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        object-fit: contain;
+        width: 100%;
     }
-    .singupLink{
-        background-color: #E05C28;
-        border: 1px solid #fff;
-        width: 158px;
-        color: #fff;
-        padding: .8rem;
-        margin: 1.5rem;
-        font-size: .8rem;
-        font-family: 'graphik-medium';
-        border-radius: 100px;
-        cursor: pointer;
+
+    .mainfooter__container {
+        z-index: 10;
+        .desktop_testimonials{
+            width:58rem ;
+            height: 25rem;
+        }
+        .mainfooter__text-title {
+            font-size: 1.2rem;
+            text-align: center;
+            font-family: 'clab-personal-use-bold';
+            color: #fff;
+            margin: 0.5rem 0;
+            z-index: inherit;
+        }
+
+        .mainfooter__testimony {
+            padding: 0.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            .mainfooter__testimony-testimony1 {
+                margin-bottom: 1.5rem;
+
+                .testimony1__text {
+                    font-size: 0.8rem;
+                    font-family: 'gotham-medium';
+                    color: #E15220
+                }
+
+                .testimony__title {
+                    font-family: 'gotham-medium';
+                    color: #fff;
+                    font-size: 1.2rem;
+                }
+
+                .testimony1__testimony {
+                    font-family: 'gotham-light';
+                    color: #fff;
+                    font-size: 0.8rem;
+                    line-height: 1.5;
+                    margin: 0.5rem 0;
+                }
+            }
+        }
+
+        .carousel_container {
+            padding: 2rem;
+
+            .testimony__slide {
+                background: #fff;
+                padding: 1rem;
+                border-radius: 10px;
+                box-shadow: 1px 12px 15px 0px #00000040;
+
+                .testimony__name {
+                    font-family: 'gotham-medium';
+                    color: #000;
+                    font-size: 1.2rem;
+                }
+
+                .testimony1__testimony {
+                    font-family: 'gotham-light';
+                    color: #938EAE;
+                    font-size: 0.8rem;
+                    line-height: 1.5;
+                    margin: 0.5rem 0;
+                }
+            }
+        }
     }
+}
+
+.mainMobileFooter {
+    display: none;
+
+    @media screen and (min-width: 280px) and (max-width: 600px) {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .testimonial {
+        width: 23rem;
+        height: 65rem;
+        align-self: center;
+    }
+
+    .spherical_dots {
+        position: absolute;
+        width: 15rem;
+        align-self: center;
+        margin-top: 30rem;
+    }
+}
+
+p {
+    margin: 0;
 }
