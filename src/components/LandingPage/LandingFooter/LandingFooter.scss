@@ -152,16 +152,18 @@
         }
 
         .footer_logo {
-            width: 10rem;
+            width: 15rem;
+            height:10rem;
             align-self: center;
             margin-top: 5rem;
+            margin-bottom: 0;
         }
 
         .download_and_news {
             display: flex;
 
             .footer_shape {
-                height: 35rem;
+                height: 60rem;
                 width: 23rem;
                 position: absolute;
 
@@ -169,7 +171,7 @@
 
             .footer_icons {
                 z-index: 10;
-                margin-top: 15rem;
+                margin-top: 25rem;
                 text-align: center;
 
                 .icons {
@@ -182,6 +184,12 @@
         .newsletter {
             z-index: 10;
             text-align: center;
+            .newsletter_text{
+                color: #fff;
+                font-family: 'gotham-bold';
+                font-size: 20px;
+               
+            }
             .news_letter_form {
                 input {
                     outline: none;
@@ -190,6 +198,9 @@
                     border-radius: 5px;
                     padding: 0.1rem;
                     height: 3rem;
+                    margin-top: 3rem;
+                    margin-bottom: 3rem;
+                    width: 20rem;
                 }
             }
             .f_link{
@@ -197,12 +208,22 @@
                 background-color: #0086CD;
                 border-radius: 10px;
                 color: white;
-                // text-align: center;
-                // padding-top: 1rem;
-                // padding-bottom: 1rem;
-                // margin-top: 20rem;
+                padding: 1.2rem 4rem 1.2rem 4rem;
                 font-family: 'gotham-bold';
                 text-decoration: none;
+            }
+        }
+        .copyright_faq_privacy{
+            z-index: 10;
+            text-align: center;
+            margin-top: 4rem;
+          
+            .copyright_terms_text{
+                color: #fff;
+                margin-left: 1.8rem;
+                font-family: 'gotham-light';
+                font-weight: lighter;
+                line-height: 1.8;
             }
         }
     }

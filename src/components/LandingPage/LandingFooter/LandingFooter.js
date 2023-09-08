@@ -48,16 +48,23 @@ function LandingFooter() {
                 <div className='download_and_news'>
                     <img src='/images/footer_shape.png' alt='logo' className='footer_shape' />
                     <div className='footer_icons'>
-                        <img src='/images/google_play_footer.png' alt='logo' className='icons' />
-                        <img src='/images/apple_store_footer.png' alt='logo' className='icons' style={{ marginBottom: '3rem' }} />
+                        <a href="https://play.google.com/store/apps/details?id=com.cashingames.cashingames"><img src='/images/google_play_footer.png' alt='logo' className='icons' /></a>
+                        <a href="https://apps.apple.com/ng/app/cashingames/id6443878628"><img src='/images/apple_store_footer.png' alt='logo' className='icons' style={{ marginBottom: '3rem' }} /></a>
                     </div>
                 </div>
                 <div className='newsletter'>
+                    <span className='newsletter_text'>Newsletter</span>
                     <form className='news_letter_form'>
                         <input />
                     </form>
-                    
                     <Link to="/sign-up" className='f_link'>Sign Up</Link>
+                </div>
+                <div className='copyright_faq_privacy'>
+                   <a className='copyright_terms_text'>Terms & Conditions</a>
+                   <a className='copyright_terms_text'>|</a>
+                   <a className='copyright_terms_text'>FAQ</a>
+                   <a className='copyright_terms_text'><p>Privacy Policy</p></a>
+                   <a className='copyright_terms_text'><p>© Copyright 2023 | Cashingames</p></a>
                 </div>
             </div>
 
