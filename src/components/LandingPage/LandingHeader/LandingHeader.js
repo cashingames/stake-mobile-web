@@ -18,7 +18,7 @@ function LandingHeader() {
             <Link to="/sign-up" className='link'>Sign Up</Link>
           </div>
         </div>
-        <img src='/images/header-bg.png' alt='logo' className='landing-header_bg' />
+        <img src='/images/header-bg.png' alt='bg' className='landing-header_bg' />
       </div>
       <div className='header__container-welcome-details'>
         <div className='header__container-welcome-text'>

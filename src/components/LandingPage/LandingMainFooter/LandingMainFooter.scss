@@ -21,11 +21,14 @@
 
     .mainfooter__container {
         z-index: 10;
-
+        .desktop_testimonials{
+            width:58rem ;
+            height: 25rem;
+        }
         .mainfooter__text-title {
             font-size: 1.2rem;
             text-align: center;
-            font-family: 'sansation-bold';
+            font-family: 'clab-personal-use-bold';
             color: #fff;
             margin: 0.5rem 0;
             z-index: inherit;
@@ -33,6 +36,9 @@
 
         .mainfooter__testimony {
             padding: 0.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
 
             .mainfooter__testimony-testimony1 {
                 margin-bottom: 1.5rem;
@@ -100,7 +106,8 @@
         height: 65rem;
         align-self: center;
     }
-    .spherical_dots{
+
+    .spherical_dots {
         position: absolute;
         width: 15rem;
         align-self: center;
