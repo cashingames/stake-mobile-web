@@ -16,8 +16,6 @@ function LandingFooter() {
                 <Link to='/privacy' className='footerLink'>Privacy Policy</Link>
             </div>
             <div className='stores-icon'>
-                <a href="https://play.google.com/store/apps/details?id=com.cashingames.cashingames">
-                    <img width="100px" src="/images/googleplay_icon.png" alt="logo" height="40px" className="social-img" /></a>
                 <a href="https://apps.apple.com/ng/app/cashingames/id6443878628">
                     <img width="100px" height="40px" src="/images/apple_store_icon.png" alt="logo" className="social-img" /></a>
             </div>
