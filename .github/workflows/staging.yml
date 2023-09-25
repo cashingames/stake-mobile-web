@@ -3,7 +3,7 @@ name: Staging pipeline
 on:
   push:
     branches:
-      - master
+      - *
 
 jobs:
   build-and-test-and-deploy:

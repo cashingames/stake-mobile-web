@@ -349,7 +349,7 @@ const PracticeStakingBalances = ({ balanceName, setBalanceName }) => {
 }
 
 const InputStake = ({ user, onChangeStakeAmount, amountErr, amount, minimumChallengeStakeAmount, maximumChallengeStakeAmount, balanceName, depositBalance, setAmount }) => {
-    const selectedAmount = [100, 250, 500, 1000, 5000];
+    const selectedAmount = [200, 500, 1000, 5000];
 
     let navigate = useNavigate();
 
