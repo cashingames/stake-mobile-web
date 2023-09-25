@@ -1,9 +1,6 @@
 name: Staging pipeline
 
-on:
-  push:
-    branches:
-      - *
+on: push
 
 jobs:
   build-and-test-and-deploy:
