@@ -1,0 +1,15 @@
+.live-container {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    background-color: #FA5F4A;
+    border-radius: 30px;
+    padding: .2rem .4rem;
+
+    .live-text {
+        color: #F9FBFF;
+        font-family: 'gotham-medium';
+        font-size: 10px;
+        margin-left: .1rem;
+    }
+}

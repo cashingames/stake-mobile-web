@@ -10,8 +10,8 @@ import ChallengeWaitingScreen from './features/Games/TriviaChallengeStaking/Chal
 import DepositSuccessful from './features/DepositSuccessful/DepositSuccessful';
 import WithdrawFunds from './features/WithdrawFunds/WithdrawFunds';
 import WithdrawalSuccessful from './features/WithdrawalSuccessful/WithdrawalSuccessful';
-import PromotionsScreen from './components/Promotions/PromotionsScreen';
-import PromotionScreen from './components/Promotions/PromotionScreen';
+import PromotionsScreen from './features/Promotions/PromotionsScreen';
+import PromotionScreen from './features/Promotions/PromotionScreen';
 import CashDropScreen from './components/Promotions/CashDropScreen';
 import DropWinnerScreen from './components/Promotions/DropWinnerScreen';
 

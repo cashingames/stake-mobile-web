@@ -34,4 +34,9 @@ export const stakersApi = createApi({
 })
 
 // Export hooks for usage in functional components
-export const { useGetRecentWinnersQuery, useGetProfileQuery, useGetCommonQuery, useGetWinningOddsQuery } = stakersApi
+export const {
+    useGetRecentWinnersQuery,
+    useGetProfileQuery,
+    useGetCommonQuery,
+    useGetWinningOddsQuery,
+} = stakersApi

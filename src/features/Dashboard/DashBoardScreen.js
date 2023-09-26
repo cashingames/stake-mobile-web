@@ -5,47 +5,40 @@ import { useDispatch, useSelector } from 'react-redux';
 import UserWalletAccounts from '../../components/UserWalletAccounts/UserWalletAccounts';
 import { useNavigate } from 'react-router-dom';
 import GamesCards from '../../components/GamesCard/GamesCards';
-import PromotionsCards from '../../components/PromotionsCards/PromotionsCards';
 import AppHeader from '../../components/AppHeader/AppHeader';
 import logToAnalytics from '../../utils/analytics';
 import { formatCurrency } from '../../utils/stringUtl';
 import { getUser } from '../Auth/AuthSlice';
-import { getRunningCashdrops } from "../../features/CommonSlice";
+import DashboardCashdropCard from '../Cashdrops/DashboadCashdropCard';
+import DashboardPromotionsCard from '../Promotions/DashboardPromotionsCard';
 
 
 
 function DashBoardScreen() {
-  const dispatch = useDispatch();
   const user = useSelector(state => state.auth.user);
-  const username = user.firstName === '' ? user.username?.charAt(0) : (user.firstName?.charAt(0) + user.lastName?.charAt(0))
-  const firstname = user.firstName === '' ? user?.username : user?.firstName
 
-  useEffect(() => {
-    const activeCashdrops = setInterval(() => {
-      dispatch(getRunningCashdrops());
-      console.log('called');
-    }, 60000);
-
-    return () => clearInterval(activeCashdrops);
-  }, [dispatch]);
 
   return (
     <>
       <div className='dashboard-screen'>
-        <UserProfile user={user} username={username} firstname={firstname} />
+        <UserProfile user={user} />
         <UserWalletAccounts user={user} />
         <GamesCards />
-        <PromotionsCards />
+        <DashboardPromotionsCard />
+        <DashboardCashdropCard />
       </div>
       <AppHeader heading='Home' style={{ color: '#000000' }} />
     </>
   )
 }
 
-const UserProfile = ({ user, username, firstname }) => {
+const UserProfile = ({ user }) => {
   const dispatch = useDispatch();
   let navigate = useNavigate();
-  const totalWalletBalance = Number.parseFloat(user.walletBalance) + Number.parseFloat(user.bonusBalance)
+  const totalWalletBalance = Number.parseFloat(user.walletBalance) + Number.parseFloat(user.bonusBalance);
+  const username = user.firstName === '' ? user.username?.charAt(0) : (user.firstName?.charAt(0) + user.lastName?.charAt(0));
+  const firstname = user.firstName === '' ? user?.username : user?.firstName;
+
   const goToProfile = () => {
     navigate('/profile')
   }

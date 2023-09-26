@@ -8,6 +8,7 @@ import TriviaChallengeGameSlice from './features/Games/TriviaChallengeStaking/Tr
 import LiveTriviaSlice from './features/LiveTrivia/LiveTriviaSlice'
 import StoreSlice from './features/Store/StoreSlice'
 import { stakersApi } from './services/stakers-api'
+import cashdropReducer from './features/Cashdrops/cashdropSlice'
 
 
 export const store = configureStore({
@@ -18,6 +19,7 @@ export const store = configureStore({
     game: GameSlice,
     store: StoreSlice,
     triviaChallenge: TriviaChallengeGameSlice,
+    cashdrop: cashdropReducer,
     [stakersApi.reducerPath]: stakersApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>

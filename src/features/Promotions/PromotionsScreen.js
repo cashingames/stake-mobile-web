@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import ScreenHeader from "../ScreenHeader/ScreenHeader";
 import { useNavigate } from "react-router-dom";
-import './PromotionsScreen.scss'
 import logToAnalytics from "../../utils/analytics";
 
 
+import './PromotionsScreen.scss'
+import ScreenHeader from "../../components/ScreenHeader/ScreenHeader";
 
 const PromotionsScreen = () => {
     const navigate = useNavigate();

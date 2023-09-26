@@ -1,7 +1,7 @@
 import React from "react";
-import ScreenHeader from "../ScreenHeader/ScreenHeader";
 import { useLocation, useNavigate } from "react-router-dom";
 import './PromotionScreen.scss';
+import ScreenHeader from "../../components/ScreenHeader/ScreenHeader";
 
 const PromotionScreen = () => {
     const navigate = useNavigate();
