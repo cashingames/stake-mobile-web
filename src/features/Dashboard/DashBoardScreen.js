@@ -1,16 +1,15 @@
-import { IoChevronForwardOutline } from 'react-icons/io5'
-import './dashboard.scss'
 import { useSelector } from 'react-redux';
-import UserWalletAccounts from '../../components/UserWalletAccounts/UserWalletAccounts';
+import { IoChevronForwardOutline } from 'react-icons/io5'
 import { useNavigate } from 'react-router-dom';
 import GamesCards from '../../components/GamesCard/GamesCards';
 import AppHeader from '../../components/AppHeader/AppHeader';
-import logToAnalytics from '../../utils/analytics';
-import { formatCurrency } from '../../utils/stringUtl';
+import UserWalletAccounts from '../../components/UserWalletAccounts/UserWalletAccounts';
 import DashboardCashdropCard from '../Cashdrops/DashboadCashdropCard';
 import DashboardPromotionsCard from '../Promotions/DashboardPromotionsCard';
+import logToAnalytics from '../../utils/analytics';
+import { formatCurrency } from '../../utils/stringUtl';
 
-
+import './dashboard.scss'
 
 function DashBoardScreen() {
 

@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import logToAnalytics from "../../utils/analytics";
 import { setGameMode, setGameType } from "../../features/Games/GameSlice";
 import './GamesCards.scss'
+import IconAvatar from "../IconAvatar";
 
 const GamesCards = () => {
     return (
@@ -44,13 +45,7 @@ const TriviaBetCard = () => {
             />
             <div className="trivia-actions">
                 <div className="sub-trivia-actions">
-                    <div className="book-avatar-container">
-                        <img
-                            src="/images/chess-dynamic-color.png"
-                            alt='trivia'
-                            className='book-avatar'
-                        />
-                    </div>
+                    <IconAvatar iconUrl="/images/chess-dynamic-color.png" />
                     <div className="trivia-actions-texts">
                         <p className="trivia-bet-headerI">Games</p>
                         <p className="trivia-bet-header">Stake on games</p>
@@ -86,13 +81,7 @@ const FundWalletCard = () => {
             />
             <div className="trivia-actions">
                 <div className="sub-trivia-actions">
-                    <div className="book-avatar-container">
-                        <img
-                            src="/images/megaphone-dynamic-color.png"
-                            alt='trivia'
-                            className='book-avatar'
-                        />
-                    </div>
+                    <IconAvatar iconUrl="/images/megaphone-dynamic-color.png" />
                     <div className="trivia-actions-texts">
                         <p className="trivia-bet-headerI">Let's cash out</p>
                         <p className="trivia-bet-header">Play and win big</p>
@@ -128,13 +117,7 @@ const WelcomeBonusCard = () => {
             />
             <div className="trivia-actions">
                 <div className="sub-trivia-actions">
-                    <div className="book-avatar-container">
-                        <img
-                            src="/images/megaphone-dynamic-color.png"
-                            alt='trivia'
-                            className='book-avatar'
-                        />
-                    </div>
+                    <IconAvatar iconUrl="/images/megaphone-dynamic-color.png" />
                     <div className="trivia-actions-texts">
                         <p className="trivia-bet-headerI">Let's cashout</p>
                         <p className="trivia-bet-header">Fund & stake</p>
@@ -173,13 +156,8 @@ const PlayEarnCard = () => {
             />
             <div className="trivia-actions">
                 <div className="sub-trivia-actions">
-                    <div className="book-avatar-container">
-                        <img
-                            src="/images/megaphone-dynamic-color.png"
-                            alt='trivia'
-                            className='book-avatar'
-                        />
-                    </div>
+                    <IconAvatar iconUrl="/images/megaphone-dynamic-color.png" />
+
                     <div className="trivia-actions-texts">
                         <p className="trivia-bet-headerI">Everyday cash</p>
                         <p className="trivia-bet-header">Play and win big</p>

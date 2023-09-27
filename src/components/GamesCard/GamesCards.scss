@@ -40,21 +40,6 @@
                 flex-direction: row;
                 align-items: center;
 
-                .book-avatar-container {
-                    width: 51px; 
-                    height: 51px;
-                    background: #B2E5E37D;
-                    border-radius: 50%;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    margin: 0 1rem;
-                    .book-avatar {
-                        width: 35px;
-                        height: 35px;
-                    }
-                }
-
                 .trivia-actions-texts {
                     .trivia-bet-headerI {
                         margin: 0;

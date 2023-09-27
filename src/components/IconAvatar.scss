@@ -1,0 +1,16 @@
+.icon-avatar {
+    width: 2rem;
+    height: 2rem;
+    background: #B2E5E37D;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 1rem;
+    padding: 0.5rem;
+
+    .icon {
+        max-width: 100%;
+        height: auto;
+    }
+}
