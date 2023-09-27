@@ -17,7 +17,7 @@ export default function DashboardCashdropCard() {
         iconUrl={"/images/locker-dynamic-color.png"}
         title="Cashdrop"
         text={`NGN ${formatCurrency(total)}`}
-        action={() => navigate('/cash-drop')}
+        action={() => navigate('/cashdrops')}
         actionComponent={<CashdropActionButton />}
     />;
 }

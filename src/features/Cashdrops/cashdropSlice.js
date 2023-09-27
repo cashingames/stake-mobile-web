@@ -24,12 +24,29 @@ const cashdropSlice = createSlice({
 
 });
 
+const x = function () {
+};
 export const { useGetCashdropsQuery } = extendedApiSlice
 export default cashdropSlice.reducer
 
 export const selectCashdropResult = extendedApiSlice.endpoints.getCashdrops.select()
 
-export const selectTotalCashdrop = createSelector(
+export const selectActiveRounds = createSelector(
     selectCashdropResult,
-    result => result.data?.cashdropRounds?.reduce((acc, curr) => acc + Number(curr.pooledAmount), 0) ?? 0
+    result => result.data?.cashdropRounds ?? []
+)
+
+export const selectTotalCashdrop = createSelector(
+    selectActiveRounds,
+    result => result.reduce((acc, curr) => acc + Number(curr.pooledAmount), 0) ?? 0
+)
+
+export const selectNextToDrop = createSelector(
+    selectCashdropResult,
+    result => result.data?.nextToDrop
+)
+
+export const selectWinners = createSelector(
+    selectCashdropResult,
+    result => result.data?.cashdropWinners ?? []
 )

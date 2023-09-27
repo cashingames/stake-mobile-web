@@ -1,16 +1,17 @@
 .cash-header {
     color: #072169;
+
     .backIcon {
         color: #072169;
     }
 }
 
-.cashdrop-container {
+.cashdrops-container {
     min-height: 100vh;
     padding: 2rem 1.2rem;
     overflow: scroll;
 
-    .drop-info-text {
+    .header-text {
         color: #072169;
         font-size: 1.08rem;
         margin: 0;
@@ -20,7 +21,7 @@
         margin-bottom: 1.5rem;
     }
 
-    .drops-container {
+    .cashdrops-list {
         display: flex;
         flex-direction: column;
 
@@ -56,6 +57,7 @@
                 display: flex;
                 flex-direction: column;
                 text-align: left;
+
                 .hot-text {
                     background-color: #FA5F4A;
                     color: #F9FBFF;
@@ -69,10 +71,12 @@
                     width: fit-content;
                     margin-bottom: .5rem;
                 }
-                .hot-icon{
+
+                .hot-icon {
                     width: .75rem;
                     height: .75rem;
                 }
+
                 .drop-name {
                     color: #072169;
                     font-family: 'gotham-medium';
@@ -82,7 +86,7 @@
                     display: flex;
                     flex-direction: row;
                     align-items: center;
-                   
+
                     .amount-digit {
                         color: #072169;
                         font-family: 'sansation-bold';
@@ -104,7 +108,7 @@
                 padding: .2rem .4rem;
                 display: flex;
                 align-items: center;
-              
+
                 .stake-text {
                     color: #F9FBFF;
                     font-family: 'gotham-medium';
@@ -124,11 +128,19 @@
         justify-content: center;
         margin-top: .8rem;
     }
+
+    .empty-text {
+        color: #072169;
+        font-family: 'sansation-regular';
+        font-size: 1rem;
+        text-align: center;
+        margin-top: 5rem;
+    }
+
     .winners-container {
         display: flex;
         flex-direction: row;
         align-items: center;
-        justify-content: space-between;
         flex-wrap: wrap;
         margin-top: 1.2rem;
 
@@ -138,35 +150,34 @@
             align-items: center;
             position: relative;
             width: 33.3%;
-            box-sizing: border-box;
             margin-bottom: 1.1rem;
+
             .winner-avatar {
                 width: 4rem;
                 height: 4rem;
                 border-radius: 100px;
                 border: 1px solid #E5E5E5;
             }
+
             .badge-avatar {
                 width: 2.5rem;
                 height: 2.5rem;
                 position: absolute;
-                top: 2.5rem;
+                top: 2rem;
             }
-            .winner-names {
-                margin-top: .9rem;
-                background-color: #FA5F4A;
-                border-radius: 30px;
-                padding: .2rem .4rem;
-                display: flex;
-                align-items: center;
-                .winner-fullname {
-                    color: #F9FBFF;
-                    font-family: 'gotham-medium';
-                    font-size: .55rem;
-                    text-align: center;
-                }
 
+            .name {
+                color: #F9FBFF;
+                font-family: 'gotham-medium';
+                font-size: .55rem;
+                text-align: center;
+                background-color: #FA5F4A;
+                padding: .2rem .4rem;
+                border-radius: 30px;
+                text-align: center;
+                margin-top: .5rem;
             }
+
         }
     }
 }

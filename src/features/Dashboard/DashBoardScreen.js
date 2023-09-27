@@ -15,14 +15,13 @@ import DashboardPromotionsCard from '../Promotions/DashboardPromotionsCard';
 
 
 function DashBoardScreen() {
-  const user = useSelector(state => state.auth.user);
 
 
   return (
     <>
       <div className='dashboard-screen'>
-        <UserProfile user={user} />
-        <UserWalletAccounts user={user} />
+        <UserProfile />
+        <UserWalletAccounts />
         <GamesCards />
         <DashboardPromotionsCard />
         <DashboardCashdropCard />
@@ -32,8 +31,9 @@ function DashBoardScreen() {
   )
 }
 
-const UserProfile = ({ user }) => {
-  const dispatch = useDispatch();
+const UserProfile = () => {
+  const user = useSelector(state => state.auth.user);
+
   let navigate = useNavigate();
   const totalWalletBalance = Number.parseFloat(user.walletBalance) + Number.parseFloat(user.bonusBalance);
   const username = user.firstName === '' ? user.username?.charAt(0) : (user.firstName?.charAt(0) + user.lastName?.charAt(0));
@@ -51,10 +51,6 @@ const UserProfile = ({ user }) => {
     });
     navigate('/wallet')
   }
-
-  useEffect(() => {
-    dispatch(getUser());
-  }, [dispatch]);
 
   return (
     <div className='profile-container'>

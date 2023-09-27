@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import React, { useEffect } from "react";
 import LoaderScreen from "./features/LoaderScreen/LoaderScreen";
 import { getToken, getUser, logoutUser, setToken } from "./features/Auth/AuthSlice";
-import { getCommonData, getRunningCashdrops, initialLoadingComplete } from "./features/CommonSlice";
+import { getCommonData, initialLoadingComplete } from "./features/CommonSlice";
 
 import './App.scss'
 import { initializeAnalytics } from "./firebaseConfig";
@@ -20,21 +20,25 @@ function App() {
   const token = useSelector(state => state.auth.token);     
 
   useEffect(() => {
-    const token = getToken();
-    booststrapAxios(token, dispatch);
 
-    if (!token) {
+    // if (token)
+    //   return;
+
+    const localToken = getToken();
+    booststrapAxios(localToken, dispatch);
+
+    if (!localToken) {
       dispatch(initialLoadingComplete());
       return;
     }
 
-    dispatch(setToken(token));
+
+    dispatch(setToken(localToken));
 
     const _1 = dispatch(getUser());
     const _2 = dispatch(getCommonData());
-    const _3 =   dispatch(getRunningCashdrops());
 
-    Promise.all([_1, _2, _3]).then(() => {
+    Promise.all([_1, _2]).then(() => {
       dispatch(initialLoadingComplete());
     }).catch((e) => {
       alert(e.message);

@@ -9,11 +9,11 @@ const backendUrl = process.env.REACT_APP_API_ROOT_URL;
 
 
 
-const UserWalletAccounts = ({ user }) => {
+const UserWalletAccounts = () => {
+    const user = useSelector(state => state.auth.user);
+
     return (
         <div className="wallets-container">
-            {/* <StakingWallet user={user} /> */}
-            {/* <EarningsWallet user={user} /> */}
             <UserBoosts user={user} />
 
         </div>
