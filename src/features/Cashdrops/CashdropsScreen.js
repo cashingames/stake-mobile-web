@@ -27,19 +27,6 @@ export default function CashdropsScreen() {
             <RenderCashdrops />
 
             <RenderRecentWinners />
-            {/* <div className="drops-container">
-                {
-                    drops.map((drop, i) => <DropBanner key={i} drop={drop} user={user} dropsPoolAmounts={dropsPoolAmounts}
-                    />)
-                }
-            </div>
-            <span className="winners-header">Recent winners</span>
-            <div className="winners-container">
-                {
-                    winners.map((winner, i) => <RecentWinner key={i} winner={winner} user={user}
-                    />)
-                }
-            </div> */}
         </div>
     )
 }
@@ -47,95 +34,6 @@ export default function CashdropsScreen() {
 
 const RenderRecentWinners = () => {
     const winners = useSelector(selectWinners);
-    // const winners = [{
-    //     "first_name": "Jedidiah",
-    //     "last_name": "Sampson",
-    //     "username": "sampsonjedidiah84",
-    //     "avatar": null,
-    //     "icon": "icons\/silver_cashdrop_icon.png",
-    //     "cashdropsName": "Silver",
-    //     "backgroundColor": "#EAEAEA",
-    //     "cashdropRoundId": "6",
-    //     "pooledAmount": "1926"
-    // },
-    // {
-    //     "first_name": "Jedidiah",
-    //     "last_name": "Sampson",
-    //     "username": "sampsonjedidiah84",
-    //     "avatar": null,
-    //     "icon": "icons\/bronze_cashdrop_icon.png",
-    //     "cashdropsName": "Bronze",
-    //     "backgroundColor": "#EECCAB",
-    //     "cashdropRoundId": "9",
-    //     "pooledAmount": "514"
-    // },
-    // {
-    //     "first_name": "Jedidiah",
-    //     "last_name": "Sampson",
-    //     "username": "sampsonjedidiah84",
-    //     "avatar": null,
-    //     "icon": "icons\/bronze_cashdrop_icon.png",
-    //     "cashdropsName": "Bronze",
-    //     "backgroundColor": "#EECCAB",
-    //     "cashdropRoundId": "7",
-    //     "pooledAmount": "510"
-    // },
-    // {
-    //     "first_name": "Seyifunmi Esther",
-    //     "last_name": "Ojo",
-    //     "username": "Seyijayprod",
-    //     "avatar": null,
-    //     "icon": "icons\/gold_cashdrop_icon.png",
-    //     "cashdropsName": "Gold",
-    //     "backgroundColor": "#F3E9C7",
-    //     "cashdropRoundId": "1",
-    //     "pooledAmount": "4925"
-    // },
-    // {
-    //     "first_name": "Seyifunmi Esther",
-    //     "last_name": "Ojo",
-    //     "username": "Seyijayprod",
-    //     "avatar": null,
-    //     "icon": "icons\/bronze_cashdrop_icon.png",
-    //     "cashdropsName": "Bronze",
-    //     "backgroundColor": "#EECCAB",
-    //     "cashdropRoundId": "5",
-    //     "pooledAmount": "518"
-    // },
-    // {
-    //     "first_name": "Uwajimgba",
-    //     "last_name": "Nzubechi",
-    //     "username": "zee",
-    //     "avatar": null,
-    //     "icon": "icons/silver_cashdrop_icon.png",
-    //     "cashdropsName": "Silver",
-    //     "backgroundColor": "#EAEAEA",
-    //     "cashdropRoundId": "2",
-    //     "pooledAmount": "1950"
-    // },
-    // {
-    //     "first_name": "Temitopeoluwa David",
-    //     "last_name": "Omodunbi",
-    //     "username": "topeszn",
-    //     "avatar": null,
-    //     "icon": "icons/bronze_cashdrop_icon.png",
-    //     "cashdropsName": "Bronze",
-    //     "backgroundColor": "#EECCAB",
-    //     "cashdropRoundId": "4",
-    //     "pooledAmount": "512"
-    // },
-    // {
-    //     "first_name": "Temitopeoluwa David",
-    //     "last_name": "Omodunbi",
-    //     "username": "topeszn",
-    //     "avatar": null,
-    //     "icon": "icons/bronze_cashdrop_icon.png",
-    //     "cashdropsName": "Bronze",
-    //     "backgroundColor": "#EECCAB",
-    //     "cashdropRoundId": "3",
-    //     "pooledAmount": "510"
-    // },
-    // ];
 
     return (
         <>
