@@ -123,6 +123,7 @@ const RenderCashdropPool = ({ drop }) => {
         </div>
     )
 }
+
 const RenderDropDetails = ({ drop, isDropping }) => {
     return (
         <div className="drop-details">

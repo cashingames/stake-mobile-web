@@ -182,10 +182,15 @@ const AppRouter = () => {
             <Route
                 path="/email-verification"
                 element={<AuthRoute redirectTo="/"><EmailVerification /></AuthRoute>} />
+            <Route
+                path="/cashdrops"
+                element={<AuthRoute redirectTo="/"><CashdropsScreen /></AuthRoute>} />
+
 
             <Route
                 path="/games/roulette"
                 element={<AuthRoute redirectTo="/"><Roulette /></AuthRoute>} />
+
 
         </Routes>
     )
