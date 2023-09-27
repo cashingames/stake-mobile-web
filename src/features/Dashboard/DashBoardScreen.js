@@ -1,14 +1,12 @@
-import React, { useEffect } from 'react';
 import { IoChevronForwardOutline } from 'react-icons/io5'
 import './dashboard.scss'
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import UserWalletAccounts from '../../components/UserWalletAccounts/UserWalletAccounts';
 import { useNavigate } from 'react-router-dom';
 import GamesCards from '../../components/GamesCard/GamesCards';
 import AppHeader from '../../components/AppHeader/AppHeader';
 import logToAnalytics from '../../utils/analytics';
 import { formatCurrency } from '../../utils/stringUtl';
-import { getUser } from '../Auth/AuthSlice';
 import DashboardCashdropCard from '../Cashdrops/DashboadCashdropCard';
 import DashboardPromotionsCard from '../Promotions/DashboardPromotionsCard';
 

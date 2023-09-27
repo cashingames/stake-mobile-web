@@ -24,8 +24,6 @@ const cashdropSlice = createSlice({
 
 });
 
-const x = function () {
-};
 export const { useGetCashdropsQuery } = extendedApiSlice
 export default cashdropSlice.reducer
 

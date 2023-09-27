@@ -2,13 +2,15 @@
 import { useNavigate } from 'react-router-dom';
 import ScreenHeader from '../../components/ScreenHeader/ScreenHeader';
 
-import './CashdropsScreen.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectActiveRounds, selectNextToDrop, selectWinners, useGetCashdropsQuery } from './cashdropSlice';
 import { setCashMode, setGameMode, setGameType } from '../Games/GameSlice';
 import logToAnalytics from '../../utils/analytics';
 import { formatCurrency } from '../../utils/stringUtl';
 import LoaderScreen from '../LoaderScreen/LoaderScreen';
+
+import './CashdropsScreen.scss';
+
 const backendUrl = process.env.REACT_APP_API_ROOT_URL;
 
 export default function CashdropsScreen() {
