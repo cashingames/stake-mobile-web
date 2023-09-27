@@ -8,11 +8,12 @@ import { selectActiveRounds, selectNextToDrop, selectWinners, useGetCashdropsQue
 import { setCashMode, setGameMode, setGameType } from '../Games/GameSlice';
 import logToAnalytics from '../../utils/analytics';
 import { formatCurrency } from '../../utils/stringUtl';
+import LoaderScreen from '../LoaderScreen/LoaderScreen';
 const backendUrl = process.env.REACT_APP_API_ROOT_URL;
 
 export default function CashdropsScreen() {
     const navigate = useNavigate();
-    useGetCashdropsQuery(); //trigger the cashdrop query
+    const { isLoading } = useGetCashdropsQuery(); //trigger the cashdrop query
 
     return (
         <div className='cashdrops-container'>
@@ -24,9 +25,12 @@ export default function CashdropsScreen() {
 
             <p className="header-text">Three lucky winners win the pools every week! Will it be you?</p>
 
-            <RenderCashdrops />
-
-            <RenderRecentWinners />
+            {isLoading && <LoaderScreen />}
+            {!isLoading && <>
+                <RenderCashdrops />
+                <RenderRecentWinners />
+            </>
+            }
         </div>
     )
 }
