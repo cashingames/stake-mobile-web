@@ -38,7 +38,7 @@ jobs:
       #     npm run cypress-test
 
       - name: cd - deploy
-        uses: SamKirkland/FTP-Deploy-Action@4.1.0
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.STG_FTP_USERNAME }}
