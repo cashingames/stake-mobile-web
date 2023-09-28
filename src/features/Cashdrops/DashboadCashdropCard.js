@@ -9,7 +9,9 @@ import { useSelector } from "react-redux";
 export default function DashboardCashdropCard() {
     const navigate = useNavigate();
 
-    useGetCashdropsQuery(); //trigger the cashdrop query
+    useGetCashdropsQuery(undefined, {
+        refetchOnMountOrArgChange: true,
+    });
 
     const total = useSelector(selectTotalCashdrop);
 
