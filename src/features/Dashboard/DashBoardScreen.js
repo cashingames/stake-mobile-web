@@ -7,7 +7,6 @@ import UserWalletAccounts from '../../components/UserWalletAccounts/UserWalletAc
 import DashboardCashdropCard from '../Cashdrops/DashboadCashdropCard';
 import DashboardPromotionsCard from '../Promotions/DashboardPromotionsCard';
 import logToAnalytics from '../../utils/analytics';
-import { formatCurrency } from '../../utils/stringUtl';
 
 import './dashboard.scss'
 import MoneyDisplay from '../../components/Finance/MoneyDisplay';
