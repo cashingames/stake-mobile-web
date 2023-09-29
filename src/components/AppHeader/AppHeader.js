@@ -8,19 +8,19 @@ const AppHeader = ({ backgroundColor }) => {
   return (
     <div className='appHeaderContainer' style={{ backgroundColor: { backgroundColor } }}>
       <NavLink to='/dashboard' className='navlink'>
-        <IoHome className='icon' color='#1C453B' size="38" title='Home' />
+        <IoHome className='icon' color='#1C453B' size="32" title='Home' />
         Home
       </NavLink>
       <NavLink to='/games-list' className='navlink'>
-        <IoGameController className='icon' color='#1C453B' size="38" title='Games' />
+        <IoGameController className='icon' color='#1C453B' size="32" title='Games' />
         Games
       </NavLink>
       <NavLink to='/contact-us' className='navlink'>
-        <IoHelpCircle className='icon' color='#1C453B' size="38" title='Contact Us' />
+        <IoHelpCircle className='icon' color='#1C453B' size="32" title='Contact Us' />
         Contact
       </NavLink>
       <NavLink to='/notifications' className='navlink'>
-        <IoMail className='icon' color='#1C453B' size="38" title='Notifications' />
+        <IoMail className='icon' color='#1C453B' size="32" title='Notifications' />
         Notifications
       </NavLink>
 

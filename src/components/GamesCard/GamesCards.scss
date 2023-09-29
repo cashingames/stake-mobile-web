@@ -1,22 +1,17 @@
 .games-container {
+
     display: flex;
+    flex: 5;
     flex-direction: row;
+    min-height: 21rem;
     overflow-x: scroll;
-    overflow-y: hidden;
-    min-height: 311px;
+    column-gap: 0.5rem;
 
-
-    .trivia-bet-container {
-        display: flex;
-        flex-direction: column;
-        width: 330px;
-        min-width: 330px;
-        margin-right: .6rem;
-
-  
+    > div {
+        max-width: 21rem;
     }
-}
 
-.games-container::-webkit-scrollbar {
-    display: none;
+    &::-webkit-scrollbar {
+        display: none;
+    }
 }

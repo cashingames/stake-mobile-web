@@ -18,7 +18,7 @@ const DashboardFeatureCard = ({ bannerUrl, iconUrl, iconBackgroundColor, title, 
                     <IconAvatar iconUrl={iconUrl} bgColor={iconBackgroundColor} />
                     <div className="content">
                         <p className="title">{title}</p>
-                        <p className="text">{text}</p>
+                        {typeof (text) === 'string' ? <p className="text">{text}</p> : text}
                     </div>
                 </div>
                 {actionComponent}

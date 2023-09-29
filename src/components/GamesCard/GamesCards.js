@@ -47,62 +47,54 @@ const GamesCards = () => {
 
     return (
         <div className="games-container">
-            <div className="trivia-bet-container">
-                <DashboardFeatureCard
-                    bannerUrl="/images/trivia-banner.png"
-                    iconUrl="/images/chess-dynamic-color.png"
-                    title="Games"
-                    text="Stake on games"
-                    actionComponent={<PrimaryButton
-                        text="Play Now"
-                        action={selectTriviaMode}
-                        className="play-now-button"
-                    />}
+            <DashboardFeatureCard
+                bannerUrl="/images/trivia-banner.png"
+                iconUrl="/images/chess-dynamic-color.png"
+                title="Games"
+                text="Stake on games"
+                actionComponent={<PrimaryButton
+                    text="Play Now"
                     action={selectTriviaMode}
-                />
-            </div>
-            <div className="trivia-bet-container">
-                <DashboardFeatureCard
-                    bannerUrl="/images/fund-banner.png"
-                    iconUrl="/images/megaphone-dynamic-color.png"
-                    title="Let's cash out"
-                    text="Play and win big"
-                    actionComponent={<PrimaryButton
-                        text="Fund Now"
-                        action={fundMode}
-                        className="play-now-button"
-                    />}
+                    className="play-now-button"
+                />}
+                action={selectTriviaMode}
+            />
+            <DashboardFeatureCard
+                bannerUrl="/images/fund-banner.png"
+                iconUrl="/images/megaphone-dynamic-color.png"
+                title="Let's cash out"
+                text="Play and win big"
+                actionComponent={<PrimaryButton
+                    text="Fund Now"
                     action={fundMode}
-                />
-            </div>
-            <div className="trivia-bet-container" >
-                <DashboardFeatureCard
-                    bannerUrl="/images/bonus-banner1.png"
-                    iconUrl="/images/megaphone-dynamic-color.png"
-                    title="Let's cash out"
-                    text="Fund & stake"
-                    actionComponent={<PrimaryButton
-                        text="Fund Now"
-                        action={welcomeBannerClicked}
-                        className="play-now-button"
-                    />}
+                    className="play-now-button"
+                />}
+                action={fundMode}
+            />
+            <DashboardFeatureCard
+                bannerUrl="/images/bonus-banner1.png"
+                iconUrl="/images/megaphone-dynamic-color.png"
+                title="Let's cash out"
+                text="Fund & stake"
+                actionComponent={<PrimaryButton
+                    text="Fund Now"
                     action={welcomeBannerClicked}
-                />
-            </div>
-            <div className="trivia-bet-container">
-                <DashboardFeatureCard
-                    bannerUrl="/images/rooms-banner.png"
-                    iconUrl="/images/megaphone-dynamic-color.png"
-                    title="Everyday cash"
-                    text="Play and win big"
-                    actionComponent={<PrimaryButton
-                        text="Play & Earn"
-                        action={selectTriviaMode}
-                        className="play-now-button"
-                    />}
+                    className="play-now-button"
+                />}
+                action={welcomeBannerClicked}
+            />
+            <DashboardFeatureCard
+                bannerUrl="/images/rooms-banner.png"
+                iconUrl="/images/megaphone-dynamic-color.png"
+                title="Everyday cash"
+                text="Play and win big"
+                actionComponent={<PrimaryButton
+                    text="Play & Earn"
                     action={selectTriviaMode}
-                />
-            </div>
+                    className="play-now-button"
+                />}
+                action={selectTriviaMode}
+            />
         </div>
     )
 }

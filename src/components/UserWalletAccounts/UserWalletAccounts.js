@@ -15,7 +15,6 @@ const UserWalletAccounts = () => {
     return (
         <div className="wallets-container">
             <UserBoosts user={user} />
-
         </div>
     )
 }
