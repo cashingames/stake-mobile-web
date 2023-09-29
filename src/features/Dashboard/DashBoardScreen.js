@@ -10,6 +10,7 @@ import logToAnalytics from '../../utils/analytics';
 import { formatCurrency } from '../../utils/stringUtl';
 
 import './dashboard.scss'
+import MoneyDisplay from '../../components/Finance/MoneyDisplay';
 
 function DashBoardScreen() {
 
@@ -64,7 +65,7 @@ const UserProfile = () => {
         </div>
       </div>
       <div className='balance-container' onClick={goToWallet}>
-        <span className='balance-currency'>NGN {formatCurrency(totalWalletBalance)}</span>
+        <MoneyDisplay amount={totalWalletBalance} />
         <IoChevronForwardOutline size={18} className='icon' color='#1c453b' />
       </div>
     </div>

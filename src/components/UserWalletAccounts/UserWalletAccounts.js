@@ -37,7 +37,7 @@ const UserBoosts = ({ user }) => {
                 <p className="boost-header-text">Available boosts</p>
                 <div className="boost-sub">
                     <div className="add-container">
-                        <p className="add-text">Get boost</p>
+                        <p className="add-text">Get boosts</p>
                         <IoChevronForwardOutline size={12} className='icon' color='#fff' />
                     </div>
                 </div>

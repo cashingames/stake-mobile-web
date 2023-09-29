@@ -10,7 +10,7 @@ export default function DashboardPromotionsCard() {
         iconUrl="/images/gift-dynamic.png"
         iconBackgroundColor="#EBFAED"
         title="Promotions"
-        text="Daily and weekly cashbag"
+        text="Daily & weekly cashbag"
         action={() => navigate('/promotions')}
         actionComponent={<IoChevronForwardOutline size={22} className='icon' color="#1C453B" />}
     />;

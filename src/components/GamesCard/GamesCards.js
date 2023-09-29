@@ -53,7 +53,7 @@ const GamesCards = () => {
                 title="Games"
                 text="Stake on games"
                 actionComponent={<PrimaryButton
-                    text="Play Now"
+                    text="Play now"
                     action={selectTriviaMode}
                     className="play-now-button"
                 />}
@@ -65,7 +65,7 @@ const GamesCards = () => {
                 title="Let's cash out"
                 text="Play and win big"
                 actionComponent={<PrimaryButton
-                    text="Fund Now"
+                    text="Fund now"
                     action={fundMode}
                     className="play-now-button"
                 />}
@@ -77,7 +77,7 @@ const GamesCards = () => {
                 title="Let's cash out"
                 text="Fund & stake"
                 actionComponent={<PrimaryButton
-                    text="Fund Now"
+                    text="Fund now"
                     action={welcomeBannerClicked}
                     className="play-now-button"
                 />}
@@ -89,7 +89,7 @@ const GamesCards = () => {
                 title="Everyday cash"
                 text="Play and win big"
                 actionComponent={<PrimaryButton
-                    text="Play & Earn"
+                    text="Play & earn"
                     action={selectTriviaMode}
                     className="play-now-button"
                 />}
