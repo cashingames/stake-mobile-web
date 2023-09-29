@@ -3,21 +3,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import logToAnalytics from "../../utils/analytics";
 import { setGameMode, setGameType } from "../../features/Games/GameSlice";
+import DashboardFeatureCard from "../DashboardFeatureCard";
+import PrimaryButton from "../Buttons/PrimaryButton";
+
 import './GamesCards.scss'
-import IconAvatar from "../IconAvatar";
 
 const GamesCards = () => {
-    return (
-        <div className="games-container">
-            <TriviaBetCard />
-            <FundWalletCard />
-            <WelcomeBonusCard />
-            <PlayEarnCard />
-        </div>
-    )
-}
-
-const TriviaBetCard = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const gameMode = useSelector(state => state.common.gameModes[0]);
@@ -35,34 +26,6 @@ const TriviaBetCard = () => {
         });
         navigate('/games-list')
     };
-
-    return (
-        <div className="trivia-bet-container" onClick={selectTriviaMode}>
-            <img
-                src="/images/trivia-banner.png"
-                alt='trivia'
-                className='trivia-avatar'
-            />
-            <div className="trivia-actions">
-                <div className="sub-trivia-actions">
-                    <IconAvatar iconUrl="/images/chess-dynamic-color.png" />
-                    <div className="trivia-actions-texts">
-                        <p className="trivia-bet-headerI">Games</p>
-                        <p className="trivia-bet-header">Stake on games</p>
-                    </div>
-                </div>
-                <div className="play-button">
-                    <p className="play-button-text">Play Now</p>
-                </div>
-            </div>
-        </div>
-    )
-}
-
-const FundWalletCard = () => {
-    const navigate = useNavigate();
-    const user = useSelector(state => state.auth.user);
-
     const fundMode = () => {
         logToAnalytics("fund_banner_selected", {
             'id': user.username,
@@ -71,35 +34,7 @@ const FundWalletCard = () => {
         });
         navigate('/fund-wallet')
     };
-
-    return (
-        <div className="trivia-bet-container" onClick={fundMode}>
-            <img
-                src="/images/fund-banner.png"
-                alt='trivia'
-                className='trivia-avatar'
-            />
-            <div className="trivia-actions">
-                <div className="sub-trivia-actions">
-                    <IconAvatar iconUrl="/images/megaphone-dynamic-color.png" />
-                    <div className="trivia-actions-texts">
-                        <p className="trivia-bet-headerI">Let's cash out</p>
-                        <p className="trivia-bet-header">Play and win big</p>
-                    </div>
-                </div>
-                <div className="play-button">
-                    <p className="play-button-text">Fund Now</p>
-                </div>
-            </div>
-        </div>
-    )
-}
-
-const WelcomeBonusCard = () => {
-    const navigate = useNavigate();
-    const user = useSelector(state => state.auth.user);
-
-    const fundMode = () => {
+    const welcomeBannerClicked = () => {
         logToAnalytics("welcome_bonus_banner_selected", {
             'id': user.username,
             'phone_number': user.phoneNumber,
@@ -108,64 +43,65 @@ const WelcomeBonusCard = () => {
         navigate('/fund-wallet')
     };
 
+
+
     return (
-        <div className="trivia-bet-container" onClick={fundMode}>
-            <img
-                src="/images/bonus-banner1.png"
-                alt='trivia'
-                className='trivia-avatar'
-            />
-            <div className="trivia-actions">
-                <div className="sub-trivia-actions">
-                    <IconAvatar iconUrl="/images/megaphone-dynamic-color.png" />
-                    <div className="trivia-actions-texts">
-                        <p className="trivia-bet-headerI">Let's cashout</p>
-                        <p className="trivia-bet-header">Fund & stake</p>
-                    </div>
-                </div>
-                <div className="play-button">
-                    <p className="play-button-text">Fund Now</p>
-                </div>
+        <div className="games-container">
+            <div className="trivia-bet-container">
+                <DashboardFeatureCard
+                    bannerUrl="/images/trivia-banner.png"
+                    iconUrl="/images/chess-dynamic-color.png"
+                    title="Games"
+                    text="Stake on games"
+                    actionComponent={<PrimaryButton
+                        text="Play Now"
+                        action={selectTriviaMode}
+                        className="play-now-button"
+                    />}
+                    action={selectTriviaMode}
+                />
             </div>
-        </div>
-    )
-}
-
-const PlayEarnCard = () => {
-    const navigate = useNavigate();
-    const dispatch = useDispatch();
-    const gameMode = useSelector(state => state.common.gameModes[0]);
-    const user = useSelector(state => state.auth.user);
-
-    const selectTriviaMode = () => {
-        dispatch(setGameMode(gameMode));
-        logToAnalytics("trivia_staking_selected", {
-            'id': user.username,
-            'phone_number': user.phoneNumber,
-            'email': user.email,
-        });
-        navigate('/games-list')
-    };
-
-    return (
-        <div className="trivia-bet-container" onClick={selectTriviaMode}>
-            <img
-                src="/images/rooms-banner.png"
-                alt='trivia'
-                className='trivia-avatar'
-            />
-            <div className="trivia-actions">
-                <div className="sub-trivia-actions">
-                    <IconAvatar iconUrl="/images/megaphone-dynamic-color.png" />
-
-                    <div className="trivia-actions-texts">
-                        <p className="trivia-bet-headerI">Everyday cash</p>
-                        <p className="trivia-bet-header">Play and win big</p>
-                    </div>
-                </div>
-                <div className="play-button">
-                    <p className="play-button-text">Play & Earn</p>
-                </div>
+            <div className="trivia-bet-container">
+                <DashboardFeatureCard
+                    bannerUrl="/images/fund-banner.png"
+                    iconUrl="/images/megaphone-dynamic-color.png"
+                    title="Let's cash out"
+                    text="Play and win big"
+                    actionComponent={<PrimaryButton
+                        text="Fund Now"
+                        action={fundMode}
+                        className="play-now-button"
+                    />}
+                    action={fundMode}
+                />
+            </div>
+            <div className="trivia-bet-container" >
+                <DashboardFeatureCard
+                    bannerUrl="/images/bonus-banner1.png"
+                    iconUrl="/images/megaphone-dynamic-color.png"
+                    title="Let's cash out"
+                    text="Fund & stake"
+                    actionComponent={<PrimaryButton
+                        text="Fund Now"
+                        action={welcomeBannerClicked}
+                        className="play-now-button"
+                    />}
+                    action={welcomeBannerClicked}
+                />
+            </div>
+            <div className="trivia-bet-container">
+                <DashboardFeatureCard
+                    bannerUrl="/images/rooms-banner.png"
+                    iconUrl="/images/megaphone-dynamic-color.png"
+                    title="Everyday cash"
+                    text="Play and win big"
+                    actionComponent={<PrimaryButton
+                        text="Play & Earn"
+                        action={selectTriviaMode}
+                        className="play-now-button"
+                    />}
+                    action={selectTriviaMode}
+                />
             </div>
         </div>
     )

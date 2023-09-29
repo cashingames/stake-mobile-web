@@ -1,5 +1,4 @@
 .games-container {
-    margin-top: 1.2rem;
     display: flex;
     flex-direction: row;
     overflow-x: scroll;
@@ -13,72 +12,8 @@
         width: 330px;
         min-width: 330px;
         margin-right: .6rem;
-        cursor: pointer;
 
-        .trivia-avatar {
-            width: 330px;
-            height: 230px;
-            border-top-left-radius: 13px;
-            border-top-right-radius: 13px;
-        }
-
-        .trivia-actions {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: space-between;
-            background-color: #FFF;
-            border-bottom-left-radius: 13px;
-            border-bottom-right-radius: 13px;
-            padding: .8rem 0;
-            padding-right: .8rem;
-            box-shadow: 0px 2px 10px -5px rgba(0, 0, 0, 0.25);
-
-
-            .sub-trivia-actions {
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-
-                .trivia-actions-texts {
-                    .trivia-bet-headerI {
-                        margin: 0;
-                        color: #1C453B;
-                        font-size: 1.02rem;
-                        font-family: 'gotham-medium';
-
-                    }
-
-                    .trivia-bet-header {
-                        margin: 0;
-                        color: #1C453B;
-                        font-size: 0.93rem;
-                        font-family: 'sansation-regular';
-
-                    }
-                }
-            }
-
-
-            .play-button {
-                background-color: #FA5F4A;
-                border-radius: 20px;
-                padding: .5rem .9rem;
-                transition: 0.3s ease-in-out;
-
-                .play-button-text {
-                    color: #FFF;
-                    font-size: .9rem;
-                    margin: 0;
-                    font-family: 'gotham-bold';
-                }
-            }
-
-            .play-button:hover {
-                border-radius: 0px 13px 13px 13px;
-                transition: 0.3s ease-in-out;
-            }
-        }
+  
     }
 }
 
