@@ -1,10 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import DashboardFeatureCard from "../../components/DashboardFeatureCard";
 import CashdropActionButton from "./CashdropActionButton";
-import { formatCurrency } from "../../utils/stringUtl";
 import { selectTotalCashdrop, useGetCashdropsQuery } from "./cashdropSlice";
 import { useSelector } from "react-redux";
-
+import MoneyDisplay from "../../components/Finance/MoneyDisplay";
 
 export default function DashboardCashdropCard() {
     const navigate = useNavigate();
@@ -17,9 +16,11 @@ export default function DashboardCashdropCard() {
 
     return <DashboardFeatureCard
         iconUrl={"/images/locker-dynamic-color.png"}
+        iconBackgroundColor="#FEECE7"
         title="Cashdrop"
-        text={`NGN ${formatCurrency(total)}`}
+        text={<MoneyDisplay amount={total} />}
         action={() => navigate('/cashdrops')}
         actionComponent={<CashdropActionButton />}
     />;
 }
+

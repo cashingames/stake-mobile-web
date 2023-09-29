@@ -1,0 +1,21 @@
+.money-display{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: #1C453B;
+    font-family: 'gotham-bold';
+
+    .money-display-currency {
+        font-size: .8rem;
+    }
+
+    .money-display-text {
+        font-size: 1.2rem;
+    }
+
+    .money-display-icon {
+        height: 1.2rem;
+        width: 1.2rem;
+    }
+}

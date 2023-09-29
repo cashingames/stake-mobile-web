@@ -1,7 +1,7 @@
 import './DashboardFeatureCard.scss';
 import IconAvatar from './IconAvatar';
 
-const DashboardFeatureCard = ({ bannerUrl, iconUrl, title, text, action, actionComponent }) => {
+const DashboardFeatureCard = ({ bannerUrl, iconUrl, iconBackgroundColor, title, text, action, actionComponent }) => {
 
     return (
         <div className='dashboard-feature-card'>
@@ -15,7 +15,7 @@ const DashboardFeatureCard = ({ bannerUrl, iconUrl, title, text, action, actionC
             }
             <div className={`content-container ${!bannerUrl && "top-borders"}`} onClick={action}>
                 <div className="left-content">
-                    <IconAvatar iconUrl={iconUrl} />
+                    <IconAvatar iconUrl={iconUrl} bgColor={iconBackgroundColor} />
                     <div className="content">
                         <p className="title">{title}</p>
                         <p className="text">{text}</p>

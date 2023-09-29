@@ -8,6 +8,7 @@ export default function DashboardPromotionsCard() {
 
     return <DashboardFeatureCard
         iconUrl="/images/gift-dynamic.png"
+        iconBackgroundColor="#EBFAED"
         title="Promotions"
         text="Daily and weekly cashbag"
         action={() => navigate('/promotions')}

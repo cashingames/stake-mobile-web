@@ -20,8 +20,8 @@ function DashBoardScreen() {
         <UserProfile />
         <UserWalletAccounts />
         <GamesCards />
-        <DashboardPromotionsCard />
         <DashboardCashdropCard />
+        <DashboardPromotionsCard />
       </div>
       <AppHeader heading='Home' style={{ color: '#000000' }} />
     </>
