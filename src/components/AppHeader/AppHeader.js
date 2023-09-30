@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { IoHome, IoGameController, IoHelpCircle, IoMail } from "react-icons/io5";
+import { IoGameController, IoHelpCircle, IoMail } from "react-icons/io5";
 import { NavLink } from 'react-router-dom';
 import HomeIcon from '@mui/icons-material/Home';
 import './AppHeader.scss'
