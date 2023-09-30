@@ -3,10 +3,8 @@ import './Notification.scss'
 import { markNotificationRead } from '../../features/CommonSlice'
 import { getUser } from '../../features/Auth/AuthSlice'
 import { useDispatch } from 'react-redux'
-// import { useNavigate } from 'react-router-dom';
 
-function Notification({ notification, readAll, moment }) {
-    // let navigate = useNavigate();
+function Notification({ notification, readAll }) {
     const dispatch = useDispatch();
     const [clicked, setClicked] = useState(false)
 
@@ -14,7 +12,6 @@ function Notification({ notification, readAll, moment }) {
         if (notification.data.action_type === "CHALLENGE") {
             dispatch(markNotificationRead(notification.id)).then(() => setClicked(true));
             dispatch(getUser());
-            // navigate('/challenge-score/' + notification.data.action_id)
         }
         dispatch(markNotificationRead(notification.id)).then(() => setClicked(true));
         dispatch(getUser());
@@ -36,7 +33,7 @@ function Notification({ notification, readAll, moment }) {
             </div>
 
             <p className='notTitle'>{notification.data.title}</p>
-            <p className='notificationTime'>{moment(notification.created_at).fromNow()}</p>
+            <p className='notificationTime'>{notification.created_at}</p>
         </div>
 
     )

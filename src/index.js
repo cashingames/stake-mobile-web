@@ -9,13 +9,13 @@ import './index.css';
 import { initFacebookSdk } from './initFacebookSdk';
 
 //temporary fix for service worker
-navigator.serviceWorker.getRegistrations().then(function (registrations) {
-  for (let registration of registrations) {
-    registration.unregister()
-  }
-}).catch(function (err) {
-  console.log('Service Worker registration failed: ', err);
-});
+// navigator.serviceWorker.getRegistrations().then(function (registrations) {
+//   for (let registration of registrations) {
+//     registration.unregister()
+//   }
+// }).catch(function (err) {
+//   console.log('Service Worker registration failed: ', err);
+// });
 
 initFacebookSdk().then(console.log('initialized'));
 

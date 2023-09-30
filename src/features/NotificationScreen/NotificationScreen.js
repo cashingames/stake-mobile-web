@@ -6,7 +6,6 @@ import { getUserNotifications, markNotificationRead } from '../CommonSlice'
 import './NotificationScreen.scss'
 import { Spinner } from "react-activity";
 import "react-activity/dist/library.css";
-import moment from "moment";
 import ScreenHeader from '../../components/ScreenHeader/ScreenHeader'
 import LoaderScreen from '../LoaderScreen/LoaderScreen'
 import { useNavigate } from 'react-router-dom'
@@ -65,8 +64,6 @@ function NotificationScreen() {
                     notifications.length > 0 ?
                         <div>
                             {notifications.map((notification, i) => <Notification key={i} notification={notification}
-                                // index={i + 1}
-                                moment={moment}
                                 readAll={readAll}
                             />)}
                         </div>
