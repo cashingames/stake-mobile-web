@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { IoHome, IoGameController, IoHelpCircle, IoMail } from "react-icons/io5";
 import { NavLink } from 'react-router-dom';
+import HomeIcon from '@mui/icons-material/Home';
 import './AppHeader.scss'
 
 const AppHeader = ({ backgroundColor }) => {
@@ -8,7 +9,8 @@ const AppHeader = ({ backgroundColor }) => {
   return (
     <div className='appHeaderContainer' style={{ backgroundColor: { backgroundColor } }}>
       <NavLink to='/dashboard' className='navlink'>
-        <IoHome className='icon' color='#1C453B' size="32" title='Home' />
+        {/* <IoHome className='icon' color='#1C453B' size="32" title='Home' /> */}
+        <HomeIcon fontSize='large' />
         Home
       </NavLink>
       <NavLink to='/games-list' className='navlink'>
