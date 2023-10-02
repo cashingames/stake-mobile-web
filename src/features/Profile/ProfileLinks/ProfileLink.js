@@ -1,13 +1,14 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './ProfileLink.scss'
 import { useDispatch } from 'react-redux';
 import { logoutUser } from '../../Auth/AuthSlice';
 function ProfileLink() {
     const dispatch = useDispatch();
-
+    const navigation = useNavigate();
     const onLogout = () => {
-        dispatch(logoutUser())
+        dispatch(logoutUser());
+        navigation('/login')
       }
     return (
         <div style={{ marginTop: '2rem' }}>

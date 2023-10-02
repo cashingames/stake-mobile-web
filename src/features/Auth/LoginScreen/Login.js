@@ -3,10 +3,11 @@ import { useNavigate, Link } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 import { FaEye, FaEyeSlash } from 'react-icons/fa'
 import AuthTitle from '../../../components/AuthTitle/AuthTitle';
-import { loginUser, saveToken, setToken } from '../AuthSlice';
+import { getUser, loginUser, saveToken, setToken } from '../AuthSlice';
 import './Login.scss'
 import logToAnalytics from '../../../utils/analytics';
 import { IoChevronForwardOutline } from 'react-icons/io5';
+import { getCommonData } from '../../CommonSlice';
 
 
 const Login = () => {
@@ -37,6 +38,14 @@ const Login = () => {
             saveToken(response.data.data);
             dispatch(setToken(response.data.data));
             logToAnalytics('login_successful');
+            const _1 = dispatch(getUser());
+            const _2 = dispatch(getCommonData());
+            Promise.all([_1, _2]).then(() => {
+                setLoading(false);
+                navigate('/dashboard')
+            }).catch((e) => {
+                alert(e.message);
+            });
         }, err => {
             if (!err || !err.response || err.response === undefined) {
                 setError("Your Network is Offline.");

@@ -1,10 +1,10 @@
 import AppRouter from "./AppRouter";
 import axios from 'axios';
-import { useDispatch, useSelector } from "react-redux";
-import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import React, { useEffect, useState } from "react";
 import LoaderScreen from "./features/LoaderScreen/LoaderScreen";
-import { getToken, getUser, logoutUser, setToken } from "./features/Auth/AuthSlice";
-import { getCommonData, initialLoadingComplete } from "./features/CommonSlice";
+import { getToken, getUser, logoutUser } from "./features/Auth/AuthSlice";
+import { getCommonData } from "./features/CommonSlice";
 
 import './App.scss'
 import { initializeAnalytics } from "./firebaseConfig";
@@ -14,39 +14,30 @@ initializeAnalytics();
 function App() {
 
   const dispatch = useDispatch();
-  const loading = useSelector(state => state.common.initialLoading);
+  const [loading, setLoading] = useState(true)
+  const localToken = getToken();
+  booststrapAxios(localToken, dispatch);
 
-  //the token here is to refresh the router when the token changes
-  const token = useSelector(state => state.auth.token);     
+  // //the token here is to refresh the router when the token changes
+  // const token = useSelector(state => state.auth.token);
 
   useEffect(() => {
 
-    // if (token)
-    //   return;
-
-    const localToken = getToken();
-    booststrapAxios(localToken, dispatch);
-
-    if (!localToken) {
-      dispatch(initialLoadingComplete());
-      return;
+    console.log("here")
+    if (localToken) {
+      const _1 = dispatch(getUser());
+      const _2 = dispatch(getCommonData());
+      Promise.all([_1, _2]).then(() => {
+        setLoading(false);
+      }).catch((e) => {
+        alert(e.message);
+      });
+    } else {
+      setLoading(false);
     }
-
-
-    dispatch(setToken(localToken));
-
-    const _1 = dispatch(getUser());
-    const _2 = dispatch(getCommonData());
-
-    Promise.all([_1, _2]).then(() => {
-      dispatch(initialLoadingComplete());
-    }).catch((e) => {
-      alert(e.message);
-    });
-
     //the token here is to refresh the router when the token changes
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [token]);
+  }, []);
 
   return (
     <div className="App">
