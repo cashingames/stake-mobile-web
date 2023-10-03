@@ -8,7 +8,7 @@ import LandingMainFooter from '../../components/LandingPage/LandingMainFooter/La
 
 function LandingPage() {
   return (
-    <div>
+    <div style={{overflowX: "hidden"}}>
         <LandingHeader />
         <LandingBanner />
         <LandingInfo />
