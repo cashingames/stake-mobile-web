@@ -61,7 +61,7 @@
   src: local('clab-personal-use-italic'), url(./assets/fonts/ClabPersonalUse-Italic.otf) format('opentype');
 }
 @font-face {
-  font-family: 'clab-personal-use-regular';
+  font-family: 'clab-personal';
   src: local('clab-personal-use-regular'), url(./assets/fonts/ClabPersonalUse-Regular.otf) format('opentype');
 }
 html,

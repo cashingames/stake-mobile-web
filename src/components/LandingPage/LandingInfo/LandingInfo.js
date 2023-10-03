@@ -2,6 +2,7 @@
 import React from 'react'
 import Carousel from "nuka-carousel"
 import './LandingInfo.scss'
+import Card from '../Card/Card'
 
 function LandingInfo() {
   return (
@@ -21,13 +22,6 @@ function LandingInfo() {
             cardColor2={{ color: "#fff" }}
             title='Bet On Your Knowledge, Win Big!'
             body='In Football Trivia Showdown, every answer you get right is a step closer to victory and big winnings. Place your bets and back your insights as you answer questions ranging from historical moments to current players and stats. The more you know, the more you win!' />
-
-          {/* <Card img='images/info-icon3.png'
-            title='Join the Cashingames Community'
-            body='Excitement Guaranteed: Immerse yourself in an electrifying gaming experience that combines football passion with the thrill of betting.' />
-            <div className='info__img-carosel'>
-              <img src='/images/mobile.png' alt='logo'/>
-          </div> */}
         </Carousel>
       </div>
 
@@ -36,17 +30,3 @@ function LandingInfo() {
 }
 
 export default LandingInfo
-
-const Card = ({ style, title, img, body, cardColor, cardColor2 }) => {
-  return (
-    <div className='info__card' style={style}>
-      <div className='info__card-img-container'>
-        <img src={img} alt='logo' className='info__card-img' />
-      </div>
-      <div className='info__card-body'>
-        <p className='info__card-text-title' style={cardColor}>{title}</p>
-        <p className='info__card-text' style={cardColor2}>{body}</p>
-      </div>
-    </div>
-  )
-}
