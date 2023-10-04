@@ -53,6 +53,17 @@ function LandingFooter() {
                 <img className='logo' src='/images/footer-logo.png' alt='logo' />
             </div>
             <div className='mobile_landing_cta'>
+                <div className='mobile__landing-bg'>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="1231" viewBox="0 0 360 1231" fill="none">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M1460.33 427.793C1460.33 427.793 1008.24 -283.382 569.332 128.181C130.423 539.744 0.271861 434.56 -261.967 129.741C-524.206 -175.078 -1141.54 144.067 -1199.29 443.396C-1257.05 742.725 -1149.4 1227.19 -1149.4 1227.19L188.877 1231L1321.33 1229.88L1460.33 427.793Z" fill="url(#paint0_linear_235_881)" />
+                        <defs>
+                            <linearGradient id="paint0_linear_235_881" x1="835.74" y1="1337.11" x2="395.82" y2="476.942" gradientUnits="userSpaceOnUse">
+                                <stop offset="0.614583" stop-color="#044E92" />
+                                <stop offset="1" stop-color="#E25C2E" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
                 <div className='download_and_news'>
                     <div className='footer_icons'>
                         <a href="https://apps.apple.com/ng/app/cashingames/id6443878628"><img src='/images/apple_store_footer.png' alt='logo' className='icons' style={{ marginBottom: '3rem' }} /></a>
