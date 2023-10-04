@@ -6,7 +6,7 @@ import PrimaryButton from '../../Buttons/PrimaryButton'
 import { Link } from 'react-router-dom'
 
 function LandingMainFooter() {
-     return (
+    return (
         <div>
             <div className='mainFooter' >
                 <div className='mainfooter__container'>
@@ -15,7 +15,18 @@ function LandingMainFooter() {
             </div>
 
             <div className='mainMobileFooter'>
-                <img className='mobilefooter__shape' src='/images/footer-shape.png' alt="shape"/>
+                <div className='mobileFooter__bg'>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="837" viewBox="0 0 360 837" fill="none">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M-987 546.129C-987 546.129 -571.333 1029.68 -167.791 749.846C235.751 470.009 355.421 541.528 596.531 748.785C837.642 956.042 1405.23 739.044 1458.34 535.519C1511.44 331.994 1412.46 2.58676 1412.46 2.58676L182.011 0L-859.203 0.76287L-987 546.129Z" fill="url(#paint0_linear_235_578)" />
+                        <defs>
+                            <linearGradient id="paint0_linear_235_578" x1="-428.353" y1="-189.999" x2="-580.601" y2="796.012" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#0086CD" />
+                                <stop offset="1" stop-color="#033D5B" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                <img className='mobilefooter__shape' src='/images/footer-shape.png' alt="shape" />
                 <div className='mobilefooter_heading'>
                     <p className='mobilefooter_heading_text'>Become a <br /> Millionaire Today!</p>
                 </div>
@@ -54,8 +65,8 @@ function LandingMainFooter() {
                     <p className='body'>Sign up now and join the ranks of Cashingames champions!</p>
                 </div>
                 <div className='btn__case'>
-               <PrimaryButton className="sign_btn" text={<Link to="/sign-up" className='link'>Sign Up</Link>} />
-               </div>
+                    <PrimaryButton className="sign_btn" text={<Link to="/sign-up" className='link'>Sign Up</Link>} />
+                </div>
             </div>
         </div>
     )
