@@ -8,6 +8,7 @@ import './Login.scss'
 import logToAnalytics from '../../../utils/analytics';
 import { IoChevronForwardOutline } from 'react-icons/io5';
 import { getCommonData } from '../../CommonSlice';
+import { setupAxios } from '../../../utils/utils';
 
 
 const Login = () => {
@@ -35,8 +36,10 @@ const Login = () => {
         loginUser({
             email, password
         }).then(response => {
-            saveToken(response.data.data);
-            dispatch(setToken(response.data.data));
+            const token = response.data.data;
+            saveToken(token);
+            dispatch(setToken(token));
+            setupAxios(token, dispatch)
             logToAnalytics('login_successful');
             const _1 = dispatch(getUser());
             const _2 = dispatch(getCommonData());

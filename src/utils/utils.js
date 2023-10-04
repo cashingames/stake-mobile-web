@@ -1,3 +1,6 @@
+import { logoutUser } from "../features/Auth/AuthSlice";
+import axios from 'axios';
+
 export const calculateTimeRemaining = (futureTime, onComplete) => {
     var diff = futureTime - new Date().getTime();
 
@@ -29,5 +32,31 @@ export const calculateTimeRemaining = (futureTime, onComplete) => {
     }
 
     return result;
+
+}
+
+
+export const setupAxios = (token, dispatch) => {
+    axios.defaults.headers.common['x-brand-id'] = process.env.REACT_APP_BRAND_ID;
+    axios.defaults.headers.common['x-request-env'] = process.env.REACT_APP_REQUEST_ENV;
+    axios.defaults.baseURL = process.env.REACT_APP_API_URL;
+
+    if (token) {
+        axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+    } else {
+        axios.defaults.headers.common['Authorization'] = null;
+        delete axios.defaults.headers.common['Authorization'];
+    }
+
+    axios.interceptors.response.use(
+        response => response,
+        error => {
+            console.log(error.config.url, error.message);
+
+            if (error.response && error.response.status === 401) {
+                dispatch(logoutUser())
+            }
+            return Promise.reject(error);
+        });
 
 }
