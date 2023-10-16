@@ -7,8 +7,9 @@ import Dialogue from '../../../components/Dialogue/Dialogue';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import LoaderScreen from '../../LoaderScreen/LoaderScreen';
-import { subYears } from 'date-fns';
 import './EditProfileDetails.scss';
+import dayjs from 'dayjs';
+
 import { FormControl } from '@mui/material';
 
 
@@ -35,7 +36,9 @@ const EditProfileDetails = () => {
     const [alertMessage, setAlert] = useState('');
     const [loading, setLoading] = useState(false);
     const [onloading, setOnLoading] = useState(true);
-    const calenderAge = subYears(new Date(), 18).toISOString().slice(0, 10);
+    const date = dayjs();
+    const ageLimit = date.subtract(18, 'year').format('YYYY-MM-DD');
+
 
     // const goToVerifyEmailScreen = () => {
     //     dispatch(sendEmailOTP())
@@ -262,7 +265,7 @@ const EditProfileDetails = () => {
                             className='inputBox2'
                             type='date'
                             value={dateOfBirth}
-                            max={calenderAge}
+                            max={ageLimit}
                             onChange={changeDateOfBirth}
                         />
                     </div>
